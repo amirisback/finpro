@@ -1,45 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/dimen_big">
-
-    <TextView
-        android:padding="@dimen/dimen_big"
-        android:background="@drawable/box_border"
-        android:textSize="@dimen/text_size_title_small"
-        android:textColor="@color/colorTextBlack"
-        android:text="@string/dummy_tanggal"
-        android:id="@+id/act_dsn_info_edittext_judul"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:drawableEnd="@drawable/ic_date"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:maxLines="1"/>
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimen_medium"
+        android:orientation="vertical"
+        tools:context=".views.activities.details.DosenMahasiswaBimbinganDetailActivity">
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_big_ultra"
+            android:src="@drawable/ic_assignment_ind_black_24dp"
+            android:maxHeight="128dp"
+            android:maxWidth="128dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/dimen_medium"
+            android:background="@color/colorPrimary"/>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_big"
+            android:background="@color/colorTextWhite">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/dimen_medium"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_medium"
+                    android:layout_marginTop="@dimen/dimen_big"
+                    android:background="@drawable/box_border"
+                    android:textColor="@color/colorTextBlack"
+                    android:text="@string/dummy_tanggal"
+                    android:drawableRight="@drawable/ic_date_range_black_24dp"
+                    android:layout_marginBottom="@dimen/dimen_medium"
+                    android:padding="@dimen/dimen_medium"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_medium"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="@dimen/text_size_title_medium"
+                    android:text="Jumlah BImbingan"
+                    android:textColor="@color/colorPrimary"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimen_medium"
+                    android:layout_marginLeft="@dimen/dimen_medium"
 
-    <EditText
-        android:padding="@dimen/dimen_big"
-        android:background="@drawable/box_border"
-        android:layout_marginTop="@dimen/dimen_medium"
-        android:layout_marginBottom="@dimen/dimen_medium"
-        android:hint="@string/hint_judulpa_deskripsi"
-        android:gravity="top"
-        android:layout_below="@+id/act_dsn_info_edittext_judul"
-        android:layout_above="@id/act_dsn_info_button_simpan"
-        android:id="@+id/act_dsn_info_edittext_konten"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="@dimen/dimen_medium"
+                    android:text="1"
+                    android:textColor="@color/colorTextBlack"
+                    android:layout_marginBottom="@dimen/dimen_medium"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginRight="@dimen/dimen_medium"
+                    android:layout_marginLeft="@dimen/dimen_medium"
+                    android:layout_marginBottom="@dimen/dimen_medium"
+                    android:background="@color/colorPrimary"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_medium"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="@dimen/text_size_title_medium"
+                    android:text="Review Bimbingan"
+                    android:textColor="@color/colorPrimary"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimen_medium"
+                    android:layout_marginLeft="@dimen/dimen_medium"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="@dimen/dimen_medium"
+                    android:inputType="textMultiLine"
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="Masukkan hasil review"/>
 
-    <Button
-        android:layout_alignParentBottom="true"
-        android:id="@+id/act_dsn_info_button_simpan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/button_click_simpan"
-        android:textColor="@color/colorTextWhite"
-        android:background="@drawable/box_border_button_add"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginRight="@dimen/dimen_medium"
+                    android:layout_marginLeft="@dimen/dimen_medium"
+                    android:layout_marginBottom="@dimen/dimen_big_ultra"
+                    android:background="@color/colorPrimary"/>
 
-</RelativeLayout>
-
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimen_medium"
+                    android:layout_margin="@dimen/dimen_medium"
+                    android:paddingRight="@dimen/dimen_big_ultra"
+                    android:paddingLeft="@dimen/dimen_big_ultra"
+                    android:text="Simpan"
+                    android:textColor="@color/colorTextWhite"
+                    android:background="@drawable/box_border_button_action"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Batal"
+                    android:textSize="@dimen/text_size_title_big"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</ScrollView>
