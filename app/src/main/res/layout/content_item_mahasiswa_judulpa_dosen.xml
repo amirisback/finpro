@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dimen_medium"
+    android:layout_marginBottom="@dimen/dimen_medium"
+    android:layout_marginRight="@dimen/dimen_medium">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/dimen_big">
+
+        <LinearLayout
+            android:layout_width="@dimen/dimen_weight"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/ctn_mhs_judul_pa_dosen_textview_judul"
+                android:text="@string/dummy_pa_judul"
+                style="@style/textview_item_list_judul_pa"/>
+
+            <TextView
+                android:drawableLeft="@drawable/ic_content_judul_pa_kategori"
+                android:id="@+id/ctn_mhs_judul_pa_dosen_textview_kategori"
+                android:text="@string/dummy_kategori"
+                style="@style/textview_item_list_judul_kategori"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ctn_mhs_judul_pa_dosen_textview_jumlah"
+            android:layout_width="@dimen/dimen_circle_background"
+            android:layout_height="@dimen/dimen_circle_background"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/dimen_medium"
+            android:textColor="@color/colorTextWhite"
+            android:background="@drawable/circle_border_judul_pa"
+            android:text="@string/dummy_jumlah_bimbingan"
+            android:textSize="@dimen/text_size_title_medium"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:padding="@dimen/dimen_big"-->
+    <!--tools:context=".views.activities.adds.DosenInformasiTambahActivity">-->
+
+    <!--<EditText-->
+        <!--android:padding="@dimen/dimen_big"-->
+        <!--android:background="@drawable/box_border"-->
+        <!--android:hint="@string/hint_info_isi"-->
+        <!--android:gravity="top"-->
+        <!--android:layout_below="@+id/act_dsn_info_edittext_judul"-->
+        <!--android:layout_above="@id/act_dsn_info_check_bimbingan"-->
+        <!--android:id="@+id/act_dsn_info_edittext_konten"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+
+    <!--<CheckBox-->
+        <!--android:layout_marginTop="@dimen/dimen_medium"-->
+        <!--android:id="@+id/act_dsn_info_check_bimbingan"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/text_mahasiswa_bimbingan"-->
+        <!--android:layout_above="@id/act_dsn_info_check_review"/>-->
+
+    <!--<CheckBox-->
+        <!--android:layout_marginBottom="@dimen/dimen_medium"-->
+        <!--android:id="@+id/act_dsn_info_check_review"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/text_mahasiswa_monev"-->
+        <!--android:layout_above="@id/act_dsn_info_button_simpan"/>-->
+
+    <!--<Button-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:id="@+id/act_dsn_info_button_simpan"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/button_click_simpan"-->
+        <!--android:textColor="@color/colorTextWhite"-->
+        <!--android:background="@drawable/box_border_button_add"/>-->
+
+<!--</RelativeLayout>-->
+
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_big"
+        android:background="@color/colorBackground"
+        tools:context=".views.activities.adds.DosenInformasiTambahActivity">
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_big_ultra"
+            android:src="@drawable/ic_announcement"
+            android:maxWidth="128dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/dimen_medium"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_medium"
+            android:layout_marginTop="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_medium"
+            android:background="@drawable/box_border"
+            android:drawableEnd="@drawable/ic_date"
+            android:gravity="center"
+            android:padding="@dimen/dimen_medium"
+            android:text="@string/dummy_tanggal"
+            android:textColor="@color/colorTextBlack" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginRight="@dimen/dimen_medium"
+            android:layout_marginLeft="@dimen/dimen_medium"
+            android:text="Judul Informasi"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginRight="@dimen/dimen_medium"
+            android:inputType="text"
+            android:background="@android:color/transparent"
+            android:padding="@dimen/dimen_medium"
+            android:hint="Masukkan Judul Informasi"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/dimen_big"
+            android:layout_marginLeft="@dimen/dimen_medium"
+            android:layout_marginRight="@dimen/dimen_medium"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginLeft="@dimen/dimen_medium"
+            android:layout_marginRight="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_medium"
+            android:text="Isi Informasi"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginRight="@dimen/dimen_medium"
+            android:layout_marginLeft="@dimen/dimen_medium"
+            android:inputType="textMultiLine"
+            android:padding="@dimen/dimen_medium"
+            android:background="@android:color/transparent"
+            android:hint="Masukkan Informasi"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/dimen_big"
+            android:layout_marginLeft="@dimen/dimen_medium"
+            android:layout_marginRight="@dimen/dimen_medium"
+            android:background="@color/colorPrimary"/>
+
+        <CheckBox
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:id="@+id/act_dsn_info_check_bimbingan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_mahasiswa_bimbingan"
+            android:layout_above="@id/act_dsn_info_check_review"/>
+
+        <CheckBox
+            android:layout_marginBottom="@dimen/dimen_big"
+            android:id="@+id/act_dsn_info_check_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_mahasiswa_monev"
+            android:layout_above="@id/act_dsn_info_button_simpan"/>
+
+        <Button
+            android:layout_alignParentBottom="true"
+            android:id="@+id/act_dsn_info_button_simpan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_click_simpan"
+            android:textColor="@color/colorTextWhite"
+            android:background="@drawable/box_border_button_action"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_big"
+            android:text="Batal"
+            android:background="@drawable/box_border_button_cancel"
+            android:textSize="16sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+</ScrollView>

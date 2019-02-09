@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@drawable/circle_profile_header"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/colorPrimary"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/foto"
+        android:background="@drawable/circle_border_photo_profil"
+        android:layout_width="@dimen/dimen_profil_photo"
+        android:layout_height="@dimen/dimen_profil_photo"
+        android:src="@drawable/dummy_ikhsan"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dimen_big"/>
+
+    <TextView
+        android:id="@+id/nama"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_medium"
+        android:text="@string/dummy_mahasiswa_nama"
+        android:textStyle="bold"
+        android:textColor="@color/colorTextWhite"
+        android:layout_below="@+id/foto"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/nama"
+        android:layout_above="@id/text_d3rpla"
+        android:layout_marginLeft="@dimen/dimen_big"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="@dimen/dimen_big"
+        android:layout_marginBottom="@dimen/dimen_medium"
+        android:background="@drawable/circle_profile_body"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_big_ultra">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginEnd="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_medium"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profil_detail_nim"
+                android:textSize="@dimen/text_size_small" />
+
+            <TextView
+                android:layout_width="@dimen/dimen_weight"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/dummy_anggota_nim_2"
+                android:textAlignment="textEnd"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_size_title_small"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_view_line"
+            android:background="@color/colorBackground" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginTop="@dimen/dimen_big_ultra"
+            android:layout_marginEnd="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_medium">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profil_detail_kelas"
+                android:textSize="@dimen/text_size_small" />
+
+            <TextView
+                android:layout_width="@dimen/dimen_weight"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/dummy_kelas"
+                android:textAlignment="textEnd"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_size_title_small"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_view_line"
+            android:background="@color/colorBackground" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginTop="@dimen/dimen_big_ultra"
+            android:layout_marginEnd="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_medium">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profil_detail_notelp"
+                android:textSize="@dimen/text_size_small" />
+
+            <TextView
+                android:layout_width="@dimen/dimen_weight"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/dummy_no_telp"
+                android:textAlignment="textEnd"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_size_title_small"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_view_line"
+            android:background="@color/colorBackground" />
+
+    </LinearLayout>
+
+    <TextView
+        android:textColor="@color/colorTextBlack"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/text_d3rpla"
+        android:textSize="@dimen/text_size_small"
+        android:layout_above="@id/text_telkom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_d3rpla"/>
+
+    <TextView
+        android:textColor="@color/colorTextBlack"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/text_telkom"
+
+        android:textSize="@dimen/text_size_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_telkomuniversity"
+        android:layout_marginBottom="@dimen/dimen_medium"/>
+
+</RelativeLayout>

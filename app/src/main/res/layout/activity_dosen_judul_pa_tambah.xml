@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/dimen_big"
+    android:background="@color/colorBackground"
+    tools:context=".views.activities.adds.DosenJudulPaTambahActivity">
+
+    <ImageView
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_big_ultra"
+        android:src="@drawable/ic_judul_pa"
+        android:maxHeight="128dp"
+        android:maxWidth="128dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="@dimen/dimen_medium"
+        android:background="@color/colorPrimary"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_marginRight="@dimen/dimen_medium"
+        android:layout_marginLeft="@dimen/dimen_medium"
+        android:text="Judul Proyek Akhir"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_marginRight="@dimen/dimen_medium"
+        android:inputType="text"
+        android:background="@android:color/transparent"
+        android:padding="@dimen/dimen_medium"
+        android:hint="Masukkan Judul PA"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="@dimen/dimen_big"
+        android:layout_marginLeft="@dimen/dimen_medium"
+        android:layout_marginRight="@dimen/dimen_medium"
+        android:background="@color/colorPrimary"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kategori Proyek Akhir"
+        android:layout_marginLeft="@dimen/dimen_medium"
+        android:layout_marginBottom="@dimen/dimen_medium"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimary"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="@dimen/dimen_medium"
+        android:layout_marginLeft="@dimen/dimen_medium"
+        android:layout_marginBottom="@dimen/dimen_medium"
+        android:background="@color/colorPrimary"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_marginLeft="@dimen/dimen_medium"
+        android:layout_marginRight="@dimen/dimen_medium"
+        android:layout_marginBottom="@dimen/dimen_medium"
+        android:text="Deskripsi Proyek Akhir"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_marginRight="@dimen/dimen_medium"
+        android:layout_marginLeft="@dimen/dimen_medium"
+        android:inputType="text"
+        android:background="@drawable/box_border_edit_text"
+        android:padding="70dp"
+        android:hint="Masukkan Deskripsi Judul PA"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="@dimen/dimen_big"
+        android:layout_marginLeft="@dimen/dimen_medium"
+        android:layout_marginRight="@dimen/dimen_medium"
+        android:background="@color/colorPrimary"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_big"
+        android:text="Simpan Judul"
+        android:textColor="@color/colorTextWhite"
+        android:background="@drawable/box_border_button_action"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_big"
+        android:text="BATAL"
+        android:background="@drawable/box_border_button_cancel"
+        android:textColor="@color/colorPrimary"/>
+
+</LinearLayout>
