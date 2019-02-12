@@ -6,14 +6,14 @@
     tools:context=".views.fragments.DosenInformasiFragment"
     android:background="@color/colorBackground">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/frg_dsn_info_home_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/content_item_dosen_informasi">
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/frg_dsn_info_home_fab"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"

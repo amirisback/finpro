@@ -1,7 +1,7 @@
 package org.d3ifcool.finpro.views.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,8 +10,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.finpro.R;
+import org.d3ifcool.finpro.views.activities.mains.DosenMainActivity;
+import org.d3ifcool.finpro.views.activities.mains.MahasiswaMainActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     EditText editTextUsername;
     EditText editTextPassword;
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_material);
 
         Button b = findViewById(R.id.act_main_button_login);
         editTextUsername = findViewById(R.id.act_main_edittext_username);
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         lupaPas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, DosenActivity.class);
+                Intent i = new Intent(LoginActivity.this, DosenMainActivity.class);
                 startActivity(i);
             }
         });
@@ -43,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                login();
 
-//                Intent i = new Intent(MainActivity.this, DosenActivity.class);
+//                Intent i = new Intent(LoginActivity.this, DosenMainActivity.class);
 //                startActivity(i);
 
-                Intent i = new Intent(MainActivity.this, MahasiswaActivity.class);
+                Intent i = new Intent(LoginActivity.this, MahasiswaMainActivity.class);
                 startActivity(i);
             }
         });
@@ -56,10 +58,10 @@ public class MainActivity extends AppCompatActivity {
         username = editTextUsername.getText().toString();
         password = editTextPassword.getText().toString();
         if (username.equalsIgnoreCase(dummyDosen) || password.equalsIgnoreCase(dummyDosen)){
-            Intent i = new Intent(MainActivity.this, DosenActivity.class);
+            Intent i = new Intent(LoginActivity.this, DosenMainActivity.class);
             startActivity(i);
         } else if (username.equalsIgnoreCase(dummyMahasiswa) && password.equalsIgnoreCase(dummyMahasiswa)) {
-            Intent j = new Intent(MainActivity.this, MahasiswaActivity.class);
+            Intent j = new Intent(LoginActivity.this, MahasiswaMainActivity.class);
             startActivity(j);
         } else {
             Toast.makeText(getApplicationContext(), "Harus Di isi", Toast.LENGTH_SHORT).show();

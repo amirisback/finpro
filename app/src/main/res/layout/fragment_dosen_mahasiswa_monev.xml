@@ -7,12 +7,30 @@
     android:background="@color/colorBackground"
     tools:context=".views.fragments.DosenMahasiswaMonevFragment">
 
-    <android.support.v7.widget.RecyclerView
+    <TextView
+        android:id="@+id/dummytext"
+        android:layout_marginTop="@dimen/dimen_big"
+        android:layout_marginStart="@dimen/dimen_big"
+        android:layout_marginEnd="@dimen/dimen_big"
+        android:layout_marginBottom="@dimen/dimen_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_daftar_mahasiswa_monev"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/dummytext"
         android:id="@+id/frg_dsn_mhs_monev_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/content_item_dosen_mahasiswa_monev">
 
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <ProgressBar
+        android:visibility="invisible"
+        android:id="@+id/progressbar_list"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

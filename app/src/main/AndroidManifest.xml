@@ -11,7 +11,15 @@
         android:roundIcon="@drawable/ic_logo_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.activities.adds.MahasiswaJudulPaPengajuanTambahActivity"></activity>
+        <activity android:name=".views.activities.edits.DosenMonevUbahActivity"></activity>
+        <activity android:name=".views.activities.edits.DosenBimbinganUbahActivity" />
+        <activity android:name=".views.activities.edits.DosenJudulPaSubdosenUbahActivity" />
+        <activity android:name=".views.activities.edits.MahasiswaProfilUbahActivity" />
+        <activity android:name=".views.activities.edits.DosenProfilUbahActivity" />
+        <activity android:name=".views.activities.edits.DosenInformasiUbahActivity" />
+        <activity android:name=".views.activities.notifications.DosenPemberitahuanActivity" />
+        <activity android:name=".views.activities.notifications.MahasiswaPemberitahuanActivity" />
+        <activity android:name=".views.activities.adds.MahasiswaJudulPaPengajuanTambahActivity" />
         <activity android:name=".views.activities.details.DosenMonevDetailActivity" />
         <activity android:name=".views.activities.details.DosenBimbinganDetailActivity" />
         <activity android:name=".views.activities.details.MahasiswaJudulPaDosenDetailActivity" />
@@ -19,7 +27,7 @@
         <activity android:name=".views.activities.adds.DosenBimbinganTambahActivity" />
         <activity android:name=".views.activities.TentangKamiActivity" />
         <activity
-            android:name=".views.activities.MainActivity"
+            android:name=".views.activities.LoginActivity"
             android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,12 +35,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.activities.MahasiswaActivity" />
+        <activity android:name=".views.activities.mains.MahasiswaMainActivity" />
         <activity android:name=".views.activities.details.MahasiswaInformasiDetailActivity" />
         <activity android:name=".views.activities.details.MahasiswaPaMonevDetailActivity" />
         <activity android:name=".views.activities.details.MahasiswaPaBimbinganDetailActivity" />
-        <activity android:name=".views.activities.MahasiswaProfilActivity" />
-        <activity android:name=".views.activities.DosenActivity" />
+        <activity android:name=".views.activities.profiles.MahasiswaProfilActivity" />
+        <activity android:name=".views.activities.mains.DosenMainActivity" />
         <activity android:name=".views.activities.details.DosenJudulPaSubmahasiswaDetailActivity" />
         <activity android:name=".views.activities.details.DosenJudulPaSubdosenDetailActivity" />
         <activity android:name=".views.activities.adds.DosenJudulPaTambahActivity" />
@@ -41,7 +49,7 @@
         <activity android:name=".views.activities.details.DosenMahasiswaSidangDetailActivity" />
         <activity android:name=".views.activities.details.DosenMahasiswaMonevDetailActivity" />
         <activity android:name=".views.activities.details.DosenMahasiswaBimbinganDetailActivity" />
-        <activity android:name=".views.activities.DosenProfilActivity" />
+        <activity android:name=".views.activities.profiles.DosenProfilActivity" />
     </application>
 
 </manifest>

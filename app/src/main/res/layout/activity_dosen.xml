@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.activities.DosenActivity"
+    tools:context=".views.activities.mains.DosenMainActivity"
     android:background="@color/colorBackground">
 
     <!--<android.support.design.widget.BottomNavigationView-->
@@ -17,7 +17,7 @@
         <!--app:itemBackground="@color/colorSelectedItem"-->
         <!--app:menu="@menu/menu_bottom_navigation_dosen"/>-->
 
-    <android.support.design.widget.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/act_dsn_home_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         app:menu="@menu/menu_bottom_navigation_dosen"/>
 
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/act_dsn_home_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

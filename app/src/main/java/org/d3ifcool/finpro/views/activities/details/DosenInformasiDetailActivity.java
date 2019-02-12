@@ -1,6 +1,7 @@
 package org.d3ifcool.finpro.views.activities.details;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.finpro.models.dataclass.Informasi;
+import org.d3ifcool.finpro.views.activities.edits.DosenInformasiUbahActivity;
 
 public class DosenInformasiDetailActivity extends AppCompatActivity {
 
@@ -50,6 +52,8 @@ public class DosenInformasiDetailActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.toolbar_menu_ubah:
+                Intent intentUbah = new Intent(DosenInformasiDetailActivity.this, DosenInformasiUbahActivity.class);
+                startActivity(intentUbah);
                 break;
             case R.id.toolbar_menu_hapus:
                 break;

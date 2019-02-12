@@ -1,6 +1,6 @@
 package org.d3ifcool.finpro.views.activities.adds;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import org.d3ifcool.finpro.R;

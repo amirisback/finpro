@@ -19,7 +19,7 @@
     <!--Penggunaan Style Digunakan Jika Ada List Item tanpa Menggunakan RecyclerView-->
 
     <!-- Style untuk textview fragment_mahasiswa_pa bagian dosen -->
-    <style name="textwiew_mahasiswa_pa_dosen">
+    <style name="textview_pa_color_primary">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:layout_marginStart">@dimen/dimen_big</item>
@@ -30,7 +30,19 @@
     </style>
 
     <!-- Style untuk textview fragment_mahasiswa_pa bagian dosen -->
-    <style name="textwiew_mahasiswa_pa_jumlah">
+    <style name="textview_pa_color_primary_icon">
+        <item name="android:drawableLeft">@drawable/ic_person</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:drawablePadding">@dimen/dimen_drawable_padding</item>
+        <item name="android:layout_marginStart">@dimen/dimen_big</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_title_small</item>
+    </style>
+
+    <!-- Style untuk textview fragment_mahasiswa_pa bagian dosen -->
+    <style name="textview_pa_color_accent">
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginStart">@dimen/dimen_big</item>
@@ -38,6 +50,37 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/text_size_title_big</item>
     </style>
+
+    <!-- Style untuk textview fragment_mahasiswa_pa bagian dosen -->
+    <style name="textview_pa_color_accent_small">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginStart">@dimen/dimen_big</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_title_small</item>
+    </style>
+
+    <!-- Style untuk textview fragment_mahasiswa_pa bagian NIM -->
+    <style name="textview_pa_color_black">
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginStart">@dimen/dimen_big</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_title_small</item>
+    </style>
+
+    <!-- Style untuk textview fragment_mahasiswa_pa bagian NIM -->
+    <style name="textview_pa_color_black_small">
+        <item name="android:textColor">@color/colorTextBlack</item>
+        <item name="android:layout_marginStart">@dimen/dimen_big</item>
+        <item name="android:layout_marginEnd">@dimen/dimen_big</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_title_small</item>
+    </style>
+
 
     <!-- Style untuk textview_nama content_item_dosen_mahasiswa -->
     <style name="textwiew_item_dosen_mahasiswa_nama">

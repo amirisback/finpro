@@ -12,14 +12,11 @@
         tools:context=".mahasiswa_judul_pa_submahasiswa_pengajuan">
 
         <ImageView
-            android:layout_width="128dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_big_ultra"
+            android:layout_width="@dimen/dimen_profil_photo"
+            android:layout_height="@dimen/dimen_profil_photo"
             android:src="@drawable/ic_judul_pa"
-            android:maxHeight="128dp"
-            android:maxWidth="128dp"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"/>
+            android:layout_gravity="center"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -260,16 +257,10 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_big"
             android:text="Ajukan Judul"
+            android:layout_marginBottom="@dimen/dimen_big_ultra"
             android:textColor="@color/colorTextWhite"
             android:background="@drawable/box_border_button_action"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_big"
-            android:text="BATAL"
-            android:textColor="@color/colorPrimary"
-            android:layout_gravity="center" />
+
     </LinearLayout>
 </ScrollView>

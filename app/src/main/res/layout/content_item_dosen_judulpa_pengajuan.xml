@@ -1,105 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="@dimen/dimen_big"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_medium"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_medium"
-            android:layout_weight="1"
-            android:text="Nama Kelompok"
-            android:textSize="20sp"
-            android:textColor="@color/colorPrimary"/>
-
-        <TextView
-            android:id="@+id/ctn_mhs_judul_pa_dosen_pengajuan_textview_kelompok"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_medium"
-            android:layout_weight="1"
-            android:text="@string/dummy_mahasiswa_kelompok"
-            android:textSize="16sp"
-            android:textColor="@color/colorTextBlack"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorPrimary"/>
-    </LinearLayout>
-
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dimen_medium"
+    android:layout_marginLeft="@dimen/dimen_medium"
+    android:layout_marginRight="@dimen/dimen_medium"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_medium"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_medium"
-            android:layout_weight="1"
-            android:text="Nama Anggota"
-            android:textSize="20sp"
-            android:textColor="@color/colorPrimary"/>
 
-        <TextView
-            android:id="@+id/ctn_mhs_judul_pa_dosen_pengajuan_textview_anggota1"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_medium"
-            android:layout_weight="1"
-            android:drawableLeft="@drawable/ic_person"
-            android:text="@string/dummy_anggota_kelompok_2"
-            android:textSize="16sp"
-            android:textColor="@color/colorTextBlack"/>
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/dimen_medium">
+
             <TextView
-                android:id="@+id/ctn_mhs_judul_pa_dosen_pengajuan_textview_anggota2"
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_nama_kelompok"/>
+
+            <TextView
+                android:id="@+id/frg_mhs_pa_textview_judulpa"
+                style="@style/textview_pa_color_black"
+                android:text="@string/dummy_mahasiswa_kelompok"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:layout_marginBottom="@dimen/dimen_medium"/>
+
+            <TextView
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_nama_kelompok"/>
+
+            <TextView
+                style="@style/textview_pa_color_primary_icon"
+                android:text="@string/dummy_anggota_kelompok_1"/>
+
+            <TextView
+                style="@style/textview_pa_color_primary_icon"
+                android:text="@string/dummy_anggota_kelompok_2"/>
+
+
+            <View
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/dimen_medium">
+
+            <Button
+                android:id="@+id/ctn_mhs_judul_pa_dosen_pengajuan_btn_terima"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dimen_medium"
-                android:drawableLeft="@drawable/ic_person"
                 android:layout_weight="1"
-                android:text="@string/dummy_anggota_kelompok_1"
-                android:textSize="16sp"
-                android:textColor="@color/colorTextBlack"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorPrimary"/>
+                android:background="@drawable/box_border_button_acc"
+                android:text="@string/text_setuju"
+                android:textColor="@color/colorTextWhite" />
+
+
+            <Button
+                android:id="@+id/ctn_mhs_judul_pa_dosen_pengajuan_btn_tolak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/text_tolak"
+                android:textColor="@color/colorTextWhite"
+                android:background="@drawable/box_border_button_tolak"/>
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <Button
-        android:id="@+id/ctn_mhs_judul_pa_dosen_pengajuan_btn_terima"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_margin="@dimen/dimen_medium"
-        android:text="Terima"
-        android:textColor="@color/colorTextWhite"
-        android:background="@drawable/box_border_button_acc"/>
-        <Button
-            android:id="@+id/ctn_mhs_judul_pa_dosen_pengajuan_btn_tolak"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_medium"
-            android:layout_weight="1"
-            android:text="Tolak"
-            android:textColor="@color/colorTextWhite"
-            android:background="@drawable/box_border_button_tolak"/>
-    </LinearLayout>
-</LinearLayout>
-</android.support.v7.widget.CardView>
+
+</androidx.cardview.widget.CardView>

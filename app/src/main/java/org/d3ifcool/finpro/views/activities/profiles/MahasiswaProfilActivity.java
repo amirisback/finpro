@@ -1,23 +1,24 @@
-package org.d3ifcool.finpro.views.activities;
+package org.d3ifcool.finpro.views.activities.profiles;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import org.d3ifcool.finpro.R;
+import org.d3ifcool.finpro.views.activities.edits.MahasiswaProfilUbahActivity;
 
-public class DosenProfilActivity extends AppCompatActivity {
+public class MahasiswaProfilActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dosen_profil);
+        setContentView(R.layout.activity_mahasiswa_profil);
 
         setTitle(getString(R.string.title_profil));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0f);
-
 
     }
 
@@ -35,6 +36,8 @@ public class DosenProfilActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.toolbar_menu_hanya_ubah:
+                Intent intentUbah = new Intent(MahasiswaProfilActivity.this, MahasiswaProfilUbahActivity.class);
+                startActivity(intentUbah);
                 break;
             default:
                 break;

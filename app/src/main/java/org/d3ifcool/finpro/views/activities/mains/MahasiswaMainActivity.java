@@ -1,18 +1,21 @@
-package org.d3ifcool.finpro.views.activities;
+package org.d3ifcool.finpro.views.activities.mains;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import org.d3ifcool.finpro.R;
+import org.d3ifcool.finpro.views.activities.LoginActivity;
+import org.d3ifcool.finpro.views.activities.notifications.MahasiswaPemberitahuanActivity;
+import org.d3ifcool.finpro.views.activities.profiles.MahasiswaProfilActivity;
 import org.d3ifcool.finpro.views.adapters.viewpagers.MahasiswaPagerAdapter;
 
-public class MahasiswaActivity extends AppCompatActivity {
+public class MahasiswaMainActivity extends AppCompatActivity {
 
     private MenuItem prevMenuItem = null;
     private ViewPager mViewPager;
@@ -102,13 +105,17 @@ public class MahasiswaActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+            case R.id.toolbar_menu_pemberitahuan:
+                Intent intentPemberitahuan = new Intent(MahasiswaMainActivity.this, MahasiswaPemberitahuanActivity.class);
+                startActivity(intentPemberitahuan);
+                break;
             case R.id.toolbar_menu_profil:
-                Intent mIntent = new Intent(MahasiswaActivity.this, MahasiswaProfilActivity.class);
-                startActivity(mIntent);
+                Intent intentProfil = new Intent(MahasiswaMainActivity.this, MahasiswaProfilActivity.class);
+                startActivity(intentProfil);
                 break;
             case R.id.toolbar_menu_keluar:
-                Intent i = new Intent(MahasiswaActivity.this, MainActivity.class);
-                startActivity(i);
+                Intent intentKeluar = new Intent(MahasiswaMainActivity.this, LoginActivity.class);
+                startActivity(intentKeluar);
                 break;
             default:
                 break;

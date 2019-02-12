@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -29,7 +29,7 @@
 
                 <TextView
                     android:id="@+id/act_mhs_pa_monev_detail_textview_dosen"
-                    style="@style/textwiew_mahasiswa_pa_dosen"
+                    style="@style/textview_pa_color_primary"
                     android:text="@string/dummy_dosen_reviewer"/>
 
                 <View
@@ -47,12 +47,12 @@
 
                 <TextView
                     android:id="@+id/act_mhs_pa_monev_detail_textview_jumlah"
-                    style="@style/textwiew_mahasiswa_pa_jumlah"
+                    style="@style/textview_pa_color_accent"
                     android:text="@string/dummy_monev_terkahir"/>
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:layout_margin="@dimen/dimen_big"
@@ -61,16 +61,16 @@
             android:textSize="@dimen/text_size_title_small"
             android:text="@string/text_daftar_monev"/>
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/act_mhs_pa_monev_detail_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/content_item_mahasiswa_pa_monev">
-        </android.support.v7.widget.RecyclerView>
+        </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/frg_dsn_monev_fab"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"

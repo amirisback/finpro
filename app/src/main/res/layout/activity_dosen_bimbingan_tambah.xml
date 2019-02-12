@@ -16,7 +16,6 @@
         android:layout_width="match_parent"
         android:drawableEnd="@drawable/ic_date"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
         android:maxLines="1"/>
 
     <EditText

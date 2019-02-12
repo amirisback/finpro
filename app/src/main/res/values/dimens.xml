@@ -32,7 +32,7 @@
     <dimen name="dimen_medium">8dp</dimen>
     <dimen name="dimen_small">4dp</dimen>
 
-    <dimen name="dimen_view_line">2dp</dimen>
+    <dimen name="dimen_view_line">1dp</dimen>
     <dimen name="dimen_weight">0dp</dimen>
 
     <dimen name="dimen_circle_background">50dp</dimen>

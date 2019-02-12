@@ -1,8 +1,10 @@
 package org.d3ifcool.finpro.views.adapters.viewpagers;
 
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.finpro.views.fragments.MahasiswaInformasiFragment;
@@ -36,7 +38,7 @@ public class MahasiswaPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public android.support.v4.app.Fragment getItem(int position) {
+    public Fragment getItem(int position) {
         switch (position) {
             case 0:
                 return new MahasiswaInformasiFragment();

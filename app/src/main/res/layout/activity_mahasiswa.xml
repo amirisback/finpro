@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.activities.MahasiswaActivity"
+    tools:context=".views.activities.mains.MahasiswaMainActivity"
     android:background="@color/colorBackground">
 
     <!--<android.support.design.widget.BottomNavigationView-->
@@ -18,7 +18,7 @@
         <!--app:menu="@menu/menu_bottom_navigation_mahasiswa" />    -->
     <!---->
 
-    <android.support.design.widget.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/act_mhs_home_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         app:itemBackground="@drawable/navbottom_selector_background"
         app:menu="@menu/menu_bottom_navigation_mahasiswa" />
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/act_mhs_home_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

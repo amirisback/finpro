@@ -2,8 +2,8 @@ package org.d3ifcool.finpro.views.adapters.recyclerviews;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +12,6 @@ import android.widget.TextView;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.finpro.models.dataclass.Bimbingan;
 import org.d3ifcool.finpro.views.activities.details.DosenBimbinganDetailActivity;
-import org.d3ifcool.finpro.views.activities.details.MahasiswaJudulPaDosenDetailActivity;
 
 import java.util.ArrayList;
 

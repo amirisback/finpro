@@ -11,17 +11,12 @@
         android:layout_height="220dp"
         android:background="@drawable/circle_profile_header"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@color/colorPrimary"/>
-
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/foto"
         android:background="@drawable/circle_border_photo_profil"
         android:layout_width="@dimen/dimen_profil_photo"
         android:layout_height="@dimen/dimen_profil_photo"
-        android:src="@drawable/dummy_ikhsan"
+        android:src="@drawable/ic_dummy_photo_profil"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dimen_big"/>
 
