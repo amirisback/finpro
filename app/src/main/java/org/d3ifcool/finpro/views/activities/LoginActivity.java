@@ -10,8 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.finpro.R;
-import org.d3ifcool.finpro.views.activities.mains.DosenMainActivity;
-import org.d3ifcool.finpro.views.activities.mains.MahasiswaMainActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_material);
+        setContentView(R.layout.activity_login);
 
         Button b = findViewById(R.id.act_main_button_login);
         editTextUsername = findViewById(R.id.act_main_edittext_username);

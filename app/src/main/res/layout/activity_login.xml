@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by 
+ * FrogoBox Inc License
+ * =========================================
+ * 
+ * Copyright (C) .      
+ * All rights reserved
+ * 
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Line     : bullbee117
+ * Phone    : 081357108568
+ * Majors   : D3 Teknik Informatika 2016
+ * Campus   : Telkom University
+ * 
+ * id.amirisback.frogobox
+ * 
+ -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorBackgroundWhite">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/contentPanel"
+        android:layout_marginBottom="@dimen/dimen_big">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:layout_marginBottom="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/circle_material_header_top" />
+
+            <TextView
+                android:textColor="@color/colorTextWhite"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold"
+                android:layout_margin="@dimen/dimen_big"
+                android:id="@+id/prodi"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name_long"/>
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/ic_logo"
+                android:layout_width="@dimen/dimen_profil_photo"
+                android:layout_height="@dimen/dimen_profil_photo"
+                android:src="@drawable/ic_logo_apps" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/contentPanel"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/dimen_big"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/act_main_edittext_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_medium"
+            android:background="@drawable/box_border"
+            android:hint="@string/hint_id_pengguna"
+            android:maxLines="1"
+            android:paddingTop="@dimen/dimen_medium"
+            android:paddingBottom="@dimen/dimen_medium"
+            android:paddingStart="@dimen/dimen_big"
+            android:singleLine="true"
+            android:textColor="@color/colorTextBlack" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:passwordToggleEnabled="true"
+            app:hintEnabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/act_main_edittext_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_medium"
+                android:background="@drawable/box_border"
+                android:hint="@string/hint_kata_sandi"
+                android:imeActionId="6"
+                android:imeActionLabel="@string/button_click_masuk"
+                android:imeOptions="actionUnspecified"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:paddingTop="@dimen/dimen_medium"
+                android:paddingBottom="@dimen/dimen_medium"
+                android:paddingStart="@dimen/dimen_big"
+                android:paddingEnd="@dimen/dimen_big"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/act_main_button_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box_border_button_action"
+            android:text="@string/button_click_masuk"
+            android:paddingStart="@dimen/dimen_big"
+            android:paddingRight="@dimen/dimen_big"
+            android:gravity="start|center"
+            android:drawableRight="@drawable/ic_button_login"
+            android:textColor="@color/colorTextWhite" />
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/dimen_big"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_small"
+                android:text="@string/text_lupa_kata_sandi" />
+
+            <TextView
+                android:id="@+id/act_main_textview_klikdisini"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_klik_disini"
+                android:textColor="@color/colorTextBlack"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

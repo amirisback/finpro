@@ -1,0 +1,16 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.d3ifcool.mahasiswa">
+
+    <application>
+
+        <activity android:name=".views.activities.MahasiswaInformasiDetailActivity" />
+        <activity android:name=".views.activities.MahasiswaPaMonevDetailActivity" />
+        <activity android:name=".views.activities.MahasiswaPaBimbinganDetailActivity" />
+        <activity android:name=".views.activities.MahasiswaProfilActivity" />
+        <activity android:name=".views.activities.MahasiswaPemberitahuanActivity" />
+        <activity android:name=".views.activities.MahasiswaJudulPaPengajuanTambahActivity" />
+        <activity android:name=".views.activities.MahasiswaJudulPaDosenDetailActivity" />
+        <activity android:name=".views.activities.MahasiswaProfilUbahActivity" />
+    </application>
+
+</manifest>
