@@ -40,10 +40,11 @@ public class DosenMahasiswaSidangFragment extends Fragment {
         DosenMahasiswaSidangViewAdapter adapter = new DosenMahasiswaSidangViewAdapter(getContext());
 
         ArrayList<Mahasiswa> arrayList = new ArrayList<>();
-        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok"));
-        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok"));
-        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok"));
-        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok"));
+        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok","asd",
+                "asd","asd","asd","asd"));
+//        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok"));
+//        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok"));
+//        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok"));
 
         adapter.addItem(arrayList);
         adapter.setLayoutType(R.layout.content_item_dosen_mahasiswa_sidang);

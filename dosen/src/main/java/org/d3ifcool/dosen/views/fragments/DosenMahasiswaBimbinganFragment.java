@@ -40,9 +40,9 @@ public class DosenMahasiswaBimbinganFragment extends Fragment {
         DosenMahasiswaBimbinganViewAdapter adapter = new DosenMahasiswaBimbinganViewAdapter(getContext());
 
         ArrayList<Mahasiswa> arrayList = new ArrayList<>();
-        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok"));
-        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok"));
-        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok"));
+        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok","asd","sada",
+                "12","asd","adad"));
+
         adapter.addItem(arrayList);
         adapter.setLayoutType(R.layout.content_item_dosen_mahasiswa_bimbingan);
 

@@ -60,6 +60,8 @@
     <item type="id" name="act_dsn_judul_pa_edittext_judul"/>
     <item type="id" name="act_dsn_judul_pa_edittext_kategori"/>
     <item type="id" name="act_dsn_judul_pa_edittext_deskripsi"/>
+    <item type="id" name="act_dsn_pmb_recyclerview"/>
+    <item type="id" name="ctn_dsn_pemberitahuan_circle_image"/>
 
     <item type="id" name="frg_dsn_info_home_recyclerview"/>
     <item type="id" name="frg_dsn_info_home_fab"/>

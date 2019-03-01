@@ -67,9 +67,9 @@ public class DosenMahasiswaSidangViewAdapter extends RecyclerView.Adapter<DosenM
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.mhsNama.setText(data.get(position).getNama());
-        holder.mhsNim.setText(data.get(position).getNim());
-        holder.mhsKelompok.setText(data.get(position).getKelompok());
+        holder.mhsNama.setText(data.get(position).getNama_m());
+        holder.mhsNim.setText(data.get(position).getNim_mhs());
+//        holder.mhsKelompok.setText(data.get(position).getKelompok());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

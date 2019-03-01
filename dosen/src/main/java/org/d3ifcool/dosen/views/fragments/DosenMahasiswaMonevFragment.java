@@ -40,8 +40,8 @@ public class DosenMahasiswaMonevFragment extends Fragment {
         DosenMahasiswaMonevViewAdapter adapter = new DosenMahasiswaMonevViewAdapter(getContext());
 
         ArrayList<Mahasiswa> arrayList = new ArrayList<>();
-        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok"));
-        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok"));
+        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok","as","ada","asda","asda","asdad"));
+//        arrayList.add(new Mahasiswa("Nama", "nim", "kelompok"));
 
         adapter.addItem(arrayList);
         adapter.setLayoutType(R.layout.content_item_dosen_mahasiswa_monev);

@@ -3,6 +3,9 @@ package org.d3ifcool.service.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -21,11 +24,24 @@ import android.os.Parcelable;
  * id.amirisback.frogobox
  */
 public class Informasi implements Parcelable {
-
+    @Expose
+    @SerializedName("id")
     private String info_id;
+
+    @Expose
+    @SerializedName("info_judul")
     private String info_judul;
+
+    @Expose
+    @SerializedName("info_deskripsi")
     private String info_isi;
+
+    @Expose
+    @SerializedName("created_at")
     private String info_tanggal;
+
+    @Expose
+    @SerializedName("publisher")
     private String info_dosen;
 
     public Informasi(String info_id, String info_judul, String info_isi, String info_tanggal, String info_dosen) {

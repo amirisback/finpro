@@ -3,6 +3,9 @@ package org.d3ifcool.service.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -22,8 +25,16 @@ import android.os.Parcelable;
  */
 public class Bimbingan implements Parcelable {
 
+    @Expose
+    @SerializedName("id_bimbingan")
     private String id;
+
+    @Expose
+    @SerializedName("tanggal")
     private String tanggal;
+
+    @Expose
+    @SerializedName("keterangan")
     private String isi;
 
     public Bimbingan(String id, String tanggal, String isi) {
