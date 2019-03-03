@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.service.models.pemberitahuan;
+import org.d3ifcool.service.models.Pemberitahuan;
 
 import java.util.ArrayList;
 
@@ -34,9 +34,9 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MahasiswaPemberitahuanViewAdapter extends RecyclerView.Adapter<MahasiswaPemberitahuanViewAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<pemberitahuan> notifs;
+    ArrayList<Pemberitahuan> notifs;
 
-    public MahasiswaPemberitahuanViewAdapter(Context context, ArrayList<pemberitahuan> notifs) {
+    public MahasiswaPemberitahuanViewAdapter(Context context, ArrayList<Pemberitahuan> notifs) {
         this.context = context;
         this.notifs = notifs;
     }

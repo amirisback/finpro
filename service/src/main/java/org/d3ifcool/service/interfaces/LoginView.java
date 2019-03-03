@@ -1,11 +1,13 @@
-package org.d3ifcool.finpro.helpers.utils;
+package org.d3ifcool.service.interfaces;
+
+import org.d3ifcool.service.models.Login;
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * Finpro
- * Copyright (C) 12/01/2019.
+ * Copyright (C) 03/03/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -17,5 +19,14 @@ package org.d3ifcool.finpro.helpers.utils;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public class Constanta {
+public interface LoginView {
+
+    void showProgress();
+
+    void hideProgress();
+
+    void onRequestSuccess(String message, Login body);
+
+    void onRequestError(String message);
+
 }

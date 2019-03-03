@@ -19,7 +19,7 @@ import com.google.gson.annotations.SerializedName;
  * Campus   : Telkom University
  * -----------------------------------------
  */
-public class pemberitahuan implements Parcelable {
+public class Pemberitahuan implements Parcelable {
 
     @Expose
     @SerializedName("deskripsi")
@@ -50,7 +50,7 @@ public class pemberitahuan implements Parcelable {
     String status;
 
 
-    public pemberitahuan(String isi, String tanggal, String waktu, String dari, String untuk, String info_kategori, String status) {
+    public Pemberitahuan(String isi, String tanggal, String waktu, String dari, String untuk, String info_kategori, String status) {
         this.isi = isi;
         this.tanggal = tanggal;
         this.waktu = waktu;
@@ -60,7 +60,7 @@ public class pemberitahuan implements Parcelable {
         this.status = status;
     }
 
-    protected pemberitahuan(Parcel in) {
+    protected Pemberitahuan(Parcel in) {
         isi = in.readString();
         tanggal = in.readString();
         waktu = in.readString();
@@ -70,15 +70,15 @@ public class pemberitahuan implements Parcelable {
         status = in.readString();
     }
 
-    public static final Creator<pemberitahuan> CREATOR = new Creator<pemberitahuan>() {
+    public static final Creator<Pemberitahuan> CREATOR = new Creator<Pemberitahuan>() {
         @Override
-        public pemberitahuan createFromParcel(Parcel in) {
-            return new pemberitahuan(in);
+        public Pemberitahuan createFromParcel(Parcel in) {
+            return new Pemberitahuan(in);
         }
 
         @Override
-        public pemberitahuan[] newArray(int size) {
-            return new pemberitahuan[size];
+        public Pemberitahuan[] newArray(int size) {
+            return new Pemberitahuan[size];
         }
     };
 

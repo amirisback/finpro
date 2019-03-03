@@ -10,6 +10,11 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_INFORMASI_CREATE;
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_INFORMASI_DELETE;
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_INFORMASI_READ;
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_INFORMASI_UPDATE;
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -30,16 +35,15 @@ import retrofit2.http.POST;
 public interface ApiInterfaceInformasi {
 
     @FormUrlEncoded
-    @POST("informasi/createInformasi.php")
+    @POST(URL_INFORMASI_CREATE)
     Call<Informasi> createInformasi (
             @Field("info_judul") String info_judul,
             @Field("info_deskripsi") String info_deskripsi
-
     );
 
 
     @FormUrlEncoded
-    @POST("informasi/updateInformasi.php")
+    @POST(URL_INFORMASI_UPDATE)
     Call<Informasi> updateInformasi (
             @Field("id") int id,
             @Field("info_judul") String info_judul,
@@ -47,34 +51,11 @@ public interface ApiInterfaceInformasi {
 
     );
 
-    @FormUrlEncoded
-    @POST("informasi/getInformasi.php")
-    Call<Informasi> getInformasi (
-            @Field("id") int id,
-            @Field("info_judul") String info_judul,
-            @Field("info_deskripsi") String info_deskripsi
-
-    );
+    @GET(URL_INFORMASI_READ)
+    Call<List<Informasi>> getInformasi();
 
     @FormUrlEncoded
-    @POST("informasi/deleteInformasi.php")
+    @POST(URL_INFORMASI_DELETE)
     Call<Informasi> deleteInformasi (@Field("id")int id);
-//
-//    @GET("notes.php")
-//    Call<List<Note>> getNotes();
-//
-//    @FormUrlEncoded
-//    @POST("update.php")
-//    Call<Note> updateNote(
-//            @Field("id") int id,
-//            @Field("title") String title,
-//            @Field("note") String note,
-//            @Field("color") int color
-//    );
-//
-//    @FormUrlEncoded
-//    @POST("delete.php")
-//    Call<Note> deleteNote(@Field("id") int id);
-
 
 }

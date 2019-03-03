@@ -132,6 +132,8 @@
     <string name="text_daftar_judul_pa_mahasiswa">Dafta Judul Proyek Akhir Pengajuan Mahasiswa</string>
     <string name="text_judul">Judul</string>
     <string name="hint_judul">Masukkan judul</string>
+    <string name="text_daftar_pa_mahasiswa">Daftar Judul Proyek Akhir Mahasiswa Bimbingan</string>
+    <string name="progress_dialog">Please Wait</string>
 
     <string-array name="nama_dosen">
         <item>Amir Hasanudin Fauzi, S.T., M.T.</item>

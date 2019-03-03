@@ -11,6 +11,9 @@
         android:roundIcon="@mipmap/ic_logo_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".views.activities.MainActivity">
+
+        </activity>
         <activity
             android:name=".views.activities.LoginActivity"
             android:theme="@style/AppThemeNoActionBar">
@@ -20,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.activities.AdminActivity"></activity>
+        <activity android:name=".views.activities.AdminActivity" />
         <activity android:name=".views.activities.TentangKamiActivity" />
         <activity android:name=".views.activities.DosenMainActivity" />
         <activity android:name=".views.activities.MahasiswaMainActivity" />

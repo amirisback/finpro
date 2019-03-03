@@ -5,6 +5,7 @@ import org.d3ifcool.service.models.Admin;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
@@ -44,7 +45,7 @@ public interface ApiInterfaceAdmin {
     );
 
     @FormUrlEncoded
-    @POST("admin/getAdmin.php")
+    @GET("admin/getAdmin.php")
     Call<Admin> createAdmin(
             @Field("username") String username,
             @Field("password") String password,

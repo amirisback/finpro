@@ -10,7 +10,7 @@ import android.view.MenuItem;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.views.adapters.MahasiswaPemberitahuanViewAdapter;
-import org.d3ifcool.service.models.pemberitahuan;
+import org.d3ifcool.service.models.Pemberitahuan;
 
 import java.util.ArrayList;
 
@@ -24,8 +24,8 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity {
         setTitle(getString(R.string.title_pemberitahuan));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         recyclerView = findViewById(R.id.act_mhs_pemberitahuan_recyclerview);
-        final ArrayList<pemberitahuan> notifs = new ArrayList<>();
-        notifs.add(new pemberitahuan("Hariandi Maulid mengirim suatu informasi","28 januari 2019"
+        final ArrayList<Pemberitahuan> notifs = new ArrayList<>();
+        notifs.add(new Pemberitahuan("Hariandi Maulid mengirim suatu informasi","28 januari 2019"
                 ,"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
 
         MahasiswaPemberitahuanViewAdapter adapter = new MahasiswaPemberitahuanViewAdapter(this, notifs);

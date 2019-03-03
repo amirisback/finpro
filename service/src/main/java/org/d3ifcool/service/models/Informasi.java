@@ -44,47 +44,13 @@ public class Informasi implements Parcelable {
     @SerializedName("publisher")
     private String publisher;
 
-    public Informasi(int id, String info_judul, String info_deskrips, String info_tanggal, String publisher) {
+    public Informasi(int id, String info_judul, String info_deskripsi, String info_tanggal, String publisher) {
         this.id = id;
         this.info_judul = info_judul;
-        this.info_deskripsi = info_deskrips;
+        this.info_deskripsi = info_deskripsi;
         this.info_tanggal = info_tanggal;
         this.publisher = publisher;
     }
-
-    protected Informasi(Parcel in) {
-        id = in.readInt();
-        info_judul = in.readString();
-        info_deskripsi = in.readString();
-        info_tanggal = in.readString();
-        publisher = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
-        dest.writeString(info_judul);
-        dest.writeString(info_deskripsi);
-        dest.writeString(info_tanggal);
-        dest.writeString(publisher);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<Informasi> CREATOR = new Creator<Informasi>() {
-        @Override
-        public Informasi createFromParcel(Parcel in) {
-            return new Informasi(in);
-        }
-
-        @Override
-        public Informasi[] newArray(int size) {
-            return new Informasi[size];
-        }
-    };
 
     public int getId() {
         return id;
@@ -106,8 +72,8 @@ public class Informasi implements Parcelable {
         return info_deskripsi;
     }
 
-    public void setInfo_deskripsi(String info_deskrips) {
-        this.info_deskripsi = info_deskrips;
+    public void setInfo_deskripsi(String info_deskripsi) {
+        this.info_deskripsi = info_deskripsi;
     }
 
     public String getInfo_tanggal() {
@@ -125,4 +91,39 @@ public class Informasi implements Parcelable {
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.id);
+        dest.writeString(this.info_judul);
+        dest.writeString(this.info_deskripsi);
+        dest.writeString(this.info_tanggal);
+        dest.writeString(this.publisher);
+    }
+
+    protected Informasi(Parcel in) {
+        this.id = in.readInt();
+        this.info_judul = in.readString();
+        this.info_deskripsi = in.readString();
+        this.info_tanggal = in.readString();
+        this.publisher = in.readString();
+    }
+
+    public static final Creator<Informasi> CREATOR = new Creator<Informasi>() {
+        @Override
+        public Informasi createFromParcel(Parcel source) {
+            return new Informasi(source);
+        }
+
+        @Override
+        public Informasi[] newArray(int size) {
+            return new Informasi[size];
+        }
+    };
 }

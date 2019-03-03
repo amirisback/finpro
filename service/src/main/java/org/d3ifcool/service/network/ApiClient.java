@@ -3,6 +3,8 @@ package org.d3ifcool.service.network;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.BASE_URL;
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -22,8 +24,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class ApiClient {
 
-    private static final String IP = "192.168.44.18";
-    private static final String BASE_URL = "http://"+IP+"/finpro/";
     private static Retrofit retrofit;
 
     public static Retrofit getApiClient() {

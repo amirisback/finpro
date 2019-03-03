@@ -42,9 +42,9 @@ public class DosenMainActivity extends AppCompatActivity {
                         mViewPager.setCurrentItem(0);
                         setTitle(R.string.title_informasi);
                         break;
-                    case R.id.bottom_menu_dsn_mahasiswa:
+                    case R.id.bottom_menu_dsn_pa:
                         mViewPager.setCurrentItem(1);
-                        setTitle(R.string.title_mahasiswa);
+                        setTitle(R.string.title_proyekakhir);
                         break;
                     case R.id.bottom_menu_dsn_judulpa:
                         mViewPager.setCurrentItem(2);
@@ -76,7 +76,7 @@ public class DosenMainActivity extends AppCompatActivity {
                         setTitle(R.string.title_informasi);
                         break;
                     case 1:
-                        setTitle(R.string.title_mahasiswa);
+                        setTitle(R.string.title_proyekakhir);
                         break;
                     case 2:
                         setTitle(R.string.title_judulpa);

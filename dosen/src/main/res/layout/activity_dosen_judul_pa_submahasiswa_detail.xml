@@ -17,12 +17,6 @@
             android:orientation="vertical"
             tools:context=".views.activities.details.DosenJudulPaSubmahasiswaDetailActivity">
 
-            <TextView
-                android:layout_margin="@dimen/dimen_big"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_tanggal"/>
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -230,7 +224,7 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/frg_dsn_monev_fab"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/dimen_big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

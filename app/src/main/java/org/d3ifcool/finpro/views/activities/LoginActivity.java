@@ -28,26 +28,11 @@ public class LoginActivity extends AppCompatActivity {
         editTextUsername = findViewById(R.id.act_main_edittext_username);
         editTextPassword = findViewById(R.id.act_main_edittext_password);
 
-        TextView lupaPas = findViewById(R.id.act_main_textview_klikdisini);
-
-        lupaPas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(LoginActivity.this, DosenMainActivity.class);
-                startActivity(i);
-            }
-        });
-
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                login();
+            login();
 
-//                Intent i = new Intent(LoginActivity.this, DosenMainActivity.class);
-//                startActivity(i);
-
-                Intent i = new Intent(LoginActivity.this, MahasiswaMainActivity.class);
-                startActivity(i);
             }
         });
     }

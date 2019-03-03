@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import org.d3ifcool.dosen.views.fragments.DosenInformasiFragment;
 import org.d3ifcool.dosen.views.fragments.DosenJudulPaFragment;
 import org.d3ifcool.dosen.views.fragments.DosenMahasiswaFragment;
+import org.d3ifcool.dosen.views.fragments.DosenPaFragment;
 import org.d3ifcool.finpro.R;
 
 /**
@@ -43,7 +44,7 @@ public class DosenPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new DosenInformasiFragment();
             case 1:
-                return new DosenMahasiswaFragment();
+                return new DosenPaFragment();
             case 2:
                 return new DosenJudulPaFragment();
             default:
@@ -63,7 +64,7 @@ public class DosenPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return mContext.getString(R.string.title_informasi);
             case 1:
-                return mContext.getString(R.string.title_mahasiswa);
+                return mContext.getString(R.string.title_proyekakhir);
             case 2:
                 return mContext.getString(R.string.title_judulpa);
             default:

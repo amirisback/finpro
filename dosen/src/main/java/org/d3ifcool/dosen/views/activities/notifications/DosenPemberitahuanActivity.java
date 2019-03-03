@@ -10,7 +10,7 @@ import android.view.MenuItem;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.views.adapters.recyclerviews.DosenPemberitahuanViewAdapter;
-import org.d3ifcool.service.models.pemberitahuan;
+import org.d3ifcool.service.models.Pemberitahuan;
 
 import java.util.ArrayList;
 
@@ -27,8 +27,8 @@ public class DosenPemberitahuanActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         rv = findViewById(R.id.act_dsn_pemberitahuan_recyclerview);
 
-        final ArrayList<pemberitahuan> data = new ArrayList<>();
-        data.add(new pemberitahuan("Hariandi Maulid mengirim suatu informasi","28 januari 2019"
+        final ArrayList<Pemberitahuan> data = new ArrayList<>();
+        data.add(new Pemberitahuan("Hariandi Maulid mengirim suatu informasi","28 januari 2019"
                 ,"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
 
         DosenPemberitahuanViewAdapter adapter = new DosenPemberitahuanViewAdapter(this,data);

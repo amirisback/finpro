@@ -12,17 +12,24 @@ import android.view.ViewGroup;
 
 import org.d3ifcool.dosen.views.activities.adds.DosenInformasiTambahActivity;
 import org.d3ifcool.dosen.R;
+import org.d3ifcool.service.interfaces.InformasiView;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.dosen.views.adapters.recyclerviews.DosenInformasiViewAdapter;
+import org.d3ifcool.service.presenter.InformasiPresenter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DosenInformasiFragment extends Fragment {
+public class DosenInformasiFragment extends Fragment implements InformasiView {
 
+
+    ArrayList<Informasi> arrayList = new ArrayList<>();
+    DosenInformasiViewAdapter adapter;
+    RecyclerView recyclerView;
 
     public DosenInformasiFragment() {
         // Required empty public constructor
@@ -35,25 +42,11 @@ public class DosenInformasiFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_dosen_informasi, container, false);
 
-        RecyclerView recyclerView = rootView.findViewById(R.id.frg_dsn_info_home_recyclerview);
+        recyclerView = rootView.findViewById(R.id.frg_dsn_info_home_recyclerview);
         FloatingActionButton floatingActionButton = rootView.findViewById(R.id.frg_dsn_info_home_fab);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        DosenInformasiViewAdapter adapter = new DosenInformasiViewAdapter(getContext());
-
-        ArrayList<Informasi> arrayList = new ArrayList<>();
-//        arrayList.add(new Informasi("a", "Judul", getString(R.string.dummyLong), getString(R.string.dummy_tanggal), getString(R.string.dummy_dosen_pembimbing)));
-//        arrayList.add(new Informasi("a", "Judul", getString(R.string.dummyLong), getString(R.string.dummy_tanggal), getString(R.string.dummy_dosen_pembimbing)));
-//        arrayList.add(new Informasi("a", "Judul", getString(R.string.dummyLong), getString(R.string.dummy_tanggal), getString(R.string.dummy_dosen_pembimbing)));
-//        arrayList.add(new Informasi("a", "Judul", getString(R.string.dummyLong), getString(R.string.dummy_tanggal), getString(R.string.dummy_dosen_pembimbing)));
-//        arrayList.add(new Informasi("a", "Judul", getString(R.string.dummyLong), getString(R.string.dummy_tanggal), getString(R.string.dummy_dosen_pembimbing)));
-//        arrayList.add(new Informasi("a", "Judul", getString(R.string.dummyLong), getString(R.string.dummy_tanggal), getString(R.string.dummy_dosen_pembimbing)));
-
-        adapter.addItem(arrayList);
-        adapter.setLayoutType(R.layout.content_item_dosen_informasi);
-
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        InformasiPresenter presenter = new InformasiPresenter(this, getContext());
+        presenter.getInformasi();
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,5 +61,32 @@ public class DosenInformasiFragment extends Fragment {
     }
 
 
+    @Override
+    public void showProgress() {
 
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void onGetResult(List<Informasi> informasi) {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        arrayList.clear();
+        arrayList.addAll(informasi);
+        adapter = new DosenInformasiViewAdapter(getContext());
+        adapter.addItem(arrayList);
+        adapter.notifyDataSetChanged();
+        adapter.setLayoutType(R.layout.content_item_dosen_informasi);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+    }
+
+    @Override
+    public void onErrorLoading(String message) {
+
+    }
 }

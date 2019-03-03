@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.models.pemberitahuan;
+import org.d3ifcool.service.models.Pemberitahuan;
 
 import java.util.ArrayList;
 
@@ -33,10 +33,10 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class DosenPemberitahuanViewAdapter extends RecyclerView.Adapter<DosenPemberitahuanViewAdapter.ViewHolder>{
     private Context context;
-    private ArrayList<pemberitahuan> data;
+    private ArrayList<Pemberitahuan> data;
 
 
-    public DosenPemberitahuanViewAdapter(Context context, ArrayList<pemberitahuan> data) {
+    public DosenPemberitahuanViewAdapter(Context context, ArrayList<Pemberitahuan> data) {
         this.context = context;
         this.data = data;
     }

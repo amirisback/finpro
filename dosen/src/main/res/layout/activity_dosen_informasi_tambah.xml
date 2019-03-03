@@ -21,25 +21,7 @@
             android:src="@drawable/ic_announcement"
             android:layout_gravity="center"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_view_line"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:background="@color/colorPrimary"/>
 
-        <TextView
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_date"
-            android:gravity="center_vertical"
-            android:padding="@dimen/dimen_big"
-            android:background="@drawable/box_border"
-            android:textSize="@dimen/text_size_title_small"
-            android:text="@string/dummy_tanggal"
-            android:textColor="@color/colorTextBlack" />
 
         <TextView
             android:layout_marginStart="@dimen/dimen_small"
