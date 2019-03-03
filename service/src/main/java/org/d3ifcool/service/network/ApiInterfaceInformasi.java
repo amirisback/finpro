@@ -1,5 +1,7 @@
 package org.d3ifcool.service.network;
 
+import org.d3ifcool.service.models.Informasi;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -25,15 +27,38 @@ import retrofit2.http.POST;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public interface ApiService {
+public interface ApiInterfaceInformasi {
 
-//    @FormUrlEncoded
-//    @POST("save.php")
-//    Call<Note> saveNote (
-//            @Field("title") String title,
-//            @Field("note") String note,
-//            @Field("color") int color
-//    );
+    @FormUrlEncoded
+    @POST("informasi/createInformasi.php")
+    Call<Informasi> createInformasi (
+            @Field("info_judul") String info_judul,
+            @Field("info_deskripsi") String info_deskripsi
+
+    );
+
+
+    @FormUrlEncoded
+    @POST("informasi/updateInformasi.php")
+    Call<Informasi> updateInformasi (
+            @Field("id") int id,
+            @Field("info_judul") String info_judul,
+            @Field("info_deskripsi") String info_deskripsi
+
+    );
+
+    @FormUrlEncoded
+    @POST("informasi/getInformasi.php")
+    Call<Informasi> getInformasi (
+            @Field("id") int id,
+            @Field("info_judul") String info_judul,
+            @Field("info_deskripsi") String info_deskripsi
+
+    );
+
+    @FormUrlEncoded
+    @POST("informasi/deleteInformasi.php")
+    Call<Informasi> deleteInformasi (@Field("id")int id);
 //
 //    @GET("notes.php")
 //    Call<List<Note>> getNotes();

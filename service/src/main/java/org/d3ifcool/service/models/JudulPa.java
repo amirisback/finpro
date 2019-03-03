@@ -23,7 +23,7 @@ import com.google.gson.annotations.SerializedName;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public class Judul_pa implements Parcelable {
+public class JudulPa implements Parcelable {
 
     @Expose
     @SerializedName("id_judul")
@@ -53,25 +53,25 @@ public class Judul_pa implements Parcelable {
     @SerializedName("kelompok")
     private String kelompok;
 
-    public Judul_pa(String judul, String kategori) {
+    public JudulPa(String judul, String kategori) {
         this.judul = judul;
         this.kategori = kategori;
     }
 
-    protected Judul_pa(Parcel in) {
+    protected JudulPa(Parcel in) {
         judul = in.readString();
         kategori = in.readString();
     }
 
-    public static final Creator<Judul_pa> CREATOR = new Creator<Judul_pa>() {
+    public static final Creator<JudulPa> CREATOR = new Creator<JudulPa>() {
         @Override
-        public Judul_pa createFromParcel(Parcel in) {
-            return new Judul_pa(in);
+        public JudulPa createFromParcel(Parcel in) {
+            return new JudulPa(in);
         }
 
         @Override
-        public Judul_pa[] newArray(int size) {
-            return new Judul_pa[size];
+        public JudulPa[] newArray(int size) {
+            return new JudulPa[size];
         }
     };
 

@@ -27,9 +27,9 @@ public class MahasiswaInformasiDetailActivity extends AppCompatActivity {
 
         Informasi extraInfo = getIntent().getParcelableExtra(EXTRA_INFORMASI);
         String judul = extraInfo.getInfo_judul();
-        String isi = extraInfo.getInfo_isi();
+        String isi = extraInfo.getInfo_deskripsi();
         String tanggal = extraInfo.getInfo_tanggal();
-        String dosen = extraInfo.getInfo_dosen();
+        String dosen = extraInfo.getPublisher();
 
         textView_isi.setText(isi);
         textView_tanggal.setText(tanggal);

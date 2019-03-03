@@ -45,6 +45,22 @@
             android:layout_marginStart="@dimen/dimen_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/text_judul"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_medium"
+            android:textSize="@dimen/text_size_title_small"
+            android:textColor="@color/colorPrimary"/>
+
+        <EditText
+            android:id="@+id/act_dsn_judul_editext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:hint="@string/hint_judul"/>
+        <TextView
+            android:layout_marginStart="@dimen/dimen_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/title_informasi"
             android:layout_marginTop="@dimen/dimen_medium"
             android:layout_marginBottom="@dimen/dimen_medium"
@@ -52,28 +68,12 @@
             android:textColor="@color/colorPrimary"/>
 
         <EditText
+            android:id="@+id/act_dsn_edittext_deskripsi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
-            android:hint="Masukkan Informasi"/>
-
-        <CheckBox
-            android:layout_marginStart="@dimen/dimen_small"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:id="@+id/act_dsn_info_check_bimbingan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/text_mahasiswa_bimbingan"
-            android:layout_above="@id/act_dsn_info_check_review"/>
-
-        <CheckBox
-            android:layout_marginStart="@dimen/dimen_small"
-            android:layout_marginBottom="@dimen/dimen_big"
-            android:id="@+id/act_dsn_info_check_review"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/text_mahasiswa_monev"
-            android:layout_above="@id/act_dsn_info_button_simpan"/>
+            android:hint="Masukkan Informasi"
+            android:layout_marginBottom="@dimen/dimen_big_ultra"/>
 
         <Button
             android:id="@+id/act_dsn_info_button_simpan"

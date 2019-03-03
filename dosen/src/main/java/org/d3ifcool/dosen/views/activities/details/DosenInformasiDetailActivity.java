@@ -28,9 +28,9 @@ public class DosenInformasiDetailActivity extends AppCompatActivity {
         TextView textView_dosen = findViewById(R.id.act_dsn_info_detail_textview_dosen);
 
         Informasi extraInfo = getIntent().getParcelableExtra(EXTRA_INFORMASI);
-        String isi = extraInfo.getInfo_isi();
+        String isi = extraInfo.getInfo_deskripsi();
         String tanggal = extraInfo.getInfo_tanggal();
-        String dosen = extraInfo.getInfo_dosen();
+        String dosen = extraInfo.getPublisher();
 
         textView_isi.setText(isi);
         textView_tanggal.setText(tanggal);

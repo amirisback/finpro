@@ -68,9 +68,9 @@ public class DosenInformasiViewAdapter extends RecyclerView.Adapter<DosenInforma
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.infoIsi.setText(data.get(position).getInfo_isi());
+        holder.infoIsi.setText(data.get(position).getInfo_deskripsi());
         holder.infoTanggal.setText(data.get(position).getInfo_tanggal());
-        holder.infoDosen.setText(data.get(position).getInfo_dosen());
+        holder.infoDosen.setText(data.get(position).getPublisher());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

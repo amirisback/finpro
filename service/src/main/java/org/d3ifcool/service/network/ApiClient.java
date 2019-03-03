@@ -22,8 +22,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class ApiClient {
 
-    private static final String IP = "192.168.1.149";
-    private static final String BASE_URL = "http://"+IP+"/Finpro/";
+    private static final String IP = "192.168.44.18";
+    private static final String BASE_URL = "http://"+IP+"/finpro/";
     private static Retrofit retrofit;
 
     public static Retrofit getApiClient() {

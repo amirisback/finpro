@@ -26,18 +26,18 @@
             android:layout_margin="@dimen/dimen_medium"
             android:background="@color/colorPrimary"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_medium"
-            android:layout_marginTop="@dimen/dimen_big"
-            android:background="@drawable/box_border"
-            android:textColor="@color/colorTextBlack"
-            android:text="@string/dummy_tanggal"
-            android:drawableRight="@drawable/ic_date"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:padding="@dimen/dimen_medium"
-            android:gravity="center"/>
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="@dimen/dimen_medium"-->
+            <!--android:layout_marginTop="@dimen/dimen_big"-->
+            <!--android:background="@drawable/box_border"-->
+            <!--android:textColor="@color/colorTextBlack"-->
+            <!--android:text="@string/dummy_tanggal"-->
+            <!--android:drawableRight="@drawable/ic_date"-->
+            <!--android:layout_marginBottom="@dimen/dimen_medium"-->
+            <!--android:padding="@dimen/dimen_medium"-->
+            <!--android:gravity="center"/>-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
             android:freezesText="true"
             android:padding="@dimen/dimen_medium"
             android:background="@android:color/transparent"
-            android:hint="Masukkan Judul PA"/>
+            android:hint="Masukkan Deskripsi Judul PA"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -232,24 +232,24 @@
                     android:background="@color/colorPrimary"/>
             </LinearLayout>
         </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginRight="@dimen/dimen_medium"
-            android:layout_marginLeft="@dimen/dimen_medium"
-            android:text="No Telepon"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimary"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginRight="@dimen/dimen_medium"
-            android:inputType="number"
-            android:background="@android:color/transparent"
-            android:padding="@dimen/dimen_medium"
-            android:hint="Masukkan No Telepon"/>
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="@dimen/dimen_medium"-->
+            <!--android:layout_marginRight="@dimen/dimen_medium"-->
+            <!--android:layout_marginLeft="@dimen/dimen_medium"-->
+            <!--android:text="No Telepon"-->
+            <!--android:textSize="16sp"-->
+            <!--android:textColor="@color/colorPrimary"/>-->
+        <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="@dimen/dimen_medium"-->
+            <!--android:layout_marginRight="@dimen/dimen_medium"-->
+            <!--android:inputType="number"-->
+            <!--android:background="@android:color/transparent"-->
+            <!--android:padding="@dimen/dimen_medium"-->
+            <!--android:hint="Masukkan No Telepon"/>-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"

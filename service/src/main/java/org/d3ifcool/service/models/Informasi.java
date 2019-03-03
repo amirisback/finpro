@@ -26,7 +26,7 @@ import com.google.gson.annotations.SerializedName;
 public class Informasi implements Parcelable {
     @Expose
     @SerializedName("id")
-    private String info_id;
+    private int id;
 
     @Expose
     @SerializedName("info_judul")
@@ -34,7 +34,7 @@ public class Informasi implements Parcelable {
 
     @Expose
     @SerializedName("info_deskripsi")
-    private String info_isi;
+    private String info_deskripsi;
 
     @Expose
     @SerializedName("created_at")
@@ -42,22 +42,56 @@ public class Informasi implements Parcelable {
 
     @Expose
     @SerializedName("publisher")
-    private String info_dosen;
+    private String publisher;
 
-    public Informasi(String info_id, String info_judul, String info_isi, String info_tanggal, String info_dosen) {
-        this.info_id = info_id;
+    public Informasi(int id, String info_judul, String info_deskrips, String info_tanggal, String publisher) {
+        this.id = id;
         this.info_judul = info_judul;
-        this.info_isi = info_isi;
+        this.info_deskripsi = info_deskrips;
         this.info_tanggal = info_tanggal;
-        this.info_dosen = info_dosen;
+        this.publisher = publisher;
     }
 
-    public String getInfo_id() {
-        return info_id;
+    protected Informasi(Parcel in) {
+        id = in.readInt();
+        info_judul = in.readString();
+        info_deskripsi = in.readString();
+        info_tanggal = in.readString();
+        publisher = in.readString();
     }
 
-    public void setInfo_id(String info_id) {
-        this.info_id = info_id;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(info_judul);
+        dest.writeString(info_deskripsi);
+        dest.writeString(info_tanggal);
+        dest.writeString(publisher);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Informasi> CREATOR = new Creator<Informasi>() {
+        @Override
+        public Informasi createFromParcel(Parcel in) {
+            return new Informasi(in);
+        }
+
+        @Override
+        public Informasi[] newArray(int size) {
+            return new Informasi[size];
+        }
+    };
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getInfo_judul() {
@@ -68,12 +102,12 @@ public class Informasi implements Parcelable {
         this.info_judul = info_judul;
     }
 
-    public String getInfo_isi() {
-        return info_isi;
+    public String getInfo_deskripsi() {
+        return info_deskripsi;
     }
 
-    public void setInfo_isi(String info_isi) {
-        this.info_isi = info_isi;
+    public void setInfo_deskripsi(String info_deskrips) {
+        this.info_deskripsi = info_deskrips;
     }
 
     public String getInfo_tanggal() {
@@ -84,46 +118,11 @@ public class Informasi implements Parcelable {
         this.info_tanggal = info_tanggal;
     }
 
-    public String getInfo_dosen() {
-        return info_dosen;
+    public String getPublisher() {
+        return publisher;
     }
 
-    public void setInfo_dosen(String info_dosen) {
-        this.info_dosen = info_dosen;
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
-
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.info_id);
-        dest.writeString(this.info_judul);
-        dest.writeString(this.info_isi);
-        dest.writeString(this.info_tanggal);
-        dest.writeString(this.info_dosen);
-    }
-
-    protected Informasi(Parcel in) {
-        this.info_id = in.readString();
-        this.info_judul = in.readString();
-        this.info_isi = in.readString();
-        this.info_tanggal = in.readString();
-        this.info_dosen = in.readString();
-    }
-
-    public static final Creator<Informasi> CREATOR = new Creator<Informasi>() {
-        @Override
-        public Informasi createFromParcel(Parcel source) {
-            return new Informasi(source);
-        }
-
-        @Override
-        public Informasi[] newArray(int size) {
-            return new Informasi[size];
-        }
-    };
 }

@@ -42,10 +42,10 @@ public class MahasiswaInformasiFragment extends Fragment {
 
         ArrayList<Informasi> arrayList = new ArrayList<>();
 
-        arrayList.add(new Informasi("a", "Judul", getString(R.string.dummyLong), getString(R.string.dummy_tanggal), getString(R.string.dummy_dosen_pembimbing)));
-        arrayList.add(new Informasi("a", "Judul", getString(R.string.dummyLong), getString(R.string.dummy_tanggal), getString(R.string.dummy_dosen_pembimbing)));
-        arrayList.add(new Informasi("a", "Judul", getString(R.string.dummyLong), getString(R.string.dummy_tanggal), getString(R.string.dummy_dosen_pembimbing)));
-        arrayList.add(new Informasi("a", "Judul", getString(R.string.dummyLong), getString(R.string.dummy_tanggal), getString(R.string.dummy_dosen_pembimbing)));
+//        arrayList.add(new Informasi("a", "Judul", getString(R.string.dummyLong), getString(R.string.dummy_tanggal), getString(R.string.dummy_dosen_pembimbing)));
+//        arrayList.add(new Informasi("a", "Judul", getString(R.string.dummyLong), getString(R.string.dummy_tanggal), getString(R.string.dummy_dosen_pembimbing)));
+//        arrayList.add(new Informasi("a", "Judul", getString(R.string.dummyLong), getString(R.string.dummy_tanggal), getString(R.string.dummy_dosen_pembimbing)));
+//        arrayList.add(new Informasi("a", "Judul", getString(R.string.dummyLong), getString(R.string.dummy_tanggal), getString(R.string.dummy_dosen_pembimbing)));
 
         adapter.addItem(arrayList);
         adapter.setLayoutType(R.layout.content_item_mahasiswa_informasi);
