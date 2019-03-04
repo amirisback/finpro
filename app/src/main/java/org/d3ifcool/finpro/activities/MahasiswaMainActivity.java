@@ -1,4 +1,4 @@
-package org.d3ifcool.finpro.views.activities;
+package org.d3ifcool.finpro.activities;
 
 import android.content.Intent;
 import androidx.annotation.NonNull;
@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.d3ifcool.finpro.R;
+import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.finpro.views.adapters.MahasiswaPagerAdapter;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPemberitahuanActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaProfilActivity;
@@ -19,6 +20,7 @@ public class MahasiswaMainActivity extends AppCompatActivity {
     private MenuItem prevMenuItem = null;
     private ViewPager mViewPager;
     private BottomNavigationView bottomNavigationView;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class MahasiswaMainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.act_mhs_home_bottom_navigation);
         MahasiswaPagerAdapter mPagerAdapter = new MahasiswaPagerAdapter(this, getSupportFragmentManager());
         mViewPager.setAdapter(mPagerAdapter);
+        sessionManager = new SessionManager(this);
         // -----------------------------------------------------------------------------------------
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -115,6 +118,8 @@ public class MahasiswaMainActivity extends AppCompatActivity {
             case R.id.toolbar_menu_keluar:
                 Intent intentKeluar = new Intent(MahasiswaMainActivity.this, LoginActivity.class);
                 startActivity(intentKeluar);
+                sessionManager.removeSession();
+                finish();
                 break;
             default:
                 break;

@@ -1,75 +1,62 @@
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/relative"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
-        android:id="@+id/relative"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ctn_mhs_pemberitahuan_circle_image"
+        android:src="@drawable/ic_dummy_photo"
+        app:civ_border_width="1dp"
+        android:layout_marginLeft="@dimen/dimen_big"
+        app:civ_border_color="@color/colorBackground"
+        style="@style/image_item_dosen_mahasiswa"/>
+    <TextView
+        android:layout_marginTop="@dimen/dimen_big"
+        android:id="@+id/ctn_mhs_pemberitahuan_isi"
+        android:layout_toEndOf="@id/ctn_mhs_pemberitahuan_circle_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
-        android:layout_marginRight="@dimen/dimen_medium"
-        android:layout_marginLeft="@dimen/dimen_medium"
-        android:paddingBottom="@dimen/dimen_medium">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/ctn_mhs_pemberitahuan_circle_image"
-            android:src="@drawable/ic_dummy_photo"
-            app:civ_border_width="1dp"
-            android:layout_marginLeft="@dimen/dimen_big"
-            android:layout_marginTop="@dimen/dimen_medium"
-            app:civ_border_color="@color/colorBackground"
-            style="@style/image_item_dosen_mahasiswa"/>
-        <TextView
-            android:layout_marginTop="@dimen/dimen_big"
-            android:id="@+id/ctn_mhs_pemberitahuan_isi"
-            android:layout_toRightOf="@id/ctn_mhs_pemberitahuan_circle_image"
-            android:layout_width="match_parent"
-            android:maxLines="3"
-            android:gravity=""
-            android:textColor="@color/colorTextBlack"
-            android:layout_height="wrap_content"
-            android:text="hariandi maulid mengirim suatu pesan"/>
-        <LinearLayout
-            android:id="@+id/linear"
-            android:layout_below="@id/ctn_mhs_pemberitahuan_isi"
-            android:layout_toRightOf="@id/ctn_mhs_pemberitahuan_circle_image"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:gravity="center_vertical"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_big"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/ctn_mhs_pemberitahuan_waktu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dummy_tanggal"
-                android:textSize="10sp"
-                android:textColor="@color/colorPrimary"/>
+        android:textColor="@color/colorTextBlack"
+        android:layout_height="wrap_content"
+        android:text="hariandi maulid mengirim suatu pesan"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_medium"
-                android:layout_marginRight="@dimen/dimen_medium"
-                android:text="|"
-                android:textSize="10sp"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/ctn_mhs_pemberitahuan_menit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
-                android:textColor="@color/colorPrimary"
-                android:text="45 menit yang lalu"/>
-        </LinearLayout>
-
-    </RelativeLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_gravity="bottom"
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_below="@id/ctn_mhs_pemberitahuan_isi"
+        android:layout_toRightOf="@id/ctn_mhs_pemberitahuan_circle_image"
         android:layout_marginTop="@dimen/dimen_medium"
-        android:background="@color/colorBackground"/>
-</androidx.cardview.widget.CardView>
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_big"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/ctn_mhs_pemberitahuan_waktu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dummy_tanggal"
+            android:textSize="10sp"
+            android:textColor="@color/colorPrimary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_medium"
+            android:layout_marginRight="@dimen/dimen_medium"
+            android:text="|"
+            android:textSize="10sp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/ctn_mhs_pemberitahuan_menit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="@color/colorPrimary"
+            android:text="45 menit yang lalu"/>
+    </LinearLayout>
+
+</RelativeLayout>

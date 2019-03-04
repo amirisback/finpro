@@ -25,7 +25,7 @@ public interface LoginView {
 
     void hideProgress();
 
-    void onRequestSuccess(String message, Login body);
+    void onRequestSuccess(String message, Login login);
 
     void onRequestError(String message);
 

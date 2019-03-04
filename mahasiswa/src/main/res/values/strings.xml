@@ -142,4 +142,11 @@
         <item>Tri Brotoharsono, S.T., M.T.</item>
     </string-array>
 
+    <string-array name="kategori_proyek_akhir">
+        <item>Games</item>
+        <item>Website</item>
+        <item>Android</item>
+        <item>IoT</item>
+    </string-array>
+
 </resources>

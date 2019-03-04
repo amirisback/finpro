@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
+import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.InformasiViewEditor;
 import org.d3ifcool.service.presenter.InformasiPresenter;
 
@@ -19,6 +20,7 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
 
     private ProgressDialog progressDialog;
     private InformasiPresenter presenter;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
 
         presenter = new InformasiPresenter(this,DosenInformasiTambahActivity.this);
 
+        sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.progress_dialog));
 
@@ -48,7 +51,7 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
                 }else if(text_info_deskripsi.isEmpty()){
                     info_deskripsi.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else{
-                    presenter.createInformasi(text_info_judul, text_info_deskripsi);
+                    presenter.createInformasi(text_info_judul, text_info_deskripsi, sessionManager.getSessionUsername());
                 }
 
             }

@@ -27,15 +27,15 @@ public class Login implements Parcelable {
 
     @Expose
     @SerializedName("username")
-    private int username;
+    private String username;
 
     @Expose
     @SerializedName("password")
-    private int password;
+    private String password;
 
     @Expose
     @SerializedName("pengguna")
-    private int pengguna;
+    private String pengguna;
 
     @Expose
     @SerializedName("success")
@@ -45,7 +45,7 @@ public class Login implements Parcelable {
     @SerializedName("message")
     private String message;
 
-    public Login(int username, int password, int pengguna, Boolean success, String message) {
+    public Login(String username, String password, String pengguna, Boolean success, String message) {
         this.username = username;
         this.password = password;
         this.pengguna = pengguna;
@@ -53,27 +53,27 @@ public class Login implements Parcelable {
         this.message = message;
     }
 
-    public int getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    public void setUsername(int username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public int getPengguna() {
+    public String getPengguna() {
         return pengguna;
     }
 
-    public void setPengguna(int pengguna) {
+    public void setPengguna(String pengguna) {
         this.pengguna = pengguna;
     }
 
@@ -101,17 +101,17 @@ public class Login implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.username);
-        dest.writeInt(this.password);
-        dest.writeInt(this.pengguna);
+        dest.writeString(this.username);
+        dest.writeString(this.password);
+        dest.writeString(this.pengguna);
         dest.writeValue(this.success);
         dest.writeString(this.message);
     }
 
     protected Login(Parcel in) {
-        this.username = in.readInt();
-        this.password = in.readInt();
-        this.pengguna = in.readInt();
+        this.username = in.readString();
+        this.password = in.readString();
+        this.pengguna = in.readString();
         this.success = (Boolean) in.readValue(Boolean.class.getClassLoader());
         this.message = in.readString();
     }

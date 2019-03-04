@@ -38,7 +38,8 @@ public interface ApiInterfaceInformasi {
     @POST(URL_INFORMASI_CREATE)
     Call<Informasi> createInformasi (
             @Field("info_judul") String info_judul,
-            @Field("info_deskripsi") String info_deskripsi
+            @Field("info_deskripsi") String info_deskripsi,
+            @Field("publisher") String publisher
     );
 
     @FormUrlEncoded
