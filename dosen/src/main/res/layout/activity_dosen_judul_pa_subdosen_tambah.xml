@@ -9,6 +9,7 @@
     tools:context=".activities.adds.DosenJudulPaSubdosenTambahActivity">
 
     <LinearLayout
+
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,13 +46,14 @@
             android:textColor="@color/colorPrimary"/>
 
         <Spinner
-            android:entries="@array/kategori_proyek_akhir"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_medium"
             android:layout_marginBottom="@dimen/dimen_big"/>
 
         <TextView
+
             android:layout_marginStart="@dimen/dimen_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -5,6 +5,7 @@ import org.d3ifcool.service.models.Antrean;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
@@ -22,7 +23,7 @@ import retrofit2.http.POST;
  */
 public interface ApiInterfaceAntrean {
     @FormUrlEncoded
-    @POST("antrean/getAntrean")
+    @GET("antrean/getAntrean")
     Call<Antrean> getAntrean(
             @Field("id_antrian") int id_antrian,
             @Field("status_antrian") String status_antrian,

@@ -7,14 +7,21 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.InformasiViewEditor;
+import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
+import org.d3ifcool.service.models.JudulPa;
 import org.d3ifcool.service.presenter.InformasiPresenter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DosenInformasiTambahActivity extends AppCompatActivity implements InformasiViewEditor {
 
@@ -33,6 +40,7 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
         final EditText info_judul = findViewById(R.id.act_dsn_edittext_judul);
         final EditText info_deskripsi = findViewById(R.id.act_dsn_edittext_deskripsi);
         Button btn_simpan = findViewById(R.id.act_dsn_info_button_simpan);
+
 
         presenter = new InformasiPresenter(this,DosenInformasiTambahActivity.this);
 
@@ -95,4 +103,6 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
     public void onFailed(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
+
 }

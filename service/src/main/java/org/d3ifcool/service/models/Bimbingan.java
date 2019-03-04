@@ -30,7 +30,7 @@ public class Bimbingan implements Parcelable {
     private String id;
 
     @Expose
-    @SerializedName("tanggal")
+    @SerializedName("created_at")
     private String tanggal;
 
     @Expose

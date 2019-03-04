@@ -2,6 +2,8 @@ package org.d3ifcool.service.network;
 
 import org.d3ifcool.service.models.JudulPa;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -12,6 +14,7 @@ import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_CREATE;
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_DELETE;
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_READ;
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_UPDATE;
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_KATEGORI_JUDUL_PA_READ;
 
 /**
  * Created by Faisal Amir
@@ -54,7 +57,13 @@ public interface ApiInterfaceJudulPa {
     );
 
     @GET(URL_JUDUL_PA_READ)
-    Call<JudulPa> getJudul();
+    Call<List<JudulPa>> getJudul();
+
+
+//    @GET(URL_KATEGORI_JUDUL_PA_READ)
+//    Call<JudulPa> getKategoriJudul(
+//            @Field("kategori") String kategori
+//    );
 
     @FormUrlEncoded
     @POST(URL_JUDUL_PA_DELETE)

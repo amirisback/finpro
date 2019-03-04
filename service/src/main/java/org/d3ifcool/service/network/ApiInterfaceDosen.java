@@ -6,6 +6,7 @@ import org.d3ifcool.service.models.Informasi;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
@@ -58,7 +59,7 @@ public interface ApiInterfaceDosen {
     Call<Dosen> deleteDosen(@Field("nip_dosen") int nip_dosen);
 
     @FormUrlEncoded
-    @POST("dosen/getDosen.php")
+    @GET("dosen/getDosen.php")
     Call<Dosen> getDosen(
             @Field("nip_dosen") int nip_dosen,
             @Field("nama_d") String nama_d,
