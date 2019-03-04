@@ -1,5 +1,15 @@
 package org.d3ifcool.service.presenter;
 
+import android.content.Context;
+
+import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
+import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
+import org.d3ifcool.service.models.JudulPa;
+import org.d3ifcool.service.network.ApiClient;
+import org.d3ifcool.service.network.ApiInterfaceJudulPa;
+
+import retrofit2.Call;
+
 /**
  * Created by ikhsan ramadhan
  * =========================================
@@ -14,7 +24,19 @@ package org.d3ifcool.service.presenter;
  * -----------------------------------------
  */
 public class JudulPaPresenter {
-    public void createJudulPa(String judul, String deskripsi, String kelompok, String nip_dosen){
 
+    private JudulPaSubDosenViewEditor viewEditor;
+    private JudulPaSubDosenViewResult viewResult;
+    private Context context;
+
+    public JudulPaPresenter(JudulPaSubDosenViewEditor viewEditor, Context context) {
+        this.viewEditor = viewEditor;
+        this.context = context;
     }
+
+    public JudulPaPresenter(JudulPaSubDosenViewResult viewResult, Context context) {
+        this.viewResult = viewResult;
+        this.context = context;
+    }
+
 }

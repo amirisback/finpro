@@ -41,7 +41,6 @@ public interface ApiInterfaceInformasi {
             @Field("info_deskripsi") String info_deskripsi
     );
 
-
     @FormUrlEncoded
     @POST(URL_INFORMASI_UPDATE)
     Call<Informasi> updateInformasi (
@@ -56,6 +55,8 @@ public interface ApiInterfaceInformasi {
 
     @FormUrlEncoded
     @POST(URL_INFORMASI_DELETE)
-    Call<Informasi> deleteInformasi (@Field("id")int id);
+    Call<Informasi> deleteInformasi (
+            @Field("id") int id
+    );
 
 }

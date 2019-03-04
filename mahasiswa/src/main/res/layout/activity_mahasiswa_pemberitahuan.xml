@@ -5,7 +5,7 @@
     android:id="@+id/act_mhs_pemberitahuan_recyclerview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.activities.MahasiswaPemberitahuanActivity"
+    tools:context=".activities.MahasiswaPemberitahuanActivity"
     tools:listitem="@layout/content_item_mahasiswa_pemberitahuan"
     xmlns:android="http://schemas.android.com/apk/res/android">
 

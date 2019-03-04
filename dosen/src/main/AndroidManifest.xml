@@ -3,25 +3,25 @@
 
     <application>
 
-        <activity android:name=".views.activities.edits.DosenMonevUbahActivity" />
-        <activity android:name=".views.activities.edits.DosenBimbinganUbahActivity" />
-        <activity android:name=".views.activities.edits.DosenJudulPaSubdosenUbahActivity" />
-        <activity android:name=".views.activities.edits.DosenProfilUbahActivity" />
-        <activity android:name=".views.activities.edits.DosenInformasiUbahActivity" />
-        <activity android:name=".views.activities.notifications.DosenPemberitahuanActivity" />
-        <activity android:name=".views.activities.details.DosenMonevDetailActivity" />
-        <activity android:name=".views.activities.details.DosenBimbinganDetailActivity" />
-        <activity android:name=".views.activities.adds.DosenMonevTambahActivity" />
-        <activity android:name=".views.activities.adds.DosenBimbinganTambahActivity" />
-        <activity android:name=".views.activities.details.DosenJudulPaSubmahasiswaDetailActivity" />
-        <activity android:name=".views.activities.details.DosenJudulPaSubdosenDetailActivity" />
-        <activity android:name=".views.activities.adds.DosenJudulPaTambahActivity" />
-        <activity android:name=".views.activities.adds.DosenInformasiTambahActivity" />
-        <activity android:name=".views.activities.details.DosenInformasiDetailActivity" />
-        <activity android:name=".views.activities.details.DosenMahasiswaSidangDetailActivity" />
-        <activity android:name=".views.activities.details.DosenMahasiswaMonevDetailActivity" />
-        <activity android:name=".views.activities.details.DosenMahasiswaBimbinganDetailActivity" />
-        <activity android:name=".views.activities.profiles.DosenProfilActivity" />
+        <activity android:name=".activities.edits.DosenMonevUbahActivity" />
+        <activity android:name=".activities.edits.DosenBimbinganUbahActivity" />
+        <activity android:name=".activities.edits.DosenJudulPaSubdosenUbahActivity" />
+        <activity android:name=".activities.edits.DosenProfilUbahActivity" />
+        <activity android:name=".activities.edits.DosenInformasiUbahActivity" />
+        <activity android:name=".activities.notifications.DosenPemberitahuanActivity" />
+        <activity android:name=".activities.details.DosenMonevDetailActivity" />
+        <activity android:name=".activities.details.DosenBimbinganDetailActivity" />
+        <activity android:name=".activities.adds.DosenMonevTambahActivity" />
+        <activity android:name=".activities.adds.DosenBimbinganTambahActivity" />
+        <activity android:name=".activities.details.DosenJudulPaSubmahasiswaDetailActivity" />
+        <activity android:name=".activities.details.DosenJudulPaSubdosenDetailActivity" />
+        <activity android:name=".activities.adds.DosenJudulPaSubdosenTambahActivity" />
+        <activity android:name=".activities.adds.DosenInformasiTambahActivity" />
+        <activity android:name=".activities.details.DosenInformasiDetailActivity" />
+        <activity android:name=".activities.details.DosenMahasiswaSidangDetailActivity" />
+        <activity android:name=".activities.details.DosenMahasiswaMonevDetailActivity" />
+        <activity android:name=".activities.details.DosenMahasiswaBimbinganDetailActivity" />
+        <activity android:name=".activities.profiles.DosenProfilActivity" />
 
     </application>
 

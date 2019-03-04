@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorBackground"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:context=".views.activities.adds.DosenInformasiTambahActivity">
+    tools:context=".activities.adds.DosenInformasiTambahActivity">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -18,10 +18,9 @@
         <ImageView
             android:layout_width="@dimen/dimen_profil_photo"
             android:layout_height="@dimen/dimen_profil_photo"
+            android:layout_marginBottom="@dimen/dimen_big_ultra"
             android:src="@drawable/ic_announcement"
             android:layout_gravity="center"/>
-
-
 
         <TextView
             android:layout_marginStart="@dimen/dimen_small"
@@ -34,11 +33,13 @@
             android:textColor="@color/colorPrimary"/>
 
         <EditText
-            android:id="@+id/act_dsn_judul_editext"
+            android:id="@+id/act_dsn_edittext_judul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
+            android:maxLines="1"
+            android:singleLine="true"
             android:hint="@string/hint_judul"/>
+
         <TextView
             android:layout_marginStart="@dimen/dimen_small"
             android:layout_width="wrap_content"

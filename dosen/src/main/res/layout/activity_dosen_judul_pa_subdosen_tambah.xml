@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".activities.adds.DosenJudulPaSubdosenTambahActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_big">
+
+        <ImageView
+            android:layout_width="@dimen/dimen_profil_photo"
+            android:layout_height="@dimen/dimen_profil_photo"
+            android:src="@drawable/ic_judul_pa"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/dimen_big_ultra"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_small"
+            android:text="Judul Proyek Akhir"
+            android:textSize="@dimen/text_size_title_small"
+            android:textColor="@color/colorPrimary"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Masukkan Judul PA"
+            android:layout_marginBottom="@dimen/dimen_big"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/dimen_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kategori Proyek Akhir"
+            android:textSize="@dimen/text_size_title_small"
+            android:textColor="@color/colorPrimary"/>
+
+        <Spinner
+            android:entries="@array/kategori_proyek_akhir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_big"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/dimen_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deskripsi Proyek Akhir"
+            android:textSize="@dimen/text_size_title_small"
+            android:textColor="@color/colorPrimary"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:hint="Masukkan Deskripsi Judul PA"/>
+
+        <Button
+            android:layout_marginTop="@dimen/dimen_big"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simpan Judul"
+            android:textColor="@color/colorTextWhite"
+            android:background="@drawable/box_border_button_action"/>
+
+    </LinearLayout>
+</ScrollView>

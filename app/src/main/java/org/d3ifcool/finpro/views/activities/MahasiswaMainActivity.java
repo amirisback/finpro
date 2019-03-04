@@ -11,8 +11,8 @@ import android.view.MenuItem;
 
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.finpro.views.adapters.MahasiswaPagerAdapter;
-import org.d3ifcool.mahasiswa.views.activities.MahasiswaPemberitahuanActivity;
-import org.d3ifcool.mahasiswa.views.activities.MahasiswaProfilActivity;
+import org.d3ifcool.mahasiswa.activities.MahasiswaPemberitahuanActivity;
+import org.d3ifcool.mahasiswa.activities.MahasiswaProfilActivity;
 
 public class MahasiswaMainActivity extends AppCompatActivity {
 

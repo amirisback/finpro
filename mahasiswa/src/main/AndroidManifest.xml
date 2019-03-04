@@ -3,14 +3,14 @@
 
     <application>
 
-        <activity android:name=".views.activities.MahasiswaInformasiDetailActivity" />
-        <activity android:name=".views.activities.MahasiswaPaMonevDetailActivity" />
-        <activity android:name=".views.activities.MahasiswaPaBimbinganDetailActivity" />
-        <activity android:name=".views.activities.MahasiswaProfilActivity" />
-        <activity android:name=".views.activities.MahasiswaPemberitahuanActivity" />
-        <activity android:name=".views.activities.MahasiswaJudulPaPengajuanTambahActivity" />
-        <activity android:name=".views.activities.MahasiswaJudulPaDosenDetailActivity" />
-        <activity android:name=".views.activities.MahasiswaProfilUbahActivity" />
+        <activity android:name=".activities.MahasiswaInformasiDetailActivity" />
+        <activity android:name=".activities.MahasiswaPaMonevDetailActivity" />
+        <activity android:name=".activities.MahasiswaPaBimbinganDetailActivity" />
+        <activity android:name=".activities.MahasiswaProfilActivity" />
+        <activity android:name=".activities.MahasiswaPemberitahuanActivity" />
+        <activity android:name=".activities.MahasiswaJudulPaPengajuanTambahActivity" />
+        <activity android:name=".activities.MahasiswaJudulPaDosenDetailActivity" />
+        <activity android:name=".activities.MahasiswaProfilUbahActivity" />
     </application>
 
 </manifest>

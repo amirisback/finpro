@@ -3,13 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.fragments.DosenInformasiFragment"
+    tools:context=".fragments.DosenInformasiFragment"
     android:background="@color/colorBackground">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/frg_dsn_info_home_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dimen_medium"
         tools:listitem="@layout/content_item_dosen_informasi">
     </androidx.recyclerview.widget.RecyclerView>
 

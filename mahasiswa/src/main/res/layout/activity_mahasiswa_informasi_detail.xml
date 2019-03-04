@@ -5,98 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".views.activities.MahasiswaInformasiDetailActivity">
-
-    <!--<LinearLayout-->
-        <!--android:orientation="vertical"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
-
-        <!--<android.support.v7.widget.CardView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="@dimen/dimen_medium"-->
-            <!--android:layout_marginLeft="@dimen/dimen_medium"-->
-            <!--android:layout_marginRight="@dimen/dimen_medium">-->
-
-            <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="vertical"-->
-                <!--android:layout_margin="@dimen/dimen_medium">-->
-
-                <!--<TextView-->
-                    <!--android:textColor="@color/colorPrimaryDark"-->
-                    <!--android:id="@+id/act_mhs_info_detail_textview_judul"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="@string/hint_info_judul"-->
-                    <!--android:textSize="@dimen/text_size_title_big"-->
-                    <!--android:textStyle="bold"/>-->
-
-                <!--<TextView-->
-                    <!--android:textColor="@color/colorAccent"-->
-                    <!--android:id="@+id/act_mhs_info_detail_textview_tanggal"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="@string/dummy_tanggal" />-->
-
-            <!--</LinearLayout>-->
-
-        <!--</android.support.v7.widget.CardView>-->
-
-        <!--<android.support.v7.widget.CardView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_margin="@dimen/dimen_medium">-->
-
-            <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="vertical"-->
-                <!--android:minHeight="@dimen/min_height_info"-->
-                <!--android:layout_margin="@dimen/dimen_medium">-->
-
-                <!--<LinearLayout-->
-                    <!--android:orientation="horizontal"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content">-->
-
-                    <!--<TextView-->
-                        <!--android:textColor="@color/colorTextBlack"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="@string/text_oleh"/>-->
-
-                    <!--<TextView-->
-                        <!--android:textColor="@color/colorPrimary"-->
-                        <!--android:id="@+id/act_mhs_info_detail_textview_dosen"-->
-                        <!--android:layout_marginStart="@dimen/dimen_small"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="@string/dummy_dosen_pembimbing"/>-->
-
-                <!--</LinearLayout>-->
-
-                <!--<View-->
-                    <!--android:layout_marginTop="@dimen/dimen_medium"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="2dp"-->
-                    <!--android:background="@color/colorBackground"-->
-                    <!--android:layout_marginBottom="@dimen/dimen_medium"/>-->
-
-                <!--<TextView-->
-                    <!--android:textColor="@color/colorTextBlack"-->
-                    <!--android:id="@+id/act_mhs_info_detail_textview_isi"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:text="@string/dummyLong" />-->
-
-            <!--</LinearLayout>-->
-
-        <!--</android.support.v7.widget.CardView>-->
-
-    <!--</LinearLayout>-->
+    tools:context=".activities.MahasiswaInformasiDetailActivity">
 
     <LinearLayout
         android:orientation="vertical"
@@ -171,9 +80,14 @@
                 android:layout_marginEnd="@dimen/dimen_big">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:textColor="@color/colorTextBlack"
+                    android:id="@+id/act_mhs_info_detail_textview_judul"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/text_informasi"/>
+                    android:textSize="@dimen/text_size_title_small"
+                    android:maxLines="1"
+                    android:textStyle="bold"
+                    android:text="@string/title_proyekakhir"/>
 
                 <View
                     android:layout_marginTop="@dimen/dimen_medium"

@@ -9,8 +9,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import org.d3ifcool.dosen.views.activities.notifications.DosenPemberitahuanActivity;
-import org.d3ifcool.dosen.views.activities.profiles.DosenProfilActivity;
+import org.d3ifcool.dosen.activities.notifications.DosenPemberitahuanActivity;
+import org.d3ifcool.dosen.activities.profiles.DosenProfilActivity;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.finpro.views.adapters.DosenPagerAdapter;
 

@@ -7,9 +7,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import org.d3ifcool.finpro.R;
-import org.d3ifcool.mahasiswa.views.fragments.MahasiswaInformasiFragment;
-import org.d3ifcool.mahasiswa.views.fragments.MahasiswaJudulPaFragment;
-import org.d3ifcool.mahasiswa.views.fragments.MahasiswaPaFragment;
+import org.d3ifcool.mahasiswa.fragments.MahasiswaInformasiFragment;
+import org.d3ifcool.mahasiswa.fragments.MahasiswaJudulPaFragment;
+import org.d3ifcool.mahasiswa.fragments.MahasiswaPaFragment;
 
 /**
  * Created by Faisal Amir

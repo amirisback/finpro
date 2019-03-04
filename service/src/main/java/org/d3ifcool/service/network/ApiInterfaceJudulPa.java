@@ -1,12 +1,17 @@
 package org.d3ifcool.service.network;
 
-import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.service.models.JudulPa;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_CREATE;
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_DELETE;
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_READ;
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_UPDATE;
 
 /**
  * Created by Faisal Amir
@@ -28,18 +33,17 @@ import retrofit2.http.POST;
 public interface ApiInterfaceJudulPa {
 
     @FormUrlEncoded
-    @POST("judul/createJudul.php")
+    @POST(URL_JUDUL_PA_CREATE)
     Call<JudulPa> createJudul(
             @Field("judul") String judul,
             @Field("deskripsi") String deskripsi,
             @Field("kategori") String kategori,
             @Field("nip_dosen") String nip_dosen
-
     );
 
 
     @FormUrlEncoded
-    @POST("judul/updateJudul.php")
+    @POST(URL_JUDUL_PA_UPDATE)
     Call<JudulPa> updateJudul(
             @Field("id_judul") int id_judul,
             @Field("judul") String judul,
@@ -47,40 +51,13 @@ public interface ApiInterfaceJudulPa {
             @Field("kategori") String kategori,
             @Field("status") String status,
             @Field("nip_dosen") String nip_dosen
-
     );
 
-    @FormUrlEncoded
-    @POST("judul/getJudul.php")
-    Call<JudulPa> selectJudul(
-            @Field("id_judul") int id_judul,
-            @Field("judul") String judul,
-            @Field("deskripsi") String deskripsi,
-            @Field("kategori") String kategori,
-            @Field("status") String status,
-            @Field("nip_dosen") String nip_dosen
-
-    );
+    @GET(URL_JUDUL_PA_READ)
+    Call<JudulPa> getJudul();
 
     @FormUrlEncoded
-    @POST("judul/deleteJudul.php")
+    @POST(URL_JUDUL_PA_DELETE)
     Call<JudulPa> deleteJudul(@Field("id_judul") int id_judul);
-//
-//    @GET("notes.php")
-//    Call<List<Note>> getNotes();
-//
-//    @FormUrlEncoded
-//    @POST("update.php")
-//    Call<Note> updateNote(
-//            @Field("id") int id,
-//            @Field("title") String title,
-//            @Field("note") String note,
-//            @Field("color") int color
-//    );
-//
-//    @FormUrlEncoded
-//    @POST("delete.php")
-//    Call<Note> deleteNote(@Field("id") int id);
-
 
 }

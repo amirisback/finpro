@@ -30,7 +30,7 @@
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/toolbar_menu_delete"
+        android:id="@+id/toolbar_menu_hapus"
         android:icon="@drawable/ic_toolbar_delete"
         android:title="@string/text_hapus"
         app:showAsAction="ifRoom"/>
