@@ -12,7 +12,7 @@
         android:background="@drawable/circle_profile_header"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/foto"
+        android:id="@+id/act_mhs_profil_foto"
         android:background="@drawable/circle_border_photo_profil"
         android:layout_width="@dimen/dimen_profil_photo"
         android:layout_height="@dimen/dimen_profil_photo"
@@ -21,7 +21,7 @@
         android:layout_marginTop="@dimen/dimen_big"/>
 
     <TextView
-        android:id="@+id/nama"
+        android:id="@+id/act_mhs_profil_nama"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,12 +29,12 @@
         android:text="@string/dummy_mahasiswa_nama"
         android:textStyle="bold"
         android:textColor="@color/colorTextWhite"
-        android:layout_below="@+id/foto"/>
+        android:layout_below="@+id/act_mhs_profil_foto"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/nama"
+        android:layout_below="@+id/act_mhs_profil_nama"
         android:layout_above="@id/text_d3rpla"
         android:layout_marginLeft="@dimen/dimen_big"
         android:layout_marginTop="32dp"
@@ -59,6 +59,7 @@
                 android:textSize="@dimen/text_size_small" />
 
             <TextView
+                android:id="@+id/act_mhs_profil_nim"
                 android:layout_width="@dimen/dimen_weight"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -86,10 +87,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_profil_detail_kelas"
+                android:text="@string/text_profil_detail_email"
                 android:textSize="@dimen/text_size_small" />
 
             <TextView
+                android:id="@+id/act_mhs_profil_email"
                 android:layout_width="@dimen/dimen_weight"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -121,6 +123,7 @@
                 android:textSize="@dimen/text_size_small" />
 
             <TextView
+                android:id="@+id/act_mhs_profil_kontak"
                 android:layout_width="@dimen/dimen_weight"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

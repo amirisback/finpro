@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.activities.adds.DosenBimbinganTambahActivity;
+import org.d3ifcool.dosen.activities.editors.DosenBimbinganTambahActivity;
 import org.d3ifcool.service.models.Bimbingan;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenBimbinganViewAdapter;
 

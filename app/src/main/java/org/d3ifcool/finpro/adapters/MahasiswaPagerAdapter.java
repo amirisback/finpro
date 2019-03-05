@@ -1,4 +1,4 @@
-package org.d3ifcool.finpro.views.adapters;
+package org.d3ifcool.finpro.adapters;
 
 import android.content.Context;
 

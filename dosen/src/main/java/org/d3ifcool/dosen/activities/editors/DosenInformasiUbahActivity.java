@@ -1,4 +1,4 @@
-package org.d3ifcool.dosen.activities.adds;
+package org.d3ifcool.dosen.activities.editors;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,60 +7,51 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.InformasiViewEditor;
-import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
-import org.d3ifcool.service.models.JudulPa;
+import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.service.presenter.InformasiPresenter;
 
-import java.util.ArrayList;
-import java.util.List;
+public class DosenInformasiUbahActivity extends AppCompatActivity implements InformasiViewEditor {
 
-public class DosenInformasiTambahActivity extends AppCompatActivity implements InformasiViewEditor {
-
-    private ProgressDialog progressDialog;
+    public static final String EXTRA_INFORMASI = "extra_informasi";
+    private Informasi extraInfo;
     private InformasiPresenter presenter;
-    private SessionManager sessionManager;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dosen_informasi_tambah);
+        setContentView(R.layout.activity_dosen_informasi_ubah);
 
-        setTitle(R.string.title_informasi_tambah);
+        setTitle(getString(R.string.title_informasi_ubah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final EditText info_judul = findViewById(R.id.act_dsn_edittext_judul);
         final EditText info_deskripsi = findViewById(R.id.act_dsn_edittext_deskripsi);
-        Button btn_simpan = findViewById(R.id.act_dsn_info_button_simpan);
+        Button btn_ubah = findViewById(R.id.act_dsn_info_button_simpan);
 
+        extraInfo = getIntent().getParcelableExtra(EXTRA_INFORMASI);
+        String judul = extraInfo.getInfo_judul();
+        String isi = extraInfo.getInfo_deskripsi();
 
-        presenter = new InformasiPresenter(this,DosenInformasiTambahActivity.this);
+        info_judul.setText(judul);
+        info_deskripsi.setText(isi);
 
-        sessionManager = new SessionManager(this);
+        presenter = new InformasiPresenter(this, DosenInformasiUbahActivity.this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.progress_dialog));
 
-        btn_simpan.setOnClickListener(new View.OnClickListener() {
+        btn_ubah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String text_info_judul = info_judul.getText().toString();
-                String text_info_deskripsi = info_deskripsi.getText().toString();
-                if(text_info_judul.isEmpty()){
-                    info_judul.setError(getString(R.string.text_tidak_boleh_kosong));
-                }else if(text_info_deskripsi.isEmpty()){
-                    info_deskripsi.setError(getString(R.string.text_tidak_boleh_kosong));
-                }else{
-                    presenter.createInformasi(text_info_judul, text_info_deskripsi, sessionManager.getSessionDosenNamaD(), sessionManager.getSessionDosenFoto());
-                }
+                String judul_baru = info_judul.getText().toString();
+                String isi_baru = info_deskripsi.getText().toString();
+                presenter.updateInformasi(extraInfo.getId(), judul_baru, isi_baru);
 
             }
         });
@@ -74,6 +65,7 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
@@ -103,6 +95,4 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
     public void onFailed(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
-
-
 }

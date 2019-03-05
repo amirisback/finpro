@@ -1,4 +1,4 @@
-package org.d3ifcool.dosen.activities.profiles;
+package org.d3ifcool.dosen.activities;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.activities.edits.DosenProfilUbahActivity;
+import org.d3ifcool.dosen.activities.editors.DosenProfilUbahActivity;
 
 public class DosenProfilActivity extends AppCompatActivity {
 

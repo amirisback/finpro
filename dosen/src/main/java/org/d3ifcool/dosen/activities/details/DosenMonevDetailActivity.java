@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.activities.edits.DosenMonevUbahActivity;
+import org.d3ifcool.dosen.activities.editors.DosenMonevUbahActivity;
 
 public class DosenMonevDetailActivity extends AppCompatActivity {
 

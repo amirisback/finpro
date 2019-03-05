@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.activities.edits.DosenJudulPaSubdosenUbahActivity;
+import org.d3ifcool.dosen.activities.editors.DosenJudulPaSubdosenUbahActivity;
 
 public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity {
 

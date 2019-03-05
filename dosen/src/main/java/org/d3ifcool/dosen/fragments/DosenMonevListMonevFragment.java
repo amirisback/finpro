@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.activities.adds.DosenMonevTambahActivity;
+import org.d3ifcool.dosen.activities.editors.DosenMonevTambahActivity;
 import org.d3ifcool.service.models.Monev;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenMonevViewAdapter;
 

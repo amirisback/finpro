@@ -84,7 +84,7 @@
     <string name="text_profil_detail_nama">Nama</string>
     <string name="text_profil_detail_nip">NIP</string>
     <string name="text_profil_detail_nim">NIM</string>
-    <string name="text_profil_detail_kelas">Kelas</string>
+    <string name="text_profil_detail_email">Email</string>
     <string name="text_profil_detail_jurusan">Jurusan</string>
     <string name="text_profil_detail_status">Status</string>
     <string name="text_profil_detail_notelp">No Telp</string>

@@ -1,4 +1,4 @@
-package org.d3ifcool.dosen.activities.edits;
+package org.d3ifcool.dosen.activities.editors;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,46 +12,48 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
+import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.InformasiViewEditor;
-import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.service.presenter.InformasiPresenter;
 
-public class DosenInformasiUbahActivity extends AppCompatActivity implements InformasiViewEditor {
+public class DosenInformasiTambahActivity extends AppCompatActivity implements InformasiViewEditor {
 
-    public static final String EXTRA_INFORMASI = "extra_informasi";
-    private Informasi extraInfo;
-    private InformasiPresenter presenter;
     private ProgressDialog progressDialog;
+    private InformasiPresenter presenter;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dosen_informasi_ubah);
+        setContentView(R.layout.activity_dosen_informasi_tambah);
 
-        setTitle(getString(R.string.title_informasi_ubah));
+        setTitle(R.string.title_informasi_tambah);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final EditText info_judul = findViewById(R.id.act_dsn_edittext_judul);
         final EditText info_deskripsi = findViewById(R.id.act_dsn_edittext_deskripsi);
-        Button btn_ubah = findViewById(R.id.act_dsn_info_button_simpan);
+        Button btn_simpan = findViewById(R.id.act_dsn_info_button_simpan);
 
-        extraInfo = getIntent().getParcelableExtra(EXTRA_INFORMASI);
-        String judul = extraInfo.getInfo_judul();
-        String isi = extraInfo.getInfo_deskripsi();
 
-        info_judul.setText(judul);
-        info_deskripsi.setText(isi);
+        presenter = new InformasiPresenter(this,DosenInformasiTambahActivity.this);
 
-        presenter = new InformasiPresenter(this, DosenInformasiUbahActivity.this);
+        sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.progress_dialog));
 
-        btn_ubah.setOnClickListener(new View.OnClickListener() {
+        btn_simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String judul_baru = info_judul.getText().toString();
-                String isi_baru = info_deskripsi.getText().toString();
-                presenter.updateInformasi(extraInfo.getId(), judul_baru, isi_baru);
+
+                String text_info_judul = info_judul.getText().toString();
+                String text_info_deskripsi = info_deskripsi.getText().toString();
+                if(text_info_judul.isEmpty()){
+                    info_judul.setError(getString(R.string.text_tidak_boleh_kosong));
+                }else if(text_info_deskripsi.isEmpty()){
+                    info_deskripsi.setError(getString(R.string.text_tidak_boleh_kosong));
+                }else{
+                    presenter.createInformasi(text_info_judul, text_info_deskripsi, sessionManager.getSessionDosenNamaD(), sessionManager.getSessionDosenFoto());
+                }
 
             }
         });
@@ -65,7 +67,6 @@ public class DosenInformasiUbahActivity extends AppCompatActivity implements Inf
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
@@ -95,4 +96,6 @@ public class DosenInformasiUbahActivity extends AppCompatActivity implements Inf
     public void onFailed(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
+
 }

@@ -1,4 +1,4 @@
-package org.d3ifcool.dosen.activities.adds;
+package org.d3ifcool.dosen.activities.editors;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,9 +17,6 @@ import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
 import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
 import org.d3ifcool.service.presenter.JudulPaPresenter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implements JudulPaSubDosenViewEditor {
     private Spinner spinner_kategori;

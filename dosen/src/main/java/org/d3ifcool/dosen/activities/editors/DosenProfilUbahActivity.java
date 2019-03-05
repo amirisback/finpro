@@ -1,24 +1,21 @@
-package org.d3ifcool.dosen.activities.edits;
+package org.d3ifcool.dosen.activities.editors;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
 
 import org.d3ifcool.dosen.R;
 
-public class DosenBimbinganUbahActivity extends AppCompatActivity {
+public class DosenProfilUbahActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dosen_bimbingan_ubah);
+        setContentView(R.layout.activity_dosen_profil_ubah);
 
-        setTitle(getString(R.string.title_bimbingan_ubah));
+        setTitle(getString(R.string.title_profil_ubah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
     }
 

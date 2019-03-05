@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.activities.adds.DosenJudulPaSubdosenTambahActivity;
+import org.d3ifcool.dosen.activities.editors.DosenJudulPaSubdosenTambahActivity;
 import org.d3ifcool.service.models.JudulPa;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenJudulPaSubdosenViewAdapter;
 

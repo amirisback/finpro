@@ -1,4 +1,4 @@
-package org.d3ifcool.dosen.activities.notifications;
+package org.d3ifcool.dosen.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;

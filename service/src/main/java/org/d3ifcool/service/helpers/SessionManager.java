@@ -94,6 +94,38 @@ public class SessionManager {
         editor.commit();
     }
 
+    public String getSessionMahasiswaNim(){
+        return sharedPreferences.getString(NIM_MHS, null);
+    }
+
+    public String getSessionMahasiswaNamaM(){
+        return sharedPreferences.getString(NAMA_M, null);
+    }
+
+    public String getSessionMahasiswaFotoM(){
+        return sharedPreferences.getString(FOTO_M, null);
+    }
+
+    public String getSessionMahasiswaEmailM(){
+        return sharedPreferences.getString(EMAIL_M, null);
+    }
+
+    public String getSessionMahasiswaKontakM(){
+        return sharedPreferences.getString(KONTAK_M, null);
+    }
+
+    public String getSessionMahasiswaAngkatanM(){
+        return sharedPreferences.getString(ANGKATAN, null);
+    }
+
+    public String getSessionMahasiswaStatus(){
+        return sharedPreferences.getString(STATUS, null);
+    }
+
+    public String getSessionMahasiswaUsernameM(){
+        return sharedPreferences.getString(USERNAME_MHS, null);
+    }
+
     public String getSessionDosenNip(){
         return sharedPreferences.getString(NIP_DOSEN, null);
     }

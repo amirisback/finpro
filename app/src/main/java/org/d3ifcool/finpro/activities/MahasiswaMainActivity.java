@@ -11,16 +11,23 @@ import android.view.MenuItem;
 
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.finpro.views.adapters.MahasiswaPagerAdapter;
+import org.d3ifcool.finpro.adapters.MahasiswaPagerAdapter;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPemberitahuanActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaProfilActivity;
+import org.d3ifcool.service.interfaces.MahasiswaLoginView;
+import org.d3ifcool.service.interfaces.MahasiswaViewResult;
+import org.d3ifcool.service.models.Mahasiswa;
+import org.d3ifcool.service.presenter.DataLoginPresenter;
 
-public class MahasiswaMainActivity extends AppCompatActivity {
+import java.util.List;
+
+public class MahasiswaMainActivity extends AppCompatActivity implements MahasiswaLoginView {
 
     private MenuItem prevMenuItem = null;
     private ViewPager mViewPager;
     private BottomNavigationView bottomNavigationView;
     private SessionManager sessionManager;
+    private DataLoginPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +42,8 @@ public class MahasiswaMainActivity extends AppCompatActivity {
         MahasiswaPagerAdapter mPagerAdapter = new MahasiswaPagerAdapter(this, getSupportFragmentManager());
         mViewPager.setAdapter(mPagerAdapter);
         sessionManager = new SessionManager(this);
+        presenter = new DataLoginPresenter(this, MahasiswaMainActivity.this);
+        presenter.getDataMahasiswaLogin(sessionManager.getSessionUsername());
         // -----------------------------------------------------------------------------------------
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -128,5 +137,25 @@ public class MahasiswaMainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void onRequestSuccess(String message, Mahasiswa mahasiswa) {
+        sessionManager.createSessionDataMahasiswa(mahasiswa);
+    }
+
+    @Override
+    public void onRequestError(String message) {
+
+    }
 
 }

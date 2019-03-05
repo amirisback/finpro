@@ -9,17 +9,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import org.d3ifcool.dosen.activities.notifications.DosenPemberitahuanActivity;
-import org.d3ifcool.dosen.activities.profiles.DosenProfilActivity;
+import org.d3ifcool.dosen.activities.DosenPemberitahuanActivity;
+import org.d3ifcool.dosen.activities.DosenProfilActivity;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.finpro.views.adapters.DosenPagerAdapter;
+import org.d3ifcool.finpro.adapters.DosenPagerAdapter;
 import org.d3ifcool.service.interfaces.DosenLoginView;
-import org.d3ifcool.service.interfaces.DosenViewResult;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.presenter.DataLoginPresenter;
-
-import java.util.List;
 
 public class DosenMainActivity extends AppCompatActivity implements DosenLoginView {
 
@@ -44,6 +41,7 @@ public class DosenMainActivity extends AppCompatActivity implements DosenLoginVi
         presenter = new DataLoginPresenter(this, DosenMainActivity.this);
         sessionManager = new SessionManager(this);
         presenter.getDataDosenLogin(sessionManager.getSessionUsername());
+
         // -----------------------------------------------------------------------------------------
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -139,12 +137,10 @@ public class DosenMainActivity extends AppCompatActivity implements DosenLoginVi
 
     @Override
     public void showProgress() {
-
     }
 
     @Override
     public void hideProgress() {
-
     }
 
     @Override

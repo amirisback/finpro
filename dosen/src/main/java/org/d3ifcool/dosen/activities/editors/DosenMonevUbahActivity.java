@@ -1,4 +1,4 @@
-package org.d3ifcool.dosen.activities.edits;
+package org.d3ifcool.dosen.activities.editors;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,14 +7,14 @@ import android.view.MenuItem;
 
 import org.d3ifcool.dosen.R;
 
-public class DosenProfilUbahActivity extends AppCompatActivity {
+public class DosenMonevUbahActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dosen_profil_ubah);
+        setContentView(R.layout.activity_dosen_monev_ubah);
 
-        setTitle(getString(R.string.title_profil_ubah));
+        setTitle(getString(R.string.title_monev_ubah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }

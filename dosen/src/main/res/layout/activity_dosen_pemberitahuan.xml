@@ -5,7 +5,7 @@
     android:id="@+id/act_dsn_pemberitahuan_recyclerview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.notifications.DosenPemberitahuanActivity"
+    tools:context=".activities.DosenPemberitahuanActivity"
     tools:listitem="@layout/content_item_dosen_pemberitahuan">
 
 </androidx.recyclerview.widget.RecyclerView>

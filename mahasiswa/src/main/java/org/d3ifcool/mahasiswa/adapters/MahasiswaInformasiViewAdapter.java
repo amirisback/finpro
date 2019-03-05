@@ -4,16 +4,22 @@ import android.content.Context;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import de.hdodenhof.circleimageview.CircleImageView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.mahasiswa.activities.MahasiswaInformasiDetailActivity;
 
 import java.util.ArrayList;
+
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 
 /**
  * Created by Faisal Amir
@@ -54,6 +60,7 @@ public class MahasiswaInformasiViewAdapter extends RecyclerView.Adapter<Mahasisw
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView infoJudul, infoIsi, infoTanggal, infoDosen;
+        CircleImageView infoFoto;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -62,6 +69,7 @@ public class MahasiswaInformasiViewAdapter extends RecyclerView.Adapter<Mahasisw
             infoIsi = itemView.findViewById(R.id.ctn_mhs_info_textview_isi);
             infoTanggal = itemView.findViewById(R.id.ctn_mhs_info_textview_tanggal);
             infoDosen = itemView.findViewById(R.id.ctn_mhs_info_textview_dosen);
+            infoFoto = itemView.findViewById(R.id.ctn_mhs_mhs_bimbingan_circle_image);
             // -------------------------------------------------------------------------------------
         }
     }
@@ -72,6 +80,7 @@ public class MahasiswaInformasiViewAdapter extends RecyclerView.Adapter<Mahasisw
         holder.infoIsi.setText(data.get(position).getInfo_deskripsi());
         holder.infoTanggal.setText(data.get(position).getInfo_tanggal());
         holder.infoDosen.setText(data.get(position).getPublisher());
+        Picasso.get().load(URL_FOTO_DOSEN + data.get(position).getFoto()).into(holder.infoFoto);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
