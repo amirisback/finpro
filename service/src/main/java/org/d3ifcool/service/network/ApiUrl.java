@@ -28,6 +28,10 @@ public class ApiUrl {
         public static final String FOLDER_NAME = "finpro-android";
         public static final String BASE_URL = "http://"+IP+"/"+FOLDER_NAME+"/";
         // -----------------------------------------------------------------------------------------
+        public static final String BASE_URL_FOTO = BASE_URL + "foto/";
+        public static final String URL_FOTO_DOSEN = BASE_URL_FOTO + "foto_dosen/";
+        public static final String URL_FOTO_MAHASISWA = BASE_URL_FOTO + "foto_mahasiswa/";
+        // -----------------------------------------------------------------------------------------
         public static final String BASE_URL_DOSEN = "dosen/";
         public static final String URL_DOSEN_CREATE = BASE_URL_DOSEN + "createDosen.php";
         public static final String URL_DOSEN_READ = BASE_URL_DOSEN + "getDosen.php";

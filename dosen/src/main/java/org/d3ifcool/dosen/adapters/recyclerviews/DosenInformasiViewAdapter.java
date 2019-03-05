@@ -5,16 +5,24 @@ import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import de.hdodenhof.circleimageview.CircleImageView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.details.DosenInformasiDetailActivity;
+import org.d3ifcool.service.helpers.CircleTransform;
 import org.d3ifcool.service.models.Informasi;
 
 import java.util.ArrayList;
+
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 
 /**
  * Created by Faisal Amir
@@ -55,10 +63,12 @@ public class DosenInformasiViewAdapter extends RecyclerView.Adapter<DosenInforma
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView infoJudul, infoIsi, infoTanggal, infoDosen;
+        CircleImageView foto;
 
         public ViewHolder(View itemView) {
             super(itemView);
             // -------------------------------------------------------------------------------------
+            foto = itemView.findViewById(R.id.ctn_dsn_mhs_bimbingan_circle_image);
             infoJudul = itemView.findViewById(R.id.ctn_dsn_info_textview_judul);
             infoIsi = itemView.findViewById(R.id.ctn_dsn_info_textview_isi);
             infoTanggal = itemView.findViewById(R.id.ctn_dsn_info_textview_tanggal);
@@ -73,7 +83,8 @@ public class DosenInformasiViewAdapter extends RecyclerView.Adapter<DosenInforma
         holder.infoIsi.setText(data.get(position).getInfo_deskripsi());
         holder.infoTanggal.setText(data.get(position).getInfo_tanggal());
         holder.infoDosen.setText(data.get(position).getPublisher());
-
+        Picasso.get().load(URL_FOTO_DOSEN+data.get(position).getFoto()).into(holder.foto);
+//        Picasso.get().load(URL_FOTO_DOSEN+data.get(position).getFoto()).transform(new CircleTransform()).into(holder.foto);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

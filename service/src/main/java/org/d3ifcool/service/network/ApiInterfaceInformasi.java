@@ -39,7 +39,8 @@ public interface ApiInterfaceInformasi {
     Call<Informasi> createInformasi (
             @Field("info_judul") String info_judul,
             @Field("info_deskripsi") String info_deskripsi,
-            @Field("publisher") String publisher
+            @Field("publisher") String publisher,
+            @Field("foto") String foto
     );
 
     @FormUrlEncoded
@@ -48,7 +49,6 @@ public interface ApiInterfaceInformasi {
             @Field("id") int id,
             @Field("info_judul") String info_judul,
             @Field("info_deskripsi") String info_deskripsi
-
     );
 
     @GET(URL_INFORMASI_READ)

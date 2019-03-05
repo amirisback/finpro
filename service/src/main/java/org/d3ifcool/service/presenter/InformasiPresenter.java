@@ -43,11 +43,11 @@ public class InformasiPresenter {
         this.context = context;
     }
 
-    public void createInformasi (String info_judul, String info_deskripsi, String publisher) {
+    public void createInformasi (String info_judul, String info_deskripsi, String publisher, String foto) {
         viewEditor.showProgress();
 
         ApiInterfaceInformasi apiInterface = ApiClient.getApiClient().create(ApiInterfaceInformasi.class);
-        Call<Informasi> call = apiInterface.createInformasi(info_judul, info_deskripsi, publisher);
+        Call<Informasi> call = apiInterface.createInformasi(info_judul, info_deskripsi, publisher, foto);
         call.enqueue(new Callback<Informasi>() {
             @Override
             public void onResponse(Call<Informasi> call, Response<Informasi> response) {

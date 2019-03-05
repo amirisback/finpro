@@ -44,12 +44,17 @@ public class Informasi implements Parcelable {
     @SerializedName("publisher")
     private String publisher;
 
-    public Informasi(int id, String info_judul, String info_deskripsi, String info_tanggal, String publisher) {
+    @Expose
+    @SerializedName("foto")
+    private String foto;
+
+    public Informasi(int id, String info_judul, String info_deskripsi, String info_tanggal, String publisher, String foto) {
         this.id = id;
         this.info_judul = info_judul;
         this.info_deskripsi = info_deskripsi;
         this.info_tanggal = info_tanggal;
         this.publisher = publisher;
+        this.foto = foto;
     }
 
     public int getId() {
@@ -92,6 +97,14 @@ public class Informasi implements Parcelable {
         this.publisher = publisher;
     }
 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
 
     @Override
     public int describeContents() {
@@ -105,6 +118,7 @@ public class Informasi implements Parcelable {
         dest.writeString(this.info_deskripsi);
         dest.writeString(this.info_tanggal);
         dest.writeString(this.publisher);
+        dest.writeString(this.foto);
     }
 
     protected Informasi(Parcel in) {
@@ -113,6 +127,7 @@ public class Informasi implements Parcelable {
         this.info_deskripsi = in.readString();
         this.info_tanggal = in.readString();
         this.publisher = in.readString();
+        this.foto = in.readString();
     }
 
     public static final Creator<Informasi> CREATOR = new Creator<Informasi>() {
