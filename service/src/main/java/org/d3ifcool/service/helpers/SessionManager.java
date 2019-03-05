@@ -94,8 +94,33 @@ public class SessionManager {
         editor.commit();
     }
 
+    public String getSessionDosenNip(){
+        return sharedPreferences.getString(NIP_DOSEN, null);
+    }
 
+    public String getSessionDosenNamaD(){
+        return sharedPreferences.getString(NAMA_D, null);
+    }
 
+    public String getSessionDosenFoto(){
+        return sharedPreferences.getString(FOTO, null);
+    }
+
+    public String getSessionDosenEmail(){
+        return sharedPreferences.getString(EMAIL_D, null);
+    }
+
+    public String getSessionDosenKontak(){
+        return sharedPreferences.getString(KONTAK_D, null);
+    }
+
+    public String getSessionDosenLimit(){
+        return sharedPreferences.getString(LIMIT, null);
+    }
+
+    public String getSessionDosenUserNameDosen(){
+        return sharedPreferences.getString(USERNAME_DOSEN, null);
+    }
 
     public String getSessionPengguna(){
         return sharedPreferences.getString(PENGGUNA, null);

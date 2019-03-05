@@ -46,6 +46,8 @@ public class ApiUrl {
         public static final String URL_LOGIN_DELETE = BASE_URL_LOGIN + "deleteLogin.php";
         public static final String URL_LOGIN_UPDATE = BASE_URL_LOGIN + "updateLogin.php";
         public static final String URL_LOGIN = BASE_URL_LOGIN + "login.php";
+        public static final String URL_LOGIN_DATA_DOSEN = BASE_URL_LOGIN + "getDosenLogin.php";
+        public static final String URL_LOGIN_DATA_MAHASISWA = BASE_URL_LOGIN + "getMahasiswalogin.php";
         // -----------------------------------------------------------------------------------------
         public static final String BASE_URL_INFORMASI = "informasi/";
         public static final String URL_INFORMASI_CREATE = BASE_URL_INFORMASI + "createInformasi.php";

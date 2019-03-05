@@ -8,6 +8,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_LOGIN_DATA_MAHASISWA;
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_MAHASISWA_CREATE;
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_MAHASISWA_DELETE;
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_MAHASISWA_READ;
@@ -59,4 +60,10 @@ public interface ApiInterfaceMahasiswa {
     @FormUrlEncoded
     @POST(URL_MAHASISWA_DELETE)
     Call<Mahasiswa> deleteMahasiswa(@Field("nim_mhs") String nim_mhs);
+
+    @FormUrlEncoded
+    @POST(URL_LOGIN_DATA_MAHASISWA)
+    Call<Mahasiswa> getDataMahasiswaLogin(@Field("username_mhs") String username_mhs);
+
+
 }

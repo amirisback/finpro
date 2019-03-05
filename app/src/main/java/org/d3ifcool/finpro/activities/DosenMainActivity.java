@@ -14,17 +14,20 @@ import org.d3ifcool.dosen.activities.profiles.DosenProfilActivity;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.finpro.views.adapters.DosenPagerAdapter;
+import org.d3ifcool.service.interfaces.DosenLoginView;
 import org.d3ifcool.service.interfaces.DosenViewResult;
 import org.d3ifcool.service.models.Dosen;
+import org.d3ifcool.service.presenter.DataLoginPresenter;
 
 import java.util.List;
 
-public class DosenMainActivity extends AppCompatActivity implements DosenViewResult {
+public class DosenMainActivity extends AppCompatActivity implements DosenLoginView {
 
     private MenuItem prevMenuItem = null;
     private ViewPager mViewPager;
     private BottomNavigationView bottomNavigationView;
     private SessionManager sessionManager;
+    private DataLoginPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,9 @@ public class DosenMainActivity extends AppCompatActivity implements DosenViewRes
         bottomNavigationView = findViewById(R.id.act_dsn_home_bottom_navigation);
         DosenPagerAdapter mPagerAdapter = new DosenPagerAdapter(this, getSupportFragmentManager());
         mViewPager.setAdapter(mPagerAdapter);
+        presenter = new DataLoginPresenter(this, DosenMainActivity.this);
         sessionManager = new SessionManager(this);
+        presenter.getDataDosenLogin(sessionManager.getSessionUsername());
         // -----------------------------------------------------------------------------------------
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -132,7 +137,6 @@ public class DosenMainActivity extends AppCompatActivity implements DosenViewRes
         return super.onOptionsItemSelected(item);
     }
 
-
     @Override
     public void showProgress() {
 
@@ -144,12 +148,12 @@ public class DosenMainActivity extends AppCompatActivity implements DosenViewRes
     }
 
     @Override
-    public void onGetResultDataDosen(List<Dosen> dosen) {
-
+    public void onRequestSuccess(String message, Dosen dosen) {
+        sessionManager.createSessionDataDosen(dosen);
     }
 
     @Override
-    public void onErrorLoading(String message) {
+    public void onRequestError(String message) {
 
     }
 }

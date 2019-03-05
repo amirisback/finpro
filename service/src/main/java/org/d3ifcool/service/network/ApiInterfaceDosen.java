@@ -14,6 +14,7 @@ import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_DOSEN_CREATE;
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_DOSEN_DELETE;
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_DOSEN_READ;
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_DOSEN_UPDATE;
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_LOGIN_DATA_DOSEN;
 
 /**
  * Created by Faisal Amir
@@ -64,5 +65,9 @@ public interface ApiInterfaceDosen {
     @FormUrlEncoded
     @GET(URL_DOSEN_READ)
     Call<List<Dosen>> getDosen();
+
+    @FormUrlEncoded
+    @POST(URL_LOGIN_DATA_DOSEN)
+    Call<Dosen> getDataDosenLogin(@Field("username_dosen") String username_dosen);
 
 }
