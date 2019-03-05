@@ -42,8 +42,8 @@ public class JudulPa implements Parcelable {
     private String deskripsi;
 
     @Expose
-    @SerializedName("status")
-    private String status;
+    @SerializedName("tersedia")
+    private String tersedia;
 
     @Expose
     @SerializedName("nip_dosen")
@@ -53,14 +53,41 @@ public class JudulPa implements Parcelable {
     @SerializedName("kelompok")
     private String kelompok;
 
+    @Expose
+    @SerializedName("created_at")
+    private String created_at;
+
+    @Expose
+    @SerializedName("updated_at")
+    private String updated_at;
+
     public JudulPa(String judul, String kategori) {
         this.judul = judul;
         this.kategori = kategori;
     }
 
+    public JudulPa(int id, String judul, String kategori, String deskripsi, String tersedia, String nip_dosen, String kelompok, String created_at, String update_at) {
+        this.id = id;
+        this.judul = judul;
+        this.kategori = kategori;
+        this.deskripsi = deskripsi;
+        this.tersedia = tersedia;
+        this.nip_dosen = nip_dosen;
+        this.kelompok = kelompok;
+        this.created_at = created_at;
+        this.updated_at = update_at;
+    }
+
     protected JudulPa(Parcel in) {
+        id = in.readInt();
         judul = in.readString();
         kategori = in.readString();
+        deskripsi = in.readString();
+        tersedia = in.readString();
+        nip_dosen = in.readString();
+        kelompok = in.readString();
+        created_at = in.readString();
+        updated_at= in.readString();
     }
 
     public static final Creator<JudulPa> CREATOR = new Creator<JudulPa>() {
@@ -74,6 +101,14 @@ public class JudulPa implements Parcelable {
             return new JudulPa[size];
         }
     };
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getJudul() {
         return judul;
@@ -91,6 +126,31 @@ public class JudulPa implements Parcelable {
         this.kategori = kategori;
     }
 
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
+    }
+
+    public String getStatus() {
+        return tersedia;
+    }
+
+    public void setStatus(String status) {
+        this.tersedia = status;
+    }
+
+    public String getNip_dosen() {
+        return nip_dosen;
+    }
+
+    public void setNip_dosen(String nip_dosen) {
+        this.nip_dosen = nip_dosen;
+    }
+
+
     @Override
     public int describeContents() {
         return 0;
@@ -98,7 +158,14 @@ public class JudulPa implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
         dest.writeString(judul);
         dest.writeString(kategori);
+        dest.writeString(deskripsi);
+        dest.writeString(tersedia);
+        dest.writeString(nip_dosen);
+        dest.writeString(kelompok);
+        dest.writeString(created_at);
+        dest.writeString(updated_at);
     }
 }

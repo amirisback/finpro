@@ -72,6 +72,8 @@ public class DosenJudulPaSubdosenViewAdapter extends RecyclerView.Adapter<DosenJ
             @Override
             public void onClick(View v) {
                 Intent intentData = new Intent(context, DosenJudulPaSubdosenDetailActivity.class);
+                JudulPa parcelinfo = data.get(position);
+                intentData.putExtra(DosenJudulPaSubdosenDetailActivity.EXTRA_INFORMASI, parcelinfo);
                 context.startActivity(intentData);
             }
         });

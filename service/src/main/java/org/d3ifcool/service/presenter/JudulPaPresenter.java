@@ -46,10 +46,10 @@ public class JudulPaPresenter {
         this.viewResult = viewResult;
         this.context = context;
     }
-    public void createJudul (String judul, String deskripsi, String kategori){
+    public void createJudul (String judul, String deskripsi, String kategori, String nip_dosen){
 
         ApiInterfaceJudulPa apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudulPa.class);
-        Call<JudulPa> call = apiInterface.createJudul(judul,deskripsi,kategori);
+        Call<JudulPa> call = apiInterface.createJudul(judul,deskripsi,kategori,nip_dosen);
         call.enqueue(new Callback<JudulPa>() {
             @Override
             public void onResponse(Call<JudulPa> call, Response<JudulPa> response) {
@@ -65,5 +65,42 @@ public class JudulPaPresenter {
         });
 
     }
+
+    public void getJudul() {
+        ApiInterfaceJudulPa apiInterfaceJudulPa = ApiClient.getApiClient().create(ApiInterfaceJudulPa.class);
+        Call<List<JudulPa>> call = apiInterfaceJudulPa.getJudul();
+        call.enqueue(new Callback<List<JudulPa>>() {
+            @Override
+            public void onResponse(Call<List<JudulPa>> call, Response<List<JudulPa>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetResult(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<JudulPa>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onErrorLoading(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void deleteJudul(int id_judul){
+        ApiInterfaceJudulPa apiInterfaceJudulPa = ApiClient.getApiClient().create(ApiInterfaceJudulPa.class);
+        Call<JudulPa> call = apiInterfaceJudulPa.deleteJudul(id_judul);
+        call.enqueue(new Callback<JudulPa>() {
+            @Override
+            public void onResponse(Call<JudulPa> call, Response<JudulPa> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<JudulPa> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
+
 
 }

@@ -24,7 +24,7 @@ public class ApiUrl {
 
     public static final class FinproUrl {
 
-        public static final String IP = "192.168.0.16";
+        public static final String IP = "10.135.5.154";
         public static final String FOLDER_NAME = "finpro-android";
         public static final String BASE_URL = "http://"+IP+"/"+FOLDER_NAME+"/";
         // -----------------------------------------------------------------------------------------
