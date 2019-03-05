@@ -40,8 +40,7 @@ public interface ApiInterfaceJudulPa {
     Call<JudulPa> createJudul(
             @Field("judul") String judul,
             @Field("deskripsi") String deskripsi,
-            @Field("kategori") String kategori,
-            @Field("nip_dosen") String nip_dosen
+            @Field("kategori") String kategori
     );
 
 

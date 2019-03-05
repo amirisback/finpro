@@ -24,15 +24,15 @@ public class ApiUrl {
 
     public static final class FinproUrl {
 
-        public static final String IP = "192.168.0.115";
+        public static final String IP = "192.168.0.16";
         public static final String FOLDER_NAME = "finpro-android";
         public static final String BASE_URL = "http://"+IP+"/"+FOLDER_NAME+"/";
         // -----------------------------------------------------------------------------------------
         public static final String BASE_URL_DOSEN = "dosen/";
-        public static final String URL_DOSEN_CREATE = BASE_URL_DOSEN + "";
-        public static final String URL_DOSEN_READ = BASE_URL_DOSEN + "";
-        public static final String URL_DOSEN_DELETE = BASE_URL_DOSEN + "";
-        public static final String URL_DOSEN_UPDATE = BASE_URL_DOSEN + "";
+        public static final String URL_DOSEN_CREATE = BASE_URL_DOSEN + "createDosen.php";
+        public static final String URL_DOSEN_READ = BASE_URL_DOSEN + "getDosen.php";
+        public static final String URL_DOSEN_DELETE = BASE_URL_DOSEN + "deleteDosen.php";
+        public static final String URL_DOSEN_UPDATE = BASE_URL_DOSEN + "updateDosen.php";
         // -----------------------------------------------------------------------------------------
         public static final String BASE_URL_MAHASISWA = "mahasiswa/";
         public static final String URL_MAHASISWA_CREATE = BASE_URL_MAHASISWA + "createMahasiswa.php";
@@ -56,10 +56,9 @@ public class ApiUrl {
         public static final String BASE_URL_JUDUL_PA = "judulpa/";
         public static final String URL_JUDUL_PA_CREATE = BASE_URL_JUDUL_PA + "createJudul.php";
         public static final String URL_JUDUL_PA_READ = BASE_URL_JUDUL_PA + "getJudul.php";
-        public static final String URL_KATEGORI_JUDUL_PA_READ = BASE_URL_JUDUL_PA + "getKategoriJudul.php";
         public static final String URL_JUDUL_PA_DELETE = BASE_URL_JUDUL_PA + "deleteJudul.php";
         public static final String URL_JUDUL_PA_UPDATE = BASE_URL_JUDUL_PA + "updateJudul.php";
-
+        public static final String URL_KATEGORI_JUDUL_PA_READ = BASE_URL_JUDUL_PA + "getKategoriJudul.php";
 
     }
 }

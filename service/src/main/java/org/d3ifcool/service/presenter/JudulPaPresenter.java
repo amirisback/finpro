@@ -35,7 +35,6 @@ public class JudulPaPresenter {
     private JudulPaSubDosenViewEditor viewEditor;
     private JudulPaSubDosenViewResult viewResult;
     private Context context;
-    public ArrayList<String> spinner;
 
 
     public JudulPaPresenter(JudulPaSubDosenViewEditor viewEditor, Context context) {
@@ -47,21 +46,21 @@ public class JudulPaPresenter {
         this.viewResult = viewResult;
         this.context = context;
     }
-    public void getJudul (){
+    public void createJudul (String judul, String deskripsi, String kategori){
 
         ApiInterfaceJudulPa apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudulPa.class);
-        Call<List<JudulPa>> call = apiInterface.getJudul();
-        call.enqueue(new Callback<List<JudulPa>>() {
+        Call<JudulPa> call = apiInterface.createJudul(judul,deskripsi,kategori);
+        call.enqueue(new Callback<JudulPa>() {
             @Override
-            public void onResponse(Call<List<JudulPa>> call, Response<List<JudulPa>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetResult(response.body());
-
+            public void onResponse(Call<JudulPa> call, Response<JudulPa> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
             }
 
             @Override
-            public void onFailure(Call<List<JudulPa>> call, Throwable t) {
-                viewResult.hideProgress();
+            public void onFailure(Call<JudulPa> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getLocalizedMessage());
             }
         });
 

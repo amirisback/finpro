@@ -4,7 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import java.util.HashMap;
+import org.d3ifcool.service.models.Dosen;
+import org.d3ifcool.service.models.Mahasiswa;
+
 
 /**
  * Created by Faisal Amir
@@ -34,6 +36,24 @@ public class SessionManager {
     private static final String USERNAME = "USERNAME";
     private static final String PENGGUNA = "PENGGUNA";
 
+    private static final String NIP_DOSEN = "NIP_DOSEN";
+    private static final String NAMA_D = "NAMA_D";
+    private static final String FOTO = "FOTO";
+    private static final String EMAIL_D = "EMAIL_D";
+    private static final String KONTAK_D = "KONTAK_D";
+    private static final String LIMIT = "LIMIT";
+    private static final String USERNAME_DOSEN = "USERNAME_DOSEN";
+
+    private static final String NIM_MHS = "NIM_MHS";
+    private static final String NAMA_M = "NAMA_M";
+    private static final String FOTO_M = "FOTO_M";
+    private static final String EMAIL_M = "EMAIL_M";
+    private static final String KONTAK_M = "KONTAK_M";
+    private static final String ANGKATAN = "ANGKATAN";
+    private static final String STATUS = "STATUS";
+    private static final String USERNAME_MHS = "USERNAME_MHS";
+
+
     @SuppressLint("CommitPrefEdits")
     public SessionManager(Context context) {
         this.context = context;
@@ -48,6 +68,34 @@ public class SessionManager {
         editor.apply();
         editor.commit();
     }
+
+    public void createSessionDataMahasiswa(Mahasiswa mahasiswa){
+        editor.putString(NIM_MHS, mahasiswa.getNim_mhs());
+        editor.putString(NAMA_M, mahasiswa.getNama_m());
+        editor.putString(FOTO_M, mahasiswa.getFoto_m());
+        editor.putString(EMAIL_M, mahasiswa.getEmail_m());
+        editor.putString(KONTAK_M, mahasiswa.getKontak_m());
+        editor.putString(ANGKATAN, mahasiswa.getAngkatan());
+        editor.putString(STATUS, mahasiswa.getStatus());
+        editor.putString(USERNAME_MHS, mahasiswa.getUsername_mhs());
+        editor.apply();
+        editor.commit();
+    }
+
+    public void createSessionDataDosen(Dosen dosen){
+        editor.putString(NIP_DOSEN, dosen.getNip_dosen());
+        editor.putString(NAMA_D, dosen.getNama_d());
+        editor.putString(FOTO, dosen.getFoto());
+        editor.putString(EMAIL_D, dosen.getEmail());
+        editor.putString(KONTAK_D, dosen.getNo_telefon());
+        editor.putInt(LIMIT, dosen.getLimit());
+        editor.putString(USERNAME_DOSEN, dosen.getUsername());
+        editor.apply();
+        editor.commit();
+    }
+
+
+
 
     public String getSessionPengguna(){
         return sharedPreferences.getString(PENGGUNA, null);

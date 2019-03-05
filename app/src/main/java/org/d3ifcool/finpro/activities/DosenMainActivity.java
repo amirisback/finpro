@@ -14,8 +14,12 @@ import org.d3ifcool.dosen.activities.profiles.DosenProfilActivity;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.finpro.views.adapters.DosenPagerAdapter;
+import org.d3ifcool.service.interfaces.DosenViewResult;
+import org.d3ifcool.service.models.Dosen;
 
-public class DosenMainActivity extends AppCompatActivity {
+import java.util.List;
+
+public class DosenMainActivity extends AppCompatActivity implements DosenViewResult {
 
     private MenuItem prevMenuItem = null;
     private ViewPager mViewPager;
@@ -129,5 +133,23 @@ public class DosenMainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void showProgress() {
 
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void onGetResultDataDosen(List<Dosen> dosen) {
+
+    }
+
+    @Override
+    public void onErrorLoading(String message) {
+
+    }
 }

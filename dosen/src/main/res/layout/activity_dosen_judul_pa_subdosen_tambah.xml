@@ -31,6 +31,7 @@
             android:textColor="@color/colorPrimary"/>
 
         <EditText
+            android:id="@+id/act_dsn_judul_pa_edittext_judul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -46,7 +47,8 @@
             android:textColor="@color/colorPrimary"/>
 
         <Spinner
-
+            android:id="@+id/act_dsn_judul_pa_edittext_kategori"
+            android:entries="@array/kategori_proyek_akhir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_medium"
@@ -62,12 +64,14 @@
             android:textColor="@color/colorPrimary"/>
 
         <EditText
+            android:id="@+id/act_dsn_judul_pa_edittext_deskripsi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:hint="Masukkan Deskripsi Judul PA"/>
 
         <Button
+            android:id="@+id/act_dsn_judul_pa_button_simpan"
             android:layout_marginTop="@dimen/dimen_big"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

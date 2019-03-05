@@ -11,9 +11,15 @@ import android.widget.Toast;
 
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.service.helpers.SessionManager;
+import org.d3ifcool.service.interfaces.DosenViewResult;
 import org.d3ifcool.service.interfaces.LoginView;
+import org.d3ifcool.service.interfaces.MahasiswaViewResult;
+import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Login;
+import org.d3ifcool.service.models.Mahasiswa;
 import org.d3ifcool.service.presenter.LoginPresenter;
+
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 

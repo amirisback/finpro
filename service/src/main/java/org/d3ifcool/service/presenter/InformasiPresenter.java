@@ -103,7 +103,6 @@ public class InformasiPresenter {
 
     public void getInformasi (){
         viewResult.showProgress();
-
         ApiInterfaceInformasi apiInterface = ApiClient.getApiClient().create(ApiInterfaceInformasi.class);
         Call<List<Informasi>> call = apiInterface.getInformasi();
         call.enqueue(new Callback<List<Informasi>>() {
