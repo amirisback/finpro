@@ -26,8 +26,6 @@ public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implem
     private SessionManager sessionManager;
     private ProgressDialog dialog;
 
-
-    private JudulPaSubDosenViewResult viewResult;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +36,8 @@ public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implem
         spinner_kategori = findViewById(R.id.act_dsn_judul_pa_edittext_kategori);
         btn_simpan = findViewById(R.id.act_dsn_judul_pa_button_simpan);
 
-
-
         setTitle(R.string.title_judulpa_dosen_tambah);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
         presenter = new JudulPaPresenter(this, DosenJudulPaSubdosenTambahActivity.this);
 
@@ -62,7 +57,7 @@ public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implem
                 }else if(deskripsi.isEmpty()){
                     et_deskripsi.setError("deskripsi tidak boleh kosong");
                 }else{
-                    presenter.createJudul(judul,deskripsi,kategori, sessionManager.getSessionDosenNip());
+                    presenter.createJudul(judul, deskripsi, kategori, sessionManager.getSessionDosenNip());
                 }
             }
         });

@@ -1,6 +1,7 @@
 package org.d3ifcool.mahasiswa.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,12 +26,15 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         recyclerView = findViewById(R.id.act_mhs_pemberitahuan_recyclerview);
         final ArrayList<Pemberitahuan> notifs = new ArrayList<>();
-        notifs.add(new Pemberitahuan("Hariandi Maulid mengirim suatu informasi","28 januari 2019"
-                ,"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
+        notifs.add(new Pemberitahuan("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
 
         MahasiswaPemberitahuanViewAdapter adapter = new MahasiswaPemberitahuanViewAdapter(this, notifs);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);;
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
+
         recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.addItemDecoration(itemDecoration);
 
     }
 

@@ -19,7 +19,7 @@ public class DosenMahasiswaBimbinganDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dosen_mahasiswa_bimbingan_detail);
 
-        setTitle(getString(R.string.title_mahasiswa_detail));
+        setTitle(getString(R.string.title_kelompok_mahasiswa_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0);
 

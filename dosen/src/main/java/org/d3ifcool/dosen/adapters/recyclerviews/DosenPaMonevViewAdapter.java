@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.details.DosenJudulPaSubmahasiswaDetailActivity;
+import org.d3ifcool.dosen.activities.details.DosenMahasiswaMonevDetailActivity;
 import org.d3ifcool.service.models.JudulPa;
 
 import java.util.ArrayList;
@@ -59,8 +60,8 @@ public class DosenPaMonevViewAdapter extends RecyclerView.Adapter<DosenPaMonevVi
         public ViewHolder(View itemView) {
             super(itemView);
             // -------------------------------------------------------------------------------------
-            judul = itemView.findViewById(R.id.ctn_dsn_judul_mhs_textview_judul);
-            kategori = itemView.findViewById(R.id.ctn_dsn_judul_mhs_textview_kategori);
+            judul = itemView.findViewById(R.id.ctn_dsn_pa_monev_textview_judul);
+            kategori = itemView.findViewById(R.id.ctn_dsn_pa_monev_textview_kategori);
             // -------------------------------------------------------------------------------------
         }
     }
@@ -72,7 +73,7 @@ public class DosenPaMonevViewAdapter extends RecyclerView.Adapter<DosenPaMonevVi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentData = new Intent(context, DosenJudulPaSubmahasiswaDetailActivity.class);
+                Intent intentData = new Intent(context, DosenMahasiswaMonevDetailActivity.class);
                 context.startActivity(intentData);
             }
         });

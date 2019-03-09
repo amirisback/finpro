@@ -12,7 +12,7 @@
         android:background="@drawable/circle_profile_header"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/foto"
+        android:id="@+id/act_dsn_profil_foto"
         android:background="@drawable/circle_border_photo_profil"
         android:layout_width="@dimen/dimen_profil_photo"
         android:layout_height="@dimen/dimen_profil_photo"
@@ -21,7 +21,7 @@
         android:layout_marginTop="@dimen/dimen_big"/>
 
     <TextView
-        android:id="@+id/nama"
+        android:id="@+id/act_dsn_profil_nama"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,11 +29,11 @@
         android:text="@string/dummy_dosen_pembimbing"
         android:textStyle="bold"
         android:textColor="@color/colorTextWhite"
-        android:layout_below="@+id/foto"/>
+        android:layout_below="@+id/act_dsn_profil_foto"/>
 
     <LinearLayout
         android:padding="@dimen/dimen_big_ultra"
-        android:layout_below="@+id/nama"
+        android:layout_below="@+id/act_dsn_profil_nama"
         android:layout_above="@id/text_d3rpla"
         android:orientation="vertical"
         android:layout_marginTop="@dimen/dimen_big_ultra"
@@ -60,6 +60,7 @@
                 android:text="@string/text_profil_detail_nip"/>
 
             <TextView
+                android:id="@+id/act_dsn_profil_nip"
                 android:layout_width="@dimen/dimen_weight"
                 android:layout_weight="1"
                 android:textColor="@color/colorPrimaryDark"
@@ -91,9 +92,10 @@
                 android:gravity="bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_profil_detail_status"/>
+                android:text="@string/text_profil_detail_email"/>
 
             <TextView
+                android:id="@+id/act_dsn_profil_email"
                 android:layout_width="@dimen/dimen_weight"
                 android:layout_weight="1"
                 android:textColor="@color/colorPrimaryDark"
@@ -109,6 +111,42 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_view_line"
             android:background="@color/colorBackground"/>
+
+        <LinearLayout
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginEnd="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_medium"
+            android:layout_marginTop="@dimen/dimen_big_ultra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="@dimen/text_size_small"
+                android:gravity="bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profil_detail_notelp"/>
+
+            <TextView
+                android:id="@+id/act_dsn_profil_kontak"
+                android:layout_width="@dimen/dimen_weight"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_title_small"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:text="@string/dummy_status_dosen"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_view_line"
+            android:background="@color/colorBackground"/>
+
 
     </LinearLayout>
 

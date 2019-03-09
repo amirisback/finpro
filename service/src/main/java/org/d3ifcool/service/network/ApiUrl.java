@@ -24,7 +24,7 @@ public class ApiUrl {
 
     public static final class FinproUrl {
 
-        public static final String IP = "10.135.5.154";
+        public static final String IP = "192.168.43.73";
         public static final String FOLDER_NAME = "finpro-android";
         public static final String BASE_URL = "http://"+IP+"/"+FOLDER_NAME+"/";
         // -----------------------------------------------------------------------------------------
@@ -65,6 +65,7 @@ public class ApiUrl {
         public static final String URL_JUDUL_PA_DELETE = BASE_URL_JUDUL_PA + "deleteJudul.php";
         public static final String URL_JUDUL_PA_UPDATE = BASE_URL_JUDUL_PA + "updateJudul.php";
         public static final String URL_KATEGORI_JUDUL_PA_READ = BASE_URL_JUDUL_PA + "getKategoriJudul.php";
+
 
     }
 }

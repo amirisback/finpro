@@ -56,16 +56,16 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             @Override
             public void onClick(View v) {
 //                login();
-//                Intent j = new Intent(LoginActivity.this, MahasiswaMainActivity.class);
-//                startActivity(j);
+                Intent j = new Intent(LoginActivity.this, AdminMainActivity.class);
+                startActivity(j);
 
-                username = editTextUsername.getText().toString();
-                password = editTextPassword.getText().toString();
-                presenter.getLogin(username, password);
+//                username = editTextUsername.getText().toString();
+//                password = editTextPassword.getText().toString();
+//                presenter.getLogin(username, password);
             }
         });
 
-        checkUserLogin(sessionManager.getSessionPengguna());
+//        checkUserLogin(sessionManager.getSessionPengguna());
     }
 
 

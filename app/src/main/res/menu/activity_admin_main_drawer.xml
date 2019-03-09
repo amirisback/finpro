@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/nav_menu_informasi"
+        android:icon="@drawable/ic_nav_informasi"
+        android:title="@string/menu_informasi" />
+
+    <item
+        android:id="@+id/nav_menu_mahasiswa"
+        android:icon="@drawable/ic_nav_mahasiswa"
+        android:title="@string/menu_mahasiswa" />
+
+    <item
+        android:id="@+id/nav_menu_dosen"
+        android:title="@string/menu_dosen" />
+
+    <item
+        android:id="@+id/nav_menu_proyek_akhir"
+        android:icon="@drawable/ic_nav_proyek_akhir"
+        android:title="@string/menu_proyek_akhir" />
+
+    <item
+        android:id="@+id/nav_menu_judul_pa"
+        android:title="@string/menu_judul_pa" />
+
+</menu>

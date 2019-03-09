@@ -38,7 +38,7 @@ public class Dosen implements Parcelable {
     String foto;
 
     @Expose
-    @SerializedName("email")
+    @SerializedName("email_d")
     String email;
 
     @Expose

@@ -1,6 +1,7 @@
 package org.d3ifcool.dosen.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,11 +29,17 @@ public class DosenPemberitahuanActivity extends AppCompatActivity {
         rv = findViewById(R.id.act_dsn_pemberitahuan_recyclerview);
 
         final ArrayList<Pemberitahuan> data = new ArrayList<>();
-        data.add(new Pemberitahuan("Hariandi Maulid mengirim suatu informasi","28 januari 2019"
-                ,"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
+        data.add(new Pemberitahuan("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
+        data.add(new Pemberitahuan("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
+        data.add(new Pemberitahuan("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
+        data.add(new Pemberitahuan("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
 
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         DosenPemberitahuanViewAdapter adapter = new DosenPemberitahuanViewAdapter(this,data);
-        rv.setLayoutManager(new LinearLayoutManager(this));
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
+
+        rv.setLayoutManager(linearLayoutManager);
+        rv.addItemDecoration(itemDecoration);
         rv.setAdapter(adapter);
 
     }

@@ -42,7 +42,7 @@ public class JudulPa implements Parcelable {
     private String deskripsi;
 
     @Expose
-    @SerializedName("tersedia")
+    @SerializedName("status")
     private String tersedia;
 
     @Expose
@@ -50,7 +50,7 @@ public class JudulPa implements Parcelable {
     private String nip_dosen;
 
     @Expose
-    @SerializedName("kelompok")
+    @SerializedName("nama_tim")
     private String kelompok;
 
     @Expose

@@ -12,19 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activities.AdminMainActivity"
+            android:label="@string/title_activity_admin_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.AdminActivity" />
         <activity android:name=".activities.TentangKamiActivity" />
-        <activity android:name=".activities.DosenMainActivity"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".activities.MahasiswaMainActivity"
-            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".activities.DosenMainActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.MahasiswaMainActivity"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

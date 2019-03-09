@@ -140,5 +140,17 @@
         <item>Rizza Indah Mega Mandasari, S.Kom., M.T.</item>
         <item>Tri Brotoharsono, S.T., M.T.</item>
     </string-array>
+    <string name="title_activity_admin_main">AdminMainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_informasi">Informasi</string>
+    <string name="menu_mahasiswa">Mahasiswa</string>
+    <string name="menu_dosen">Dosen</string>
+    <string name="menu_proyek_akhir">Proyek Akhir</string>
+    <string name="menu_judul_pa">Judul PA</string>
 
 </resources>

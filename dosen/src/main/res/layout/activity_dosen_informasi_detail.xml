@@ -46,7 +46,7 @@
                         android:textSize="@dimen/text_size_title_small"
                         android:id="@+id/act_dsn_info_detail_textview_dosen"
                         android:textColor="@color/colorPrimary"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:text="@string/dummy"/>
@@ -54,7 +54,7 @@
                     <TextView
                         android:textColor="@color/colorAccent"
                         android:id="@+id/act_dsn_info_detail_textview_tanggal"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/dummy"/>
 
