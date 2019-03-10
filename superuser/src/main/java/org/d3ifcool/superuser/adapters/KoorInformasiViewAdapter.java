@@ -79,7 +79,7 @@ public class KoorInformasiViewAdapter extends RecyclerView.Adapter<KoorInformasi
             public void onClick(View v) {
                 Intent intent = new Intent(context, KoorInformasiDetailActivity.class);
                 Informasi parcelInfo = data.get(position);
-//                intent.putExtra(KoorInformasiDetailActivity.EXTRA_INFORMASI, parcelInfo);
+                intent.putExtra(KoorInformasiDetailActivity.EXTRA_INFORMASI, parcelInfo);
                 context.startActivity(intent);
             }
         });

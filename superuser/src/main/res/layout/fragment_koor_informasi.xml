@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/dimen_medium"
-        tools:listitem="@layout/content_item_informasi"></androidx.recyclerview.widget.RecyclerView>
+        tools:listitem="@layout/content_item_koor_informasi"></androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/frg_koor_info_home_fab"

@@ -1,0 +1,28 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dimen_medium"
+    android:layout_marginLeft="@dimen/dimen_medium"
+    android:layout_marginRight="@dimen/dimen_medium">
+
+    <LinearLayout
+        android:layout_margin="@dimen/dimen_big"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/ctn_koor_judul_dsn_textview_judul"
+            android:text="@string/dummy"
+            style="@style/textview_item_list_judul_pa"/>
+
+        <TextView
+            android:drawableStart="@drawable/ic_content_judul_pa_kategori"
+            android:id="@+id/ctn_koor_judul_dsn_textview_kategori"
+            android:text="@string/dummy"
+            style="@style/textview_item_list_judul_kategori"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

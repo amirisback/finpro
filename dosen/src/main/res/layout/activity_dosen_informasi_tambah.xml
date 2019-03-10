@@ -33,7 +33,7 @@
             android:textColor="@color/colorPrimary"/>
 
         <EditText
-            android:id="@+id/act_dsn_edittext_judul"
+            android:id="@+id/act_koor_edittext_judul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
@@ -51,7 +51,7 @@
             android:textColor="@color/colorPrimary"/>
 
         <EditText
-            android:id="@+id/act_dsn_edittext_deskripsi"
+            android:id="@+id/act_koor_edittext_deskripsi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
@@ -59,7 +59,7 @@
             android:layout_marginBottom="@dimen/dimen_big_ultra"/>
 
         <Button
-            android:id="@+id/act_dsn_info_button_simpan"
+            android:id="@+id/act_koor_info_button_simpan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/button_click_simpan"

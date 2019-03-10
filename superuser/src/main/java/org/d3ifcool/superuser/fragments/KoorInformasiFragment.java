@@ -51,13 +51,8 @@ public class KoorInformasiFragment extends Fragment {
         adapter = new KoorInformasiViewAdapter(getContext());
         rv_informasi.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter.addItem(data);
+        adapter.setLayoutType(R.layout.content_item_koor_informasi);
         rv_informasi.setAdapter(adapter);
-
-
-
-
-
-
 
         fab_informasi.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,9 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".activities.editors.KoorInformasiTambahActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/dimen_big">
+
+        <ImageView
+            android:layout_width="@dimen/dimen_profil_photo"
+            android:layout_height="@dimen/dimen_profil_photo"
+            android:layout_marginBottom="@dimen/dimen_big_ultra"
+            android:src="@drawable/ic_announcement"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/dimen_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_judul"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_medium"
+            android:textSize="@dimen/text_size_title_small"
+            android:textColor="@color/colorPrimary"/>
+
+        <EditText
+            android:id="@+id/act_koor_edittext_judul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:hint="@string/hint_judul"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/dimen_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_informasi"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_medium"
+            android:textSize="@dimen/text_size_title_small"
+            android:textColor="@color/colorPrimary"/>
+
+        <EditText
+            android:id="@+id/act_koor_edittext_deskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:hint="Masukkan Informasi"
+            android:layout_marginBottom="@dimen/dimen_big_ultra"/>
+
+        <Button
+            android:id="@+id/act_koor_info_button_simpan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_click_simpan"
+            android:textColor="@color/colorTextWhite"
+            android:background="@drawable/box_border_button_action"/>
+
+    </LinearLayout>
+
+</ScrollView>

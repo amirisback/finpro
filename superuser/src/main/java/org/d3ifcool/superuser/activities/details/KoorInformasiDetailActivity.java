@@ -3,9 +3,14 @@ package org.d3ifcool.superuser.activities.details;
 import androidx.appcompat.app.AppCompatActivity;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
+import org.d3ifcool.dosen.activities.details.DosenInformasiDetailActivity;
+import org.d3ifcool.dosen.activities.editors.DosenInformasiUbahActivity;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.superuser.R;
 
@@ -40,5 +45,36 @@ public class KoorInformasiDetailActivity extends AppCompatActivity {
         textView_nama.setText(nama);
         textView_tanggal.setText(tanggal);
 
+
+
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_edit_delete, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int i = item.getItemId();
+
+        if (i == android.R.id.home) {
+            finish();
+
+        } else if (i == org.d3ifcool.dosen.R.id.toolbar_menu_ubah) {
+//            Intent intentUbah = new Intent(KoorInformasiDetailActivity.this, KooInformasiUbahActivity.class);
+//            intentUbah.putExtra(DosenInformasiUbahActivity.EXTRA_INFORMASI, extraInfo);
+//            startActivity(intentUbah);
+//            finish();
+
+        } else if (i == org.d3ifcool.dosen.R.id.toolbar_menu_hapus) {
+//            presenter.deleteInformasi(extraInfo.getId());
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }

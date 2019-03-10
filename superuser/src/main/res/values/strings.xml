@@ -132,6 +132,7 @@
     <string name="text_daftar_judul_pa_mahasiswa">Dafta Judul Proyek Akhir Pengajuan Mahasiswa</string>
 
     <string-array name="nama_dosen">
+        <item>--- Pilih Dosen ---</item>
         <item>Amir Hasanudin Fauzi, S.T., M.T.</item>
         <item>Hariandi Maulid, S.T., M.Sc.</item>
         <item>Hetti Hidayati, S.Kom., M.T.</item>
