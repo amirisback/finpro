@@ -22,22 +22,22 @@
         android:layout_marginLeft="@dimen/dimen_medium"
         android:layout_marginRight="@dimen/dimen_medium"
         android:spinnerMode="dropdown"
-
         tools:entries="@array/nama_dosen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
     <View
+        android:id="@+id/view"
         android:layout_below="@id/spinner_dosen"
         android:layout_width="match_parent"
         android:layout_marginRight="@dimen/dimen_medium"
         android:layout_marginLeft="@dimen/dimen_medium"
-        android:layout_marginBottom="@dimen/dimen_big"
+        android:layout_marginBottom="@dimen/dimen_big_ultra"
         android:background="@color/colorTextBlack"
         android:layout_height="1dp"/>
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@id/spinner_dosen"
-        android:id="@+id/frg_dsn_judul_dsn_recyclerview"
+        android:layout_below="@id/view"
+        android:id="@+id/frg_koor_judul_dsn_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/content_item_koor_judulpa">
@@ -45,7 +45,7 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/frg_dsn_judul_dsn_fab"
+        android:id="@+id/frg_koor_judul_dsn_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

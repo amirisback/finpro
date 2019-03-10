@@ -153,5 +153,10 @@
     <string name="menu_dosen">Dosen</string>
     <string name="menu_proyek_akhir">Proyek Akhir</string>
     <string name="menu_judul_pa">Judul PA</string>
+    <string name="hint_nama_dosen">Masukkan Nama Dosen</string>
+    <string name="title_email_dosen">Email</string>
+    <string name="hint_email_dosen">Masukkan Email</string>
+    <string name="hint_kontak_dosen">Masukkan Kontak Dosen</string>
+    <string name="title_kontak_dosen">Kontak</string>
 
 </resources>

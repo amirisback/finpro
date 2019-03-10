@@ -94,7 +94,7 @@
             android:layout_marginBottom="@dimen/dimen_big_ultra"/>
 
         <Button
-            android:id="@+id/act_koor_info_button_simpan"
+            android:id="@+id/act_koor_dosen_button_simpan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/button_click_simpan"
