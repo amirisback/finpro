@@ -53,14 +53,12 @@ public class Dosen implements Parcelable {
     @SerializedName("username_dosen")
     String username;
 
-    public Dosen(String nip_dosen, String nama_d, String foto, String email, String no_telefon, int limit, String username) {
+    public Dosen(String nip_dosen, String nama_d, String foto, String email, String no_telefon) {
         this.nip_dosen = nip_dosen;
         this.nama_d = nama_d;
         this.foto = foto;
         this.email = email;
         this.no_telefon = no_telefon;
-        this.limit = limit;
-        this.username = username;
     }
 
     public Dosen() {

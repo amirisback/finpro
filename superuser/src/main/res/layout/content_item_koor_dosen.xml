@@ -1,33 +1,91 @@
-<androidx.cardview.widget.CardView
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by
+ * FrogoBox Inc License
+ * =========================================
+ *
+ * Copyright (C) .
+ * All rights reserved
+ *
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Line     : bullbee117
+ * Phone    : 081357108568
+ * Majors   : D3 Teknik Informatika 2016
+ * Campus   : Telkom University
+ *
+ * id.amirisback.frogobox
+ *
+ -->
+
+
+<androidx.cardview.widget.CardView android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/dimen_medium"
     android:layout_marginLeft="@dimen/dimen_medium"
-    android:layout_marginRight="@dimen/dimen_medium">
+    android:layout_marginRight="@dimen/dimen_medium"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:layout_margin="@dimen/dimen_big"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_medium">
+
         <LinearLayout
+            android:layout_marginLeft="@dimen/dimen_big"
+            android:layout_marginRight="@dimen/dimen_big"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/ctn_koor_judul_dsn_textview_judul"
-                android:text="@string/dummy"
-                android:drawableLeft="@drawable/ic_person"
-                style="@style/textview_item_list_judul_pa"/>
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ctn_koor_dosen_circle_image"
+                android:src="@drawable/ic_dummy_photo"
+                app:civ_border_width="1dp"
+                app:civ_border_color="@color/colorBackground"
+                style="@style/image_item_info"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:textSize="@dimen/text_size_title_small"
+                    android:id="@+id/ctn_koor_textview_nama_dosen"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="@string/dummy"/>
+
+                <TextView
+                    android:textColor="@color/colorAccent"
+                    android:id="@+id/ctn_koor_dosen_nip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummy"/>
+
+            </LinearLayout>
 
             <TextView
-                android:drawableStart="@drawable/ic_content_judul_pa_kategori"
-                android:id="@+id/ctn_koor_judul_dsn_textview_kategori"
-                android:text="@string/dummy"
-                style="@style/textview_item_list_judul_kategori"/>
+                android:id="@+id/ctn_koor_dosen_bimbing"
+                android:layout_width="@dimen/dimen_circle_background"
+                android:layout_height="@dimen/dimen_circle_background"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/dimen_medium"
+                android:textColor="@color/colorTextWhite"
+                android:background="@drawable/circle_border_judul_pa"
+                android:text="@string/dummy_jumlah_bimbingan"
+                android:textSize="@dimen/text_size_title_medium"/>
         </LinearLayout>
-
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

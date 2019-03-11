@@ -22,7 +22,7 @@
         android:layout_marginLeft="@dimen/dimen_medium"
         android:layout_marginRight="@dimen/dimen_medium"
         android:spinnerMode="dropdown"
-        tools:entries="@array/nama_dosen"
+        android:entries="@array/nama_dosen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
