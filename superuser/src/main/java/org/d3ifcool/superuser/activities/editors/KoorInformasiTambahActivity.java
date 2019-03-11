@@ -12,5 +12,8 @@ public class KoorInformasiTambahActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_informasi_tambah);
+
+        setTitle(getString(org.d3ifcool.dosen.R.string.title_informasi_tambah));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

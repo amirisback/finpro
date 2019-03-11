@@ -12,5 +12,8 @@ public class KoorMahasiswaTambahActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_mahasiswa_tambah);
+
+        setTitle(getString(org.d3ifcool.dosen.R.string.title_mahasiswa_tambah));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

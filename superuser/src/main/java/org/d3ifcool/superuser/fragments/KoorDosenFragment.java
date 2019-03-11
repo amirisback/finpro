@@ -40,6 +40,8 @@ public class KoorDosenFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_koor_dosen, container, false);
+
+
         recyclerView = view.findViewById(R.id.frg_koor_dosen_home_recyclerview);
         floatingActionButton = view.findViewById(R.id.frg_koor_dosen_home_fab);
         adapter = new KoorDosenViewAdapter(getContext());

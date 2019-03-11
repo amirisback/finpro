@@ -12,5 +12,8 @@ public class KoorMahasiswaUbahActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_mahasiswa_ubah);
+
+        setTitle(getString(org.d3ifcool.dosen.R.string.title_mahasiswa_ubah));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

@@ -12,5 +12,8 @@ public class KoorDosenUbahActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_dosen_ubah);
+
+        setTitle(getString(org.d3ifcool.dosen.R.string.title_dosen_ubah));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

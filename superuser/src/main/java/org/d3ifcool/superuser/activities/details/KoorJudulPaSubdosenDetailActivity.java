@@ -12,5 +12,8 @@ public class KoorJudulPaSubdosenDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_judul_pa_subdosen_detail);
+
+        setTitle(getString(org.d3ifcool.dosen.R.string.title_judulpa_detail));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

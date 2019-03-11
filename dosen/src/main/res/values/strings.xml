@@ -136,6 +136,12 @@
     <string name="progress_dialog">Please Wait</string>
     <string name="text_tidak_boleh_kosong">Tidak boleh kosong</string>
     <string name="title_kelompok_mahasiswa_detail">Detail Kelompok</string>
+    <string name="title_dosen_detail">Detail Dosen</string>
+    <string name="title_proyekakhir_detail">Detail Proyek Akhir</string>
+    <string name="title_tambah_dosen">Tambah Dosen</string>
+    <string name="title_dosen_ubah">Ubah Dosen</string>
+    <string name="title_mahasiswa_tambah">Tambah Mahasiswa</string>
+    <string name="title_mahasiswa_ubah">Ubah Data Mahasiswa</string>
 
     <string-array name="nama_dosen">
         <item>Amir Hasanudin Fauzi, S.T., M.T.</item>
