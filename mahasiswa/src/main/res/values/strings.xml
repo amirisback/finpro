@@ -132,6 +132,9 @@
     <string name="text_daftar_judul_pa_mahasiswa">Daftar Judul Proyek Akhir Pengajuan Mahasiswa</string>
     <string name="progress_dialog">Please Wait</string>
 
+    <string name="dialog_hapus_title">Hapus Data</string>
+    <string name="dialog_hapus_text">Anda yakin ingin menghapus ini?</string>
+
     <string-array name="nama_dosen">
         <item>Amir Hasanudin Fauzi, S.T., M.T.</item>
         <item>Hariandi Maulid, S.T., M.Sc.</item>

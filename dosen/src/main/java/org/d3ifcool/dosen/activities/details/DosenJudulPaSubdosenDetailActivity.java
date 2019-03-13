@@ -1,6 +1,8 @@
 package org.d3ifcool.dosen.activities.details;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -77,7 +79,23 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
             startActivity(intentUbah);
 
         } else if (i == R.id.toolbar_menu_hapus) {
-            presenter.deleteJudul(extradata.getId());
+
+            new AlertDialog
+                    .Builder(this)
+                    .setTitle(getString(R.string.dialog_hapus_title))
+                    .setMessage(getString(R.string.dialog_hapus_text))
+
+                    .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Continue with delete operation
+                            presenter.deleteJudul(extradata.getId());
+                        }
+                    })
+
+                    .setNegativeButton(R.string.tidak, null)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
         } else {
         }
         return super.onOptionsItemSelected(item);

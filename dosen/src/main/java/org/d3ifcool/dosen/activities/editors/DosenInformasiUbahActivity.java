@@ -2,7 +2,9 @@ package org.d3ifcool.dosen.activities.editors;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -49,9 +51,25 @@ public class DosenInformasiUbahActivity extends AppCompatActivity implements Inf
         btn_ubah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String judul_baru = info_judul.getText().toString();
-                String isi_baru = info_deskripsi.getText().toString();
-                presenter.updateInformasi(extraInfo.getId(), judul_baru, isi_baru);
+
+                new AlertDialog
+                        .Builder(getApplicationContext())
+                        .setTitle(getString(R.string.dialog_hapus_title))
+                        .setMessage(getString(R.string.dialog_hapus_text))
+
+                        .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                String judul_baru = info_judul.getText().toString();
+                                String isi_baru = info_deskripsi.getText().toString();
+                                presenter.updateInformasi(extraInfo.getId(), judul_baru, isi_baru);
+                            }
+                        })
+
+                        .setNegativeButton(R.string.tidak, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
+
 
             }
         });

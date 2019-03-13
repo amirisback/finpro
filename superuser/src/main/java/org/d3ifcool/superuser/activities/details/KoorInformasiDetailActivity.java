@@ -3,6 +3,8 @@ package org.d3ifcool.superuser.activities.details;
 import androidx.appcompat.app.AppCompatActivity;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -72,6 +74,22 @@ public class KoorInformasiDetailActivity extends AppCompatActivity {
 
         } else if (i == org.d3ifcool.dosen.R.id.toolbar_menu_hapus) {
 //            presenter.deleteInformasi(extraInfo.getId());
+
+            new AlertDialog
+                    .Builder(this)
+                    .setTitle(getString(R.string.dialog_hapus_title))
+                    .setMessage(getString(R.string.dialog_hapus_text))
+
+                    .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Continue with delete operation
+                        }
+                    })
+
+                    .setNegativeButton(R.string.tidak, null)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
         }
 
         return super.onOptionsItemSelected(item);

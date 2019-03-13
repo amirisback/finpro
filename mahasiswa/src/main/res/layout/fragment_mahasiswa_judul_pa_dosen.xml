@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorBackground"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Spinner
-        android:entries="@array/nama_dosen"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:spinnerMode="dropdown"
-        android:layout_marginLeft="@dimen/dimen_big"
-        android:layout_marginRight="@dimen/dimen_big"
-        android:layout_marginTop="@dimen/dimen_big"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorTextBlack"
-        android:layout_marginLeft="@dimen/dimen_big"
-        android:layout_marginRight="@dimen/dimen_big"
-        android:layout_marginBottom="@dimen/dimen_big"/>
+        android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/frg_mhs_judul_pa_dosen_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem ="@layout/content_item_mahasiswa_judulpa_dosen"/>
+        <Spinner
+            android:entries="@array/nama_dosen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            android:layout_marginLeft="@dimen/dimen_big"
+            android:layout_marginRight="@dimen/dimen_big"
+            android:layout_marginTop="@dimen/dimen_big"/>
 
-</LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorTextBlack"
+            android:layout_marginLeft="@dimen/dimen_big"
+            android:layout_marginRight="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_big"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/frg_mhs_judul_pa_dosen_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem ="@layout/content_item_mahasiswa_judulpa_dosen"/>
+
+
+    </LinearLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

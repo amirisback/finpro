@@ -6,19 +6,28 @@
     android:background="@color/colorBackground"
     tools:context=".fragments.KoorInformasiFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/frg_koor_info_home_recyclerview"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/frg_koor_info_home_swiperefresh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/dimen_medium"
-        tools:listitem="@layout/content_item_koor_informasi"></androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/frg_koor_info_home_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/dimen_medium"
+            tools:listitem="@layout/content_item_koor_informasi"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/frg_koor_info_home_fab"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/dimen_big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_fab_add"/>
+
 </RelativeLayout>

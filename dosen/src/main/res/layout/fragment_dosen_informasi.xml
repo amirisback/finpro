@@ -6,13 +6,21 @@
     tools:context=".fragments.DosenInformasiFragment"
     android:background="@color/colorBackground">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/frg_dsn_info_home_recyclerview"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/frg_dsn_info_home_swiperefresh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/dimen_medium"
-        tools:listitem="@layout/content_item_dosen_informasi">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/frg_dsn_info_home_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/dimen_medium"
+            tools:listitem="@layout/content_item_dosen_informasi">
+        </androidx.recyclerview.widget.RecyclerView>\
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/frg_dsn_info_home_fab"

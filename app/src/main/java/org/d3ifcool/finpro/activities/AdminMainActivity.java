@@ -57,6 +57,7 @@ public class AdminMainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         setFragmentLayout(koorInformasiFragment);
+        setTitle(getString(R.string.title_informasi));
 
     }
 
@@ -110,14 +111,19 @@ public class AdminMainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_menu_informasi) {
+            setTitle(getString(R.string.title_informasi));
             setFragmentLayout(koorInformasiFragment);
         } else if (id == R.id.nav_menu_mahasiswa) {
+            setTitle(getString(R.string.title_mahasiswa));
             setFragmentLayout(koorMahasiswaFragment);
         } else if (id == R.id.nav_menu_dosen) {
+            setTitle(getString(R.string.title_dosen));
             setFragmentLayout(koorDosenFragment);
         } else if (id == R.id.nav_menu_proyek_akhir) {
+            setTitle(getString(R.string.title_proyekakhir));
             setFragmentLayout(koorProyekAkhirFragment);
         } else if (id == R.id.nav_menu_judul_pa) {
+            setTitle(getString(R.string.title_judulpa));
             setFragmentLayout(koorJudulPaSubdosenFragment);
         }
 

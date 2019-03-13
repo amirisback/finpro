@@ -143,6 +143,11 @@
     <string name="title_mahasiswa_tambah">Tambah Mahasiswa</string>
     <string name="title_mahasiswa_ubah">Ubah Data Mahasiswa</string>
 
+    <string name="dialog_hapus_title">Hapus Data</string>
+    <string name="dialog_hapus_text">Anda yakin ingin menghapus ini?</string>
+    <string name="iya">Iya</string>
+    <string name="tidak">Tidak</string>
+
     <string-array name="nama_dosen">
         <item>Amir Hasanudin Fauzi, S.T., M.T.</item>
         <item>Hariandi Maulid, S.T., M.Sc.</item>

@@ -153,5 +153,6 @@
     <string name="menu_dosen">Dosen</string>
     <string name="menu_proyek_akhir">Proyek Akhir</string>
     <string name="menu_judul_pa">Judul PA</string>
+    <string name="title_dosen">Dosen</string>
 
 </resources>

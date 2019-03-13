@@ -1,6 +1,8 @@
 package org.d3ifcool.dosen.activities.details;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -90,7 +92,22 @@ public class DosenInformasiDetailActivity extends AppCompatActivity implements I
             finish();
 
         } else if (i == R.id.toolbar_menu_hapus) {
-            presenter.deleteInformasi(extraInfo.getId());
+
+            new AlertDialog
+                    .Builder(this)
+                    .setTitle(getString(R.string.dialog_hapus_title))
+                    .setMessage(getString(R.string.dialog_hapus_text))
+
+                    .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            presenter.deleteInformasi(extraInfo.getId());
+                        }
+                    })
+
+                    .setNegativeButton(R.string.tidak, null)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
         }
 
         return super.onOptionsItemSelected(item);
