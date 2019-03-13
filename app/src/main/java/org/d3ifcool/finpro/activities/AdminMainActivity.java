@@ -1,5 +1,6 @@
 package org.d3ifcool.finpro.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,6 +22,8 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.d3ifcool.dosen.activities.DosenPemberitahuanActivity;
+import org.d3ifcool.dosen.activities.DosenProfilActivity;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.superuser.fragments.KoorDosenFragment;
 import org.d3ifcool.superuser.fragments.KoorInformasiFragment;
@@ -70,7 +73,7 @@ public class AdminMainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.admin_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main_toolbar, menu);
         return true;
     }
 
@@ -79,11 +82,22 @@ public class AdminMainActivity extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.toolbar_menu_pemberitahuan:
+                Intent intentPemberitahuan = new Intent(AdminMainActivity.this, DosenPemberitahuanActivity.class);
+                startActivity(intentPemberitahuan);
+                break;
+            case R.id.toolbar_menu_profil:
+                Intent intentProfil = new Intent(AdminMainActivity.this, DosenProfilActivity.class);
+                startActivity(intentProfil);
+                break;
+            case R.id.toolbar_menu_keluar:
+                Intent intentKeluar = new Intent(AdminMainActivity.this, LoginActivity.class);
+                startActivity(intentKeluar);
+                finish();
+                break;
+            default:
+                break;
         }
 
         return super.onOptionsItemSelected(item);

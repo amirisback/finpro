@@ -158,5 +158,11 @@
     <string name="hint_email_dosen">Masukkan Email</string>
     <string name="hint_kontak_dosen">Masukkan Kontak Dosen</string>
     <string name="title_kontak_dosen">Kontak</string>
+    <string name="title_dosen_detail">Detail Dosen</string>
+    <string name="title_proyekakhir_detail">Detail Proyek Akhir</string>
+    <string name="title_tambah_dosen">Tambah Dosen</string>
+    <string name="title_dosen_ubah">Ubah Dosen</string>
+    <string name="title_mahasiswa_tambah">Tambah Mahasiswa</string>
+    <string name="title_mahasiswa_ubah">Ubah Mahasiswa</string>
 
 </resources>

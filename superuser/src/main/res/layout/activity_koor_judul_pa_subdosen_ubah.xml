@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_big">
+        android:padding="@dimen/dimen_big">
 
         <ImageView
             android:layout_width="@dimen/dimen_profil_photo"

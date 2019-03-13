@@ -13,7 +13,6 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.AdminMainActivity"
-            android:label="@string/title_activity_admin_main"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activities.LoginActivity"

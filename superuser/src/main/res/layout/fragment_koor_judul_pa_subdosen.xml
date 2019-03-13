@@ -6,40 +6,32 @@
     android:background="@color/colorBackground"
     tools:context=".fragments.KoorJudulPaSubdosenFragment">
 
-    <TextView
-        android:id="@+id/dummytext"
-        android:layout_marginTop="@dimen/dimen_big"
-        android:layout_marginStart="@dimen/dimen_big"
-        android:layout_marginEnd="@dimen/dimen_big"
-        android:layout_marginBottom="@dimen/dimen_medium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/text_daftar_judul_pa_dosen"/>
+    <!--<TextView-->
+        <!--android:id="@+id/dummytext"-->
+        <!--android:layout_marginTop="@dimen/dimen_big"-->
+        <!--android:layout_marginStart="@dimen/dimen_big"-->
+        <!--android:layout_marginEnd="@dimen/dimen_big"-->
+        <!--android:layout_marginBottom="@dimen/dimen_medium"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/text_daftar_judul_pa_dosen"/>-->
+    <!---->
     <Spinner
         android:id="@+id/spinner_dosen"
-        android:layout_below="@id/dummytext"
-        android:layout_marginTop="@dimen/dimen_big"
+        android:layout_marginTop="@dimen/dimen_medium"
         android:layout_marginLeft="@dimen/dimen_medium"
         android:layout_marginRight="@dimen/dimen_medium"
         android:spinnerMode="dropdown"
         android:entries="@array/nama_dosen"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <View
-        android:id="@+id/view"
-        android:layout_below="@id/spinner_dosen"
-        android:layout_width="match_parent"
-        android:layout_marginRight="@dimen/dimen_medium"
-        android:layout_marginLeft="@dimen/dimen_medium"
-        android:layout_marginBottom="@dimen/dimen_big_ultra"
-        android:background="@color/colorTextBlack"
-        android:layout_height="1dp"/>
+        android:layout_height="wrap_content" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@id/view"
+        android:layout_below="@id/spinner_dosen"
         android:id="@+id/frg_koor_judul_dsn_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingBottom="@dimen/dimen_medium"
         tools:listitem="@layout/content_item_koor_judulpa">
 
     </androidx.recyclerview.widget.RecyclerView>

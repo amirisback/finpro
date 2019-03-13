@@ -185,6 +185,8 @@
     <item type="id" name="toolbar_menu_ubah"/>
     <item type="id" name="toolbar_menu_hapus"/>
     <item type="id" name="toolbar_menu_hanya_ubah"/>
+    <item type="id" name="frg_koor_info_home_recyclerview"/>
+    <item type="id" name="frg_koor_info_home_fab"/>
 
 
 </resources>

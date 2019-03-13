@@ -13,7 +13,7 @@ public class KoorProyekAkhirDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_proyek_akhir_detail);
 
-        setTitle(getString(org.d3ifcool.dosen.R.string.title_proyekakhir_detail));
+        setTitle(getString(R.string.title_proyekakhir_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

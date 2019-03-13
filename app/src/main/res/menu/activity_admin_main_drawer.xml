@@ -16,6 +16,7 @@
 
     <item
         android:id="@+id/nav_menu_dosen"
+        android:icon="@drawable/ic_nav_dosen"
         android:title="@string/menu_dosen" />
 
     <item
@@ -25,6 +26,7 @@
 
     <item
         android:id="@+id/nav_menu_judul_pa"
+        android:icon="@drawable/ic_nav_judul_pa"
         android:title="@string/menu_judul_pa" />
 
 </menu>
