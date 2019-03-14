@@ -1,6 +1,6 @@
 package org.d3ifcool.service.network;
 
-import org.d3ifcool.service.models.Login;
+import org.d3ifcool.service.models.User;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -8,7 +8,6 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_LOGIN;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_LOGIN_READ;
 
 /**
  * Created by Faisal Amir
@@ -31,8 +30,10 @@ public interface ApiInterfacesLogin {
 
     @FormUrlEncoded
     @POST(URL_LOGIN)
-    Call<Login> setLogin(
+    Call<User> setLogin(
             @Field("username") String username,
-            @Field("password") String password);
+            @Field("password") String password,
+            @Field("pengguna") String pengguna
+            );
 
 }

@@ -41,7 +41,8 @@ public class SessionManager {
     private static final String FOTO = "FOTO";
     private static final String EMAIL_D = "EMAIL_D";
     private static final String KONTAK_D = "KONTAK_D";
-    private static final String LIMIT = "LIMIT";
+    private static final String KODE = "KODE";
+    private static final String DOSEN_STATUS = "STATUS";
     private static final String USERNAME_DOSEN = "USERNAME_DOSEN";
 
     private static final String NIM_MHS = "NIM_MHS";
@@ -50,7 +51,7 @@ public class SessionManager {
     private static final String EMAIL_M = "EMAIL_M";
     private static final String KONTAK_M = "KONTAK_M";
     private static final String ANGKATAN = "ANGKATAN";
-    private static final String STATUS = "STATUS";
+    private static final String MAHASISWA_STATUS = "STATUS";
     private static final String USERNAME_MHS = "USERNAME_MHS";
 
 
@@ -70,26 +71,24 @@ public class SessionManager {
     }
 
     public void createSessionDataMahasiswa(Mahasiswa mahasiswa){
-        editor.putString(NIM_MHS, mahasiswa.getNim_mhs());
-        editor.putString(NAMA_M, mahasiswa.getNama_m());
-        editor.putString(FOTO_M, mahasiswa.getFoto_m());
-        editor.putString(EMAIL_M, mahasiswa.getEmail_m());
-        editor.putString(KONTAK_M, mahasiswa.getKontak_m());
-        editor.putString(ANGKATAN, mahasiswa.getAngkatan());
-        editor.putString(STATUS, mahasiswa.getStatus());
-        editor.putString(USERNAME_MHS, mahasiswa.getUsername_mhs());
+        editor.putString(NIM_MHS, mahasiswa.getMhs_nim());
+        editor.putString(NAMA_M, mahasiswa.getMhs_nama());
+        editor.putString(FOTO_M, mahasiswa.getMhs_foto());
+        editor.putString(EMAIL_M, mahasiswa.getMhs_email());
+        editor.putString(KONTAK_M, mahasiswa.getMhs_kontak());
+        editor.putString(MAHASISWA_STATUS, mahasiswa.getStatus());
         editor.apply();
         editor.commit();
     }
 
     public void createSessionDataDosen(Dosen dosen){
-        editor.putString(NIP_DOSEN, dosen.getNip_dosen());
-        editor.putString(NAMA_D, dosen.getNama_d());
-        editor.putString(FOTO, dosen.getFoto());
-        editor.putString(EMAIL_D, dosen.getEmail());
-        editor.putString(KONTAK_D, dosen.getNo_telefon());
-        editor.putInt(LIMIT, dosen.getLimit());
-        editor.putString(USERNAME_DOSEN, dosen.getUsername());
+        editor.putString(NIP_DOSEN, dosen.getDsn_nip());
+        editor.putString(NAMA_D, dosen.getDsn_nama());
+        editor.putString(FOTO, dosen.getDsn_foto());
+        editor.putString(EMAIL_D, dosen.getDsn_email());
+        editor.putString(KONTAK_D, dosen.getDsn_kontak());
+        editor.putString(KODE, dosen.getDsn_kode());
+        editor.putString(DOSEN_STATUS, dosen.getDsn_status());
         editor.apply();
         editor.commit();
     }
@@ -119,7 +118,7 @@ public class SessionManager {
     }
 
     public String getSessionMahasiswaStatus(){
-        return sharedPreferences.getString(STATUS, null);
+        return sharedPreferences.getString(MAHASISWA_STATUS, null);
     }
 
     public String getSessionMahasiswaUsernameM(){
@@ -146,8 +145,8 @@ public class SessionManager {
         return sharedPreferences.getString(KONTAK_D, null);
     }
 
-    public String getSessionDosenLimit(){
-        return sharedPreferences.getString(LIMIT, null);
+    public String getSessionDosenKode(){
+        return sharedPreferences.getString(KODE, null);
     }
 
     public String getSessionDosenUserNameDosen(){

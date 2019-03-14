@@ -26,22 +26,66 @@ import com.google.gson.annotations.SerializedName;
 public class Bimbingan implements Parcelable {
 
     @Expose
-    @SerializedName("id_bimbingan")
+    @SerializedName("bimbingan_id")
     private String id;
 
     @Expose
-    @SerializedName("created_at")
+    @SerializedName("bimbingan_review")
+    private String isi;
+
+    @Expose
+    @SerializedName("bimbingan_judul")
+    private String judul_bimbingan;
+
+    @Expose
+    @SerializedName("bimbingan_tanggal")
     private String tanggal;
 
     @Expose
-    @SerializedName("keterangan")
-    private String isi;
+    @SerializedName("proyek_akhir_id")
+    private int proyek_akhir_id;
 
-    public Bimbingan(String id, String tanggal, String isi) {
+    public Bimbingan(String id, String isi, String judul_bimbingan, String tanggal, int proyek_akhir_id) {
         this.id = id;
-        this.tanggal = tanggal;
         this.isi = isi;
+        this.judul_bimbingan = judul_bimbingan;
+        this.tanggal = tanggal;
+        this.proyek_akhir_id = proyek_akhir_id;
     }
+
+    protected Bimbingan(Parcel in) {
+        id = in.readString();
+        isi = in.readString();
+        judul_bimbingan = in.readString();
+        tanggal = in.readString();
+        proyek_akhir_id = in.readInt();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(isi);
+        dest.writeString(judul_bimbingan);
+        dest.writeString(tanggal);
+        dest.writeInt(proyek_akhir_id);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Bimbingan> CREATOR = new Creator<Bimbingan>() {
+        @Override
+        public Bimbingan createFromParcel(Parcel in) {
+            return new Bimbingan(in);
+        }
+
+        @Override
+        public Bimbingan[] newArray(int size) {
+            return new Bimbingan[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -49,14 +93,6 @@ public class Bimbingan implements Parcelable {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getTanggal() {
-        return tanggal;
-    }
-
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
     }
 
     public String getIsi() {
@@ -67,34 +103,28 @@ public class Bimbingan implements Parcelable {
         this.isi = isi;
     }
 
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getJudul_bimbingan() {
+        return judul_bimbingan;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.id);
-        dest.writeString(this.tanggal);
-        dest.writeString(this.isi);
+    public void setJudul_bimbingan(String judul_bimbingan) {
+        this.judul_bimbingan = judul_bimbingan;
     }
 
-    protected Bimbingan(Parcel in) {
-        this.id = in.readString();
-        this.tanggal = in.readString();
-        this.isi = in.readString();
+    public String getTanggal() {
+        return tanggal;
     }
 
-    public static final Creator<Bimbingan> CREATOR = new Creator<Bimbingan>() {
-        @Override
-        public Bimbingan createFromParcel(Parcel source) {
-            return new Bimbingan(source);
-        }
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
+    }
 
-        @Override
-        public Bimbingan[] newArray(int size) {
-            return new Bimbingan[size];
-        }
-    };
+    public int getProyek_akhir_id() {
+        return proyek_akhir_id;
+    }
+
+    public void setProyek_akhir_id(int proyek_akhir_id) {
+        this.proyek_akhir_id = proyek_akhir_id;
+    }
+
 }

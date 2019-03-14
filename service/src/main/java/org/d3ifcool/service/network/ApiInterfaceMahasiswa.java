@@ -32,26 +32,22 @@ public interface ApiInterfaceMahasiswa {
     @FormUrlEncoded
     @POST(URL_MAHASISWA_CREATE)
     Call<Mahasiswa> createMahasiswa(
-            @Field("nama_m") String nama,
-            @Field("foto_m") String foto_m,
-            @Field("email_m") String email_m,
-            @Field("kontak_m") String kontak_m,
-            @Field("angkatan") String angkatan,
-            @Field("status") String status,
-            @Field("username_mhs") String username_mhs
+            @Field("mhs_nama") String nama,
+            @Field("mhs_kontak") String foto_m,
+            @Field("mhs_foto") String email_m,
+            @Field("mhs_email") String kontak_m,
+            @Field("status") String angkatan
     );
 
     @FormUrlEncoded
     @POST(URL_MAHASISWA_UPDATE)
     Call<Mahasiswa> updateMahasiswa(
-            @Field("nim_mhs") String nim_mhs,
-            @Field("nama_m") String nama,
-            @Field("foto_m") String foto_m,
-            @Field("email_m") String email_m,
-            @Field("kontak_m") String kontak_m,
-            @Field("angkatan") String angkatan,
-            @Field("status") String status,
-            @Field("username_mhs") String username_mhs
+            @Field("mhs_nim") String nim_mhs,
+            @Field("mhs_nama") String nama,
+            @Field("mhs_kontak") String foto_m,
+            @Field("mhs_foto") String email_m,
+            @Field("mhs_email") String kontak_m,
+            @Field("status") String angkatan
     );
 
     @GET(URL_MAHASISWA_READ)
@@ -59,7 +55,7 @@ public interface ApiInterfaceMahasiswa {
 
     @FormUrlEncoded
     @POST(URL_MAHASISWA_DELETE)
-    Call<Mahasiswa> deleteMahasiswa(@Field("nim_mhs") String nim_mhs);
+    Call<Mahasiswa> deleteMahasiswa(@Field("mhs_nim") String mhs_nim);
 
     @FormUrlEncoded
     @POST(URL_LOGIN_DATA_MAHASISWA)

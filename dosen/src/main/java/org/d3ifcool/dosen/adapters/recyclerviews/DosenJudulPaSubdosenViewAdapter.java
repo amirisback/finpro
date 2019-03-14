@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.details.DosenJudulPaSubdosenDetailActivity;
-import org.d3ifcool.service.models.JudulPa;
+import org.d3ifcool.service.models.Judul;
 
 import java.util.ArrayList;
 
@@ -35,14 +35,14 @@ import java.util.ArrayList;
 public class DosenJudulPaSubdosenViewAdapter extends RecyclerView.Adapter<DosenJudulPaSubdosenViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<JudulPa> data;
+    private ArrayList<Judul> data;
     private int layoutType;
 
     public DosenJudulPaSubdosenViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void addItem(ArrayList<JudulPa> data){
+    public void addItem(ArrayList<Judul> data){
         this.data = data;
         notifyDataSetChanged();
     }
@@ -72,7 +72,7 @@ public class DosenJudulPaSubdosenViewAdapter extends RecyclerView.Adapter<DosenJ
             @Override
             public void onClick(View v) {
                 Intent intentData = new Intent(context, DosenJudulPaSubdosenDetailActivity.class);
-                JudulPa parcelinfo = data.get(position);
+                Judul parcelinfo = data.get(position);
                 intentData.putExtra(DosenJudulPaSubdosenDetailActivity.EXTRA_INFORMASI, parcelinfo);
                 context.startActivity(intentData);
             }

@@ -1,6 +1,6 @@
 package org.d3ifcool.service.interfaces;
 
-import org.d3ifcool.service.models.Login;
+import org.d3ifcool.service.models.User;
 
 /**
  * Created by Faisal Amir
@@ -25,7 +25,7 @@ public interface LoginView {
 
     void hideProgress();
 
-    void onRequestSuccess(String message, Login login);
+    void onRequestSuccess(String message, User user);
 
     void onRequestError(String message);
 

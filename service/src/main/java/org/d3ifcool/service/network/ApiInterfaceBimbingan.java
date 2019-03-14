@@ -26,33 +26,33 @@ public interface ApiInterfaceBimbingan {
     @FormUrlEncoded
     @GET("bimbingan/getBimbingan.php")
     Call<Bimbingan> getBimbingan(
-            @Field("id_bimbingan") int id_bimbingan,
-            @Field("keterangan") String keterangan,
-            @Field("lokasi") String lokasi,
-            @Field("data_mahasiswa") String data_mhs,
-            @Field("id_judul") String id_judul
+            @Field("bimbingan_id") int id_bimbingan,
+            @Field("bimbingan_review") String keterangan,
+            @Field("bimbingan_judul") String lokasi,
+            @Field("bimbingan_tanggal") String data_mhs,
+            @Field("proyek_akhir_id") String id_judul
     );
 
     @FormUrlEncoded
     @POST("bimbingan/updateBimbingan.php")
     Call<Bimbingan> updateBimbingan(
-            @Field("id_bimbingan") int id_bimbingan,
-            @Field("keterangan") String keterangan,
-            @Field("lokasi") String lokasi,
-            @Field("data_mahasiswa") String data_mhs,
-            @Field("id_judul") String id_judul
+            @Field("bimbingan_id") int id_bimbingan,
+            @Field("bimbingan_review") String keterangan,
+            @Field("bimbingan_judul") String lokasi,
+            @Field("bimbingan_tanggal") String data_mhs,
+            @Field("proyek_akhir_id") String id_judul
     );
 
     @FormUrlEncoded
     @POST("bimbingan/createBimbingan.php")
     Call<Bimbingan> createBimbingan(
-            @Field("keterangan") String keterangan,
-            @Field("lokasi") String lokasi,
-            @Field("data_mahasiswa") String data_mhs,
-            @Field("id_judul") String id_judul
+            @Field("bimbingan_review") String keterangan,
+            @Field("bimbingan_judul") String lokasi,
+            @Field("bimbingan_tanggal") String data_mhs,
+            @Field("proyek_akhir_id") String id_judul
     );
 
     @FormUrlEncoded
     @POST("bimbingan/getBimbingan.php")
-    Call<Bimbingan> getBimbingan(@Field("id_bimbingan") String id_bimbignan);
+    Call<Bimbingan> getBimbingan(@Field("bimbingan_id") String bimbingan_id);
 }

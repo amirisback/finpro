@@ -18,6 +18,7 @@ import com.squareup.picasso.Picasso;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.details.DosenInformasiDetailActivity;
 import org.d3ifcool.service.helpers.CircleTransform;
+import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.models.Informasi;
 
 import java.util.ArrayList;
@@ -81,9 +82,9 @@ public class DosenInformasiViewAdapter extends RecyclerView.Adapter<DosenInforma
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.infoJudul.setText(data.get(position).getInfo_judul());
         holder.infoIsi.setText(data.get(position).getInfo_deskripsi());
-        holder.infoTanggal.setText(data.get(position).getInfo_tanggal());
-        holder.infoDosen.setText(data.get(position).getPublisher());
-        Picasso.get().load(URL_FOTO_DOSEN+data.get(position).getFoto()).into(holder.foto);
+        holder.infoTanggal.setText(data.get(position).getTanggal());
+        holder.infoDosen.setText(data.get(position).getPenerbit());
+//        Picasso.get().load(URL_FOTO_DOSEN+manager.getSessionDosenFoto()).into(holder.foto);
 //        Picasso.get().load(URL_FOTO_DOSEN+data.get(position).getFoto()).transform(new CircleTransform()).into(holder.foto);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

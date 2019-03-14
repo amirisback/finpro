@@ -67,10 +67,10 @@ public class KoorDosenViewAdapter extends RecyclerView.Adapter<KoorDosenViewAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.nama_dosen.setText(dosens.get(position).getNama_d());
-        holder.nip_dosen.setText(dosens.get(position).getNip_dosen());
+        holder.nama_dosen.setText(dosens.get(position).getDsn_nama());
+        holder.nip_dosen.setText(dosens.get(position).getDsn_nip());
         holder.bimbing.setText("6");
-        Picasso.get().load(URL_FOTO_DOSEN+dosens.get(position).getFoto()).into(holder.foto);
+        Picasso.get().load(URL_FOTO_DOSEN+dosens.get(position).getDsn_foto()).into(holder.foto);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.R;
+import org.d3ifcool.service.models.Detail_Monev;
 import org.d3ifcool.service.models.Monev;
 
 import java.util.ArrayList;
@@ -33,14 +34,14 @@ import java.util.ArrayList;
 public class MahasiswaPaMonevViewAdapter extends RecyclerView.Adapter<MahasiswaPaMonevViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<Monev> data;
+    private ArrayList<Detail_Monev> data;
     private int layoutType;
 
     public MahasiswaPaMonevViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void addItem(ArrayList<Monev> data){
+    public void addItem(ArrayList<Detail_Monev> data){
         this.data = data;
         notifyDataSetChanged();
     }
@@ -65,9 +66,9 @@ public class MahasiswaPaMonevViewAdapter extends RecyclerView.Adapter<MahasiswaP
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.infoNilai.setText(String.valueOf(data.get(position).getNilai()));
-        holder.infoTanggal.setText(data.get(position).getTanggal());
-        holder.infoIsi.setText(data.get(position).getKomentar());
+        holder.infoNilai.setText(String.valueOf(data.get(position).getMonev_nilai()));
+        holder.infoTanggal.setText(data.get(position).getMonev_tanggal());
+        holder.infoIsi.setText(data.get(position).getMonev_ulasan());
     }
 
     @NonNull

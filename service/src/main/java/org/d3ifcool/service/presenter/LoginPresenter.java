@@ -1,7 +1,7 @@
 package org.d3ifcool.service.presenter;
 
 import org.d3ifcool.service.interfaces.LoginView;
-import org.d3ifcool.service.models.Login;
+import org.d3ifcool.service.models.User;
 import org.d3ifcool.service.network.ApiClient;
 import org.d3ifcool.service.network.ApiInterfacesLogin;
 
@@ -34,15 +34,15 @@ public class LoginPresenter {
         this.view = view;
     }
 
-    public void getLogin(String username, String password){
+    public void getLogin(String username, String password, String pengguna){
         view.showProgress();
 
         ApiInterfacesLogin apiInterface = ApiClient.getApiClient().create(ApiInterfacesLogin.class);
-        Call<Login> call = apiInterface.setLogin(username, password);
+        Call<User> call = apiInterface.setLogin(username, password,pengguna);
 
-        call.enqueue(new Callback<Login>() {
+        call.enqueue(new Callback<User>() {
             @Override
-            public void onResponse(Call<Login> call, Response<Login> response) {
+            public void onResponse(Call<User> call, Response<User> response) {
                 view.hideProgress();
                 if (response.isSuccessful() && response.body() != null){
                     boolean success = response.body().getSuccess();
@@ -55,7 +55,7 @@ public class LoginPresenter {
             }
 
             @Override
-            public void onFailure(Call<Login> call, Throwable t) {
+            public void onFailure(Call<User> call, Throwable t) {
                 view.hideProgress();
                 view.onRequestError(t.getLocalizedMessage());
             }

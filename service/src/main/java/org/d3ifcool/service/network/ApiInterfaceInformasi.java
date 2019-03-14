@@ -37,18 +37,18 @@ public interface ApiInterfaceInformasi {
     @FormUrlEncoded
     @POST(URL_INFORMASI_CREATE)
     Call<Informasi> createInformasi (
-            @Field("info_judul") String info_judul,
-            @Field("info_deskripsi") String info_deskripsi,
-            @Field("publisher") String publisher,
-            @Field("foto") String foto
+            @Field("informasi_judul") String informasi_judul,
+            @Field("informasi_isi") String informasi_isi,
+            @Field("penerbit") String penerbit,
+            @Field("informasi_waktu") String informasi_waktu
     );
 
     @FormUrlEncoded
     @POST(URL_INFORMASI_UPDATE)
     Call<Informasi> updateInformasi (
-            @Field("id") int id,
-            @Field("info_judul") String info_judul,
-            @Field("info_deskripsi") String info_deskripsi
+            @Field("informasi_id") int informasi_id,
+            @Field("informasi_judul") String informasi_judul,
+            @Field("informasi_isi") String informasi_isi
     );
 
     @GET(URL_INFORMASI_READ)
@@ -57,7 +57,7 @@ public interface ApiInterfaceInformasi {
     @FormUrlEncoded
     @POST(URL_INFORMASI_DELETE)
     Call<Informasi> deleteInformasi (
-            @Field("id") int id
+            @Field("informasi_id") int informasi_id
     );
 
 }

@@ -25,53 +25,52 @@ import com.google.gson.annotations.SerializedName;
  */
 public class Dosen implements Parcelable {
     @Expose
-    @SerializedName("nip_dosen")
-    String nip_dosen;
+    @SerializedName("dsn_nip")
+    String dsn_nip;
 
     @Expose
-    @SerializedName("nama_d")
-    String nama_d;
-
-
-    @Expose
-    @SerializedName("foto")
-    String foto;
+    @SerializedName("dsn_nama")
+    String dsn_nama;
 
     @Expose
-    @SerializedName("email_d")
-    String email;
+    @SerializedName("dsn_kode")
+    String dsn_kode;
 
     @Expose
-    @SerializedName("kontak_d")
-    String no_telefon;
+    @SerializedName("dsn_kontak")
+    String dsn_kontak;
 
     @Expose
-    @SerializedName("limit")
-    int limit;
+    @SerializedName("dsn_foto")
+    String dsn_foto;
 
     @Expose
-    @SerializedName("username_dosen")
-    String username;
+    @SerializedName("dsn_email")
+    String dsn_email;
 
-    public Dosen(String nip_dosen, String nama_d, String foto, String email, String no_telefon) {
-        this.nip_dosen = nip_dosen;
-        this.nama_d = nama_d;
-        this.foto = foto;
-        this.email = email;
-        this.no_telefon = no_telefon;
+    @Expose
+    @SerializedName("dsn_status")
+    String dsn_status;
+
+    public Dosen(String dsn_nip, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_foto, String dsn_email, String dsn_status) {
+        this.dsn_nip = dsn_nip;
+        this.dsn_nama = dsn_nama;
+        this.dsn_kode = dsn_kode;
+        this.dsn_kontak = dsn_kontak;
+        this.dsn_foto = dsn_foto;
+        this.dsn_email = dsn_email;
+        this.dsn_status = dsn_status;
     }
 
-    public Dosen() {
-    }
 
     protected Dosen(Parcel in) {
-        nip_dosen = in.readString();
-        nama_d = in.readString();
-        foto = in.readString();
-        email = in.readString();
-        no_telefon = in.readString();
-        limit = in.readInt();
-        username = in.readString();
+        dsn_nip = in.readString();
+        dsn_nama = in.readString();
+        dsn_kode = in.readString();
+        dsn_kontak = in.readString();
+        dsn_foto = in.readString();
+        dsn_email = in.readString();
+        dsn_status = in.readString();
     }
 
     public static final Creator<Dosen> CREATOR = new Creator<Dosen>() {
@@ -86,62 +85,6 @@ public class Dosen implements Parcelable {
         }
     };
 
-    public String getNip_dosen() {
-        return nip_dosen;
-    }
-
-    public void setNip_dosen(String nip_dosen) {
-        this.nip_dosen = nip_dosen;
-    }
-
-    public String getNama_d() {
-        return nama_d;
-    }
-
-    public void setNama_d(String nama_d) {
-        this.nama_d = nama_d;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getNo_telefon() {
-        return no_telefon;
-    }
-
-    public void setNo_telefon(String no_telefon) {
-        this.no_telefon = no_telefon;
-    }
-
-    public int getLimit() {
-        return limit;
-    }
-
-    public void setLimit(int limit) {
-        this.limit = limit;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -149,12 +92,68 @@ public class Dosen implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.nip_dosen);
-        dest.writeString(this.nama_d);
-        dest.writeString(this.foto);
-        dest.writeString(this.email);
-        dest.writeString(this.no_telefon);
-        dest.writeInt(this.limit);
-        dest.writeString(this.username);
+        dest.writeString(dsn_nip);
+        dest.writeString(dsn_nama);
+        dest.writeString(dsn_kode);
+        dest.writeString(dsn_kontak);
+        dest.writeString(dsn_foto);
+        dest.writeString(dsn_email);
+        dest.writeString(dsn_status);
+    }
+
+    public String getDsn_nip() {
+        return dsn_nip;
+    }
+
+    public void setDsn_nip(String dsn_nip) {
+        this.dsn_nip = dsn_nip;
+    }
+
+    public String getDsn_nama() {
+        return dsn_nama;
+    }
+
+    public void setDsn_nama(String dsn_nama) {
+        this.dsn_nama = dsn_nama;
+    }
+
+    public String getDsn_kode() {
+        return dsn_kode;
+    }
+
+    public void setDsn_kode(String dsn_kode) {
+        this.dsn_kode = dsn_kode;
+    }
+
+    public String getDsn_kontak() {
+        return dsn_kontak;
+    }
+
+    public void setDsn_kontak(String dsn_kontak) {
+        this.dsn_kontak = dsn_kontak;
+    }
+
+    public String getDsn_foto() {
+        return dsn_foto;
+    }
+
+    public void setDsn_foto(String dsn_foto) {
+        this.dsn_foto = dsn_foto;
+    }
+
+    public String getDsn_email() {
+        return dsn_email;
+    }
+
+    public void setDsn_email(String dsn_email) {
+        this.dsn_email = dsn_email;
+    }
+
+    public String getDsn_status() {
+        return dsn_status;
+    }
+
+    public void setDsn_status(String dsn_status) {
+        this.dsn_status = dsn_status;
     }
 }

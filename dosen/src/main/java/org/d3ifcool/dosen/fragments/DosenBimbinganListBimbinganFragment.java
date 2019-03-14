@@ -52,12 +52,7 @@ public class DosenBimbinganListBimbinganFragment extends Fragment {
         });
 
         ArrayList<Bimbingan> arrayList = new ArrayList<>();
-        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
-        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
-        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
-        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
-        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
-        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
+
 
         DosenBimbinganViewAdapter adapter = new DosenBimbinganViewAdapter(getContext());
         adapter.addItem(arrayList);

@@ -52,9 +52,9 @@ public class DosenInformasiDetailActivity extends AppCompatActivity implements I
         extraInfo = getIntent().getParcelableExtra(EXTRA_INFORMASI);
         String judul = extraInfo.getInfo_judul();
         String isi = extraInfo.getInfo_deskripsi();
-        String tanggal = extraInfo.getInfo_tanggal();
-        String dosen = extraInfo.getPublisher();
-        String foto = extraInfo.getFoto();
+        String tanggal = extraInfo.getTanggal();
+        String dosen = extraInfo.getPenerbit();
+        String foto = sessionManager.getSessionDosenFoto();
 
         textView_judul.setText(judul);
         textView_isi.setText(isi);
@@ -70,7 +70,7 @@ public class DosenInformasiDetailActivity extends AppCompatActivity implements I
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        String publisher = extraInfo.getPublisher();
+        String publisher = extraInfo.getPenerbit();
         if (publisher.equalsIgnoreCase(sessionManager.getSessionDosenNamaD())) {
             getMenuInflater().inflate(R.menu.menu_edit_delete, menu);
         }

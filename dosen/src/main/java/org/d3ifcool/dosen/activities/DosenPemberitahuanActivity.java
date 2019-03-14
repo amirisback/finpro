@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenPemberitahuanViewAdapter;
-import org.d3ifcool.service.models.Pemberitahuan;
+import org.d3ifcool.service.models.Notifikasi;
 
 import java.util.ArrayList;
 
@@ -28,11 +28,11 @@ public class DosenPemberitahuanActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         rv = findViewById(R.id.act_dsn_pemberitahuan_recyclerview);
 
-        final ArrayList<Pemberitahuan> data = new ArrayList<>();
-        data.add(new Pemberitahuan("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
-        data.add(new Pemberitahuan("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
-        data.add(new Pemberitahuan("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
-        data.add(new Pemberitahuan("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
+        final ArrayList<Notifikasi> data = new ArrayList<>();
+        data.add(new Notifikasi("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
+        data.add(new Notifikasi("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
+        data.add(new Notifikasi("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
+        data.add(new Notifikasi("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         DosenPemberitahuanViewAdapter adapter = new DosenPemberitahuanViewAdapter(this,data);

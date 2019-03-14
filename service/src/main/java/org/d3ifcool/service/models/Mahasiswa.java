@@ -25,114 +25,57 @@ import com.google.gson.annotations.SerializedName;
  */
 public class Mahasiswa implements Parcelable {
     @Expose
-    @SerializedName("nama_m")
-    private String nama_m;
+    @SerializedName("mhs_nim")
+    private String mhs_nim;
     @Expose
-    @SerializedName("nim_mhs")
-    private String nim_mhs;
+    @SerializedName("mhs_nama")
+    private String mhs_nama;
     @Expose
-    @SerializedName("foto_m")
-    private String foto_m;
+    @SerializedName("mhs_kontak")
+    private String mhs_kontak;
     @Expose
-    @SerializedName("email_m")
-    private String email_m;
+    @SerializedName("mhs_foto")
+    private String mhs_foto;
     @Expose
-    @SerializedName("kontak_m")
-    private String kontak_m;
-    @Expose
-    @SerializedName("angkatan")
-    private String angkatan;
+    @SerializedName("mhs_email")
+    private String mhs_email;
     @Expose
     @SerializedName("status")
     private String status;
-    @Expose
-    @SerializedName("username_mhs")
-    private String username_mhs;
 
-    public Mahasiswa(String nama_m, String nim_mhs, String foto_m, String email_m, String kontak_m, String angkatan, String status, String username_mhs) {
-        this.nama_m = nama_m;
-        this.nim_mhs = nim_mhs;
-        this.foto_m = foto_m;
-        this.email_m = email_m;
-        this.kontak_m = kontak_m;
-        this.angkatan = angkatan;
-        this.status = status;
-        this.username_mhs = username_mhs;
-    }
-
-    public String getNama_m() {
-        return nama_m;
-    }
-
-    public void setNama_m(String nama_m) {
-        this.nama_m = nama_m;
-    }
-
-    public String getNim_mhs() {
-        return nim_mhs;
-    }
-
-    public void setNim_mhs(String nim_mhs) {
-        this.nim_mhs = nim_mhs;
-    }
-
-    public String getFoto_m() {
-        return foto_m;
-    }
-
-    public void setFoto_m(String foto_m) {
-        this.foto_m = foto_m;
-    }
-
-    public String getEmail_m() {
-        return email_m;
-    }
-
-    public void setEmail_m(String email_m) {
-        this.email_m = email_m;
-    }
-
-    public String getKontak_m() {
-        return kontak_m;
-    }
-
-    public void setKontak_m(String kontak_m) {
-        this.kontak_m = kontak_m;
-    }
-
-    public String getAngkatan() {
-        return angkatan;
-    }
-
-    public void setAngkatan(String angkatan) {
-        this.angkatan = angkatan;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getUsername_mhs() {
-        return username_mhs;
-    }
-
-    public void setUsername_mhs(String username_mhs) {
-        this.username_mhs = username_mhs;
-    }
 
     protected Mahasiswa(Parcel in) {
-        nama_m = in.readString();
-        nim_mhs = in.readString();
-        foto_m = in.readString();
-        email_m = in.readString();
-        kontak_m = in.readString();
-        angkatan = in.readString();
+        mhs_nim = in.readString();
+        mhs_nama = in.readString();
+        mhs_kontak = in.readString();
+        mhs_foto = in.readString();
+        mhs_email = in.readString();
         status = in.readString();
-        username_mhs = in.readString();
+    }
+
+    public Mahasiswa(String mhs_nim, String mhs_nama, String mhs_kontak, String mhs_foto, String mhs_email, String status) {
+        this.mhs_nim = mhs_nim;
+        this.mhs_nama = mhs_nama;
+        this.mhs_kontak = mhs_kontak;
+        this.mhs_foto = mhs_foto;
+        this.mhs_email = mhs_email;
+        this.status = status;
+    }
+
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(mhs_nim);
+        dest.writeString(mhs_nama);
+        dest.writeString(mhs_kontak);
+        dest.writeString(mhs_foto);
+        dest.writeString(mhs_email);
+        dest.writeString(status);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<Mahasiswa> CREATOR = new Creator<Mahasiswa>() {
@@ -147,20 +90,51 @@ public class Mahasiswa implements Parcelable {
         }
     };
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getMhs_nim() {
+        return mhs_nim;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(nama_m);
-        dest.writeString(nim_mhs);
-        dest.writeString(foto_m);
-        dest.writeString(email_m);
-        dest.writeString(kontak_m);
-        dest.writeString(angkatan);
-        dest.writeString(status);
-        dest.writeString(username_mhs);
+    public void setMhs_nim(String mhs_nim) {
+        this.mhs_nim = mhs_nim;
+    }
+
+    public String getMhs_nama() {
+        return mhs_nama;
+    }
+
+    public void setMhs_nama(String mhs_nama) {
+        this.mhs_nama = mhs_nama;
+    }
+
+    public String getMhs_kontak() {
+        return mhs_kontak;
+    }
+
+    public void setMhs_kontak(String mhs_kontak) {
+        this.mhs_kontak = mhs_kontak;
+    }
+
+    public String getMhs_foto() {
+        return mhs_foto;
+    }
+
+    public void setMhs_foto(String mhs_foto) {
+        this.mhs_foto = mhs_foto;
+    }
+
+    public String getMhs_email() {
+        return mhs_email;
+    }
+
+    public void setMhs_email(String mhs_email) {
+        this.mhs_email = mhs_email;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

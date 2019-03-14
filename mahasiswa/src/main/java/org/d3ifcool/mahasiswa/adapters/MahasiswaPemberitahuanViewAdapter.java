@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.service.models.Pemberitahuan;
+import org.d3ifcool.service.models.Notifikasi;
 
 import java.util.ArrayList;
 
@@ -34,9 +34,9 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MahasiswaPemberitahuanViewAdapter extends RecyclerView.Adapter<MahasiswaPemberitahuanViewAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<Pemberitahuan> notifs;
+    ArrayList<Notifikasi> notifs;
 
-    public MahasiswaPemberitahuanViewAdapter(Context context, ArrayList<Pemberitahuan> notifs) {
+    public MahasiswaPemberitahuanViewAdapter(Context context, ArrayList<Notifikasi> notifs) {
         this.context = context;
         this.notifs = notifs;
     }
@@ -50,9 +50,7 @@ public class MahasiswaPemberitahuanViewAdapter extends RecyclerView.Adapter<Maha
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.isi.setText(notifs.get(position).getIsi());
-        holder.waktu.setText(notifs.get(position).getWaktu());
-        holder.tanggal.setText(notifs.get(position).getTanggal());
+        holder.isi.setText(notifs.get(position).getDeskripsi());
     }
 
     @Override

@@ -19,19 +19,15 @@ import com.google.gson.annotations.SerializedName;
  * Campus   : Telkom University
  * -----------------------------------------
  */
-public class Pemberitahuan implements Parcelable {
+public class Notifikasi implements Parcelable {
 
     @Expose
-    @SerializedName("deskripsi")
-    String isi;
+    @SerializedName("notifikasi_id")
+    String notifikasi_id;
 
     @Expose
-    @SerializedName("created_at")
-    String tanggal;
-
-    @Expose
-    @SerializedName("deskripsi")
-    String waktu;
+    @SerializedName("token_pesan")
+    String token_pesan;
 
     @Expose
     @SerializedName("dari")
@@ -46,64 +42,38 @@ public class Pemberitahuan implements Parcelable {
     String info_kategori;
 
     @Expose
+    @SerializedName("deskripsi")
+    String deskripsi;
+
+    @Expose
     @SerializedName("status")
     String status;
 
 
-    public Pemberitahuan(String isi, String tanggal, String waktu, String dari, String untuk, String info_kategori, String status) {
-        this.isi = isi;
-        this.tanggal = tanggal;
-        this.waktu = waktu;
+    public Notifikasi(String notifikasi_id, String token_pesan, String dari, String untuk, String info_kategori, String deskripsi, String status) {
+        this.notifikasi_id = notifikasi_id;
+        this.token_pesan = token_pesan;
         this.dari = dari;
         this.untuk = untuk;
         this.info_kategori = info_kategori;
+        this.deskripsi = deskripsi;
         this.status = status;
     }
 
-    protected Pemberitahuan(Parcel in) {
-        isi = in.readString();
-        tanggal = in.readString();
-        waktu = in.readString();
-        dari = in.readString();
-        untuk = in.readString();
-        info_kategori = in.readString();
-        status = in.readString();
+    public String getNotifikasi_id() {
+        return notifikasi_id;
     }
 
-    public static final Creator<Pemberitahuan> CREATOR = new Creator<Pemberitahuan>() {
-        @Override
-        public Pemberitahuan createFromParcel(Parcel in) {
-            return new Pemberitahuan(in);
-        }
-
-        @Override
-        public Pemberitahuan[] newArray(int size) {
-            return new Pemberitahuan[size];
-        }
-    };
-
-    public String getIsi() {
-        return isi;
+    public void setNotifikasi_id(String notifikasi_id) {
+        this.notifikasi_id = notifikasi_id;
     }
 
-    public void setIsi(String isi) {
-        this.isi = isi;
+    public String getToken_pesan() {
+        return token_pesan;
     }
 
-    public String getTanggal() {
-        return tanggal;
-    }
-
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
-    }
-
-    public String getWaktu() {
-        return waktu;
-    }
-
-    public void setWaktu(String waktu) {
-        this.waktu = waktu;
+    public void setToken_pesan(String token_pesan) {
+        this.token_pesan = token_pesan;
     }
 
     public String getDari() {
@@ -130,6 +100,14 @@ public class Pemberitahuan implements Parcelable {
         this.info_kategori = info_kategori;
     }
 
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -138,19 +116,41 @@ public class Pemberitahuan implements Parcelable {
         this.status = status;
     }
 
+    protected Notifikasi(Parcel in) {
+        notifikasi_id = in.readString();
+        token_pesan = in.readString();
+        dari = in.readString();
+        untuk = in.readString();
+        info_kategori = in.readString();
+        deskripsi = in.readString();
+        status = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(notifikasi_id);
+        dest.writeString(token_pesan);
+        dest.writeString(dari);
+        dest.writeString(untuk);
+        dest.writeString(info_kategori);
+        dest.writeString(deskripsi);
+        dest.writeString(status);
+    }
+
     @Override
     public int describeContents() {
         return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(isi);
-        dest.writeString(tanggal);
-        dest.writeString(waktu);
-        dest.writeString(dari);
-        dest.writeString(untuk);
-        dest.writeString(info_kategori);
-        dest.writeString(status);
-    }
+    public static final Creator<Notifikasi> CREATOR = new Creator<Notifikasi>() {
+        @Override
+        public Notifikasi createFromParcel(Parcel in) {
+            return new Notifikasi(in);
+        }
+
+        @Override
+        public Notifikasi[] newArray(int size) {
+            return new Notifikasi[size];
+        }
+    };
 }

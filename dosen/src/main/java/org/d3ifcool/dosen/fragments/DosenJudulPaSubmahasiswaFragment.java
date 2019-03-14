@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.models.JudulPa;
+import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenJudulPaSubmahasiswaViewAdapter;
 
 import java.util.ArrayList;
@@ -38,12 +38,8 @@ public class DosenJudulPaSubmahasiswaFragment extends Fragment {
 
         DosenJudulPaSubmahasiswaViewAdapter adapter = new DosenJudulPaSubmahasiswaViewAdapter(getContext());
 
-        ArrayList<JudulPa> arrayList = new ArrayList<>();
-        arrayList.add(new JudulPa("Judul", "Kategori"));
-        arrayList.add(new JudulPa("Judul", "Kategori"));
-        arrayList.add(new JudulPa("Judul", "Kategori"));
-        arrayList.add(new JudulPa("Judul", "Kategori"));
-        arrayList.add(new JudulPa("Judul", "Kategori"));
+        ArrayList<Judul> arrayList = new ArrayList<>();
+
 
         adapter.addItem(arrayList);
         adapter.setLayoutType(R.layout.content_item_dosen_judul_pa_submahasiswa);

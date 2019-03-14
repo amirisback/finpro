@@ -4,13 +4,10 @@ import android.content.Context;
 
 import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
 import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
-import org.d3ifcool.service.models.Informasi;
-import org.d3ifcool.service.models.JudulPa;
+import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.network.ApiClient;
-import org.d3ifcool.service.network.ApiInterfaceInformasi;
 import org.d3ifcool.service.network.ApiInterfaceJudulPa;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -46,19 +43,20 @@ public class JudulPaPresenter {
         this.viewResult = viewResult;
         this.context = context;
     }
-    public void createJudul (String judul, String deskripsi, String kategori, String nip_dosen){
+
+    public void createJudul (String judul_nama, String judul_kategori, String judul_deskripsi, String judul_status, String nip_dosen){
 
         ApiInterfaceJudulPa apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudulPa.class);
-        Call<JudulPa> call = apiInterface.createJudul(judul,deskripsi,kategori,nip_dosen);
-        call.enqueue(new Callback<JudulPa>() {
+        Call<Judul> call = apiInterface.createJudul(judul_nama,judul_kategori,judul_deskripsi,judul_status,nip_dosen);
+        call.enqueue(new Callback<Judul>() {
             @Override
-            public void onResponse(Call<JudulPa> call, Response<JudulPa> response) {
+            public void onResponse(Call<Judul> call, Response<Judul> response) {
                 viewEditor.hideProgress();
                 viewEditor.onSucces();
             }
 
             @Override
-            public void onFailure(Call<JudulPa> call, Throwable t) {
+            public void onFailure(Call<Judul> call, Throwable t) {
                 viewEditor.hideProgress();
                 viewEditor.onFailed(t.getLocalizedMessage());
             }
@@ -68,34 +66,34 @@ public class JudulPaPresenter {
 
     public void getJudul() {
         ApiInterfaceJudulPa apiInterfaceJudulPa = ApiClient.getApiClient().create(ApiInterfaceJudulPa.class);
-        Call<List<JudulPa>> call = apiInterfaceJudulPa.getJudul();
-        call.enqueue(new Callback<List<JudulPa>>() {
+        Call<List<Judul>> call = apiInterfaceJudulPa.getJudul();
+        call.enqueue(new Callback<List<Judul>>() {
             @Override
-            public void onResponse(Call<List<JudulPa>> call, Response<List<JudulPa>> response) {
+            public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
                 viewResult.hideProgress();
                 viewResult.onGetResult(response.body());
             }
 
             @Override
-            public void onFailure(Call<List<JudulPa>> call, Throwable t) {
+            public void onFailure(Call<List<Judul>> call, Throwable t) {
                 viewResult.hideProgress();
                 viewResult.onErrorLoading(t.getLocalizedMessage());
             }
         });
     }
 
-    public void deleteJudul(int id_judul){
+    public void deleteJudul(int judul_id){
         ApiInterfaceJudulPa apiInterfaceJudulPa = ApiClient.getApiClient().create(ApiInterfaceJudulPa.class);
-        Call<JudulPa> call = apiInterfaceJudulPa.deleteJudul(id_judul);
-        call.enqueue(new Callback<JudulPa>() {
+        Call<Judul> call = apiInterfaceJudulPa.deleteJudul(judul_id);
+        call.enqueue(new Callback<Judul>() {
             @Override
-            public void onResponse(Call<JudulPa> call, Response<JudulPa> response) {
+            public void onResponse(Call<Judul> call, Response<Judul> response) {
                 viewEditor.hideProgress();
                 viewEditor.onSucces();
             }
 
             @Override
-            public void onFailure(Call<JudulPa> call, Throwable t) {
+            public void onFailure(Call<Judul> call, Throwable t) {
                 viewEditor.hideProgress();
                 viewEditor.onFailed(t.getLocalizedMessage());
             }

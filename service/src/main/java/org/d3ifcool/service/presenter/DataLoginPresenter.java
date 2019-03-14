@@ -47,15 +47,15 @@ public class DataLoginPresenter {
         this.context = context;
     }
 
-    public void getDataDosenLogin(String username){
+    public void getDataDosenLogin(String dsn_nip){
         viewDosen.showProgress();
         ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
-        Call<Dosen> call = apiInterfaceDosen.getDataDosenLogin(username);
+        Call<Dosen> call = apiInterfaceDosen.getDataDosenLogin(dsn_nip);
         call.enqueue(new Callback<Dosen>() {
             @Override
             public void onResponse(Call<Dosen> call, Response<Dosen> response) {
                 viewDosen.hideProgress();
-                viewDosen.onRequestSuccess(response.body().getNama_d(), response.body());
+                viewDosen.onRequestSuccess(response.body().getDsn_nama(), response.body());
             }
 
             @Override

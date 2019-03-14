@@ -1,6 +1,6 @@
 package org.d3ifcool.service.network;
 
-import org.d3ifcool.service.models.JudulPa;
+import org.d3ifcool.service.models.Judul;
 
 import java.util.List;
 
@@ -14,7 +14,6 @@ import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_CREATE;
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_DELETE;
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_READ;
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_UPDATE;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_KATEGORI_JUDUL_PA_READ;
 
 /**
  * Created by Faisal Amir
@@ -37,36 +36,37 @@ public interface ApiInterfaceJudulPa {
 
     @FormUrlEncoded
     @POST(URL_JUDUL_PA_CREATE)
-    Call<JudulPa> createJudul(
-            @Field("judul") String judul,
-            @Field("deskripsi") String deskripsi,
-            @Field("kategori") String kategori,
+    Call<Judul> createJudul(
+            @Field("judul_nama") String judul_nama,
+            @Field("judul_kategori") String judul_kategori,
+            @Field("judul_deskripsi") String judul_deskripsi,
+            @Field("judul_status") String judul_status,
             @Field("nip_dosen") String nip_dosen
     );
 
 
     @FormUrlEncoded
     @POST(URL_JUDUL_PA_UPDATE)
-    Call<JudulPa> updateJudul(
-            @Field("id_judul") int id_judul,
-            @Field("judul") String judul,
-            @Field("deskripsi") String deskripsi,
-            @Field("kategori") String kategori,
-            @Field("status") String status,
+    Call<Judul> updateJudul(
+            @Field("judul_id") int judul_id,
+            @Field("judul_nama") String judul_nama,
+            @Field("judul_kategori") String judul_kategori,
+            @Field("judul_deskripsi") String judul_deskripsi,
+            @Field("judul_status") String judul_status,
             @Field("nip_dosen") String nip_dosen
     );
 
     @GET(URL_JUDUL_PA_READ)
-    Call<List<JudulPa>> getJudul();
+    Call<List<Judul>> getJudul();
 
 
 //    @GET(URL_KATEGORI_JUDUL_PA_READ)
-//    Call<JudulPa> getKategoriJudul(
+//    Call<Judul> getKategoriJudul(
 //            @Field("kategori") String kategori
 //    );
 
     @FormUrlEncoded
     @POST(URL_JUDUL_PA_DELETE)
-    Call<JudulPa> deleteJudul(@Field("id_judul") int id_judul);
+    Call<Judul> deleteJudul(@Field("judul_id") int judul_id);
 
 }

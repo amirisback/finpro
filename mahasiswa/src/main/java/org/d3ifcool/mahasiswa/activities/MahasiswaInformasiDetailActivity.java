@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.mahasiswa.R;
+import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.models.Informasi;
 
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
@@ -18,6 +19,7 @@ import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 public class MahasiswaInformasiDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_INFORMASI = "extra_informasi";
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class MahasiswaInformasiDetailActivity extends AppCompatActivity {
 
         setTitle(getString(R.string.title_informasi_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        sessionManager = new SessionManager(this);
 
         TextView textView_judul = findViewById(R.id.act_mhs_info_detail_textview_judul);
         TextView textView_isi = findViewById(R.id.act_mhs_info_detail_textview_isi);
@@ -36,9 +39,9 @@ public class MahasiswaInformasiDetailActivity extends AppCompatActivity {
         Informasi extraInfo = getIntent().getParcelableExtra(EXTRA_INFORMASI);
         String judul = extraInfo.getInfo_judul();
         String isi = extraInfo.getInfo_deskripsi();
-        String tanggal = extraInfo.getInfo_tanggal();
-        String dosen = extraInfo.getPublisher();
-        String foto = extraInfo.getFoto();
+        String tanggal = extraInfo.getTanggal();
+        String dosen = extraInfo.getPenerbit();
+        String foto = sessionManager.getSessionDosenFoto();
 
         textView_judul.setText(judul);
         textView_isi.setText(isi);

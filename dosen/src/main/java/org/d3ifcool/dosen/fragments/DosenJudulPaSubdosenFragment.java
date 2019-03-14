@@ -16,7 +16,7 @@ import android.widget.Toast;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editors.DosenJudulPaSubdosenTambahActivity;
 import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
-import org.d3ifcool.service.models.JudulPa;
+import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenJudulPaSubdosenViewAdapter;
 import org.d3ifcool.service.presenter.JudulPaPresenter;
 
@@ -33,7 +33,7 @@ public class DosenJudulPaSubdosenFragment extends Fragment implements JudulPaSub
     private DosenJudulPaSubdosenViewAdapter adapter;
     private JudulPaPresenter presenter;
     private ProgressDialog dialog;
-    private ArrayList<JudulPa> judulPas = new ArrayList<>();
+    private ArrayList<Judul> juduls = new ArrayList<>();
 
 
     public DosenJudulPaSubdosenFragment() {
@@ -86,11 +86,11 @@ public class DosenJudulPaSubdosenFragment extends Fragment implements JudulPaSub
     }
 
     @Override
-    public void onGetResult(List<JudulPa> judulpa) {
+    public void onGetResult(List<Judul> judulpa) {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        judulPas.clear();
-        judulPas.addAll(judulpa);
-        adapter.addItem(judulPas);
+        juduls.clear();
+        juduls.addAll(judulpa);
+        adapter.addItem(juduls);
         adapter.setLayoutType(R.layout.content_item_dosen_judul_pa_subdosen);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(linearLayoutManager);

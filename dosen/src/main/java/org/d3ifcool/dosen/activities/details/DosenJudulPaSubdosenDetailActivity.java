@@ -15,16 +15,13 @@ import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editors.DosenJudulPaSubdosenUbahActivity;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
-import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
-import org.d3ifcool.service.models.JudulPa;
+import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.presenter.JudulPaPresenter;
-
-import java.util.List;
 
 public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implements JudulPaSubDosenViewEditor {
     public static final String EXTRA_INFORMASI = "extra_informasi";
     private TextView tv_judul,tv_kategori,tv_deskripsi;
-    private JudulPa extradata;
+    private Judul extradata;
     private JudulPaPresenter presenter;
     private ProgressDialog dialog;
     private SessionManager sessionManager;

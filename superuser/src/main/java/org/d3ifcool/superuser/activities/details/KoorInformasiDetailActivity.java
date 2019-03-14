@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.dosen.activities.details.DosenInformasiDetailActivity;
 import org.d3ifcool.dosen.activities.editors.DosenInformasiUbahActivity;
+import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.superuser.R;
 
@@ -20,6 +21,7 @@ public class KoorInformasiDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_INFORMASI = "extra_informasi";
     private Informasi extraInfo;
+    SessionManager sessionManager = new SessionManager(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +40,9 @@ public class KoorInformasiDetailActivity extends AppCompatActivity {
         extraInfo = getIntent().getParcelableExtra(EXTRA_INFORMASI);
         String judul = extraInfo.getInfo_judul();
         String isi = extraInfo.getInfo_deskripsi();
-        String tanggal = extraInfo.getInfo_tanggal();
-        String nama = extraInfo.getPublisher();
-//        String foto = extraInfo.getFoto();
+        String tanggal = extraInfo.getTanggal();
+        String nama = extraInfo.getPenerbit();
+        String foto = sessionManager.getSessionDosenFoto();
 
         textView_judul.setText(judul);
         textView_isi.setText(isi);

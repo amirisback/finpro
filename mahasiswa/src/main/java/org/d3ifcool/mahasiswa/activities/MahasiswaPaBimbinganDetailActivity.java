@@ -29,12 +29,12 @@ public class MahasiswaPaBimbinganDetailActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.act_mhs_pa_bimbingan_detail_recyclerview);
 
         ArrayList<Bimbingan> arrayList = new ArrayList<>();
-        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
-        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
-        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
-        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
-        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
-        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
+//        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
+//        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
+//        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
+//        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
+//        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
+//        arrayList.add(new Bimbingan("a", "01 Februari 2019", "Revisi Bab 4"));
 
         MahasiswaPaBimbinganViewAdapter adapter = new MahasiswaPaBimbinganViewAdapter(this);
         adapter.addItem(arrayList);

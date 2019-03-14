@@ -3,6 +3,9 @@ package org.d3ifcool.service.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
@@ -22,63 +25,39 @@ import android.os.Parcelable;
  */
 public class Monev implements Parcelable {
 
-    private int nilai;
-    private String tanggal;
-    private String komentar;
+    @Expose
+    @SerializedName("monev_id")
+    private int monev_id;
 
-    public Monev(int nilai, String tanggal, String komentar) {
-        this.nilai = nilai;
-        this.tanggal = tanggal;
-        this.komentar = komentar;
+    @Expose
+    @SerializedName("monev_kategori")
+    private String kategori;
+
+    public Monev(int monev_id, String kategori) {
+        this.monev_id = monev_id;
+        this.kategori = kategori;
     }
 
-    public int getNilai() {
-        return nilai;
+    protected Monev(Parcel in) {
+        monev_id = in.readInt();
+        kategori = in.readString();
     }
 
-    public void setNilai(int nilai) {
-        this.nilai = nilai;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(monev_id);
+        dest.writeString(kategori);
     }
-
-    public String getTanggal() {
-        return tanggal;
-    }
-
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
-    }
-
-    public String getKomentar() {
-        return komentar;
-    }
-
-    public void setKomentar(String komentar) {
-        this.komentar = komentar;
-    }
-
 
     @Override
     public int describeContents() {
         return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.nilai);
-        dest.writeString(this.tanggal);
-        dest.writeString(this.komentar);
-    }
-
-    protected Monev(Parcel in) {
-        this.nilai = in.readInt();
-        this.tanggal = in.readString();
-        this.komentar = in.readString();
-    }
-
     public static final Creator<Monev> CREATOR = new Creator<Monev>() {
         @Override
-        public Monev createFromParcel(Parcel source) {
-            return new Monev(source);
+        public Monev createFromParcel(Parcel in) {
+            return new Monev(in);
         }
 
         @Override
@@ -86,4 +65,20 @@ public class Monev implements Parcelable {
             return new Monev[size];
         }
     };
+
+    public int getMonev_id() {
+        return monev_id;
+    }
+
+    public void setMonev_id(int monev_id) {
+        this.monev_id = monev_id;
+    }
+
+    public String getKategori() {
+        return kategori;
+    }
+
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
+    }
 }

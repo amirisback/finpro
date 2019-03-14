@@ -1,7 +1,6 @@
 package org.d3ifcool.service.interfaces;
 
-import org.d3ifcool.service.models.Informasi;
-import org.d3ifcool.service.models.JudulPa;
+import org.d3ifcool.service.models.Judul;
 
 import java.util.List;
 
@@ -25,6 +24,6 @@ import java.util.List;
 public interface JudulPaSubDosenViewResult{
     void showProgress();
     void hideProgress();
-    void onGetResult(List<JudulPa> judulpa);
+    void onGetResult(List<Judul> judulpa);
     void onErrorLoading(String message);
 }

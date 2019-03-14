@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.MahasiswaPemberitahuanViewAdapter;
-import org.d3ifcool.service.models.Pemberitahuan;
+import org.d3ifcool.service.models.Notifikasi;
 
 import java.util.ArrayList;
 
@@ -25,8 +25,8 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity {
         setTitle(getString(R.string.title_pemberitahuan));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         recyclerView = findViewById(R.id.act_mhs_pemberitahuan_recyclerview);
-        final ArrayList<Pemberitahuan> notifs = new ArrayList<>();
-        notifs.add(new Pemberitahuan("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
+        final ArrayList<Notifikasi> notifs = new ArrayList<>();
+        notifs.add(new Notifikasi("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
 
         MahasiswaPemberitahuanViewAdapter adapter = new MahasiswaPemberitahuanViewAdapter(this, notifs);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);;

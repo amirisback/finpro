@@ -23,84 +23,40 @@ import com.google.gson.annotations.SerializedName;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public class JudulPa implements Parcelable {
+public class Judul implements Parcelable {
 
     @Expose
-    @SerializedName("id_judul")
+    @SerializedName("judul_id")
     int id;
 
     @Expose
-    @SerializedName("judul")
+    @SerializedName("judul_nama")
     private String judul;
 
     @Expose
-    @SerializedName("kategori")
+    @SerializedName("judul_kategori")
     private String kategori;
 
     @Expose
-    @SerializedName("deskripsi")
+    @SerializedName("judul_deskripsi")
     private String deskripsi;
 
     @Expose
-    @SerializedName("status")
+    @SerializedName("judul_status")
     private String tersedia;
 
     @Expose
     @SerializedName("nip_dosen")
     private String nip_dosen;
 
-    @Expose
-    @SerializedName("nama_tim")
-    private String kelompok;
-
-    @Expose
-    @SerializedName("created_at")
-    private String created_at;
-
-    @Expose
-    @SerializedName("updated_at")
-    private String updated_at;
-
-    public JudulPa(String judul, String kategori) {
-        this.judul = judul;
-        this.kategori = kategori;
-    }
-
-    public JudulPa(int id, String judul, String kategori, String deskripsi, String tersedia, String nip_dosen, String kelompok, String created_at, String update_at) {
+    public Judul(int id, String judul, String kategori, String deskripsi, String tersedia, String nip_dosen) {
         this.id = id;
         this.judul = judul;
         this.kategori = kategori;
         this.deskripsi = deskripsi;
         this.tersedia = tersedia;
         this.nip_dosen = nip_dosen;
-        this.kelompok = kelompok;
-        this.created_at = created_at;
-        this.updated_at = update_at;
     }
-
-    protected JudulPa(Parcel in) {
-        id = in.readInt();
-        judul = in.readString();
-        kategori = in.readString();
-        deskripsi = in.readString();
-        tersedia = in.readString();
-        nip_dosen = in.readString();
-        kelompok = in.readString();
-        created_at = in.readString();
-        updated_at= in.readString();
-    }
-
-    public static final Creator<JudulPa> CREATOR = new Creator<JudulPa>() {
-        @Override
-        public JudulPa createFromParcel(Parcel in) {
-            return new JudulPa(in);
-        }
-
-        @Override
-        public JudulPa[] newArray(int size) {
-            return new JudulPa[size];
-        }
-    };
 
     public int getId() {
         return id;
@@ -134,12 +90,12 @@ public class JudulPa implements Parcelable {
         this.deskripsi = deskripsi;
     }
 
-    public String getStatus() {
+    public String getTersedia() {
         return tersedia;
     }
 
-    public void setStatus(String status) {
-        this.tersedia = status;
+    public void setTersedia(String tersedia) {
+        this.tersedia = tersedia;
     }
 
     public String getNip_dosen() {
@@ -150,10 +106,13 @@ public class JudulPa implements Parcelable {
         this.nip_dosen = nip_dosen;
     }
 
-
-    @Override
-    public int describeContents() {
-        return 0;
+    protected Judul(Parcel in) {
+        id = in.readInt();
+        judul = in.readString();
+        kategori = in.readString();
+        deskripsi = in.readString();
+        tersedia = in.readString();
+        nip_dosen = in.readString();
     }
 
     @Override
@@ -164,8 +123,22 @@ public class JudulPa implements Parcelable {
         dest.writeString(deskripsi);
         dest.writeString(tersedia);
         dest.writeString(nip_dosen);
-        dest.writeString(kelompok);
-        dest.writeString(created_at);
-        dest.writeString(updated_at);
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Judul> CREATOR = new Creator<Judul>() {
+        @Override
+        public Judul createFromParcel(Parcel in) {
+            return new Judul(in);
+        }
+
+        @Override
+        public Judul[] newArray(int size) {
+            return new Judul[size];
+        }
+    };
 }

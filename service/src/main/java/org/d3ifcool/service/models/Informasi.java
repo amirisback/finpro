@@ -25,36 +25,31 @@ import com.google.gson.annotations.SerializedName;
  */
 public class Informasi implements Parcelable {
     @Expose
-    @SerializedName("id")
+    @SerializedName("informasi_id")
     private int id;
 
     @Expose
-    @SerializedName("info_judul")
+    @SerializedName("informasi_judul")
     private String info_judul;
 
     @Expose
-    @SerializedName("info_deskripsi")
+    @SerializedName("informasi_isi")
     private String info_deskripsi;
 
     @Expose
-    @SerializedName("created_at")
-    private String info_tanggal;
+    @SerializedName("penerbit")
+    private String penerbit;
 
     @Expose
-    @SerializedName("publisher")
-    private String publisher;
+    @SerializedName("informasi_waktu")
+    private String tanggal;
 
-    @Expose
-    @SerializedName("foto")
-    private String foto;
-
-    public Informasi(int id, String info_judul, String info_deskripsi, String info_tanggal, String publisher, String foto) {
+    public Informasi(int id, String info_judul, String info_deskripsi, String penerbit, String tanggal) {
         this.id = id;
         this.info_judul = info_judul;
         this.info_deskripsi = info_deskripsi;
-        this.info_tanggal = info_tanggal;
-        this.publisher = publisher;
-        this.foto = foto;
+        this.penerbit = penerbit;
+        this.tanggal = tanggal;
     }
 
     public int getId() {
@@ -81,59 +76,48 @@ public class Informasi implements Parcelable {
         this.info_deskripsi = info_deskripsi;
     }
 
-    public String getInfo_tanggal() {
-        return info_tanggal;
+    public String getTanggal() {
+        return tanggal;
     }
 
-    public void setInfo_tanggal(String info_tanggal) {
-        this.info_tanggal = info_tanggal;
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
     }
 
-    public String getPublisher() {
-        return publisher;
+    public String getPenerbit() {
+        return penerbit;
     }
 
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
+    public void setPenerbit(String penerbit) {
+        this.penerbit = penerbit;
     }
 
-    public String getFoto() {
-        return foto;
+    protected Informasi(Parcel in) {
+        id = in.readInt();
+        info_judul = in.readString();
+        info_deskripsi = in.readString();
+        tanggal = in.readString();
+        penerbit = in.readString();
     }
 
-    public void setFoto(String foto) {
-        this.foto = foto;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(info_judul);
+        dest.writeString(info_deskripsi);
+        dest.writeString(tanggal);
+        dest.writeString(penerbit);
     }
-
 
     @Override
     public int describeContents() {
         return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.id);
-        dest.writeString(this.info_judul);
-        dest.writeString(this.info_deskripsi);
-        dest.writeString(this.info_tanggal);
-        dest.writeString(this.publisher);
-        dest.writeString(this.foto);
-    }
-
-    protected Informasi(Parcel in) {
-        this.id = in.readInt();
-        this.info_judul = in.readString();
-        this.info_deskripsi = in.readString();
-        this.info_tanggal = in.readString();
-        this.publisher = in.readString();
-        this.foto = in.readString();
-    }
-
     public static final Creator<Informasi> CREATOR = new Creator<Informasi>() {
         @Override
-        public Informasi createFromParcel(Parcel source) {
-            return new Informasi(source);
+        public Informasi createFromParcel(Parcel in) {
+            return new Informasi(in);
         }
 
         @Override

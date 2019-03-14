@@ -38,29 +38,29 @@ public interface ApiInterfaceDosen {
     @FormUrlEncoded
     @POST(URL_DOSEN_CREATE)
     Call<Dosen> createDosen(
-            @Field("nama_d") String nama_d,
-            @Field("foto") String foto,
-            @Field("email_d") String email_d,
-            @Field("kontak_d") String kontak_d,
-            @Field("limit") int limit,
-            @Field("username_dosen") String username_dosen
+            @Field("dsn_nama") String dsn_nama,
+            @Field("dsn_kode") String dsn_kode,
+            @Field("dsn_kontak") String dsn_kontak,
+            @Field("dsn_foto") String dsn_foto,
+            @Field("dsn_email") int dsn_email,
+            @Field("dsn_status") String dsn_status
     );
 
     @FormUrlEncoded
     @POST(URL_DOSEN_UPDATE)
     Call<Dosen> updateDosen(
-            @Field("nip_dosen") int nip_dosen,
-            @Field("nama_d") String nama_d,
-            @Field("foto") String foto,
-            @Field("email_d") String email_d,
-            @Field("kontak_d") String kontak_d,
-            @Field("limit") int limit,
-            @Field("username_dosen") String username_dosen
+            @Field("dsn_nip") int dsn_nip,
+            @Field("dsn_nama") String dsn_nama,
+            @Field("dsn_kode") String dsn_kode,
+            @Field("dsn_kontak") String dsn_kontak,
+            @Field("dsn_foto") String dsn_foto,
+            @Field("dsn_email") int dsn_email,
+            @Field("dsn_status") String dsn_status
     );
 
     @FormUrlEncoded
     @POST(URL_DOSEN_DELETE)
-    Call<Dosen> deleteDosen(@Field("nip_dosen") int nip_dosen);
+    Call<Dosen> deleteDosen(@Field("dsn_nip") int dsn_nip);
 
     @FormUrlEncoded
     @GET(URL_DOSEN_READ)
@@ -68,6 +68,6 @@ public interface ApiInterfaceDosen {
 
     @FormUrlEncoded
     @POST(URL_LOGIN_DATA_DOSEN)
-    Call<Dosen> getDataDosenLogin(@Field("username_dosen") String username_dosen);
+    Call<Dosen> getDataDosenLogin(@Field("dsn_nip") String dsn_nip);
 
 }

@@ -23,7 +23,7 @@ import com.google.gson.annotations.SerializedName;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public class Login implements Parcelable {
+public class User implements Parcelable {
 
     @Expose
     @SerializedName("username")
@@ -45,7 +45,7 @@ public class Login implements Parcelable {
     @SerializedName("message")
     private String message;
 
-    public Login(String username, String password, String pengguna, Boolean success, String message) {
+    public User(String username, String password, String pengguna, Boolean success, String message) {
         this.username = username;
         this.password = password;
         this.pengguna = pengguna;
@@ -108,7 +108,7 @@ public class Login implements Parcelable {
         dest.writeString(this.message);
     }
 
-    protected Login(Parcel in) {
+    protected User(Parcel in) {
         this.username = in.readString();
         this.password = in.readString();
         this.pengguna = in.readString();
@@ -116,15 +116,15 @@ public class Login implements Parcelable {
         this.message = in.readString();
     }
 
-    public static final Creator<Login> CREATOR = new Creator<Login>() {
+    public static final Creator<User> CREATOR = new Creator<User>() {
         @Override
-        public Login createFromParcel(Parcel source) {
-            return new Login(source);
+        public User createFromParcel(Parcel source) {
+            return new User(source);
         }
 
         @Override
-        public Login[] newArray(int size) {
-            return new Login[size];
+        public User[] newArray(int size) {
+            return new User[size];
         }
     };
 }

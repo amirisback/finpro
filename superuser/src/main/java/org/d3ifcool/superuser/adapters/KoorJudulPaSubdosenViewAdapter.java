@@ -7,10 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.d3ifcool.service.models.JudulPa;
+import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.activities.details.KoorJudulPaSubdosenDetailActivity;
-import org.d3ifcool.superuser.activities.editors.KoorJudulPaSubdosenTambahActivity;
 
 import java.util.ArrayList;
 
@@ -37,14 +36,14 @@ import androidx.recyclerview.widget.RecyclerView;
 public class KoorJudulPaSubdosenViewAdapter extends RecyclerView.Adapter<KoorJudulPaSubdosenViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<JudulPa> judulPa;
+    private ArrayList<Judul> judul;
 
     public KoorJudulPaSubdosenViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void additem(ArrayList<JudulPa> judulPas){
-        this.judulPa = judulPas;
+    public void additem(ArrayList<Judul> juduls){
+        this.judul = juduls;
         notifyDataSetChanged();
     }
 
@@ -66,13 +65,13 @@ public class KoorJudulPaSubdosenViewAdapter extends RecyclerView.Adapter<KoorJud
 
     @Override
     public void onBindViewHolder(@NonNull KoorJudulPaSubdosenViewAdapter.ViewHolder holder, final int position) {
-        holder.judulpa.setText(judulPa.get(position).getJudul());
-        holder.kategori.setText(judulPa.get(position).getKategori());
+        holder.judulpa.setText(judul.get(position).getJudul());
+        holder.kategori.setText(judul.get(position).getKategori());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, KoorJudulPaSubdosenDetailActivity.class);
-                JudulPa parcelInfo = judulPa.get(position);
+                Judul parcelInfo = judul.get(position);
 //                intent.putExtra(KoorJudulPaSubdosenTambahActivity.EXTRA_INFORMASI, parcelInfo);
                 context.startActivity(intent);
             }
@@ -81,6 +80,6 @@ public class KoorJudulPaSubdosenViewAdapter extends RecyclerView.Adapter<KoorJud
 
     @Override
     public int getItemCount() {
-        return judulPa.size();
+        return judul.size();
     }
 }

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.details.DosenJudulPaSubmahasiswaDetailActivity;
-import org.d3ifcool.service.models.JudulPa;
+import org.d3ifcool.service.models.Judul;
 
 import java.util.ArrayList;
 
@@ -35,14 +35,14 @@ import java.util.ArrayList;
 public class DosenJudulPaSubmahasiswaViewAdapter extends RecyclerView.Adapter<DosenJudulPaSubmahasiswaViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<JudulPa> data;
+    private ArrayList<Judul> data;
     private int layoutType;
 
     public DosenJudulPaSubmahasiswaViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void addItem(ArrayList<JudulPa> data){
+    public void addItem(ArrayList<Judul> data){
         this.data = data;
         notifyDataSetChanged();
     }

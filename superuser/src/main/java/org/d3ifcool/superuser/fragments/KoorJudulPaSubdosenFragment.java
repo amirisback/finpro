@@ -15,7 +15,7 @@ import android.widget.Spinner;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import org.d3ifcool.service.models.JudulPa;
+import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.activities.editors.KoorJudulPaSubdosenTambahActivity;
 import org.d3ifcool.superuser.adapters.KoorJudulPaSubdosenViewAdapter;
@@ -30,7 +30,7 @@ public class KoorJudulPaSubdosenFragment extends Fragment {
     private RecyclerView recyclerView;
     private KoorJudulPaSubdosenViewAdapter adapter;
     private FloatingActionButton actionButton;
-    private ArrayList<JudulPa> judulPa;
+    private ArrayList<Judul> judul;
 
     public KoorJudulPaSubdosenFragment() {
         // Required empty public constructor
@@ -47,13 +47,13 @@ public class KoorJudulPaSubdosenFragment extends Fragment {
         actionButton = view.findViewById(R.id.frg_koor_judul_dsn_fab);
         adapter = new KoorJudulPaSubdosenViewAdapter(getContext());
 
-        judulPa = new ArrayList<>();
-        judulPa.add(new JudulPa("huhu","haha"));
-        judulPa.add(new JudulPa("huhu","haha"));
-        judulPa.add(new JudulPa("huhu","haha"));
-        judulPa.add(new JudulPa("huhu","haha"));
-        judulPa.add(new JudulPa("huhu","haha"));
-        adapter.additem(judulPa);
+        judul = new ArrayList<>();
+//        judul.add(new Judul("huhu","haha"));
+//        judul.add(new Judul("huhu","haha"));
+//        judul.add(new Judul("huhu","haha"));
+//        judul.add(new Judul("huhu","haha"));
+//        judul.add(new Judul("huhu","haha"));
+        adapter.additem(judul);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 

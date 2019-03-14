@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.models.Pemberitahuan;
+import org.d3ifcool.service.models.Notifikasi;
 
 import java.util.ArrayList;
 
@@ -33,10 +33,10 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class DosenPemberitahuanViewAdapter extends RecyclerView.Adapter<DosenPemberitahuanViewAdapter.ViewHolder>{
     private Context context;
-    private ArrayList<Pemberitahuan> data;
+    private ArrayList<Notifikasi> data;
 
 
-    public DosenPemberitahuanViewAdapter(Context context, ArrayList<Pemberitahuan> data) {
+    public DosenPemberitahuanViewAdapter(Context context, ArrayList<Notifikasi> data) {
         this.context = context;
         this.data = data;
     }
@@ -50,9 +50,7 @@ public class DosenPemberitahuanViewAdapter extends RecyclerView.Adapter<DosenPem
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.isi.setText(data.get(position).getIsi());
-        holder.tanggal.setText(data.get(position).getTanggal());
-        holder.waktu.setText(data.get(position).getWaktu());
+        holder.isi.setText(data.get(position).getDeskripsi());
     }
 
     @Override

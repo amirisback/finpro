@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.dosen.activities.details.DosenInformasiDetailActivity;
+import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.activities.details.KoorInformasiDetailActivity;
@@ -68,11 +69,11 @@ public class KoorInformasiViewAdapter extends RecyclerView.Adapter<KoorInformasi
     @Override
     public void onBindViewHolder(@NonNull KoorInformasiViewAdapter.ViewHolder holder, final int position) {
 
-        holder.infoDosen.setText(data.get(position).getPublisher());
+        holder.infoDosen.setText(data.get(position).getPenerbit());
         holder.infoIsi.setText(data.get(position).getInfo_deskripsi());
         holder.infoJudul.setText(data.get(position).getInfo_judul());
-        holder.infoTanggal.setText(data.get(position).getInfo_tanggal());
-        Picasso.get().load(URL_FOTO_DOSEN+data.get(position).getFoto()).into(holder.foto);
+        holder.infoTanggal.setText(data.get(position).getTanggal());
+//        Picasso.get().load(URL_FOTO_DOSEN+sessionManager.getSessionDosenFoto()).into(holder.foto);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

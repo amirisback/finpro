@@ -45,9 +45,9 @@ public class KoorInformasiFragment extends Fragment {
         fab_informasi = view.findViewById(R.id.frg_koor_info_home_fab);
 
         data = new ArrayList<>();
-        data.add(new Informasi(1,"huhu","haha","ikhsan","ikhsan","R.drawable.ic_ajukan_judul"));
-        data.add(new Informasi(1,"huhu","haha","ikhsan","ikhsan","R.drawable.ic_ajukan_judul"));
-        data.add(new Informasi(1,"huhu","haha","ikhsan","ikhsan","R.drawable.ic_ajukan_judul"));
+//        data.add(new Informasi(1,"huhu","haha","ikhsan","ikhsan","R.drawable.ic_ajukan_judul"));
+//        data.add(new Informasi(1,"huhu","haha","ikhsan","ikhsan","R.drawable.ic_ajukan_judul"));
+//        data.add(new Informasi(1,"huhu","haha","ikhsan","ikhsan","R.drawable.ic_ajukan_judul"));
         adapter = new KoorInformasiViewAdapter(getContext());
         rv_informasi.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter.addItem(data);

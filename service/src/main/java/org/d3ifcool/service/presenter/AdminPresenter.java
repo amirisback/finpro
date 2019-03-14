@@ -1,8 +1,8 @@
 package org.d3ifcool.service.presenter;
 
-import org.d3ifcool.service.models.Admin;
+import org.d3ifcool.service.models.KoordinatorPa;
 import org.d3ifcool.service.network.ApiClient;
-import org.d3ifcool.service.network.ApiInterfaceAdmin;
+import org.d3ifcool.service.network.ApiInterfaceKoorPa;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,65 +24,65 @@ import retrofit2.Response;
 public class AdminPresenter {
 
 
-    public void CreateAdmin(String username, String password, String nip_admin, String nama_admin, String no_telp, String email){
-        ApiInterfaceAdmin interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceAdmin.class);
-        Call<Admin>call = interfaceAdmin.createAdmin(username,password,nip_admin,nama_admin,no_telp,email);
-        call.enqueue(new Callback<Admin>() {
+    public void CreateAdmin(String koor_nip , String koor_nama , String koor_kontak, String koor_foto, String koor_email){
+        ApiInterfaceKoorPa interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoorPa.class);
+        Call<KoordinatorPa>call = interfaceAdmin.createAdmin(koor_nip,koor_nama,koor_kontak,koor_foto,koor_email);
+        call.enqueue(new Callback<KoordinatorPa>() {
             @Override
-            public void onResponse(Call<Admin> call, Response<Admin> response) {
+            public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
 
             }
 
             @Override
-            public void onFailure(Call<Admin> call, Throwable t) {
-
-            }
-        });
-    }
-
-    public void UpdateAdmin(String username, String password, String nip_admin, String nama_admin, String no_telp, String email){
-        ApiInterfaceAdmin interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceAdmin.class);
-        Call<Admin>call = interfaceAdmin.updateAdmin(username,password,nip_admin,nama_admin,no_telp,email);
-        call.enqueue(new Callback<Admin>() {
-            @Override
-            public void onResponse(Call<Admin> call, Response<Admin> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<Admin> call, Throwable t) {
+            public void onFailure(Call<KoordinatorPa> call, Throwable t) {
 
             }
         });
     }
 
-    public void GetAdmin(String username, String password, String nip_admin, String nama_admin, String no_telp, String email){
-        ApiInterfaceAdmin interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceAdmin.class);
-        Call<Admin>call = interfaceAdmin.getAdmin(username,password,nip_admin,nama_admin,no_telp,email);
-        call.enqueue(new Callback<Admin>() {
+    public void UpdateAdmin(String koor_nip , String koor_nama , String koor_kontak, String koor_foto, String koor_email){
+        ApiInterfaceKoorPa interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoorPa.class);
+        Call<KoordinatorPa>call = interfaceAdmin.updateAdmin(koor_nip,koor_nama,koor_kontak,koor_foto,koor_email);
+        call.enqueue(new Callback<KoordinatorPa>() {
             @Override
-            public void onResponse(Call<Admin> call, Response<Admin> response) {
+            public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
 
             }
 
             @Override
-            public void onFailure(Call<Admin> call, Throwable t) {
+            public void onFailure(Call<KoordinatorPa> call, Throwable t) {
 
             }
         });
     }
 
-    public void deleteAdmin(String username){
-        ApiInterfaceAdmin apiInterfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceAdmin.class);
-        Call<Admin>call = apiInterfaceAdmin.deleteAdmin(username);
-        call.enqueue(new Callback<Admin>() {
+    public void GetAdmin(String koor_nip , String koor_nama , String koor_kontak, String koor_foto, String koor_email){
+        ApiInterfaceKoorPa interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoorPa.class);
+        Call<KoordinatorPa>call = interfaceAdmin.getAdmin(koor_nip , koor_nama , koor_kontak, koor_foto,  koor_email);
+        call.enqueue(new Callback<KoordinatorPa>() {
             @Override
-            public void onResponse(Call<Admin> call, Response<Admin> response) {
+            public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
 
             }
 
             @Override
-            public void onFailure(Call<Admin> call, Throwable t) {
+            public void onFailure(Call<KoordinatorPa> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void deleteAdmin(String koor_nip){
+        ApiInterfaceKoorPa apiInterfaceKoorPa = ApiClient.getApiClient().create(ApiInterfaceKoorPa.class);
+        Call<KoordinatorPa>call = apiInterfaceKoorPa.deleteAdmin(koor_nip);
+        call.enqueue(new Callback<KoordinatorPa>() {
+            @Override
+            public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<KoordinatorPa> call, Throwable t) {
 
             }
         });

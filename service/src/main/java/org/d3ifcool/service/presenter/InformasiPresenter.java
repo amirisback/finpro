@@ -43,11 +43,11 @@ public class InformasiPresenter {
         this.context = context;
     }
 
-    public void createInformasi (String info_judul, String info_deskripsi, String publisher, String foto) {
+    public void createInformasi (String informasi_judul, String informasi_isi, String penerbit, String informasi_waktu) {
         viewEditor.showProgress();
 
         ApiInterfaceInformasi apiInterface = ApiClient.getApiClient().create(ApiInterfaceInformasi.class);
-        Call<Informasi> call = apiInterface.createInformasi(info_judul, info_deskripsi, publisher, foto);
+        Call<Informasi> call = apiInterface.createInformasi(informasi_judul, informasi_isi, penerbit, informasi_waktu);
         call.enqueue(new Callback<Informasi>() {
             @Override
             public void onResponse(Call<Informasi> call, Response<Informasi> response) {
@@ -63,10 +63,11 @@ public class InformasiPresenter {
         });
     }
 
-    public void updateInformasi (int id, String info_judul, String info_deskripsi) {
+
+    public void updateInformasi (int informasi_id, String informasi_judul, String informasi_isi) {
         viewEditor.showProgress();
         ApiInterfaceInformasi apiInterface = ApiClient.getApiClient().create(ApiInterfaceInformasi.class);
-        Call<Informasi> call = apiInterface.updateInformasi(id, info_judul, info_deskripsi);
+        Call<Informasi> call = apiInterface.updateInformasi(informasi_id, informasi_judul, informasi_isi);
         call.enqueue(new Callback<Informasi>() {
             @Override
             public void onResponse(Call<Informasi> call, Response<Informasi> response) {
@@ -82,10 +83,10 @@ public class InformasiPresenter {
         });
     }
 
-    public void deleteInformasi(int id) {
+    public void deleteInformasi(int informasi_id) {
         viewEditor.showProgress();
         ApiInterfaceInformasi apiInterface = ApiClient.getApiClient().create(ApiInterfaceInformasi.class);
-        Call<Informasi> call = apiInterface.deleteInformasi(id);
+        Call<Informasi> call = apiInterface.deleteInformasi(informasi_id);
         call.enqueue(new Callback<Informasi>() {
             @Override
             public void onResponse(Call<Informasi> call, Response<Informasi> response) {

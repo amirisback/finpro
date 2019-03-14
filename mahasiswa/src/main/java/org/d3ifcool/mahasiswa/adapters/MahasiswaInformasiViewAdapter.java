@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.mahasiswa.R;
+import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.mahasiswa.activities.MahasiswaInformasiDetailActivity;
 
@@ -44,6 +45,8 @@ public class MahasiswaInformasiViewAdapter extends RecyclerView.Adapter<Mahasisw
     private ArrayList<Informasi> data;
     private int layoutType;
 
+    SessionManager sessionManager = new SessionManager(context);
+
     public MahasiswaInformasiViewAdapter(Context context) {
         this.context = context;
     }
@@ -61,7 +64,6 @@ public class MahasiswaInformasiViewAdapter extends RecyclerView.Adapter<Mahasisw
 
         TextView infoJudul, infoIsi, infoTanggal, infoDosen;
         CircleImageView infoFoto;
-
         public ViewHolder(View itemView) {
             super(itemView);
             // -------------------------------------------------------------------------------------
@@ -78,9 +80,9 @@ public class MahasiswaInformasiViewAdapter extends RecyclerView.Adapter<Mahasisw
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.infoJudul.setText(data.get(position).getInfo_judul());
         holder.infoIsi.setText(data.get(position).getInfo_deskripsi());
-        holder.infoTanggal.setText(data.get(position).getInfo_tanggal());
-        holder.infoDosen.setText(data.get(position).getPublisher());
-        Picasso.get().load(URL_FOTO_DOSEN + data.get(position).getFoto()).into(holder.infoFoto);
+        holder.infoTanggal.setText(data.get(position).getTanggal());
+        holder.infoDosen.setText(data.get(position).getPenerbit());
+//        Picasso.get().load(URL_FOTO_DOSEN + sessionManager.getSessionDosenFoto()).into(holder.infoFoto);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

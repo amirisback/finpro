@@ -1,7 +1,6 @@
 package org.d3ifcool.service.interfaces;
 
 import org.d3ifcool.service.models.Dosen;
-import org.d3ifcool.service.models.Login;
 
 /**
  * Created by Faisal Amir

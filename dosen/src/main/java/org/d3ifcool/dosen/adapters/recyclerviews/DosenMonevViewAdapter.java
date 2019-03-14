@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.details.DosenMonevDetailActivity;
+import org.d3ifcool.service.models.Detail_Monev;
 import org.d3ifcool.service.models.Monev;
 
 import java.util.ArrayList;
@@ -35,14 +36,14 @@ import java.util.ArrayList;
 public class DosenMonevViewAdapter extends RecyclerView.Adapter<DosenMonevViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<Monev> data;
+    private ArrayList<Detail_Monev> data;
     private int layoutType;
 
     public DosenMonevViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void addItem(ArrayList<Monev> data){
+    public void addItem(ArrayList<Detail_Monev> data){
         this.data = data;
         notifyDataSetChanged();
     }
@@ -67,9 +68,9 @@ public class DosenMonevViewAdapter extends RecyclerView.Adapter<DosenMonevViewAd
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.infoNilai.setText(String.valueOf(data.get(position).getNilai()));
-        holder.infoTanggal.setText(data.get(position).getTanggal());
-        holder.infoIsi.setText(data.get(position).getKomentar());
+        holder.infoNilai.setText(String.valueOf(data.get(position).getMonev_nilai()));
+        holder.infoTanggal.setText(data.get(position).getMonev_tanggal());
+        holder.infoIsi.setText(data.get(position).getMonev_ulasan());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

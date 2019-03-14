@@ -47,18 +47,18 @@ public class KoorDosenFragment extends Fragment {
         adapter = new KoorDosenViewAdapter(getContext());
 
         dosen = new ArrayList<>();
-        dosen.add(new Dosen("6706162062","ikhsan", "R.drawable.ic_dummy_photo","ikhsanramadhan28@gmail.com"
-                ,"081313198291" ));
-        dosen.add(new Dosen("6706162062","ikhsan", "R.drawable.ic_dummy_photo","ikhsanramadhan28@gmail.com"
-                ,"081313198291" ));
-        dosen.add(new Dosen("6706162062","ikhsan", "R.drawable.ic_dummy_photo","ikhsanramadhan28@gmail.com"
-                ,"081313198291" ));
-        dosen.add(new Dosen("6706162062","ikhsan", "R.drawable.ic_dummy_photo","ikhsanramadhan28@gmail.com"
-                ,"081313198291" ));
-        dosen.add(new Dosen("6706162062","ikhsan", "R.drawable.ic_dummy_photo","ikhsanramadhan28@gmail.com"
-                ,"081313198291" ));
-        dosen.add(new Dosen("6706162062","ikhsan", "R.drawable.ic_dummy_photo","ikhsanramadhan28@gmail.com"
-                ,"081313198291" ));
+//        dosen.add(new Dosen("6706162062","ikhsan", "R.drawable.ic_dummy_photo","ikhsanramadhan28@gmail.com"
+//                ,"081313198291" ));
+//        dosen.add(new Dosen("6706162062","ikhsan", "R.drawable.ic_dummy_photo","ikhsanramadhan28@gmail.com"
+//                ,"081313198291" ));
+//        dosen.add(new Dosen("6706162062","ikhsan", "R.drawable.ic_dummy_photo","ikhsanramadhan28@gmail.com"
+//                ,"081313198291" ));
+//        dosen.add(new Dosen("6706162062","ikhsan", "R.drawable.ic_dummy_photo","ikhsanramadhan28@gmail.com"
+//                ,"081313198291" ));
+//        dosen.add(new Dosen("6706162062","ikhsan", "R.drawable.ic_dummy_photo","ikhsanramadhan28@gmail.com"
+//                ,"081313198291" ));
+//        dosen.add(new Dosen("6706162062","ikhsan", "R.drawable.ic_dummy_photo","ikhsanramadhan28@gmail.com"
+//                ,"081313198291" ));
         adapter.setDosens(dosen);
         adapter.setLayoutType(R.layout.content_item_koor_dosen);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editors.DosenMonevTambahActivity;
+import org.d3ifcool.service.models.Detail_Monev;
 import org.d3ifcool.service.models.Monev;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenMonevViewAdapter;
 
@@ -52,11 +53,8 @@ public class DosenMonevListMonevFragment extends Fragment {
             }
         });
 
-        ArrayList<Monev> arrayList = new ArrayList<>();
-        arrayList.add(new Monev(90, "01 Februari 2019", "Revisi Bab 4"));
-        arrayList.add(new Monev(90, "01 Februari 2019", "Revisi Bab 4"));
-        arrayList.add(new Monev(90, "01 Februari 2019", "Revisi Bab 4"));
-
+        ArrayList<Detail_Monev> arrayList = new ArrayList<>();
+//
         DosenMonevViewAdapter adapter = new DosenMonevViewAdapter(getContext());
         adapter.addItem(arrayList);
         adapter.setLayoutType(R.layout.content_item_mahasiswa_pa_monev);

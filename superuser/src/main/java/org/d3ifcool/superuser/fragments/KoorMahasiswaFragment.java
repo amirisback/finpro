@@ -45,16 +45,16 @@ public class KoorMahasiswaFragment extends Fragment {
         floatingActionButton = view.findViewById(R.id.frg_koor_mahasiswa_home_fab);
         adapter = new KoorMahasiswaViewAdapter(getContext());
         mhs = new ArrayList<>();
-        mhs.add(new Mahasiswa("putri","6703160065","R.drawable.ic_dummy_photo","putriainunzariyah@gmail.com",
-                "081313198291","2016","aktif","putriainunz"));
-        mhs.add(new Mahasiswa("putri","6703160065","R.drawable.ic_dummy_photo","putriainunzariyah@gmail.com",
-                "081313198291","2016","aktif","putriainunz"));
-        mhs.add(new Mahasiswa("putri","6703160065","R.drawable.ic_dummy_photo","putriainunzariyah@gmail.com",
-                "081313198291","2016","aktif","putriainunz"));
-        mhs.add(new Mahasiswa("putri","6703160065","R.drawable.ic_dummy_photo","putriainunzariyah@gmail.com",
-                "081313198291","2016","aktif","putriainunz"));
-        mhs.add(new Mahasiswa("putri","6703160065","R.drawable.ic_dummy_photo","putriainunzariyah@gmail.com",
-                "081313198291","2016","aktif","putriainunz"));
+//        mhs.add(new Mahasiswa("putri","6703160065","R.drawable.ic_dummy_photo","putriainunzariyah@gmail.com",
+//                "081313198291","2016","aktif","putriainunz"));
+//        mhs.add(new Mahasiswa("putri","6703160065","R.drawable.ic_dummy_photo","putriainunzariyah@gmail.com",
+//                "081313198291","2016","aktif","putriainunz"));
+//        mhs.add(new Mahasiswa("putri","6703160065","R.drawable.ic_dummy_photo","putriainunzariyah@gmail.com",
+//                "081313198291","2016","aktif","putriainunz"));
+//        mhs.add(new Mahasiswa("putri","6703160065","R.drawable.ic_dummy_photo","putriainunzariyah@gmail.com",
+//                "081313198291","2016","aktif","putriainunz"));
+//        mhs.add(new Mahasiswa("putri","6703160065","R.drawable.ic_dummy_photo","putriainunzariyah@gmail.com",
+//                "081313198291","2016","aktif","putriainunz"));
 
         adapter.setmMahasiswa(mhs);
         adapter.setLayouyType(R.layout.content_item_koor_mahasiswa);

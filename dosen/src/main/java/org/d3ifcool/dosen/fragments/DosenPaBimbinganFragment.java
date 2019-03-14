@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenPaBimbinganViewAdapter;
-import org.d3ifcool.service.models.JudulPa;
+import org.d3ifcool.service.models.Judul;
 
 import java.util.ArrayList;
 
@@ -34,12 +34,12 @@ public class DosenPaBimbinganFragment extends Fragment {
 
         DosenPaBimbinganViewAdapter adapter = new DosenPaBimbinganViewAdapter(getContext());
 
-        ArrayList<JudulPa> arrayList = new ArrayList<>();
-        arrayList.add(new JudulPa("Judul", "Kategori"));
-        arrayList.add(new JudulPa("Judul", "Kategori"));
-        arrayList.add(new JudulPa("Judul", "Kategori"));
-        arrayList.add(new JudulPa("Judul", "Kategori"));
-        arrayList.add(new JudulPa("Judul", "Kategori"));
+        ArrayList<Judul> arrayList = new ArrayList<>();
+//        arrayList.add(new Judul("Judul", "Kategori"));
+//        arrayList.add(new Judul("Judul", "Kategori"));
+//        arrayList.add(new Judul("Judul", "Kategori"));
+//        arrayList.add(new Judul("Judul", "Kategori"));
+//        arrayList.add(new Judul("Judul", "Kategori"));
 
         adapter.addItem(arrayList);
         adapter.setLayoutType(R.layout.content_item_dosen_pa_bimbingan);

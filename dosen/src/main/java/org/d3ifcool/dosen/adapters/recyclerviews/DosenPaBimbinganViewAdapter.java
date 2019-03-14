@@ -8,11 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.activities.details.DosenBimbinganDetailActivity;
-import org.d3ifcool.dosen.activities.details.DosenJudulPaSubmahasiswaDetailActivity;
 import org.d3ifcool.dosen.activities.details.DosenMahasiswaBimbinganDetailActivity;
-import org.d3ifcool.service.models.JudulPa;
-import org.d3ifcool.service.models.Mahasiswa;
+import org.d3ifcool.service.models.Judul;
 
 import java.util.ArrayList;
 
@@ -39,14 +36,14 @@ import androidx.recyclerview.widget.RecyclerView;
 public class DosenPaBimbinganViewAdapter extends RecyclerView.Adapter<DosenPaBimbinganViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<JudulPa> data;
+    private ArrayList<Judul> data;
     private int layoutType;
 
     public DosenPaBimbinganViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void addItem(ArrayList<JudulPa> data){
+    public void addItem(ArrayList<Judul> data){
         this.data = data;
         notifyDataSetChanged();
     }

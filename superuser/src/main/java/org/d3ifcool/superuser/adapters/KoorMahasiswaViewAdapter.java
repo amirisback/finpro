@@ -66,9 +66,9 @@ public class KoorMahasiswaViewAdapter extends RecyclerView.Adapter<KoorMahasiswa
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.nama_mhs.setText(mMahasiswa.get(position).getNama_m());
-        holder.nim_mhs.setText(mMahasiswa.get(position).getNim_mhs());
-        Picasso.get().load(URL_FOTO_DOSEN+mMahasiswa.get(position).getFoto_m()).into(holder.foto);
+        holder.nama_mhs.setText(mMahasiswa.get(position).getMhs_nama());
+        holder.nim_mhs.setText(mMahasiswa.get(position).getMhs_nim());
+        Picasso.get().load(URL_FOTO_DOSEN+mMahasiswa.get(position).getMhs_foto()).into(holder.foto);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
