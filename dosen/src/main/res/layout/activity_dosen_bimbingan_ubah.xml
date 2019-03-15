@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.editors.DosenBimbinganUbahActivity">
+    android:padding="@dimen/dimen_big">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:padding="@dimen/dimen_big"
+        android:background="@drawable/box_border"
+        android:textSize="@dimen/text_size_title_small"
+        android:textColor="@color/colorTextBlack"
+        android:text="@string/dummy_tanggal"
+        android:id="@+id/act_dsn_info_edittext_judul"
+        android:layout_width="match_parent"
+        android:drawableEnd="@drawable/ic_date"
+        android:layout_height="wrap_content"
+        android:maxLines="1"/>
+
+    <EditText
+        android:padding="@dimen/dimen_big"
+        android:background="@drawable/box_border"
+        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_marginBottom="@dimen/dimen_medium"
+        android:hint="@string/hint_judulpa_deskripsi"
+        android:gravity="top"
+        android:layout_below="@+id/act_dsn_info_edittext_judul"
+        android:layout_above="@id/act_dsn_info_button_simpan"
+        android:id="@+id/act_dsn_info_edittext_konten"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:id="@+id/act_dsn_info_button_simpan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_click_simpan"
+        android:textColor="@color/colorTextWhite"
+        android:background="@drawable/box_border_button_add"/>
+
+</RelativeLayout>
+

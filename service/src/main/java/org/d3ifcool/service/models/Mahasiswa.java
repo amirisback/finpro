@@ -31,6 +31,9 @@ public class Mahasiswa implements Parcelable {
     @SerializedName("mhs_nama")
     private String mhs_nama;
     @Expose
+    @SerializedName("mhs_angkatan")
+    private String mhs_angkatan;
+    @Expose
     @SerializedName("mhs_kontak")
     private String mhs_kontak;
     @Expose

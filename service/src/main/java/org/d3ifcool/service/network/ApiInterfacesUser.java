@@ -26,7 +26,7 @@ import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_LOGIN;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public interface ApiInterfacesLogin {
+public interface ApiInterfacesUser {
 
     @FormUrlEncoded
     @POST(URL_LOGIN)

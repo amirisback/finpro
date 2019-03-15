@@ -33,10 +33,11 @@ public interface ApiInterfaceMahasiswa {
     @POST(URL_MAHASISWA_CREATE)
     Call<Mahasiswa> createMahasiswa(
             @Field("mhs_nama") String nama,
+            @Field("mhs_angkatan") String angkatan,
             @Field("mhs_kontak") String foto_m,
             @Field("mhs_foto") String email_m,
             @Field("mhs_email") String kontak_m,
-            @Field("status") String angkatan
+            @Field("status") String status
     );
 
     @FormUrlEncoded
@@ -44,10 +45,11 @@ public interface ApiInterfaceMahasiswa {
     Call<Mahasiswa> updateMahasiswa(
             @Field("mhs_nim") String nim_mhs,
             @Field("mhs_nama") String nama,
+            @Field("mhs_angkatan") String angkatan,
             @Field("mhs_kontak") String foto_m,
             @Field("mhs_foto") String email_m,
             @Field("mhs_email") String kontak_m,
-            @Field("status") String angkatan
+            @Field("status") String status
     );
 
     @GET(URL_MAHASISWA_READ)

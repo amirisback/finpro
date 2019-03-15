@@ -3,7 +3,7 @@ package org.d3ifcool.service.presenter;
 import org.d3ifcool.service.interfaces.LoginView;
 import org.d3ifcool.service.models.User;
 import org.d3ifcool.service.network.ApiClient;
-import org.d3ifcool.service.network.ApiInterfacesLogin;
+import org.d3ifcool.service.network.ApiInterfacesUser;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,7 +37,7 @@ public class LoginPresenter {
     public void getLogin(String username, String password, String pengguna){
         view.showProgress();
 
-        ApiInterfacesLogin apiInterface = ApiClient.getApiClient().create(ApiInterfacesLogin.class);
+        ApiInterfacesUser apiInterface = ApiClient.getApiClient().create(ApiInterfacesUser.class);
         Call<User> call = apiInterface.setLogin(username, password,pengguna);
 
         call.enqueue(new Callback<User>() {

@@ -6,11 +6,10 @@
     android:background="@color/colorBackground"
     tools:context=".fragments.KoorProyekAkhirFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/frg_koor_pa_recyclerview"
+        android:layout_width="match_parent"
+        android:paddingBottom="@dimen/dimen_medium"
         android:layout_height="wrap_content"
-        android:text="Proyek Akhir" />
-
+        tools:listitem="@layout/content_item_koor_pa"/>
 </RelativeLayout>

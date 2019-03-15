@@ -50,9 +50,10 @@ public class DosenBimbinganListBimbinganFragment extends Fragment {
                 startActivity(i);
             }
         });
-
         ArrayList<Bimbingan> arrayList = new ArrayList<>();
-
+        arrayList.add(new Bimbingan("1","selesaikan bagian bab 1 metodologi", "bimbingan 1","28 januari 2018",1 ));
+        arrayList.add(new Bimbingan("1","selesaikan bagian bab 1 metodologi", "bimbingan 1","28 januari 2018",1 ));
+        arrayList.add(new Bimbingan("1","selesaikan bagian bab 1 metodologi", "bimbingan 1","28 januari 2018",1 ));
 
         DosenBimbinganViewAdapter adapter = new DosenBimbinganViewAdapter(getContext());
         adapter.addItem(arrayList);
