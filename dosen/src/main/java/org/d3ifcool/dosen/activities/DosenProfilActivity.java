@@ -1,13 +1,22 @@
 package org.d3ifcool.dosen.activities;
 
+import android.Manifest;
 import android.content.Intent;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -20,6 +29,9 @@ import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 public class DosenProfilActivity extends AppCompatActivity {
 
     private SessionManager sessionManager;
+    private CircleImageView imageView;
+    private static final int IMAGE_PICK_CODE=1000;
+    private static final int PERMISSION_CODE=1001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +47,24 @@ public class DosenProfilActivity extends AppCompatActivity {
         TextView textView_nip = findViewById(R.id.act_dsn_profil_nip);
         TextView textView_email = findViewById(R.id.act_dsn_profil_email);
         TextView textView_kontak = findViewById(R.id.act_dsn_profil_kontak);
-        CircleImageView imageView = findViewById(R.id.act_dsn_profil_foto);
+         imageView = findViewById(R.id.act_dsn_profil_foto);
+         imageView.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                    if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED){
+                        String[] permission  = {Manifest.permission.READ_EXTERNAL_STORAGE};
+                        requestPermissions(permission, PERMISSION_CODE);
+                    }else{
+                        pickImageFromGallery();
+                    }
+                }else {
+                    pickImageFromGallery();
+                }
+             }
+
+
+         });
 
         textView_nama.setText(sessionManager.getSessionDosenNamaD());
         textView_nip.setText(sessionManager.getSessionDosenNip());
@@ -43,6 +72,37 @@ public class DosenProfilActivity extends AppCompatActivity {
         textView_kontak.setText(sessionManager.getSessionDosenKontak());
         Picasso.get().load(URL_FOTO_DOSEN + sessionManager.getSessionDosenFoto()).into(imageView);
 
+
+
+    }
+    private void pickImageFromGallery() {
+        Intent galeri = new Intent(Intent.ACTION_PICK);
+        galeri.setType("image/*");
+        startActivityForResult(galeri, IMAGE_PICK_CODE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case PERMISSION_CODE:{
+                if (grantResults.length > 0 && grantResults[0] ==
+                    PackageManager.PERMISSION_GRANTED){
+                    pickImageFromGallery();
+                }
+                else {
+                    Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE){
+            imageView.setImageURI(data.getData());
+
+
+        }
     }
 
     @Override

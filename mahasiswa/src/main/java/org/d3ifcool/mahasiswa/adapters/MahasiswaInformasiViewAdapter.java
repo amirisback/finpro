@@ -45,7 +45,6 @@ public class MahasiswaInformasiViewAdapter extends RecyclerView.Adapter<Mahasisw
     private ArrayList<Informasi> data;
     private int layoutType;
 
-    SessionManager sessionManager = new SessionManager(context);
 
     public MahasiswaInformasiViewAdapter(Context context) {
         this.context = context;
