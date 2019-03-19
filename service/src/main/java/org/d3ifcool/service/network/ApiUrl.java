@@ -24,47 +24,24 @@ public class ApiUrl {
 
     public static final class FinproUrl {
 
-        public static final String IP = "192.168.43.73";
-        public static final String FOLDER_NAME = "finpro-android";
-        public static final String BASE_URL = "http://"+IP+"/"+FOLDER_NAME+"/";
+        public static final String BASE_URL = "http://finpro-laravel.000webhostapp.com/"; // Link Website
+        public static final String API_PATH = "api/v1/"; // Link API
         // -----------------------------------------------------------------------------------------
-        public static final String BASE_URL_FOTO = BASE_URL + "foto/";
-        public static final String URL_FOTO_DOSEN = BASE_URL_FOTO + "foto_dosen/";
-        public static final String URL_FOTO_MAHASISWA = BASE_URL_FOTO + "foto_mahasiswa/";
+        public static final String BASE_URL_FOTO = BASE_URL + "image/";
+        public static final String BASE_URL_LOGIN = API_PATH + "user/";
         // -----------------------------------------------------------------------------------------
-        public static final String BASE_URL_DOSEN = "dosen/";
-        public static final String URL_DOSEN_CREATE = BASE_URL_DOSEN + "createDosen.php";
-        public static final String URL_DOSEN_READ = BASE_URL_DOSEN + "getDosen.php";
-        public static final String URL_DOSEN_DELETE = BASE_URL_DOSEN + "deleteDosen.php";
-        public static final String URL_DOSEN_UPDATE = BASE_URL_DOSEN + "updateDosen.php";
+        public static final String URL_FOTO_DOSEN = BASE_URL_FOTO + "dsn_img/";
+        public static final String URL_FOTO_MAHASISWA = BASE_URL_FOTO + "mhs_img/";
         // -----------------------------------------------------------------------------------------
-        public static final String BASE_URL_MAHASISWA = "mahasiswa/";
-        public static final String URL_MAHASISWA_CREATE = BASE_URL_MAHASISWA + "createMahasiswa.php";
-        public static final String URL_MAHASISWA_READ = BASE_URL_MAHASISWA + "getMahasiswa.php";
-        public static final String URL_MAHASISWA_DELETE = BASE_URL_MAHASISWA + "deleteMahasiswa.php";
-        public static final String URL_MAHASISWA_UPDATE = BASE_URL_MAHASISWA + "updateMahasiswa.php";
+        public static final String URL_LOGIN = BASE_URL_LOGIN + "signin";
         // -----------------------------------------------------------------------------------------
-        public static final String BASE_URL_LOGIN = "login/";
-        public static final String URL_LOGIN_CREATE = BASE_URL_LOGIN + "createLogin.php";
-        public static final String URL_LOGIN_READ = BASE_URL_LOGIN + "getLogin.php";
-        public static final String URL_LOGIN_DELETE = BASE_URL_LOGIN + "deleteLogin.php";
-        public static final String URL_LOGIN_UPDATE = BASE_URL_LOGIN + "updateLogin.php";
-        public static final String URL_LOGIN = BASE_URL_LOGIN + "login.php";
-        public static final String URL_LOGIN_DATA_DOSEN = BASE_URL_LOGIN + "getDosenLogin.php";
-        public static final String URL_LOGIN_DATA_MAHASISWA = BASE_URL_LOGIN + "getMahasiswalogin.php";
+        public static final String URL_DOSEN = API_PATH + "dosen/";
         // -----------------------------------------------------------------------------------------
-        public static final String BASE_URL_INFORMASI = "informasi/";
-        public static final String URL_INFORMASI_CREATE = BASE_URL_INFORMASI + "createInformasi.php";
-        public static final String URL_INFORMASI_READ = BASE_URL_INFORMASI + "getInformasi.php";
-        public static final String URL_INFORMASI_DELETE = BASE_URL_INFORMASI + "deleteInformasi.php";
-        public static final String URL_INFORMASI_UPDATE = BASE_URL_INFORMASI + "updateInformasi.php";
+        public static final String URL_MAHASISWA = API_PATH + "mahasiswa/";
         // -----------------------------------------------------------------------------------------
-        public static final String BASE_URL_JUDUL_PA = "judulpa/";
-        public static final String URL_JUDUL_PA_CREATE = BASE_URL_JUDUL_PA + "createJudul.php";
-        public static final String URL_JUDUL_PA_READ = BASE_URL_JUDUL_PA + "getJudul.php";
-        public static final String URL_JUDUL_PA_DELETE = BASE_URL_JUDUL_PA + "deleteJudul.php";
-        public static final String URL_JUDUL_PA_UPDATE = BASE_URL_JUDUL_PA + "updateJudul.php";
-        public static final String URL_KATEGORI_JUDUL_PA_READ = BASE_URL_JUDUL_PA + "getKategoriJudul.php";
+        public static final String URL_INFORMASI = API_PATH + "informasi/";
+        // -----------------------------------------------------------------------------------------
+        public static final String URL_JUDUL_PA = API_PATH + "judulpa/";
 
 
     }

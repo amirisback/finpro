@@ -25,6 +25,7 @@ import android.view.MenuItem;
 import org.d3ifcool.dosen.activities.DosenPemberitahuanActivity;
 import org.d3ifcool.dosen.activities.DosenProfilActivity;
 import org.d3ifcool.finpro.R;
+import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.superuser.fragments.KoorDosenFragment;
 import org.d3ifcool.superuser.fragments.KoorInformasiFragment;
 import org.d3ifcool.superuser.fragments.KoorJudulPaSubdosenFragment;
@@ -39,6 +40,7 @@ public class AdminMainActivity extends AppCompatActivity
     private KoorMahasiswaFragment koorMahasiswaFragment = new KoorMahasiswaFragment();
     private KoorJudulPaSubdosenFragment koorJudulPaSubdosenFragment = new KoorJudulPaSubdosenFragment();
     private KoorProyekAkhirFragment koorProyekAkhirFragment = new KoorProyekAkhirFragment();
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,7 @@ public class AdminMainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+        sessionManager = new SessionManager(this);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -95,6 +98,7 @@ public class AdminMainActivity extends AppCompatActivity
             case R.id.toolbar_menu_keluar:
                 Intent intentKeluar = new Intent(AdminMainActivity.this, LoginActivity.class);
                 startActivity(intentKeluar);
+                sessionManager.removeSession();
                 finish();
                 break;
             default:

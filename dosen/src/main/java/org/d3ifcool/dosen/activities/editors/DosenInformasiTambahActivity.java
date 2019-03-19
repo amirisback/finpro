@@ -34,7 +34,6 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
         final EditText info_deskripsi = findViewById(R.id.act_dsn_edittext_deskripsi);
         Button btn_simpan = findViewById(R.id.act_dsn_info_button_simpan);
 
-
         presenter = new InformasiPresenter(this,DosenInformasiTambahActivity.this);
 
         sessionManager = new SessionManager(this);
@@ -44,7 +43,6 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
         btn_simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String text_info_judul = info_judul.getText().toString();
                 String text_info_deskripsi = info_deskripsi.getText().toString();
                 if(text_info_judul.isEmpty()){
@@ -54,7 +52,6 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
                 }else{
                     presenter.createInformasi(text_info_judul, text_info_deskripsi, sessionManager.getSessionDosenNamaD(), sessionManager.getSessionDosenFoto());
                 }
-
             }
         });
 

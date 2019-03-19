@@ -20,8 +20,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private EditText editTextUsername;
     private EditText editTextPassword;
     private String username, password;
-    final String dummyDosen = "dosen";
-    final String dummyMahasiswa = "mahasiswa";
 
     private ProgressDialog progressDialog;
     private LoginPresenter presenter;
@@ -29,7 +27,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     private static final String ROLE_DOSEN = "dosen";
     private static final String ROLE_MAHASISWA = "mahasiswa";
-    private static final String ROLE_ADMIN = "mahasiswa";
+    private static final String ROLE_KOOR = "koor";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +48,16 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             @Override
             public void onClick(View v) {
 //                login();
-                Intent j = new Intent(LoginActivity.this, MahasiswaMainActivity.class);
-                startActivity(j);
+//                Intent j = new Intent(LoginActivity.this, MahasiswaMainActivity.class);
+//                startActivity(j);
 
-//                username = editTextUsername.getText().toString();
-//                password = editTextPassword.getText().toString();
-//                presenter.getLogin(username, password);
+                username = editTextUsername.getText().toString();
+                password = editTextPassword.getText().toString();
+                presenter.getLogin(username, password);
             }
         });
 
-//        checkUserLogin(sessionManager.getSessionPengguna());
+        checkUserLogin(sessionManager.getSessionPengguna());
     }
 
 
@@ -72,6 +70,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 finish();
             } else if (cekPengguna.equalsIgnoreCase(ROLE_DOSEN)){
                 Intent i = new Intent(LoginActivity.this, DosenMainActivity.class);
+                startActivity(i);
+                finish();
+            } else if (cekPengguna.equalsIgnoreCase(ROLE_KOOR)) {
+                Intent i = new Intent(LoginActivity.this, AdminMainActivity.class);
                 startActivity(i);
                 finish();
             }

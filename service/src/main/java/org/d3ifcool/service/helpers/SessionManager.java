@@ -45,7 +45,7 @@ public class SessionManager {
     private static final String DOSEN_STATUS = "STATUS";
     private static final String USERNAME_DOSEN = "USERNAME_DOSEN";
 
-    private static final String NIM_MHS = "NIM_MHS";
+    private static final String MHS_NIM = "MHS_NIM";
     private static final String NAMA_M = "NAMA_M";
     private static final String FOTO_M = "FOTO_M";
     private static final String EMAIL_M = "EMAIL_M";
@@ -71,7 +71,7 @@ public class SessionManager {
     }
 
     public void createSessionDataMahasiswa(Mahasiswa mahasiswa){
-        editor.putString(NIM_MHS, mahasiswa.getMhs_nim());
+        editor.putString(MHS_NIM, mahasiswa.getMhs_nim());
         editor.putString(NAMA_M, mahasiswa.getMhs_nama());
         editor.putString(FOTO_M, mahasiswa.getMhs_foto());
         editor.putString(EMAIL_M, mahasiswa.getMhs_email());
@@ -94,7 +94,7 @@ public class SessionManager {
     }
 
     public String getSessionMahasiswaNim(){
-        return sharedPreferences.getString(NIM_MHS, null);
+        return sharedPreferences.getString(MHS_NIM, null);
     }
 
     public String getSessionMahasiswaNamaM(){

@@ -10,10 +10,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_INFORMASI_CREATE;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_INFORMASI_DELETE;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_INFORMASI_READ;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_INFORMASI_UPDATE;
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_INFORMASI;
 
 /**
  * Created by Faisal Amir
@@ -35,7 +32,7 @@ import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_INFORMASI_UPDATE
 public interface ApiInterfaceInformasi {
 
     @FormUrlEncoded
-    @POST(URL_INFORMASI_CREATE)
+    @POST(URL_INFORMASI)
     Call<Informasi> createInformasi (
             @Field("informasi_judul") String informasi_judul,
             @Field("informasi_isi") String informasi_isi,
@@ -44,18 +41,18 @@ public interface ApiInterfaceInformasi {
     );
 
     @FormUrlEncoded
-    @POST(URL_INFORMASI_UPDATE)
+    @POST(URL_INFORMASI)
     Call<Informasi> updateInformasi (
             @Field("informasi_id") int informasi_id,
             @Field("informasi_judul") String informasi_judul,
             @Field("informasi_isi") String informasi_isi
     );
 
-    @GET(URL_INFORMASI_READ)
+    @GET(URL_INFORMASI)
     Call<List<Informasi>> getInformasi();
 
     @FormUrlEncoded
-    @POST(URL_INFORMASI_DELETE)
+    @POST(URL_INFORMASI)
     Call<Informasi> deleteInformasi (
             @Field("informasi_id") int informasi_id
     );

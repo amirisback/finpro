@@ -7,6 +7,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +35,7 @@ public class DosenInformasiFragment extends Fragment implements InformasiViewRes
     private RecyclerView recyclerView;
     private ProgressDialog progressDialog;
     private InformasiPresenter presenter;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     public DosenInformasiFragment() {
         // Required empty public constructor
@@ -49,6 +52,7 @@ public class DosenInformasiFragment extends Fragment implements InformasiViewRes
         adapter = new DosenInformasiViewAdapter(getContext());
         presenter = new InformasiPresenter(this, getContext());
         progressDialog = new ProgressDialog(getContext());
+        swipeRefreshLayout = rootView.findViewById(R.id.frg_dsn_info_home_swiperefresh);
         presenter.getInformasi();
 
         FloatingActionButton floatingActionButton = rootView.findViewById(R.id.frg_dsn_info_home_fab);
@@ -61,6 +65,13 @@ public class DosenInformasiFragment extends Fragment implements InformasiViewRes
         });
 
         progressDialog.setMessage(getString(R.string.progress_dialog));
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                presenter.getInformasi();
+            }
+        });
 
         return rootView;
     }
@@ -90,6 +101,7 @@ public class DosenInformasiFragment extends Fragment implements InformasiViewRes
         adapter.setLayoutType(R.layout.content_item_dosen_informasi);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(linearLayoutManager);
+        swipeRefreshLayout.setRefreshing(false);
 
     }
 

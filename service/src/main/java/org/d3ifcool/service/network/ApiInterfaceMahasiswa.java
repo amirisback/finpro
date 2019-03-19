@@ -7,12 +7,9 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_LOGIN_DATA_MAHASISWA;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_MAHASISWA_CREATE;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_MAHASISWA_DELETE;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_MAHASISWA_READ;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_MAHASISWA_UPDATE;
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_MAHASISWA;
 
 /**
  * Created by ikhsan ramadhan
@@ -30,7 +27,7 @@ import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_MAHASISWA_UPDATE
 public interface ApiInterfaceMahasiswa {
 
     @FormUrlEncoded
-    @POST(URL_MAHASISWA_CREATE)
+    @POST(URL_MAHASISWA)
     Call<Mahasiswa> createMahasiswa(
             @Field("mhs_nama") String nama,
             @Field("mhs_angkatan") String angkatan,
@@ -41,7 +38,7 @@ public interface ApiInterfaceMahasiswa {
     );
 
     @FormUrlEncoded
-    @POST(URL_MAHASISWA_UPDATE)
+    @POST(URL_MAHASISWA)
     Call<Mahasiswa> updateMahasiswa(
             @Field("mhs_nim") String nim_mhs,
             @Field("mhs_nama") String nama,
@@ -52,16 +49,16 @@ public interface ApiInterfaceMahasiswa {
             @Field("status") String status
     );
 
-    @GET(URL_MAHASISWA_READ)
+    @GET(URL_MAHASISWA)
     Call<Mahasiswa> getMahasiswa();
 
     @FormUrlEncoded
-    @POST(URL_MAHASISWA_DELETE)
+    @POST(URL_MAHASISWA)
     Call<Mahasiswa> deleteMahasiswa(@Field("mhs_nim") String mhs_nim);
 
-    @FormUrlEncoded
-    @POST(URL_LOGIN_DATA_MAHASISWA)
-    Call<Mahasiswa> getDataMahasiswaLogin(@Field("username_mhs") String username_mhs);
+
+    @GET(URL_MAHASISWA)
+    Call<Mahasiswa> getDataMahasiswaLogin(@Query("mahasiswa") String username_mhs);
 
 
 }

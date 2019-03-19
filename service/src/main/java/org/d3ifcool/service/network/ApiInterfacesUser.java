@@ -32,8 +32,6 @@ public interface ApiInterfacesUser {
     @POST(URL_LOGIN)
     Call<User> setLogin(
             @Field("username") String username,
-            @Field("password") String password,
-            @Field("pengguna") String pengguna
-            );
+            @Field("password") String password);
 
 }

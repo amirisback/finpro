@@ -9,12 +9,9 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_DOSEN_CREATE;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_DOSEN_DELETE;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_DOSEN_READ;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_DOSEN_UPDATE;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_LOGIN_DATA_DOSEN;
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_DOSEN;
 
 /**
  * Created by Faisal Amir
@@ -36,7 +33,7 @@ import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_LOGIN_DATA_DOSEN
 public interface ApiInterfaceDosen {
 
     @FormUrlEncoded
-    @POST(URL_DOSEN_CREATE)
+    @POST(URL_DOSEN)
     Call<Dosen> createDosen(
             @Field("dsn_nama") String dsn_nama,
             @Field("dsn_kode") String dsn_kode,
@@ -47,7 +44,7 @@ public interface ApiInterfaceDosen {
     );
 
     @FormUrlEncoded
-    @POST(URL_DOSEN_UPDATE)
+    @POST(URL_DOSEN)
     Call<Dosen> updateDosen(
             @Field("dsn_nip") int dsn_nip,
             @Field("dsn_nama") String dsn_nama,
@@ -59,15 +56,14 @@ public interface ApiInterfaceDosen {
     );
 
     @FormUrlEncoded
-    @POST(URL_DOSEN_DELETE)
+    @POST(URL_DOSEN)
     Call<Dosen> deleteDosen(@Field("dsn_nip") int dsn_nip);
 
     @FormUrlEncoded
-    @GET(URL_DOSEN_READ)
+    @GET(URL_DOSEN)
     Call<List<Dosen>> getDosen();
 
-    @FormUrlEncoded
-    @POST(URL_LOGIN_DATA_DOSEN)
-    Call<Dosen> getDataDosenLogin(@Field("dsn_nip") String dsn_nip);
+    @GET(URL_DOSEN)
+    Call<Dosen> getDataDosenLogin(@Query("dosen") String dsn_nip);
 
 }

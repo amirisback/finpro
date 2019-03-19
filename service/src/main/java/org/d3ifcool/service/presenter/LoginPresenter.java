@@ -34,11 +34,11 @@ public class LoginPresenter {
         this.view = view;
     }
 
-    public void getLogin(String username, String password, String pengguna){
+    public void getLogin(String username, String password){
         view.showProgress();
 
         ApiInterfacesUser apiInterface = ApiClient.getApiClient().create(ApiInterfacesUser.class);
-        Call<User> call = apiInterface.setLogin(username, password,pengguna);
+        Call<User> call = apiInterface.setLogin(username, password);
 
         call.enqueue(new Callback<User>() {
             @Override

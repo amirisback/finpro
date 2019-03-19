@@ -10,10 +10,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_CREATE;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_DELETE;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_READ;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_UPDATE;
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.BASE_URL_JUDUL_PA;
 
 /**
  * Created by Faisal Amir
@@ -35,7 +32,7 @@ import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA_UPDATE;
 public interface ApiInterfaceJudulPa {
 
     @FormUrlEncoded
-    @POST(URL_JUDUL_PA_CREATE)
+    @POST(BASE_URL_JUDUL_PA)
     Call<Judul> createJudul(
             @Field("judul_nama") String judul_nama,
             @Field("judul_kategori") String judul_kategori,
@@ -46,7 +43,7 @@ public interface ApiInterfaceJudulPa {
 
 
     @FormUrlEncoded
-    @POST(URL_JUDUL_PA_UPDATE)
+    @POST(BASE_URL_JUDUL_PA)
     Call<Judul> updateJudul(
             @Field("judul_id") int judul_id,
             @Field("judul_nama") String judul_nama,
@@ -56,7 +53,7 @@ public interface ApiInterfaceJudulPa {
             @Field("nip_dosen") String nip_dosen
     );
 
-    @GET(URL_JUDUL_PA_READ)
+    @GET(BASE_URL_JUDUL_PA)
     Call<List<Judul>> getJudul();
 
 
@@ -66,7 +63,7 @@ public interface ApiInterfaceJudulPa {
 //    );
 
     @FormUrlEncoded
-    @POST(URL_JUDUL_PA_DELETE)
+    @POST(BASE_URL_JUDUL_PA)
     Call<Judul> deleteJudul(@Field("judul_id") int judul_id);
 
 }
