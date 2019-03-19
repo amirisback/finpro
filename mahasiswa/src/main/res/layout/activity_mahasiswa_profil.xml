@@ -61,6 +61,7 @@
             <TextView
                 android:id="@+id/act_mhs_profil_nim"
                 android:layout_width="@dimen/dimen_weight"
+                android:layout_marginLeft="@dimen/dimen_big_super"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/dummy_anggota_nim_2"
@@ -96,6 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/dummy_kelas"
+                android:layout_marginLeft="@dimen/dimen_big"
                 android:textAlignment="textEnd"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/text_size_title_small"
@@ -127,6 +129,7 @@
                 android:layout_width="@dimen/dimen_weight"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginLeft="@dimen/dimen_medium"
                 android:text="@string/dummy_no_telp"
                 android:textAlignment="textEnd"
                 android:textColor="@color/colorPrimaryDark"
@@ -157,7 +160,6 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:id="@+id/text_telkom"
-
         android:textSize="@dimen/text_size_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

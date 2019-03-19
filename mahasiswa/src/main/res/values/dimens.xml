@@ -48,6 +48,7 @@
 
     <dimen name="min_height_info">300dp</dimen>
     <dimen name="min_height_list_bimbingan">95dp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
 
 
 </resources>

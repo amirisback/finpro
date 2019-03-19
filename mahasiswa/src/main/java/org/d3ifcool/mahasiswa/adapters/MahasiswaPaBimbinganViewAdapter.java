@@ -4,12 +4,16 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.R;
+import org.d3ifcool.mahasiswa.activities.MahasiswaBimbinganListDetail;
+import org.d3ifcool.mahasiswa.activities.MahasiswaPaBimbinganDetailActivity;
 import org.d3ifcool.service.models.Bimbingan;
 
 import java.util.ArrayList;
@@ -67,6 +71,13 @@ public class MahasiswaPaBimbinganViewAdapter extends RecyclerView.Adapter<Mahasi
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.infoTanggal.setText(data.get(position).getTanggal());
         holder.infoIsi.setText(data.get(position).getIsi());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, MahasiswaBimbinganListDetail.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @NonNull

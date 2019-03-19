@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.details.DosenBimbinganDetailActivity;
+import org.d3ifcool.dosen.activities.details.DosenMahasiswaBimbinganDetailActivity;
 import org.d3ifcool.service.models.Bimbingan;
 
 import java.util.ArrayList;
@@ -71,7 +72,7 @@ public class DosenBimbinganViewAdapter extends RecyclerView.Adapter<DosenBimbing
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentData = new Intent(context, DosenBimbinganDetailActivity.class);
+                Intent intentData = new Intent(context, DosenMahasiswaBimbinganDetailActivity.class);
                 context.startActivity(intentData);
             }
         });

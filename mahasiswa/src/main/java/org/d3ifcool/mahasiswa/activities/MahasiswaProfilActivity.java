@@ -88,8 +88,6 @@ public class MahasiswaProfilActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE){
             mahasiswa_foto.setImageURI(data.getData());
-
-
         }
     }
 
@@ -101,11 +99,9 @@ public class MahasiswaProfilActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         int i = item.getItemId();
         if (i == android.R.id.home) {
             finish();
-
         } else if (i == R.id.toolbar_menu_hanya_ubah) {
             Intent intentUbah = new Intent(MahasiswaProfilActivity.this, MahasiswaProfilUbahActivity.class);
             startActivity(intentUbah);
