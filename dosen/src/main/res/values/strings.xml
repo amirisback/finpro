@@ -148,6 +148,8 @@
     <string name="iya">Iya</string>
     <string name="tidak">Tidak</string>
     <string name="text_daftar_pa_monev_mahasiswa">Daftar Judul Proyek Akhir Monev</string>
+    <string name="dialog_ubah">Apakah anda yakin ingin merubah ini?</string>
+    <string name="dialog_ubah_title">Ubah Data</string>
 
     <string-array name="nama_dosen">
         <item>Amir Hasanudin Fauzi, S.T., M.T.</item>

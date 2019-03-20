@@ -53,9 +53,9 @@ public class DosenInformasiUbahActivity extends AppCompatActivity implements Inf
             public void onClick(View v) {
 
                 new AlertDialog
-                        .Builder(getApplicationContext())
-                        .setTitle(getString(R.string.dialog_hapus_title))
-                        .setMessage(getString(R.string.dialog_hapus_text))
+                        .Builder(DosenInformasiUbahActivity.this)
+                        .setTitle(getString(R.string.dialog_ubah_title))
+                        .setMessage(getString(R.string.dialog_ubah))
 
                         .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
