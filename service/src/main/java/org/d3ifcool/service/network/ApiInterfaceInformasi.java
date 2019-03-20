@@ -36,8 +36,7 @@ public interface ApiInterfaceInformasi {
     Call<Informasi> createInformasi (
             @Field("informasi_judul") String informasi_judul,
             @Field("informasi_isi") String informasi_isi,
-            @Field("penerbit") String penerbit,
-            @Field("informasi_waktu") String informasi_waktu
+            @Field("penerbit") String penerbit
     );
 
     @FormUrlEncoded

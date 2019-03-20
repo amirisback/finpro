@@ -51,8 +51,8 @@ public class SessionManager {
     private static final String MHS_FOTO = "MHS_FOTO";
     private static final String MHS_EMAIL = "MHS_EMAIL";
     private static final String MHS_KONTAK = "MHS_KONTAK";
-    private static final String ANGKATAN = "ANGKATAN";
     private static final String MHS_STATUS = "STATUS";
+    private static final String ANGKATAN = "ANGKATAN";
     private static final String USERNAME_MHS = "USERNAME_MHS";
 
     private static final String KOOR_NIP = "KOOR_NIM";
@@ -61,7 +61,7 @@ public class SessionManager {
     private static final String KOOR_EMAIL = "KOOR_EMAIL";
     private static final String KOOR_KONTAK = "KOOR_KONTAK";
     private static final String KOOR_KODE = "KOOR_KODE";
-    private static final String USERNAME_KOOR = "USERNAME";
+    private static final String USERNAME_KOOR = "USERNAME_KOOR";
 
 
     @SuppressLint("CommitPrefEdits")
@@ -191,7 +191,6 @@ public class SessionManager {
     public String getSessionKoorFoto(){
         return sharedPreferences.getString(KOOR_FOTO, null);
     }
-
 
     public String getSessionPengguna(){
         return sharedPreferences.getString(PENGGUNA, null);

@@ -9,8 +9,9 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
+import retrofit2.http.Path;
 
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.PARAMETER_MAHASISWA;
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_MAHASISWA;
 
 /**
@@ -59,8 +60,8 @@ public interface ApiInterfaceMahasiswa {
     Call<Mahasiswa> deleteMahasiswa(@Field("mhs_nim") String mhs_nim);
 
 
-    @GET(URL_MAHASISWA)
-    Call<Mahasiswa> getDataMahasiswaLogin(@Query("mahasiswa") String username_mhs);
+    @GET(URL_MAHASISWA + PARAMETER_MAHASISWA)
+    Call<Mahasiswa> getDataMahasiswaLogin(@Path("mahasiswa") String username_mhs);
 
 
 }

@@ -27,6 +27,10 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dosen_informasi_tambah);
 
+        sessionManager = new SessionManager(this);
+        progressDialog = new ProgressDialog(this);
+        presenter = new InformasiPresenter(this,DosenInformasiTambahActivity.this);
+
         setTitle(R.string.title_informasi_tambah);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -34,10 +38,6 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
         final EditText info_deskripsi = findViewById(R.id.act_dsn_edittext_deskripsi);
         Button btn_simpan = findViewById(R.id.act_dsn_info_button_simpan);
 
-        presenter = new InformasiPresenter(this,DosenInformasiTambahActivity.this);
-
-        sessionManager = new SessionManager(this);
-        progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.progress_dialog));
 
         btn_simpan.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +50,7 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
                 }else if(text_info_deskripsi.isEmpty()){
                     info_deskripsi.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else{
-                    presenter.createInformasi(text_info_judul, text_info_deskripsi, sessionManager.getSessionDosenNamaD(), sessionManager.getSessionDosenFoto());
+                    presenter.createInformasi(text_info_judul, text_info_deskripsi, sessionManager.getSessionDosenNamaD());
                 }
             }
         });
@@ -92,6 +92,7 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
     @Override
     public void onFailed(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+
     }
 
 

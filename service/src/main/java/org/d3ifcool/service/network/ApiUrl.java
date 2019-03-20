@@ -34,15 +34,16 @@ public class ApiUrl {
         public static final String URL_FOTO_MAHASISWA = BASE_URL_FOTO + "mhs_img/";
         // -----------------------------------------------------------------------------------------
         public static final String URL_LOGIN = BASE_URL_LOGIN + "signin";
+        public static final String URL_DOSEN = API_PATH + "dosen";
+        public static final String URL_MAHASISWA = API_PATH + "mahasiswa";
+        public static final String URL_INFORMASI = API_PATH + "informasi";
+        public static final String URL_JUDUL_PA = API_PATH + "judulpa";
         // -----------------------------------------------------------------------------------------
-        public static final String URL_DOSEN = API_PATH + "dosen/";
+        public static final String PARAMETER_DOSEN = "/{dosen}";
+        public static final String PARAMETER_MAHASISWA = "/{mahasiswa}";
+        public static final String PARAMETER_INFORMASI = "/{informasi}";
+        public static final String PARAMETER_JUDUL_PA = "/{judulpa}";
         // -----------------------------------------------------------------------------------------
-        public static final String URL_MAHASISWA = API_PATH + "mahasiswa/";
-        // -----------------------------------------------------------------------------------------
-        public static final String URL_INFORMASI = API_PATH + "informasi/";
-        // -----------------------------------------------------------------------------------------
-        public static final String URL_JUDUL_PA = API_PATH + "judulpa/";
-
 
     }
 }

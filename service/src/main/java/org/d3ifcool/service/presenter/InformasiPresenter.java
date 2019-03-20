@@ -1,8 +1,6 @@
 package org.d3ifcool.service.presenter;
 
 import android.content.Context;
-import android.widget.Toast;
-
 import org.d3ifcool.service.interfaces.InformasiViewEditor;
 import org.d3ifcool.service.interfaces.InformasiViewResult;
 import org.d3ifcool.service.models.Informasi;
@@ -43,11 +41,11 @@ public class InformasiPresenter {
         this.context = context;
     }
 
-    public void createInformasi (String informasi_judul, String informasi_isi, String penerbit, String informasi_waktu) {
+    public void createInformasi (String informasi_judul, String informasi_isi, String penerbit) {
         viewEditor.showProgress();
 
         ApiInterfaceInformasi apiInterface = ApiClient.getApiClient().create(ApiInterfaceInformasi.class);
-        Call<Informasi> call = apiInterface.createInformasi(informasi_judul, informasi_isi, penerbit, informasi_waktu);
+        Call<Informasi> call = apiInterface.createInformasi(informasi_judul, informasi_isi, penerbit);
         call.enqueue(new Callback<Informasi>() {
             @Override
             public void onResponse(Call<Informasi> call, Response<Informasi> response) {
@@ -61,6 +59,7 @@ public class InformasiPresenter {
                 viewEditor.onFailed(t.getLocalizedMessage());
             }
         });
+
     }
 
 

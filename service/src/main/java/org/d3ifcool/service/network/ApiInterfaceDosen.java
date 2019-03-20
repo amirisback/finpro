@@ -6,11 +6,13 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
+import retrofit2.http.Path;
 
+import static org.d3ifcool.service.network.ApiUrl.FinproUrl.PARAMETER_DOSEN;
 import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_DOSEN;
 
 /**
@@ -63,7 +65,7 @@ public interface ApiInterfaceDosen {
     @GET(URL_DOSEN)
     Call<List<Dosen>> getDosen();
 
-    @GET(URL_DOSEN)
-    Call<Dosen> getDataDosenLogin(@Query("dosen") String dsn_nip);
+    @GET(URL_DOSEN + PARAMETER_DOSEN)
+    Call<Dosen> getDataDosenLogin(@Path("dosen") String dsn_nip);
 
 }
