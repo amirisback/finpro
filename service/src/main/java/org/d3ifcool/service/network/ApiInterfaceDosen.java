@@ -59,7 +59,7 @@ public interface ApiInterfaceDosen {
     @POST(URL_DOSEN)
     Call<Dosen> deleteDosen(@Field("dsn_nip") int dsn_nip);
 
-    @FormUrlEncoded
+
     @GET(URL_DOSEN)
     Call<List<Dosen>> getDosen();
 

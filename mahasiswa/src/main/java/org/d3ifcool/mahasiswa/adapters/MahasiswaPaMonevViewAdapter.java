@@ -9,8 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.service.models.Detail_Monev;
-import org.d3ifcool.service.models.Monev;
+import org.d3ifcool.service.models.DetailMonev;
 
 import java.util.ArrayList;
 
@@ -34,14 +33,14 @@ import java.util.ArrayList;
 public class MahasiswaPaMonevViewAdapter extends RecyclerView.Adapter<MahasiswaPaMonevViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<Detail_Monev> data;
+    private ArrayList<DetailMonev> data;
     private int layoutType;
 
     public MahasiswaPaMonevViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void addItem(ArrayList<Detail_Monev> data){
+    public void addItem(ArrayList<DetailMonev> data){
         this.data = data;
         notifyDataSetChanged();
     }

@@ -2,6 +2,8 @@ package org.d3ifcool.service.network;
 
 import org.d3ifcool.service.models.Mahasiswa;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -50,7 +52,7 @@ public interface ApiInterfaceMahasiswa {
     );
 
     @GET(URL_MAHASISWA)
-    Call<Mahasiswa> getMahasiswa();
+    Call<List<Mahasiswa>> getMahasiswa();
 
     @FormUrlEncoded
     @POST(URL_MAHASISWA)

@@ -10,8 +10,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.MahasiswaPaMonevViewAdapter;
-import org.d3ifcool.service.models.Detail_Monev;
-import org.d3ifcool.service.models.Monev;
+import org.d3ifcool.service.models.DetailMonev;
 
 import java.util.ArrayList;
 
@@ -29,7 +28,7 @@ public class MahasiswaPaMonevDetailActivity extends AppCompatActivity {
         TextView textViewJumlah = findViewById(R.id.act_mhs_pa_monev_detail_textview_jumlah);
         RecyclerView recyclerView = findViewById(R.id.act_mhs_pa_monev_detail_recyclerview);
 
-        ArrayList<Detail_Monev> arrayList = new ArrayList<>();
+        ArrayList<DetailMonev> arrayList = new ArrayList<>();
 //        arrayList.add(new Monev(90, "01 Februari 2019", "Revisi Bab 4"));
 //        arrayList.add(new Monev(90, "01 Februari 2019", "Revisi Bab 4"));
 //        arrayList.add(new Monev(90, "01 Februari 2019", "Revisi Bab 4"));

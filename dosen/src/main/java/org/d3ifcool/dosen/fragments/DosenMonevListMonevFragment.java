@@ -14,8 +14,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editors.DosenMonevTambahActivity;
-import org.d3ifcool.service.models.Detail_Monev;
-import org.d3ifcool.service.models.Monev;
+import org.d3ifcool.service.models.DetailMonev;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenMonevViewAdapter;
 
 import java.util.ArrayList;
@@ -53,7 +52,7 @@ public class DosenMonevListMonevFragment extends Fragment {
             }
         });
 
-        ArrayList<Detail_Monev> arrayList = new ArrayList<>();
+        ArrayList<DetailMonev> arrayList = new ArrayList<>();
 //
         DosenMonevViewAdapter adapter = new DosenMonevViewAdapter(getContext());
         adapter.addItem(arrayList);

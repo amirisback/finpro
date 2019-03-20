@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import org.d3ifcool.service.models.Dosen;
+import org.d3ifcool.service.models.KoordinatorPa;
 import org.d3ifcool.service.models.Mahasiswa;
 
 
@@ -36,23 +37,31 @@ public class SessionManager {
     private static final String USERNAME = "USERNAME";
     private static final String PENGGUNA = "PENGGUNA";
 
-    private static final String NIP_DOSEN = "NIP_DOSEN";
-    private static final String NAMA_D = "NAMA_D";
-    private static final String FOTO = "FOTO";
-    private static final String EMAIL_D = "EMAIL_D";
-    private static final String KONTAK_D = "KONTAK_D";
-    private static final String KODE = "KODE";
-    private static final String DOSEN_STATUS = "STATUS";
+    private static final String DSN_NIP = "DSN_NIP";
+    private static final String DSN_NAMA = "DSN_NAMA";
+    private static final String DSN_FOTO = "DSN_FOTO";
+    private static final String DSN_EMAIL = "DSN_EMAIL";
+    private static final String DSN_KONTAK = "DSN_KONTAK";
+    private static final String DSN_KODE = "DSN_KODE";
+    private static final String STATUS = "STATUS";
     private static final String USERNAME_DOSEN = "USERNAME_DOSEN";
 
     private static final String MHS_NIM = "MHS_NIM";
-    private static final String NAMA_M = "NAMA_M";
-    private static final String FOTO_M = "FOTO_M";
-    private static final String EMAIL_M = "EMAIL_M";
-    private static final String KONTAK_M = "KONTAK_M";
+    private static final String MHS_NAMA = "MHS_NAMA";
+    private static final String MHS_FOTO = "MHS_FOTO";
+    private static final String MHS_EMAIL = "MHS_EMAIL";
+    private static final String MHS_KONTAK = "MHS_KONTAK";
     private static final String ANGKATAN = "ANGKATAN";
-    private static final String MAHASISWA_STATUS = "STATUS";
+    private static final String MHS_STATUS = "STATUS";
     private static final String USERNAME_MHS = "USERNAME_MHS";
+
+    private static final String KOOR_NIP = "KOOR_NIM";
+    private static final String KOOR_NAMA = "KOOR_NAMA";
+    private static final String KOOR_FOTO = "KOOR_FOTO";
+    private static final String KOOR_EMAIL = "KOOR_EMAIL";
+    private static final String KOOR_KONTAK = "KOOR_KONTAK";
+    private static final String KOOR_KODE = "KOOR_KODE";
+    private static final String USERNAME_KOOR = "USERNAME";
 
 
     @SuppressLint("CommitPrefEdits")
@@ -72,23 +81,34 @@ public class SessionManager {
 
     public void createSessionDataMahasiswa(Mahasiswa mahasiswa){
         editor.putString(MHS_NIM, mahasiswa.getMhs_nim());
-        editor.putString(NAMA_M, mahasiswa.getMhs_nama());
-        editor.putString(FOTO_M, mahasiswa.getMhs_foto());
-        editor.putString(EMAIL_M, mahasiswa.getMhs_email());
-        editor.putString(KONTAK_M, mahasiswa.getMhs_kontak());
-        editor.putString(MAHASISWA_STATUS, mahasiswa.getStatus());
+        editor.putString(MHS_NAMA, mahasiswa.getMhs_nama());
+        editor.putString(MHS_FOTO, mahasiswa.getMhs_foto());
+        editor.putString(MHS_EMAIL, mahasiswa.getMhs_email());
+        editor.putString(MHS_KONTAK, mahasiswa.getMhs_kontak());
+        editor.putString(MHS_STATUS, mahasiswa.getStatus());
         editor.apply();
         editor.commit();
     }
 
     public void createSessionDataDosen(Dosen dosen){
-        editor.putString(NIP_DOSEN, dosen.getDsn_nip());
-        editor.putString(NAMA_D, dosen.getDsn_nama());
-        editor.putString(FOTO, dosen.getDsn_foto());
-        editor.putString(EMAIL_D, dosen.getDsn_email());
-        editor.putString(KONTAK_D, dosen.getDsn_kontak());
-        editor.putString(KODE, dosen.getDsn_kode());
-        editor.putString(DOSEN_STATUS, dosen.getDsn_status());
+        editor.putString(DSN_NIP, dosen.getDsn_nip());
+        editor.putString(DSN_NAMA, dosen.getDsn_nama());
+        editor.putString(DSN_FOTO, dosen.getDsn_foto());
+        editor.putString(DSN_EMAIL, dosen.getDsn_email());
+        editor.putString(DSN_KONTAK, dosen.getDsn_kontak());
+        editor.putString(DSN_KODE, dosen.getDsn_kode());
+        editor.putString(STATUS, dosen.getDsn_status());
+        editor.apply();
+        editor.commit();
+    }
+
+    public void createSessionDataKoor(KoordinatorPa koor){
+        editor.putString(KOOR_NIP, koor.getKoor_nip());
+        editor.putString(KOOR_NAMA, koor.getKoor_nama());
+        editor.putString(KOOR_FOTO, koor.getKoor_foto());
+        editor.putString(KOOR_EMAIL, koor.getKoor_email());
+        editor.putString(KOOR_KONTAK, koor.getKoor_kontak());
+        editor.putString(KOOR_KODE, koor.getKoor_kode());
         editor.apply();
         editor.commit();
     }
@@ -98,19 +118,19 @@ public class SessionManager {
     }
 
     public String getSessionMahasiswaNamaM(){
-        return sharedPreferences.getString(NAMA_M, null);
+        return sharedPreferences.getString(MHS_NAMA, null);
     }
 
     public String getSessionMahasiswaFotoM(){
-        return sharedPreferences.getString(FOTO_M, null);
+        return sharedPreferences.getString(MHS_FOTO, null);
     }
 
     public String getSessionMahasiswaEmailM(){
-        return sharedPreferences.getString(EMAIL_M, null);
+        return sharedPreferences.getString(MHS_EMAIL, null);
     }
 
     public String getSessionMahasiswaKontakM(){
-        return sharedPreferences.getString(KONTAK_M, null);
+        return sharedPreferences.getString(MHS_KONTAK, null);
     }
 
     public String getSessionMahasiswaAngkatanM(){
@@ -118,7 +138,7 @@ public class SessionManager {
     }
 
     public String getSessionMahasiswaStatus(){
-        return sharedPreferences.getString(MAHASISWA_STATUS, null);
+        return sharedPreferences.getString(MHS_STATUS, null);
     }
 
     public String getSessionMahasiswaUsernameM(){
@@ -126,32 +146,52 @@ public class SessionManager {
     }
 
     public String getSessionDosenNip(){
-        return sharedPreferences.getString(NIP_DOSEN, null);
+        return sharedPreferences.getString(DSN_NIP, null);
     }
 
     public String getSessionDosenNamaD(){
-        return sharedPreferences.getString(NAMA_D, null);
+        return sharedPreferences.getString(DSN_NAMA, null);
     }
 
     public String getSessionDosenFoto(){
-        return sharedPreferences.getString(FOTO, null);
+        return sharedPreferences.getString(DSN_FOTO, null);
     }
 
     public String getSessionDosenEmail(){
-        return sharedPreferences.getString(EMAIL_D, null);
+        return sharedPreferences.getString(DSN_EMAIL, null);
     }
 
     public String getSessionDosenKontak(){
-        return sharedPreferences.getString(KONTAK_D, null);
+        return sharedPreferences.getString(DSN_KONTAK, null);
     }
 
     public String getSessionDosenKode(){
-        return sharedPreferences.getString(KODE, null);
+        return sharedPreferences.getString(DSN_KODE, null);
     }
 
     public String getSessionDosenUserNameDosen(){
         return sharedPreferences.getString(USERNAME_DOSEN, null);
     }
+
+    public String getSessionKoorNip(){
+        return sharedPreferences.getString(KOOR_NIP, null);
+    }
+    public String getSessionKoorNama(){
+        return sharedPreferences.getString(KOOR_NAMA, null);
+    }
+    public String getSessionKoorKode(){
+        return sharedPreferences.getString(KOOR_KODE, null);
+    }
+    public String getSessionKoorKontak(){
+        return sharedPreferences.getString(KOOR_KONTAK, null);
+    }
+    public String getSessionKoorEmail(){
+        return sharedPreferences.getString(KOOR_EMAIL, null);
+    }
+    public String getSessionKoorFoto(){
+        return sharedPreferences.getString(KOOR_FOTO, null);
+    }
+
 
     public String getSessionPengguna(){
         return sharedPreferences.getString(PENGGUNA, null);

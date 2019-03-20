@@ -28,6 +28,9 @@ public class KoordinatorPa implements Parcelable {
     @SerializedName("koor_nama")
     String koor_nama;
     @Expose
+    @SerializedName("koor_kode")
+    String koor_kode;
+    @Expose
     @SerializedName("koor_kontak")
     String koor_kontak;
     @Expose
@@ -112,6 +115,14 @@ public class KoordinatorPa implements Parcelable {
 
     public void setKoor_email(String koor_email) {
         this.koor_email = koor_email;
+    }
+
+    public String getKoor_kode() {
+        return koor_kode;
+    }
+
+    public void setKoor_kode(String koor_kode) {
+        this.koor_kode = koor_kode;
     }
 
     @Override

@@ -21,7 +21,6 @@ public class KoorInformasiDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_INFORMASI = "extra_informasi";
     private Informasi extraInfo;
-    SessionManager sessionManager = new SessionManager(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +41,6 @@ public class KoorInformasiDetailActivity extends AppCompatActivity {
         String isi = extraInfo.getInfo_deskripsi();
         String tanggal = extraInfo.getTanggal();
         String nama = extraInfo.getPenerbit();
-        String foto = sessionManager.getSessionDosenFoto();
 
         textView_judul.setText(judul);
         textView_isi.setText(isi);

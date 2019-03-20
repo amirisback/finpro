@@ -11,8 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.models.Detail_Monev;
-import org.d3ifcool.service.models.Monev;
+import org.d3ifcool.service.models.DetailMonev;
 import org.d3ifcool.mahasiswa.adapters.MahasiswaPaMonevViewAdapter;
 
 import java.util.ArrayList;
@@ -36,9 +35,9 @@ public class DosenBimbinganListMonevFragment extends Fragment {
         TextView textViewJumlah = rootView.findViewById(R.id.act_mhs_pa_monev_detail_textview_jumlah);
         RecyclerView recyclerView = rootView.findViewById(R.id.act_mhs_pa_monev_detail_recyclerview);
 
-        ArrayList<Detail_Monev> arrayList = new ArrayList<>();
-        arrayList.add(new Detail_Monev(86,"28 januari 2019","layout kurang sekali",1,1));
-        arrayList.add(new Detail_Monev(86,"28 januari 2019","layout kurang sekali",1,1));
+        ArrayList<DetailMonev> arrayList = new ArrayList<>();
+        arrayList.add(new DetailMonev(86,"28 januari 2019","layout kurang sekali",1,1));
+        arrayList.add(new DetailMonev(86,"28 januari 2019","layout kurang sekali",1,1));
 
         MahasiswaPaMonevViewAdapter adapter = new MahasiswaPaMonevViewAdapter(getContext());
         adapter.addItem(arrayList);

@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Detail_Monev implements Parcelable {
+public class DetailMonev implements Parcelable {
     @Expose
     @SerializedName("monev_nilai")
     private int monev_nilai;
@@ -27,7 +27,7 @@ public class Detail_Monev implements Parcelable {
     @SerializedName("proyek_akhir_id")
     private int proyek_akhir_id;
 
-    public Detail_Monev(int monev_nilai, String monev_tanggal, String monev_ulasan, int monev_id, int proyek_akhir_id) {
+    public DetailMonev(int monev_nilai, String monev_tanggal, String monev_ulasan, int monev_id, int proyek_akhir_id) {
         this.monev_nilai = monev_nilai;
         this.monev_tanggal = monev_tanggal;
         this.monev_ulasan = monev_ulasan;
@@ -35,7 +35,7 @@ public class Detail_Monev implements Parcelable {
         this.proyek_akhir_id = proyek_akhir_id;
     }
 
-    protected Detail_Monev(Parcel in) {
+    protected DetailMonev(Parcel in) {
         monev_nilai = in.readInt();
         monev_tanggal = in.readString();
         monev_ulasan = in.readString();
@@ -57,15 +57,15 @@ public class Detail_Monev implements Parcelable {
         return 0;
     }
 
-    public static final Creator<Detail_Monev> CREATOR = new Creator<Detail_Monev>() {
+    public static final Creator<DetailMonev> CREATOR = new Creator<DetailMonev>() {
         @Override
-        public Detail_Monev createFromParcel(Parcel in) {
-            return new Detail_Monev(in);
+        public DetailMonev createFromParcel(Parcel in) {
+            return new DetailMonev(in);
         }
 
         @Override
-        public Detail_Monev[] newArray(int size) {
-            return new Detail_Monev[size];
+        public DetailMonev[] newArray(int size) {
+            return new DetailMonev[size];
         }
     };
 
