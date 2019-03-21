@@ -6,22 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editors.DosenJudulPaSubdosenTambahActivity;
-import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenJudulPaSubdosenViewAdapter;
-import org.d3ifcool.service.presenter.JudulPaPresenter;
+import org.d3ifcool.service.presenters.JudulPaPresenter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**

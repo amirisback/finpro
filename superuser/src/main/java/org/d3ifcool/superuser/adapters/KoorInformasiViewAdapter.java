@@ -7,10 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
-import org.d3ifcool.dosen.activities.details.DosenInformasiDetailActivity;
-import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.activities.details.KoorInformasiDetailActivity;
@@ -20,8 +16,6 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import de.hdodenhof.circleimageview.CircleImageView;
-
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 
 /**
  * Created by Faisal Amir

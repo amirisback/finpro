@@ -19,7 +19,7 @@ import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.interfaces.InformasiViewResult;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenInformasiViewAdapter;
-import org.d3ifcool.service.presenter.InformasiPresenter;
+import org.d3ifcool.service.presenters.InformasiPresenter;
 
 import java.util.ArrayList;
 import java.util.List;

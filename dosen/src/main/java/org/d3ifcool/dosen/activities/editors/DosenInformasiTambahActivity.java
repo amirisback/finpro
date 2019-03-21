@@ -14,7 +14,7 @@ import android.widget.Toast;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.InformasiViewEditor;
-import org.d3ifcool.service.presenter.InformasiPresenter;
+import org.d3ifcool.service.presenters.InformasiPresenter;
 
 public class DosenInformasiTambahActivity extends AppCompatActivity implements InformasiViewEditor {
 

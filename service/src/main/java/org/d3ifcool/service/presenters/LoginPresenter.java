@@ -1,9 +1,9 @@
-package org.d3ifcool.service.presenter;
+package org.d3ifcool.service.presenters;
 
 import org.d3ifcool.service.interfaces.LoginView;
 import org.d3ifcool.service.models.User;
-import org.d3ifcool.service.network.ApiClient;
-import org.d3ifcool.service.network.ApiInterfacesUser;
+import org.d3ifcool.service.network.bridge.ApiClient;
+import org.d3ifcool.service.network.api.ApiInterfacesUser;
 
 import retrofit2.Call;
 import retrofit2.Callback;

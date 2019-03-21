@@ -1,9 +1,9 @@
-package org.d3ifcool.service.network;
+package org.d3ifcool.service.network.bridge;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.BASE_URL;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.BASE_URL;
 
 /**
  * Created by Faisal Amir

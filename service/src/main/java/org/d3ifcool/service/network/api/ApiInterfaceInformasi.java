@@ -1,20 +1,20 @@
-package org.d3ifcool.service.network;
+package org.d3ifcool.service.network.api;
 
 import org.d3ifcool.service.models.Informasi;
 
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.PARAMETER_INFORMASI;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_INFORMASI;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_DELETE;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_INFORMASI;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_UPDATE;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_INFORMASI;
 
 /**
  * Created by Faisal Amir
@@ -44,7 +44,7 @@ public interface ApiInterfaceInformasi {
     );
 
     @FormUrlEncoded
-    @PUT(URL_INFORMASI + PARAMETER_INFORMASI)
+    @POST(URL_INFORMASI + PARAMETER_UPDATE + PARAMETER_INFORMASI)
     Call<Informasi> updateInformasi (
             @Path("informasi") int informasi_id,
             @Field("informasi_judul") String informasi_judul,
@@ -54,7 +54,8 @@ public interface ApiInterfaceInformasi {
     @GET(URL_INFORMASI)
     Call<List<Informasi>> getInformasi();
 
-    @DELETE(URL_INFORMASI + PARAMETER_INFORMASI)
+    // Ga perlu pake @FormUrlEncoded karena tidak menggunakan field
+    @POST(URL_INFORMASI + PARAMETER_DELETE + PARAMETER_INFORMASI)
     Call<Informasi> deleteInformasi (
             @Path("informasi") int informasi_id
     );

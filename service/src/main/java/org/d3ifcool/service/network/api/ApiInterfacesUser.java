@@ -1,4 +1,4 @@
-package org.d3ifcool.service.network;
+package org.d3ifcool.service.network.api;
 
 import org.d3ifcool.service.models.User;
 
@@ -7,7 +7,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_LOGIN;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_LOGIN;
 
 /**
  * Created by Faisal Amir

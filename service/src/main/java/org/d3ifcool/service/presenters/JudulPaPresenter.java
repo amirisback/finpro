@@ -1,12 +1,12 @@
-package org.d3ifcool.service.presenter;
+package org.d3ifcool.service.presenters;
 
 import android.content.Context;
 
 import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
 import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
 import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.network.ApiClient;
-import org.d3ifcool.service.network.ApiInterfaceJudulPa;
+import org.d3ifcool.service.network.bridge.ApiClient;
+import org.d3ifcool.service.network.api.ApiInterfaceJudulPa;
 
 import java.util.List;
 

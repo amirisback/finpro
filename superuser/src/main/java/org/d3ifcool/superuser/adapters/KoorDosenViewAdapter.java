@@ -14,13 +14,12 @@ import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.activities.details.KoorDosenDetailActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 
 /**
  * Created by Faisal Amir

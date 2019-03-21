@@ -1,11 +1,11 @@
-package org.d3ifcool.service.presenter;
+package org.d3ifcool.service.presenters;
 
 import android.content.Context;
 
 import org.d3ifcool.service.interfaces.MahasiswaViewResult;
 import org.d3ifcool.service.models.Mahasiswa;
-import org.d3ifcool.service.network.ApiClient;
-import org.d3ifcool.service.network.ApiInterfaceMahasiswa;
+import org.d3ifcool.service.network.bridge.ApiClient;
+import org.d3ifcool.service.network.api.ApiInterfaceMahasiswa;
 
 import java.util.List;
 

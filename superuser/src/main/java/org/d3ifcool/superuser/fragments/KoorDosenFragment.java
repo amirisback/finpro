@@ -18,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.d3ifcool.service.interfaces.DosenViewResult;
 import org.d3ifcool.service.models.Dosen;
-import org.d3ifcool.service.presenter.DosenPresenter;
+import org.d3ifcool.service.presenters.DosenPresenter;
 import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.activities.editors.KoorDosenTambahActivity;
 import org.d3ifcool.superuser.adapters.KoorDosenViewAdapter;

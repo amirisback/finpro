@@ -1,4 +1,4 @@
-package org.d3ifcool.service.network;
+package org.d3ifcool.service.network.api;
 
 import org.d3ifcool.service.models.Dosen;
 
@@ -6,14 +6,13 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
-import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.PARAMETER_DOSEN;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_DOSEN;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_DOSEN;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_DOSEN;
 
 /**
  * Created by Faisal Amir

@@ -16,7 +16,7 @@ import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.finpro.adapters.DosenPagerAdapter;
 import org.d3ifcool.service.interfaces.DosenLoginView;
 import org.d3ifcool.service.models.Dosen;
-import org.d3ifcool.service.presenter.DataLoginPresenter;
+import org.d3ifcool.service.presenters.DataLoginPresenter;
 
 public class DosenMainActivity extends AppCompatActivity implements DosenLoginView {
 

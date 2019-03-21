@@ -1,4 +1,4 @@
-package org.d3ifcool.service.network;
+package org.d3ifcool.service.network.bridge;
 
 /**
  * Created by Faisal Amir
@@ -39,11 +39,13 @@ public class ApiUrl {
         public static final String URL_INFORMASI = API_PATH + "informasi";
         public static final String URL_JUDUL_PA = API_PATH + "judulpa";
         // -----------------------------------------------------------------------------------------
+        public static final String PARAMETER_UPDATE = "/update";
+        public static final String PARAMETER_DELETE = "/delete";
+        // -----------------------------------------------------------------------------------------
         public static final String PARAMETER_DOSEN = "/{dosen}";
         public static final String PARAMETER_MAHASISWA = "/{mahasiswa}";
         public static final String PARAMETER_INFORMASI = "/{informasi}";
         public static final String PARAMETER_JUDUL_PA = "/{judulpa}";
         // -----------------------------------------------------------------------------------------
-
     }
 }

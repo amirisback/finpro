@@ -19,7 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.d3ifcool.service.interfaces.MahasiswaViewResult;
 import org.d3ifcool.service.models.Mahasiswa;
-import org.d3ifcool.service.presenter.MahasiswaPresenter;
+import org.d3ifcool.service.presenters.MahasiswaPresenter;
 import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.activities.editors.KoorMahasiswaTambahActivity;
 import org.d3ifcool.superuser.adapters.KoorMahasiswaViewAdapter;

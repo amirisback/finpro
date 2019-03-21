@@ -1,4 +1,4 @@
-package org.d3ifcool.service.presenter;
+package org.d3ifcool.service.presenters;
 
 /**
  * Created by ikhsan ramadhan
@@ -13,6 +13,7 @@ package org.d3ifcool.service.presenter;
  * Campus   : Telkom University
  * -----------------------------------------
  */
-public class AntreanPresenter {
+public class BimbinganPresenter {
+
 
 }

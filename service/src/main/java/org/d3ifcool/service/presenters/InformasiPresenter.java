@@ -1,11 +1,11 @@
-package org.d3ifcool.service.presenter;
+package org.d3ifcool.service.presenters;
 
 import android.content.Context;
 import org.d3ifcool.service.interfaces.InformasiViewEditor;
 import org.d3ifcool.service.interfaces.InformasiViewResult;
 import org.d3ifcool.service.models.Informasi;
-import org.d3ifcool.service.network.ApiClient;
-import org.d3ifcool.service.network.ApiInterfaceInformasi;
+import org.d3ifcool.service.network.bridge.ApiClient;
+import org.d3ifcool.service.network.api.ApiInterfaceInformasi;
 
 import java.util.List;
 

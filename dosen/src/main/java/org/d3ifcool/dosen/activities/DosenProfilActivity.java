@@ -6,7 +6,6 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import android.content.pm.PackageManager;
@@ -24,7 +23,7 @@ import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editors.DosenProfilUbahActivity;
 import org.d3ifcool.service.helpers.SessionManager;
 
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 
 public class DosenProfilActivity extends AppCompatActivity {
 

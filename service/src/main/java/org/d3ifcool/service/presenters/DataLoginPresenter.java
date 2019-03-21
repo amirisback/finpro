@@ -1,4 +1,4 @@
-package org.d3ifcool.service.presenter;
+package org.d3ifcool.service.presenters;
 
 import android.content.Context;
 
@@ -6,9 +6,9 @@ import org.d3ifcool.service.interfaces.DosenLoginView;
 import org.d3ifcool.service.interfaces.MahasiswaLoginView;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Mahasiswa;
-import org.d3ifcool.service.network.ApiClient;
-import org.d3ifcool.service.network.ApiInterfaceDosen;
-import org.d3ifcool.service.network.ApiInterfaceMahasiswa;
+import org.d3ifcool.service.network.bridge.ApiClient;
+import org.d3ifcool.service.network.api.ApiInterfaceDosen;
+import org.d3ifcool.service.network.api.ApiInterfaceMahasiswa;
 
 import retrofit2.Call;
 import retrofit2.Callback;

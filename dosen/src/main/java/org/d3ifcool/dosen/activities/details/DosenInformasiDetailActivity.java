@@ -20,9 +20,9 @@ import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.InformasiViewEditor;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.dosen.activities.editors.DosenInformasiUbahActivity;
-import org.d3ifcool.service.presenter.InformasiPresenter;
+import org.d3ifcool.service.presenters.InformasiPresenter;
 
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 
 public class DosenInformasiDetailActivity extends AppCompatActivity implements InformasiViewEditor {
 

@@ -11,10 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.d3ifcool.dosen.activities.editors.DosenInformasiTambahActivity;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.InformasiViewEditor;
-import org.d3ifcool.service.presenter.InformasiPresenter;
+import org.d3ifcool.service.presenters.InformasiPresenter;
 import org.d3ifcool.superuser.R;
 
 public class KoorInformasiTambahActivity extends AppCompatActivity implements InformasiViewEditor {

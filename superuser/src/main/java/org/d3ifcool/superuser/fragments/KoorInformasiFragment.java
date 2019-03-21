@@ -19,7 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.d3ifcool.service.interfaces.InformasiViewResult;
 import org.d3ifcool.service.models.Informasi;
-import org.d3ifcool.service.presenter.InformasiPresenter;
+import org.d3ifcool.service.presenters.InformasiPresenter;
 import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.activities.editors.KoorInformasiTambahActivity;
 import org.d3ifcool.superuser.adapters.KoorInformasiViewAdapter;

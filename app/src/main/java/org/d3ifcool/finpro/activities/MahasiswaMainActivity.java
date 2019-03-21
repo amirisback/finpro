@@ -15,11 +15,8 @@ import org.d3ifcool.finpro.adapters.MahasiswaPagerAdapter;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPemberitahuanActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaProfilActivity;
 import org.d3ifcool.service.interfaces.MahasiswaLoginView;
-import org.d3ifcool.service.interfaces.MahasiswaViewResult;
 import org.d3ifcool.service.models.Mahasiswa;
-import org.d3ifcool.service.presenter.DataLoginPresenter;
-
-import java.util.List;
+import org.d3ifcool.service.presenters.DataLoginPresenter;
 
 public class MahasiswaMainActivity extends AppCompatActivity implements MahasiswaLoginView {
 

@@ -13,7 +13,7 @@ import org.d3ifcool.finpro.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.LoginView;
 import org.d3ifcool.service.models.User;
-import org.d3ifcool.service.presenter.LoginPresenter;
+import org.d3ifcool.service.presenters.LoginPresenter;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 

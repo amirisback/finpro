@@ -1,4 +1,4 @@
-package org.d3ifcool.service.network;
+package org.d3ifcool.service.network.api;
 
 import org.d3ifcool.service.models.Sidang;
 

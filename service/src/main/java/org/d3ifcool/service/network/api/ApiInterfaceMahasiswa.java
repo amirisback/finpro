@@ -1,4 +1,4 @@
-package org.d3ifcool.service.network;
+package org.d3ifcool.service.network.api;
 
 import org.d3ifcool.service.models.Mahasiswa;
 
@@ -11,8 +11,8 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.PARAMETER_MAHASISWA;
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_MAHASISWA;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_MAHASISWA;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_MAHASISWA;
 
 /**
  * Created by ikhsan ramadhan

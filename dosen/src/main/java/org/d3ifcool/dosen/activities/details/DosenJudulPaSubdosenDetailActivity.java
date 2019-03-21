@@ -16,7 +16,7 @@ import org.d3ifcool.dosen.activities.editors.DosenJudulPaSubdosenUbahActivity;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
 import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.presenter.JudulPaPresenter;
+import org.d3ifcool.service.presenters.JudulPaPresenter;
 
 public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implements JudulPaSubDosenViewEditor {
     public static final String EXTRA_INFORMASI = "extra_informasi";

@@ -1,4 +1,4 @@
-package org.d3ifcool.service.network;
+package org.d3ifcool.service.network.api;
 
 import org.d3ifcool.service.models.Judul;
 
@@ -10,7 +10,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
-import static org.d3ifcool.service.network.ApiUrl.FinproUrl.URL_JUDUL_PA;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_JUDUL_PA;
 
 
 /**

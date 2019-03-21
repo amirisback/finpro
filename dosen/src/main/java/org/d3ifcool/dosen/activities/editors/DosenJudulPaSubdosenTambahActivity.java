@@ -15,8 +15,7 @@ import android.widget.Toast;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
-import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
-import org.d3ifcool.service.presenter.JudulPaPresenter;
+import org.d3ifcool.service.presenters.JudulPaPresenter;
 
 public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implements JudulPaSubDosenViewEditor {
     private Spinner spinner_kategori;
