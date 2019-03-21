@@ -29,10 +29,10 @@ public class DosenMahasiswaBimbinganDetailActivity extends AppCompatActivity {
         ViewPager mViewPager = findViewById(R.id.act_dsn_mhs_bimbingan_detail_viewpager);
         // -----------------------------------------------------------------------------------------
         // Membuat ViewPager (SLIDER)
-        DosenBimbinganPagerAdapter adapter = new DosenBimbinganPagerAdapter(this,getSupportFragmentManager());
-        mViewPager.setAdapter(adapter);
-        mTabLayout.setupWithViewPager(mViewPager);
-        // -----------------------------------------------------------------------------------------
+//        DosenBimbinganPagerAdapter adapter = new DosenBimbinganPagerAdapter(this,getSupportFragmentManager());
+//        mViewPager.setAdapter(adapter);
+//        mTabLayout.setupWithViewPager(mViewPager);
+//        // -----------------------------------------------------------------------------------------
 
     }
 

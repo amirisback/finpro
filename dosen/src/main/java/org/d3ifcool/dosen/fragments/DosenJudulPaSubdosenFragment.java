@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DosenJudulPaSubdosenFragment extends Fragment implements JudulPaSubDosenViewResult {
+public class DosenJudulPaSubdosenFragment extends Fragment {
     private RecyclerView recyclerView;
     private FloatingActionButton floatingActionButton;
     private DosenJudulPaSubdosenViewAdapter adapter;
@@ -51,7 +51,7 @@ public class DosenJudulPaSubdosenFragment extends Fragment implements JudulPaSub
         recyclerView = rootView.findViewById(R.id.frg_dsn_judul_dsn_recyclerview);
         floatingActionButton = rootView.findViewById(R.id.frg_dsn_judul_dsn_fab);
 
-        presenter = new JudulPaPresenter(this, getContext());
+//        presenter = new JudulPaPresenter(this, getContext());
         dialog = new ProgressDialog(getContext());
 
         adapter = new DosenJudulPaSubdosenViewAdapter(getContext());
@@ -69,35 +69,35 @@ public class DosenJudulPaSubdosenFragment extends Fragment implements JudulPaSub
 
         return rootView;
     }
-    @Override
-    public void onResume() {
-        super.onResume();
-        presenter.getJudul();
-    }
-
-    @Override
-    public void showProgress() {
-        dialog.show();
-    }
-
-    @Override
-    public void hideProgress() {
-        dialog.dismiss();
-    }
-
-    @Override
-    public void onGetResult(List<Judul> judulpa) {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        juduls.clear();
-        juduls.addAll(judulpa);
-        adapter.addItem(juduls);
-        adapter.setLayoutType(R.layout.content_item_dosen_judul_pa_subdosen);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(linearLayoutManager);
-    }
-
-    @Override
-    public void onErrorLoading(String message) {
-        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
-    }
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        presenter.getJudul();
+//    }
+//
+//    @Override
+//    public void showProgress() {
+//        dialog.show();
+//    }
+//
+//    @Override
+//    public void hideProgress() {
+//        dialog.dismiss();
+//    }
+//
+//    @Override
+//    public void onGetResult(List<Judul> judulpa) {
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+//        juduls.clear();
+//        juduls.addAll(judulpa);
+//        adapter.addItem(juduls);
+//        adapter.setLayoutType(R.layout.content_item_dosen_judul_pa_subdosen);
+//        recyclerView.setAdapter(adapter);
+//        recyclerView.setLayoutManager(linearLayoutManager);
+//    }
+//
+//    @Override
+//    public void onErrorLoading(String message) {
+//        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+//    }
 }

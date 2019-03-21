@@ -7,8 +7,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.fragments.DosenMahasiswaBimbinganFragment;
-import org.d3ifcool.dosen.fragments.DosenMahasiswaMonevFragment;
+import org.d3ifcool.dosen.fragments.DosenProyekAkhirBimbinganFragment;
+import org.d3ifcool.dosen.fragments.DosenProyekAkhirMonevFragment;
 
 /**
  * Created by Faisal Amir
@@ -40,9 +40,9 @@ public class DosenMahasiswaPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new DosenMahasiswaBimbinganFragment();
+                return new DosenProyekAkhirBimbinganFragment();
             case 1:
-                return new DosenMahasiswaMonevFragment();
+                return new DosenProyekAkhirMonevFragment();
             default:
                 throw new IllegalArgumentException();
         }

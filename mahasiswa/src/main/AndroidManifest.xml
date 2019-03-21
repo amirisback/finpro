@@ -3,7 +3,8 @@
     package="org.d3ifcool.mahasiswa">
 
     <application>
-        <activity android:name=".activities.MahasiswaBimbinganListDetail"></activity>
+        <activity android:name=".MahasiswaMonevListDetail"></activity>
+        <activity android:name=".activities.MahasiswaBimbinganListDetail" />
         <activity android:name=".activities.MahasiswaInformasiDetailActivity" />
         <activity android:name=".activities.MahasiswaPaMonevDetailActivity" />
         <activity android:name=".activities.MahasiswaPaBimbinganDetailActivity" />

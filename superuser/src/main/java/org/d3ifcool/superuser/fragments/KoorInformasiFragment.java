@@ -76,6 +76,12 @@ public class KoorInformasiFragment extends Fragment implements InformasiViewResu
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        presenter.getInformasi();
+    }
+
+    @Override
     public void showProgress() {
         progressDialog.show();
     }

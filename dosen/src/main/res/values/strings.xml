@@ -150,6 +150,8 @@
     <string name="text_daftar_pa_monev_mahasiswa">Daftar Judul Proyek Akhir Monev</string>
     <string name="dialog_ubah">Apakah anda yakin ingin merubah ini?</string>
     <string name="dialog_ubah_title">Ubah Data</string>
+    <string name="text_title_kategori_monev">Kategori Monev</string>
+    <string name="text_title_review_monev">Review Monev</string>
 
     <string-array name="nama_dosen">
         <item>Amir Hasanudin Fauzi, S.T., M.T.</item>
@@ -166,6 +168,16 @@
         <item>Website</item>
         <item>Android</item>
         <item>IoT</item>
+    </string-array>
+
+    <string-array name="kategori_monev">
+        <item>Pilih Kategori Monev</item>
+        <item>Pra Monev 1</item>
+        <item>Pra Monev 2</item>
+        <item>Pra Monev 3</item>
+        <item>Monev 1</item>
+        <item>Monev 2</item>
+        <item>Monev 3</item>
     </string-array>
 
 
