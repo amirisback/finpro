@@ -12,6 +12,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.activities.editors.DosenInformasiTambahActivity;
@@ -36,6 +37,7 @@ public class DosenInformasiFragment extends Fragment implements InformasiViewRes
     private ProgressDialog progressDialog;
     private InformasiPresenter presenter;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private View empty_view;
 
     public DosenInformasiFragment() {
         // Required empty public constructor
@@ -63,6 +65,9 @@ public class DosenInformasiFragment extends Fragment implements InformasiViewRes
                 startActivity(i);
             }
         });
+
+        empty_view = rootView.findViewById(R.id.view_emptyview);
+
 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -102,6 +107,9 @@ public class DosenInformasiFragment extends Fragment implements InformasiViewRes
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(linearLayoutManager);
         swipeRefreshLayout.setRefreshing(false);
+        if (arrayList.size() == 0) {
+            empty_view.setVisibility(View.VISIBLE);
+        }
 
     }
 
