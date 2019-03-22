@@ -11,7 +11,9 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_DELETE;
 import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_DOSEN;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_UPDATE;
 import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_DOSEN;
 
 /**
@@ -36,29 +38,26 @@ public interface ApiInterfaceDosen {
     @FormUrlEncoded
     @POST(URL_DOSEN)
     Call<Dosen> createDosen(
+            @Field("dsn_nip") String dsn_nip,
             @Field("dsn_nama") String dsn_nama,
             @Field("dsn_kode") String dsn_kode,
             @Field("dsn_kontak") String dsn_kontak,
-            @Field("dsn_foto") String dsn_foto,
-            @Field("dsn_email") int dsn_email,
-            @Field("dsn_status") String dsn_status
+            @Field("dsn_email") String dsn_email
     );
 
     @FormUrlEncoded
-    @POST(URL_DOSEN)
+    @POST(URL_DOSEN + PARAMETER_UPDATE + PARAMETER_DOSEN)
     Call<Dosen> updateDosen(
-            @Field("dsn_nip") int dsn_nip,
+            @Field("dsn_nip") String dsn_nip,
             @Field("dsn_nama") String dsn_nama,
             @Field("dsn_kode") String dsn_kode,
             @Field("dsn_kontak") String dsn_kontak,
-            @Field("dsn_foto") String dsn_foto,
-            @Field("dsn_email") int dsn_email,
-            @Field("dsn_status") String dsn_status
+            @Field("dsn_email") String dsn_email
     );
 
     @FormUrlEncoded
-    @POST(URL_DOSEN)
-    Call<Dosen> deleteDosen(@Field("dsn_nip") int dsn_nip);
+    @POST(URL_DOSEN + PARAMETER_DELETE + PARAMETER_DOSEN)
+    Call<Dosen> deleteDosen(@Field("dsn_nip") String dsn_nip);
 
 
     @GET(URL_DOSEN)

@@ -65,7 +65,7 @@ public class KoorDosenViewAdapter extends RecyclerView.Adapter<KoorDosenViewAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.nama_dosen.setText(dosens.get(position).getDsn_nama());
         holder.nip_dosen.setText(dosens.get(position).getDsn_nip());
         holder.bimbing.setText("6");
@@ -75,6 +75,8 @@ public class KoorDosenViewAdapter extends RecyclerView.Adapter<KoorDosenViewAdap
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, KoorDosenDetailActivity.class);
+                Dosen parcelDosen = dosens.get(position);
+                intent.putExtra(KoorDosenDetailActivity.EXTRA_DOSEN, parcelDosen);
                 context.startActivity(intent);
             }
         });

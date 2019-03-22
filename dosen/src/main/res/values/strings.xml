@@ -152,6 +152,7 @@
     <string name="text_title_kategori_monev">Kategori Monev</string>
     <string name="text_title_review_monev">Review Monev</string>
     <string name="text_progress_dialog">Tunggu Sebentar . . .</string>
+    <string name="textview_dosen_kode">HMU</string>
 
     <string-array name="nama_dosen">
         <item>Amir Hasanudin Fauzi, S.T., M.T.</item>

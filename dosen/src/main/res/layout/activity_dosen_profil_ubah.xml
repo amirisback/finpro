@@ -128,7 +128,7 @@
             android:layout_height="1dp"
             android:layout_marginRight="@dimen/dimen_big"
             android:layout_marginLeft="@dimen/dimen_big"
-            android:background="@color/colorPrimary"/>
+            android:background="@color/colorBackground"/>
 
         <LinearLayout
             android:layout_gravity="bottom"
@@ -168,7 +168,7 @@
             android:layout_height="1dp"
             android:layout_marginRight="@dimen/dimen_big"
             android:layout_marginLeft="@dimen/dimen_big"
-            android:background="@color/colorPrimary"/>
+            android:background="@color/colorBackground"/>
 
     </LinearLayout>
 

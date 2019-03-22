@@ -78,7 +78,7 @@ public class KoorInformasiDetailActivity extends AppCompatActivity implements In
 
         } else if (i == org.d3ifcool.dosen.R.id.toolbar_menu_ubah) {
             Intent intentUbah = new Intent(KoorInformasiDetailActivity.this, KoorInformasiUbahActivity.class);
-            intentUbah.putExtra(DosenInformasiUbahActivity.EXTRA_INFORMASI, extraInfo);
+            intentUbah.putExtra(KoorInformasiUbahActivity.EXTRA_INFORMASI, extraInfo);
             startActivity(intentUbah);
             finish();
 

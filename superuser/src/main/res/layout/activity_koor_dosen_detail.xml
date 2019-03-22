@@ -21,7 +21,7 @@
         android:layout_marginTop="@dimen/dimen_big"/>
 
     <TextView
-        android:id="@+id/act_koor_profil_nama_dosen"
+        android:id="@+id/act_koor_dosen_nama"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,10 +30,20 @@
         android:textStyle="bold"
         android:textColor="@color/colorTextWhite"
         android:layout_below="@+id/act_koor_profil_foto_dosen"/>
+    <TextView
+        android:id="@+id/act_koor_dosen_kode"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_medium"
+        android:text="HMU"
+        android:textStyle="bold"
+        android:textColor="@color/colorTextWhite"
+        android:layout_below="@+id/act_koor_dosen_nama"/>
 
     <LinearLayout
         android:padding="@dimen/dimen_big_ultra"
-        android:layout_below="@+id/act_koor_profil_nama_dosen"
+        android:layout_below="@+id/act_koor_dosen_nama"
         android:layout_above="@id/text_d3rpla"
         android:orientation="vertical"
         android:layout_marginTop="@dimen/dimen_big_ultra"
@@ -60,9 +70,10 @@
                 android:text="@string/text_profil_detail_nip"/>
 
             <TextView
-                android:id="@+id/act_koor_profil_nip_dosen"
+                android:id="@+id/act_koor_dosen_nip"
                 android:layout_width="@dimen/dimen_weight"
                 android:layout_weight="1"
+                android:layout_marginLeft="@dimen/dimen_big_super"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 android:textAlignment="textEnd"
@@ -95,9 +106,10 @@
                 android:text="@string/text_profil_detail_email"/>
 
             <TextView
-                android:id="@+id/act_koor_profil_email_dosen"
+                android:id="@+id/act_koor_dosen_email"
                 android:layout_width="@dimen/dimen_weight"
                 android:layout_weight="1"
+                android:layout_marginLeft="@dimen/dimen_big"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 android:textSize="@dimen/text_size_title_small"
@@ -130,7 +142,7 @@
                 android:text="@string/text_profil_detail_notelp"/>
 
             <TextView
-                android:id="@+id/act_koor_profil_kontak_dosen"
+                android:id="@+id/act_koor_dosen_kontak"
                 android:layout_width="@dimen/dimen_weight"
                 android:layout_weight="1"
                 android:textColor="@color/colorPrimaryDark"
@@ -138,6 +150,7 @@
                 android:textSize="@dimen/text_size_title_small"
                 android:layout_height="wrap_content"
                 android:textAlignment="textEnd"
+                android:layout_marginLeft="@dimen/dimen_medium"
                 android:text="@string/dummy_status_dosen"/>
 
         </LinearLayout>

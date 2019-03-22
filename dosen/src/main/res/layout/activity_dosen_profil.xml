@@ -31,6 +31,17 @@
         android:textColor="@color/colorTextWhite"
         android:layout_below="@+id/act_dsn_profil_foto"/>
 
+    <TextView
+        android:id="@+id/act_dsn_profil_kode"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_medium"
+        android:text="@string/textview_dosen_kode"
+        android:textStyle="bold"
+        android:textColor="@color/colorTextWhite"
+        android:layout_below="@+id/act_dsn_profil_nama"/>
+
     <LinearLayout
         android:padding="@dimen/dimen_big_ultra"
         android:layout_below="@+id/act_dsn_profil_nama"
@@ -65,6 +76,7 @@
                 android:layout_weight="1"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
+                android:layout_marginLeft="@dimen/dimen_big_super"
                 android:textAlignment="textEnd"
                 android:textSize="@dimen/text_size_title_small"
                 android:layout_height="wrap_content"
@@ -101,6 +113,7 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 android:textSize="@dimen/text_size_title_small"
+                android:layout_marginLeft="@dimen/dimen_big"
                 android:layout_height="wrap_content"
                 android:textAlignment="textEnd"
                 android:text="@string/dummy_status_dosen"/>
@@ -136,6 +149,7 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 android:textSize="@dimen/text_size_title_small"
+                android:layout_marginLeft="@dimen/dimen_medium"
                 android:layout_height="wrap_content"
                 android:textAlignment="textEnd"
                 android:text="@string/dummy_status_dosen"/>

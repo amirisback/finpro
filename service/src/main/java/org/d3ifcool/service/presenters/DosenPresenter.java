@@ -2,6 +2,7 @@ package org.d3ifcool.service.presenters;
 
 import android.content.Context;
 
+import org.d3ifcool.service.interfaces.DosenViewEditor;
 import org.d3ifcool.service.interfaces.DosenViewResult;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.network.bridge.ApiClient;
@@ -29,10 +30,16 @@ import retrofit2.Response;
 public class DosenPresenter {
 
     private DosenViewResult viewResult;
+    private DosenViewEditor viewEditor;
     private Context context;
 
     public DosenPresenter(DosenViewResult viewResult, Context context) {
         this.viewResult = viewResult;
+        this.context = context;
+    }
+
+    public DosenPresenter(DosenViewEditor viewEditor, Context context) {
+        this.viewEditor = viewEditor;
         this.context = context;
     }
 
@@ -56,5 +63,64 @@ public class DosenPresenter {
         });
     }
 
+    public void createDosen(String nip, String nama, String kode, String kontak, String email){
+        viewEditor.showProgress();
 
+        ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
+        Call<Dosen> call = apiInterfaceDosen.createDosen(nip,nama,kode,kontak,email);
+        call.enqueue(new Callback<Dosen>() {
+            @Override
+            public void onResponse(Call<Dosen> call, Response<Dosen> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<Dosen> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void deleteDosen(String nip){
+        viewEditor.showProgress();
+
+        ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
+        Call<Dosen> call = apiInterfaceDosen.deleteDosen(nip);
+        call.enqueue(new Callback<Dosen>() {
+            @Override
+            public void onResponse(Call<Dosen> call, Response<Dosen> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<Dosen> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
+
+
+    public void UpdateDosen(String nama_baru, String nip_baru, String kode_baru, String kontak_baru, String email_baru) {
+        viewEditor.showProgress();
+
+        ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
+        Call<Dosen> call = apiInterfaceDosen.updateDosen(nama_baru,nip_baru,kode_baru,kontak_baru,email_baru);
+        call.enqueue(new Callback<Dosen>() {
+            @Override
+            public void onResponse(Call<Dosen> call, Response<Dosen> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<Dosen> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
 }

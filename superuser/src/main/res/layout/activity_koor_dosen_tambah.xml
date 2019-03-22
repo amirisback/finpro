@@ -33,11 +33,12 @@
             android:textColor="@color/colorPrimary"/>
 
         <EditText
-            android:id="@+id/act_koor_edittext_nipdosen"
+            android:id="@+id/act_koor__dosen_edittext_nipdosen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:singleLine="true"
+            android:inputType="number"
             android:hint="Masukkan NIP Dosen"/>
 
         <TextView

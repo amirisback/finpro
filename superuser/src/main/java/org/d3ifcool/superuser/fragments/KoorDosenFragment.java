@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,7 @@ public class KoorDosenFragment extends Fragment implements DosenViewResult {
     private KoorDosenViewAdapter adapter;
     private ProgressDialog dialog;
     private DosenPresenter presenter;
+    private SwipeRefreshLayout refreshLayout;
     public KoorDosenFragment() {
         // Required empty public constructor
     }
@@ -48,6 +50,7 @@ public class KoorDosenFragment extends Fragment implements DosenViewResult {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_koor_dosen, container, false);
         presenter = new DosenPresenter(this, getContext());
+        refreshLayout = view.findViewById(R.id.refresh);
         recyclerView = view.findViewById(R.id.frg_koor_dosen_home_recyclerview);
         floatingActionButton = view.findViewById(R.id.frg_koor_dosen_home_fab);
         dialog = new ProgressDialog(getContext());
@@ -63,8 +66,21 @@ public class KoorDosenFragment extends Fragment implements DosenViewResult {
             }
         });
 
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                presenter.getDosen();
+            }
+        });
+
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.getDosen();
     }
 
     @Override
@@ -86,6 +102,7 @@ public class KoorDosenFragment extends Fragment implements DosenViewResult {
         adapter.setLayoutType(R.layout.content_item_koor_dosen);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
+        refreshLayout.setRefreshing(false);
     }
 
     @Override
