@@ -56,6 +56,7 @@ public class KoorInformasiFragment extends Fragment implements InformasiViewResu
         swipeRefreshLayout = view.findViewById(R.id.frg_koor_info_home_swiperefresh);
         progressDialog = new ProgressDialog(getContext());
         progressDialog.show();
+        progressDialog.setMessage(getString(R.string.progress_dialog));
         presenter.getInformasi();
 
         fab_informasi.setOnClickListener(new View.OnClickListener() {

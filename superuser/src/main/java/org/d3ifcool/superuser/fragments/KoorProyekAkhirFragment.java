@@ -1,6 +1,7 @@
 package org.d3ifcool.superuser.fragments;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
  */
 public class KoorProyekAkhirFragment extends Fragment {
     private RecyclerView recyclerView;
+    private ProgressDialog dialog;
     private KoorProyekAkhirViewAdapter adapter;
     private ArrayList<ProyekAkhir> proyekAkhirs;
 
@@ -38,6 +40,9 @@ public class KoorProyekAkhirFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_koor_proyek_akhir, container, false);
         adapter = new KoorProyekAkhirViewAdapter(getContext());
+        dialog = new ProgressDialog(getContext());
+        dialog.show();
+        dialog.setMessage(getString(R.string.progress_dialog));
         proyekAkhirs = new ArrayList<>();
         recyclerView = view.findViewById(R.id.frg_koor_pa_recyclerview);
         adapter.setProyekAkhirs(proyekAkhirs);

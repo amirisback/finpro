@@ -52,6 +52,7 @@ public class KoorDosenFragment extends Fragment implements DosenViewResult {
         floatingActionButton = view.findViewById(R.id.frg_koor_dosen_home_fab);
         dialog = new ProgressDialog(getContext());
         dialog.show();
+        dialog.setMessage(getString(R.string.progress_dialog));
         presenter.getDosen();
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {

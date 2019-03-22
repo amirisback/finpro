@@ -1,6 +1,7 @@
 package org.d3ifcool.superuser.fragments;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -30,6 +31,7 @@ public class KoorJudulPaSubdosenFragment extends Fragment {
     private RecyclerView recyclerView;
     private KoorJudulPaSubdosenViewAdapter adapter;
     private FloatingActionButton actionButton;
+    private ProgressDialog dialog;
     private ArrayList<Judul> judul;
 
     public KoorJudulPaSubdosenFragment() {
@@ -45,7 +47,11 @@ public class KoorJudulPaSubdosenFragment extends Fragment {
         spinner = view.findViewById(R.id.spinner_dosen);
         recyclerView = view.findViewById(R.id.frg_koor_judul_dsn_recyclerview);
         actionButton = view.findViewById(R.id.frg_koor_judul_dsn_fab);
+        dialog = new ProgressDialog(getContext());
         adapter = new KoorJudulPaSubdosenViewAdapter(getContext());
+
+        dialog.setMessage(getString(R.string.progress_dialog));
+        dialog.show();
 
         judul = new ArrayList<>();
 //        judul.add(new Judul("huhu","haha"));
