@@ -16,13 +16,13 @@ import org.d3ifcool.dosen.activities.editors.DosenJudulPaSubdosenUbahActivity;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
 import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.presenters.JudulPaPresenter;
+import org.d3ifcool.service.presenters.JudulPresenter;
 
 public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implements JudulPaSubDosenViewEditor {
     public static final String EXTRA_INFORMASI = "extra_informasi";
     private TextView tv_judul,tv_kategori,tv_deskripsi;
     private Judul extradata;
-    private JudulPaPresenter presenter;
+    private JudulPresenter presenter;
     private ProgressDialog dialog;
     private SessionManager sessionManager;
     @Override
@@ -44,11 +44,10 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
         tv_kategori.setText(kategori);
         tv_deskripsi.setText(deskripsi);
 
-        presenter = new JudulPaPresenter(this, DosenJudulPaSubdosenDetailActivity.this);
+        presenter = new JudulPresenter(this, DosenJudulPaSubdosenDetailActivity.this);
         dialog = new ProgressDialog(this);
         sessionManager = new SessionManager(this);
-        dialog.setMessage("please wait...");
-
+        dialog.setMessage(getString(R.string.text_progress_dialog));
 
         setTitle(getString(R.string.title_judulpa_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -73,7 +72,10 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
 
         } else if (i == R.id.toolbar_menu_ubah) {
             Intent intentUbah = new Intent(DosenJudulPaSubdosenDetailActivity.this, DosenJudulPaSubdosenUbahActivity.class);
+            Judul parcelinfo = extradata;
+            intentUbah.putExtra(DosenJudulPaSubdosenUbahActivity.EXTRA_INFORMASI, parcelinfo);
             startActivity(intentUbah);
+            finish();
 
         } else if (i == R.id.toolbar_menu_hapus) {
 

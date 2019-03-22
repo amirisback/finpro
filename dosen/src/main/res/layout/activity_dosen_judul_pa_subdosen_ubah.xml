@@ -6,14 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
+    android:padding="@dimen/dimen_big"
     tools:context=".activities.editors.DosenJudulPaSubdosenUbahActivity">
 
     <LinearLayout
-
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_big">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="@dimen/dimen_profil_photo"
@@ -67,8 +66,8 @@
             android:id="@+id/act_dsn_judul_pa_edittext_deskripsi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:hint="Masukkan Deskripsi Judul PA"/>
+            android:hint="Masukkan Deskripsi Judul PA"
+            android:inputType="textMultiLine" />
 
         <Button
             android:id="@+id/act_dsn_judul_pa_button_simpan"

@@ -6,14 +6,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorBackground"
+    android:padding="@dimen/dimen_big"
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".activities.editors.DosenInformasiTambahActivity">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="@dimen/dimen_big">
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="@dimen/dimen_profil_photo"

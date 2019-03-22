@@ -6,30 +6,39 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editors.DosenJudulPaSubdosenTambahActivity;
+import org.d3ifcool.service.helpers.SessionManager;
+import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenJudulPaSubdosenViewAdapter;
-import org.d3ifcool.service.presenters.JudulPaPresenter;
+import org.d3ifcool.service.presenters.JudulPresenter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DosenJudulPaSubdosenFragment extends Fragment {
+public class DosenJudulPaSubdosenFragment extends Fragment implements JudulPaSubDosenViewResult {
     private RecyclerView recyclerView;
     private FloatingActionButton floatingActionButton;
     private DosenJudulPaSubdosenViewAdapter adapter;
-    private JudulPaPresenter presenter;
-    private ProgressDialog dialog;
+    private JudulPresenter presenter;
+    private ProgressDialog progressDialog;
     private ArrayList<Judul> juduls = new ArrayList<>();
+    private SessionManager sessionManager;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
 
     public DosenJudulPaSubdosenFragment() {
@@ -47,11 +56,13 @@ public class DosenJudulPaSubdosenFragment extends Fragment {
         recyclerView = rootView.findViewById(R.id.frg_dsn_judul_dsn_recyclerview);
         floatingActionButton = rootView.findViewById(R.id.frg_dsn_judul_dsn_fab);
 
-//        presenter = new JudulPaPresenter(this, getContext());
-        dialog = new ProgressDialog(getContext());
+        presenter = new JudulPresenter(this, getContext());
+        progressDialog = new ProgressDialog(getContext());
+
+        swipeRefreshLayout = rootView.findViewById(R.id.frg_dsn_judul_dsn_swiperefresh);
 
         adapter = new DosenJudulPaSubdosenViewAdapter(getContext());
-
+        sessionManager = new SessionManager(getContext());
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,39 +72,47 @@ public class DosenJudulPaSubdosenFragment extends Fragment {
             }
         });
 
-        dialog.setMessage("tunggu sebentar");
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                presenter.getJudulSortByDosen(sessionManager.getSessionDosenNip());
+            }
+        });
 
         return rootView;
     }
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        presenter.getJudul();
-//    }
-//
-//    @Override
-//    public void showProgress() {
-//        dialog.show();
-//    }
-//
-//    @Override
-//    public void hideProgress() {
-//        dialog.dismiss();
-//    }
-//
-//    @Override
-//    public void onGetResult(List<Judul> judulpa) {
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-//        juduls.clear();
-//        juduls.addAll(judulpa);
-//        adapter.addItem(juduls);
-//        adapter.setLayoutType(R.layout.content_item_dosen_judul_pa_subdosen);
-//        recyclerView.setAdapter(adapter);
-//        recyclerView.setLayoutManager(linearLayoutManager);
-//    }
-//
-//    @Override
-//    public void onErrorLoading(String message) {
-//        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
-//    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.getJudulSortByDosen(sessionManager.getSessionDosenNip());
+    }
+
+    @Override
+    public void showProgress() {
+        progressDialog.show();
+    }
+
+    @Override
+    public void hideProgress() {
+        progressDialog.dismiss();
+    }
+
+    @Override
+    public void onGetResult(List<Judul> judulpa) {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        juduls.clear();
+        juduls.addAll(judulpa);
+        adapter.addItem(juduls);
+        adapter.setLayoutType(R.layout.content_item_dosen_judul_pa_subdosen);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void onErrorLoading(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+    }
 }

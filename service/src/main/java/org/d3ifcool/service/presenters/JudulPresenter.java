@@ -6,7 +6,7 @@ import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
 import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.network.bridge.ApiClient;
-import org.d3ifcool.service.network.api.ApiInterfaceJudulPa;
+import org.d3ifcool.service.network.api.ApiInterfaceJudul;
 
 import java.util.List;
 
@@ -27,27 +27,45 @@ import retrofit2.Response;
  * Campus   : Telkom University
  * -----------------------------------------
  */
-public class JudulPaPresenter {
+public class JudulPresenter {
 
     private JudulPaSubDosenViewEditor viewEditor;
     private JudulPaSubDosenViewResult viewResult;
     private Context context;
 
 
-    public JudulPaPresenter(JudulPaSubDosenViewEditor viewEditor, Context context) {
+    public JudulPresenter(JudulPaSubDosenViewEditor viewEditor, Context context) {
         this.viewEditor = viewEditor;
         this.context = context;
     }
 
-    public JudulPaPresenter(JudulPaSubDosenViewResult viewResult, Context context) {
+    public JudulPresenter(JudulPaSubDosenViewResult viewResult, Context context) {
         this.viewResult = viewResult;
         this.context = context;
     }
 
-    public void createJudul (String judul_nama, String judul_kategori, String judul_deskripsi, String judul_status, String nip_dosen){
+    public void createJudul (String judul_nama, String judul_kategori, String judul_deskripsi, String nip_dosen){
+        ApiInterfaceJudul apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
+        Call<Judul> call = apiInterface.createJudul(judul_nama,judul_kategori,judul_deskripsi,nip_dosen);
+        call.enqueue(new Callback<Judul>() {
+            @Override
+            public void onResponse(Call<Judul> call, Response<Judul> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
+            }
 
-        ApiInterfaceJudulPa apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudulPa.class);
-        Call<Judul> call = apiInterface.createJudul(judul_nama,judul_kategori,judul_deskripsi,judul_status,nip_dosen);
+            @Override
+            public void onFailure(Call<Judul> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getLocalizedMessage());
+            }
+        });
+
+    }
+
+    public void updateJudul (int id, String judul_nama, String judul_kategori, String judul_deskripsi, String nip_dosen){
+        ApiInterfaceJudul apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
+        Call<Judul> call = apiInterface.updateJudul(id, judul_nama,judul_kategori,judul_deskripsi);
         call.enqueue(new Callback<Judul>() {
             @Override
             public void onResponse(Call<Judul> call, Response<Judul> response) {
@@ -65,7 +83,7 @@ public class JudulPaPresenter {
     }
 
     public void getJudul() {
-        ApiInterfaceJudulPa apiInterfaceJudulPa = ApiClient.getApiClient().create(ApiInterfaceJudulPa.class);
+        ApiInterfaceJudul apiInterfaceJudulPa = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
         Call<List<Judul>> call = apiInterfaceJudulPa.getJudul();
         call.enqueue(new Callback<List<Judul>>() {
             @Override
@@ -82,8 +100,26 @@ public class JudulPaPresenter {
         });
     }
 
+    public void getJudulSortByDosen(String nip_dosen) {
+        ApiInterfaceJudul apiInterfaceJudul = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
+        Call<List<Judul>> call = apiInterfaceJudul.getJudulSortByDosen(nip_dosen);
+        call.enqueue(new Callback<List<Judul>>() {
+            @Override
+            public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetResult(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Judul>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onErrorLoading(t.getLocalizedMessage());
+            }
+        });
+    }
+
     public void deleteJudul(int judul_id){
-        ApiInterfaceJudulPa apiInterfaceJudulPa = ApiClient.getApiClient().create(ApiInterfaceJudulPa.class);
+        ApiInterfaceJudul apiInterfaceJudulPa = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
         Call<Judul> call = apiInterfaceJudulPa.deleteJudul(judul_id);
         call.enqueue(new Callback<Judul>() {
             @Override

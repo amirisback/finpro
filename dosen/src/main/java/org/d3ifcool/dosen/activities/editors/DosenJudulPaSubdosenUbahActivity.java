@@ -1,13 +1,34 @@
 package org.d3ifcool.dosen.activities.editors;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
+import org.d3ifcool.service.helpers.SessionManager;
+import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
+import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.service.presenters.JudulPresenter;
 
-public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity {
+public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implements JudulPaSubDosenViewEditor {
+
+    public static final String EXTRA_INFORMASI = "extra_informasi";
+    private Judul extradata;
+    private Spinner spinner_kategori;
+    private EditText et_judul, et_deskripsi;
+    private Button btn_update;
+    private JudulPresenter presenter;
+    private SessionManager sessionManager;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +37,42 @@ public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity {
 
         setTitle(getString(R.string.title_judulpa_dosen_ubah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        et_judul = findViewById(R.id.act_dsn_judul_pa_edittext_judul);
+        et_deskripsi = findViewById(R.id.act_dsn_judul_pa_edittext_deskripsi);
+        spinner_kategori = findViewById(R.id.act_dsn_judul_pa_edittext_kategori);
+        btn_update = findViewById(R.id.act_dsn_judul_pa_button_simpan);
+
+        extradata = getIntent().getParcelableExtra(EXTRA_INFORMASI);
+        String judul = extradata.getJudul();
+        String deskripsi = extradata.getDeskripsi();
+        final int id = extradata.getId();
+
+        et_judul.setText(judul);
+        et_deskripsi.setText(deskripsi);
+
+        presenter = new JudulPresenter(this, DosenJudulPaSubdosenUbahActivity.this);
+
+        sessionManager = new SessionManager(this);
+        dialog = new ProgressDialog(this);
+        dialog.setMessage(getString(R.string.text_progress_dialog));
+
+        btn_update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String judul = et_judul.getText().toString();
+                String kategori = spinner_kategori.getSelectedItem().toString();
+                String deskripsi = et_deskripsi.getText().toString();
+                if(judul.isEmpty()){
+                    et_judul.setError("judul tidak boleh kosong");
+                }else if(deskripsi.isEmpty()){
+                    et_deskripsi.setError("deskripsi tidak boleh kosong");
+                }else{
+                    presenter.updateJudul(id, judul, deskripsi, kategori, sessionManager.getSessionDosenNip());
+                }
+            }
+        });
+
 
     }
 
@@ -37,4 +94,23 @@ public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void showProgress() {
+        dialog.show();
+    }
+
+    @Override
+    public void hideProgress() {
+        dialog.dismiss();
+    }
+
+    @Override
+    public void onSucces() {
+        finish();
+    }
+
+    @Override
+    public void onFailed(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
 }

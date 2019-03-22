@@ -8,6 +8,8 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_BIMBINGAN;
+
 /**
  * Created by ikhsan ramadhan
  * =========================================
@@ -24,7 +26,7 @@ import retrofit2.http.POST;
 public interface ApiInterfaceBimbingan {
 
     @FormUrlEncoded
-    @GET("bimbingan/getBimbingan.php")
+    @GET(URL_BIMBINGAN)
     Call<Bimbingan> getBimbingan(
             @Field("bimbingan_id") int id_bimbingan,
             @Field("bimbingan_review") String keterangan,
@@ -34,7 +36,7 @@ public interface ApiInterfaceBimbingan {
     );
 
     @FormUrlEncoded
-    @POST("bimbingan/updateBimbingan.php")
+    @POST(URL_BIMBINGAN)
     Call<Bimbingan> updateBimbingan(
             @Field("bimbingan_id") int id_bimbingan,
             @Field("bimbingan_review") String keterangan,
@@ -44,7 +46,7 @@ public interface ApiInterfaceBimbingan {
     );
 
     @FormUrlEncoded
-    @POST("bimbingan/createBimbingan.php")
+    @POST(URL_BIMBINGAN)
     Call<Bimbingan> createBimbingan(
             @Field("bimbingan_review") String keterangan,
             @Field("bimbingan_judul") String lokasi,
@@ -53,6 +55,6 @@ public interface ApiInterfaceBimbingan {
     );
 
     @FormUrlEncoded
-    @POST("bimbingan/getBimbingan.php")
+    @POST(URL_BIMBINGAN)
     Call<Bimbingan> getBimbingan(@Field("bimbingan_id") String bimbingan_id);
 }

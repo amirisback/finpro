@@ -15,13 +15,13 @@ import android.widget.Toast;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
-import org.d3ifcool.service.presenters.JudulPaPresenter;
+import org.d3ifcool.service.presenters.JudulPresenter;
 
 public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implements JudulPaSubDosenViewEditor {
     private Spinner spinner_kategori;
     private EditText et_judul, et_deskripsi;
     private Button btn_simpan;
-    private JudulPaPresenter presenter;
+    private JudulPresenter presenter;
     private SessionManager sessionManager;
     private ProgressDialog dialog;
 
@@ -38,11 +38,11 @@ public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implem
         setTitle(R.string.title_judulpa_dosen_tambah);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        presenter = new JudulPaPresenter(this, DosenJudulPaSubdosenTambahActivity.this);
+        presenter = new JudulPresenter(this, DosenJudulPaSubdosenTambahActivity.this);
 
         sessionManager = new SessionManager(this);
         dialog = new ProgressDialog(this);
-        dialog.setMessage("tunggu sebentar...");
+        dialog.setMessage(getString(R.string.text_progress_dialog));
 
         btn_simpan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +56,7 @@ public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implem
                 }else if(deskripsi.isEmpty()){
                     et_deskripsi.setError("deskripsi tidak boleh kosong");
                 }else{
-//                    presenter.createJudul(judul, deskripsi, kategori, sessionManager.getSessionDosenNip());
+                    presenter.createJudul(judul, deskripsi, kategori, sessionManager.getSessionDosenNip());
                 }
             }
         });

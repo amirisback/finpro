@@ -37,15 +37,26 @@ public class ApiUrl {
         public static final String URL_DOSEN = API_PATH + "dosen";
         public static final String URL_MAHASISWA = API_PATH + "mahasiswa";
         public static final String URL_INFORMASI = API_PATH + "informasi";
-        public static final String URL_JUDUL_PA = API_PATH + "judulpa";
+        public static final String URL_JUDUL_PA = API_PATH + "judul";
+        public static final String URL_NOTIFIKASI = API_PATH + "notifikasi";
+        public static final String URL_PROYEK_AKHIR = API_PATH + "proyek_akhir";
+        public static final String URL_SIDANG = API_PATH + "sidang";
+        public static final String URL_BIMBINGAN = API_PATH + "bimbingan";
+        public static final String URL_MONEV = API_PATH + "monev";
         // -----------------------------------------------------------------------------------------
         public static final String PARAMETER_UPDATE = "/update";
         public static final String PARAMETER_DELETE = "/delete";
+        public static final String PARAMETER_SORTBY = "/sortby";
         // -----------------------------------------------------------------------------------------
         public static final String PARAMETER_DOSEN = "/{dosen}";
         public static final String PARAMETER_MAHASISWA = "/{mahasiswa}";
         public static final String PARAMETER_INFORMASI = "/{informasi}";
-        public static final String PARAMETER_JUDUL_PA = "/{judulpa}";
+        public static final String PARAMETER_JUDUL_PA = "/{judul}";
+        public static final String PARAMETER_NOTIFIKASI = "/{notifikasi}";
+        public static final String PARAMETER_PROYEK_AKHIR = "/{proyek_akhir}";
+        public static final String PARAMETER_SIDANG = "/{sidang}";
+        public static final String PARAMETER_BIMBINGAN = "/{bimbingan}";
+        public static final String PARAMETER_MONEV = "/{monev}";
         // -----------------------------------------------------------------------------------------
     }
 }

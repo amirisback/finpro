@@ -7,30 +7,32 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_MONEV;
+
 public interface ApiInterfaceMonev {
 
     @FormUrlEncoded
-    @POST("")
+    @POST(URL_MONEV)
     Call<Monev> createMonev(
             @Field("monev_kategori") String kategori
     );
 
     @FormUrlEncoded
-    @POST("")
+    @POST(URL_MONEV)
     Call<Monev> updateMonev(
             @Field("monev_id") int monev_id,
             @Field("monev_kategori") String kategori
     );
 
     @FormUrlEncoded
-    @POST("")
+    @POST(URL_MONEV)
     Call<Monev> getMonev(
             @Field("monev_id") int monev_id,
             @Field("monev_kategori") String kategori
     );
 
     @FormUrlEncoded
-    @POST("")
+    @POST(URL_MONEV)
     Call<Monev> deleteMonev(
             @Field("monev_id") int monev_id
     );

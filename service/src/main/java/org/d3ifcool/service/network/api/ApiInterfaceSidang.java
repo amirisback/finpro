@@ -7,9 +7,11 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_SIDANG;
+
 public interface ApiInterfaceSidang {
     @FormUrlEncoded
-    @POST("")
+    @POST(URL_SIDANG)
     Call<Sidang> getSidang(
             @Field("sidang_id") int sidang_id,
             @Field("sidang_review") String sidang_review,
@@ -20,7 +22,7 @@ public interface ApiInterfaceSidang {
     );
 
     @FormUrlEncoded
-    @POST("")
+    @POST(URL_SIDANG)
     Call<Sidang> createSidang(
             @Field("sidang_review") String sidang_review,
             @Field("sidang_tanggal") String sidang_tanggal,
@@ -30,7 +32,7 @@ public interface ApiInterfaceSidang {
     );
 
     @FormUrlEncoded
-    @POST("")
+    @POST(URL_SIDANG)
     Call<Sidang> updateSidang(
             @Field("sidang_id") int sidang_id,
             @Field("sidang_review") String sidang_review,
@@ -41,7 +43,7 @@ public interface ApiInterfaceSidang {
     );
 
     @FormUrlEncoded
-    @POST("")
+    @POST(URL_SIDANG)
     Call<Sidang> deleteSidang(
             @Field("sidang_id") int sidang_id
     );

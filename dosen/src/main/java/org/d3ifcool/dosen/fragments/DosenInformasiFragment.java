@@ -64,7 +64,7 @@ public class DosenInformasiFragment extends Fragment implements InformasiViewRes
             }
         });
 
-        progressDialog.setMessage(getString(R.string.progress_dialog));
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
