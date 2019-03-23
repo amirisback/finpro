@@ -44,12 +44,12 @@ public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implemen
         btn_update = findViewById(R.id.act_dsn_judul_pa_button_simpan);
 
         extradata = getIntent().getParcelableExtra(EXTRA_INFORMASI);
-        String judul = extradata.getJudul();
-        String deskripsi = extradata.getDeskripsi();
+        String extra_judul = extradata.getJudul();
+        String extra_deskripsi = extradata.getDeskripsi();
         final int id = extradata.getId();
 
-        et_judul.setText(judul);
-        et_deskripsi.setText(deskripsi);
+        et_judul.setText(extra_judul);
+        et_deskripsi.setText(extra_deskripsi);
 
         presenter = new JudulPresenter(this, DosenJudulPaSubdosenUbahActivity.this);
 
@@ -68,7 +68,7 @@ public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implemen
                 }else if(deskripsi.isEmpty()){
                     et_deskripsi.setError("deskripsi tidak boleh kosong");
                 }else{
-                    presenter.updateJudul(id, judul, deskripsi, kategori, sessionManager.getSessionDosenNip());
+                    presenter.updateJudul(id, judul, kategori, deskripsi, sessionManager.getSessionDosenNip());
                 }
             }
         });

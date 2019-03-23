@@ -65,11 +65,10 @@ public class KoorDosenUbahActivity extends AppCompatActivity implements DosenVie
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 String nama_baru = et_nama.getText().toString();
-                                String nip_baru = et_nip.getText().toString();
                                 String kode_baru = et_kode.getText().toString();
                                 String kontak_baru = et_kontak.getText().toString();
                                 String email_baru = et_email.getText().toString();
-                                presenter.UpdateDosen(nama_baru, nip_baru,kode_baru,kontak_baru,email_baru);
+                                presenter.UpdateDosen(extraDosen.getDsn_nip(), nama_baru,kode_baru,kontak_baru,email_baru);
                             }
                         })
                         .setNegativeButton(org.d3ifcool.dosen.R.string.tidak, null)
