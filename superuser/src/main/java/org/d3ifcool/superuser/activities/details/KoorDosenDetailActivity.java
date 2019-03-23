@@ -103,7 +103,6 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenV
                     .setNegativeButton(R.string.tidak, null)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
-        } else {
         }
         return super.onOptionsItemSelected(item);
     }

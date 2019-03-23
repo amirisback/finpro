@@ -80,6 +80,12 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaViewResu
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        presenter.getDosen();
+    }
+
+    @Override
     public void showProgress() {
         dialog.show();
     }

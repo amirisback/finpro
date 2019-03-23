@@ -34,24 +34,21 @@ public interface ApiInterfaceMahasiswa {
     @FormUrlEncoded
     @POST(URL_MAHASISWA)
     Call<Mahasiswa> createMahasiswa(
-            @Field("mhs_nama") String nama,
+            @Field("mhs_nim") String mhs_nim,
+            @Field("mhs_nama") String mhs_nama,
             @Field("mhs_angkatan") String angkatan,
-            @Field("mhs_kontak") String foto_m,
-            @Field("mhs_foto") String email_m,
-            @Field("mhs_email") String kontak_m,
-            @Field("status") String status
+            @Field("mhs_kontak") String mhs_kontak,
+            @Field("mhs_email") String mhs_email
     );
 
     @FormUrlEncoded
     @POST(URL_MAHASISWA + PARAMETER_UPDATE + PARAMETER_MAHASISWA)
     Call<Mahasiswa> updateMahasiswa(
             @Path("mahasiswa") String nim_mhs,
-            @Field("mhs_nama") String nama,
+            @Field("mhs_nama") String mhs_nama,
             @Field("mhs_angkatan") String angkatan,
-            @Field("mhs_kontak") String foto_m,
-            @Field("mhs_foto") String email_m,
-            @Field("mhs_email") String kontak_m,
-            @Field("status") String status
+            @Field("mhs_kontak") String mhs_kontak,
+            @Field("mhs_email") String mhs_email
     );
 
     @GET(URL_MAHASISWA)

@@ -56,7 +56,7 @@ public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implem
                 }else if(deskripsi.isEmpty()){
                     et_deskripsi.setError("deskripsi tidak boleh kosong");
                 }else{
-                    presenter.createJudul(judul, deskripsi, kategori, sessionManager.getSessionDosenNip());
+                    presenter.createJudul(judul, kategori, deskripsi, sessionManager.getSessionDosenNip());
                 }
             }
         });

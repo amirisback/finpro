@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorBackground"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:context=".activities.editors.KoorMahasiswaTambahActivity">
+    tools:context=".activities.editors.KoorMahasiswaUbahActivity">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -105,7 +105,7 @@
             android:textColor="@color/colorPrimary"/>
 
         <EditText
-            android:id="@+id/act_koor_edittext_kontak"
+            android:id="@+id/act_koor_edittext_kontak_mahasiswa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"

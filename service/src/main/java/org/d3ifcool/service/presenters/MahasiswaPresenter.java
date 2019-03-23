@@ -2,6 +2,7 @@ package org.d3ifcool.service.presenters;
 
 import android.content.Context;
 
+import org.d3ifcool.service.interfaces.MahasiswaViewEditor;
 import org.d3ifcool.service.interfaces.MahasiswaViewResult;
 import org.d3ifcool.service.models.Mahasiswa;
 import org.d3ifcool.service.network.bridge.ApiClient;
@@ -28,10 +29,16 @@ import retrofit2.Response;
  */
 public class MahasiswaPresenter {
     private MahasiswaViewResult result;
+    private MahasiswaViewEditor editor;
     private Context context;
 
     public MahasiswaPresenter(MahasiswaViewResult result, Context context) {
         this.result = result;
+        this.context = context;
+    }
+
+    public MahasiswaPresenter(MahasiswaViewEditor editor, Context context) {
+        this.editor = editor;
         this.context = context;
     }
 
@@ -52,5 +59,65 @@ public class MahasiswaPresenter {
                 result.onErrorLoading(t.getLocalizedMessage());
             }
         });
+    }
+
+    public void createMahasiswa(String nim, String nama, String angkatan, String kontak, String email){
+        editor.showProgress();
+        ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
+        Call<Mahasiswa> call = apiInterfaceMahasiswa.createMahasiswa(nim, nama, angkatan, kontak, email);
+        call.enqueue(new Callback<Mahasiswa>() {
+            @Override
+            public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
+                editor.hideProgress();
+                editor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<Mahasiswa> call, Throwable t) {
+                editor.hideProgress();
+                editor.onFailed(t.getLocalizedMessage());
+            }
+        });
+
+    }
+
+    public void updateMahasiswa(String nim, String nama, String angkatan,String kontak, String email){
+        editor.showProgress();
+        ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
+        Call<Mahasiswa> call = apiInterfaceMahasiswa.updateMahasiswa(nim, nama, angkatan, kontak, email);
+        call.enqueue(new Callback<Mahasiswa>() {
+            @Override
+            public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
+                editor.hideProgress();
+                editor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<Mahasiswa> call, Throwable t) {
+                editor.hideProgress();
+                editor.onFailed(t.getLocalizedMessage());
+            }
+        });
+
+    }
+
+    public void deleteMahasiswa(String nim){
+        editor.showProgress();
+        ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
+        Call<Mahasiswa> call = apiInterfaceMahasiswa.deleteMahasiswa(nim);
+        call.enqueue(new Callback<Mahasiswa>() {
+            @Override
+            public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
+                editor.hideProgress();
+                editor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<Mahasiswa> call, Throwable t) {
+                editor.hideProgress();
+                editor.onFailed(t.getLocalizedMessage());
+            }
+        });
+
     }
 }

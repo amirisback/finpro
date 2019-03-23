@@ -9,8 +9,10 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Mahasiswa;
 import org.d3ifcool.superuser.R;
+import org.d3ifcool.superuser.activities.details.KoorDosenDetailActivity;
 import org.d3ifcool.superuser.activities.details.KoorMahasiswaDetailActivity;
 
 import java.util.ArrayList;
@@ -64,7 +66,7 @@ public class KoorMahasiswaViewAdapter extends RecyclerView.Adapter<KoorMahasiswa
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.nama_mhs.setText(mMahasiswa.get(position).getMhs_nama());
         holder.nim_mhs.setText(mMahasiswa.get(position).getMhs_nim());
         Picasso.get().load(URL_FOTO_DOSEN+mMahasiswa.get(position).getMhs_foto()).into(holder.foto);
@@ -73,6 +75,8 @@ public class KoorMahasiswaViewAdapter extends RecyclerView.Adapter<KoorMahasiswa
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, KoorMahasiswaDetailActivity.class);
+                Mahasiswa parcelMahasiswa = mMahasiswa.get(position);
+                intent.putExtra(KoorMahasiswaDetailActivity.EXTRA_MAHASISWA, parcelMahasiswa);
                 mContext.startActivity(intent);
             }
         });

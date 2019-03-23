@@ -63,6 +63,8 @@ public class DosenJudulPaSubdosenFragment extends Fragment implements JudulPaSub
 
         adapter = new DosenJudulPaSubdosenViewAdapter(getContext());
         sessionManager = new SessionManager(getContext());
+        progressDialog.show();
+        presenter.getJudul();
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override

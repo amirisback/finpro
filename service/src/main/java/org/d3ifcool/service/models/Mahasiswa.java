@@ -31,8 +31,8 @@ public class Mahasiswa implements Parcelable {
     @SerializedName("mhs_nama")
     private String mhs_nama;
     @Expose
-    @SerializedName("mhs_angkatan")
-    private String mhs_angkatan;
+    @SerializedName("angkatan")
+    private String angkatan;
     @Expose
     @SerializedName("mhs_kontak")
     private String mhs_kontak;
@@ -47,38 +47,24 @@ public class Mahasiswa implements Parcelable {
     private String status;
 
 
-    protected Mahasiswa(Parcel in) {
-        mhs_nim = in.readString();
-        mhs_nama = in.readString();
-        mhs_kontak = in.readString();
-        mhs_foto = in.readString();
-        mhs_email = in.readString();
-        status = in.readString();
-    }
-
-    public Mahasiswa(String mhs_nim, String mhs_nama, String mhs_kontak, String mhs_foto, String mhs_email, String status) {
+    public Mahasiswa(String mhs_nim, String mhs_nama, String angkatan, String mhs_kontak, String mhs_foto, String mhs_email, String status) {
         this.mhs_nim = mhs_nim;
         this.mhs_nama = mhs_nama;
+        this.angkatan = angkatan;
         this.mhs_kontak = mhs_kontak;
         this.mhs_foto = mhs_foto;
         this.mhs_email = mhs_email;
         this.status = status;
     }
 
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(mhs_nim);
-        dest.writeString(mhs_nama);
-        dest.writeString(mhs_kontak);
-        dest.writeString(mhs_foto);
-        dest.writeString(mhs_email);
-        dest.writeString(status);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
+    protected Mahasiswa(Parcel in) {
+        mhs_nim = in.readString();
+        mhs_nama = in.readString();
+        angkatan = in.readString();
+        mhs_kontak = in.readString();
+        mhs_foto = in.readString();
+        mhs_email = in.readString();
+        status = in.readString();
     }
 
     public static final Creator<Mahasiswa> CREATOR = new Creator<Mahasiswa>() {
@@ -92,6 +78,22 @@ public class Mahasiswa implements Parcelable {
             return new Mahasiswa[size];
         }
     };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(mhs_nim);
+        dest.writeString(mhs_nama);
+        dest.writeString(angkatan);
+        dest.writeString(mhs_kontak);
+        dest.writeString(mhs_foto);
+        dest.writeString(mhs_email);
+        dest.writeString(status);
+    }
 
     public String getMhs_nim() {
         return mhs_nim;
@@ -107,6 +109,14 @@ public class Mahasiswa implements Parcelable {
 
     public void setMhs_nama(String mhs_nama) {
         this.mhs_nama = mhs_nama;
+    }
+
+    public String getAngkatan() {
+        return angkatan;
+    }
+
+    public void setAngkatan(String angkatan) {
+        this.angkatan = angkatan;
     }
 
     public String getMhs_kontak() {

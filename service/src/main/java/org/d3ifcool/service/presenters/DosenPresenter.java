@@ -106,7 +106,6 @@ public class DosenPresenter {
 
     public void UpdateDosen(String nip_lama, String nama_baru, String kode_baru, String kontak_baru, String email_baru) {
         viewEditor.showProgress();
-
         ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
         Call<Dosen> call = apiInterfaceDosen.updateDosen(nip_lama ,nama_baru, kode_baru, kontak_baru, email_baru);
         call.enqueue(new Callback<Dosen>() {
