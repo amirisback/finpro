@@ -11,7 +11,9 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_DELETE;
 import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_MAHASISWA;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_UPDATE;
 import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_MAHASISWA;
 
 /**
@@ -41,9 +43,9 @@ public interface ApiInterfaceMahasiswa {
     );
 
     @FormUrlEncoded
-    @POST(URL_MAHASISWA)
+    @POST(URL_MAHASISWA + PARAMETER_UPDATE + PARAMETER_MAHASISWA)
     Call<Mahasiswa> updateMahasiswa(
-            @Field("mhs_nim") String nim_mhs,
+            @Path("mahasiswa") String nim_mhs,
             @Field("mhs_nama") String nama,
             @Field("mhs_angkatan") String angkatan,
             @Field("mhs_kontak") String foto_m,
@@ -55,10 +57,8 @@ public interface ApiInterfaceMahasiswa {
     @GET(URL_MAHASISWA)
     Call<List<Mahasiswa>> getMahasiswa();
 
-    @FormUrlEncoded
-    @POST(URL_MAHASISWA)
-    Call<Mahasiswa> deleteMahasiswa(@Field("mhs_nim") String mhs_nim);
-
+    @POST(URL_MAHASISWA + PARAMETER_DELETE + PARAMETER_MAHASISWA)
+    Call<Mahasiswa> deleteMahasiswa(@Path("mahasiswa") String mhs_nim);
 
     @GET(URL_MAHASISWA + PARAMETER_MAHASISWA)
     Call<Mahasiswa> getDataMahasiswaLogin(@Path("mahasiswa") String username_mhs);

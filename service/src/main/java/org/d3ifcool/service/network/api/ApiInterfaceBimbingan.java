@@ -27,6 +27,15 @@ public interface ApiInterfaceBimbingan {
 
     @FormUrlEncoded
     @GET(URL_BIMBINGAN)
+    Call<Bimbingan> createBimbingan(
+            @Field("bimbingan_id") int id_bimbingan,
+            @Field("bimbingan_review") String keterangan,
+            @Field("bimbingan_judul") String lokasi,
+            @Field("bimbingan_tanggal") String data_mhs,
+            @Field("proyek_akhir_id") String id_judul
+    );
+
+    @GET(URL_BIMBINGAN)
     Call<Bimbingan> getBimbingan(
             @Field("bimbingan_id") int id_bimbingan,
             @Field("bimbingan_review") String keterangan,
@@ -35,26 +44,7 @@ public interface ApiInterfaceBimbingan {
             @Field("proyek_akhir_id") String id_judul
     );
 
-    @FormUrlEncoded
     @POST(URL_BIMBINGAN)
-    Call<Bimbingan> updateBimbingan(
-            @Field("bimbingan_id") int id_bimbingan,
-            @Field("bimbingan_review") String keterangan,
-            @Field("bimbingan_judul") String lokasi,
-            @Field("bimbingan_tanggal") String data_mhs,
-            @Field("proyek_akhir_id") String id_judul
-    );
+    Call<Bimbingan> deleteBimbingan(@Field("bimbingan_review") String keterangan);
 
-    @FormUrlEncoded
-    @POST(URL_BIMBINGAN)
-    Call<Bimbingan> createBimbingan(
-            @Field("bimbingan_review") String keterangan,
-            @Field("bimbingan_judul") String lokasi,
-            @Field("bimbingan_tanggal") String data_mhs,
-            @Field("proyek_akhir_id") String id_judul
-    );
-
-    @FormUrlEncoded
-    @POST(URL_BIMBINGAN)
-    Call<Bimbingan> getBimbingan(@Field("bimbingan_id") String bimbingan_id);
 }

@@ -48,16 +48,16 @@ public interface ApiInterfaceDosen {
     @FormUrlEncoded
     @POST(URL_DOSEN + PARAMETER_UPDATE + PARAMETER_DOSEN)
     Call<Dosen> updateDosen(
-            @Field("dsn_nip") String dsn_nip,
+            @Path("dosen") String dsn_nip,
             @Field("dsn_nama") String dsn_nama,
             @Field("dsn_kode") String dsn_kode,
             @Field("dsn_kontak") String dsn_kontak,
             @Field("dsn_email") String dsn_email
     );
 
-    @FormUrlEncoded
+
     @POST(URL_DOSEN + PARAMETER_DELETE + PARAMETER_DOSEN)
-    Call<Dosen> deleteDosen(@Field("dsn_nip") String dsn_nip);
+    Call<Dosen> deleteDosen(@Path("dosen") String dsn_nip);
 
 
     @GET(URL_DOSEN)

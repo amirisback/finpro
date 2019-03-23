@@ -32,6 +32,7 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenV
     private DosenPresenter presenter;
     private ProgressDialog dialog;
     private TextView tv_nama, tv_kode, tv_nip, tv_kontak, tv_email;
+    private String nip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,7 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenV
         extraDosen = getIntent().getParcelableExtra(EXTRA_DOSEN);
         String nama = extraDosen.getDsn_nama();
         String kode = extraDosen.getDsn_kode();
-        String nip = extraDosen.getDsn_nip();
+        nip = extraDosen.getDsn_nip();
         String email = extraDosen.getDsn_email();
         String kontak = extraDosen.getDsn_kontak();
 
@@ -95,7 +96,7 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenV
                     .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // Continue with delete operation
-                            presenter.deleteDosen(extraDosen.getDsn_nip());
+                            presenter.deleteDosen(nip);
                         }
                     })
 
