@@ -1,6 +1,7 @@
 package org.d3ifcool.superuser.activities.details;
 
 import androidx.appcompat.app.AppCompatActivity;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -12,6 +13,8 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.dosen.activities.details.DosenBimbinganDetailActivity;
 import org.d3ifcool.dosen.activities.editors.DosenBimbinganUbahActivity;
@@ -25,6 +28,9 @@ import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.activities.editors.KoorDosenUbahActivity;
 import org.d3ifcool.superuser.activities.editors.KoorInformasiUbahActivity;
 
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
+
 public class KoorDosenDetailActivity extends AppCompatActivity implements DosenViewEditor {
 
     public static final String EXTRA_DOSEN = "extra_dosen";
@@ -32,6 +38,7 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenV
     private DosenPresenter presenter;
     private ProgressDialog dialog;
     private TextView tv_nama, tv_kode, tv_nip, tv_kontak, tv_email;
+    private CircleImageView circleImageView;
     private String nip;
 
     @Override
@@ -52,6 +59,7 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenV
         tv_nip = findViewById(R.id.act_koor_dosen_nip);
         tv_kontak = findViewById(R.id.act_koor_dosen_kontak);
         tv_email = findViewById(R.id.act_koor_dosen_email);
+        circleImageView = findViewById(R.id.act_koor_profil_foto_dosen);
 
         extraDosen = getIntent().getParcelableExtra(EXTRA_DOSEN);
         String nama = extraDosen.getDsn_nama();
@@ -59,12 +67,14 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenV
         nip = extraDosen.getDsn_nip();
         String email = extraDosen.getDsn_email();
         String kontak = extraDosen.getDsn_kontak();
+        String path = extraDosen.getDsn_foto();
 
         tv_nama.setText(nama);
         tv_kode.setText(kode);
         tv_nip.setText(nip);
         tv_email.setText(email);
         tv_kontak.setText(kontak);
+        Picasso.get().load(URL_FOTO_DOSEN + path).into(circleImageView);
 
     }
 

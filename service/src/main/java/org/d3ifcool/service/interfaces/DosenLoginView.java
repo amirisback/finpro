@@ -28,4 +28,5 @@ public interface DosenLoginView {
     void onRequestSuccess(String message, Dosen dosen);
 
     void onRequestError(String message);
+
 }

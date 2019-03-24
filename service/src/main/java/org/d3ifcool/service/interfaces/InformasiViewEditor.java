@@ -14,8 +14,13 @@ package org.d3ifcool.service.interfaces;
  * -----------------------------------------
  */
 public interface InformasiViewEditor {
+
         void showProgress();
+
         void hideProgress();
+
         void onSucces();
+
         void onFailed(String message);
+
 }

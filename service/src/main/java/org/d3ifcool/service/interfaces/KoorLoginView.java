@@ -1,15 +1,14 @@
 package org.d3ifcool.service.interfaces;
 
-import org.d3ifcool.service.models.Mahasiswa;
-
-import java.util.List;
+import org.d3ifcool.service.models.Dosen;
+import org.d3ifcool.service.models.KoordinatorPa;
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * Finpro
- * Copyright (C) 04/03/2019.
+ * Copyright (C) 24/03/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -21,14 +20,13 @@ import java.util.List;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public interface MahasiswaViewResult {
+public interface KoorLoginView {
 
     void showProgress();
 
     void hideProgress();
 
-    void onGetResultDataMahasiswa(List<Mahasiswa> mahasiswa);
+    void onRequestSuccess(String message, KoordinatorPa koordinatorPa);
 
-    void onErrorLoading(String message);
-
+    void onRequestError(String message);
 }

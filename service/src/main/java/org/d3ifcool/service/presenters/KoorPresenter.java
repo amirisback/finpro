@@ -1,15 +1,11 @@
-package org.d3ifcool.service.interfaces;
-
-import org.d3ifcool.service.models.Mahasiswa;
-
-import java.util.List;
+package org.d3ifcool.service.presenters;
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * Finpro
- * Copyright (C) 04/03/2019.
+ * Copyright (C) 24/03/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -21,14 +17,5 @@ import java.util.List;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public interface MahasiswaViewResult {
-
-    void showProgress();
-
-    void hideProgress();
-
-    void onGetResultDataMahasiswa(List<Mahasiswa> mahasiswa);
-
-    void onErrorLoading(String message);
-
+public class KoorPresenter {
 }

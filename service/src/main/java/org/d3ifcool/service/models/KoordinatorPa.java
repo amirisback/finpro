@@ -24,58 +24,40 @@ public class KoordinatorPa implements Parcelable {
     @Expose
     @SerializedName("koor_nip")
     String koor_nip;
+
     @Expose
     @SerializedName("koor_nama")
     String koor_nama;
+
     @Expose
     @SerializedName("koor_kode")
     String koor_kode;
+
     @Expose
     @SerializedName("koor_kontak")
     String koor_kontak;
+
     @Expose
     @SerializedName("koor_foto")
     String koor_foto;
+
     @Expose
     @SerializedName("koor_email")
     String koor_email;
-    @Expose
-    @SerializedName("created_at")
-    String created_at;
-    @Expose
-    @SerializedName("update_at")
-    String update_at;
 
+    @Expose
+    @SerializedName("username")
+    String username;
 
-    public KoordinatorPa(String koor_nip, String koor_nama, String koor_kontak, String koor_foto, String koor_email) {
+    public KoordinatorPa(String koor_nip, String koor_nama, String koor_kode, String koor_kontak, String koor_foto, String koor_email, String username) {
         this.koor_nip = koor_nip;
         this.koor_nama = koor_nama;
+        this.koor_kode = koor_kode;
         this.koor_kontak = koor_kontak;
         this.koor_foto = koor_foto;
         this.koor_email = koor_email;
+        this.username = username;
     }
-
-    protected KoordinatorPa(Parcel in) {
-        koor_nip = in.readString();
-        koor_nama = in.readString();
-        koor_kontak = in.readString();
-        koor_foto = in.readString();
-        koor_email = in.readString();
-        created_at = in.readString();
-        update_at = in.readString();
-    }
-
-    public static final Creator<KoordinatorPa> CREATOR = new Creator<KoordinatorPa>() {
-        @Override
-        public KoordinatorPa createFromParcel(Parcel in) {
-            return new KoordinatorPa(in);
-        }
-
-        @Override
-        public KoordinatorPa[] newArray(int size) {
-            return new KoordinatorPa[size];
-        }
-    };
 
     public String getKoor_nip() {
         return koor_nip;
@@ -91,6 +73,14 @@ public class KoordinatorPa implements Parcelable {
 
     public void setKoor_nama(String koor_nama) {
         this.koor_nama = koor_nama;
+    }
+
+    public String getKoor_kode() {
+        return koor_kode;
+    }
+
+    public void setKoor_kode(String koor_kode) {
+        this.koor_kode = koor_kode;
     }
 
     public String getKoor_kontak() {
@@ -117,13 +107,14 @@ public class KoordinatorPa implements Parcelable {
         this.koor_email = koor_email;
     }
 
-    public String getKoor_kode() {
-        return koor_kode;
+    public String getUsername() {
+        return username;
     }
 
-    public void setKoor_kode(String koor_kode) {
-        this.koor_kode = koor_kode;
+    public void setUsername(String username) {
+        this.username = username;
     }
+
 
     @Override
     public int describeContents() {
@@ -132,12 +123,34 @@ public class KoordinatorPa implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(koor_nip);
-        dest.writeString(koor_nama);
-        dest.writeString(koor_kontak);
-        dest.writeString(koor_foto);
-        dest.writeString(koor_email);
-        dest.writeString(created_at);
-        dest.writeString(update_at);
+        dest.writeString(this.koor_nip);
+        dest.writeString(this.koor_nama);
+        dest.writeString(this.koor_kode);
+        dest.writeString(this.koor_kontak);
+        dest.writeString(this.koor_foto);
+        dest.writeString(this.koor_email);
+        dest.writeString(this.username);
     }
+
+    protected KoordinatorPa(Parcel in) {
+        this.koor_nip = in.readString();
+        this.koor_nama = in.readString();
+        this.koor_kode = in.readString();
+        this.koor_kontak = in.readString();
+        this.koor_foto = in.readString();
+        this.koor_email = in.readString();
+        this.username = in.readString();
+    }
+
+    public static final Creator<KoordinatorPa> CREATOR = new Creator<KoordinatorPa>() {
+        @Override
+        public KoordinatorPa createFromParcel(Parcel source) {
+            return new KoordinatorPa(source);
+        }
+
+        @Override
+        public KoordinatorPa[] newArray(int size) {
+            return new KoordinatorPa[size];
+        }
+    };
 }

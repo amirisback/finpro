@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
 
 /**
  * Created by Faisal Amir
@@ -69,7 +70,7 @@ public class KoorMahasiswaViewAdapter extends RecyclerView.Adapter<KoorMahasiswa
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.nama_mhs.setText(mMahasiswa.get(position).getMhs_nama());
         holder.nim_mhs.setText(mMahasiswa.get(position).getMhs_nim());
-        Picasso.get().load(URL_FOTO_DOSEN+mMahasiswa.get(position).getMhs_foto()).into(holder.foto);
+        Picasso.get().load(URL_FOTO_MAHASISWA + mMahasiswa.get(position).getMhs_foto()).into(holder.foto);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

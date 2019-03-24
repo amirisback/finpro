@@ -18,8 +18,13 @@ package org.d3ifcool.service.interfaces;
  * id.amirisback.frogobox
  */
 public interface JudulPaSubDosenViewEditor {
+
     void showProgress();
+
     void hideProgress();
+
     void onSucces();
+
     void onFailed(String message);
+
 }

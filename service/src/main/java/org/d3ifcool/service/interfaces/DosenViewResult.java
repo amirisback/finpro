@@ -22,8 +22,13 @@ import java.util.List;
  * id.amirisback.frogobox
  */
 public interface DosenViewResult {
+
     void showProgress();
+
     void hideProgress();
+
     void onGetResultDataDosen(List<Dosen> dosen);
+
     void onErrorLoading(String message);
+
 }

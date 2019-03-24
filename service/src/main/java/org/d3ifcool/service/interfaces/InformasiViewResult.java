@@ -22,8 +22,13 @@ import java.util.List;
  * id.amirisback.frogobox
  */
 public interface InformasiViewResult {
+
     void showProgress();
+
     void hideProgress();
+
     void onGetResult(List<Informasi> informasi);
+
     void onErrorLoading(String message);
+
 }

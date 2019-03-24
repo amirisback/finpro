@@ -22,8 +22,13 @@ import java.util.List;
  * id.amirisback.frogobox
  */
 public interface JudulPaSubDosenViewResult{
+
     void showProgress();
+
     void hideProgress();
+
     void onGetResult(List<Judul> judulpa);
+
     void onErrorLoading(String message);
+
 }

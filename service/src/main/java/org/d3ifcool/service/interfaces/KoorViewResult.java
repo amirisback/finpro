@@ -1,6 +1,6 @@
 package org.d3ifcool.service.interfaces;
 
-import org.d3ifcool.service.models.Mahasiswa;
+import org.d3ifcool.service.models.KoordinatorPa;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import java.util.List;
  * FrogoBox Inc License
  * =========================================
  * Finpro
- * Copyright (C) 04/03/2019.
+ * Copyright (C) 24/03/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -21,13 +21,13 @@ import java.util.List;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public interface MahasiswaViewResult {
+public interface KoorViewResult {
 
     void showProgress();
 
     void hideProgress();
 
-    void onGetResultDataMahasiswa(List<Mahasiswa> mahasiswa);
+    void onGetResultDataDosen(List<KoordinatorPa> koordinatorPa);
 
     void onErrorLoading(String message);
 

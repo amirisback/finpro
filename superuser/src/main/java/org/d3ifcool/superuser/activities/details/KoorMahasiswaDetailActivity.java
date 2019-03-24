@@ -1,6 +1,7 @@
 package org.d3ifcool.superuser.activities.details;
 
 import androidx.appcompat.app.AppCompatActivity;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -12,6 +13,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import org.d3ifcool.service.interfaces.MahasiswaViewEditor;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.service.models.Mahasiswa;
@@ -21,12 +24,17 @@ import org.d3ifcool.superuser.activities.editors.KoorMahasiswaUbahActivity;
 
 import java.util.ArrayList;
 
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
+
 public class KoorMahasiswaDetailActivity extends AppCompatActivity implements MahasiswaViewEditor {
     public static final String EXTRA_MAHASISWA = "extra_mahasiswa";
     private Mahasiswa extraMahasiswa;
     private MahasiswaPresenter presenter;
     private ProgressDialog dialog;
     private TextView tv_nama, tv_nim, tv_kontak, tv_email;
+    private CircleImageView circleImageView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,21 +47,25 @@ public class KoorMahasiswaDetailActivity extends AppCompatActivity implements Ma
         presenter = new MahasiswaPresenter(this, KoorMahasiswaDetailActivity.this);
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.progress_dialog));
+
         tv_nama = findViewById(R.id.act_koor_profil_nama_mhs);
         tv_nim = findViewById(R.id.act_koor_profil_nim);
         tv_kontak = findViewById(R.id.act_koor_profil_kontak_mhs);
         tv_email = findViewById(R.id.act_koor_profil_email_mhs);
+        circleImageView = findViewById(R.id.act_koor_profil_foto_mhs);
 
         extraMahasiswa = getIntent().getParcelableExtra(EXTRA_MAHASISWA);
         String nim = extraMahasiswa.getMhs_nim();
         String nama = extraMahasiswa.getMhs_nama();
         String kontak = extraMahasiswa.getMhs_kontak();
         String email = extraMahasiswa.getMhs_email();
+        String path = extraMahasiswa.getMhs_foto();
 
         tv_nama.setText(nama);
         tv_nim.setText(nim);
         tv_email.setText(email);
         tv_kontak.setText(kontak);
+        Picasso.get().load(URL_FOTO_MAHASISWA + path).into(circleImageView);
 
     }
 

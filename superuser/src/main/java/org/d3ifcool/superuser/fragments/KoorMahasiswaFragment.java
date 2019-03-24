@@ -54,12 +54,12 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaViewResu
         floatingActionButton = view.findViewById(R.id.frg_koor_mahasiswa_home_fab);
         refreshLayout = view.findViewById(R.id.frg_koor_mhs_swiperefresh);
         dialog = new ProgressDialog(getContext());
+
         presenter = new MahasiswaPresenter(this ,getContext());
         dialog.setMessage(getString(R.string.progress_dialog));
         dialog.show();
 
         presenter.getDosen();
-
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
