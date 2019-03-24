@@ -3,11 +3,6 @@ package org.d3ifcool.finpro.activities;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.View;
-
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.core.view.GravityCompat;
@@ -22,10 +17,13 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import org.d3ifcool.dosen.activities.DosenPemberitahuanActivity;
-import org.d3ifcool.dosen.activities.DosenProfilActivity;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.service.helpers.SessionManager;
+import org.d3ifcool.service.interfaces.KoorLoginView;
+import org.d3ifcool.service.models.KoordinatorPa;
+import org.d3ifcool.service.presenters.DataLoginPresenter;
+import org.d3ifcool.superuser.AdminPemberitahuanActivity;
+import org.d3ifcool.superuser.AdminProfilActivity;
 import org.d3ifcool.superuser.fragments.KoorDosenFragment;
 import org.d3ifcool.superuser.fragments.KoorInformasiFragment;
 import org.d3ifcool.superuser.fragments.KoorJudulPaSubdosenFragment;
@@ -33,14 +31,17 @@ import org.d3ifcool.superuser.fragments.KoorMahasiswaFragment;
 import org.d3ifcool.superuser.fragments.KoorProyekAkhirFragment;
 
 public class AdminMainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, KoorLoginView {
 
     private KoorDosenFragment koorDosenFragment = new KoorDosenFragment();
     private KoorInformasiFragment koorInformasiFragment = new KoorInformasiFragment();
     private KoorMahasiswaFragment koorMahasiswaFragment = new KoorMahasiswaFragment();
     private KoorJudulPaSubdosenFragment koorJudulPaSubdosenFragment = new KoorJudulPaSubdosenFragment();
     private KoorProyekAkhirFragment koorProyekAkhirFragment = new KoorProyekAkhirFragment();
+
     private SessionManager sessionManager;
+
+    private DataLoginPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +56,12 @@ public class AdminMainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         sessionManager = new SessionManager(this);
+        presenter = new DataLoginPresenter(this, AdminMainActivity.this);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        presenter.getDataKoorLogin(sessionManager.getSessionUsername());
         setFragmentLayout(koorInformasiFragment);
         setTitle(getString(R.string.title_informasi));
 
@@ -88,11 +91,11 @@ public class AdminMainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.toolbar_menu_pemberitahuan:
-                Intent intentPemberitahuan = new Intent(AdminMainActivity.this, DosenPemberitahuanActivity.class);
+                Intent intentPemberitahuan = new Intent(AdminMainActivity.this, AdminPemberitahuanActivity.class);
                 startActivity(intentPemberitahuan);
                 break;
             case R.id.toolbar_menu_profil:
-                Intent intentProfil = new Intent(AdminMainActivity.this, DosenProfilActivity.class);
+                Intent intentProfil = new Intent(AdminMainActivity.this, AdminProfilActivity.class);
                 startActivity(intentProfil);
                 break;
             case R.id.toolbar_menu_keluar:
@@ -143,4 +146,23 @@ public class AdminMainActivity extends AppCompatActivity
         mFragmentTransaction.commit();
     }
 
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void onRequestSuccess(String message, KoordinatorPa koordinatorPa) {
+        sessionManager.createSessionDataKoor(koordinatorPa);
+    }
+
+    @Override
+    public void onRequestError(String message) {
+
+    }
 }

@@ -71,7 +71,7 @@ public class DosenInformasiDetailActivity extends AppCompatActivity implements I
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         String publisher = extraInfo.getPenerbit();
-        if (publisher.equalsIgnoreCase(sessionManager.getSessionDosenNamaD())) {
+        if (publisher.equalsIgnoreCase(sessionManager.getSessionDosenNama())) {
             getMenuInflater().inflate(R.menu.menu_edit_delete, menu);
         }
         return super.onCreateOptionsMenu(menu);

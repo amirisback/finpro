@@ -44,13 +44,13 @@ public class MahasiswaProfilActivity extends AppCompatActivity {
         TextView mahasiswa_nim = findViewById(R.id.act_mhs_profil_nim);
         TextView mahasiswa_email = findViewById(R.id.act_mhs_profil_email);
         TextView mahasiswa_kontak = findViewById(R.id.act_mhs_profil_kontak);
-         mahasiswa_foto = findViewById(R.id.act_mhs_profil_foto);
+        mahasiswa_foto = findViewById(R.id.act_mhs_profil_foto);
 
-        mahasiswa_nama.setText(sessionManager.getSessionMahasiswaNamaM());
+        mahasiswa_nama.setText(sessionManager.getSessionMahasiswaNama());
         mahasiswa_nim.setText(sessionManager.getSessionMahasiswaNim());
-        mahasiswa_email.setText(sessionManager.getSessionMahasiswaEmailM());
-        mahasiswa_kontak.setText(sessionManager.getSessionMahasiswaKontakM());
-        Picasso.get().load(URL_FOTO_MAHASISWA + sessionManager.getSessionMahasiswaFotoM()).into(mahasiswa_foto);
+        mahasiswa_email.setText(sessionManager.getSessionMahasiswaEmail());
+        mahasiswa_kontak.setText(sessionManager.getSessionMahasiswaKontak());
+        Picasso.get().load(URL_FOTO_MAHASISWA + sessionManager.getSessionMahasiswaFoto()).into(mahasiswa_foto);
 
         mahasiswa_foto.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -100,9 +100,9 @@ public class JudulPresenter {
         });
     }
 
-    public void getJudulSortByDosen(String nip_dosen) {
+    public void getJudulSortByDosen(String dsn_nama) {
         ApiInterfaceJudul apiInterfaceJudul = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
-        Call<List<Judul>> call = apiInterfaceJudul.getJudulSortByDosen(nip_dosen);
+        Call<List<Judul>> call = apiInterfaceJudul.getJudulSortByDosen(dsn_nama);
         call.enqueue(new Callback<List<Judul>>() {
             @Override
             public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {

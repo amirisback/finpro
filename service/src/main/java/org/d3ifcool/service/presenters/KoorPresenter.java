@@ -26,7 +26,7 @@ import retrofit2.Response;
 public class KoorPresenter {
 
 
-    public void CreateAdmin(String koor_nip , String koor_nama , String koor_kontak, String koor_foto, String koor_email){
+    public void createAdmin(String koor_nip , String koor_nama , String koor_kontak, String koor_foto, String koor_email){
         ApiInterfaceKoorPa interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoorPa.class);
         Call<KoordinatorPa>call = interfaceAdmin.createAdmin(koor_nip,koor_nama,koor_kontak,koor_foto,koor_email);
         call.enqueue(new Callback<KoordinatorPa>() {
@@ -42,7 +42,7 @@ public class KoorPresenter {
         });
     }
 
-    public void UpdateAdmin(String koor_nip , String koor_nama , String koor_kontak, String koor_foto, String koor_email){
+    public void updateAdmin(String koor_nip , String koor_nama , String koor_kontak, String koor_foto, String koor_email){
         ApiInterfaceKoorPa interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoorPa.class);
         Call<KoordinatorPa>call = interfaceAdmin.updateAdmin(koor_nip,koor_nama,koor_kontak,koor_foto,koor_email);
         call.enqueue(new Callback<KoordinatorPa>() {
@@ -58,7 +58,7 @@ public class KoorPresenter {
         });
     }
 
-    public void GetAdmin(){
+    public void getAdmin(){
         ApiInterfaceKoorPa interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoorPa.class);
         Call<List<KoordinatorPa>> call = interfaceAdmin.getAdmin();
         call.enqueue(new Callback<List<KoordinatorPa>>() {

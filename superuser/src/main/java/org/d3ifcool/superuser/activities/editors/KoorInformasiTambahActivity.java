@@ -50,7 +50,7 @@ public class KoorInformasiTambahActivity extends AppCompatActivity implements In
                 }else if (et_deskripsi.isEmpty()){
                     judul.setError("deskripsi tidak boleh kosong");
                 }else{
-                    presenter.createInformasi(et_judul,et_deskripsi, "Amir Hasanudin S.T, M.T");
+                    presenter.createInformasi(et_judul, et_deskripsi, sessionManager.getSessionKoorNama());
                 }
             }
         });

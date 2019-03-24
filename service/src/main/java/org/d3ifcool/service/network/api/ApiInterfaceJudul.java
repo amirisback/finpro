@@ -61,7 +61,7 @@ public interface ApiInterfaceJudul {
     Call<List<Judul>> getJudul();
 
     @GET(URL_JUDUL_PA + PARAMETER_SORTBY + PARAMETER_DOSEN)
-    Call<List<Judul>> getJudulSortByDosen(@Path("dosen") String nip_dosen);
+    Call<List<Judul>> getJudulSortByDosen(@Path("dosen") String nama);
 
     @POST(URL_JUDUL_PA + PARAMETER_DELETE + PARAMETER_JUDUL_PA)
     Call<Judul> deleteJudul(@Path("judul") int judul_id);

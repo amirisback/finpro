@@ -65,7 +65,7 @@ public class DosenProfilActivity extends AppCompatActivity {
 
          });
 
-        textView_nama.setText(sessionManager.getSessionDosenNamaD());
+        textView_nama.setText(sessionManager.getSessionDosenNama());
         textView_nip.setText(sessionManager.getSessionDosenNip());
         textView_email.setText(sessionManager.getSessionDosenEmail());
         textView_kontak.setText(sessionManager.getSessionDosenKontak());

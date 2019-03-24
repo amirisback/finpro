@@ -43,8 +43,7 @@ public class SessionManager {
     private static final String DSN_EMAIL = "DSN_EMAIL";
     private static final String DSN_KONTAK = "DSN_KONTAK";
     private static final String DSN_KODE = "DSN_KODE";
-    private static final String STATUS = "STATUS";
-    private static final String USERNAME_DOSEN = "USERNAME_DOSEN";
+    private static final String DSN_STATUS = "DSN_STATUS";
 
     private static final String MHS_NIM = "MHS_NIM";
     private static final String MHS_NAMA = "MHS_NAMA";
@@ -52,16 +51,16 @@ public class SessionManager {
     private static final String MHS_EMAIL = "MHS_EMAIL";
     private static final String MHS_KONTAK = "MHS_KONTAK";
     private static final String MHS_STATUS = "STATUS";
-    private static final String ANGKATAN = "ANGKATAN";
-    private static final String USERNAME_MHS = "USERNAME_MHS";
+    private static final String MHS_ANGKATAN = "ANGKATAN";
+    private static final String MHS_ID_JUDUL = "MHS_ID_JUDUL";
 
     private static final String KOOR_NIP = "KOOR_NIM";
     private static final String KOOR_NAMA = "KOOR_NAMA";
-    private static final String KOOR_FOTO = "KOOR_FOTO";
+    private static final String KOOR_KODE = "KOOR_KODE";
     private static final String KOOR_EMAIL = "KOOR_EMAIL";
     private static final String KOOR_KONTAK = "KOOR_KONTAK";
-    private static final String KOOR_KODE = "KOOR_KODE";
-    private static final String USERNAME_KOOR = "USERNAME_KOOR";
+    private static final String KOOR_FOTO = "KOOR_FOTO";
+    private static final String KOOR_USERNAME = "USERNAME_KOOR";
 
 
     @SuppressLint("CommitPrefEdits")
@@ -97,7 +96,7 @@ public class SessionManager {
         editor.putString(DSN_EMAIL, dosen.getDsn_email());
         editor.putString(DSN_KONTAK, dosen.getDsn_kontak());
         editor.putString(DSN_KODE, dosen.getDsn_kode());
-        editor.putString(STATUS, dosen.getDsn_status());
+        editor.putString(DSN_STATUS, dosen.getDsn_status());
         editor.apply();
         editor.commit();
     }
@@ -109,6 +108,7 @@ public class SessionManager {
         editor.putString(KOOR_EMAIL, koor.getKoor_email());
         editor.putString(KOOR_KONTAK, koor.getKoor_kontak());
         editor.putString(KOOR_KODE, koor.getKoor_kode());
+        editor.putString(KOOR_USERNAME, koor.getUsername());
         editor.apply();
         editor.commit();
     }
@@ -117,39 +117,39 @@ public class SessionManager {
         return sharedPreferences.getString(MHS_NIM, null);
     }
 
-    public String getSessionMahasiswaNamaM(){
+    public String getSessionMahasiswaNama(){
         return sharedPreferences.getString(MHS_NAMA, null);
     }
 
-    public String getSessionMahasiswaFotoM(){
+    public String getSessionMahasiswaFoto(){
         return sharedPreferences.getString(MHS_FOTO, null);
     }
 
-    public String getSessionMahasiswaEmailM(){
+    public String getSessionMahasiswaEmail(){
         return sharedPreferences.getString(MHS_EMAIL, null);
     }
 
-    public String getSessionMahasiswaKontakM(){
+    public String getSessionMahasiswaKontak(){
         return sharedPreferences.getString(MHS_KONTAK, null);
     }
 
-    public String getSessionMahasiswaAngkatanM(){
-        return sharedPreferences.getString(ANGKATAN, null);
+    public String getSessionMahasiswaAngkatan(){
+        return sharedPreferences.getString(MHS_ANGKATAN, null);
     }
 
     public String getSessionMahasiswaStatus(){
         return sharedPreferences.getString(MHS_STATUS, null);
     }
 
-    public String getSessionMahasiswaUsernameM(){
-        return sharedPreferences.getString(USERNAME_MHS, null);
+    public String getSessionMahasiswaIdJudul(){
+        return sharedPreferences.getString(MHS_ID_JUDUL, null);
     }
 
     public String getSessionDosenNip(){
         return sharedPreferences.getString(DSN_NIP, null);
     }
 
-    public String getSessionDosenNamaD(){
+    public String getSessionDosenNama(){
         return sharedPreferences.getString(DSN_NAMA, null);
     }
 
@@ -169,27 +169,36 @@ public class SessionManager {
         return sharedPreferences.getString(DSN_KODE, null);
     }
 
-    public String getSessionDosenUserNameDosen(){
-        return sharedPreferences.getString(USERNAME_DOSEN, null);
+    public String getSessionDosenStatus() {
+        return sharedPreferences.getString(DSN_STATUS, null);
     }
 
     public String getSessionKoorNip(){
         return sharedPreferences.getString(KOOR_NIP, null);
     }
+
     public String getSessionKoorNama(){
         return sharedPreferences.getString(KOOR_NAMA, null);
     }
+
     public String getSessionKoorKode(){
         return sharedPreferences.getString(KOOR_KODE, null);
     }
+
     public String getSessionKoorKontak(){
         return sharedPreferences.getString(KOOR_KONTAK, null);
     }
+
     public String getSessionKoorEmail(){
         return sharedPreferences.getString(KOOR_EMAIL, null);
     }
+
     public String getSessionKoorFoto(){
         return sharedPreferences.getString(KOOR_FOTO, null);
+    }
+
+    public String getSessionKoorUsername(){
+        return sharedPreferences.getString(KOOR_USERNAME, null);
     }
 
     public String getSessionPengguna(){

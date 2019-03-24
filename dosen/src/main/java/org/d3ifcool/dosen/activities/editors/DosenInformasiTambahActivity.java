@@ -50,7 +50,7 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
                 }else if(text_info_deskripsi.isEmpty()){
                     info_deskripsi.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else{
-                    presenter.createInformasi(text_info_judul, text_info_deskripsi, sessionManager.getSessionDosenNamaD());
+                    presenter.createInformasi(text_info_judul, text_info_deskripsi, sessionManager.getSessionDosenNama());
                 }
             }
         });

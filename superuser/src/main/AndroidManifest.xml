@@ -3,7 +3,9 @@
     package="org.d3ifcool.superuser">
 
     <application>
-        <activity android:name=".activities.editors.KoorMahasiswaTambahActivity"></activity>
+        <activity android:name=".AdminPemberitahuanActivity"></activity>
+        <activity android:name=".AdminProfilActivity" />
+        <activity android:name=".activities.editors.KoorMahasiswaTambahActivity" />
         <activity android:name=".activities.editors.KoorDosenTambahActivity" />
         <activity android:name=".activities.editors.KoorInformasiTambahActivity" />
         <activity android:name=".activities.editors.KoorJudulPaSubdosenUbahActivity" />

@@ -6,15 +6,15 @@
     <!--<color name="colorPrimaryDark">#00574B</color>-->
     <!--<color name="colorAccent">#D81B60</color>-->
 
-    <!-- Tema Warna Utama -->
-    <!--<color name="colorPrimary">#005485</color>-->
-    <!--<color name="colorPrimaryDark">#003957</color>-->
-    <!--<color name="colorAccent">#FF9800</color>-->
+     <!--Tema Warna Utama -->
+    <color name="colorPrimary">#005485</color>
+    <color name="colorPrimaryDark">#003957</color>
+    <color name="colorAccent">#FF9800</color>
 
-    <!-- Tema Warna Utama -->
-    <color name="colorPrimary">#2c3b41</color>
-    <color name="colorPrimaryDark">#1e282c</color>
-    <color name="colorAccent">#337ab7</color>
+    <!-- Tema Warna Utama Website -->
+    <!--<color name="colorPrimary">#2c3b41</color>-->
+    <!--<color name="colorPrimaryDark">#1e282c</color>-->
+    <!--<color name="colorAccent">#337ab7</color>-->
 
     <!-- Tema Warna Custom -->
     <!--<color name="colorPrimary">#795548</color>-->
