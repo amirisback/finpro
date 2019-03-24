@@ -1,18 +1,21 @@
 package org.d3ifcool.service.presenters;
 
 /**
- * Created by ikhsan ramadhan
+ * Created by Faisal Amir
+ * FrogoBox Inc License
  * =========================================
  * Finpro
- * Copyright (C) 3/2/2019.
+ * Copyright (C) 24/03/2019.
  * All rights reserved
  * -----------------------------------------
- * Name     : Muhamad Ikhsan Ramadhan
- * E-mail   : ikhsanramadhan28@gmail.com
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Line     : bullbee117
+ * Phone    : 081357108568
  * Majors   : D3 Teknik Informatika 2016
  * Campus   : Telkom University
  * -----------------------------------------
+ * id.amirisback.frogobox
  */
-public class AntreanPresenter {
-
+public class ProyekAkhirPresenter {
 }

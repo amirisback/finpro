@@ -55,4 +55,8 @@ public interface ApiInterfaceKoorPa {
 
     @POST(URL_KOORDINATOR_PA + PARAMETER_DELETE + PARAMETER_KOOR)
     Call<KoordinatorPa> deleteAdmin(@Path("koor") String koor_nip);
+
+    @GET(URL_KOORDINATOR_PA + PARAMETER_KOOR)
+    Call<KoordinatorPa> getDataKoorLogin(@Path("koor") String username_koor);
+
 }

@@ -3,9 +3,12 @@ package org.d3ifcool.service.presenters;
 import android.content.Context;
 
 import org.d3ifcool.service.interfaces.DosenLoginView;
+import org.d3ifcool.service.interfaces.KoorLoginView;
 import org.d3ifcool.service.interfaces.MahasiswaLoginView;
 import org.d3ifcool.service.models.Dosen;
+import org.d3ifcool.service.models.KoordinatorPa;
 import org.d3ifcool.service.models.Mahasiswa;
+import org.d3ifcool.service.network.api.ApiInterfaceKoorPa;
 import org.d3ifcool.service.network.bridge.ApiClient;
 import org.d3ifcool.service.network.api.ApiInterfaceDosen;
 import org.d3ifcool.service.network.api.ApiInterfaceMahasiswa;
@@ -35,6 +38,7 @@ public class DataLoginPresenter {
 
     DosenLoginView viewDosen;
     MahasiswaLoginView viewMahasiswa;
+    KoorLoginView viewKoor;
     Context context;
 
     public DataLoginPresenter(MahasiswaLoginView viewMahasiswa, Context context) {
@@ -44,6 +48,11 @@ public class DataLoginPresenter {
 
     public DataLoginPresenter(DosenLoginView viewDosen, Context context) {
         this.viewDosen = viewDosen;
+        this.context = context;
+    }
+
+    public DataLoginPresenter(KoorLoginView viewKoor, Context context) {
+        this.viewKoor = viewKoor;
         this.context = context;
     }
 
@@ -85,6 +94,25 @@ public class DataLoginPresenter {
             }
         });
 
+    }
+
+    public void getDataKoorLogin(String username){
+        viewKoor.showProgress();
+        ApiInterfaceKoorPa apiInterfaceKoorPa = ApiClient.getApiClient().create(ApiInterfaceKoorPa.class);
+        Call<KoordinatorPa> call = apiInterfaceKoorPa.getDataKoorLogin(username);
+        call.enqueue(new Callback<KoordinatorPa>() {
+            @Override
+            public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
+                viewKoor.hideProgress();
+                viewKoor.onRequestSuccess(response.message(), response.body());
+            }
+
+            @Override
+            public void onFailure(Call<KoordinatorPa> call, Throwable t) {
+                viewKoor.hideProgress();
+                viewKoor.onRequestError(t.getLocalizedMessage());
+            }
+        });
     }
 
 }
