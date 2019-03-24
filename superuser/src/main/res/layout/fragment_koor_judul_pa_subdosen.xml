@@ -13,13 +13,13 @@
 
         <Spinner
             android:id="@+id/spinner_dosen"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginLeft="@dimen/dimen_medium"
-            android:layout_marginRight="@dimen/dimen_medium"
-            android:spinnerMode="dropdown"
-            android:entries="@array/nama_dosen"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_medium"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginRight="@dimen/dimen_medium"
+            android:entries="@array/nama_dosen"
+            android:spinnerMode="dropdown" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_below="@id/spinner_dosen"

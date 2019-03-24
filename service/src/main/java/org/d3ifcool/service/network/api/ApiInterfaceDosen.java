@@ -63,6 +63,11 @@ public interface ApiInterfaceDosen {
     @GET(URL_DOSEN)
     Call<List<Dosen>> getDosen();
 
+    @GET(URL_DOSEN)
+    Call<List<Dosen>> getDosenNama(
+            @Field("dsn_nama") String nama
+    );
+
     @GET(URL_DOSEN + PARAMETER_DOSEN)
     Call<Dosen> getDataDosenLogin(@Path("dosen") String dsn_nip);
 

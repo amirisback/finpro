@@ -52,6 +52,8 @@ public class Dosen implements Parcelable {
     @SerializedName("dsn_status")
     String dsn_status;
 
+
+
     public Dosen(String dsn_nip, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_foto, String dsn_email, String dsn_status) {
         this.dsn_nip = dsn_nip;
         this.dsn_nama = dsn_nama;

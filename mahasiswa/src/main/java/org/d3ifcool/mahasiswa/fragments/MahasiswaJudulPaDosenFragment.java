@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.MahasiswaJudulPaDosenViewAdapter;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
  */
 public class MahasiswaJudulPaDosenFragment extends Fragment {
 
-
+    private Spinner spinner;
     public MahasiswaJudulPaDosenFragment() {
         // Required empty public constructor
     }
@@ -34,6 +35,7 @@ public class MahasiswaJudulPaDosenFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_mahasiswa_judul_pa_dosen, container, false);
 
         RecyclerView recyclerView = rootView.findViewById(R.id.frg_mhs_judul_pa_dosen_recyclerview);
+        spinner = rootView.findViewById(R.id.spinner_dosen);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
 
         MahasiswaJudulPaDosenViewAdapter adapter = new MahasiswaJudulPaDosenViewAdapter(getContext());

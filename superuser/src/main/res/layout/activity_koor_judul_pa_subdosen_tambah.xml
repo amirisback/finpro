@@ -31,8 +31,7 @@
             android:textColor="@color/colorPrimary"/>
 
         <Spinner
-            android:id="@+id/act_koor_judul_pa_edittext_nama_dosen"
-            android:entries="@array/nama_dosen"
+            android:id="@+id/act_koor_judul_pa_spinner_nama_dosen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_medium"/>
@@ -77,7 +76,7 @@
             android:textColor="@color/colorPrimary"/>
 
         <Spinner
-            android:id="@+id/act_koor_judul_pa_edittext_kategori"
+            android:id="@+id/act_koor_judul_pa_spinner_kategori"
             android:entries="@array/kategori_proyek_akhir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
