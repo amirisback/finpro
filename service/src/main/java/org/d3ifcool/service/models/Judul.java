@@ -59,6 +59,7 @@ public class Judul implements Parcelable {
         this.nip_dosen = nip_dosen;
     }
 
+
     public int getId() {
         return id;
     }

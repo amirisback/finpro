@@ -123,7 +123,7 @@ public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity impleme
             @Override
             public void onResponse(Call<List<Dosen>> call, Response<List<Dosen>> response) {
                 if(response.isSuccessful()) {
-                     dosens = response.body();
+                    dosens = response.body();
                     List<String> spinner = new ArrayList<String>();
                     for (int i = 0; i < dosens.size(); i++) {
                         nip_dosen = dosens.get(i).getDsn_nip();

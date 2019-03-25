@@ -139,5 +139,12 @@
         <item name="android:layout_marginEnd">@dimen/dimen_big</item>
     </style>
 
+    <style name="image_item_kategori">
+        <item name="android:layout_gravity">start</item>
+        <item name="android:layout_width">@dimen/dimen_profil_photo_list_info</item>
+        <item name="android:layout_height">@dimen/dimen_profil_photo_list_info</item>
+        <item name="android:layout_marginEnd">@dimen/dimen_medium</item>
+    </style>
+
     <dimen name="dimen_drawable_padding">5dip</dimen>
 </resources>

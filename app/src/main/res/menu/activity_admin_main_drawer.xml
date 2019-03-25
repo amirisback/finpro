@@ -28,5 +28,9 @@
         android:id="@+id/nav_menu_judul_pa"
         android:icon="@drawable/ic_nav_judul_pa"
         android:title="@string/menu_judul_pa" />
+    <item
+        android:id="@+id/nav_menu_judul_pa_kategori"
+        android:icon="@drawable/ic_content_judul_pa_kategori"
+        android:title="@string/title_kategori_judul_pa"/>
 
 </menu>

@@ -23,6 +23,7 @@
     <string name="title_profil">Profil</string>
     <string name="title_informasi">Informasi</string>
     <string name="title_judulpa">Judul Proyek Akhir</string>
+    <string name="title_judulpakategori">Kategori Judul Proyek Akhir</string>
     <string name="title_judulpa_pendek">Judul PA</string>
     <string name="title_judulpa_dosen">Judul Dosen</string>
     <string name="title_judulpa_dosen_tambah">Tambah Judul Proyek Akhir</string>
@@ -192,6 +193,7 @@
     <string name="text_title_review_monev">Review Monev</string>
     <string name="text_progress_dialog">Tunggu Sebentar . . .</string>
     <string name="textview_dosen_kode">HMU</string>
+    <string name="title_kategori_judul_pa">Kategori Judul PA</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

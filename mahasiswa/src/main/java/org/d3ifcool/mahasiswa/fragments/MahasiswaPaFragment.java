@@ -9,7 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import org.d3ifcool.mahasiswa.R;
+import org.d3ifcool.mahasiswa.activities.MahasiswaJudulPaPengajuanTambahActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPaBimbinganDetailActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPaMonevDetailActivity;
 
@@ -34,6 +37,7 @@ public class MahasiswaPaFragment extends Fragment {
 
         CardView cardViewBimbingan = rootView.findViewById(R.id.frg_mhs_pa_cardview_bimbingan);
         CardView cardViewMonev = rootView.findViewById(R.id.frg_mhs_pa_cardview_monev);
+        FloatingActionButton floatingActionButton = rootView.findViewById(R.id.frg_mhs_pa_pengajuan_fab);
 
         cardViewBimbingan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +54,7 @@ public class MahasiswaPaFragment extends Fragment {
                 startActivity(i);
             }
         });
+
 
 
         return rootView;
