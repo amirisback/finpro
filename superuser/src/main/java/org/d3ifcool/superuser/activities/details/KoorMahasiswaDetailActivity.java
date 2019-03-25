@@ -46,7 +46,7 @@ public class KoorMahasiswaDetailActivity extends AppCompatActivity implements Ma
 
         presenter = new MahasiswaPresenter(this, KoorMahasiswaDetailActivity.this);
         dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.progress_dialog));
+        dialog.setMessage(getString(R.string.text_progress_dialog));
 
         tv_nama = findViewById(R.id.act_koor_profil_nama_mhs);
         tv_nim = findViewById(R.id.act_koor_profil_nim);

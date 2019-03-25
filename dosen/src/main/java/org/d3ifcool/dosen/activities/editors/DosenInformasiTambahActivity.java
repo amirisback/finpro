@@ -38,7 +38,7 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
         final EditText info_deskripsi = findViewById(R.id.act_dsn_edittext_deskripsi);
         Button btn_simpan = findViewById(R.id.act_dsn_info_button_simpan);
 
-        progressDialog.setMessage(getString(R.string.progress_dialog));
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         btn_simpan.setOnClickListener(new View.OnClickListener() {
             @Override

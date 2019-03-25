@@ -55,6 +55,9 @@ public class DosenInformasiFragment extends Fragment implements InformasiViewRes
         presenter = new InformasiPresenter(this, getContext());
         progressDialog = new ProgressDialog(getContext());
         swipeRefreshLayout = rootView.findViewById(R.id.frg_dsn_info_home_swiperefresh);
+
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
+
         presenter.getInformasi();
 
         FloatingActionButton floatingActionButton = rootView.findViewById(R.id.frg_dsn_info_home_fab);
@@ -67,9 +70,6 @@ public class DosenInformasiFragment extends Fragment implements InformasiViewRes
         });
 
         empty_view = rootView.findViewById(R.id.view_emptyview);
-
-
-        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

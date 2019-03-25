@@ -38,7 +38,7 @@ public class KoorInformasiTambahActivity extends AppCompatActivity implements In
         deskripsi = findViewById(R.id.act_koor_edittext_deskripsi);
         btn_simpan = findViewById(R.id.act_koor_info_button_simpan);
 
-        progressDialog.setMessage(getString(R.string.progress_dialog));
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         btn_simpan.setOnClickListener(new View.OnClickListener() {
             @Override

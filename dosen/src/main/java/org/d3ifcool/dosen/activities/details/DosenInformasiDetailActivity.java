@@ -64,7 +64,7 @@ public class DosenInformasiDetailActivity extends AppCompatActivity implements I
 
         presenter = new InformasiPresenter(this, DosenInformasiDetailActivity.this);
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage(getString(R.string.progress_dialog));
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
     }
 

@@ -20,7 +20,7 @@ import org.d3ifcool.superuser.R;
 
 public class KoorMahasiswaUbahActivity extends AppCompatActivity implements MahasiswaViewEditor {
     private MahasiswaPresenter presenter;
-    private ProgressDialog dialog;
+    private ProgressDialog progressDialog;
     private EditText et_nim,et_nama,et_angkatan, et_kontak, et_email;
     private Button btn_ubah;
 
@@ -36,8 +36,8 @@ public class KoorMahasiswaUbahActivity extends AppCompatActivity implements Maha
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         presenter = new MahasiswaPresenter(this, KoorMahasiswaUbahActivity.this);
-        dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.progress_dialog));
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
         et_nim = findViewById(R.id.act_koor_edittext_nim_mahasiswa);
         et_nama = findViewById(R.id.act_koor_edittext_nama_mahasiswa);
         et_angkatan = findViewById(R.id.act_koor_edittext_angkatan_mahasiswa);
@@ -119,12 +119,12 @@ public class KoorMahasiswaUbahActivity extends AppCompatActivity implements Maha
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override

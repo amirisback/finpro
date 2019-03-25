@@ -41,14 +41,16 @@ public class KoorProyekAkhirFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_koor_proyek_akhir, container, false);
         adapter = new KoorProyekAkhirViewAdapter(getContext());
         dialog = new ProgressDialog(getContext());
-        dialog.show();
-        dialog.setMessage(getString(R.string.progress_dialog));
+        dialog.setMessage(getString(R.string.text_progress_dialog));
+
         proyekAkhirs = new ArrayList<>();
+
         recyclerView = view.findViewById(R.id.frg_koor_pa_recyclerview);
         adapter.setProyekAkhirs(proyekAkhirs);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter.setLayoutType(R.layout.content_item_koor_pa);
         recyclerView.setAdapter(adapter);
+
         return view;
     }
 

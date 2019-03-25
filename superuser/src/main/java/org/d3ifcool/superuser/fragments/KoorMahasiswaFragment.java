@@ -34,7 +34,7 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaViewResu
     private RecyclerView recyclerView;
     private ArrayList<Mahasiswa> mhs = new ArrayList<>();
     private KoorMahasiswaViewAdapter adapter;
-    private ProgressDialog dialog;
+    private ProgressDialog progressDialog;
     private SwipeRefreshLayout refreshLayout;
     private MahasiswaPresenter presenter;
     private FloatingActionButton floatingActionButton;
@@ -53,12 +53,10 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaViewResu
         recyclerView = view.findViewById(R.id.frg_koor_mahasiswa_home_recyclerview);
         floatingActionButton = view.findViewById(R.id.frg_koor_mahasiswa_home_fab);
         refreshLayout = view.findViewById(R.id.frg_koor_mhs_swiperefresh);
-        dialog = new ProgressDialog(getContext());
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         presenter = new MahasiswaPresenter(this ,getContext());
-        dialog.setMessage(getString(R.string.progress_dialog));
-        dialog.show();
-
         presenter.getDosen();
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +66,6 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaViewResu
                 startActivity(intent);
             }
         });
-
 
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -87,12 +84,12 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaViewResu
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override

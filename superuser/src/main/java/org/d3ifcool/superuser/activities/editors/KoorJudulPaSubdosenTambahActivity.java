@@ -53,7 +53,7 @@ public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity impleme
 
         presenter = new JudulPresenter(this, KoorJudulPaSubdosenTambahActivity.this);
         dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.progress_dialog));
+        dialog.setMessage(getString(R.string.text_progress_dialog));
 
         setTitle(getString(org.d3ifcool.dosen.R.string.title_judulpa_dosen_tambah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

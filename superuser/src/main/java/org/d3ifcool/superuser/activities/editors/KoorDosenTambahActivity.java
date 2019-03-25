@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.d3ifcool.service.interfaces.DosenViewEditor;
-import org.d3ifcool.service.interfaces.DosenViewResult;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.presenters.DosenPresenter;
 import org.d3ifcool.superuser.R;
@@ -24,7 +23,7 @@ public class KoorDosenTambahActivity extends AppCompatActivity implements DosenV
 
     private ArrayList<Dosen> dosens = new ArrayList<>();
     private DosenPresenter presenter;
-    private ProgressDialog dialog;
+    private ProgressDialog progressDialog;
     private EditText et_nip_dosen, et_nama, et_kode,et_email, et_kontak;
     private Button btn_simpan;
 
@@ -46,8 +45,8 @@ public class KoorDosenTambahActivity extends AppCompatActivity implements DosenV
 
 
         presenter = new DosenPresenter(this, KoorDosenTambahActivity.this);
-        dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.progress_dialog));
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         btn_simpan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,12 +99,12 @@ public class KoorDosenTambahActivity extends AppCompatActivity implements DosenV
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
 
     }
 

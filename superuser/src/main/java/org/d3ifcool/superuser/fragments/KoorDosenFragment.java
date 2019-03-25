@@ -36,7 +36,7 @@ public class KoorDosenFragment extends Fragment implements DosenViewResult {
     private ArrayList<Dosen> data_dosen = new ArrayList<>();
     private FloatingActionButton floatingActionButton;
     private KoorDosenViewAdapter adapter;
-    private ProgressDialog dialog;
+    private ProgressDialog progressDialog;
     private DosenPresenter presenter;
     private SwipeRefreshLayout refreshLayout;
     public KoorDosenFragment() {
@@ -53,9 +53,8 @@ public class KoorDosenFragment extends Fragment implements DosenViewResult {
         refreshLayout = view.findViewById(R.id.refresh);
         recyclerView = view.findViewById(R.id.frg_koor_dosen_home_recyclerview);
         floatingActionButton = view.findViewById(R.id.frg_koor_dosen_home_fab);
-        dialog = new ProgressDialog(getContext());
-        dialog.show();
-        dialog.setMessage(getString(R.string.progress_dialog));
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
         presenter.getDosen();
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -85,12 +84,12 @@ public class KoorDosenFragment extends Fragment implements DosenViewResult {
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override

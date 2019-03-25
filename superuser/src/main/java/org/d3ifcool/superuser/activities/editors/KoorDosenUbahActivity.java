@@ -32,7 +32,7 @@ public class KoorDosenUbahActivity extends AppCompatActivity implements DosenVie
         setContentView(R.layout.activity_koor_dosen_ubah);
         presenter = new DosenPresenter(this, KoorDosenUbahActivity.this);
         dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.progress_dialog));
+        dialog.setMessage(getString(R.string.text_progress_dialog));
 
         extraDosen =getIntent().getParcelableExtra(EXTRA_DOSEN);
         String nip = extraDosen.getDsn_nip();

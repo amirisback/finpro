@@ -1,7 +1,6 @@
 package org.d3ifcool.superuser.activities.details;
 
 import androidx.appcompat.app.AppCompatActivity;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -13,9 +12,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.d3ifcool.dosen.activities.details.DosenInformasiDetailActivity;
-import org.d3ifcool.dosen.activities.editors.DosenInformasiUbahActivity;
-import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.InformasiViewEditor;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.service.presenters.InformasiPresenter;
@@ -27,7 +23,7 @@ public class KoorInformasiDetailActivity extends AppCompatActivity implements In
     public static final String EXTRA_INFORMASI = "extra_informasi";
     private Informasi extraInfo;
     private InformasiPresenter presenter;
-    private ProgressDialog dialog;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +33,8 @@ public class KoorInformasiDetailActivity extends AppCompatActivity implements In
         setTitle(getString(org.d3ifcool.dosen.R.string.title_informasi_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         presenter = new InformasiPresenter(this, KoorInformasiDetailActivity.this);
-        dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.progress_dialog));
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         TextView textView_judul = findViewById(R.id.act_koor_info_detail_textview_judul);
         TextView textView_isi = findViewById(R.id.act_koor_info_detail_textview_isi);
@@ -106,12 +102,12 @@ public class KoorInformasiDetailActivity extends AppCompatActivity implements In
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override

@@ -43,12 +43,15 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiVie
         // Inflate the layout for this fragment
 
         View rootView = inflater.inflate(R.layout.fragment_mahasiswa_informasi, container, false);
+
         recyclerView = rootView.findViewById(R.id.frg_mhs_info_recyclerview);
         adapter = new MahasiswaInformasiViewAdapter(getContext());
         presenter = new InformasiPresenter(this, getContext());
+
         progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage(getString(R.string.dummy_tanggal));
+
         presenter.getInformasi();
-        progressDialog.setMessage(getString(R.string.progress_dialog));
 
         return rootView;
     }

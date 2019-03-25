@@ -46,7 +46,7 @@ public class DosenInformasiUbahActivity extends AppCompatActivity implements Inf
 
         presenter = new InformasiPresenter(this, DosenInformasiUbahActivity.this);
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage(getString(R.string.progress_dialog));
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         btn_ubah.setOnClickListener(new View.OnClickListener() {
             @Override

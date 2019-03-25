@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.activities.MahasiswaMainActivity"
+    tools:context=".activities.MahasiswaMainActivity"
     android:background="@color/colorBackground">
 
     <!--<android.support.design.widget.BottomNavigationView-->

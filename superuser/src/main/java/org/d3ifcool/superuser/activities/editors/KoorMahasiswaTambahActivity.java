@@ -41,7 +41,7 @@ public class KoorMahasiswaTambahActivity extends AppCompatActivity implements Ma
         et_email = findViewById(R.id.act_koor_edittext_email_mahasiswa);
         btn_simpan = findViewById(R.id.act_koor_mahasiswa_button_simpan);
 
-        dialog.setMessage(getString(R.string.progress_dialog));
+        dialog.setMessage(getString(R.string.text_progress_dialog));
 
         btn_simpan.setOnClickListener(new View.OnClickListener() {
             @Override

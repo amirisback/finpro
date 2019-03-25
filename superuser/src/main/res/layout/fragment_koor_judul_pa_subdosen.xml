@@ -18,7 +18,6 @@
             android:layout_marginLeft="@dimen/dimen_medium"
             android:layout_marginTop="@dimen/dimen_medium"
             android:layout_marginRight="@dimen/dimen_medium"
-            android:entries="@array/nama_dosen"
             android:spinnerMode="dropdown" />
 
         <androidx.recyclerview.widget.RecyclerView

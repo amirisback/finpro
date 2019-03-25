@@ -52,7 +52,7 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenV
 
         presenter = new DosenPresenter(this, KoorDosenDetailActivity.this);
         dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.progress_dialog));
+        dialog.setMessage(getString(R.string.text_progress_dialog));
 
         tv_nama = findViewById(R.id.act_koor_dosen_nama);
         tv_kode = findViewById(R.id.act_koor_dosen_kode);

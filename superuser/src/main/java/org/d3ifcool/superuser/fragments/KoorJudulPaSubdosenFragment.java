@@ -2,6 +2,7 @@ package org.d3ifcool.superuser.fragments;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -21,10 +22,14 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.d3ifcool.service.interfaces.DosenViewResult;
+import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.network.api.ApiInterfaceDosen;
 import org.d3ifcool.service.network.bridge.ApiClient;
+import org.d3ifcool.service.presenters.DosenPresenter;
+import org.d3ifcool.service.presenters.JudulPresenter;
 import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.activities.editors.KoorJudulPaSubdosenTambahActivity;
 import org.d3ifcool.superuser.adapters.KoorJudulPaSubdosenViewAdapter;
@@ -35,13 +40,20 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class KoorJudulPaSubdosenFragment extends Fragment {
+public class KoorJudulPaSubdosenFragment extends Fragment implements DosenViewResult, JudulPaSubDosenViewResult {
+
     private Spinner sp_dosen;
     private RecyclerView recyclerView;
     private KoorJudulPaSubdosenViewAdapter adapter;
     private FloatingActionButton actionButton;
     private ProgressDialog dialog;
-    private ArrayList<Judul> judul;
+
+    List<String> spinnerItem = new ArrayList<>();
+    private ArrayList<Judul> arrayListJudul = new ArrayList<>();
+    private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
+
+    private DosenPresenter dosenPresenter;
+    private JudulPresenter judulPresenter;
 
     public KoorJudulPaSubdosenFragment() {
         // Required empty public constructor
@@ -57,20 +69,12 @@ public class KoorJudulPaSubdosenFragment extends Fragment {
         recyclerView = view.findViewById(R.id.frg_koor_judul_dsn_recyclerview);
         actionButton = view.findViewById(R.id.frg_koor_judul_dsn_fab);
         dialog = new ProgressDialog(getContext());
-        adapter = new KoorJudulPaSubdosenViewAdapter(getContext());
+        dialog.setMessage(getString(R.string.text_progress_dialog));
 
-        dialog.setMessage(getString(R.string.progress_dialog));
-        dialog.show();
+        dosenPresenter = new DosenPresenter(this, getContext());
+        judulPresenter = new JudulPresenter(this, getContext());
 
-        judul = new ArrayList<>();
-//        judul.add(new Judul("huhu","haha"));
-//        judul.add(new Judul("huhu","haha"));
-//        judul.add(new Judul("huhu","haha"));
-//        judul.add(new Judul("huhu","haha"));
-//        judul.add(new Judul("huhu","haha"));
-        adapter.additem(judul);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapter);
+        dosenPresenter.getDosen();
 
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,34 +83,51 @@ public class KoorJudulPaSubdosenFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        initSpinner();
+
         return view;
     }
 
-    private void initSpinner() {
-        ApiInterfaceDosen interfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
-        Call<List<Dosen>> call = interfaceDosen.getDosen();
-        call.enqueue(new Callback<List<Dosen>>() {
-            @Override
-            public void onResponse(Call<List<Dosen>> call, Response<List<Dosen>> response) {
-                if (response.isSuccessful()) {
-                    List<Dosen> dosens = response.body();
-                    List<String> spinner = new ArrayList<String>();
-                    for (int i = 0; i < dosens.size(); i++) {
-//                        nip_dosen = dosens.get(i).getDsn_nip();
-                        spinner.add(dosens.get(i).getDsn_nama());
-                    }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item
-                            , spinner);
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    sp_dosen.setAdapter(adapter);
-                }
-            }
+    private void initSpinner(ArrayList<Dosen> arrayDosen, Spinner spinner) {
+        List<String> spinnerItem = new ArrayList<>();
+        for (int i = 0; i < arrayDosen.size(); i++) {
+            spinnerItem.add(arrayDosen.get(i).getDsn_nama());
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.support_simple_spinner_dropdown_item, spinnerItem);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
-            @Override
-            public void onFailure(Call<List<Dosen>> call, Throwable t) {
-                Toast.makeText(getContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+    }
+
+    @Override
+    public void showProgress() {
+        dialog.show();
+    }
+
+    @Override
+    public void hideProgress() {
+        dialog.dismiss();
+    }
+
+    @Override
+    public void onGetResult(List<Judul> judulpa) {
+        arrayListJudul.clear();
+        arrayListJudul.addAll(judulpa);
+        adapter = new KoorJudulPaSubdosenViewAdapter(getContext());
+        adapter.additem(arrayListJudul);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onGetResultDataDosen(List<Dosen> dosen) {
+        arrayListDosen.clear();
+        arrayListDosen.addAll(dosen);
+        initSpinner(arrayListDosen, sp_dosen);
+        judulPresenter.getJudulSortByDosen(sp_dosen.getSelectedItem().toString());
+    }
+
+    @Override
+    public void onErrorLoading(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 }
