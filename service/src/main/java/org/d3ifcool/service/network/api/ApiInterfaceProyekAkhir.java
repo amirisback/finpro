@@ -14,6 +14,7 @@ import retrofit2.http.Path;
 import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_DELETE;
 import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_DOSEN;
 import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_JUDUL_PA;
+import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_PROYEK_AKHIR;
 import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_SORTBY;
 import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.PARAMETER_UPDATE;
 import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_PROYEK_AKHIR;
@@ -40,10 +41,10 @@ public interface ApiInterfaceProyekAkhir {
     @FormUrlEncoded
     @POST(URL_PROYEK_AKHIR)
     Call<ProyekAkhir> createProyekAkhir(
-            @Field("judul_nama") String judul_nama,
-            @Field("judul_kategori") String judul_kategori,
-            @Field("judul_deskripsi") String judul_deskripsi,
-            @Field("dsn_nip") String nip_dosen
+            @Field("id_judul") String id_judul,
+            @Field("mhs_nim") String mhs_nim,
+            @Field("dsn_nip") String dsn_nip,
+            @Field("nama_tim") String nama_tim
     );
 
 
@@ -59,10 +60,10 @@ public interface ApiInterfaceProyekAkhir {
     @GET(URL_PROYEK_AKHIR)
     Call<List<ProyekAkhir>> getProyekAkhir();
 
-    @GET(URL_PROYEK_AKHIR + PARAMETER_SORTBY + PARAMETER_DOSEN)
-    Call<List<ProyekAkhir>> getProyekAkhirSortByDosen(@Path("dosen") String nip_dosen);
+    @GET(URL_PROYEK_AKHIR + PARAMETER_SORTBY + PARAMETER_PROYEK_AKHIR)
+    Call<List<ProyekAkhir>> getProyekAkhirSortByDosen(@Path("proyek_akhir") String nip_dosen);
 
-    @POST(URL_PROYEK_AKHIR + PARAMETER_DELETE + PARAMETER_JUDUL_PA)
-    Call<ProyekAkhir> deleteProyekAkhir(@Path("judul") int judul_id);
+    @POST(URL_PROYEK_AKHIR + PARAMETER_DELETE + PARAMETER_PROYEK_AKHIR)
+    Call<ProyekAkhir> deleteProyekAkhir(@Path("proyek_akhir") int judul_id);
 
 }

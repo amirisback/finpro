@@ -22,7 +22,6 @@ import org.d3ifcool.service.interfaces.DosenViewResult;
 import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.models.JudulPaDosen;
 import org.d3ifcool.service.presenters.DosenPresenter;
 import org.d3ifcool.service.presenters.JudulPresenter;
 

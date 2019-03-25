@@ -12,7 +12,6 @@ import android.widget.TextView;
 import org.d3ifcool.mahasiswa.activities.MahasiswaJudulPaDosenDetailActivity;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.models.JudulPaDosen;
 
 import java.util.ArrayList;
 
