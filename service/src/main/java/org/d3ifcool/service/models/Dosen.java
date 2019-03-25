@@ -26,35 +26,37 @@ import com.google.gson.annotations.SerializedName;
 public class Dosen implements Parcelable {
     @Expose
     @SerializedName("dsn_nip")
-    String dsn_nip;
+    private String dsn_nip;
 
     @Expose
     @SerializedName("dsn_nama")
-    String dsn_nama;
+    private String dsn_nama;
 
     @Expose
     @SerializedName("dsn_kode")
-    String dsn_kode;
+    private String dsn_kode;
 
     @Expose
     @SerializedName("dsn_kontak")
-    String dsn_kontak;
+    private String dsn_kontak;
 
     @Expose
     @SerializedName("dsn_foto")
-    String dsn_foto;
+    private String dsn_foto;
 
     @Expose
     @SerializedName("dsn_email")
-    String dsn_email;
+    private String dsn_email;
 
     @Expose
     @SerializedName("dsn_status")
-    String dsn_status;
+    private String dsn_status;
 
+    @Expose
+    @SerializedName("username")
+    private String username;
 
-
-    public Dosen(String dsn_nip, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_foto, String dsn_email, String dsn_status) {
+    public Dosen(String dsn_nip, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_foto, String dsn_email, String dsn_status, String username) {
         this.dsn_nip = dsn_nip;
         this.dsn_nama = dsn_nama;
         this.dsn_kode = dsn_kode;
@@ -62,45 +64,7 @@ public class Dosen implements Parcelable {
         this.dsn_foto = dsn_foto;
         this.dsn_email = dsn_email;
         this.dsn_status = dsn_status;
-    }
-
-
-    protected Dosen(Parcel in) {
-        dsn_nip = in.readString();
-        dsn_nama = in.readString();
-        dsn_kode = in.readString();
-        dsn_kontak = in.readString();
-        dsn_foto = in.readString();
-        dsn_email = in.readString();
-        dsn_status = in.readString();
-    }
-
-    public static final Creator<Dosen> CREATOR = new Creator<Dosen>() {
-        @Override
-        public Dosen createFromParcel(Parcel in) {
-            return new Dosen(in);
-        }
-
-        @Override
-        public Dosen[] newArray(int size) {
-            return new Dosen[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(dsn_nip);
-        dest.writeString(dsn_nama);
-        dest.writeString(dsn_kode);
-        dest.writeString(dsn_kontak);
-        dest.writeString(dsn_foto);
-        dest.writeString(dsn_email);
-        dest.writeString(dsn_status);
+        this.username = username;
     }
 
     public String getDsn_nip() {
@@ -158,4 +122,53 @@ public class Dosen implements Parcelable {
     public void setDsn_status(String dsn_status) {
         this.dsn_status = dsn_status;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.dsn_nip);
+        dest.writeString(this.dsn_nama);
+        dest.writeString(this.dsn_kode);
+        dest.writeString(this.dsn_kontak);
+        dest.writeString(this.dsn_foto);
+        dest.writeString(this.dsn_email);
+        dest.writeString(this.dsn_status);
+        dest.writeString(this.username);
+    }
+
+    protected Dosen(Parcel in) {
+        this.dsn_nip = in.readString();
+        this.dsn_nama = in.readString();
+        this.dsn_kode = in.readString();
+        this.dsn_kontak = in.readString();
+        this.dsn_foto = in.readString();
+        this.dsn_email = in.readString();
+        this.dsn_status = in.readString();
+        this.username = in.readString();
+    }
+
+    public static final Creator<Dosen> CREATOR = new Creator<Dosen>() {
+        @Override
+        public Dosen createFromParcel(Parcel source) {
+            return new Dosen(source);
+        }
+
+        @Override
+        public Dosen[] newArray(int size) {
+            return new Dosen[size];
+        }
+    };
 }

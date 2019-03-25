@@ -55,18 +55,11 @@ public interface ApiInterfaceDosen {
             @Field("dsn_email") String dsn_email
     );
 
-
     @POST(URL_DOSEN + PARAMETER_DELETE + PARAMETER_DOSEN)
     Call<Dosen> deleteDosen(@Path("dosen") String dsn_nip);
 
-
     @GET(URL_DOSEN)
     Call<List<Dosen>> getDosen();
-
-    @GET(URL_DOSEN)
-    Call<List<Dosen>> getDosenNama(
-            @Field("dsn_nama") String nama
-    );
 
     @GET(URL_DOSEN + PARAMETER_DOSEN)
     Call<Dosen> getDataDosenLogin(@Path("dosen") String dsn_nip);

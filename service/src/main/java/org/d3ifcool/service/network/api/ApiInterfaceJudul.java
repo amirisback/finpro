@@ -44,7 +44,7 @@ public interface ApiInterfaceJudul {
             @Field("judul_nama") String judul_nama,
             @Field("judul_kategori") String judul_kategori,
             @Field("judul_deskripsi") String judul_deskripsi,
-            @Field("nip_dosen") String nip_dosen
+            @Field("dsn_nip") String dsn_nip
     );
 
 

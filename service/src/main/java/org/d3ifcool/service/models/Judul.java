@@ -46,8 +46,9 @@ public class Judul implements Parcelable {
     private String tersedia;
 
     @Expose
-    @SerializedName("nip_dosen")
+    @SerializedName("dsn_nip")
     private String nip_dosen;
+
 
     public Judul(int id, String judul, String kategori, String deskripsi, String tersedia, String nip_dosen) {
         this.id = id;
