@@ -102,13 +102,17 @@ public class DosenInformasiFragment extends Fragment implements InformasiViewRes
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         arrayList.clear();
         arrayList.addAll(informasi);
+
         adapter.addItem(arrayList);
         adapter.setLayoutType(R.layout.content_item_dosen_informasi);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(linearLayoutManager);
         swipeRefreshLayout.setRefreshing(false);
+
         if (arrayList.size() == 0) {
             empty_view.setVisibility(View.VISIBLE);
+        } else {
+            empty_view.setVisibility(View.GONE);
         }
 
     }

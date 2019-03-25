@@ -36,10 +36,8 @@ public class LoginPresenter {
 
     public void getLogin(String username, String password){
         view.showProgress();
-
         ApiInterfacesUser apiInterface = ApiClient.getApiClient().create(ApiInterfacesUser.class);
         Call<User> call = apiInterface.setLogin(username, password);
-
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {

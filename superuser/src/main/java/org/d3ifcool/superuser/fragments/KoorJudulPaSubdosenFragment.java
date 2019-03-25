@@ -2,20 +2,17 @@ package org.d3ifcool.superuser.fragments;
 
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -26,8 +23,6 @@ import org.d3ifcool.service.interfaces.DosenViewResult;
 import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.network.api.ApiInterfaceDosen;
-import org.d3ifcool.service.network.bridge.ApiClient;
 import org.d3ifcool.service.presenters.DosenPresenter;
 import org.d3ifcool.service.presenters.JudulPresenter;
 import org.d3ifcool.superuser.R;
@@ -46,9 +41,8 @@ public class KoorJudulPaSubdosenFragment extends Fragment implements DosenViewRe
     private RecyclerView recyclerView;
     private KoorJudulPaSubdosenViewAdapter adapter;
     private FloatingActionButton actionButton;
-    private ProgressDialog dialog;
+    private ProgressDialog progressDialog;
 
-    List<String> spinnerItem = new ArrayList<>();
     private ArrayList<Judul> arrayListJudul = new ArrayList<>();
     private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
 
@@ -68,8 +62,8 @@ public class KoorJudulPaSubdosenFragment extends Fragment implements DosenViewRe
         sp_dosen = view.findViewById(R.id.spinner_dosen);
         recyclerView = view.findViewById(R.id.frg_koor_judul_dsn_recyclerview);
         actionButton = view.findViewById(R.id.frg_koor_judul_dsn_fab);
-        dialog = new ProgressDialog(getContext());
-        dialog.setMessage(getString(R.string.text_progress_dialog));
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         dosenPresenter = new DosenPresenter(this, getContext());
         judulPresenter = new JudulPresenter(this, getContext());
@@ -81,6 +75,19 @@ public class KoorJudulPaSubdosenFragment extends Fragment implements DosenViewRe
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), KoorJudulPaSubdosenTambahActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        sp_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String spinnerItemPosition = parent.getItemAtPosition(position).toString();
+                judulPresenter.getJudulSortByDosen(spinnerItemPosition);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
@@ -100,12 +107,12 @@ public class KoorJudulPaSubdosenFragment extends Fragment implements DosenViewRe
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override
@@ -123,7 +130,6 @@ public class KoorJudulPaSubdosenFragment extends Fragment implements DosenViewRe
         arrayListDosen.clear();
         arrayListDosen.addAll(dosen);
         initSpinner(arrayListDosen, sp_dosen);
-        judulPresenter.getJudulSortByDosen(sp_dosen.getSelectedItem().toString());
     }
 
     @Override

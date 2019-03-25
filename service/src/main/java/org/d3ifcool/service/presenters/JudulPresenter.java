@@ -45,6 +45,7 @@ public class JudulPresenter {
     }
 
     public void createJudul (String judul_nama, String judul_kategori, String judul_deskripsi, String nip_dosen){
+        viewEditor.showProgress();
         ApiInterfaceJudul apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
         Call<Judul> call = apiInterface.createJudul(judul_nama,judul_kategori,judul_deskripsi,nip_dosen);
         call.enqueue(new Callback<Judul>() {
@@ -64,6 +65,7 @@ public class JudulPresenter {
     }
 
     public void updateJudul (int id, String judul_nama, String judul_kategori, String judul_deskripsi, String nip_dosen){
+        viewEditor.showProgress();
         ApiInterfaceJudul apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
         Call<Judul> call = apiInterface.updateJudul(id, judul_nama,judul_kategori,judul_deskripsi);
         call.enqueue(new Callback<Judul>() {
@@ -83,6 +85,7 @@ public class JudulPresenter {
     }
 
     public void getJudul() {
+        viewResult.showProgress();
         ApiInterfaceJudul apiInterfaceJudulPa = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
         Call<List<Judul>> call = apiInterfaceJudulPa.getJudul();
         call.enqueue(new Callback<List<Judul>>() {
@@ -101,6 +104,7 @@ public class JudulPresenter {
     }
 
     public void getJudulSortByDosen(String dsn_nama) {
+        viewResult.showProgress();
         ApiInterfaceJudul apiInterfaceJudul = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
         Call<List<Judul>> call = apiInterfaceJudul.getJudulSortByDosen(dsn_nama);
         call.enqueue(new Callback<List<Judul>>() {
@@ -119,6 +123,7 @@ public class JudulPresenter {
     }
 
     public void deleteJudul(int judul_id){
+        viewEditor.showProgress();
         ApiInterfaceJudul apiInterfaceJudulPa = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
         Call<Judul> call = apiInterfaceJudulPa.deleteJudul(judul_id);
         call.enqueue(new Callback<Judul>() {

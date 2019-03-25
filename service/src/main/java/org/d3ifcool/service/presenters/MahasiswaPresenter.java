@@ -42,7 +42,7 @@ public class MahasiswaPresenter {
         this.context = context;
     }
 
-    public void getDosen(){
+    public void getMahasiswa(){
         result.showProgress();
         ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
         Call<List<Mahasiswa>> call = apiInterfaceMahasiswa.getMahasiswa();

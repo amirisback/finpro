@@ -24,7 +24,13 @@
     <!--Contoh : dimens_horizontal-->
     <!--Contoh : text_size_title-->
 
-    <!--Dimens-->
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dimen_navigation_drawer">60dp</dimen>
 
     <dimen name="dimen_big_ultra">32dp</dimen>
     <dimen name="dimen_big_super">24dp</dimen>
@@ -44,11 +50,9 @@
     <dimen name="text_size_title_big">24sp</dimen>
     <dimen name="text_size_title_small">18sp</dimen>
     <dimen name="text_size_title_medium">20sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
     <dimen name="text_size_small">10sp</dimen>
-
     <dimen name="min_height_info">300dp</dimen>
     <dimen name="min_height_list_bimbingan">95dp</dimen>
-    <dimen name="text_size_medium">16sp</dimen>
-
 
 </resources>

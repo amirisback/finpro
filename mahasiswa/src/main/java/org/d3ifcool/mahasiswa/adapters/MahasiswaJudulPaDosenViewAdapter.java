@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.activities.MahasiswaJudulPaDosenDetailActivity;
 import org.d3ifcool.mahasiswa.R;
+import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.models.JudulPaDosen;
 
 import java.util.ArrayList;
@@ -35,14 +36,14 @@ import java.util.ArrayList;
 public class MahasiswaJudulPaDosenViewAdapter extends RecyclerView.Adapter<MahasiswaJudulPaDosenViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<JudulPaDosen> data;
+    private ArrayList<Judul> data;
     private int layoutType;
 
     public MahasiswaJudulPaDosenViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void addItem(ArrayList<JudulPaDosen> data){
+    public void addItem(ArrayList<Judul> data){
         this.data = data;
         notifyDataSetChanged();
     }
@@ -69,7 +70,7 @@ public class MahasiswaJudulPaDosenViewAdapter extends RecyclerView.Adapter<Mahas
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.judul.setText(data.get(position).getJudul());
         holder.kategori.setText(data.get(position).getKategori());
-        holder.jumlah.setText(data.get(position).getJumlah());
+        holder.jumlah.setText(data.get(position).getTersedia());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

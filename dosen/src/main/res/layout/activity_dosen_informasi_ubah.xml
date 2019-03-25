@@ -5,14 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorBackground"
-    android:padding="@dimen/dimen_big"
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".activities.editors.DosenInformasiUbahActivity">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_big">
 
         <ImageView
             android:layout_width="@dimen/dimen_profil_photo"

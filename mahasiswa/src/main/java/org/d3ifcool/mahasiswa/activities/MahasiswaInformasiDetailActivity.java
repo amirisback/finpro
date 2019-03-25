@@ -41,13 +41,13 @@ public class MahasiswaInformasiDetailActivity extends AppCompatActivity {
         String isi = extraInfo.getInfo_deskripsi();
         String tanggal = extraInfo.getTanggal();
         String dosen = extraInfo.getPenerbit();
-        String foto = sessionManager.getSessionDosenFoto();
+//        String foto = sessionManager.getSessionDosenFoto();
 
         textView_judul.setText(judul);
         textView_isi.setText(isi);
         textView_tanggal.setText(tanggal);
         textView_dosen.setText(dosen);
-        Picasso.get().load(URL_FOTO_DOSEN + foto).into(imageView_dosen);
+//        Picasso.get().load(URL_FOTO_DOSEN + foto).into(imageView_dosen);
 
     }
 

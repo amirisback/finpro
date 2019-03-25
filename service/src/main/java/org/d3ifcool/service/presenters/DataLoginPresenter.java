@@ -57,7 +57,6 @@ public class DataLoginPresenter {
     }
 
     public void getDataDosenLogin(String dsn_nip){
-        viewDosen.showProgress();
         ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
         Call<Dosen> call = apiInterfaceDosen.getDataDosenLogin(dsn_nip);
         call.enqueue(new Callback<Dosen>() {
@@ -77,7 +76,6 @@ public class DataLoginPresenter {
 
 
     public void getDataMahasiswaLogin(String username){
-        viewMahasiswa.showProgress();
         ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
         Call<Mahasiswa> call = apiInterfaceMahasiswa.getDataMahasiswaLogin(username);
         call.enqueue(new Callback<Mahasiswa>() {
@@ -97,7 +95,6 @@ public class DataLoginPresenter {
     }
 
     public void getDataKoorLogin(String username){
-        viewKoor.showProgress();
         ApiInterfaceKoorPa apiInterfaceKoorPa = ApiClient.getApiClient().create(ApiInterfaceKoorPa.class);
         Call<KoordinatorPa> call = apiInterfaceKoorPa.getDataKoorLogin(username);
         call.enqueue(new Callback<KoordinatorPa>() {

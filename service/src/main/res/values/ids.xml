@@ -185,6 +185,14 @@
     <item type="id" name="toolbar_menu_ubah"/>
     <item type="id" name="toolbar_menu_hapus"/>
     <item type="id" name="toolbar_menu_hanya_ubah"/>
+
+    <!--Dosen-->
+    <item type="id" name="act_dsn_judul_pa_spinner_kategori"/>
+    <item type="id" name="act_dsn_pmb_recyclerview"/>
+    <item type="id" name="ctn_dsn_pemberitahuan_circle_image"/>
+
+    <!--Mahasiswa-->
+    <!--Super User-->
     <item type="id" name="frg_koor_info_home_recyclerview"/>
     <item type="id" name="frg_koor_info_home_fab"/>
 

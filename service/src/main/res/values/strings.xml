@@ -173,4 +173,41 @@
     <string name="text_hint_kode_dosen">Masukkan Kode Dosen</string>
     <string name="text_hint_angkatan_mahasiswa">Masukkan Angkatan Mahasiswa</string>
 
+    <!-- Copy dari String App -->
+    <string name="app_name_subtitle">Final Project Management System</string>
+    <string name="title_dosen">Dosen</string>
+
+    <!-- Copy dari String Dosen -->
+    <string name="text_judul">Judul</string>
+    <string name="text_profil_detail_email">Email</string>
+    <string name="hint_judul">Masukkan judul</string>
+    <string name="text_daftar_pa_mahasiswa">Daftar Judul Proyek Akhir Mahasiswa Bimbingan</string>
+    <string name="text_tidak_boleh_kosong">Tidak boleh kosong</string>
+    <string name="title_kelompok_mahasiswa_detail">Detail Kelompok</string>
+
+    <string name="text_daftar_pa_monev_mahasiswa">Daftar Judul Proyek Akhir Monev</string>
+    <string name="dialog_ubah">Apakah anda yakin ingin merubah ini?</string>
+    <string name="dialog_ubah_title">Ubah Data</string>
+    <string name="text_title_kategori_monev">Kategori Monev</string>
+    <string name="text_title_review_monev">Review Monev</string>
+    <string name="text_progress_dialog">Tunggu Sebentar . . .</string>
+    <string name="textview_dosen_kode">HMU</string>
+
+    <string-array name="kategori_proyek_akhir">
+        <item>Games</item>
+        <item>Website</item>
+        <item>Android</item>
+        <item>IoT</item>
+    </string-array>
+
+    <string-array name="kategori_monev">
+        <item>Pilih Kategori Monev</item>
+        <item>Pra Monev 1</item>
+        <item>Pra Monev 2</item>
+        <item>Pra Monev 3</item>
+        <item>Monev 1</item>
+        <item>Monev 2</item>
+        <item>Monev 3</item>
+    </string-array>
+
 </resources>

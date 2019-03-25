@@ -36,9 +36,10 @@ public class DosenJudulPaSubdosenFragment extends Fragment implements JudulPaSub
     private DosenJudulPaSubdosenViewAdapter adapter;
     private JudulPresenter presenter;
     private ProgressDialog progressDialog;
-    private ArrayList<Judul> juduls = new ArrayList<>();
+    private ArrayList<Judul> arrayList = new ArrayList<>();
     private SessionManager sessionManager;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private View empty_view;
 
 
     public DosenJudulPaSubdosenFragment() {
@@ -55,16 +56,16 @@ public class DosenJudulPaSubdosenFragment extends Fragment implements JudulPaSub
 
         recyclerView = rootView.findViewById(R.id.frg_dsn_judul_dsn_recyclerview);
         floatingActionButton = rootView.findViewById(R.id.frg_dsn_judul_dsn_fab);
+        swipeRefreshLayout = rootView.findViewById(R.id.frg_dsn_judul_dsn_swiperefresh);
+        empty_view = rootView.findViewById(R.id.view_emptyview);
 
         presenter = new JudulPresenter(this, getContext());
         progressDialog = new ProgressDialog(getContext());
-
-        swipeRefreshLayout = rootView.findViewById(R.id.frg_dsn_judul_dsn_swiperefresh);
-
         adapter = new DosenJudulPaSubdosenViewAdapter(getContext());
         sessionManager = new SessionManager(getContext());
 
-        presenter.getJudul();
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
+        presenter.getJudulSortByDosen(sessionManager.getSessionDosenNama());
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,13 +74,10 @@ public class DosenJudulPaSubdosenFragment extends Fragment implements JudulPaSub
                 startActivity(i);
             }
         });
-
-        progressDialog.setMessage(getString(R.string.text_progress_dialog));
-
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.getJudulSortByDosen(sessionManager.getSessionDosenNip());
+                presenter.getJudulSortByDosen(sessionManager.getSessionDosenNama());
             }
         });
 
@@ -88,7 +86,7 @@ public class DosenJudulPaSubdosenFragment extends Fragment implements JudulPaSub
     @Override
     public void onResume() {
         super.onResume();
-        presenter.getJudulSortByDosen(sessionManager.getSessionDosenNip());
+        presenter.getJudulSortByDosen(sessionManager.getSessionDosenNama());
     }
 
     @Override
@@ -104,13 +102,21 @@ public class DosenJudulPaSubdosenFragment extends Fragment implements JudulPaSub
     @Override
     public void onGetResult(List<Judul> judulpa) {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        juduls.clear();
-        juduls.addAll(judulpa);
-        adapter.addItem(juduls);
+        arrayList.clear();
+        arrayList.addAll(judulpa);
+
+        adapter.addItem(arrayList);
         adapter.setLayoutType(R.layout.content_item_dosen_judul_pa_subdosen);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(linearLayoutManager);
         swipeRefreshLayout.setRefreshing(false);
+
+        if (arrayList.size() == 0) {
+            empty_view.setVisibility(View.VISIBLE);
+        } else {
+            empty_view.setVisibility(View.GONE);
+        }
+
     }
 
     @Override
