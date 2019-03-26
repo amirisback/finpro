@@ -38,10 +38,10 @@ public interface ApiInterfaceBimbingan {
     @GET(URL_BIMBINGAN)
     Call<Bimbingan> getBimbingan(
             @Field("bimbingan_id") int id_bimbingan,
-            @Field("bimbingan_review") String keterangan,
-            @Field("bimbingan_judul") String lokasi,
-            @Field("bimbingan_tanggal") String data_mhs,
-            @Field("proyek_akhir_id") String id_judul
+            @Field("bimbingan_review") String bimbingan_review,
+            @Field("bimbingan_judul") String bimbingan_judul,
+            @Field("bimbingan_tanggal") String bimbingan_tanggal,
+            @Field("proyek_akhir_id") String proyek_akhir_id
     );
 
     @POST(URL_BIMBINGAN)

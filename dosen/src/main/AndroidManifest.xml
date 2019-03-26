@@ -1,9 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.d3ifcool.dosen">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application>
-
+        <activity android:name=".activities.details.DosenBimbinganInfoActivity"></activity>
         <activity android:name=".activities.editors.DosenMonevUbahActivity" />
         <activity android:name=".activities.editors.DosenBimbinganUbahActivity" />
         <activity android:name=".activities.editors.DosenJudulPaSubdosenUbahActivity" />
@@ -23,7 +25,6 @@
         <activity android:name=".activities.details.DosenMahasiswaMonevDetailActivity" />
         <activity android:name=".activities.details.DosenMahasiswaBimbinganDetailActivity" />
         <activity android:name=".activities.DosenProfilActivity" />
-
     </application>
 
 </manifest>

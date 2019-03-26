@@ -8,6 +8,7 @@ import androidx.cardview.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -22,7 +23,6 @@ import org.d3ifcool.mahasiswa.activities.MahasiswaPaMonevDetailActivity;
  */
 public class MahasiswaPaFragment extends Fragment {
 
-
     public MahasiswaPaFragment() {
         // Required empty public constructor
     }
@@ -34,6 +34,18 @@ public class MahasiswaPaFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View rootView = inflater.inflate(R.layout.fragment_mahasiswa_pa, container, false);
+        TextView tv_judul_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_judulpa);
+        TextView tv_kelompok_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_kelompokpa);
+        TextView tv_nama_anggota1_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_nama_1);
+        TextView tv_nama_anggota2_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_nama_2);
+        TextView tv_nim_anggota1_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_nim_1);
+        TextView tv_nim_anggota2_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_nim_2);
+        TextView tv_dosen_pembimbing_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_dsn_pembimbing);
+        TextView tv_jumlah_bimbingan_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_jml_bimbingan);
+        TextView tv_dosen_reviewer_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_dsn_reviewer);
+        TextView tv_jumlah_monev_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_jml_monev);
+        TextView tv_status_sidang_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_sidang);
+
 
         CardView cardViewBimbingan = rootView.findViewById(R.id.frg_mhs_pa_cardview_bimbingan);
         CardView cardViewMonev = rootView.findViewById(R.id.frg_mhs_pa_cardview_monev);

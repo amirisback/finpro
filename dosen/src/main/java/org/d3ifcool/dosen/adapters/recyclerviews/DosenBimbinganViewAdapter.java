@@ -73,7 +73,7 @@ public class DosenBimbinganViewAdapter extends RecyclerView.Adapter<DosenBimbing
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentData = new Intent(context, DosenBimbinganInfoFragment.class);
+                Intent intentData = new Intent(context, DosenMahasiswaBimbinganDetailActivity.class);
                 context.startActivity(intentData);
             }
         });

@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
+import org.d3ifcool.dosen.activities.details.DosenBimbinganInfoActivity;
 import org.d3ifcool.dosen.activities.details.DosenMahasiswaBimbinganDetailActivity;
+import org.d3ifcool.dosen.fragments.DosenBimbinganInfoFragment;
 import org.d3ifcool.service.models.Judul;
 
 import java.util.ArrayList;
@@ -72,7 +74,7 @@ public class DosenPaBimbinganViewAdapter extends RecyclerView.Adapter<DosenPaBim
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentData = new Intent(context, DosenMahasiswaBimbinganDetailActivity.class);
+                Intent intentData = new Intent(context, DosenBimbinganInfoActivity.class);
 //                Mahasiswa parcelInfo = data.get(position);
 //                intentData.putExtra(DosenMahasiswaBimbinganDetailActivity.EXTRA_MAHASISWA, parcelInfo);
                 context.startActivity(intentData);

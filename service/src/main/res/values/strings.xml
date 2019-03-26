@@ -194,6 +194,7 @@
     <string name="text_progress_dialog">Tunggu Sebentar . . .</string>
     <string name="textview_dosen_kode">HMU</string>
     <string name="title_kategori_judul_pa">Kategori Judul PA</string>
+    <string name="act_dsn_mone_edittext_nilai">Nilai Monev</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

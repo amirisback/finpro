@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -92,7 +95,8 @@
         android:id="@+id/act_mhs_pa_bimbingan_detail_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/content_item_mahasiswa_pa_bimbingan">
-    </androidx.recyclerview.widget.RecyclerView>
+        tools:listitem="@layout/content_item_mahasiswa_pa_bimbingan"></androidx.recyclerview.widget.RecyclerView>
+
 
 </LinearLayout>
+</ScrollView>

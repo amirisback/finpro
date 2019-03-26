@@ -54,7 +54,37 @@
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:hint="Masukkan Review Monev"
-            android:layout_marginBottom="@dimen/dimen_big_ultra"/>
+            android:layout_marginBottom="@dimen/dimen_medium"/>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_marginStart="@dimen/dimen_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_big_ultra"
+                android:text="@string/act_dsn_mone_edittext_nilai"
+                android:layout_marginBottom="@dimen/dimen_medium"
+                android:textSize="@dimen/text_size_title_small"
+                android:textColor="@color/colorPrimary"/>
+
+            <EditText
+                android:layout_toRightOf="@id/text"
+                android:background="@drawable/circle_border_nilai_monev"
+                android:id="@+id/act_dsn_edittext_nilai_monev"
+                android:layout_width="match_parent"
+                android:padding="@dimen/dimen_big_super"
+                android:layout_marginRight="110dp"
+                android:layout_marginLeft="@dimen/dimen_big_ultra"
+                android:layout_height="120dp"
+                android:inputType="number"
+                android:hint="Nilai Monev"
+                android:layout_marginBottom="@dimen/dimen_big_ultra"/>
+        </RelativeLayout>
 
         <Button
             android:id="@+id/act_dsn_info_button_simpan"
