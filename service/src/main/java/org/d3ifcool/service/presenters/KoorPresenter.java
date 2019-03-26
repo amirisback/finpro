@@ -1,8 +1,11 @@
 package org.d3ifcool.service.presenters;
 
+import org.d3ifcool.service.interfaces.lists.KoorListView;
+import org.d3ifcool.service.interfaces.objects.KoorView;
+import org.d3ifcool.service.interfaces.works.KoorWorkView;
 import org.d3ifcool.service.models.KoordinatorPa;
-import org.d3ifcool.service.network.bridge.ApiClient;
-import org.d3ifcool.service.network.api.ApiInterfaceKoorPa;
+import org.d3ifcool.service.networks.bridge.ApiClient;
+import org.d3ifcool.service.networks.api.ApiInterfaceKoor;
 
 import java.util.List;
 
@@ -25,10 +28,25 @@ import retrofit2.Response;
  */
 public class KoorPresenter {
 
+    private KoorView viewObject;
+    private KoorListView viewResult;
+    private KoorWorkView viewEditor;
 
-    public void createAdmin(String koor_nip , String koor_nama , String koor_kontak, String koor_foto, String koor_email){
-        ApiInterfaceKoorPa interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoorPa.class);
-        Call<KoordinatorPa>call = interfaceAdmin.createAdmin(koor_nip,koor_nama,koor_kontak,koor_foto,koor_email);
+    public KoorPresenter(KoorView viewObject) {
+        this.viewObject = viewObject;
+    }
+
+    public KoorPresenter(KoorListView viewResult) {
+        this.viewResult = viewResult;
+    }
+
+    public KoorPresenter(KoorWorkView viewEditor) {
+        this.viewEditor = viewEditor;
+    }
+
+    public void createKoor(String koor_nip , String koor_nama , String koor_kontak, String koor_foto, String koor_email){
+        ApiInterfaceKoor interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
+        Call<KoordinatorPa>call = interfaceAdmin.createKoor(koor_nip,koor_nama,koor_kontak,koor_foto,koor_email);
         call.enqueue(new Callback<KoordinatorPa>() {
             @Override
             public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
@@ -42,9 +60,9 @@ public class KoorPresenter {
         });
     }
 
-    public void updateAdmin(String koor_nip , String koor_nama , String koor_kontak, String koor_foto, String koor_email){
-        ApiInterfaceKoorPa interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoorPa.class);
-        Call<KoordinatorPa>call = interfaceAdmin.updateAdmin(koor_nip,koor_nama,koor_kontak,koor_foto,koor_email);
+    public void updateKoor(String koor_nip , String koor_nama , String koor_kontak, String koor_foto, String koor_email){
+        ApiInterfaceKoor interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
+        Call<KoordinatorPa>call = interfaceAdmin.updateKoor(koor_nip,koor_nama,koor_kontak,koor_foto,koor_email);
         call.enqueue(new Callback<KoordinatorPa>() {
             @Override
             public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
@@ -58,9 +76,9 @@ public class KoorPresenter {
         });
     }
 
-    public void getAdmin(){
-        ApiInterfaceKoorPa interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoorPa.class);
-        Call<List<KoordinatorPa>> call = interfaceAdmin.getAdmin();
+    public void getKoor(){
+        ApiInterfaceKoor interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
+        Call<List<KoordinatorPa>> call = interfaceAdmin.getKoor();
         call.enqueue(new Callback<List<KoordinatorPa>>() {
             @Override
             public void onResponse(Call<List<KoordinatorPa>> call, Response<List<KoordinatorPa>> response) {
@@ -75,9 +93,9 @@ public class KoorPresenter {
 
     }
 
-    public void deleteAdmin(String koor_nip){
-        ApiInterfaceKoorPa apiInterfaceKoorPa = ApiClient.getApiClient().create(ApiInterfaceKoorPa.class);
-        Call<KoordinatorPa>call = apiInterfaceKoorPa.deleteAdmin(koor_nip);
+    public void deleteKoor(String koor_nip){
+        ApiInterfaceKoor apiInterfaceKoorPa = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
+        Call<KoordinatorPa>call = apiInterfaceKoorPa.deleteKoor(koor_nip);
         call.enqueue(new Callback<KoordinatorPa>() {
             @Override
             public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
@@ -90,5 +108,24 @@ public class KoorPresenter {
             }
         });
     }
+
+    public void getKoorByParameter(String koor_nip){
+        ApiInterfaceKoor apiInterfaceKoorPa = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
+        Call<KoordinatorPa> call = apiInterfaceKoorPa.getKoorByParameter(koor_nip);
+        call.enqueue(new Callback<KoordinatorPa>() {
+            @Override
+            public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
+                viewObject.hideProgress();
+                viewObject.onGetObjectKoor(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<KoordinatorPa> call, Throwable t) {
+                viewObject.hideProgress();
+                viewObject.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
+
 }
 

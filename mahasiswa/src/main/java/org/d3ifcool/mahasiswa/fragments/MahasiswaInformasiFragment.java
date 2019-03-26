@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.MahasiswaInformasiViewAdapter;
-import org.d3ifcool.service.interfaces.InformasiViewResult;
+import org.d3ifcool.service.interfaces.lists.InformasiListView;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.service.presenters.InformasiPresenter;
 
@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MahasiswaInformasiFragment extends Fragment implements InformasiViewResult {
+public class MahasiswaInformasiFragment extends Fragment implements InformasiListView {
 
     private ArrayList<Informasi> arrayList = new ArrayList<>();
     private MahasiswaInformasiViewAdapter adapter;
@@ -51,7 +51,7 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiVie
         swipeRefreshLayout = rootView.findViewById(R.id.frg_mhs_info_swiperefresh);
 
         adapter = new MahasiswaInformasiViewAdapter(getContext());
-        presenter = new InformasiPresenter(this, getContext());
+        presenter = new InformasiPresenter(this);
 
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
@@ -85,7 +85,7 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiVie
     }
 
     @Override
-    public void onGetResult(List<Informasi> informasi) {
+    public void onGetListInformasi(List<Informasi> informasi) {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         arrayList.clear();
         arrayList.addAll(informasi);
@@ -98,7 +98,7 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiVie
     }
 
     @Override
-    public void onErrorLoading(String message) {
+    public void onFailed(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 }

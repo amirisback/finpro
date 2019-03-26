@@ -17,14 +17,14 @@ import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.InformasiViewEditor;
+import org.d3ifcool.service.interfaces.works.InformasiWorkView;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.dosen.activities.editors.DosenInformasiUbahActivity;
 import org.d3ifcool.service.presenters.InformasiPresenter;
 
-import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 
-public class DosenInformasiDetailActivity extends AppCompatActivity implements InformasiViewEditor {
+public class DosenInformasiDetailActivity extends AppCompatActivity implements InformasiWorkView {
 
     public static final String EXTRA_INFORMASI = "extra_informasi";
     private Informasi extraInfo;
@@ -62,7 +62,7 @@ public class DosenInformasiDetailActivity extends AppCompatActivity implements I
         textView_dosen.setText(dosen);
         Picasso.get().load(URL_FOTO_DOSEN+foto).into(imageView_foto);
 
-        presenter = new InformasiPresenter(this, DosenInformasiDetailActivity.this);
+        presenter = new InformasiPresenter(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 

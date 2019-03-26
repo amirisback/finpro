@@ -14,10 +14,10 @@ import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
+import org.d3ifcool.service.interfaces.works.JudulWorkView;
 import org.d3ifcool.service.presenters.JudulPresenter;
 
-public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implements JudulPaSubDosenViewEditor {
+public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implements JudulWorkView {
     private Spinner spinner_kategori;
     private EditText et_judul, et_deskripsi;
     private Button btn_simpan;
@@ -38,7 +38,7 @@ public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implem
         setTitle(R.string.title_judulpa_dosen_tambah);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        presenter = new JudulPresenter(this, DosenJudulPaSubdosenTambahActivity.this);
+        presenter = new JudulPresenter(this);
 
         sessionManager = new SessionManager(this);
         dialog = new ProgressDialog(this);

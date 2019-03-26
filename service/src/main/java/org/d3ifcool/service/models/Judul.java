@@ -27,7 +27,7 @@ public class Judul implements Parcelable {
 
     @Expose
     @SerializedName("judul_id")
-    int id;
+    private int id;
 
     @Expose
     @SerializedName("judul_nama")
@@ -47,19 +47,19 @@ public class Judul implements Parcelable {
 
     @Expose
     @SerializedName("judul_status")
-    private String tersedia;
+    private String judul_status;
 
     @Expose
     @SerializedName("dsn_nip")
     private String nip_dosen;
 
-    public Judul(int id, String judul, String kategori_id, String kategori_nama, String deskripsi, String tersedia, String nip_dosen) {
+    public Judul(int id, String judul, String kategori_id, String kategori_nama, String deskripsi, String judul_status, String nip_dosen) {
         this.id = id;
         this.judul = judul;
         this.kategori_id = kategori_id;
         this.kategori_nama = kategori_nama;
         this.deskripsi = deskripsi;
-        this.tersedia = tersedia;
+        this.judul_status = judul_status;
         this.nip_dosen = nip_dosen;
     }
 
@@ -103,12 +103,12 @@ public class Judul implements Parcelable {
         this.deskripsi = deskripsi;
     }
 
-    public String getTersedia() {
-        return tersedia;
+    public String getJudul_status() {
+        return judul_status;
     }
 
-    public void setTersedia(String tersedia) {
-        this.tersedia = tersedia;
+    public void setJudul_status(String judul_status) {
+        this.judul_status = judul_status;
     }
 
     public String getNip_dosen() {
@@ -119,36 +119,37 @@ public class Judul implements Parcelable {
         this.nip_dosen = nip_dosen;
     }
 
-    protected Judul(Parcel in) {
-        id = in.readInt();
-        judul = in.readString();
-        kategori_id = in.readString();
-        kategori_nama = in.readString();
-        deskripsi = in.readString();
-        tersedia = in.readString();
-        nip_dosen = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
-        dest.writeString(judul);
-        dest.writeString(kategori_id);
-        dest.writeString(kategori_nama);
-        dest.writeString(deskripsi);
-        dest.writeString(tersedia);
-        dest.writeString(nip_dosen);
-    }
 
     @Override
     public int describeContents() {
         return 0;
     }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.id);
+        dest.writeString(this.judul);
+        dest.writeString(this.kategori_id);
+        dest.writeString(this.kategori_nama);
+        dest.writeString(this.deskripsi);
+        dest.writeString(this.judul_status);
+        dest.writeString(this.nip_dosen);
+    }
+
+    protected Judul(Parcel in) {
+        this.id = in.readInt();
+        this.judul = in.readString();
+        this.kategori_id = in.readString();
+        this.kategori_nama = in.readString();
+        this.deskripsi = in.readString();
+        this.judul_status = in.readString();
+        this.nip_dosen = in.readString();
+    }
+
     public static final Creator<Judul> CREATOR = new Creator<Judul>() {
         @Override
-        public Judul createFromParcel(Parcel in) {
-            return new Judul(in);
+        public Judul createFromParcel(Parcel source) {
+            return new Judul(source);
         }
 
         @Override

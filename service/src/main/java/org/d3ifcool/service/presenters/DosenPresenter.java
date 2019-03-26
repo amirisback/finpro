@@ -1,12 +1,11 @@
 package org.d3ifcool.service.presenters;
 
-import android.content.Context;
-
-import org.d3ifcool.service.interfaces.DosenViewEditor;
-import org.d3ifcool.service.interfaces.DosenViewResult;
+import org.d3ifcool.service.interfaces.objects.DosenView;
+import org.d3ifcool.service.interfaces.works.DosenWorkView;
+import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.models.Dosen;
-import org.d3ifcool.service.network.bridge.ApiClient;
-import org.d3ifcool.service.network.api.ApiInterfaceDosen;
+import org.d3ifcool.service.networks.bridge.ApiClient;
+import org.d3ifcool.service.networks.api.ApiInterfaceDosen;
 
 import java.util.List;
 
@@ -29,18 +28,20 @@ import retrofit2.Response;
  */
 public class DosenPresenter {
 
-    private DosenViewResult viewResult;
-    private DosenViewEditor viewEditor;
-    private Context context;
+    private DosenListView viewResult;
+    private DosenWorkView viewEditor;
+    private DosenView viewObject;
 
-    public DosenPresenter(DosenViewResult viewResult, Context context) {
+    public DosenPresenter(DosenListView viewResult) {
         this.viewResult = viewResult;
-        this.context = context;
     }
 
-    public DosenPresenter(DosenViewEditor viewEditor, Context context) {
+    public DosenPresenter(DosenWorkView viewEditor) {
         this.viewEditor = viewEditor;
-        this.context = context;
+    }
+
+    public DosenPresenter(DosenView viewObject) {
+        this.viewObject = viewObject;
     }
 
     public void getDosen(){
@@ -52,13 +53,13 @@ public class DosenPresenter {
             @Override
             public void onResponse(Call<List<Dosen>> call, Response<List<Dosen>> response) {
                 viewResult.hideProgress();
-                viewResult.onGetResultDataDosen(response.body());
+                viewResult.onGetListDosen(response.body());
             }
 
             @Override
             public void onFailure(Call<List<Dosen>> call, Throwable t) {
                 viewResult.hideProgress();
-                viewResult.onErrorLoading(t.getMessage());
+                viewResult.onFailed(t.getMessage());
             }
         });
     }
@@ -122,4 +123,23 @@ public class DosenPresenter {
             }
         });
     }
+
+    public void getDosenByParameter(String dsn_nip){
+        ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
+        Call<Dosen> call = apiInterfaceDosen.getDosenByParameter(dsn_nip);
+        call.enqueue(new Callback<Dosen>() {
+            @Override
+            public void onResponse(Call<Dosen> call, Response<Dosen> response) {
+                viewObject.hideProgress();
+                viewObject.onGetObjectDosen(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Dosen> call, Throwable t) {
+                viewObject.hideProgress();
+                viewObject.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
+
 }

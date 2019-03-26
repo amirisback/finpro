@@ -23,31 +23,31 @@ public class KoordinatorPa implements Parcelable {
 
     @Expose
     @SerializedName("koor_nip")
-    String koor_nip;
+    private String koor_nip;
 
     @Expose
     @SerializedName("koor_nama")
-    String koor_nama;
+    private String koor_nama;
 
     @Expose
     @SerializedName("koor_kode")
-    String koor_kode;
+    private String koor_kode;
 
     @Expose
     @SerializedName("koor_kontak")
-    String koor_kontak;
+    private String koor_kontak;
 
     @Expose
     @SerializedName("koor_foto")
-    String koor_foto;
+    private String koor_foto;
 
     @Expose
     @SerializedName("koor_email")
-    String koor_email;
+    private String koor_email;
 
     @Expose
     @SerializedName("username")
-    String username;
+    private String username;
 
     public KoordinatorPa(String koor_nip, String koor_nama, String koor_kode, String koor_kontak, String koor_foto, String koor_email, String username) {
         this.koor_nip = koor_nip;

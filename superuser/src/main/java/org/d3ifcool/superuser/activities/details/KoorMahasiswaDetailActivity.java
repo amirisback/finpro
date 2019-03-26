@@ -15,18 +15,15 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import org.d3ifcool.service.interfaces.MahasiswaViewEditor;
-import org.d3ifcool.service.models.Informasi;
+import org.d3ifcool.service.interfaces.works.MahasiswaWorkView;
 import org.d3ifcool.service.models.Mahasiswa;
 import org.d3ifcool.service.presenters.MahasiswaPresenter;
 import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.activities.editors.KoorMahasiswaUbahActivity;
 
-import java.util.ArrayList;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
 
-import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
-
-public class KoorMahasiswaDetailActivity extends AppCompatActivity implements MahasiswaViewEditor {
+public class KoorMahasiswaDetailActivity extends AppCompatActivity implements MahasiswaWorkView {
     public static final String EXTRA_MAHASISWA = "extra_mahasiswa";
     private Mahasiswa extraMahasiswa;
     private MahasiswaPresenter presenter;
@@ -44,7 +41,7 @@ public class KoorMahasiswaDetailActivity extends AppCompatActivity implements Ma
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0f);
 
-        presenter = new MahasiswaPresenter(this, KoorMahasiswaDetailActivity.this);
+        presenter = new MahasiswaPresenter(this);
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.text_progress_dialog));
 

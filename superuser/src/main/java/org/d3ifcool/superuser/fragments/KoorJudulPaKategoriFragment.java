@@ -40,10 +40,10 @@ public class KoorJudulPaKategoriFragment extends Fragment {
         recyclerView = rootView.findViewById(R.id.frg_koor_judul_kategori_rv);
         btn_edit = content.findViewById(R.id.ctn_koor_button_edit);
         KoorJudulPaKategoriViewAdapter adapter = new KoorJudulPaKategoriViewAdapter(getContext());
-        kategori.add(new Kategori("Android"));
-        kategori.add(new Kategori("Website"));
-        kategori.add(new Kategori("Game"));
-        kategori.add(new Kategori("IOT"));
+        kategori.add(new Kategori(1,"Android"));
+        kategori.add(new Kategori(2,"Website"));
+        kategori.add(new Kategori(3,"Game"));
+        kategori.add(new Kategori(4,"IOT"));
         adapter.setJudul(kategori);
         adapter.setLayoutType(R.layout.content_item_kategori_judul_pa);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

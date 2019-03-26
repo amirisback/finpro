@@ -12,12 +12,11 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.activities.editors.DosenInformasiTambahActivity;
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.interfaces.InformasiViewResult;
+import org.d3ifcool.service.interfaces.lists.InformasiListView;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenInformasiViewAdapter;
 import org.d3ifcool.service.presenters.InformasiPresenter;
@@ -29,7 +28,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DosenInformasiFragment extends Fragment implements InformasiViewResult {
+public class DosenInformasiFragment extends Fragment implements InformasiListView {
 
     private ArrayList<Informasi> arrayList = new ArrayList<>();
     private DosenInformasiViewAdapter adapter;
@@ -52,7 +51,7 @@ public class DosenInformasiFragment extends Fragment implements InformasiViewRes
 
         recyclerView = rootView.findViewById(R.id.frg_dsn_info_home_recyclerview);
         adapter = new DosenInformasiViewAdapter(getContext());
-        presenter = new InformasiPresenter(this, getContext());
+        presenter = new InformasiPresenter(this);
         progressDialog = new ProgressDialog(getContext());
         swipeRefreshLayout = rootView.findViewById(R.id.frg_dsn_info_home_swiperefresh);
 
@@ -98,7 +97,7 @@ public class DosenInformasiFragment extends Fragment implements InformasiViewRes
     }
 
     @Override
-    public void onGetResult(List<Informasi> informasi) {
+    public void onGetListInformasi(List<Informasi> informasi) {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         arrayList.clear();
         arrayList.addAll(informasi);
@@ -118,7 +117,7 @@ public class DosenInformasiFragment extends Fragment implements InformasiViewRes
     }
 
     @Override
-    public void onErrorLoading(String message) {
+    public void onFailed(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 }

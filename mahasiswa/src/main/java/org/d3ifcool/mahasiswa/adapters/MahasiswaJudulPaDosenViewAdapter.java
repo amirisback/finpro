@@ -37,7 +37,6 @@ public class MahasiswaJudulPaDosenViewAdapter extends RecyclerView.Adapter<Mahas
 
     private Context context;
     private ArrayList<Judul> data;
-    private ArrayList<Kategori> kategoris;
     private int layoutType;
 
     public MahasiswaJudulPaDosenViewAdapter(Context context) {
@@ -70,12 +69,14 @@ public class MahasiswaJudulPaDosenViewAdapter extends RecyclerView.Adapter<Mahas
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.judul.setText(data.get(position).getJudul());
-        holder.kategori.setText(kategoris.get(position).getKategori());
-        holder.jumlah.setText(data.get(position).getTersedia());
+        holder.kategori.setText(data.get(position).getKategori_nama());
+        holder.jumlah.setText(data.get(position).getJudul_status());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentData = new Intent(context, MahasiswaJudulPaDosenDetailActivity.class);
+                Judul parcelJudul = data.get(position);
+                intentData.putExtra(MahasiswaJudulPaDosenDetailActivity.EXTRA_JUDUL, parcelJudul);
                 context.startActivity(intentData);
             }
         });

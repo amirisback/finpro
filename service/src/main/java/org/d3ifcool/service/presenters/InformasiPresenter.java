@@ -1,11 +1,11 @@
 package org.d3ifcool.service.presenters;
 
 import android.content.Context;
-import org.d3ifcool.service.interfaces.InformasiViewEditor;
-import org.d3ifcool.service.interfaces.InformasiViewResult;
+import org.d3ifcool.service.interfaces.works.InformasiWorkView;
+import org.d3ifcool.service.interfaces.lists.InformasiListView;
 import org.d3ifcool.service.models.Informasi;
-import org.d3ifcool.service.network.bridge.ApiClient;
-import org.d3ifcool.service.network.api.ApiInterfaceInformasi;
+import org.d3ifcool.service.networks.bridge.ApiClient;
+import org.d3ifcool.service.networks.api.ApiInterfaceInformasi;
 
 import java.util.List;
 
@@ -27,18 +27,15 @@ import retrofit2.Response;
  * -----------------------------------------
  */
 public class InformasiPresenter {
-    private InformasiViewEditor viewEditor;
-    private InformasiViewResult viewResult;
-    private Context context;
+    private InformasiWorkView viewEditor;
+    private InformasiListView viewResult;
 
-    public InformasiPresenter(InformasiViewEditor view, Context context) {
+    public InformasiPresenter(InformasiWorkView view) {
         this.viewEditor = view;
-        this.context = context;
     }
 
-    public InformasiPresenter(InformasiViewResult viewMain, Context context) {
+    public InformasiPresenter(InformasiListView viewMain) {
         this.viewResult = viewMain;
-        this.context = context;
     }
 
     public void createInformasi (String informasi_judul, String informasi_isi, String penerbit) {
@@ -109,13 +106,13 @@ public class InformasiPresenter {
             @Override
             public void onResponse(Call<List<Informasi>> call, Response<List<Informasi>> response) {
                 viewResult.hideProgress();
-                viewResult.onGetResult(response.body());
+                viewResult.onGetListInformasi(response.body());
             }
 
             @Override
             public void onFailure(Call<List<Informasi>> call, Throwable t) {
                 viewResult.hideProgress();
-                viewResult.onErrorLoading(t.getLocalizedMessage());
+                viewResult.onFailed(t.getLocalizedMessage());
             }
         });
     }

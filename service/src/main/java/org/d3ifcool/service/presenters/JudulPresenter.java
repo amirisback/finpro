@@ -2,11 +2,11 @@ package org.d3ifcool.service.presenters;
 
 import android.content.Context;
 
-import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
-import org.d3ifcool.service.interfaces.JudulPaSubDosenViewResult;
+import org.d3ifcool.service.interfaces.works.JudulWorkView;
+import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.network.bridge.ApiClient;
-import org.d3ifcool.service.network.api.ApiInterfaceJudul;
+import org.d3ifcool.service.networks.bridge.ApiClient;
+import org.d3ifcool.service.networks.api.ApiInterfaceJudul;
 
 import java.util.List;
 
@@ -29,19 +29,15 @@ import retrofit2.Response;
  */
 public class JudulPresenter {
 
-    private JudulPaSubDosenViewEditor viewEditor;
-    private JudulPaSubDosenViewResult viewResult;
-    private Context context;
+    private JudulWorkView viewEditor;
+    private JudulListView viewResult;
 
-
-    public JudulPresenter(JudulPaSubDosenViewEditor viewEditor, Context context) {
+    public JudulPresenter(JudulWorkView viewEditor) {
         this.viewEditor = viewEditor;
-        this.context = context;
     }
 
-    public JudulPresenter(JudulPaSubDosenViewResult viewResult, Context context) {
+    public JudulPresenter(JudulListView viewResult) {
         this.viewResult = viewResult;
-        this.context = context;
     }
 
     public void createJudul (String judul_nama, String judul_kategori, String judul_deskripsi, String nip_dosen){
@@ -92,32 +88,32 @@ public class JudulPresenter {
             @Override
             public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
                 viewResult.hideProgress();
-                viewResult.onGetResult(response.body());
+                viewResult.onGetListJudul(response.body());
             }
 
             @Override
             public void onFailure(Call<List<Judul>> call, Throwable t) {
                 viewResult.hideProgress();
-                viewResult.onErrorLoading(t.getLocalizedMessage());
+                viewResult.onFailed(t.getLocalizedMessage());
             }
         });
     }
 
-    public void getJudulSortByDosen(String dsn_nama) {
+    public void getJudulSearch(String parameter, String query) {
         viewResult.showProgress();
         ApiInterfaceJudul apiInterfaceJudul = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
-        Call<List<Judul>> call = apiInterfaceJudul.getJudulSortByDosen(dsn_nama);
+        Call<List<Judul>> call = apiInterfaceJudul.getJudulSearch(parameter,query);
         call.enqueue(new Callback<List<Judul>>() {
             @Override
             public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
                 viewResult.hideProgress();
-                viewResult.onGetResult(response.body());
+                viewResult.onGetListJudul(response.body());
             }
 
             @Override
             public void onFailure(Call<List<Judul>> call, Throwable t) {
                 viewResult.hideProgress();
-                viewResult.onErrorLoading(t.getLocalizedMessage());
+                viewResult.onFailed(t.getMessage());
             }
         });
     }

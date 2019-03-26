@@ -12,14 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.d3ifcool.service.interfaces.DosenViewEditor;
+import org.d3ifcool.service.interfaces.works.DosenWorkView;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.presenters.DosenPresenter;
 import org.d3ifcool.superuser.R;
 
 import java.util.ArrayList;
 
-public class KoorDosenTambahActivity extends AppCompatActivity implements DosenViewEditor {
+public class KoorDosenTambahActivity extends AppCompatActivity implements DosenWorkView {
 
     private ArrayList<Dosen> dosens = new ArrayList<>();
     private DosenPresenter presenter;
@@ -44,7 +44,7 @@ public class KoorDosenTambahActivity extends AppCompatActivity implements DosenV
         btn_simpan = findViewById(R.id.act_koor_dosen_button_simpan);
 
 
-        presenter = new DosenPresenter(this, KoorDosenTambahActivity.this);
+        presenter = new DosenPresenter(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 

@@ -23,31 +23,31 @@ public class Notifikasi implements Parcelable {
 
     @Expose
     @SerializedName("notifikasi_id")
-    String notifikasi_id;
+    private String notifikasi_id;
 
     @Expose
     @SerializedName("token_pesan")
-    String token_pesan;
+    private String token_pesan;
 
     @Expose
     @SerializedName("dari")
-    String dari;
+    private String dari;
 
     @Expose
     @SerializedName("untuk")
-    String untuk;
+    private String untuk;
 
     @Expose
     @SerializedName("info_kategori")
-    String info_kategori;
+    private String info_kategori;
 
     @Expose
     @SerializedName("deskripsi")
-    String deskripsi;
+    private String deskripsi;
 
     @Expose
     @SerializedName("status")
-    String status;
+    private String status;
 
 
     public Notifikasi(String notifikasi_id, String token_pesan, String dari, String untuk, String info_kategori, String deskripsi, String status) {

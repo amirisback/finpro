@@ -9,10 +9,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Mahasiswa;
 import org.d3ifcool.superuser.R;
-import org.d3ifcool.superuser.activities.details.KoorDosenDetailActivity;
 import org.d3ifcool.superuser.activities.details.KoorMahasiswaDetailActivity;
 
 import java.util.ArrayList;
@@ -21,8 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
-import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
 
 /**
  * Created by Faisal Amir

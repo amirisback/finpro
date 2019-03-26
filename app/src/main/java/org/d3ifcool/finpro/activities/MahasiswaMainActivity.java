@@ -14,17 +14,17 @@ import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.finpro.adapters.MahasiswaPagerAdapter;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPemberitahuanActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaProfilActivity;
-import org.d3ifcool.service.interfaces.MahasiswaLoginView;
+import org.d3ifcool.service.interfaces.objects.MahasiswaView;
 import org.d3ifcool.service.models.Mahasiswa;
-import org.d3ifcool.service.presenters.DataLoginPresenter;
+import org.d3ifcool.service.presenters.MahasiswaPresenter;
 
-public class MahasiswaMainActivity extends AppCompatActivity implements MahasiswaLoginView {
+public class MahasiswaMainActivity extends AppCompatActivity implements MahasiswaView {
 
     private MenuItem prevMenuItem = null;
     private ViewPager mViewPager;
     private BottomNavigationView bottomNavigationView;
     private SessionManager sessionManager;
-    private DataLoginPresenter presenter;
+    private MahasiswaPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +39,8 @@ public class MahasiswaMainActivity extends AppCompatActivity implements Mahasisw
         MahasiswaPagerAdapter mPagerAdapter = new MahasiswaPagerAdapter(this, getSupportFragmentManager());
         mViewPager.setAdapter(mPagerAdapter);
         sessionManager = new SessionManager(this);
-        presenter = new DataLoginPresenter(this, MahasiswaMainActivity.this);
-        presenter.getDataMahasiswaLogin(sessionManager.getSessionUsername());
+        presenter = new MahasiswaPresenter(this);
+        presenter.getMahasiswaByParameter(sessionManager.getSessionUsername());
         // -----------------------------------------------------------------------------------------
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -146,12 +146,12 @@ public class MahasiswaMainActivity extends AppCompatActivity implements Mahasisw
     }
 
     @Override
-    public void onRequestSuccess(String message, Mahasiswa mahasiswa) {
+    public void onGetObjectMahasiswa(Mahasiswa mahasiswa) {
         sessionManager.createSessionDataMahasiswa(mahasiswa);
     }
 
     @Override
-    public void onRequestError(String message) {
+    public void onFailed(String message) {
 
     }
 

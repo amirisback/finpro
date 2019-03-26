@@ -8,13 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.models.Informasi;
-
-import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 
 public class MahasiswaInformasiDetailActivity extends AppCompatActivity {
 

@@ -13,12 +13,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.d3ifcool.service.interfaces.InformasiViewEditor;
+import org.d3ifcool.service.interfaces.works.InformasiWorkView;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.service.presenters.InformasiPresenter;
 import org.d3ifcool.superuser.R;
 
-public class KoorInformasiUbahActivity extends AppCompatActivity implements InformasiViewEditor {
+public class KoorInformasiUbahActivity extends AppCompatActivity implements InformasiWorkView {
     private EditText et_judul, et_isi;
     private Button btn_simpan;
     private InformasiPresenter presenter;
@@ -44,7 +44,7 @@ public class KoorInformasiUbahActivity extends AppCompatActivity implements Info
         et_isi.setText(isi);
 
         btn_simpan = findViewById(R.id.act_koor_info_button_simpan);
-        presenter = new InformasiPresenter(this, KoorInformasiUbahActivity.this);
+        presenter = new InformasiPresenter(this);
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.text_progress_dialog));
 

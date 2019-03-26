@@ -19,31 +19,31 @@ import android.view.MenuItem;
 
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.KoorLoginView;
+import org.d3ifcool.service.interfaces.objects.KoorView;
 import org.d3ifcool.service.models.KoordinatorPa;
-import org.d3ifcool.service.presenters.DataLoginPresenter;
+import org.d3ifcool.service.presenters.KoorPresenter;
 import org.d3ifcool.superuser.AdminPemberitahuanActivity;
 import org.d3ifcool.superuser.AdminProfilActivity;
 import org.d3ifcool.superuser.fragments.KoorDosenFragment;
 import org.d3ifcool.superuser.fragments.KoorInformasiFragment;
 import org.d3ifcool.superuser.fragments.KoorJudulPaKategoriFragment;
-import org.d3ifcool.superuser.fragments.KoorJudulPaSubdosenFragment;
+import org.d3ifcool.superuser.fragments.KoorJudulSubdosenFragment;
 import org.d3ifcool.superuser.fragments.KoorMahasiswaFragment;
 import org.d3ifcool.superuser.fragments.KoorProyekAkhirFragment;
 
 public class AdminMainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, KoorLoginView {
+        implements NavigationView.OnNavigationItemSelectedListener, KoorView {
 
     private KoorDosenFragment koorDosenFragment = new KoorDosenFragment();
     private KoorInformasiFragment koorInformasiFragment = new KoorInformasiFragment();
     private KoorMahasiswaFragment koorMahasiswaFragment = new KoorMahasiswaFragment();
-    private KoorJudulPaSubdosenFragment koorJudulPaSubdosenFragment = new KoorJudulPaSubdosenFragment();
+    private KoorJudulSubdosenFragment koorJudulPaSubdosenFragment = new KoorJudulSubdosenFragment();
     private KoorProyekAkhirFragment koorProyekAkhirFragment = new KoorProyekAkhirFragment();
     private KoorJudulPaKategoriFragment koorJudulPaKategoriFragment = new KoorJudulPaKategoriFragment();
 
     private SessionManager sessionManager;
 
-    private DataLoginPresenter presenter;
+    private KoorPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +58,12 @@ public class AdminMainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         sessionManager = new SessionManager(this);
-        presenter = new DataLoginPresenter(this, AdminMainActivity.this);
+        presenter = new KoorPresenter(this);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        presenter.getDataKoorLogin(sessionManager.getSessionUsername());
+        presenter.getKoorByParameter(sessionManager.getSessionUsername());
         setFragmentLayout(koorInformasiFragment);
         setTitle(getString(R.string.title_informasi));
 
@@ -162,12 +162,12 @@ public class AdminMainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onRequestSuccess(String message, KoordinatorPa koordinatorPa) {
+    public void onGetObjectKoor(KoordinatorPa koordinatorPa) {
         sessionManager.createSessionDataKoor(koordinatorPa);
     }
 
     @Override
-    public void onRequestError(String message) {
+    public void onFailed(String message) {
 
     }
 }

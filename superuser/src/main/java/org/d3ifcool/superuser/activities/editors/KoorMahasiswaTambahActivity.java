@@ -3,7 +3,6 @@ package org.d3ifcool.superuser.activities.editors;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,12 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.d3ifcool.service.interfaces.MahasiswaViewEditor;
-import org.d3ifcool.service.models.Mahasiswa;
+import org.d3ifcool.service.interfaces.works.MahasiswaWorkView;
 import org.d3ifcool.service.presenters.MahasiswaPresenter;
 import org.d3ifcool.superuser.R;
 
-public class KoorMahasiswaTambahActivity extends AppCompatActivity implements MahasiswaViewEditor {
+public class KoorMahasiswaTambahActivity extends AppCompatActivity implements MahasiswaWorkView {
 
     private MahasiswaPresenter presenter;
     private ProgressDialog dialog;
@@ -31,7 +29,7 @@ public class KoorMahasiswaTambahActivity extends AppCompatActivity implements Ma
         setTitle(getString(R.string.title_mahasiswa_tambah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        presenter = new MahasiswaPresenter(this, KoorMahasiswaTambahActivity.this);
+        presenter = new MahasiswaPresenter(this);
         dialog = new ProgressDialog(this);
 
         et_nim = findViewById(R.id.act_koor_edittext_nim_mahasiswa);

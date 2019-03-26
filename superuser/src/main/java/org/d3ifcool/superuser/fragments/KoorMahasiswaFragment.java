@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import org.d3ifcool.service.interfaces.MahasiswaViewResult;
+import org.d3ifcool.service.interfaces.lists.MahasiswaListView;
 import org.d3ifcool.service.models.Mahasiswa;
 import org.d3ifcool.service.presenters.MahasiswaPresenter;
 import org.d3ifcool.superuser.R;
@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class KoorMahasiswaFragment extends Fragment implements MahasiswaViewResult {
+public class KoorMahasiswaFragment extends Fragment implements MahasiswaListView {
     private RecyclerView recyclerView;
     private ArrayList<Mahasiswa> mhs = new ArrayList<>();
     private KoorMahasiswaViewAdapter adapter;
@@ -56,7 +56,7 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaViewResu
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
-        presenter = new MahasiswaPresenter(this ,getContext());
+        presenter = new MahasiswaPresenter(this);
         presenter.getMahasiswa();
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +93,7 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaViewResu
     }
 
     @Override
-    public void onGetResultDataMahasiswa(List<Mahasiswa> mahasiswa) {
+    public void onGetListMahasiswa(List<Mahasiswa> mahasiswa) {
         mhs.clear();
         mhs.addAll(mahasiswa);
         adapter = new KoorMahasiswaViewAdapter(getContext());
@@ -105,7 +105,7 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaViewResu
     }
 
     @Override
-    public void onErrorLoading(String message) {
+    public void onFailed(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 }

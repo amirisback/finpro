@@ -14,11 +14,11 @@ import android.widget.Toast;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editors.DosenJudulPaSubdosenUbahActivity;
 import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
+import org.d3ifcool.service.interfaces.works.JudulWorkView;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.presenters.JudulPresenter;
 
-public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implements JudulPaSubDosenViewEditor {
+public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implements JudulWorkView {
     public static final String EXTRA_INFORMASI = "extra_informasi";
     private TextView tv_judul,tv_kategori,tv_deskripsi;
     private Judul extradata;
@@ -44,7 +44,7 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
 //        tv_kategori.setText(kategori);
         tv_deskripsi.setText(deskripsi);
 
-        presenter = new JudulPresenter(this, DosenJudulPaSubdosenDetailActivity.this);
+        presenter = new JudulPresenter(this);
         dialog = new ProgressDialog(this);
         sessionManager = new SessionManager(this);
         dialog.setMessage(getString(R.string.text_progress_dialog));

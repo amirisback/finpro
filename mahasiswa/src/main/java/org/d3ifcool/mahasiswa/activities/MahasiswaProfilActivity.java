@@ -20,7 +20,7 @@ import com.squareup.picasso.Picasso;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.service.helpers.SessionManager;
 
-import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
 
 public class MahasiswaProfilActivity extends AppCompatActivity {
 

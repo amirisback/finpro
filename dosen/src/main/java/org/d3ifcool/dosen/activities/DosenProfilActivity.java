@@ -23,7 +23,7 @@ import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editors.DosenProfilUbahActivity;
 import org.d3ifcool.service.helpers.SessionManager;
 
-import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 
 public class DosenProfilActivity extends AppCompatActivity {
 

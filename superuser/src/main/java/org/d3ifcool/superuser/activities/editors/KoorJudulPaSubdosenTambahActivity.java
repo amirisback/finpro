@@ -7,7 +7,6 @@ import retrofit2.Response;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,19 +18,17 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import org.d3ifcool.service.interfaces.DosenViewResult;
-import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
+import org.d3ifcool.service.interfaces.works.JudulWorkView;
 import org.d3ifcool.service.models.Dosen;
-import org.d3ifcool.service.network.api.ApiInterfaceDosen;
-import org.d3ifcool.service.network.bridge.ApiClient;
-import org.d3ifcool.service.presenters.DosenPresenter;
+import org.d3ifcool.service.networks.api.ApiInterfaceDosen;
+import org.d3ifcool.service.networks.bridge.ApiClient;
 import org.d3ifcool.service.presenters.JudulPresenter;
 import org.d3ifcool.superuser.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity implements JudulPaSubDosenViewEditor {
+public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity implements JudulWorkView {
     private EditText et_judul, et_deskripsi;
     private Spinner sp_dosen, sp_kategori;
     private JudulPresenter presenter;
@@ -51,7 +48,7 @@ public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity impleme
         sp_kategori = findViewById(R.id.act_koor_judul_pa_spinner_kategori);
         btn_simpan = findViewById(R.id.act_koor_judul_pa_button_simpan);
 
-        presenter = new JudulPresenter(this, KoorJudulPaSubdosenTambahActivity.this);
+        presenter = new JudulPresenter(this);
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.text_progress_dialog));
 

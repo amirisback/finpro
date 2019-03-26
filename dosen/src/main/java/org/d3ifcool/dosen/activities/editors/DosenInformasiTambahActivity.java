@@ -13,10 +13,10 @@ import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.InformasiViewEditor;
+import org.d3ifcool.service.interfaces.works.InformasiWorkView;
 import org.d3ifcool.service.presenters.InformasiPresenter;
 
-public class DosenInformasiTambahActivity extends AppCompatActivity implements InformasiViewEditor {
+public class DosenInformasiTambahActivity extends AppCompatActivity implements InformasiWorkView {
 
     private ProgressDialog progressDialog;
     private InformasiPresenter presenter;
@@ -29,7 +29,7 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
 
         sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
-        presenter = new InformasiPresenter(this,DosenInformasiTambahActivity.this);
+        presenter = new InformasiPresenter(this);
 
         setTitle(R.string.title_informasi_tambah);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

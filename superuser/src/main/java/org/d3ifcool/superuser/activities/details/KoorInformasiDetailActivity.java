@@ -12,13 +12,13 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.d3ifcool.service.interfaces.InformasiViewEditor;
+import org.d3ifcool.service.interfaces.works.InformasiWorkView;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.service.presenters.InformasiPresenter;
 import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.activities.editors.KoorInformasiUbahActivity;
 
-public class KoorInformasiDetailActivity extends AppCompatActivity implements InformasiViewEditor {
+public class KoorInformasiDetailActivity extends AppCompatActivity implements InformasiWorkView {
 
     public static final String EXTRA_INFORMASI = "extra_informasi";
     private Informasi extraInfo;
@@ -32,7 +32,7 @@ public class KoorInformasiDetailActivity extends AppCompatActivity implements In
 
         setTitle(getString(org.d3ifcool.dosen.R.string.title_informasi_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        presenter = new InformasiPresenter(this, KoorInformasiDetailActivity.this);
+        presenter = new InformasiPresenter(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 

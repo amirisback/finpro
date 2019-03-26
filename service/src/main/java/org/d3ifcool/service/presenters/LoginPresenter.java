@@ -1,9 +1,9 @@
 package org.d3ifcool.service.presenters;
 
-import org.d3ifcool.service.interfaces.LoginView;
+import org.d3ifcool.service.interfaces.objects.LoginView;
 import org.d3ifcool.service.models.User;
-import org.d3ifcool.service.network.bridge.ApiClient;
-import org.d3ifcool.service.network.api.ApiInterfacesUser;
+import org.d3ifcool.service.networks.bridge.ApiClient;
+import org.d3ifcool.service.networks.api.ApiInterfaceUser;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,7 +36,7 @@ public class LoginPresenter {
 
     public void getLogin(String username, String password){
         view.showProgress();
-        ApiInterfacesUser apiInterface = ApiClient.getApiClient().create(ApiInterfacesUser.class);
+        ApiInterfaceUser apiInterface = ApiClient.getApiClient().create(ApiInterfaceUser.class);
         Call<User> call = apiInterface.setLogin(username, password);
         call.enqueue(new Callback<User>() {
             @Override
@@ -45,9 +45,9 @@ public class LoginPresenter {
                 if (response.isSuccessful() && response.body() != null){
                     boolean success = response.body().getSuccess();
                     if (success) {
-                        view.onRequestSuccess(response.body().getMessage(), response.body());
+                        view.onRequestSuccess(response.body());
                     } else {
-                        view.onRequestError(response.body().getMessage());
+                        view.onFailed(response.body().getMessage());
                     }
                 }
             }
@@ -55,7 +55,7 @@ public class LoginPresenter {
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 view.hideProgress();
-                view.onRequestError(t.getLocalizedMessage());
+                view.onFailed(t.getLocalizedMessage());
             }
         });
     }

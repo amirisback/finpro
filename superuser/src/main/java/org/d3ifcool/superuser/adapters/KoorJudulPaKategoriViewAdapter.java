@@ -52,7 +52,7 @@ public class KoorJudulPaKategoriViewAdapter extends RecyclerView.Adapter<KoorJud
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
-        holder.tv_kategori.setText(kategori.get(position).getKategori());
+        holder.tv_kategori.setText(kategori.get(position).getKategori_nama());
         holder.btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

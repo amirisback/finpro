@@ -12,13 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.d3ifcool.service.interfaces.DosenViewEditor;
+import org.d3ifcool.service.interfaces.works.DosenWorkView;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.presenters.DosenPresenter;
-import org.d3ifcool.service.presenters.InformasiPresenter;
 import org.d3ifcool.superuser.R;
 
-public class KoorDosenUbahActivity extends AppCompatActivity implements DosenViewEditor {
+public class KoorDosenUbahActivity extends AppCompatActivity implements DosenWorkView {
     private EditText et_nip, et_nama,et_kode, et_kontak, et_email;
     private Button btn_simpan;
     private DosenPresenter presenter;
@@ -30,7 +29,7 @@ public class KoorDosenUbahActivity extends AppCompatActivity implements DosenVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_dosen_ubah);
-        presenter = new DosenPresenter(this, KoorDosenUbahActivity.this);
+        presenter = new DosenPresenter(this);
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.text_progress_dialog));
 

@@ -10,16 +10,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.JudulPaSubDosenViewEditor;
+import org.d3ifcool.service.interfaces.works.JudulWorkView;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.presenters.JudulPresenter;
 
-public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implements JudulPaSubDosenViewEditor {
+public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implements JudulWorkView {
 
     public static final String EXTRA_INFORMASI = "extra_informasi";
     private Judul extradata;
@@ -51,7 +50,7 @@ public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implemen
         et_judul.setText(extra_judul);
         et_deskripsi.setText(extra_deskripsi);
 
-        presenter = new JudulPresenter(this, DosenJudulPaSubdosenUbahActivity.this);
+        presenter = new JudulPresenter(this);
 
         sessionManager = new SessionManager(this);
         dialog = new ProgressDialog(this);

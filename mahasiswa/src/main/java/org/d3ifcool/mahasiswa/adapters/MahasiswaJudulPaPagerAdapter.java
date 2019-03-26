@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.mahasiswa.fragments.MahasiswaJudulPaDosenFragment;
+import org.d3ifcool.mahasiswa.fragments.MahasiswaJudulDosenFragment;
 import org.d3ifcool.mahasiswa.fragments.MahasiswaJudulPaPengajuanFragment;
 
 /**
@@ -40,7 +40,7 @@ public class MahasiswaJudulPaPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new MahasiswaJudulPaDosenFragment();
+                return new MahasiswaJudulDosenFragment();
             case 1:
                 return new MahasiswaJudulPaPengajuanFragment();
             default:

@@ -14,17 +14,17 @@ import org.d3ifcool.dosen.activities.DosenProfilActivity;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.finpro.adapters.DosenPagerAdapter;
-import org.d3ifcool.service.interfaces.DosenLoginView;
+import org.d3ifcool.service.interfaces.objects.DosenView;
 import org.d3ifcool.service.models.Dosen;
-import org.d3ifcool.service.presenters.DataLoginPresenter;
+import org.d3ifcool.service.presenters.DosenPresenter;
 
-public class DosenMainActivity extends AppCompatActivity implements DosenLoginView {
+public class DosenMainActivity extends AppCompatActivity implements DosenView {
 
     private MenuItem prevMenuItem = null;
     private ViewPager mViewPager;
     private BottomNavigationView bottomNavigationView;
     private SessionManager sessionManager;
-    private DataLoginPresenter presenter;
+    private DosenPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +38,9 @@ public class DosenMainActivity extends AppCompatActivity implements DosenLoginVi
         bottomNavigationView = findViewById(R.id.act_dsn_home_bottom_navigation);
         DosenPagerAdapter mPagerAdapter = new DosenPagerAdapter(this, getSupportFragmentManager());
         mViewPager.setAdapter(mPagerAdapter);
-        presenter = new DataLoginPresenter(this, DosenMainActivity.this);
+        presenter = new DosenPresenter(this);
         sessionManager = new SessionManager(this);
-        presenter.getDataDosenLogin(sessionManager.getSessionUsername());
+        presenter.getDosenByParameter(sessionManager.getSessionUsername());
 
         // -----------------------------------------------------------------------------------------
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -144,12 +144,12 @@ public class DosenMainActivity extends AppCompatActivity implements DosenLoginVi
     }
 
     @Override
-    public void onRequestSuccess(String message, Dosen dosen) {
+    public void onGetObjectDosen(Dosen dosen) {
         sessionManager.createSessionDataDosen(dosen);
     }
 
     @Override
-    public void onRequestError(String message) {
+    public void onFailed(String message) {
 
     }
 }

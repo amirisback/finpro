@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.fragments.DosenJudulPaSubdosenFragment;
+import org.d3ifcool.dosen.fragments.DosenJudulSubdosenFragment;
 import org.d3ifcool.dosen.fragments.DosenJudulPaSubmahasiswaFragment;
 
 /**
@@ -40,7 +40,7 @@ public class DosenJudulPaPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new DosenJudulPaSubdosenFragment();
+                return new DosenJudulSubdosenFragment();
             case 1:
                 return new DosenJudulPaSubmahasiswaFragment();
             default:

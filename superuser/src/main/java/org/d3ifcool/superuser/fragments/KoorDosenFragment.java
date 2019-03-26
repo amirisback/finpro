@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import org.d3ifcool.service.interfaces.DosenViewResult;
+import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.presenters.DosenPresenter;
 import org.d3ifcool.superuser.R;
@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class KoorDosenFragment extends Fragment implements DosenViewResult {
+public class KoorDosenFragment extends Fragment implements DosenListView {
 
     private RecyclerView recyclerView;
     private ArrayList<Dosen> data_dosen = new ArrayList<>();
@@ -49,7 +49,7 @@ public class KoorDosenFragment extends Fragment implements DosenViewResult {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_koor_dosen, container, false);
-        presenter = new DosenPresenter(this, getContext());
+        presenter = new DosenPresenter(this);
         refreshLayout = view.findViewById(R.id.refresh);
         recyclerView = view.findViewById(R.id.frg_koor_dosen_home_recyclerview);
         floatingActionButton = view.findViewById(R.id.frg_koor_dosen_home_fab);
@@ -93,7 +93,7 @@ public class KoorDosenFragment extends Fragment implements DosenViewResult {
     }
 
     @Override
-    public void onGetResultDataDosen(List<Dosen> dosen) {
+    public void onGetListDosen(List<Dosen> dosen) {
         adapter = new KoorDosenViewAdapter(getContext());
         data_dosen.clear();
         data_dosen.addAll(dosen);
@@ -105,7 +105,7 @@ public class KoorDosenFragment extends Fragment implements DosenViewResult {
     }
 
     @Override
-    public void onErrorLoading(String message) {
+    public void onFailed(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 }

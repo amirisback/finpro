@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.LoginView;
+import org.d3ifcool.service.interfaces.objects.LoginView;
 import org.d3ifcool.service.models.User;
 import org.d3ifcool.service.presenters.LoginPresenter;
 
@@ -92,13 +92,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     @Override
-    public void onRequestSuccess(String message, User user) {
+    public void onRequestSuccess(User user) {
         sessionManager.createSession(user.getUsername(), user.getPengguna());
         checkUserLogin(user.getPengguna());
     }
 
     @Override
-    public void onRequestError(String message) {
+    public void onFailed(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

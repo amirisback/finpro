@@ -10,28 +10,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import org.d3ifcool.dosen.activities.details.DosenBimbinganDetailActivity;
-import org.d3ifcool.dosen.activities.editors.DosenBimbinganUbahActivity;
-import org.d3ifcool.dosen.activities.editors.DosenInformasiUbahActivity;
-import org.d3ifcool.service.interfaces.DosenViewEditor;
+import org.d3ifcool.service.interfaces.works.DosenWorkView;
 import org.d3ifcool.service.models.Dosen;
-import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.service.presenters.DosenPresenter;
-import org.d3ifcool.service.presenters.InformasiPresenter;
 import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.activities.editors.KoorDosenUbahActivity;
-import org.d3ifcool.superuser.activities.editors.KoorInformasiUbahActivity;
 
-import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
-import static org.d3ifcool.service.network.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 
-public class KoorDosenDetailActivity extends AppCompatActivity implements DosenViewEditor {
+public class KoorDosenDetailActivity extends AppCompatActivity implements DosenWorkView {
 
     public static final String EXTRA_DOSEN = "extra_dosen";
     private Dosen extraDosen;
@@ -50,7 +42,7 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenV
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0f);
 
-        presenter = new DosenPresenter(this, KoorDosenDetailActivity.this);
+        presenter = new DosenPresenter(this);
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.text_progress_dialog));
 

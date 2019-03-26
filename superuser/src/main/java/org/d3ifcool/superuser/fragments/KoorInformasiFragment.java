@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import org.d3ifcool.service.interfaces.InformasiViewResult;
+import org.d3ifcool.service.interfaces.lists.InformasiListView;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.service.presenters.InformasiPresenter;
 import org.d3ifcool.superuser.R;
@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class KoorInformasiFragment extends Fragment implements InformasiViewResult {
+public class KoorInformasiFragment extends Fragment implements InformasiListView {
 
     private RecyclerView rv_informasi;
     private FloatingActionButton fab_informasi;
@@ -52,7 +52,7 @@ public class KoorInformasiFragment extends Fragment implements InformasiViewResu
         View view = inflater.inflate(R.layout.fragment_koor_informasi, container, false);
         rv_informasi = view.findViewById(R.id.frg_koor_info_home_recyclerview);
         fab_informasi = view.findViewById(R.id.frg_koor_info_home_fab);
-        presenter = new InformasiPresenter(this, getContext());
+        presenter = new InformasiPresenter(this);
         swipeRefreshLayout = view.findViewById(R.id.frg_koor_info_home_swiperefresh);
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
@@ -92,7 +92,7 @@ public class KoorInformasiFragment extends Fragment implements InformasiViewResu
     }
 
     @Override
-    public void onGetResult(List<Informasi> informasi) {
+    public void onGetListInformasi(List<Informasi> informasi) {
         adapter = new KoorInformasiViewAdapter(getContext());
         rv_informasi.setLayoutManager(new LinearLayoutManager(getContext()));
         data.clear();
@@ -104,7 +104,7 @@ public class KoorInformasiFragment extends Fragment implements InformasiViewResu
     }
 
     @Override
-    public void onErrorLoading(String message) {
+    public void onFailed(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 }
