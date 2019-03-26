@@ -35,10 +35,10 @@ public class DosenPaBimbinganFragment extends Fragment {
         DosenPaBimbinganViewAdapter adapter = new DosenPaBimbinganViewAdapter(getContext());
 
         ArrayList<Judul> arrayList = new ArrayList<>();
-        arrayList.add(new Judul(1,"asdf","awe","asf","sda","ada"));
-        arrayList.add(new Judul(1,"asdf","awe","asf","sda","ada"));
-        arrayList.add(new Judul(1,"asdf","awe","asf","sda","ada"));
-        arrayList.add(new Judul(1,"asdf","awe","asf","sda","ada"));
+//        arrayList.add(new Judul(1,"asdf","awe","asf","sda","ada"));
+//        arrayList.add(new Judul(1,"asdf","awe","asf","sda","ada"));
+//        arrayList.add(new Judul(1,"asdf","awe","asf","sda","ada"));
+//        arrayList.add(new Judul(1,"asdf","awe","asf","sda","ada"));
         adapter.addItem(arrayList);
         adapter.setLayoutType(R.layout.content_item_dosen_pa_bimbingan);
 

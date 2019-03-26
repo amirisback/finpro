@@ -37,11 +37,11 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
 
         extradata = getIntent().getParcelableExtra(EXTRA_INFORMASI);
         String judul = extradata.getJudul();
-        String kategori = extradata.getKategori();
+//        String kategori = extradata.getKategori();
         String deskripsi = extradata.getDeskripsi();
 
         tv_judul.setText(judul);
-        tv_kategori.setText(kategori);
+//        tv_kategori.setText(kategori);
         tv_deskripsi.setText(deskripsi);
 
         presenter = new JudulPresenter(this, DosenJudulPaSubdosenDetailActivity.this);

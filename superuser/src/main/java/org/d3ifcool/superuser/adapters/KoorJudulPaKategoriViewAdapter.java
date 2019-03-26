@@ -67,7 +67,7 @@ public class KoorJudulPaKategoriViewAdapter extends RecyclerView.Adapter<KoorJud
 
                            }
                        })
-                        .setNegativeButton("batak",null)
+                        .setNegativeButton("batal",null)
                         .show();
 
             }

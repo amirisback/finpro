@@ -12,6 +12,7 @@ import android.widget.TextView;
 import org.d3ifcool.mahasiswa.activities.MahasiswaJudulPaDosenDetailActivity;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.service.models.Kategori;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,7 @@ public class MahasiswaJudulPaDosenViewAdapter extends RecyclerView.Adapter<Mahas
 
     private Context context;
     private ArrayList<Judul> data;
+    private ArrayList<Kategori> kategoris;
     private int layoutType;
 
     public MahasiswaJudulPaDosenViewAdapter(Context context) {
@@ -68,7 +70,7 @@ public class MahasiswaJudulPaDosenViewAdapter extends RecyclerView.Adapter<Mahas
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.judul.setText(data.get(position).getJudul());
-        holder.kategori.setText(data.get(position).getKategori());
+        holder.kategori.setText(kategoris.get(position).getKategori());
         holder.jumlah.setText(data.get(position).getTersedia());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

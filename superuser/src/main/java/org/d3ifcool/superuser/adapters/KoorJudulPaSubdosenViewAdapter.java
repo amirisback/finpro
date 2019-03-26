@@ -66,7 +66,7 @@ public class KoorJudulPaSubdosenViewAdapter extends RecyclerView.Adapter<KoorJud
     @Override
     public void onBindViewHolder(@NonNull KoorJudulPaSubdosenViewAdapter.ViewHolder holder, final int position) {
         holder.judulpa.setText(judul.get(position).getJudul());
-        holder.kategori.setText(judul.get(position).getKategori());
+//        holder.kategori.setText(judul.get(position).getKategori());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

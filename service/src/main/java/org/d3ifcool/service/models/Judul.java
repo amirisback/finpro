@@ -34,8 +34,12 @@ public class Judul implements Parcelable {
     private String judul;
 
     @Expose
-    @SerializedName("judul_kategori")
-    private String kategori;
+    @SerializedName("kategori_id")
+    private String kategori_id;
+
+    @Expose
+    @SerializedName("kategori_nama")
+    private String kategori_nama;
 
     @Expose
     @SerializedName("judul_deskripsi")
@@ -49,16 +53,15 @@ public class Judul implements Parcelable {
     @SerializedName("dsn_nip")
     private String nip_dosen;
 
-
-    public Judul(int id, String judul, String kategori, String deskripsi, String tersedia, String nip_dosen) {
+    public Judul(int id, String judul, String kategori_id, String kategori_nama, String deskripsi, String tersedia, String nip_dosen) {
         this.id = id;
         this.judul = judul;
-        this.kategori = kategori;
+        this.kategori_id = kategori_id;
+        this.kategori_nama = kategori_nama;
         this.deskripsi = deskripsi;
         this.tersedia = tersedia;
         this.nip_dosen = nip_dosen;
     }
-
 
     public int getId() {
         return id;
@@ -76,12 +79,20 @@ public class Judul implements Parcelable {
         this.judul = judul;
     }
 
-    public String getKategori() {
-        return kategori;
+    public String getKategori_id() {
+        return kategori_id;
     }
 
-    public void setKategori(String kategori) {
-        this.kategori = kategori;
+    public void setKategori_id(String kategori_id) {
+        this.kategori_id = kategori_id;
+    }
+
+    public String getKategori_nama() {
+        return kategori_nama;
+    }
+
+    public void setKategori_nama(String kategori_nama) {
+        this.kategori_nama = kategori_nama;
     }
 
     public String getDeskripsi() {
@@ -111,7 +122,8 @@ public class Judul implements Parcelable {
     protected Judul(Parcel in) {
         id = in.readInt();
         judul = in.readString();
-        kategori = in.readString();
+        kategori_id = in.readString();
+        kategori_nama = in.readString();
         deskripsi = in.readString();
         tersedia = in.readString();
         nip_dosen = in.readString();
@@ -121,7 +133,8 @@ public class Judul implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(judul);
-        dest.writeString(kategori);
+        dest.writeString(kategori_id);
+        dest.writeString(kategori_nama);
         dest.writeString(deskripsi);
         dest.writeString(tersedia);
         dest.writeString(nip_dosen);
