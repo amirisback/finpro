@@ -1,1 +1,6 @@
-<resources></resources>
+<resources>
+    <string name="textview_review_bimbingan">Review Bimbingan</string>
+    <string name="hint_review_bimbingan">Masukkan Review Bimbingan</string>
+    <string name="textview_judul_bimbingan">Judul Bimbingan</string>
+    <string name="hint_judul_bimbingan">Masukkan Judul Bimbingan</string>
+</resources>
