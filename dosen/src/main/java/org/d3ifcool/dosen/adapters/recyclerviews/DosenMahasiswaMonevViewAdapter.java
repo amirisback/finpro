@@ -11,7 +11,8 @@ import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.details.DosenMahasiswaMonevDetailActivity;
-import org.d3ifcool.service.models.Mahasiswa;
+import org.d3ifcool.service.models.KategoriJudul;
+import org.d3ifcool.service.models.ProyekAkhir;
 
 import java.util.ArrayList;
 
@@ -35,15 +36,21 @@ import java.util.ArrayList;
 public class DosenMahasiswaMonevViewAdapter extends RecyclerView.Adapter<DosenMahasiswaMonevViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<Mahasiswa> data;
+    private ArrayList<ProyekAkhir> data_proyek_akhir;
+    private ArrayList<KategoriJudul> data_kategori;
     private int layoutType;
 
     public DosenMahasiswaMonevViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void addItem(ArrayList<Mahasiswa> data){
-        this.data = data;
+    public void addItemPa(ArrayList<ProyekAkhir> data_proyek_akhir){
+        this.data_proyek_akhir = data_proyek_akhir;
+        notifyDataSetChanged();
+    }
+
+    public void addItemKategori(ArrayList<KategoriJudul> data_kategori){
+        this.data_kategori = data_kategori;
         notifyDataSetChanged();
     }
 
@@ -53,29 +60,29 @@ public class DosenMahasiswaMonevViewAdapter extends RecyclerView.Adapter<DosenMa
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView mhsNama, mhsNim, mhsKelompok;
+        TextView tv_pa_judul, tv_pa_kategori, tv_pa_kelompok;
 
         public ViewHolder(View itemView) {
             super(itemView);
             // -------------------------------------------------------------------------------------
-            mhsNama = itemView.findViewById(R.id.ctn_dsn_mhs_monev_textview_nama);
-            mhsNim = itemView.findViewById(R.id.ctn_dsn_mhs_monev_textview_nim);
-            mhsKelompok = itemView.findViewById(R.id.ctn_dsn_mhs_monev_textview_kelompok);
+            tv_pa_judul = itemView.findViewById(R.id.ctn_dsn_pa_monev_textview_judul);
+            tv_pa_kategori = itemView.findViewById(R.id.ctn_dsn_pa_monev_textview_kategori);
+            tv_pa_kelompok = itemView.findViewById(R.id.ctn_dsn_pa_monev_textview_kelompok);
             // -------------------------------------------------------------------------------------
         }
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.mhsNama.setText(data.get(position).getMhs_nama());
-        holder.mhsNim.setText(data.get(position).getMhs_nim());
-//        holder.mhsKelompok.setText(data.get(position).getKelompok());
+        holder.tv_pa_judul.setText(data_proyek_akhir.get(position).getJudul());
+        holder.tv_pa_kategori.setText(data_kategori.get(position).getKategori_nama());
+        holder.tv_pa_kelompok.setText(data_proyek_akhir.get(position).getNama_tim());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentData = new Intent(context, DosenMahasiswaMonevDetailActivity.class);
-                Mahasiswa parcelInfo = data.get(position);
-                intentData.putExtra(DosenMahasiswaMonevDetailActivity.EXTRA_MAHASISWA, parcelInfo);
+                ProyekAkhir parcelInfo = data_proyek_akhir.get(position);
+                intentData.putExtra(DosenMahasiswaMonevDetailActivity.EXTRA_PROYEK_AKHIR, parcelInfo);
                 context.startActivity(intentData);
             }
         });
@@ -90,7 +97,8 @@ public class DosenMahasiswaMonevViewAdapter extends RecyclerView.Adapter<DosenMa
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return data_proyek_akhir.size();
     }
+
 
 }

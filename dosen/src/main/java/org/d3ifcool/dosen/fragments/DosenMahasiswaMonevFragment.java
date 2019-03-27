@@ -10,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.d3ifcool.dosen.R;
+import org.d3ifcool.service.models.DetailMonev;
+import org.d3ifcool.service.models.KategoriJudul;
 import org.d3ifcool.service.models.Mahasiswa;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenMahasiswaMonevViewAdapter;
+import org.d3ifcool.service.models.ProyekAkhir;
 
 import java.util.ArrayList;
 
@@ -39,10 +42,14 @@ public class DosenMahasiswaMonevFragment extends Fragment {
 
         DosenMahasiswaMonevViewAdapter adapter = new DosenMahasiswaMonevViewAdapter(getContext());
 
-        ArrayList<Mahasiswa> arrayList = new ArrayList<>();
+        ArrayList<ProyekAkhir> arrayList = new ArrayList<>();
+        arrayList.add(new ProyekAkhir("seven primavera","finpro"));
+        ArrayList<KategoriJudul> kategoriJudulArrayList = new ArrayList<>();
+        kategoriJudulArrayList.add(new KategoriJudul(1,"android"));
 
-        adapter.addItem(arrayList);
-        adapter.setLayoutType(R.layout.content_item_dosen_mahasiswa_monev);
+        adapter.addItemPa(arrayList);
+        adapter.addItemKategori(kategoriJudulArrayList);
+        adapter.setLayoutType(R.layout.content_item_dosen_pa_monev);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(linearLayoutManager);

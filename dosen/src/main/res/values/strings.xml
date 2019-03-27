@@ -3,4 +3,6 @@
     <string name="hint_review_bimbingan">Masukkan Review Bimbingan</string>
     <string name="textview_judul_bimbingan">Judul Bimbingan</string>
     <string name="hint_judul_bimbingan">Masukkan Judul Bimbingan</string>
+    <string name="textview_jumlah_bimbingan">Jumlah Bimbingan</string>
+    <string name="textview_jumlah_monev">Jumlah Monev</string>
 </resources>

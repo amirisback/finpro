@@ -12,7 +12,7 @@ import org.d3ifcool.dosen.adapters.viewpagers.DosenMonevPagerAdapter;
 
 public class DosenMahasiswaMonevDetailActivity extends AppCompatActivity {
 
-    public static final String EXTRA_MAHASISWA = "extra_mahasiswa";
+    public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,15 +23,15 @@ public class DosenMahasiswaMonevDetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0);
 
-        // -----------------------------------------------------------------------------------------
-        // Deklarasi Element XML
-        TabLayout mTabLayout = findViewById(R.id.act_dsn_mhs_monev_detail_tablayout);
-        ViewPager mViewPager = findViewById(R.id.act_dsn_mhs_monev_detail_viewpager);
-        // -----------------------------------------------------------------------------------------
-        // Membuat ViewPager (SLIDER)
-        DosenMonevPagerAdapter adapter = new DosenMonevPagerAdapter(this,getSupportFragmentManager());
-        mViewPager.setAdapter(adapter);
-        mTabLayout.setupWithViewPager(mViewPager);
+//        // -----------------------------------------------------------------------------------------
+//        // Deklarasi Element XML
+//        TabLayout mTabLayout = findViewById(R.id.act_dsn_mhs_monev_detail_tablayout);
+//        ViewPager mViewPager = findViewById(R.id.act_dsn_mhs_monev_detail_viewpager);
+//        // -----------------------------------------------------------------------------------------
+//        // Membuat ViewPager (SLIDER)
+//        DosenMonevPagerAdapter adapter = new DosenMonevPagerAdapter(this,getSupportFragmentManager());
+//        mViewPager.setAdapter(adapter);
+//        mTabLayout.setupWithViewPager(mViewPager);
         // -----------------------------------------------------------------------------------------
 
     }

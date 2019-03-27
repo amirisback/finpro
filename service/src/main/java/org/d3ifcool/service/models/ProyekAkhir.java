@@ -19,7 +19,7 @@ public class ProyekAkhir implements Parcelable{
 
     @Expose
     @SerializedName("nama_tim")
-    private int nama_tim;
+    private String nama_tim;
 
     @Expose
     @SerializedName("mhs_nim")
@@ -113,7 +113,12 @@ public class ProyekAkhir implements Parcelable{
     @SerializedName("reviewer_dsn_username")
     private String dsn_username;
 
-    public ProyekAkhir(int proyek_akhir_id, int nilai_total, int nama_tim, int mhs_nim, String mhs_nama, String angkatan, String mhs_kontak, String mhs_foto, String mhs_email, String status, String mhs_username, String nip_dosen, int mhs_judul_id, int judul_id, String judul, String deskripsi, String tersedia, String kategori_id, int dsn_nip, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_foto, String dsn_email, String dsn_status, String dsn_username) {
+    public ProyekAkhir(String nama_tim, String judul) {
+        this.nama_tim = nama_tim;
+        this.judul = judul;
+    }
+
+    public ProyekAkhir(int proyek_akhir_id, int nilai_total, String nama_tim, int mhs_nim, String mhs_nama, String angkatan, String mhs_kontak, String mhs_foto, String mhs_email, String status, String mhs_username, String nip_dosen, int mhs_judul_id, int judul_id, String judul, String deskripsi, String tersedia, String kategori_id, int dsn_nip, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_foto, String dsn_email, String dsn_status, String dsn_username) {
         this.proyek_akhir_id = proyek_akhir_id;
         this.nilai_total = nilai_total;
         this.nama_tim = nama_tim;
@@ -158,11 +163,11 @@ public class ProyekAkhir implements Parcelable{
         this.nilai_total = nilai_total;
     }
 
-    public int getNama_tim() {
+    public String getNama_tim() {
         return nama_tim;
     }
 
-    public void setNama_tim(int nama_tim) {
+    public void setNama_tim(String nama_tim) {
         this.nama_tim = nama_tim;
     }
 
@@ -353,7 +358,7 @@ public class ProyekAkhir implements Parcelable{
     protected ProyekAkhir(Parcel in) {
         proyek_akhir_id = in.readInt();
         nilai_total = in.readInt();
-        nama_tim = in.readInt();
+        nama_tim = in.readString();
         judul_id = in.readInt();
         mhs_nim = in.readInt();
         dsn_nip = in.readInt();
@@ -382,7 +387,7 @@ public class ProyekAkhir implements Parcelable{
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(proyek_akhir_id);
         dest.writeInt(nilai_total);
-        dest.writeInt(nama_tim);
+        dest.writeString(nama_tim);
         dest.writeInt(judul_id);
         dest.writeInt(mhs_nim);
         dest.writeInt(dsn_nip);

@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenPaBimbinganViewAdapter;
 import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.service.models.KategoriJudul;
+import org.d3ifcool.service.models.ProyekAkhir;
 
 import java.util.ArrayList;
 
@@ -34,12 +36,14 @@ public class DosenPaBimbinganFragment extends Fragment {
 
         DosenPaBimbinganViewAdapter adapter = new DosenPaBimbinganViewAdapter(getContext());
 
-        ArrayList<Judul> arrayList = new ArrayList<>();
-//        arrayList.add(new Judul(1,"asdf","awe","asf","sda","ada","111"));
-//        arrayList.add(new Judul(1,"asdf","awe","asf","sda","ada"));
-//        arrayList.add(new Judul(1,"asdf","awe","asf","sda","ada"));
-//        arrayList.add(new Judul(1,"asdf","awe","asf","sda","ada"));
-        adapter.addItem(arrayList);
+        ArrayList<ProyekAkhir> arrayListpa = new ArrayList<>();
+        ArrayList<KategoriJudul> arrayListkategori = new ArrayList<>();
+
+        arrayListpa.add(new ProyekAkhir("seven primavera","finpro"));
+
+        arrayListkategori.add(new KategoriJudul(2, "website"));
+        adapter.addItemPa(arrayListpa);
+        adapter.addItemKategori(arrayListkategori);
         adapter.setLayoutType(R.layout.content_item_dosen_pa_bimbingan);
 
         recyclerView.setAdapter(adapter);
