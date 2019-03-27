@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/dimen_medium"
-        android:text="Ubah Kategori"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorTextWhite"
         android:textStyle="bold"
@@ -25,9 +24,10 @@
         android:layout_marginRight="@dimen/dimen_medium"
         android:layout_height="wrap_content"
         android:padding="@dimen/dimen_medium"
-        android:hint="Masukkan Kategori Baru"
+        android:hint="Kategori"
         android:layout_marginTop="@dimen/dimen_medium"
         android:background="@android:color/transparent"/>
+
     <View
         android:layout_below="@id/dialog_kategori_ubah"
         android:layout_width="match_parent"

@@ -26,8 +26,8 @@ import org.d3ifcool.superuser.AdminPemberitahuanActivity;
 import org.d3ifcool.superuser.AdminProfilActivity;
 import org.d3ifcool.superuser.fragments.KoorDosenFragment;
 import org.d3ifcool.superuser.fragments.KoorInformasiFragment;
-import org.d3ifcool.superuser.fragments.KoorJudulPaKategoriFragment;
-import org.d3ifcool.superuser.fragments.KoorJudulSubdosenFragment;
+import org.d3ifcool.superuser.fragments.KoorKategoriJudulFragment;
+import org.d3ifcool.superuser.fragments.KoorJudulFragment;
 import org.d3ifcool.superuser.fragments.KoorMahasiswaFragment;
 import org.d3ifcool.superuser.fragments.KoorProyekAkhirFragment;
 
@@ -37,9 +37,9 @@ public class AdminMainActivity extends AppCompatActivity
     private KoorDosenFragment koorDosenFragment = new KoorDosenFragment();
     private KoorInformasiFragment koorInformasiFragment = new KoorInformasiFragment();
     private KoorMahasiswaFragment koorMahasiswaFragment = new KoorMahasiswaFragment();
-    private KoorJudulSubdosenFragment koorJudulPaSubdosenFragment = new KoorJudulSubdosenFragment();
+    private KoorJudulFragment koorJudulPaSubdosenFragment = new KoorJudulFragment();
     private KoorProyekAkhirFragment koorProyekAkhirFragment = new KoorProyekAkhirFragment();
-    private KoorJudulPaKategoriFragment koorJudulPaKategoriFragment = new KoorJudulPaKategoriFragment();
+    private KoorKategoriJudulFragment koorJudulPaKategoriFragment = new KoorKategoriJudulFragment();
 
     private SessionManager sessionManager;
 

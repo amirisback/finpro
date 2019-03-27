@@ -59,7 +59,7 @@ public class KoorJudulPaSubdosenViewAdapter extends RecyclerView.Adapter<KoorJud
     @NonNull
     @Override
     public KoorJudulPaSubdosenViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.content_item_koor_judulpa, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.content_item_koor_judul, parent, false);
         return new ViewHolder(view);
     }
 

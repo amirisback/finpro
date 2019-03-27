@@ -46,6 +46,7 @@ public class KoorProyekAkhirFragment extends Fragment {
         proyekAkhirs = new ArrayList<>();
 
         recyclerView = view.findViewById(R.id.frg_koor_pa_recyclerview);
+
         adapter.setProyekAkhirs(proyekAkhirs);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter.setLayoutType(R.layout.content_item_koor_pa);

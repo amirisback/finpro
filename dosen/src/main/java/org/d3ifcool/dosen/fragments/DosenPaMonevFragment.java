@@ -41,8 +41,8 @@ public class DosenPaMonevFragment extends Fragment {
         DosenPaMonevViewAdapter adapter = new DosenPaMonevViewAdapter(getContext());
 
         ArrayList<Judul> arrayList = new ArrayList<>();
-//        arrayList.add(new Judul("Judul", "Kategori"));
-//        arrayList.add(new Judul("Judul", "Kategori"));
+//        arrayList.add(new Judul("Judul", "KategoriJudul"));
+//        arrayList.add(new Judul("Judul", "KategoriJudul"));
 
         adapter.addItem(arrayList);
         adapter.setLayoutType(R.layout.content_item_dosen_pa_monev);

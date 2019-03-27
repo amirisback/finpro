@@ -18,12 +18,27 @@
             android:spinnerMode="dropdown"
             android:layout_marginStart="@dimen/dimen_medium"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/frg_mhs_judul_pa_dosen_recyclerview"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem ="@layout/content_item_mahasiswa_judulpa_dosen"/>
+            android:layout_height="match_parent">
 
+            <!-- Empty View -->
+            <RelativeLayout
+                android:id="@+id/view_emptyview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="gone">
+                <include layout="@layout/content_list_empty"/>
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/frg_mhs_judul_pa_dosen_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem ="@layout/content_item_mahasiswa_judulpa_dosen"/>
+
+        </RelativeLayout>
 
     </LinearLayout>
 

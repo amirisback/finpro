@@ -11,23 +11,20 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/ctn_koor_pa_textview_judul"
-                android:text="@string/dummy_pa_judul"
-                android:layout_weight="1"
-                android:layout_marginBottom="@dimen/dimen_small"
-                android:drawableStart="@drawable/ic_content_judul_pa_kategori"
-                style="@style/textview_item_list_judul_pa"/>
 
-            <TextView
-                android:id="@+id/ctn_koor_pa_textview_kategori"
-                android:text="@string/dummy_kategori"
-                style="@style/textview_item_list_judul_kategori"/>
-        </LinearLayout>
+        <TextView
+            android:id="@+id/ctn_koor_pa_textview_judul"
+            android:text="@string/dummy_pa_judul"
+            android:layout_weight="1"
+            android:layout_marginBottom="@dimen/dimen_small"
+            android:drawableStart="@drawable/ic_content_judul_pa_judul"
+            style="@style/textview_item_list_judul_pa"/>
+
+        <TextView
+            android:id="@+id/ctn_koor_pa_textview_kategori"
+            android:text="@string/dummy_kategori"
+            android:drawableStart="@drawable/ic_content_judul_pa_kategori"
+            style="@style/textview_item_list_judul_pa"/>
 
         <TextView
             android:id="@+id/ctn_koor_pa_textview_kelompok"

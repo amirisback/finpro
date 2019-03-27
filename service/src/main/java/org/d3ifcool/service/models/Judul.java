@@ -53,7 +53,31 @@ public class Judul implements Parcelable {
     @SerializedName("dsn_nip")
     private String nip_dosen;
 
-    public Judul(int id, String judul, String kategori_id, String kategori_nama, String deskripsi, String judul_status, String nip_dosen) {
+    @Expose
+    @SerializedName("dsn_nama")
+    private String dsn_nama;
+
+    @Expose
+    @SerializedName("dsn_kode")
+    private String dsn_kode;
+
+    @Expose
+    @SerializedName("dsn_kontak")
+    private String dsn_kontak;
+
+    @Expose
+    @SerializedName("dsn_foto")
+    private String dsn_foto;
+
+    @Expose
+    @SerializedName("username")
+    private String username;
+
+    @Expose
+    @SerializedName("dsn_email")
+    private String dsn_email;
+
+    public Judul(int id, String judul, String kategori_id, String kategori_nama, String deskripsi, String judul_status, String nip_dosen, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_foto, String username, String dsn_email) {
         this.id = id;
         this.judul = judul;
         this.kategori_id = kategori_id;
@@ -61,6 +85,12 @@ public class Judul implements Parcelable {
         this.deskripsi = deskripsi;
         this.judul_status = judul_status;
         this.nip_dosen = nip_dosen;
+        this.dsn_nama = dsn_nama;
+        this.dsn_kode = dsn_kode;
+        this.dsn_kontak = dsn_kontak;
+        this.dsn_foto = dsn_foto;
+        this.username = username;
+        this.dsn_email = dsn_email;
     }
 
     public int getId() {
@@ -119,6 +149,54 @@ public class Judul implements Parcelable {
         this.nip_dosen = nip_dosen;
     }
 
+    public String getDsn_nama() {
+        return dsn_nama;
+    }
+
+    public void setDsn_nama(String dsn_nama) {
+        this.dsn_nama = dsn_nama;
+    }
+
+    public String getDsn_kode() {
+        return dsn_kode;
+    }
+
+    public void setDsn_kode(String dsn_kode) {
+        this.dsn_kode = dsn_kode;
+    }
+
+    public String getDsn_kontak() {
+        return dsn_kontak;
+    }
+
+    public void setDsn_kontak(String dsn_kontak) {
+        this.dsn_kontak = dsn_kontak;
+    }
+
+    public String getDsn_foto() {
+        return dsn_foto;
+    }
+
+    public void setDsn_foto(String dsn_foto) {
+        this.dsn_foto = dsn_foto;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getDsn_email() {
+        return dsn_email;
+    }
+
+    public void setDsn_email(String dsn_email) {
+        this.dsn_email = dsn_email;
+    }
+
 
     @Override
     public int describeContents() {
@@ -134,6 +212,12 @@ public class Judul implements Parcelable {
         dest.writeString(this.deskripsi);
         dest.writeString(this.judul_status);
         dest.writeString(this.nip_dosen);
+        dest.writeString(this.dsn_nama);
+        dest.writeString(this.dsn_kode);
+        dest.writeString(this.dsn_kontak);
+        dest.writeString(this.dsn_foto);
+        dest.writeString(this.username);
+        dest.writeString(this.dsn_email);
     }
 
     protected Judul(Parcel in) {
@@ -144,6 +228,12 @@ public class Judul implements Parcelable {
         this.deskripsi = in.readString();
         this.judul_status = in.readString();
         this.nip_dosen = in.readString();
+        this.dsn_nama = in.readString();
+        this.dsn_kode = in.readString();
+        this.dsn_kontak = in.readString();
+        this.dsn_foto = in.readString();
+        this.username = in.readString();
+        this.dsn_email = in.readString();
     }
 
     public static final Creator<Judul> CREATOR = new Creator<Judul>() {

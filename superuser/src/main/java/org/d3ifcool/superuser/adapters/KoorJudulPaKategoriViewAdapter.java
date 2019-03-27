@@ -1,47 +1,52 @@
 package org.d3ifcool.superuser.adapters;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.d3ifcool.service.models.Informasi;
-import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.models.Kategori;
+import org.d3ifcool.service.models.KategoriJudul;
+import org.d3ifcool.service.presenters.KategoriJudulPresenter;
 import org.d3ifcool.superuser.R;
 
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.RecyclerView;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class KoorJudulPaKategoriViewAdapter extends RecyclerView.Adapter<KoorJudulPaKategoriViewAdapter.ViewHolder> {
-    private ArrayList<Kategori> kategori;
+
+    private ArrayList<KategoriJudul> data;
     private Context context;
     private int layoutType;
-    private int viewDialog =R.layout.content_item_dialog_edit_kategori;
 
-    public KoorJudulPaKategoriViewAdapter(Context context) {
+    private AlertDialog.Builder mDialog;
+    private View mDialogView;
+
+    private KategoriJudulPresenter presenter;
+
+    public KoorJudulPaKategoriViewAdapter(Context context, KategoriJudulPresenter presenter) {
         this.context = context;
+        this.presenter = presenter;
     }
 
-    public void setJudul(ArrayList<Kategori> kategori) {
-        this.kategori = kategori;
+    public void initDialog(AlertDialog.Builder mDialog, View mDialogView) {
+        this.mDialog = mDialog;
+        this.mDialogView = mDialogView;
+    }
+
+    public void setKategoriJudul(ArrayList<KategoriJudul> kategori) {
+        this.data = kategori;
     }
 
     public void setLayoutType(int layoutType) {
         this.layoutType = layoutType;
     }
-
 
     @NonNull
     @Override
@@ -51,45 +56,91 @@ public class KoorJudulPaKategoriViewAdapter extends RecyclerView.Adapter<KoorJud
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
-        holder.tv_kategori.setText(kategori.get(position).getKategori_nama());
-        holder.btn_edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               new AlertDialog
-                       .Builder(context)
-                       .setView(View.inflate(context,viewDialog,null))
-                       .setPositiveButton("ubah", new DialogInterface.OnClickListener() {
-                           @Override
-                           public void onClick(DialogInterface dialogInterface, int i) {
-                               String kategori_baru = holder.et_kategori.getText().toString();
-                               holder.tv_kategori.setText(kategori_baru);
-
-                           }
-                       })
-                        .setNegativeButton("batal",null)
-                        .show();
-
-            }
-        });
-    }
-
-    @Override
     public int getItemCount() {
-        return kategori.size();
+        return data.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
+
         TextView tv_kategori;
-        ImageButton btn_edit, btn_hapus;
-        EditText et_kategori;
+        ImageView btn_hapus;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_kategori = itemView.findViewById(R.id.ctn_koor_judul_kategori);
-            btn_edit = itemView.findViewById(R.id.ctn_koor_button_edit);
             btn_hapus = itemView.findViewById(R.id.ctn_koor_button_hapus);
-            et_kategori =  itemView.findViewById(R.id.dialog_kategori_ubah);
-
         }
     }
+
+    @Override
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
+        holder.tv_kategori.setText(data.get(position).getKategori_nama());
+
+        holder.btn_hapus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog
+                    .Builder(context)
+                    .setTitle(context.getString(org.d3ifcool.dosen.R.string.dialog_hapus_title))
+                    .setMessage(context.getString(org.d3ifcool.dosen.R.string.dialog_hapus_text))
+                    .setPositiveButton(org.d3ifcool.dosen.R.string.iya, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            presenter.deleteKategori(data.get(position).getId());
+                            presenter.getKategori();
+                            dialog.dismiss(); // Keluar Dari Dialog
+                            if (mDialogView.getParent() != null) {
+                                ((ViewGroup) mDialogView.getParent()).removeView(mDialogView);
+                            }
+                        }
+                    })
+
+                    .setNegativeButton(org.d3ifcool.dosen.R.string.tidak, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss(); // Keluar Dari Dialog
+                            if (mDialogView.getParent() != null) {
+                                ((ViewGroup) mDialogView.getParent()).removeView(mDialogView);
+                            }
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+            }
+        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDialog.setView(mDialogView);
+                mDialog.setCancelable(true);
+                mDialog.setPositiveButton(context.getText(R.string.ubah), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        EditText et_kategori = mDialogView.findViewById(R.id.dialog_kategori_ubah);
+                        et_kategori.setText(data.get(position).getKategori_nama());
+                        String result = et_kategori.getText().toString();
+                        presenter.updateKategori(data.get(position).getId() , result);
+
+                        dialog.dismiss(); // Keluar Dari Dialog
+                        if (mDialogView.getParent() != null) {
+                            ((ViewGroup) mDialogView.getParent()).removeView(mDialogView);
+                        }
+                    }
+                });
+
+                mDialog.setNegativeButton(context.getText(R.string.batal), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss(); // Keluar Dari Dialog
+                        if (mDialogView.getParent() != null) {
+                            ((ViewGroup) mDialogView.getParent()).removeView(mDialogView);
+                        }
+                    }
+                });
+                mDialog.show();
+            }
+        });
+
+    }
+
 }

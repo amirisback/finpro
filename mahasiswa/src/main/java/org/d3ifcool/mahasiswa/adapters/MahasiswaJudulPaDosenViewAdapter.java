@@ -7,14 +7,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.activities.MahasiswaJudulPaDosenDetailActivity;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.models.Kategori;
 
 import java.util.ArrayList;
+
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERSEDIA;
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERTUNDA;
 
 /**
  * Created by Faisal Amir
@@ -36,15 +41,15 @@ import java.util.ArrayList;
 public class MahasiswaJudulPaDosenViewAdapter extends RecyclerView.Adapter<MahasiswaJudulPaDosenViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<Judul> data;
+    private ArrayList<Judul> dataJudul;
     private int layoutType;
 
     public MahasiswaJudulPaDosenViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void addItem(ArrayList<Judul> data){
-        this.data = data;
+    public void addItemJudul(ArrayList<Judul> data){
+        this.dataJudul = data;
         notifyDataSetChanged();
     }
 
@@ -54,30 +59,53 @@ public class MahasiswaJudulPaDosenViewAdapter extends RecyclerView.Adapter<Mahas
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView judul, kategori, jumlah;
+        TextView judul, kategori;
+        ImageView status;
 
         public ViewHolder(View itemView) {
             super(itemView);
             // -------------------------------------------------------------------------------------
             judul = itemView.findViewById(R.id.ctn_mhs_judul_pa_dosen_textview_judul);
             kategori = itemView.findViewById(R.id.ctn_mhs_judul_pa_dosen_textview_kategori);
-            jumlah = itemView.findViewById(R.id.ctn_mhs_judul_pa_dosen_textview_jumlah);
+            status = itemView.findViewById(R.id.ctn_mhs_judul_pa_dosen_status);
             // -------------------------------------------------------------------------------------
         }
     }
 
+
+    private void cekStatusJudul(ImageView imageViewStatus, String status){
+
+        if (status.equalsIgnoreCase(JUDUL_STATUS_TERSEDIA)){
+            imageViewStatus.setImageResource(R.drawable.ic_judul_available);
+            imageViewStatus.setBackgroundResource(R.drawable.circle_judul_available);
+        } else if (status.equalsIgnoreCase(JUDUL_STATUS_DIGUNAKAN)) {
+            imageViewStatus.setImageResource(R.drawable.ic_judul_not_available);
+            imageViewStatus.setBackgroundResource(R.drawable.circle_judul_not_available);
+        } else {
+            imageViewStatus.setVisibility(View.GONE);
+        }
+
+    }
+
+
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.judul.setText(data.get(position).getJudul());
-        holder.kategori.setText(data.get(position).getKategori_nama());
-        holder.jumlah.setText(data.get(position).getJudul_status());
+
+        final String status = dataJudul.get(position).getJudul_status();
+        holder.judul.setText(dataJudul.get(position).getJudul());
+        holder.kategori.setText(dataJudul.get(position).getKategori_nama());
+        cekStatusJudul(holder.status, status);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentData = new Intent(context, MahasiswaJudulPaDosenDetailActivity.class);
-                Judul parcelJudul = data.get(position);
-                intentData.putExtra(MahasiswaJudulPaDosenDetailActivity.EXTRA_JUDUL, parcelJudul);
-                context.startActivity(intentData);
+                if (status.equalsIgnoreCase(JUDUL_STATUS_TERSEDIA)){
+                    Intent intentData = new Intent(context, MahasiswaJudulPaDosenDetailActivity.class);
+                    Judul parcelJudul = dataJudul.get(position);
+                    intentData.putExtra(MahasiswaJudulPaDosenDetailActivity.EXTRA_JUDUL, parcelJudul);
+                    context.startActivity(intentData);
+                } else if (status.equalsIgnoreCase(JUDUL_STATUS_DIGUNAKAN)) {
+                    Toast.makeText(context, R.string.text_judul_digunakan, Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -91,7 +119,7 @@ public class MahasiswaJudulPaDosenViewAdapter extends RecyclerView.Adapter<Mahas
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return dataJudul.size();
     }
 
 }

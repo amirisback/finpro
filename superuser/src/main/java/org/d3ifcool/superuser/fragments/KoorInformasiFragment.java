@@ -34,11 +34,13 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
 
     private RecyclerView rv_informasi;
     private FloatingActionButton fab_informasi;
-    private ArrayList<Informasi> data = new ArrayList<>();
+    private ArrayList<Informasi> arrayList = new ArrayList<>();
     private KoorInformasiViewAdapter adapter;
     private ProgressDialog progressDialog;
     private InformasiPresenter presenter;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private View empty_view;
+
     public KoorInformasiFragment() {
         // Required empty public constructor
     }
@@ -49,11 +51,14 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_koor_informasi, container, false);
-        rv_informasi = view.findViewById(R.id.frg_koor_info_home_recyclerview);
-        fab_informasi = view.findViewById(R.id.frg_koor_info_home_fab);
+        View rootView = inflater.inflate(R.layout.fragment_koor_informasi, container, false);
+
+        rv_informasi = rootView.findViewById(R.id.frg_koor_info_home_recyclerview);
+        fab_informasi = rootView.findViewById(R.id.frg_koor_info_home_fab);
         presenter = new InformasiPresenter(this);
-        swipeRefreshLayout = view.findViewById(R.id.frg_koor_info_home_swiperefresh);
+        swipeRefreshLayout = rootView.findViewById(R.id.frg_koor_info_home_swiperefresh);
+        empty_view = rootView.findViewById(R.id.view_emptyview);
+
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         presenter.getInformasi();
@@ -72,7 +77,7 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
                 presenter.getInformasi();
             }
         });
-        return view;
+        return rootView;
     }
 
     @Override
@@ -95,12 +100,19 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
     public void onGetListInformasi(List<Informasi> informasi) {
         adapter = new KoorInformasiViewAdapter(getContext());
         rv_informasi.setLayoutManager(new LinearLayoutManager(getContext()));
-        data.clear();
-        data.addAll(informasi);
-        adapter.addItem(data);
+        arrayList.clear();
+        arrayList.addAll(informasi);
+        adapter.addItem(arrayList);
         adapter.setLayoutType(R.layout.content_item_koor_informasi);
         rv_informasi.setAdapter(adapter);
         swipeRefreshLayout.setRefreshing(false);
+
+        if (arrayList.size() == 0) {
+            empty_view.setVisibility(View.VISIBLE);
+        } else {
+            empty_view.setVisibility(View.GONE);
+        }
+
     }
 
     @Override

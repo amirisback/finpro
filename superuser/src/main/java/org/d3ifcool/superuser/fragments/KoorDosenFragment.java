@@ -33,12 +33,15 @@ import java.util.List;
 public class KoorDosenFragment extends Fragment implements DosenListView {
 
     private RecyclerView recyclerView;
-    private ArrayList<Dosen> data_dosen = new ArrayList<>();
+    private ArrayList<Dosen> arrayList = new ArrayList<>();
     private FloatingActionButton floatingActionButton;
     private KoorDosenViewAdapter adapter;
     private ProgressDialog progressDialog;
     private DosenPresenter presenter;
     private SwipeRefreshLayout refreshLayout;
+    private View empty_view;
+
+
     public KoorDosenFragment() {
         // Required empty public constructor
     }
@@ -48,11 +51,14 @@ public class KoorDosenFragment extends Fragment implements DosenListView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =inflater.inflate(R.layout.fragment_koor_dosen, container, false);
+        View view = inflater.inflate(R.layout.fragment_koor_dosen, container, false);
+
         presenter = new DosenPresenter(this);
         refreshLayout = view.findViewById(R.id.refresh);
         recyclerView = view.findViewById(R.id.frg_koor_dosen_home_recyclerview);
         floatingActionButton = view.findViewById(R.id.frg_koor_dosen_home_fab);
+        empty_view = view.findViewById(R.id.view_emptyview);
+
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         presenter.getDosen();
@@ -95,13 +101,20 @@ public class KoorDosenFragment extends Fragment implements DosenListView {
     @Override
     public void onGetListDosen(List<Dosen> dosen) {
         adapter = new KoorDosenViewAdapter(getContext());
-        data_dosen.clear();
-        data_dosen.addAll(dosen);
-        adapter.setDosens(data_dosen);
+        arrayList.clear();
+        arrayList.addAll(dosen);
+        adapter.setDosens(arrayList);
         adapter.setLayoutType(R.layout.content_item_koor_dosen);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         refreshLayout.setRefreshing(false);
+
+        if (arrayList.size() == 0) {
+            empty_view.setVisibility(View.VISIBLE);
+        } else {
+            empty_view.setVisibility(View.GONE);
+        }
+
     }
 
     @Override

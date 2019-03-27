@@ -2,14 +2,25 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".fragments.KoorJudulSubdosenFragment">
+    tools:context=".fragments.KoorJudulFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <!-- Empty View -->
+        <RelativeLayout
+            android:id="@+id/view_emptyview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+            <include layout="@layout/content_list_empty"/>
+        </RelativeLayout>
 
         <Spinner
             android:id="@+id/spinner_dosen"
@@ -24,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingBottom="@dimen/dimen_medium"
-            tools:listitem="@layout/content_item_koor_judulpa">
+            tools:listitem="@layout/content_item_koor_judul">
 
         </androidx.recyclerview.widget.RecyclerView>
 

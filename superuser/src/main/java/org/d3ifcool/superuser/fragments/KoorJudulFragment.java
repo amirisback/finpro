@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,13 +38,16 @@ import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QU
 /**
  * A simple {@link Fragment} subclass.
  */
-public class KoorJudulSubdosenFragment extends Fragment implements DosenListView, JudulListView {
+public class KoorJudulFragment extends Fragment implements DosenListView, JudulListView {
 
     private Spinner sp_dosen;
     private RecyclerView recyclerView;
     private KoorJudulPaSubdosenViewAdapter adapter;
-    private FloatingActionButton actionButton;
     private ProgressDialog progressDialog;
+    private View empty_view;
+    private SwipeRefreshLayout swipeRefreshLayout;
+
+    private String spinnerItemPosition;
 
     private ArrayList<Judul> arrayListJudul = new ArrayList<>();
     private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
@@ -51,7 +55,7 @@ public class KoorJudulSubdosenFragment extends Fragment implements DosenListView
     private DosenPresenter dosenPresenter;
     private JudulPresenter judulPresenter;
 
-    public KoorJudulSubdosenFragment() {
+    public KoorJudulFragment() {
         // Required empty public constructor
     }
 
@@ -60,19 +64,23 @@ public class KoorJudulSubdosenFragment extends Fragment implements DosenListView
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_koor_judul_pa_subdosen, container, false);
+        View view = inflater.inflate(R.layout.fragment_koor_judul, container, false);
+
         sp_dosen = view.findViewById(R.id.spinner_dosen);
         recyclerView = view.findViewById(R.id.frg_koor_judul_dsn_recyclerview);
-        actionButton = view.findViewById(R.id.frg_koor_judul_dsn_fab);
+        FloatingActionButton floatingActionButton = view.findViewById(R.id.frg_koor_judul_dsn_fab);
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
+
+        swipeRefreshLayout = view.findViewById(R.id.swipe_refresh);
+        empty_view = view.findViewById(R.id.view_emptyview);
 
         dosenPresenter = new DosenPresenter(this);
         judulPresenter = new JudulPresenter(this);
 
         dosenPresenter.getDosen();
 
-        actionButton.setOnClickListener(new View.OnClickListener() {
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), KoorJudulPaSubdosenTambahActivity.class);
@@ -83,13 +91,20 @@ public class KoorJudulSubdosenFragment extends Fragment implements DosenListView
         sp_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String spinnerItemPosition = parent.getItemAtPosition(position).toString();
+                spinnerItemPosition = parent.getItemAtPosition(position).toString();
                 judulPresenter.getJudulSearch(PARAMETER_QUERY_DOSEN_NAMA, spinnerItemPosition);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                judulPresenter.getJudulSearch(PARAMETER_QUERY_DOSEN_NAMA, spinnerItemPosition);
             }
         });
 
@@ -125,6 +140,14 @@ public class KoorJudulSubdosenFragment extends Fragment implements DosenListView
         adapter.additem(arrayListJudul);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
+        swipeRefreshLayout.setRefreshing(false);
+
+        if (arrayListJudul.size() == 0) {
+            empty_view.setVisibility(View.VISIBLE);
+        } else {
+            empty_view.setVisibility(View.GONE);
+        }
+
     }
 
     @Override

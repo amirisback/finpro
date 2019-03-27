@@ -32,12 +32,13 @@ import java.util.List;
  */
 public class KoorMahasiswaFragment extends Fragment implements MahasiswaListView {
     private RecyclerView recyclerView;
-    private ArrayList<Mahasiswa> mhs = new ArrayList<>();
+    private ArrayList<Mahasiswa> arrayList = new ArrayList<>();
     private KoorMahasiswaViewAdapter adapter;
     private ProgressDialog progressDialog;
     private SwipeRefreshLayout refreshLayout;
     private MahasiswaPresenter presenter;
     private FloatingActionButton floatingActionButton;
+    private View empty_view;
 
     public KoorMahasiswaFragment() {
         // Required empty public constructor
@@ -49,12 +50,13 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaListView
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view =inflater.inflate(R.layout.fragment_koor_mahasiswa, container, false);
+        View view = inflater.inflate(R.layout.fragment_koor_mahasiswa, container, false);
         recyclerView = view.findViewById(R.id.frg_koor_mahasiswa_home_recyclerview);
         floatingActionButton = view.findViewById(R.id.frg_koor_mahasiswa_home_fab);
         refreshLayout = view.findViewById(R.id.frg_koor_mhs_swiperefresh);
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
+        empty_view = view.findViewById(R.id.view_emptyview);
 
         presenter = new MahasiswaPresenter(this);
         presenter.getMahasiswa();
@@ -94,14 +96,21 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaListView
 
     @Override
     public void onGetListMahasiswa(List<Mahasiswa> mahasiswa) {
-        mhs.clear();
-        mhs.addAll(mahasiswa);
+        arrayList.clear();
+        arrayList.addAll(mahasiswa);
         adapter = new KoorMahasiswaViewAdapter(getContext());
-        adapter.setmMahasiswa(mhs);
+        adapter.setmMahasiswa(arrayList);
         adapter.setLayouyType(R.layout.content_item_koor_mahasiswa);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         refreshLayout.setRefreshing(false);
+
+        if (arrayList.size() == 0) {
+            empty_view.setVisibility(View.VISIBLE);
+        } else {
+            empty_view.setVisibility(View.GONE);
+        }
+
     }
 
     @Override

@@ -20,6 +20,7 @@ import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.MahasiswaJudulPaDosenViewAdapter;
 import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
+import org.d3ifcool.service.interfaces.objects.DosenView;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.presenters.DosenPresenter;
@@ -48,6 +49,8 @@ public class MahasiswaJudulDosenFragment extends Fragment implements DosenListVi
     private DosenPresenter dosenPresenter;
     private JudulPresenter judulPresenter;
 
+    private View empty_view;
+
     public MahasiswaJudulDosenFragment() {
         // Required empty public constructor
     }
@@ -68,6 +71,11 @@ public class MahasiswaJudulDosenFragment extends Fragment implements DosenListVi
 
         dosenPresenter = new DosenPresenter(this);
         judulPresenter = new JudulPresenter(this);
+
+        empty_view = rootView.findViewById(R.id.view_emptyview);
+
+        adapter = new MahasiswaJudulPaDosenViewAdapter(getContext());
+
 
         dosenPresenter.getDosen();
 
@@ -120,12 +128,17 @@ public class MahasiswaJudulDosenFragment extends Fragment implements DosenListVi
     public void onGetListJudul(List<Judul> judulpa) {
         arrayListJudul.clear();
         arrayListJudul.addAll(judulpa);
-        adapter = new MahasiswaJudulPaDosenViewAdapter(getContext());
         adapter.setLayoutType(R.layout.content_item_mahasiswa_judulpa_dosen);
-        adapter.addItem(arrayListJudul);
+        adapter.addItemJudul(arrayListJudul);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         swipeRefreshLayout.setRefreshing(false);
+
+        if (arrayListJudul.size() == 0) {
+            empty_view.setVisibility(View.VISIBLE);
+        } else {
+            empty_view.setVisibility(View.GONE);
+        }
     }
 
     @Override

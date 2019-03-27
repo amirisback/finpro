@@ -40,10 +40,10 @@ public class JudulPresenter {
         this.viewResult = viewResult;
     }
 
-    public void createJudul (String judul_nama, String judul_kategori, String judul_deskripsi, String nip_dosen){
+    public void createJudul (String judul_nama, int kategori_id, String judul_deskripsi, String nip_dosen){
         viewEditor.showProgress();
         ApiInterfaceJudul apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
-        Call<Judul> call = apiInterface.createJudul(judul_nama,judul_kategori,judul_deskripsi,nip_dosen);
+        Call<Judul> call = apiInterface.createJudul(judul_nama,kategori_id,judul_deskripsi,nip_dosen);
         call.enqueue(new Callback<Judul>() {
             @Override
             public void onResponse(Call<Judul> call, Response<Judul> response) {

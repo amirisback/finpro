@@ -34,15 +34,15 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/ctn_mhs_judul_pa_dosen_textview_jumlah"
+        <ImageView
+            android:id="@+id/ctn_mhs_judul_pa_dosen_status"
             android:layout_width="@dimen/dimen_circle_background"
             android:layout_height="@dimen/dimen_circle_background"
             android:gravity="center"
             android:layout_marginStart="@dimen/dimen_medium"
             android:textColor="@color/colorTextWhite"
-            android:background="@drawable/circle_border_judul_pa"
-            android:text="@string/dummy_jumlah_bimbingan"
+            android:src="@drawable/ic_judul_available"
+            android:background="@drawable/circle_judul_available"
             android:textSize="@dimen/text_size_title_medium"/>
 
     </LinearLayout>

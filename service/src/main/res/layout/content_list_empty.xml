@@ -16,7 +16,7 @@
         android:layout_marginTop="@dimen/dimen_medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tidak ada data terbaru"
+        android:text="@string/text_data_not_found"
         android:textColor="@color/colorTextBlack"/>
 
 </LinearLayout>

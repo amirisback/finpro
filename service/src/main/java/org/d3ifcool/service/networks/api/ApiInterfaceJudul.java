@@ -43,7 +43,7 @@ public interface ApiInterfaceJudul {
     @POST(URL_JUDUL_PA)
     Call<Judul> createJudul(
             @Field("judul_nama") String judul_nama,
-            @Field("judul_kategori") String judul_kategori,
+            @Field("kategori_id") int kategori_id,
             @Field("judul_deskripsi") String judul_deskripsi,
             @Field("dsn_nip") String dsn_nip
     );

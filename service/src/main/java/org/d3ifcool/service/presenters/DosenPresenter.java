@@ -44,6 +44,11 @@ public class DosenPresenter {
         this.viewObject = viewObject;
     }
 
+    public DosenPresenter(DosenListView viewResult, DosenView viewObject) {
+        this.viewResult = viewResult;
+        this.viewObject = viewObject;
+    }
+
     public void getDosen(){
         viewResult.showProgress();
 

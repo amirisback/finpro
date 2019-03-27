@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Kategori implements Parcelable {
+public class KategoriJudul implements Parcelable {
 
     @Expose
     @SerializedName("kategori_id")
@@ -16,7 +16,7 @@ public class Kategori implements Parcelable {
     @SerializedName("kategori_nama")
     private String kategori_nama;
 
-    public Kategori(int id, String kategori_nama) {
+    public KategoriJudul(int id, String kategori_nama) {
         this.id = id;
         this.kategori_nama = kategori_nama;
     }
@@ -49,20 +49,20 @@ public class Kategori implements Parcelable {
         dest.writeString(this.kategori_nama);
     }
 
-    protected Kategori(Parcel in) {
+    protected KategoriJudul(Parcel in) {
         this.id = in.readInt();
         this.kategori_nama = in.readString();
     }
 
-    public static final Creator<Kategori> CREATOR = new Creator<Kategori>() {
+    public static final Creator<KategoriJudul> CREATOR = new Creator<KategoriJudul>() {
         @Override
-        public Kategori createFromParcel(Parcel source) {
-            return new Kategori(source);
+        public KategoriJudul createFromParcel(Parcel source) {
+            return new KategoriJudul(source);
         }
 
         @Override
-        public Kategori[] newArray(int size) {
-            return new Kategori[size];
+        public KategoriJudul[] newArray(int size) {
+            return new KategoriJudul[size];
         }
     };
 }

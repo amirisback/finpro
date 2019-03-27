@@ -154,7 +154,7 @@
     <string name="menu_mahasiswa">Mahasiswa</string>
     <string name="menu_dosen">Dosen</string>
     <string name="menu_proyek_akhir">Proyek Akhir</string>
-    <string name="menu_judul_pa">Judul PA</string>
+    <string name="menu_judul_pa">Judul</string>
     <string name="hint_nama_dosen">Masukkan Nama Dosen</string>
     <string name="title_email_dosen">Email</string>
     <string name="hint_email_dosen">Masukkan Email</string>
@@ -170,6 +170,10 @@
     <string name="dialog_hapus_text">Anda yakin ingin menghapus ini?</string>
     <string name="iya">Iya</string>
     <string name="tidak">Tidak</string>
+    <string name="ubah">Ubah</string>
+    <string name="batal">Batal</string>
+    <string name="tambah">Tambah</string>
+
     <string name="text_kode_dosen">Kode Dosen</string>
     <string name="text_hint_kode_dosen">Masukkan Kode Dosen</string>
     <string name="text_hint_angkatan_mahasiswa">Masukkan Angkatan Mahasiswa</string>
@@ -195,6 +199,10 @@
     <string name="textview_dosen_kode">HMU</string>
     <string name="title_kategori_judul_pa">Kategori Judul PA</string>
     <string name="act_dsn_mone_edittext_nilai">Nilai Monev</string>
+    <string name="text_judul_digunakan">Judul sudah di gunakan oleh kelompok lain</string>
+    <string name="text_data_not_found">Tidak ada data</string>
+    <string name="menu_kategori_judul">Kategori Judul</string>
+    <string name="dialog_tambah">Tambah</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

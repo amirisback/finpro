@@ -34,6 +34,7 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiLis
     private ProgressDialog progressDialog;
     private InformasiPresenter presenter;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private View empty_view;
 
     public MahasiswaInformasiFragment() {
         // Required empty public constructor
@@ -49,6 +50,7 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiLis
 
         recyclerView = rootView.findViewById(R.id.frg_mhs_info_recyclerview);
         swipeRefreshLayout = rootView.findViewById(R.id.frg_mhs_info_swiperefresh);
+        empty_view = rootView.findViewById(R.id.view_emptyview);
 
         adapter = new MahasiswaInformasiViewAdapter(getContext());
         presenter = new InformasiPresenter(this);
@@ -94,6 +96,12 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiLis
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(linearLayoutManager);
         swipeRefreshLayout.setRefreshing(false);
+
+        if (arrayList.size() == 0) {
+            empty_view.setVisibility(View.VISIBLE);
+        } else {
+            empty_view.setVisibility(View.GONE);
+        }
 
     }
 

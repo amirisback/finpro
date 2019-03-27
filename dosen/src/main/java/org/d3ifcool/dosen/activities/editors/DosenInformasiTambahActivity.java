@@ -1,7 +1,5 @@
 package org.d3ifcool.dosen.activities.editors;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,6 +13,8 @@ import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.works.InformasiWorkView;
 import org.d3ifcool.service.presenters.InformasiPresenter;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class DosenInformasiTambahActivity extends AppCompatActivity implements InformasiWorkView {
 
@@ -45,11 +45,11 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
             public void onClick(View v) {
                 String text_info_judul = info_judul.getText().toString();
                 String text_info_deskripsi = info_deskripsi.getText().toString();
-                if(text_info_judul.isEmpty()){
+                if (text_info_judul.isEmpty()) {
                     info_judul.setError(getString(R.string.text_tidak_boleh_kosong));
-                }else if(text_info_deskripsi.isEmpty()){
+                } else if (text_info_deskripsi.isEmpty()) {
                     info_deskripsi.setError(getString(R.string.text_tidak_boleh_kosong));
-                }else{
+                } else {
                     presenter.createInformasi(text_info_judul, text_info_deskripsi, sessionManager.getSessionDosenNama());
                 }
             }
