@@ -5,7 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
-        <activity android:name=".AdminPemberitahuanActivity"></activity>
+        <activity android:name=".activities.details.KoorPemetaanMahasiswaMonevDetailActivity"></activity>
+        <activity android:name=".activities.editors.KoorPemetaanMahasiswaMonevTambahActivity" />
+        <activity android:name=".AdminPemberitahuanActivity" />
         <activity android:name=".AdminProfilActivity" />
         <activity android:name=".activities.editors.KoorMahasiswaTambahActivity" />
         <activity android:name=".activities.editors.KoorDosenTambahActivity" />

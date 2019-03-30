@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by
+ * FrogoBox Inc License
+ * =========================================
+ *
+ * Copyright (C) .
+ * All rights reserved
+ *
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Line     : bullbee117
+ * Phone    : 081357108568
+ * Majors   : D3 Teknik Informatika 2016
+ * Campus   : Telkom University
+ *
+ * id.amirisback.frogobox
+ *
+ -->
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dimen_medium"
+    android:layout_marginLeft="@dimen/dimen_medium"
+    android:layout_marginRight="@dimen/dimen_medium">
+
+    <RelativeLayout
+        android:layout_margin="@dimen/dimen_big"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/ctn_dsn_pa_sidang_textview_judul"
+            android:text="@string/dummy"
+            style="@style/textview_item_list_judul_pa"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:drawablePadding="@dimen/dimen_drawable_padding"
+            android:textColor="@color/colorTextBlack"
+            android:layout_below="@id/ctn_dsn_pa_sidang_textview_judul"
+            android:drawableStart="@drawable/ic_content_judul_pa_kategori"
+            android:id="@+id/ctn_dsn_pa_sidang_textview_kategori"
+            android:text="@string/dummy"/>
+
+        <TextView
+            android:layout_below="@id/ctn_dsn_pa_sidang_textview_kategori"
+            android:id="@+id/ctn_dsn_pa_sidang_textview_kelompok"
+            style="@style/textview_item_list_judul_kategori"
+            android:drawableStart="@drawable/ic_content_judul_pa_kelompok"
+            android:text="@string/dummy_mahasiswa_kelompok"/>
+        <ImageView
+            android:id="@+id/ctn_dsn_pa_sidang_image_detail"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/dimen_big"
+            android:src="@drawable/ic_detail"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

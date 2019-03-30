@@ -5,4 +5,10 @@
     <string name="hint_judul_bimbingan">Masukkan Judul Bimbingan</string>
     <string name="textview_jumlah_bimbingan">Jumlah Bimbingan</string>
     <string name="textview_jumlah_monev">Jumlah Monev</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="textview_title_pa_sidang">Daftar Judul Proyek Akhir Sidang</string>
+    <string name="textview_penilaian_sidang">Penilaian Sidang</string>
+    <string name="textview_nilai_proposal">Nilai Proposal</string>
 </resources>

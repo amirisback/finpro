@@ -36,8 +36,8 @@ public class DosenBimbinganListMonevFragment extends Fragment {
         RecyclerView recyclerView = rootView.findViewById(R.id.act_mhs_pa_monev_detail_recyclerview);
 
         ArrayList<DetailMonev> arrayList = new ArrayList<>();
-        arrayList.add(new DetailMonev(86,"28 januari 2019","layout kurang sekali",1,1));
-        arrayList.add(new DetailMonev(86,"28 januari 2019","layout kurang sekali",1,1));
+//        arrayList.add(new DetailMonev(86,"28 januari 2019","layout kurang sekali",1,1));
+//        arrayList.add(new DetailMonev(86,"28 januari 2019","layout kurang sekali",1,1));
 
         MahasiswaPaMonevViewAdapter adapter = new MahasiswaPaMonevViewAdapter(getContext());
         adapter.addItem(arrayList);

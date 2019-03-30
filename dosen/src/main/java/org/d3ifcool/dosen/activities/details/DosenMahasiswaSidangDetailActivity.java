@@ -9,7 +9,7 @@ import org.d3ifcool.dosen.R;
 
 public class DosenMahasiswaSidangDetailActivity extends AppCompatActivity {
 
-    public static final String EXTRA_MAHASISWA = "extra_mahasiswa";
+    public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

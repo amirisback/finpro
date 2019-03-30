@@ -2,5 +2,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_nama_reviewer">Nama Reviewer</string>
+    <string name="text_pilih_dosen_reviewer">Pilih Dosen Reviewer</string>
+    <string name="text_judul_proyek_akhir">Judul Proyek Akhir</string>
+    <string name="text_pilih_dosen">Pilih Dosen</string>
+    <string name="hint_masukkan_judul_pa">Masukkan Judul PA</string>
+    <string name="text_kategori_proyek_akhir">Kategori Proyek Akhir</string>
+    <string name="text_deskripsi_proyek_akhir">Deskripsi Proyek Akhir</string>
+    <string name="hint_masukkan_deskripsi_judul_pa">Masukkan Deskripsi Judul PA</string>
 
 </resources>

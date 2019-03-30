@@ -26,7 +26,7 @@
             android:layout_marginStart="@dimen/dimen_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_pilih_dosen"
+            android:text="@string/text_pilih_dosen_reviewer"
             android:textSize="@dimen/text_size_title_small"
             android:textColor="@color/colorPrimary"/>
 
@@ -51,63 +51,12 @@
             android:textSize="@dimen/text_size_title_small"
             android:textColor="@color/colorPrimary"/>
 
-        <EditText
+        <Spinner
             android:id="@+id/act_koor_judul_pa_edittext_judul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:layout_marginTop="@dimen/dimen_small"
-            android:layout_marginLeft="@dimen/dimen_small"
-            android:background="@android:color/transparent"
-            android:hint="@string/hint_masukkan_judul_pa"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="@dimen/dimen_small"
-            android:layout_marginRight="@dimen/dimen_small"
-            android:background="@color/colorPrimary"
-            android:layout_marginBottom="@dimen/dimen_big"/>
-        <TextView
-            android:layout_marginStart="@dimen/dimen_small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/text_kategori_proyek_akhir"
-            android:textSize="@dimen/text_size_title_small"
-            android:textColor="@color/colorPrimary"/>
-
-        <Spinner
-            android:id="@+id/act_koor_judul_pa_spinner_kategori"
-            android:entries="@array/kategori_proyek_akhir"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_medium"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="@dimen/dimen_small"
-            android:layout_marginRight="@dimen/dimen_small"
-            android:background="@color/colorPrimary"
-            android:layout_marginBottom="@dimen/dimen_big"/>
-
-        <TextView
-
-            android:layout_marginStart="@dimen/dimen_small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/text_deskripsi_proyek_akhir"
-            android:textSize="@dimen/text_size_title_small"
-            android:textColor="@color/colorPrimary"/>
-
-        <EditText
-            android:id="@+id/act_koor_judul_pa_edittext_deskripsi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:layout_marginLeft="@dimen/dimen_small"
-            android:layout_marginRight="@dimen/dimen_small"
             android:layout_marginTop="@dimen/dimen_medium"
-            android:background="@android:color/transparent"
-            android:hint="@string/hint_masukkan_deskripsi_judul_pa"/>
+            />
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -115,13 +64,14 @@
             android:layout_marginRight="@dimen/dimen_small"
             android:background="@color/colorPrimary"
             android:layout_marginBottom="@dimen/dimen_big"/>
+
 
         <Button
             android:id="@+id/act_koor_judul_pa_button_simpan"
             android:layout_marginTop="@dimen/dimen_big"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Simpan Judul"
+            android:text="@string/button_click_simpan"
             android:textColor="@color/colorTextWhite"
             android:background="@drawable/box_border_button_action"/>
 

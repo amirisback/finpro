@@ -154,6 +154,7 @@
     <string name="menu_mahasiswa">Mahasiswa</string>
     <string name="menu_dosen">Dosen</string>
     <string name="menu_proyek_akhir">Proyek Akhir</string>
+    <string name="menu_pemetaan_monev">Pemetaan Monev</string>
     <string name="menu_judul_pa">Judul</string>
     <string name="hint_nama_dosen">Masukkan Nama Dosen</string>
     <string name="title_email_dosen">Email</string>
@@ -198,6 +199,7 @@
     <string name="text_progress_dialog">Tunggu Sebentar . . .</string>
     <string name="textview_dosen_kode">HMU</string>
     <string name="title_kategori_judul_pa">Kategori Judul PA</string>
+    <string name="title_pemetaan_monev">Pemetaan Monev</string>
     <string name="act_dsn_mone_edittext_nilai">Nilai Monev</string>
     <string name="text_judul_digunakan">Judul sudah di gunakan oleh kelompok lain</string>
     <string name="text_data_not_found">Tidak ada data</string>
