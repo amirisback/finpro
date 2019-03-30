@@ -11,12 +11,17 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_DELETE;
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_JUDUL_PA;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.BASE_PARAMETER;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_JUDUL;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_PROYEK_AKHIR;
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_SEARCH;
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_UPDATE;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_SEARCH;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_PROYEK_AKHIR;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_PARAMS;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_PROYEK_AKHIR;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_QUERY;
 
 /**
  * Created by Faisal Amir
@@ -40,7 +45,7 @@ public interface ApiInterfaceProyekAkhir {
     @FormUrlEncoded
     @POST(URL_PROYEK_AKHIR)
     Call<ProyekAkhir> createProyekAkhir(
-            @Field("id_judul") String id_judul,
+            @Field("judul_id") int id_judul,
             @Field("mhs_nim") String mhs_nim,
             @Field("dsn_nip") String dsn_nip,
             @Field("nama_tim") String nama_tim
@@ -48,21 +53,25 @@ public interface ApiInterfaceProyekAkhir {
 
 
     @FormUrlEncoded
-    @POST(URL_PROYEK_AKHIR + PARAMETER_UPDATE + PARAMETER_JUDUL_PA)
+    @POST(URL_PROYEK_AKHIR + PATH_UPDATE + PARAMETER_JUDUL)
     Call<ProyekAkhir> updateProyekAkhir(
-            @Path("judul") int judul_id,
-            @Field("judul_nama") String judul_nama,
-            @Field("judul_kategori") String judul_kategori,
-            @Field("judul_deskripsi") String judul_deskripsi
+            @Path(VAR_PROYEK_AKHIR) int proyek_akhir_id,
+            @Field("judul_id") int id_judul,
+            @Field("mhs_nim") String mhs_nim,
+            @Field("dsn_nip") String dsn_nip,
+            @Field("nama_tim") String nama_tim
     );
 
     @GET(URL_PROYEK_AKHIR)
     Call<List<ProyekAkhir>> getProyekAkhir();
 
-    @GET(URL_PROYEK_AKHIR + PARAMETER_SEARCH + PARAMETER_PROYEK_AKHIR)
-    Call<List<ProyekAkhir>> getProyekAkhirSortByDosen(@Path("proyek_akhir") String nip_dosen);
+    @GET(URL_PROYEK_AKHIR + PATH_SEARCH + BASE_PARAMETER + PARAMETER_QUERY)
+    Call<List<ProyekAkhir>> getProyekAkhirSearch(
+            @Path(VAR_PARAMS) String parameter,
+            @Path(VAR_QUERY) String query
+    );
 
-    @POST(URL_PROYEK_AKHIR + PARAMETER_DELETE + PARAMETER_PROYEK_AKHIR)
-    Call<ProyekAkhir> deleteProyekAkhir(@Path("proyek_akhir") int judul_id);
+    @POST(URL_PROYEK_AKHIR + PATH_DELETE + PARAMETER_PROYEK_AKHIR)
+    Call<ProyekAkhir> deleteProyekAkhir(@Path(VAR_PROYEK_AKHIR) int proyek_akhir);
 
 }

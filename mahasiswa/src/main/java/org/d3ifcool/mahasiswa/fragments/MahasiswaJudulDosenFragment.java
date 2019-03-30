@@ -20,7 +20,6 @@ import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.MahasiswaJudulPaDosenViewAdapter;
 import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
-import org.d3ifcool.service.interfaces.objects.DosenView;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.presenters.DosenPresenter;
@@ -29,7 +28,7 @@ import org.d3ifcool.service.presenters.JudulPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY_DOSEN_NAMA;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.FIELD_DOSEN_NAMA;
 
 
 /**
@@ -83,7 +82,7 @@ public class MahasiswaJudulDosenFragment extends Fragment implements DosenListVi
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String spinnerItemPosition = parent.getItemAtPosition(position).toString();
-                judulPresenter.getJudulSearch(PARAMETER_QUERY_DOSEN_NAMA, spinnerItemPosition);
+                judulPresenter.getJudulSearchShowMahasiswa(FIELD_DOSEN_NAMA, spinnerItemPosition);
             }
 
             @Override
@@ -96,7 +95,7 @@ public class MahasiswaJudulDosenFragment extends Fragment implements DosenListVi
             @Override
             public void onRefresh() {
                 dosenPresenter.getDosen();
-                judulPresenter.getJudulSearch(PARAMETER_QUERY_DOSEN_NAMA, sp_dosen.getSelectedItem().toString());
+                judulPresenter.getJudulSearchShowMahasiswa(FIELD_DOSEN_NAMA, sp_dosen.getSelectedItem().toString());
             }
         });
 

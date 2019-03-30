@@ -35,8 +35,8 @@ public class MahasiswaPresenter {
         this.viewResult = viewResult;
     }
 
-    public MahasiswaPresenter(MahasiswaWorkView editor) {
-        this.viewEditor = editor;
+    public MahasiswaPresenter(MahasiswaWorkView viewEditor) {
+        this.viewEditor = viewEditor;
     }
 
     public MahasiswaPresenter(MahasiswaView viewObject) {
@@ -139,4 +139,25 @@ public class MahasiswaPresenter {
         });
 
     }
+
+    public void updateMahasiswaJudul(String nim, int judul_id){
+        viewEditor.showProgress();
+        ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
+        Call<Mahasiswa> call = apiInterfaceMahasiswa.updateJudulMahasiswa(nim, judul_id);
+        call.enqueue(new Callback<Mahasiswa>() {
+            @Override
+            public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<Mahasiswa> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getLocalizedMessage());
+            }
+        });
+
+    }
+
 }

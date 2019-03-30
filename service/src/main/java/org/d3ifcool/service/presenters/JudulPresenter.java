@@ -40,10 +40,10 @@ public class JudulPresenter {
         this.viewResult = viewResult;
     }
 
-    public void createJudul (String judul_nama, int kategori_id, String judul_deskripsi, String nip_dosen){
+    public void createJudul (String judul_nama, int kategori_id, String judul_deskripsi, String nip_dosen, String judul_status){
         viewEditor.showProgress();
         ApiInterfaceJudul apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
-        Call<Judul> call = apiInterface.createJudul(judul_nama,kategori_id,judul_deskripsi,nip_dosen);
+        Call<Judul> call = apiInterface.createJudul(judul_nama,kategori_id,judul_deskripsi,nip_dosen, judul_status);
         call.enqueue(new Callback<Judul>() {
             @Override
             public void onResponse(Call<Judul> call, Response<Judul> response) {
@@ -133,6 +133,25 @@ public class JudulPresenter {
             public void onFailure(Call<Judul> call, Throwable t) {
                 viewEditor.hideProgress();
                 viewEditor.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void getJudulSearchShowMahasiswa(String parameter, String query) {
+        viewResult.showProgress();
+        ApiInterfaceJudul apiInterfaceJudul = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
+        Call<List<Judul>> call = apiInterfaceJudul.getJudulSearchShowMahasiswa(parameter,query);
+        call.enqueue(new Callback<List<Judul>>() {
+            @Override
+            public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetListJudul(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Judul>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getMessage());
             }
         });
     }

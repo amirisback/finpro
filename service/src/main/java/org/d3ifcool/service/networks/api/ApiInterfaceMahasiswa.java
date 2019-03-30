@@ -11,10 +11,12 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_DELETE;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_JUDUL;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_MAHASISWA;
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_UPDATE;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_MAHASISWA;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_MAHASISWA;
 
 /**
  * Created by ikhsan ramadhan
@@ -42,9 +44,9 @@ public interface ApiInterfaceMahasiswa {
     );
 
     @FormUrlEncoded
-    @POST(URL_MAHASISWA + PARAMETER_UPDATE + PARAMETER_MAHASISWA)
+    @POST(URL_MAHASISWA + PATH_UPDATE + PARAMETER_MAHASISWA)
     Call<Mahasiswa> updateMahasiswa(
-            @Path("mahasiswa") String nim_mhs,
+            @Path(VAR_MAHASISWA) String nim_mhs,
             @Field("mhs_nama") String mhs_nama,
             @Field("mhs_angkatan") String angkatan,
             @Field("mhs_kontak") String mhs_kontak,
@@ -54,11 +56,19 @@ public interface ApiInterfaceMahasiswa {
     @GET(URL_MAHASISWA)
     Call<List<Mahasiswa>> getMahasiswa();
 
-    @POST(URL_MAHASISWA + PARAMETER_DELETE + PARAMETER_MAHASISWA)
-    Call<Mahasiswa> deleteMahasiswa(@Path("mahasiswa") String mhs_nim);
+    @POST(URL_MAHASISWA + PATH_DELETE + PARAMETER_MAHASISWA)
+    Call<Mahasiswa> deleteMahasiswa(@Path(VAR_MAHASISWA) String mhs_nim);
 
     @GET(URL_MAHASISWA + PARAMETER_MAHASISWA)
-    Call<Mahasiswa> getMahasiswaByParameter(@Path("mahasiswa") String username_mhs);
+    Call<Mahasiswa> getMahasiswaByParameter(@Path(VAR_MAHASISWA) String username_mhs);
+
+    @FormUrlEncoded
+    @POST(URL_MAHASISWA + PATH_UPDATE + PARAMETER_JUDUL + PARAMETER_MAHASISWA)
+    Call<Mahasiswa> updateJudulMahasiswa(
+            @Path(VAR_MAHASISWA) String mhs_nim,
+            @Field("judul_id") int judul
+            );
+
 
 
 }

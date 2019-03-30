@@ -18,7 +18,6 @@ import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.KategoriJudulListView;
 import org.d3ifcool.service.interfaces.works.JudulWorkView;
-import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.KategoriJudul;
 import org.d3ifcool.service.presenters.JudulPresenter;
 import org.d3ifcool.service.presenters.KategoriJudulPresenter;
@@ -26,7 +25,7 @@ import org.d3ifcool.service.presenters.KategoriJudulPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY_DOSEN_NAMA;
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERSEDIA;
 
 public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implements JudulWorkView, KategoriJudulListView {
 
@@ -88,7 +87,7 @@ public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implem
                 }else if(deskripsi.isEmpty()){
                     et_deskripsi.setError("deskripsi tidak boleh kosong");
                 }else{
-                    judulPresenter.createJudul(judul, kategori, deskripsi, sessionManager.getSessionDosenNip());
+                    judulPresenter.createJudul(judul, kategori, deskripsi, sessionManager.getSessionDosenNip(), JUDUL_STATUS_TERSEDIA);
                 }
             }
         });

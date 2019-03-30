@@ -49,21 +49,16 @@ public class Dosen implements Parcelable {
     private String dsn_email;
 
     @Expose
-    @SerializedName("dsn_status")
-    private String dsn_status;
-
-    @Expose
     @SerializedName("username")
     private String username;
 
-    public Dosen(String dsn_nip, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_foto, String dsn_email, String dsn_status, String username) {
+    public Dosen(String dsn_nip, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_foto, String dsn_email, String username) {
         this.dsn_nip = dsn_nip;
         this.dsn_nama = dsn_nama;
         this.dsn_kode = dsn_kode;
         this.dsn_kontak = dsn_kontak;
         this.dsn_foto = dsn_foto;
         this.dsn_email = dsn_email;
-        this.dsn_status = dsn_status;
         this.username = username;
     }
 
@@ -115,13 +110,6 @@ public class Dosen implements Parcelable {
         this.dsn_email = dsn_email;
     }
 
-    public String getDsn_status() {
-        return dsn_status;
-    }
-
-    public void setDsn_status(String dsn_status) {
-        this.dsn_status = dsn_status;
-    }
 
     public String getUsername() {
         return username;
@@ -145,7 +133,6 @@ public class Dosen implements Parcelable {
         dest.writeString(this.dsn_kontak);
         dest.writeString(this.dsn_foto);
         dest.writeString(this.dsn_email);
-        dest.writeString(this.dsn_status);
         dest.writeString(this.username);
     }
 
@@ -156,7 +143,6 @@ public class Dosen implements Parcelable {
         this.dsn_kontak = in.readString();
         this.dsn_foto = in.readString();
         this.dsn_email = in.readString();
-        this.dsn_status = in.readString();
         this.username = in.readString();
     }
 

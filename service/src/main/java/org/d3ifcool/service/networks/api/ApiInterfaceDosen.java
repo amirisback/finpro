@@ -11,10 +11,11 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_DELETE;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_DOSEN;
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_UPDATE;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_DOSEN;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_DOSEN;
 
 /**
  * Created by Faisal Amir
@@ -46,7 +47,7 @@ public interface ApiInterfaceDosen {
     );
 
     @FormUrlEncoded
-    @POST(URL_DOSEN + PARAMETER_UPDATE + PARAMETER_DOSEN)
+    @POST(URL_DOSEN + PATH_UPDATE + PARAMETER_DOSEN)
     Call<Dosen> updateDosen(
             @Path("dosen") String dsn_nip,
             @Field("dsn_nama") String dsn_nama,
@@ -55,14 +56,14 @@ public interface ApiInterfaceDosen {
             @Field("dsn_email") String dsn_email
     );
 
-    @POST(URL_DOSEN + PARAMETER_DELETE + PARAMETER_DOSEN)
-    Call<Dosen> deleteDosen(@Path("dosen") String dsn_nip);
+    @POST(URL_DOSEN + PATH_DELETE + PARAMETER_DOSEN)
+    Call<Dosen> deleteDosen(@Path(VAR_DOSEN) String dsn_nip);
 
     @GET(URL_DOSEN)
     Call<List<Dosen>> getDosen();
 
     @GET(URL_DOSEN + PARAMETER_DOSEN)
-    Call<Dosen> getDosenByParameter(@Path("dosen") String dsn_nip);
+    Call<Dosen> getDosenByParameter(@Path(VAR_DOSEN) String dsn_nip);
 
 
 }

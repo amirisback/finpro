@@ -11,10 +11,11 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_DELETE;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_INFORMASI;
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_UPDATE;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_INFORMASI;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_INFORMASI;
 
 /**
  * Created by Faisal Amir
@@ -44,9 +45,9 @@ public interface ApiInterfaceInformasi {
     );
 
     @FormUrlEncoded
-    @POST(URL_INFORMASI + PARAMETER_UPDATE + PARAMETER_INFORMASI)
+    @POST(URL_INFORMASI + PATH_UPDATE + PARAMETER_INFORMASI)
     Call<Informasi> updateInformasi (
-            @Path("informasi") int informasi_id,
+            @Path(VAR_INFORMASI) int informasi_id,
             @Field("informasi_judul") String informasi_judul,
             @Field("informasi_isi") String informasi_isi
     );
@@ -55,9 +56,9 @@ public interface ApiInterfaceInformasi {
     Call<List<Informasi>> getInformasi();
 
     // Ga perlu pake @FormUrlEncoded karena tidak menggunakan field
-    @POST(URL_INFORMASI + PARAMETER_DELETE + PARAMETER_INFORMASI)
+    @POST(URL_INFORMASI + PATH_DELETE + PARAMETER_INFORMASI)
     Call<Informasi> deleteInformasi (
-            @Path("informasi") int informasi_id
+            @Path(VAR_INFORMASI) int informasi_id
     );
 
 }

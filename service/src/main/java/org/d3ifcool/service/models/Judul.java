@@ -50,6 +50,10 @@ public class Judul implements Parcelable {
     private String judul_status;
 
     @Expose
+    @SerializedName("judul_waktu")
+    private String judul_waktu;
+
+    @Expose
     @SerializedName("dsn_nip")
     private String nip_dosen;
 
@@ -77,13 +81,14 @@ public class Judul implements Parcelable {
     @SerializedName("dsn_email")
     private String dsn_email;
 
-    public Judul(int id, String judul, String kategori_id, String kategori_nama, String deskripsi, String judul_status, String nip_dosen, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_foto, String username, String dsn_email) {
+    public Judul(int id, String judul, String kategori_id, String kategori_nama, String deskripsi, String judul_status, String judul_waktu, String nip_dosen, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_foto, String username, String dsn_email) {
         this.id = id;
         this.judul = judul;
         this.kategori_id = kategori_id;
         this.kategori_nama = kategori_nama;
         this.deskripsi = deskripsi;
         this.judul_status = judul_status;
+        this.judul_waktu = judul_waktu;
         this.nip_dosen = nip_dosen;
         this.dsn_nama = dsn_nama;
         this.dsn_kode = dsn_kode;
@@ -139,6 +144,14 @@ public class Judul implements Parcelable {
 
     public void setJudul_status(String judul_status) {
         this.judul_status = judul_status;
+    }
+
+    public String getJudul_waktu() {
+        return judul_waktu;
+    }
+
+    public void setJudul_waktu(String judul_waktu) {
+        this.judul_waktu = judul_waktu;
     }
 
     public String getNip_dosen() {
@@ -211,6 +224,7 @@ public class Judul implements Parcelable {
         dest.writeString(this.kategori_nama);
         dest.writeString(this.deskripsi);
         dest.writeString(this.judul_status);
+        dest.writeString(this.judul_waktu);
         dest.writeString(this.nip_dosen);
         dest.writeString(this.dsn_nama);
         dest.writeString(this.dsn_kode);
@@ -227,6 +241,7 @@ public class Judul implements Parcelable {
         this.kategori_nama = in.readString();
         this.deskripsi = in.readString();
         this.judul_status = in.readString();
+        this.judul_waktu = in.readString();
         this.nip_dosen = in.readString();
         this.dsn_nama = in.readString();
         this.dsn_kode = in.readString();

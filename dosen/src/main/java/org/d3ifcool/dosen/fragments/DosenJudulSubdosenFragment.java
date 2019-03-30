@@ -26,7 +26,7 @@ import org.d3ifcool.service.presenters.JudulPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY_DOSEN_NAMA;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.FIELD_DOSEN_NAMA;
 
 
 /**
@@ -67,7 +67,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
         sessionManager = new SessionManager(getContext());
 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
-        presenter.getJudulSearch(PARAMETER_QUERY_DOSEN_NAMA, sessionManager.getSessionDosenNama());
+        presenter.getJudulSearch(FIELD_DOSEN_NAMA, sessionManager.getSessionDosenNama());
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +79,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.getJudulSearch(PARAMETER_QUERY_DOSEN_NAMA, sessionManager.getSessionDosenNama());
+                presenter.getJudulSearch(FIELD_DOSEN_NAMA, sessionManager.getSessionDosenNama());
             }
         });
 
@@ -88,7 +88,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
     @Override
     public void onResume() {
         super.onResume();
-        presenter.getJudulSearch(PARAMETER_QUERY_DOSEN_NAMA, sessionManager.getSessionDosenNama());
+        presenter.getJudulSearch(FIELD_DOSEN_NAMA, sessionManager.getSessionDosenNama());
     }
 
     @Override

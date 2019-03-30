@@ -96,7 +96,6 @@ public class SessionManager {
         editor.putString(DSN_EMAIL, dosen.getDsn_email());
         editor.putString(DSN_KONTAK, dosen.getDsn_kontak());
         editor.putString(DSN_KODE, dosen.getDsn_kode());
-        editor.putString(DSN_STATUS, dosen.getDsn_status());
         editor.apply();
         editor.commit();
     }

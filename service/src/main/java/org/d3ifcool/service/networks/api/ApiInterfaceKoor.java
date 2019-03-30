@@ -11,10 +11,11 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_DELETE;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_KOOR;
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_UPDATE;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_KOORDINATOR_PA;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_KOORDINATOR_PA;
 
 /**
  * Created by ikhsan ramadhan
@@ -41,7 +42,7 @@ public interface ApiInterfaceKoor {
     );
 
     @FormUrlEncoded
-    @POST(URL_KOORDINATOR_PA + PARAMETER_UPDATE + PARAMETER_KOOR)
+    @POST(URL_KOORDINATOR_PA + PATH_UPDATE + PARAMETER_KOOR)
     Call<KoordinatorPa> updateKoor(
             @Path("koor_nip") String koor_nip,
             @Field("koor_nama") String koor_nama,
@@ -53,10 +54,10 @@ public interface ApiInterfaceKoor {
     @GET(URL_KOORDINATOR_PA)
     Call<List<KoordinatorPa>> getKoor();
 
-    @POST(URL_KOORDINATOR_PA + PARAMETER_DELETE + PARAMETER_KOOR)
-    Call<KoordinatorPa> deleteKoor(@Path("koor") String koor_nip);
+    @POST(URL_KOORDINATOR_PA + PATH_DELETE + PARAMETER_KOOR)
+    Call<KoordinatorPa> deleteKoor(@Path(VAR_KOORDINATOR_PA) String koor_nip);
 
     @GET(URL_KOORDINATOR_PA + PARAMETER_KOOR)
-    Call<KoordinatorPa> getKoorByParameter(@Path("koor") String username_koor);
+    Call<KoordinatorPa> getKoorByParameter(@Path(VAR_KOORDINATOR_PA) String username_koor);
 
 }
