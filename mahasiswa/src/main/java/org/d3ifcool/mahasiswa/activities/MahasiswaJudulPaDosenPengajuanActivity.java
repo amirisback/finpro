@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +20,7 @@ import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.presenters.MahasiswaPresenter;
 import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 
-public class MahasiswaJudulPaPengajuanDosenTambahActivity extends AppCompatActivity implements ProyekAkhirWorkView, MahasiswaWorkView {
+public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity implements ProyekAkhirWorkView, MahasiswaWorkView {
 
 
     public static final String EXTRA_JUDUL = "extra_judul";
@@ -31,7 +33,10 @@ public class MahasiswaJudulPaPengajuanDosenTambahActivity extends AppCompatActiv
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mahasiswa_judul_pa_pengajuan_dosen);
+        setContentView(R.layout.activity_mahasiswa_judul_pa_dosen_pengajuan);
+
+        setTitle(getString(R.string.title_pengajuan_judulpa));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
@@ -87,15 +92,31 @@ public class MahasiswaJudulPaPengajuanDosenTambahActivity extends AppCompatActiv
                     proyekAkhirPresenter.createProyekAkhir(extraJudulId, mahasiswaNim2, extraDosenNip, namaKelompok);
                     mahasiswaPresenter.updateMahasiswaJudul(extraMahasiswaNim1, extraJudulId);
                     mahasiswaPresenter.updateMahasiswaJudul(mahasiswaNim2, extraJudulId);
+                    sessionManager.createSessionJudulMahasiswa(extraJudulId);
                 } else {
                     proyekAkhirPresenter.createProyekAkhir(extraJudulId, extraMahasiswaNim1, extraDosenNip, namaKelompok);
                     mahasiswaPresenter.updateMahasiswaJudul(extraMahasiswaNim1, extraJudulId);
+                    sessionManager.createSessionJudulMahasiswa(extraJudulId);
                 }
-
             }
         });
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

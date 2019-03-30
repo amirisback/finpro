@@ -1,7 +1,6 @@
 package org.d3ifcool.mahasiswa.fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -13,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.mahasiswa.activities.MahasiswaJudulPaPengajuanTambahActivity;
 import org.d3ifcool.mahasiswa.adapters.MahasiswaJudulPaPagerAdapter;
 
 

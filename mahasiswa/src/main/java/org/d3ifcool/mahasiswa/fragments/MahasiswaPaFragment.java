@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.mahasiswa.activities.MahasiswaJudulPaPengajuanTambahActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPaBimbinganDetailActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPaMonevDetailActivity;
 

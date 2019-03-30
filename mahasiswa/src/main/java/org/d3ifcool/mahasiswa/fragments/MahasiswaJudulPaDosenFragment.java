@@ -13,11 +13,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.MahasiswaJudulPaDosenViewAdapter;
+import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.models.Dosen;
@@ -34,13 +36,14 @@ import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.FIELD_DOSEN_
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MahasiswaJudulDosenFragment extends Fragment implements DosenListView, JudulListView {
+public class MahasiswaJudulPaDosenFragment extends Fragment implements DosenListView, JudulListView {
 
     private Spinner sp_dosen;
     private ProgressDialog progressDialog;
     private RecyclerView recyclerView;
     private MahasiswaJudulPaDosenViewAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private View disableView;
 
     private ArrayList<Judul> arrayListJudul = new ArrayList<>();
     private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
@@ -50,7 +53,7 @@ public class MahasiswaJudulDosenFragment extends Fragment implements DosenListVi
 
     private View empty_view;
 
-    public MahasiswaJudulDosenFragment() {
+    public MahasiswaJudulPaDosenFragment() {
         // Required empty public constructor
     }
 
@@ -71,33 +74,51 @@ public class MahasiswaJudulDosenFragment extends Fragment implements DosenListVi
         dosenPresenter = new DosenPresenter(this);
         judulPresenter = new JudulPresenter(this);
 
+        disableView = rootView.findViewById(R.id.disable_view);
         empty_view = rootView.findViewById(R.id.view_emptyview);
 
-        adapter = new MahasiswaJudulPaDosenViewAdapter(getContext());
+        SessionManager sessionManager = new SessionManager(getContext());
 
+        if (sessionManager.getSessionMahasiswaIdJudul() != 0) {
+            disableView.setVisibility(View.VISIBLE); // Tidak Bisa Mengajukan Judul
+            recyclerView.setVisibility(View.GONE);
+            sp_dosen.setVisibility(View.GONE);
+            swipeRefreshLayout.setRefreshing(false);
+            swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    swipeRefreshLayout.setRefreshing(false);
+                }
+            });
+        } else {
+            disableView.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+            sp_dosen.setVisibility(View.VISIBLE);
 
-        dosenPresenter.getDosen();
+            dosenPresenter.getDosen();
+            adapter = new MahasiswaJudulPaDosenViewAdapter(getContext());
 
-        sp_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String spinnerItemPosition = parent.getItemAtPosition(position).toString();
-                judulPresenter.getJudulSearchShowMahasiswa(FIELD_DOSEN_NAMA, spinnerItemPosition);
-            }
+            sp_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String spinnerItemPosition = parent.getItemAtPosition(position).toString();
+                    judulPresenter.getJudulSearchShowMahasiswa(FIELD_DOSEN_NAMA, spinnerItemPosition);
+                }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
 
-            }
-        });
+                }
+            });
 
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                dosenPresenter.getDosen();
-                judulPresenter.getJudulSearchShowMahasiswa(FIELD_DOSEN_NAMA, sp_dosen.getSelectedItem().toString());
-            }
-        });
+            swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    dosenPresenter.getDosen();
+                    judulPresenter.getJudulSearchShowMahasiswa(FIELD_DOSEN_NAMA, sp_dosen.getSelectedItem().toString());
+                }
+            });
+        }
 
         return rootView;
     }

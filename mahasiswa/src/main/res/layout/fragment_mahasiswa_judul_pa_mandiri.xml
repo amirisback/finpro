@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="@dimen/dimen_medium"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_medium"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="200dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aturan Pengajuan Judul Mandiri"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorTextBlack"
+                android:textSize="@dimen/text_size_title_medium"/>
+
+            <View
+                android:layout_marginTop="@dimen/dimen_small"
+                android:layout_marginBottom="@dimen/dimen_small"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBackground"/>
+
+            <TextView
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginBottom="@dimen/dimen_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. "
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorTextBlack"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/frg_mhs_pa_pengajuan_fab"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/dimen_big"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_fab_add"/>
+
+    <!-- Disable View -->
+    <RelativeLayout
+        android:id="@+id/disable_view"
+        android:visibility="gone"
+        android:background="@color/colorBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@color/colorBackgroundGreen"
+            android:textSize="@dimen/text_size_medium"
+            android:layout_centerInParent="true"
+            android:id="@+id/textStatusJudul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_disable_pengajuan_judul"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

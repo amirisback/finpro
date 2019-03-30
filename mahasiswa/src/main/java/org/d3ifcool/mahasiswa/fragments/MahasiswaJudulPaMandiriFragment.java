@@ -1,0 +1,62 @@
+package org.d3ifcool.mahasiswa.fragments;
+
+
+import android.content.Intent;
+import android.os.Bundle;
+
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.d3ifcool.mahasiswa.R;
+import org.d3ifcool.mahasiswa.activities.MahasiswaJudulPaMandiriPengajuanActivity;
+import org.d3ifcool.service.helpers.SessionManager;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class MahasiswaJudulPaMandiriFragment extends Fragment {
+
+    public MahasiswaJudulPaMandiriFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View rootView =inflater.inflate(R.layout.fragment_mahasiswa_judul_pa_mandiri, container, false);
+
+        SessionManager sessionManager = new SessionManager(getContext());
+        CardView cardView = rootView.findViewById(R.id.card_view);
+        View disableView = rootView.findViewById(R.id.disable_view);
+        FloatingActionButton floatingActionButton = rootView.findViewById(R.id.frg_mhs_pa_pengajuan_fab);
+
+        if (sessionManager.getSessionMahasiswaIdJudul() != 0){
+            disableView.setVisibility(View.VISIBLE);
+            floatingActionButton.setVisibility(View.GONE);
+            cardView.setVisibility(View.GONE);
+        } else {
+
+            disableView.setVisibility(View.GONE);
+            floatingActionButton.setVisibility(View.VISIBLE);
+            cardView.setVisibility(View.VISIBLE);
+
+            floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getContext(), MahasiswaJudulPaMandiriPengajuanActivity.class);
+                    getContext().startActivity(intent);
+                }
+            });
+
+        }
+        return rootView;
+    }
+
+}

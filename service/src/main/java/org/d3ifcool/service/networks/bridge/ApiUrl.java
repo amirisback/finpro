@@ -24,11 +24,11 @@ public class ApiUrl {
 
     public static final class FinproUrl {
 
-        public static final String BASE_URL = "http://finpro-laravel.000webhostapp.com/"; // Link Website
+        public static final String BASE_URL = "https://finpro-laravel.000webhostapp.com/"; // Link Website
         public static final String PATH_API = "api/v1"; // Link API
         // -----------------------------------------------------------------------------------------
         public static final String BASE_URL_FOTO = BASE_URL + "image/";
-        public static final String BASE_URL_LOGIN = PATH_API + "user/";
+        public static final String BASE_URL_LOGIN = PATH_API + "/user";
         // -----------------------------------------------------------------------------------------
         public static final String URL_FOTO_DOSEN = BASE_URL_FOTO + "dsn_img/";
         public static final String URL_FOTO_MAHASISWA = BASE_URL_FOTO + "mhs_img/";
@@ -39,7 +39,7 @@ public class ApiUrl {
         public static final String VAR_MAHASISWA = "mahasiswa";
         public static final String VAR_KOORDINATOR_PA = "koor";
         public static final String VAR_INFORMASI = "informasi";
-        public static final String VAR_JUDUL_PA = "judul";
+        public static final String VAR_JUDUL = "judul";
         public static final String VAR_KATEGORI_JUDUL = "kategori_judul";
         public static final String VAR_NOTIFIKASI = "notifikasi";
         public static final String VAR_PROYEK_AKHIR = "proyek_akhir";
@@ -55,7 +55,7 @@ public class ApiUrl {
         public static final String PATH_MAHASISWA = "/" + VAR_MAHASISWA;
         public static final String PATH_KOORDINATOR_PA = "/" + VAR_KOORDINATOR_PA;
         public static final String PATH_INFORMASI = "/" + VAR_INFORMASI;
-        public static final String PATH_JUDUL_PA = "/" + VAR_JUDUL_PA;
+        public static final String PATH_JUDUL = "/" + VAR_JUDUL;
         public static final String PATH_KATEGORI_JUDUL = "/" + VAR_KATEGORI_JUDUL;
         public static final String PATH_NOTIFIKASI = "/" + VAR_NOTIFIKASI;
         public static final String PATH_PROYEK_AKHIR = "/" + VAR_PROYEK_AKHIR;
@@ -74,7 +74,7 @@ public class ApiUrl {
         public static final String URL_MAHASISWA = PATH_API + PATH_MAHASISWA;
         public static final String URL_KOORDINATOR_PA = PATH_API + PATH_KOORDINATOR_PA;
         public static final String URL_INFORMASI = PATH_API + PATH_INFORMASI;
-        public static final String URL_JUDUL_PA = PATH_API + PATH_JUDUL_PA;
+        public static final String URL_JUDUL_PA = PATH_API + PATH_JUDUL;
         public static final String URL_KATEGORI_JUDUL = PATH_API + PATH_KATEGORI_JUDUL;
         public static final String URL_NOTIFIKASI = PATH_API + PATH_NOTIFIKASI;
         public static final String URL_PROYEK_AKHIR = PATH_API + PATH_PROYEK_AKHIR;
@@ -90,7 +90,7 @@ public class ApiUrl {
         public static final String PARAMETER_MAHASISWA = "/{" + VAR_MAHASISWA + "}";
         public static final String PARAMETER_KOOR = "/{" + VAR_KOORDINATOR_PA + "}";
         public static final String PARAMETER_INFORMASI = "/{" + VAR_INFORMASI + "}";
-        public static final String PARAMETER_JUDUL = "/{" + VAR_JUDUL_PA + "}";
+        public static final String PARAMETER_JUDUL = "/{" + VAR_JUDUL + "}";
         public static final String PARAMETER_KATEGORI_JUDUL = "/{" + VAR_KATEGORI_JUDUL + "}";
         public static final String PARAMETER_NOTIFIKASI = "/{" + VAR_NOTIFIKASI + "}";
         public static final String PARAMETER_PROYEK_AKHIR = "/{" + VAR_PROYEK_AKHIR + "}";

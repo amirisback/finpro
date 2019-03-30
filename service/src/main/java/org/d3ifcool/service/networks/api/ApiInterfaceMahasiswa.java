@@ -12,8 +12,8 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_JUDUL;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_MAHASISWA;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_JUDUL;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_MAHASISWA;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_MAHASISWA;
@@ -63,7 +63,7 @@ public interface ApiInterfaceMahasiswa {
     Call<Mahasiswa> getMahasiswaByParameter(@Path(VAR_MAHASISWA) String username_mhs);
 
     @FormUrlEncoded
-    @POST(URL_MAHASISWA + PATH_UPDATE + PARAMETER_JUDUL + PARAMETER_MAHASISWA)
+    @POST(URL_MAHASISWA + PATH_UPDATE + PATH_JUDUL + PARAMETER_MAHASISWA)
     Call<Mahasiswa> updateJudulMahasiswa(
             @Path(VAR_MAHASISWA) String mhs_nim,
             @Field("judul_id") int judul

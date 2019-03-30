@@ -85,6 +85,13 @@ public class SessionManager {
         editor.putString(MHS_EMAIL, mahasiswa.getMhs_email());
         editor.putString(MHS_KONTAK, mahasiswa.getMhs_kontak());
         editor.putString(MHS_STATUS, mahasiswa.getStatus());
+        editor.putInt(MHS_ID_JUDUL, mahasiswa.getJudul_id());
+        editor.apply();
+        editor.commit();
+    }
+
+    public void createSessionJudulMahasiswa(int id){
+        editor.putInt(MHS_ID_JUDUL, id);
         editor.apply();
         editor.commit();
     }
@@ -140,8 +147,8 @@ public class SessionManager {
         return sharedPreferences.getString(MHS_STATUS, null);
     }
 
-    public String getSessionMahasiswaIdJudul(){
-        return sharedPreferences.getString(MHS_ID_JUDUL, null);
+    public int getSessionMahasiswaIdJudul(){
+        return sharedPreferences.getInt(MHS_ID_JUDUL, 0);
     }
 
     public String getSessionDosenNip(){

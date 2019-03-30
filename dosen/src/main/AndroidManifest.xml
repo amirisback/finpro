@@ -3,6 +3,7 @@
     package="org.d3ifcool.dosen">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
         <activity android:name=".activities.details.DosenBimbinganInfoActivity"></activity>

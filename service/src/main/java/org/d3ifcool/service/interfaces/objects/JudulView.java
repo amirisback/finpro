@@ -1,13 +1,13 @@
 package org.d3ifcool.service.interfaces.objects;
 
-import org.d3ifcool.service.models.KoordinatorPa;
+import org.d3ifcool.service.models.Judul;
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * Finpro
- * Copyright (C) 24/03/2019.
+ * Copyright (C) 30/03/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -19,13 +19,13 @@ import org.d3ifcool.service.models.KoordinatorPa;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public interface KoorView {
+public interface JudulView {
 
     void showProgress();
 
     void hideProgress();
 
-    void onGetObjectKoor(KoordinatorPa koordinatorPa);
+    void onGetObjectJudul(Judul judul);
 
     void onFailed(String message);
 

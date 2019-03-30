@@ -52,9 +52,9 @@ public class MahasiswaJudulPaDosenDetailActivity extends AppCompatActivity {
         button_pengajuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MahasiswaJudulPaDosenDetailActivity.this, MahasiswaJudulPaPengajuanDosenTambahActivity.class);
+                Intent intent = new Intent(MahasiswaJudulPaDosenDetailActivity.this, MahasiswaJudulPaDosenPengajuanActivity.class);
                 Judul parcelJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
-                intent.putExtra(MahasiswaJudulPaPengajuanDosenTambahActivity.EXTRA_JUDUL, parcelJudul);
+                intent.putExtra(MahasiswaJudulPaDosenPengajuanActivity.EXTRA_JUDUL, parcelJudul);
                 startActivity(intent);
             }
         });

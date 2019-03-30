@@ -37,6 +37,7 @@
     <color name="colorBackgroundWhite">#FFFFFF</color>
     <color name="colorBackgroundBlack">#000000</color>
     <color name="colorBackgroundRed">#FF0000</color>
+    <color name="colorBackgroundDisable">#C8E9E7E7</color>
     <color name="colorBackgroundGreen">#4CAF50</color>
 
 </resources>

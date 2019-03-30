@@ -20,8 +20,7 @@ import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_SEARCH;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_STATUS;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_JUDUL_PA;
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_MAHASISWA;
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_JUDUL_PA;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_JUDUL;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_PARAMS;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_QUERY;
 
@@ -81,10 +80,10 @@ public interface ApiInterfaceJudul {
     );
 
     @POST(URL_JUDUL_PA + PATH_DELETE + PARAMETER_JUDUL)
-    Call<Judul> deleteJudul(@Path(VAR_JUDUL_PA) int judul_id);
+    Call<Judul> deleteJudul(@Path(VAR_JUDUL) int judul_id);
 
     @POST(URL_JUDUL_PA + PATH_UPDATE + PATH_STATUS + PARAMETER_JUDUL)
-    Call<Judul> updateStatusJudul(@Path(VAR_JUDUL_PA) int judul_id,
+    Call<Judul> updateStatusJudul(@Path(VAR_JUDUL) int judul_id,
                                   @Field("judul_status") String judul_status);
 
 }
