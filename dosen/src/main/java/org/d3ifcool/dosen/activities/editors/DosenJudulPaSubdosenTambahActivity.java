@@ -133,15 +133,15 @@ public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implem
     }
 
     @Override
+    public void onSuccesWorkJudul() {
+
+    }
+
+    @Override
     public void onGetListKategoriJudul(List<KategoriJudul> kategori) {
         arrayListKategoriJudul.clear();
         arrayListKategoriJudul.addAll(kategori);
         initSpinner(arrayListKategoriJudul, spinner_kategori);
-    }
-
-    @Override
-    public void onSucces() {
-        finish();
     }
 
     @Override

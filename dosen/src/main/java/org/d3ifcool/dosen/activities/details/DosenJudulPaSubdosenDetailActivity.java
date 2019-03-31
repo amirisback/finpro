@@ -112,7 +112,7 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
     }
 
     @Override
-    public void onSucces() {
+    public void onSuccesWorkJudul() {
         finish();
     }
 

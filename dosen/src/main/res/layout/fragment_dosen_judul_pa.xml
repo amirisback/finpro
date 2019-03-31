@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".fragments.DosenJudulPaFragment">
+    tools:context=".fragments.DosenJudulFragment">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/frg_dsn_judulpa_home_tablayout"

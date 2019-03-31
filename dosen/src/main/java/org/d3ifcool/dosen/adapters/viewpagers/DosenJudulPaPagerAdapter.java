@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.fragments.DosenJudulSubdosenFragment;
-import org.d3ifcool.dosen.fragments.DosenJudulPaSubmahasiswaFragment;
+import org.d3ifcool.dosen.fragments.DosenJudulSubmahasiswaFragment;
 
 /**
  * Created by Faisal Amir
@@ -42,7 +42,7 @@ public class DosenJudulPaPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new DosenJudulSubdosenFragment();
             case 1:
-                return new DosenJudulPaSubmahasiswaFragment();
+                return new DosenJudulSubmahasiswaFragment();
             default:
                 throw new IllegalArgumentException();
         }

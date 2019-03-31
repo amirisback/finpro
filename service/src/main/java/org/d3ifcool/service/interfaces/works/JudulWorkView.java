@@ -23,7 +23,7 @@ public interface JudulWorkView {
 
     void hideProgress();
 
-    void onSucces();
+    void onSuccesWorkJudul();
 
     void onFailed(String message);
 
