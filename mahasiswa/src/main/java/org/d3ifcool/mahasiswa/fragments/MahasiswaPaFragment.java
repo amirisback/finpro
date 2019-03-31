@@ -15,6 +15,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPaBimbinganDetailActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPaMonevDetailActivity;
+import org.d3ifcool.mahasiswa.activities.MahasiswaPaSidangDetailActivity;
+import org.d3ifcool.service.models.Mahasiswa;
 
 
 /**
@@ -48,6 +50,7 @@ public class MahasiswaPaFragment extends Fragment {
 
         CardView cardViewBimbingan = rootView.findViewById(R.id.frg_mhs_pa_cardview_bimbingan);
         CardView cardViewMonev = rootView.findViewById(R.id.frg_mhs_pa_cardview_monev);
+        CardView cardViewSidang = rootView.findViewById(R.id.frg_mhs_pa_cardview_sidang);
         FloatingActionButton floatingActionButton = rootView.findViewById(R.id.frg_mhs_pa_pengajuan_fab);
 
         cardViewBimbingan.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +65,14 @@ public class MahasiswaPaFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(), MahasiswaPaMonevDetailActivity.class);
+                startActivity(i);
+            }
+        });
+
+        cardViewSidang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(), MahasiswaPaSidangDetailActivity.class);
                 startActivity(i);
             }
         });

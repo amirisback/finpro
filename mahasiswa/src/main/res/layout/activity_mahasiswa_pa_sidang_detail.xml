@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_margin="@dimen/dimen_medium"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/dimen_medium"
+                    android:layout_marginBottom="@dimen/dimen_medium"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginStart="@dimen/dimen_big"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_judul_proyek_akhir"/>
+
+                    <TextView
+                        android:id="@+id/frg_mhs_pa_sidang_textview_judulpa"
+                        style="@style/textview_pa_color_primary"
+                        android:text="@string/dummy_pa_judul"/>
+
+                    <View
+                        android:layout_marginTop="@dimen/dimen_medium"
+                        android:layout_marginBottom="@dimen/dimen_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_view_line"
+                        android:background="@color/colorBackground"/>
+
+                    <TextView
+                        android:layout_marginStart="@dimen/dimen_big"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_nama_kelompok"/>
+
+                    <TextView
+                        android:id="@+id/frg_mhs_pa_sidang_textview_kelompokpa"
+                        android:text="@string/dummy_mahasiswa_kelompok"
+                        style="@style/textview_pa_color_black"
+                        android:layout_marginBottom="@dimen/dimen_medium"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="@dimen/dimen_big"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/dimen_medium"
+                    android:layout_marginBottom="@dimen/dimen_medium"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginStart="@dimen/dimen_big"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_status_sidang"/>
+
+                    <TextView
+                        android:id="@+id/act_mhs_pa_sidang_textview_status"
+                        style="@style/textview_pa_color_accent"
+                        android:text="@string/dummy_status_sidang"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

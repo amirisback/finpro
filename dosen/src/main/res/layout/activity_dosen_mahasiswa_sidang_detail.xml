@@ -12,6 +12,7 @@
 
     <LinearLayout
         android:orientation="vertical"
+        android:layout_margin="@dimen/dimen_medium"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.cardview.widget.CardView
@@ -447,6 +448,36 @@
 
             </LinearLayout>
 
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+
+            android:layout_marginBottom="@dimen/dimen_big_ultra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_medium"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_marginStart="@dimen/dimen_big"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_medium"
+                    android:text="@string/text_status_sidang"/>
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_big"
+                    android:layout_marginRight="@dimen/dimen_big"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dimen_big"
+                    android:layout_marginRight="@dimen/dimen_big"
+                    android:background="@color/colorBackground"/>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <Button

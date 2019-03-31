@@ -275,6 +275,7 @@
                 android:text="@string/title_sidang"/>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/frg_mhs_pa_cardview_sidang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 

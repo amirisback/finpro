@@ -107,17 +107,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/text_nama_reviewer"/>
-        <TextView
-            android:id="@+id/ctn_koor_pemetaan_reviewer"
-            style="@style/textview_pa_color_primary_icon"
-            android:text="@string/dummy_dosen_reviewer"/>
-
-
-        <View
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_view_line"
-            android:background="@color/colorBackground" />
+            <TextView
+                android:id="@+id/ctn_koor_pemetaan_reviewer"
+                style="@style/textview_pa_color_primary_icon"
+                android:text="@string/dummy_dosen_reviewer"/>
+            <View
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

@@ -11,4 +11,6 @@
     <string name="textview_title_pa_sidang">Daftar Judul Proyek Akhir Sidang</string>
     <string name="textview_penilaian_sidang">Penilaian Sidang</string>
     <string name="textview_nilai_proposal">Nilai Proposal</string>
+    <string name="text_status_sidang">Status Sidang</string>
+    <string name="text_status_sidang_hasil">Lulus</string>
 </resources>
