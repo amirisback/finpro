@@ -1,6 +1,7 @@
 package org.d3ifcool.dosen.adapters.recyclerviews;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -41,7 +42,8 @@ public class DosenJudulPaArsipViewAdapter extends RecyclerView.Adapter<DosenJudu
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(mContext).inflate(LayoutType, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package org.d3ifcool.mahasiswa.adapters;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -41,9 +42,9 @@ public class MahasiswaJudulPaArsipViewAdapter extends RecyclerView.Adapter<Mahas
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(mContext).inflate(LayoutType, parent, false);
+        return new ViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.judul.setText(listjudul.get(position).getJudul());
