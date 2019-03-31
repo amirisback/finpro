@@ -8,7 +8,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class ProyekAkhir implements Parcelable{
 
-
     @Expose
     @SerializedName("proyek_akhir_id")
     private int proyek_akhir_id;
@@ -23,7 +22,7 @@ public class ProyekAkhir implements Parcelable{
 
     @Expose
     @SerializedName("mhs_nim")
-    private int mhs_nim;
+    private String mhs_nim;
 
     @Expose
     @SerializedName("mhs_nama")
@@ -31,7 +30,7 @@ public class ProyekAkhir implements Parcelable{
 
     @Expose
     @SerializedName("mhs_angkatan")
-    private String angkatan;
+    private String mhs_angkatan;
 
     @Expose
     @SerializedName("mhs_kontak")
@@ -47,19 +46,19 @@ public class ProyekAkhir implements Parcelable{
 
     @Expose
     @SerializedName("mhs_status")
-    private String status;
+    private String mhs_status;
+
+    @Expose
+    @SerializedName("mhs_judul_id")
+    private int mhs_judul_id;
 
     @Expose
     @SerializedName("mhs_username")
     private String mhs_username;
 
     @Expose
-    @SerializedName("dsn_nip_pembimbing")
-    private String nip_dosen;
-
-    @Expose
-    @SerializedName("mhs_judul_id")
-    private int mhs_judul_id;
+    @SerializedName("pembimbing_dsn_nip")
+    private String pembimbing_dsn_nip;
 
     @Expose
     @SerializedName("judul_id")
@@ -67,15 +66,19 @@ public class ProyekAkhir implements Parcelable{
 
     @Expose
     @SerializedName("judul_nama")
-    private String judul;
+    private String judul_nama;
 
     @Expose
     @SerializedName("judul_deskripsi")
-    private String deskripsi;
+    private String judul_deskripsi;
 
     @Expose
     @SerializedName("judul_status")
-    private String tersedia;
+    private String judul_status;
+
+    @Expose
+    @SerializedName("judul_waktu")
+    private String judul_waktu;
 
     @Expose
     @SerializedName("kategori_id")
@@ -83,67 +86,58 @@ public class ProyekAkhir implements Parcelable{
 
     @Expose
     @SerializedName("reviewer_dsn_nip")
-    private int dsn_nip;
+    private int reviewer_dsn_nip;
 
     @Expose
     @SerializedName("reviewer_dsn_nama")
-    private String dsn_nama;
+    private String reviewer_dsn_nama;
 
     @Expose
     @SerializedName("reviewer_dsn_kode")
-    private String dsn_kode;
+    private String reviewer_dsn_kode;
 
     @Expose
     @SerializedName("reviewer_dsn_kontak")
-    private String dsn_kontak;
+    private String reviewer_dsn_kontak;
 
     @Expose
     @SerializedName("reviewer_dsn_foto")
-    private String dsn_foto;
+    private String reviewer_dsn_foto;
 
     @Expose
     @SerializedName("reviewer_dsn_email")
-    private String dsn_email;
-
-    @Expose
-    @SerializedName("reviewer_dsn_status")
-    private String dsn_status;
+    private String reviewer_dsn_email;
 
     @Expose
     @SerializedName("reviewer_dsn_username")
     private String dsn_username;
 
-    public ProyekAkhir(String nama_tim, String judul) {
-        this.nama_tim = nama_tim;
-        this.judul = judul;
-    }
-
-    public ProyekAkhir(int proyek_akhir_id, int nilai_total, String nama_tim, int mhs_nim, String mhs_nama, String angkatan, String mhs_kontak, String mhs_foto, String mhs_email, String status, String mhs_username, String nip_dosen, int mhs_judul_id, int judul_id, String judul, String deskripsi, String tersedia, String kategori_id, int dsn_nip, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_foto, String dsn_email, String dsn_status, String dsn_username) {
+    public ProyekAkhir(int proyek_akhir_id, int nilai_total, String nama_tim, String mhs_nim, String mhs_nama, String mhs_angkatan, String mhs_kontak, String mhs_foto, String mhs_email, String mhs_status, int mhs_judul_id, String mhs_username, String pembimbing_dsn_nip, int judul_id, String judul_nama, String judul_deskripsi, String judul_status, String judul_waktu, String kategori_id, int reviewer_dsn_nip, String reviewer_dsn_nama, String reviewer_dsn_kode, String reviewer_dsn_kontak, String reviewer_dsn_foto, String reviewer_dsn_email, String dsn_username) {
         this.proyek_akhir_id = proyek_akhir_id;
         this.nilai_total = nilai_total;
         this.nama_tim = nama_tim;
         this.mhs_nim = mhs_nim;
         this.mhs_nama = mhs_nama;
-        this.angkatan = angkatan;
+        this.mhs_angkatan = mhs_angkatan;
         this.mhs_kontak = mhs_kontak;
         this.mhs_foto = mhs_foto;
         this.mhs_email = mhs_email;
-        this.status = status;
-        this.mhs_username = mhs_username;
-        this.nip_dosen = nip_dosen;
+        this.mhs_status = mhs_status;
         this.mhs_judul_id = mhs_judul_id;
+        this.mhs_username = mhs_username;
+        this.pembimbing_dsn_nip = pembimbing_dsn_nip;
         this.judul_id = judul_id;
-        this.judul = judul;
-        this.deskripsi = deskripsi;
-        this.tersedia = tersedia;
+        this.judul_nama = judul_nama;
+        this.judul_deskripsi = judul_deskripsi;
+        this.judul_status = judul_status;
+        this.judul_waktu = judul_waktu;
         this.kategori_id = kategori_id;
-        this.dsn_nip = dsn_nip;
-        this.dsn_nama = dsn_nama;
-        this.dsn_kode = dsn_kode;
-        this.dsn_kontak = dsn_kontak;
-        this.dsn_foto = dsn_foto;
-        this.dsn_email = dsn_email;
-        this.dsn_status = dsn_status;
+        this.reviewer_dsn_nip = reviewer_dsn_nip;
+        this.reviewer_dsn_nama = reviewer_dsn_nama;
+        this.reviewer_dsn_kode = reviewer_dsn_kode;
+        this.reviewer_dsn_kontak = reviewer_dsn_kontak;
+        this.reviewer_dsn_foto = reviewer_dsn_foto;
+        this.reviewer_dsn_email = reviewer_dsn_email;
         this.dsn_username = dsn_username;
     }
 
@@ -171,11 +165,11 @@ public class ProyekAkhir implements Parcelable{
         this.nama_tim = nama_tim;
     }
 
-    public int getMhs_nim() {
+    public String getMhs_nim() {
         return mhs_nim;
     }
 
-    public void setMhs_nim(int mhs_nim) {
+    public void setMhs_nim(String mhs_nim) {
         this.mhs_nim = mhs_nim;
     }
 
@@ -187,12 +181,12 @@ public class ProyekAkhir implements Parcelable{
         this.mhs_nama = mhs_nama;
     }
 
-    public String getAngkatan() {
-        return angkatan;
+    public String getMhs_angkatan() {
+        return mhs_angkatan;
     }
 
-    public void setAngkatan(String angkatan) {
-        this.angkatan = angkatan;
+    public void setMhs_angkatan(String mhs_angkatan) {
+        this.mhs_angkatan = mhs_angkatan;
     }
 
     public String getMhs_kontak() {
@@ -219,28 +213,12 @@ public class ProyekAkhir implements Parcelable{
         this.mhs_email = mhs_email;
     }
 
-    public String getStatus() {
-        return status;
+    public String getMhs_status() {
+        return mhs_status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getMhs_username() {
-        return mhs_username;
-    }
-
-    public void setMhs_username(String mhs_username) {
-        this.mhs_username = mhs_username;
-    }
-
-    public String getNip_dosen() {
-        return nip_dosen;
-    }
-
-    public void setNip_dosen(String nip_dosen) {
-        this.nip_dosen = nip_dosen;
+    public void setMhs_status(String mhs_status) {
+        this.mhs_status = mhs_status;
     }
 
     public int getMhs_judul_id() {
@@ -251,6 +229,22 @@ public class ProyekAkhir implements Parcelable{
         this.mhs_judul_id = mhs_judul_id;
     }
 
+    public String getMhs_username() {
+        return mhs_username;
+    }
+
+    public void setMhs_username(String mhs_username) {
+        this.mhs_username = mhs_username;
+    }
+
+    public String getPembimbing_dsn_nip() {
+        return pembimbing_dsn_nip;
+    }
+
+    public void setPembimbing_dsn_nip(String pembimbing_dsn_nip) {
+        this.pembimbing_dsn_nip = pembimbing_dsn_nip;
+    }
+
     public int getJudul_id() {
         return judul_id;
     }
@@ -259,28 +253,36 @@ public class ProyekAkhir implements Parcelable{
         this.judul_id = judul_id;
     }
 
-    public String getJudul() {
-        return judul;
+    public String getJudul_nama() {
+        return judul_nama;
     }
 
-    public void setJudul(String judul) {
-        this.judul = judul;
+    public void setJudul_nama(String judul_nama) {
+        this.judul_nama = judul_nama;
     }
 
-    public String getDeskripsi() {
-        return deskripsi;
+    public String getJudul_deskripsi() {
+        return judul_deskripsi;
     }
 
-    public void setDeskripsi(String deskripsi) {
-        this.deskripsi = deskripsi;
+    public void setJudul_deskripsi(String judul_deskripsi) {
+        this.judul_deskripsi = judul_deskripsi;
     }
 
-    public String getTersedia() {
-        return tersedia;
+    public String getJudul_status() {
+        return judul_status;
     }
 
-    public void setTersedia(String tersedia) {
-        this.tersedia = tersedia;
+    public void setJudul_status(String judul_status) {
+        this.judul_status = judul_status;
+    }
+
+    public String getJudul_waktu() {
+        return judul_waktu;
+    }
+
+    public void setJudul_waktu(String judul_waktu) {
+        this.judul_waktu = judul_waktu;
     }
 
     public String getKategori_id() {
@@ -291,60 +293,52 @@ public class ProyekAkhir implements Parcelable{
         this.kategori_id = kategori_id;
     }
 
-    public int getDsn_nip() {
-        return dsn_nip;
+    public int getReviewer_dsn_nip() {
+        return reviewer_dsn_nip;
     }
 
-    public void setDsn_nip(int dsn_nip) {
-        this.dsn_nip = dsn_nip;
+    public void setReviewer_dsn_nip(int reviewer_dsn_nip) {
+        this.reviewer_dsn_nip = reviewer_dsn_nip;
     }
 
-    public String getDsn_nama() {
-        return dsn_nama;
+    public String getReviewer_dsn_nama() {
+        return reviewer_dsn_nama;
     }
 
-    public void setDsn_nama(String dsn_nama) {
-        this.dsn_nama = dsn_nama;
+    public void setReviewer_dsn_nama(String reviewer_dsn_nama) {
+        this.reviewer_dsn_nama = reviewer_dsn_nama;
     }
 
-    public String getDsn_kode() {
-        return dsn_kode;
+    public String getReviewer_dsn_kode() {
+        return reviewer_dsn_kode;
     }
 
-    public void setDsn_kode(String dsn_kode) {
-        this.dsn_kode = dsn_kode;
+    public void setReviewer_dsn_kode(String reviewer_dsn_kode) {
+        this.reviewer_dsn_kode = reviewer_dsn_kode;
     }
 
-    public String getDsn_kontak() {
-        return dsn_kontak;
+    public String getReviewer_dsn_kontak() {
+        return reviewer_dsn_kontak;
     }
 
-    public void setDsn_kontak(String dsn_kontak) {
-        this.dsn_kontak = dsn_kontak;
+    public void setReviewer_dsn_kontak(String reviewer_dsn_kontak) {
+        this.reviewer_dsn_kontak = reviewer_dsn_kontak;
     }
 
-    public String getDsn_foto() {
-        return dsn_foto;
+    public String getReviewer_dsn_foto() {
+        return reviewer_dsn_foto;
     }
 
-    public void setDsn_foto(String dsn_foto) {
-        this.dsn_foto = dsn_foto;
+    public void setReviewer_dsn_foto(String reviewer_dsn_foto) {
+        this.reviewer_dsn_foto = reviewer_dsn_foto;
     }
 
-    public String getDsn_email() {
-        return dsn_email;
+    public String getReviewer_dsn_email() {
+        return reviewer_dsn_email;
     }
 
-    public void setDsn_email(String dsn_email) {
-        this.dsn_email = dsn_email;
-    }
-
-    public String getDsn_status() {
-        return dsn_status;
-    }
-
-    public void setDsn_status(String dsn_status) {
-        this.dsn_status = dsn_status;
+    public void setReviewer_dsn_email(String reviewer_dsn_email) {
+        this.reviewer_dsn_email = reviewer_dsn_email;
     }
 
     public String getDsn_username() {
@@ -355,72 +349,75 @@ public class ProyekAkhir implements Parcelable{
         this.dsn_username = dsn_username;
     }
 
-    protected ProyekAkhir(Parcel in) {
-        proyek_akhir_id = in.readInt();
-        nilai_total = in.readInt();
-        nama_tim = in.readString();
-        judul_id = in.readInt();
-        mhs_nim = in.readInt();
-        dsn_nip = in.readInt();
-        nip_dosen = in.readString();
-        judul = in.readString();
-        kategori_id = in.readString();
-        deskripsi = in.readString();
-        tersedia = in.readString();
-        mhs_nama = in.readString();
-        angkatan = in.readString();
-        mhs_kontak = in.readString();
-        mhs_foto = in.readString();
-        mhs_email = in.readString();
-        status = in.readString();
-        dsn_username = in.readString();
-        mhs_username = in.readString();
-        dsn_nama = in.readString();
-        dsn_kode = in.readString();
-        dsn_kontak = in.readString();
-        dsn_foto = in.readString();
-        dsn_email = in.readString();
-        dsn_status = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(proyek_akhir_id);
-        dest.writeInt(nilai_total);
-        dest.writeString(nama_tim);
-        dest.writeInt(judul_id);
-        dest.writeInt(mhs_nim);
-        dest.writeInt(dsn_nip);
-        dest.writeString(nip_dosen);
-        dest.writeString(judul);
-        dest.writeString(kategori_id);
-        dest.writeString(deskripsi);
-        dest.writeString(tersedia);
-        dest.writeString(mhs_nama);
-        dest.writeString(angkatan);
-        dest.writeString(mhs_kontak);
-        dest.writeString(mhs_foto);
-        dest.writeString(mhs_email);
-        dest.writeString(status);
-        dest.writeString(dsn_username);
-        dest.writeString(mhs_username);
-        dest.writeString(dsn_nama);
-        dest.writeString(dsn_kode);
-        dest.writeString(dsn_kontak);
-        dest.writeString(dsn_foto);
-        dest.writeString(dsn_email);
-        dest.writeString(dsn_status);
-    }
 
     @Override
     public int describeContents() {
         return 0;
     }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.proyek_akhir_id);
+        dest.writeInt(this.nilai_total);
+        dest.writeString(this.nama_tim);
+        dest.writeString(this.mhs_nim);
+        dest.writeString(this.mhs_nama);
+        dest.writeString(this.mhs_angkatan);
+        dest.writeString(this.mhs_kontak);
+        dest.writeString(this.mhs_foto);
+        dest.writeString(this.mhs_email);
+        dest.writeString(this.mhs_status);
+        dest.writeInt(this.mhs_judul_id);
+        dest.writeString(this.mhs_username);
+        dest.writeString(this.pembimbing_dsn_nip);
+        dest.writeInt(this.judul_id);
+        dest.writeString(this.judul_nama);
+        dest.writeString(this.judul_deskripsi);
+        dest.writeString(this.judul_status);
+        dest.writeString(this.judul_waktu);
+        dest.writeString(this.kategori_id);
+        dest.writeInt(this.reviewer_dsn_nip);
+        dest.writeString(this.reviewer_dsn_nama);
+        dest.writeString(this.reviewer_dsn_kode);
+        dest.writeString(this.reviewer_dsn_kontak);
+        dest.writeString(this.reviewer_dsn_foto);
+        dest.writeString(this.reviewer_dsn_email);
+        dest.writeString(this.dsn_username);
+    }
+
+    protected ProyekAkhir(Parcel in) {
+        this.proyek_akhir_id = in.readInt();
+        this.nilai_total = in.readInt();
+        this.nama_tim = in.readString();
+        this.mhs_nim = in.readString();
+        this.mhs_nama = in.readString();
+        this.mhs_angkatan = in.readString();
+        this.mhs_kontak = in.readString();
+        this.mhs_foto = in.readString();
+        this.mhs_email = in.readString();
+        this.mhs_status = in.readString();
+        this.mhs_judul_id = in.readInt();
+        this.mhs_username = in.readString();
+        this.pembimbing_dsn_nip = in.readString();
+        this.judul_id = in.readInt();
+        this.judul_nama = in.readString();
+        this.judul_deskripsi = in.readString();
+        this.judul_status = in.readString();
+        this.judul_waktu = in.readString();
+        this.kategori_id = in.readString();
+        this.reviewer_dsn_nip = in.readInt();
+        this.reviewer_dsn_nama = in.readString();
+        this.reviewer_dsn_kode = in.readString();
+        this.reviewer_dsn_kontak = in.readString();
+        this.reviewer_dsn_foto = in.readString();
+        this.reviewer_dsn_email = in.readString();
+        this.dsn_username = in.readString();
+    }
+
     public static final Creator<ProyekAkhir> CREATOR = new Creator<ProyekAkhir>() {
         @Override
-        public ProyekAkhir createFromParcel(Parcel in) {
-            return new ProyekAkhir(in);
+        public ProyekAkhir createFromParcel(Parcel source) {
+            return new ProyekAkhir(source);
         }
 
         @Override

@@ -42,7 +42,7 @@ public class DosenMonevListMonevFragment extends Fragment {
         TextView textViewJumlah = rootView.findViewById(R.id.act_mhs_pa_monev_detail_textview_jumlah);
         RecyclerView recyclerView = rootView.findViewById(R.id.act_mhs_pa_monev_detail_recyclerview);
 
-        FloatingActionButton floatingActionButton = rootView.findViewById(R.id.frg_dsn_monev_fab);
+        FloatingActionButton floatingActionButton = rootView.findViewById(R.id.act_dsn_mhs_judul_fab_accept);
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override

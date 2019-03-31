@@ -35,7 +35,7 @@ public class DosenPaSidangFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dosen_pa_sidang, container, false);
         ArrayList<ProyekAkhir> proyekAkhir = new ArrayList<>();
-        proyekAkhir.add(new ProyekAkhir("Seven Primavera", "finpro"));
+//        proyekAkhir.add(new ProyekAkhir("Seven Primavera", "finpro"));
         ArrayList<KategoriJudul> kategoriJudul = new ArrayList<>();
         kategoriJudul.add(new KategoriJudul(1,"android"));
         RecyclerView recyclerView = view.findViewById(R.id.frg_dsn_pa_sidang_recyclerview);

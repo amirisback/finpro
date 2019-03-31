@@ -12,6 +12,10 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.BASE_PARAMETER;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.BASE_PARAMETER_1;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.BASE_PARAMETER_2;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY_1;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY_2;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_JUDUL;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY;
@@ -71,6 +75,14 @@ public interface ApiInterfaceJudul {
     Call<List<Judul>> getJudulSearch(
             @Path(VAR_PARAMS) String parameter,
             @Path(VAR_QUERY) String query
+    );
+
+    @GET(URL_JUDUL_PA + PATH_SEARCH + BASE_PARAMETER_1 + PARAMETER_QUERY_1 + BASE_PARAMETER_2 + PARAMETER_QUERY_2)
+    Call<List<Judul>> getJudulSearchTwoParameter(
+            @Path(VAR_PARAMS+"1") String parameter1,
+            @Path(VAR_QUERY+"1") String query1,
+            @Path(VAR_PARAMS+"2") String parameter2,
+            @Path(VAR_QUERY+"2") String query2
     );
 
     @GET(URL_JUDUL_PA + PATH_SEARCH + PATH_MAHASISWA + BASE_PARAMETER + PARAMETER_QUERY)

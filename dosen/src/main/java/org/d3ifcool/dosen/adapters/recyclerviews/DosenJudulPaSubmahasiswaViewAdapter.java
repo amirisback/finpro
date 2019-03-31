@@ -67,11 +67,13 @@ public class DosenJudulPaSubmahasiswaViewAdapter extends RecyclerView.Adapter<Do
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.judul.setText(data.get(position).getJudul());
-//        holder.kategori.setText(data.get(position).getKategori());
+        holder.kategori.setText(data.get(position).getKategori_nama());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentData = new Intent(context, DosenJudulPaSubmahasiswaDetailActivity.class);
+                Judul extraJudul = data.get(position);
+                intentData.putExtra(DosenJudulPaSubmahasiswaDetailActivity.EXTRA_JUDUL, extraJudul);
                 context.startActivity(intentData);
             }
         });

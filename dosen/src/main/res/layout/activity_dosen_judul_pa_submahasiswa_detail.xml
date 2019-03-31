@@ -35,6 +35,7 @@
                         android:text="@string/text_tanggal_pengajuan"/>
 
                     <TextView
+                        android:id="@+id/act_dsn_mhs_judul_tanggal"
                         style="@style/textview_pa_color_accent_small"
                         android:text="@string/dummy_tanggal"/>
 
@@ -66,7 +67,7 @@
                         android:text="@string/text_judul_proyek_akhir"/>
 
                     <TextView
-                        android:id="@+id/frg_mhs_pa_textview_judulpa"
+                        android:id="@+id/act_dsn_mhs_judul"
                         style="@style/textview_pa_color_primary"
                         android:text="@string/dummy_pa_judul"/>
 
@@ -81,12 +82,31 @@
                         android:layout_marginStart="@dimen/dimen_big"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/text_kategori"/>
+
+                    <TextView
+                        android:id="@+id/act_dsn_mhs_judul_kategori"
+                        style="@style/textview_pa_color_primary"
+                        android:text="@string/dummy_kategori"/>
+
+                    <View
+                        android:layout_marginTop="@dimen/dimen_medium"
+                        android:layout_marginBottom="@dimen/dimen_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_view_line"
+                        android:background="@color/colorBackground"/>
+
+
+                    <TextView
+                        android:layout_marginStart="@dimen/dimen_big"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="@string/text_nama_kelompok"/>
 
                     <TextView
-                        android:id="@+id/frg_mhs_pa_textview_kelompokpa"
+                        android:id="@+id/act_dsn_mhs_judul_kelompok"
                         android:text="@string/dummy_mahasiswa_kelompok"
-                        style="@style/textview_pa_color_black"
+                        style="@style/textview_pa_color_primary"
                         android:layout_marginBottom="@dimen/dimen_medium"/>
 
                 </LinearLayout>
@@ -117,6 +137,7 @@
                         android:text="@string/text_deskripsi_judul_pa"/>
 
                     <TextView
+                        android:id="@+id/act_dsn_mhs_judul_deskripsi"
                         style="@style/textview_pa_color_black_small"
                         android:text="@string/dummyLong"
                         android:layout_marginBottom="@dimen/dimen_medium"/>
@@ -153,8 +174,8 @@
 
                     <TextView
                         style="@style/textview_pa_color_primary"
-                        android:id="@+id/frg_mhs_pa_textview_nama_1"
-                        android:text="@string/dummy_anggota_kelompok_1"/>
+                        android:id="@+id/act_dsn_mhs_judul_nama_1"
+                        android:hint="@string/dummy_anggota_kelompok_1"/>
 
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"
@@ -171,8 +192,8 @@
 
                     <TextView
                         style="@style/textview_pa_color_black"
-                        android:id="@+id/frg_mhs_pa_textview_nim_1"
-                        android:text="@string/dummy_anggota_nim_1"/>
+                        android:id="@+id/act_dsn_mhs_judul_nim_1"
+                        android:hint="@string/dummy_anggota_nim_1"/>
 
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"
@@ -190,8 +211,8 @@
 
                     <TextView
                         style="@style/textview_pa_color_primary"
-                        android:id="@+id/frg_mhs_pa_textview_nama_2"
-                        android:text="@string/dummy_anggota_kelompok_2"/>
+                        android:id="@+id/act_dsn_mhs_judul_nama_2"
+                        android:hint="@string/dummy_anggota_kelompok_2"/>
 
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"
@@ -208,8 +229,8 @@
 
                     <TextView
                         style="@style/textview_pa_color_black"
-                        android:id="@+id/frg_mhs_pa_textview_nim_2"
-                        android:text="@string/dummy_anggota_nim_2"
+                        android:id="@+id/act_dsn_mhs_judul_nim_2"
+                        android:hint="@string/dummy_anggota_nim_2"
                         android:layout_marginBottom="@dimen/dimen_medium"/>
 
 
@@ -222,7 +243,7 @@
     </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/frg_dsn_monev_fab"
+        android:id="@+id/act_dsn_mhs_judul_fab_accept"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/dimen_big"
@@ -232,20 +253,22 @@
         app:backgroundTint="@color/colorBackgroundGreen" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_above="@id/frg_dsn_monev_fab"
+        android:layout_above="@id/act_dsn_mhs_judul_fab_accept"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/dimen_big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/act_dsn_mhs_judul_fab_decline"
         app:backgroundTint="@color/colorBackgroundRed"
         android:src="@drawable/ic_pa_tidak_setuju"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_toLeftOf="@id/frg_dsn_monev_fab"
+        android:layout_toStartOf="@id/act_dsn_mhs_judul_fab_accept"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/dimen_big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/act_dsn_mhs_judul_fab_conversation"
         android:src="@drawable/ic_pa_percakapan"/>
 
 </RelativeLayout>

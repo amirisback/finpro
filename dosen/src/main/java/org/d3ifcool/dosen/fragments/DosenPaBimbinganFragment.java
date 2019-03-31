@@ -39,7 +39,7 @@ public class DosenPaBimbinganFragment extends Fragment {
         ArrayList<ProyekAkhir> arrayListpa = new ArrayList<>();
         ArrayList<KategoriJudul> arrayListkategori = new ArrayList<>();
 
-        arrayListpa.add(new ProyekAkhir("seven primavera","finpro"));
+//        arrayListpa.add(new ProyekAkhir("seven primavera","finpro"));
 
         arrayListkategori.add(new KategoriJudul(2, "website"));
         adapter.addItemPa(arrayListpa);

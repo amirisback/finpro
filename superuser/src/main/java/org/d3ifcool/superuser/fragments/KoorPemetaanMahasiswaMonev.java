@@ -49,7 +49,7 @@ public class KoorPemetaanMahasiswaMonev extends Fragment {
         dialog = new ProgressDialog(getContext());
         dialog.setMessage(getString(R.string.text_progress_dialog));
 
-        proyekAkhirs.add(new ProyekAkhir("seven primavera","finpro"));
+//        proyekAkhirs.add(new ProyekAkhir("seven primavera","finpro"));
         detailMonevs.add(new DetailMonev("ikhsan ramadhan"));
 
         adapter.addItemProyekAkhir(proyekAkhirs);

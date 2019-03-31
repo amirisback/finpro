@@ -43,7 +43,7 @@ public class DosenMahasiswaMonevFragment extends Fragment {
         DosenMahasiswaMonevViewAdapter adapter = new DosenMahasiswaMonevViewAdapter(getContext());
 
         ArrayList<ProyekAkhir> arrayList = new ArrayList<>();
-        arrayList.add(new ProyekAkhir("seven primavera","finpro"));
+//        arrayList.add(new ProyekAkhir("seven primavera","finpro"));
         ArrayList<KategoriJudul> kategoriJudulArrayList = new ArrayList<>();
         kategoriJudulArrayList.add(new KategoriJudul(1,"android"));
 

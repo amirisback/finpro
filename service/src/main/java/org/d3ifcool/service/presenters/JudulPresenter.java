@@ -121,6 +121,25 @@ public class JudulPresenter {
         });
     }
 
+    public void getJudulSearchTwoParameter(String parameter1, String query1, String parameter2, String query2) {
+        viewResult.showProgress();
+        ApiInterfaceJudul apiInterfaceJudul = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
+        Call<List<Judul>> call = apiInterfaceJudul.getJudulSearchTwoParameter(parameter1, query1, parameter2, query2);
+        call.enqueue(new Callback<List<Judul>>() {
+            @Override
+            public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetListJudul(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Judul>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getMessage());
+            }
+        });
+    }
+
     public void deleteJudul(int judul_id){
         viewEditor.showProgress();
         ApiInterfaceJudul apiInterfaceJudulPa = ApiClient.getApiClient().create(ApiInterfaceJudul.class);

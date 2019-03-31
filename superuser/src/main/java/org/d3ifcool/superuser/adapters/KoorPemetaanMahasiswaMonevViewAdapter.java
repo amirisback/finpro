@@ -49,7 +49,7 @@ public class KoorPemetaanMahasiswaMonevViewAdapter extends RecyclerView.Adapter<
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.judul.setText(proyekAkhirs.get(position).getJudul());
+        holder.judul.setText(proyekAkhirs.get(position).getJudul_nama());
         holder.reviewer.setText(detailMonevs.get(position).getMonev_reviewer());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
