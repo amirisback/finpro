@@ -31,6 +31,10 @@ public class DetailMonev implements Parcelable {
     @SerializedName("proyek_akhir_id")
     private int proyek_akhir_id;
 
+    public DetailMonev(String monev_reviewer) {
+        this.monev_reviewer = monev_reviewer;
+    }
+
     public DetailMonev(int monev_nilai, String monev_tanggal, String monev_ulasan, String monev_reviewer, int monev_id, int proyek_akhir_id) {
         this.monev_nilai = monev_nilai;
         this.monev_tanggal = monev_tanggal;

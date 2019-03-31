@@ -8,6 +8,12 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_big"
+        android:layout_marginLeft="@dimen/dimen_big"
+        android:text="@string/text_proyek_akhir"/>
 
     <androidx.cardview.widget.CardView
         android:layout_marginTop="@dimen/dimen_medium"
@@ -74,28 +80,44 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_view_line"
                 android:background="@color/colorBackground"
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"/>
+                android:layout_marginTop="@dimen/dimen_medium"/>
 
 
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_big"
+        android:layout_marginLeft="@dimen/dimen_big"
+        android:text="@string/text_dosen_reviewer"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="@dimen/dimen_big"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <TextView
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/text_nama_reviewer"/>
+        <TextView
+            android:id="@+id/ctn_koor_pemetaan_reviewer"
+            style="@style/textview_pa_color_primary_icon"
+            android:text="@string/dummy_dosen_reviewer"/>
 
-            <TextView
-                android:id="@+id/ctn_koor_pemetaan_reviewer"
-                style="@style/textview_pa_color_primary_icon"
-                android:text="@string/dummy_dosen_reviewer"/>
 
-
-            <View
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_view_line"
-                android:background="@color/colorBackground"/>
-
+        <View
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_view_line"
+            android:background="@color/colorBackground" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

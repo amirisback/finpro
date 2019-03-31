@@ -41,6 +41,7 @@
     <string name="title_list_bimbingan">Bimbingan</string>
     <string name="title_list_monev">Monev</string>
     <string name="title_mahasiswa_detail">Detail Mahasiswa</string>
+    <string name="title_pemetaan_detail">Detail Pemetaan Monev</string>
     <string name="title_bimbingan_tambah">Bimbingan Mahasiswa</string>
     <string name="title_monev_tambah">Monev Mahasiswa</string>
     <string name="title_pemberitahuan">Pemberitahuan</string>
@@ -164,6 +165,7 @@
     <string name="title_dosen_detail">Detail Dosen</string>
     <string name="title_proyekakhir_detail">Detail Proyek Akhir</string>
     <string name="title_tambah_dosen">Tambah Dosen</string>
+    <string name="title_tambah_pemetaan">Tambah Pemetaan Monev</string>
     <string name="title_dosen_ubah">Ubah Dosen</string>
     <string name="title_mahasiswa_tambah">Tambah Mahasiswa</string>
     <string name="title_mahasiswa_ubah">Ubah Mahasiswa</string>
