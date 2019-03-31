@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="image_item_dosen_mahasiswa">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">@dimen/dimen_profil_photo_list</item>
+        <item name="android:layout_height">@dimen/dimen_profil_photo_list</item>
+        <item name="android:layout_marginEnd">@dimen/dimen_big</item>
+    </style>
+</resources>

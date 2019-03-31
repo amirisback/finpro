@@ -1,5 +1,7 @@
 package org.d3ifcool.finpro.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -123,11 +125,24 @@ public class DosenMainActivity extends AppCompatActivity implements DosenView {
                 startActivity(intentProfil);
                 break;
             case R.id.toolbar_menu_keluar:
-                Intent intentKeluar = new Intent(DosenMainActivity.this, LoginActivity.class);
-                startActivity(intentKeluar);
-                sessionManager.removeSession();
-                finish();
-                break;
+
+                new AlertDialog
+                        .Builder(this)
+                        .setTitle(getString(R.string.keluar))
+                        .setMessage(getString(R.string.messagekeluar))
+                        .setPositiveButton("Keluar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intentKeluar = new Intent(DosenMainActivity.this, LoginActivity.class);
+                                startActivity(intentKeluar);
+                                sessionManager.removeSession();
+                                finish();
+                            }
+                        })
+
+                        .setNegativeButton("Batal", null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
             default:
                 break;
         }

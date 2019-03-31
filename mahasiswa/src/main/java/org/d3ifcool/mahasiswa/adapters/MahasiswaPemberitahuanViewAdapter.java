@@ -44,7 +44,7 @@ public class MahasiswaPemberitahuanViewAdapter extends RecyclerView.Adapter<Maha
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.content_item_mahasiswa_pemberitahuan, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.content_item_list_notifikasi, parent, false);
         return new ViewHolder(view);
     }
 
@@ -62,9 +62,9 @@ public class MahasiswaPemberitahuanViewAdapter extends RecyclerView.Adapter<Maha
         TextView isi, tanggal, waktu;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-           isi =itemView.findViewById(R.id.ctn_mhs_pemberitahuan_isi);
-           tanggal =itemView.findViewById(R.id.ctn_mhs_pemberitahuan_waktu);
-           waktu =itemView.findViewById(R.id.ctn_mhs_pemberitahuan_menit);
+           isi =itemView.findViewById(R.id.ctn_pemberitahuan_isi);
+           tanggal =itemView.findViewById(R.id.ctn_pemberitahuan_waktu);
+           waktu =itemView.findViewById(R.id.ctn_pemberitahuan_menit);
         }
     }
 }

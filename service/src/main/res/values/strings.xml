@@ -177,6 +177,12 @@
     <string name="batal">Batal</string>
     <string name="tambah">Tambah</string>
 
+    <string name="textview_jumlah_bimbingan">Jumlah Bimbingan</string>
+    <string name="textview_jumlah_monev">Jumlah Monev</string>
+    <string name="text_status_sidang">Status Sidang</string>
+    <string name="dummy_status_sidang">Lulus</string>
+    
+
     <string name="text_kode_dosen">Kode Dosen</string>
     <string name="text_hint_kode_dosen">Masukkan Kode Dosen</string>
     <string name="text_hint_angkatan_mahasiswa">Masukkan Angkatan Mahasiswa</string>

@@ -44,7 +44,7 @@ public class DosenPemberitahuanViewAdapter extends RecyclerView.Adapter<DosenPem
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_item_dosen_pemberitahuan, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_item_list_notifikasi, parent,false);
         return new ViewHolder(view);
     }
 
@@ -63,9 +63,9 @@ public class DosenPemberitahuanViewAdapter extends RecyclerView.Adapter<DosenPem
         TextView isi, tanggal, waktu;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            isi = itemView.findViewById(R.id.ctn_dsn_pemberitahuan_isi);
-            waktu = itemView.findViewById(R.id.ctn_dsn_pemberitahuan_menit);
-            tanggal = itemView.findViewById(R.id.ctn_dsn_pemberitahuan_waktu);
+            isi = itemView.findViewById(R.id.ctn_pemberitahuan_isi);
+            waktu = itemView.findViewById(R.id.ctn_pemberitahuan_menit);
+            tanggal = itemView.findViewById(R.id.ctn_pemberitahuan_waktu);
 
         }
     }

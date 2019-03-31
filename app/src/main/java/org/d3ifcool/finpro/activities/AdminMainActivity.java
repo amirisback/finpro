@@ -1,5 +1,7 @@
 package org.d3ifcool.finpro.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -84,7 +86,7 @@ public class AdminMainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main_toolbar, menu);
+        getMenuInflater().inflate(R.menu.menu_main_toolbar_koor, menu);
         return true;
     }
 
@@ -94,19 +96,28 @@ public class AdminMainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
-            case R.id.toolbar_menu_pemberitahuan:
-                Intent intentPemberitahuan = new Intent(AdminMainActivity.this, AdminPemberitahuanActivity.class);
-                startActivity(intentPemberitahuan);
-                break;
             case R.id.toolbar_menu_profil:
                 Intent intentProfil = new Intent(AdminMainActivity.this, AdminProfilActivity.class);
                 startActivity(intentProfil);
                 break;
             case R.id.toolbar_menu_keluar:
-                Intent intentKeluar = new Intent(AdminMainActivity.this, LoginActivity.class);
-                startActivity(intentKeluar);
-                sessionManager.removeSession();
-                finish();
+                new AlertDialog
+                        .Builder(this)
+                        .setTitle(getString(R.string.keluar))
+                        .setMessage(getString(R.string.messagekeluar))
+                        .setPositiveButton("Keluar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intentKeluar = new Intent(AdminMainActivity.this, LoginActivity.class);
+                                startActivity(intentKeluar);
+                                sessionManager.removeSession();
+                                finish();
+                            }
+                        })
+
+                        .setNegativeButton("Batal", null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
                 break;
             default:
                 break;
