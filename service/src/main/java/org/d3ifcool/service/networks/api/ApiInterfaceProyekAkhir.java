@@ -47,7 +47,6 @@ public interface ApiInterfaceProyekAkhir {
     Call<ProyekAkhir> createProyekAkhir(
             @Field("judul_id") int id_judul,
             @Field("mhs_nim") String mhs_nim,
-            @Field("dsn_nip") String dsn_nip,
             @Field("nama_tim") String nama_tim
     );
 

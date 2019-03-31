@@ -88,13 +88,13 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
                 String namaKelompok = editTextJudulKelompok.getText().toString();
 
                 if (!mahasiswaNim2.isEmpty()) {
-                    proyekAkhirPresenter.createProyekAkhir(extraJudulId, extraMahasiswaNim1, extraDosenNip, namaKelompok);
-                    proyekAkhirPresenter.createProyekAkhir(extraJudulId, mahasiswaNim2, extraDosenNip, namaKelompok);
+                    proyekAkhirPresenter.createProyekAkhir(extraJudulId, extraMahasiswaNim1, namaKelompok);
+                    proyekAkhirPresenter.createProyekAkhir(extraJudulId, mahasiswaNim2, namaKelompok);
                     mahasiswaPresenter.updateMahasiswaJudul(extraMahasiswaNim1, extraJudulId);
                     mahasiswaPresenter.updateMahasiswaJudul(mahasiswaNim2, extraJudulId);
                     sessionManager.createSessionJudulMahasiswa(extraJudulId);
                 } else {
-                    proyekAkhirPresenter.createProyekAkhir(extraJudulId, extraMahasiswaNim1, extraDosenNip, namaKelompok);
+                    proyekAkhirPresenter.createProyekAkhir(extraJudulId, extraMahasiswaNim1, namaKelompok);
                     mahasiswaPresenter.updateMahasiswaJudul(extraMahasiswaNim1, extraJudulId);
                     sessionManager.createSessionJudulMahasiswa(extraJudulId);
                 }

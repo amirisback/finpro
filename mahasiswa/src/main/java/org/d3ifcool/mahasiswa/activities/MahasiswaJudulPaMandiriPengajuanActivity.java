@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,8 +18,8 @@ import android.widget.Toast;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.DosenListView;
+import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.interfaces.lists.KategoriJudulListView;
-import org.d3ifcool.service.interfaces.objects.JudulView;
 import org.d3ifcool.service.interfaces.works.JudulWorkView;
 import org.d3ifcool.service.interfaces.works.MahasiswaWorkView;
 import org.d3ifcool.service.interfaces.works.ProyekAkhirWorkView;
@@ -34,22 +35,25 @@ import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERTUNDA;
+
 public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         implements ProyekAkhirWorkView, MahasiswaWorkView, JudulWorkView,
-        KategoriJudulListView, DosenListView, JudulView {
+        KategoriJudulListView, DosenListView, JudulListView {
 
     private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
+    private ArrayList<Judul> arrayListJudul = new ArrayList<>();
     private ArrayList<KategoriJudul> arrayListKategoriJudul = new ArrayList<>();
-    private Spinner sp_dosen, sp_kategori;
+    private Spinner spinner_dosen, spinner_kategori;
 
-    private DosenPresenter dosenPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private MahasiswaPresenter mahasiswaPresenter;
     private JudulPresenter judulPresenter;
-    private KategoriJudulPresenter kategoriJudulPresenter;
     private ProgressDialog progressDialog;
 
     private SessionManager sessionManager;
+    private String nim2, deskripsi, kelompok, judul, spinnerItemNipDosen;
+    private int spinnerItemKategoriId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,17 +63,18 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         setTitle(getString(R.string.title_pengajuan_judulpa));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        dosenPresenter = new DosenPresenter(this);
+        DosenPresenter dosenPresenter = new DosenPresenter(this);
+        KategoriJudulPresenter kategoriJudulPresenter = new KategoriJudulPresenter(this);
         mahasiswaPresenter = new MahasiswaPresenter(this);
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
-        kategoriJudulPresenter = new KategoriJudulPresenter(this);
+        judulPresenter = new JudulPresenter(this, this);
         sessionManager = new SessionManager(this);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
-        sp_dosen = findViewById(R.id.act_mhs_list_dosen_pengajuan);
-        sp_kategori = findViewById(R.id.act_mhs_list_kategori);
+        spinner_dosen = findViewById(R.id.act_mhs_list_dosen_pengajuan);
+        spinner_kategori = findViewById(R.id.act_mhs_list_kategori);
 
         final EditText editTextJudul = findViewById(R.id.act_mhs_pa_mandiri_judul);
         final EditText editTextDeskripsi = findViewById(R.id.act_mhs_pa_mandiri_deskripsi);
@@ -86,18 +91,39 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         textViewNama1.setText(sessionManager.getSessionMahasiswaNama());
         textViewNIM1.setText(sessionManager.getSessionMahasiswaNim());
 
+        spinner_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                spinnerItemNipDosen = arrayListDosen.get(position).getDsn_nip();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spinner_kategori.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                spinnerItemKategoriId = arrayListKategoriJudul.get(position).getId();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         buttonAjukan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String judul = editTextJudul.getText().toString();
-                String deskripsi = editTextDeskripsi.getText().toString();
-                String kelompok = editTextNamaKelompok.getText().toString();
-                String nim2 = editTextNIM2.getText().toString();
                 String nama2 = editTextNama2.getText().toString();
-
-
-
-
+                judul = editTextJudul.getText().toString();
+                deskripsi = editTextDeskripsi.getText().toString();
+                kelompok = editTextNamaKelompok.getText().toString();
+                nim2 = editTextNIM2.getText().toString();
+                judulPresenter.createJudul(judul, spinnerItemKategoriId, deskripsi, spinnerItemNipDosen, JUDUL_STATUS_TERTUNDA);
             }
         });
 
@@ -144,36 +170,55 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
 
     @Override
     public void showProgress() {
-        progressDialog.show();
+//        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        progressDialog.dismiss();
+//        progressDialog.dismiss();
     }
 
     @Override
-    public void onGetObjectJudul(Judul judul) {
+    public void onSuccesWorkJudul() {
+        judulPresenter.getJudul();
+        finish();
+    }
 
+    @Override
+    public void onGetListJudul(List<Judul> judulpa) {
+        arrayListJudul.clear();
+        arrayListJudul.addAll(judulpa);
+        int judul_id = arrayListJudul.get(arrayListJudul.size()-1).getId();
+
+        if (!nim2.isEmpty()) {
+            proyekAkhirPresenter.createProyekAkhir(judul_id, sessionManager.getSessionMahasiswaNim(), kelompok);
+            proyekAkhirPresenter.createProyekAkhir(judul_id, nim2, kelompok);
+            mahasiswaPresenter.updateMahasiswaJudul(sessionManager.getSessionMahasiswaNim(), judul_id);
+            mahasiswaPresenter.updateMahasiswaJudul(nim2, judul_id);
+            sessionManager.createSessionJudulMahasiswa(judul_id);
+        } else {
+            proyekAkhirPresenter.createProyekAkhir(judul_id, sessionManager.getSessionMahasiswaNim(), kelompok);
+            mahasiswaPresenter.updateMahasiswaJudul(sessionManager.getSessionMahasiswaNim(), judul_id);
+            sessionManager.createSessionJudulMahasiswa(judul_id);
+        }
     }
 
     @Override
     public void onGetListKategoriJudul(List<KategoriJudul> kategori) {
         arrayListKategoriJudul.clear();
         arrayListKategoriJudul.addAll(kategori);
-        initSpinnerKategori(arrayListKategoriJudul, sp_kategori);
+        initSpinnerKategori(arrayListKategoriJudul, spinner_kategori);
     }
 
     @Override
     public void onGetListDosen(List<Dosen> dosen) {
         arrayListDosen.clear();
         arrayListDosen.addAll(dosen);
-        initSpinnerNamaDosen(arrayListDosen,sp_dosen);
+        initSpinnerNamaDosen(arrayListDosen, spinner_dosen);
     }
 
     @Override
     public void onSucces() {
-        finish();
     }
 
     @Override

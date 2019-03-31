@@ -104,7 +104,7 @@ public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity impleme
 
 
     @Override
-    public void onSucces() {
+    public void onSuccesWorkJudul() {
         finish();
     }
 

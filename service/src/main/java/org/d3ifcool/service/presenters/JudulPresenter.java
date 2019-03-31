@@ -1,7 +1,5 @@
 package org.d3ifcool.service.presenters;
 
-import android.content.Context;
-
 import org.d3ifcool.service.interfaces.works.JudulWorkView;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.models.Judul;
@@ -40,6 +38,11 @@ public class JudulPresenter {
         this.viewResult = viewResult;
     }
 
+    public JudulPresenter(JudulWorkView viewEditor, JudulListView viewResult) {
+        this.viewEditor = viewEditor;
+        this.viewResult = viewResult;
+    }
+
     public void createJudul (String judul_nama, int kategori_id, String judul_deskripsi, String nip_dosen, String judul_status){
         viewEditor.showProgress();
         ApiInterfaceJudul apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
@@ -48,7 +51,7 @@ public class JudulPresenter {
             @Override
             public void onResponse(Call<Judul> call, Response<Judul> response) {
                 viewEditor.hideProgress();
-                viewEditor.onSucces();
+                viewEditor.onSuccesWorkJudul();
             }
 
             @Override
@@ -68,7 +71,7 @@ public class JudulPresenter {
             @Override
             public void onResponse(Call<Judul> call, Response<Judul> response) {
                 viewEditor.hideProgress();
-                viewEditor.onSucces();
+                viewEditor.onSuccesWorkJudul();
             }
 
             @Override
@@ -126,7 +129,7 @@ public class JudulPresenter {
             @Override
             public void onResponse(Call<Judul> call, Response<Judul> response) {
                 viewEditor.hideProgress();
-                viewEditor.onSucces();
+                viewEditor.onSuccesWorkJudul();
             }
 
             @Override

@@ -55,9 +55,9 @@ public class ProyekAkhirPresenter {
         this.viewResult = viewResult;
     }
 
-    public void createProyekAkhir(int judul_id, String mhs_nim, String dsn_nip, String nama_tim ){
+    public void createProyekAkhir(int judul_id, String mhs_nim, String nama_tim ){
         ApiInterfaceProyekAkhir apiInterfaceProyekAkhir = ApiClient.getApiClient().create(ApiInterfaceProyekAkhir.class);
-        Call<ProyekAkhir> call = apiInterfaceProyekAkhir.createProyekAkhir(judul_id, mhs_nim, dsn_nip, nama_tim);
+        Call<ProyekAkhir> call = apiInterfaceProyekAkhir.createProyekAkhir(judul_id, mhs_nim, nama_tim);
         call.enqueue(new Callback<ProyekAkhir>() {
             @Override
             public void onResponse(Call<ProyekAkhir> call, Response<ProyekAkhir> response) {

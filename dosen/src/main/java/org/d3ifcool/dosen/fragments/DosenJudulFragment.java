@@ -16,10 +16,10 @@ import org.d3ifcool.dosen.adapters.viewpagers.DosenJudulPaPagerAdapter;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DosenJudulPaFragment extends Fragment {
+public class DosenJudulFragment extends Fragment {
 
 
-    public DosenJudulPaFragment() {
+    public DosenJudulFragment() {
         // Required empty public constructor
     }
 

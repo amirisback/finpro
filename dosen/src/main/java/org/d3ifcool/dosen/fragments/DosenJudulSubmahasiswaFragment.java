@@ -19,10 +19,10 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DosenJudulPaSubmahasiswaFragment extends Fragment {
+public class DosenJudulSubmahasiswaFragment extends Fragment {
 
 
-    public DosenJudulPaSubmahasiswaFragment() {
+    public DosenJudulSubmahasiswaFragment() {
         // Required empty public constructor
     }
 
