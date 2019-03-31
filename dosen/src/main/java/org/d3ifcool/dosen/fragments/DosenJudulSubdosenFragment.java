@@ -33,6 +33,7 @@ import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.FIELD_DOSEN_
  * A simple {@link Fragment} subclass.
  */
 public class DosenJudulSubdosenFragment extends Fragment implements JudulListView {
+
     private RecyclerView recyclerView;
     private FloatingActionButton floatingActionButton;
     private DosenJudulPaSubdosenViewAdapter adapter;

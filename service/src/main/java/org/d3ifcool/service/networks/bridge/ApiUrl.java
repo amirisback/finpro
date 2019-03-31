@@ -68,6 +68,8 @@ public class ApiUrl {
         public static final String PATH_DELETE = "/delete";
         public static final String PATH_SEARCH = "/search";
         public static final String PATH_STATUS = "/status";
+        public static final String PATH_ALL = "/all";
+        public static final String PATH_DISTINCT = "/distinct";
         // -----------------------------------------------------------------------------------------
         public static final String URL_LOGIN = BASE_URL_LOGIN + PATH_LOGIN;
         public static final String URL_DOSEN = PATH_API + PATH_DOSEN;
@@ -84,7 +86,11 @@ public class ApiUrl {
         public static final String URL_MONEV_DETAIL = PATH_API + PATH_MONEV_DETAIL;
         // -----------------------------------------------------------------------------------------
         public static final String BASE_PARAMETER = "/{" + VAR_PARAMS + "}";
+        public static final String BASE_PARAMETER_1 = "/{" + VAR_PARAMS + "1}";
+        public static final String BASE_PARAMETER_2 = "/{" + VAR_PARAMS + "2}";
         public static final String PARAMETER_QUERY = "/{" + VAR_QUERY + "}";
+        public static final String PARAMETER_QUERY_1 = "/{" + VAR_QUERY + "1}";
+        public static final String PARAMETER_QUERY_2 = "/{" + VAR_QUERY + "2}";
         public static final String PARAMETER_USER = "/{" + VAR_USER + "}";
         public static final String PARAMETER_DOSEN = "/{" + VAR_DOSEN + "}";
         public static final String PARAMETER_MAHASISWA = "/{" + VAR_MAHASISWA + "}";
@@ -100,6 +106,7 @@ public class ApiUrl {
         public static final String PARAMETER_MONEV_DETAIL = "/{" + VAR_MONEV_DETAIL + "}";
         // -----------------------------------------------------------------------------------------
         public static final String FIELD_DOSEN_NAMA = "dsn_nama";
+        public static final String FIELD_JUDUL_STATUS = "judul.judul_status";
 
     }
 }

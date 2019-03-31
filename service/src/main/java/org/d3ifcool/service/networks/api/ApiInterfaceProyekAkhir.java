@@ -12,6 +12,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.BASE_PARAMETER;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_ALL;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_JUDUL;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_PROYEK_AKHIR;
@@ -64,7 +65,7 @@ public interface ApiInterfaceProyekAkhir {
     @GET(URL_PROYEK_AKHIR)
     Call<List<ProyekAkhir>> getProyekAkhir();
 
-    @GET(URL_PROYEK_AKHIR + PATH_SEARCH + BASE_PARAMETER + PARAMETER_QUERY)
+    @GET(URL_PROYEK_AKHIR + PATH_SEARCH + PATH_ALL +BASE_PARAMETER + PARAMETER_QUERY)
     Call<List<ProyekAkhir>> getProyekAkhirSearch(
             @Path(VAR_PARAMS) String parameter,
             @Path(VAR_QUERY) String query

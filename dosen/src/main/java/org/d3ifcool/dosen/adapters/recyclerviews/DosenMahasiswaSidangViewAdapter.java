@@ -79,7 +79,7 @@ public class DosenMahasiswaSidangViewAdapter extends RecyclerView.Adapter<DosenM
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.tv_pa_judul.setText(dataPa.get(position).getJudul());
+        holder.tv_pa_judul.setText(dataPa.get(position).getJudul_nama());
         holder.tv_pa_kelompok.setText(dataPa.get(position).getNama_tim());
         holder.tv_pa_kategori.setText(dataKategori.get(position).getKategori_nama());
 

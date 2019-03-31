@@ -44,12 +44,6 @@
             android:text="@string/dummy"
             style="@style/textview_item_list_judul_kategori"/>
 
-        <TextView
-            android:id="@+id/ctn_dsn_judul_mhs_textview_kelompok"
-            style="@style/textview_item_list_judul_kategori"
-            android:drawableStart="@drawable/ic_content_judul_pa_kelompok"
-            android:text="@string/dummy_mahasiswa_kelompok"/>
-
     </LinearLayout>
 
 

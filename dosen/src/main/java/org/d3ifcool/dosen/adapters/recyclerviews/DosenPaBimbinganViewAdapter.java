@@ -78,7 +78,7 @@ public class DosenPaBimbinganViewAdapter extends RecyclerView.Adapter<DosenPaBim
 
     @Override
     public void onBindViewHolder(final DosenPaBimbinganViewAdapter.ViewHolder holder, final int position) {
-        holder.judul.setText(dataPa.get(position).getJudul());
+        holder.judul.setText(dataPa.get(position).getJudul_nama());
         holder.kategori.setText(dataKategori.get(position).getKategori_nama());
         holder.kelompok.setText(dataPa.get(position).getNama_tim());
         holder.itemView.setOnClickListener(new View.OnClickListener() {

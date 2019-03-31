@@ -75,7 +75,7 @@ public class DosenPaMonevViewAdapter extends RecyclerView.Adapter<DosenPaMonevVi
 
     @Override
     public void onBindViewHolder(final DosenPaMonevViewAdapter.ViewHolder holder, final int position) {
-        holder.tv_pa_judul.setText(data_proyek_akhir.get(position).getJudul());
+        holder.tv_pa_judul.setText(data_proyek_akhir.get(position).getJudul_nama());
         holder.tv_pa_kategori.setText(data_kategori.get(position).getKategori_nama());
         holder.tv_pa_kelompok.setText(data_proyek_akhir.get(position).getNama_tim());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
