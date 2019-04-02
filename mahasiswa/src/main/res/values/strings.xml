@@ -22,4 +22,6 @@
 <resources>
     <string name="text_status_sidang">Status Sidang</string>
     <string name="dummy_status_sidang">Lulus</string>
+    <string name="text_ubah_data">Ubah Data</string>
+    <string name="text_angkatan">Angkatan</string>
 </resources>

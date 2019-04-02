@@ -13,4 +13,6 @@
     <string name="textview_nilai_proposal">Nilai Proposal</string>
     <string name="text_status_sidang">Status Sidang</string>
     <string name="text_status_sidang_hasil">Lulus</string>
+    <string name="dummy_email">ikhsanramadhan28@gmail.com</string>
+    <string name="text_ubah_data">ubah data</string>
 </resources>

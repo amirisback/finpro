@@ -44,6 +44,7 @@ public class DosenProfilActivity extends AppCompatActivity {
 
         TextView textView_nama = findViewById(R.id.act_dsn_profil_nama);
         TextView textView_nip = findViewById(R.id.act_dsn_profil_nip);
+        TextView textView_kode = findViewById(R.id.act_dsn_profil_kode);
         TextView textView_email = findViewById(R.id.act_dsn_profil_email);
         TextView textView_kontak = findViewById(R.id.act_dsn_profil_kontak);
          imageView = findViewById(R.id.act_dsn_profil_foto);
@@ -67,6 +68,7 @@ public class DosenProfilActivity extends AppCompatActivity {
 
         textView_nama.setText(sessionManager.getSessionDosenNama());
         textView_nip.setText(sessionManager.getSessionDosenNip());
+        textView_kode.setText(sessionManager.getSessionDosenKode());
         textView_email.setText(sessionManager.getSessionDosenEmail());
         textView_kontak.setText(sessionManager.getSessionDosenKontak());
         Picasso.get().load(URL_FOTO_DOSEN + sessionManager.getSessionDosenFoto()).into(imageView);
