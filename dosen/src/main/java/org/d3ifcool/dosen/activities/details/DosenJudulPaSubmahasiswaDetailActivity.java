@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,21 +15,30 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.interfaces.works.JudulWorkView;
+import org.d3ifcool.service.interfaces.works.MahasiswaWorkView;
+import org.d3ifcool.service.interfaces.works.ProyekAkhirWorkView;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.JudulPresenter;
+import org.d3ifcool.service.presenters.MahasiswaPresenter;
 import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity implements ProyekAkhirListView, JudulWorkView {
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DITOLAK;
+
+public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity implements ProyekAkhirListView,
+        JudulWorkView, ProyekAkhirWorkView, MahasiswaWorkView {
 
     public static final String EXTRA_JUDUL = "extra_judul";
-    private static final String PARAM_PROYEK_AKHIR = "judul.judul_nama";
+    private static final String PARAM_PROYEK_AKHIR = "proyek_akhir.judul_id";
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private JudulPresenter judulPresenter;
+    private MahasiswaPresenter mahasiswaPresenter;
     private ProgressDialog progressDialog;
+    private int extraJudulId;
     private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
     private TextView textViewMhsNIM1, textViewMhsNama1, textViewMhsNIM2, textViewMhsNama2, textViewKelompok;
 
@@ -41,13 +51,15 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
         setTitle(getString(R.string.title_judulpa_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        proyekAkhirPresenter = new ProyekAkhirPresenter(this);
+        proyekAkhirPresenter = new ProyekAkhirPresenter(this, this);
         judulPresenter = new JudulPresenter(this);
+        mahasiswaPresenter = new MahasiswaPresenter(this);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
-        int extraJudulId = extraJudul.getId();
+        extraJudulId = extraJudul.getId();
         String extraJudulTanggal = extraJudul.getJudul_waktu();
         String extraJudulNama = extraJudul.getJudul();
         String extraJudulDeskripsi = extraJudul.getDeskripsi();
@@ -74,7 +86,37 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
         textViewDeskripsi.setText(extraJudulDeskripsi);
         textViewKategori.setText(extraJudulKategori);
 
-        proyekAkhirPresenter.searchProyekAkhir(PARAM_PROYEK_AKHIR, extraJudulNama);
+        proyekAkhirPresenter.searchProyekAkhir(PARAM_PROYEK_AKHIR, String.valueOf(extraJudulId));
+
+        floatingActionButtonAccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                judulPresenter.updateStatusJudul(extraJudulId, JUDUL_STATUS_DIGUNAKAN);
+            }
+        });
+
+        floatingActionButtonDecline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                judulPresenter.updateStatusJudul(extraJudulId, JUDUL_STATUS_DITOLAK);
+
+                proyekAkhirPresenter.deleteProyekAkhir(arrayListProyekAkhir.get(0).getProyek_akhir_id());
+                mahasiswaPresenter.updateMahasiswaJudul(arrayListProyekAkhir.get(0).getMhs_nim(), 0);
+
+                if (arrayListProyekAkhir.size() == 2) {
+                    proyekAkhirPresenter.deleteProyekAkhir(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getProyek_akhir_id());
+                    mahasiswaPresenter.updateMahasiswaJudul(arrayListProyekAkhir.get(1).getMhs_nim(), 0);
+                }
+
+            }
+        });
+
+        floatingActionButtonConversation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
 
@@ -106,6 +148,11 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
     }
 
     @Override
+    public void onSucces() {
+
+    }
+
+    @Override
     public void onSuccesWorkJudul() {
         finish();
     }
@@ -115,16 +162,13 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
         arrayListProyekAkhir.clear();
         arrayListProyekAkhir.addAll(proyekAkhirList);
 
+        textViewMhsNIM1.setText(arrayListProyekAkhir.get(0).getMhs_nim());
+        textViewMhsNama1.setText(arrayListProyekAkhir.get(0).getMhs_nama());
+        textViewKelompok.setText(arrayListProyekAkhir.get(0).getNama_tim());
+
         if (arrayListProyekAkhir.size() == 2) {
-            textViewMhsNIM1.setText(arrayListProyekAkhir.get(0).getMhs_nim());
-            textViewMhsNama1.setText(arrayListProyekAkhir.get(0).getMhs_nama());
             textViewMhsNIM2.setText(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getMhs_nim());
             textViewMhsNama2.setText(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getMhs_nama());
-            textViewKelompok.setText(arrayListProyekAkhir.get(0).getNama_tim());
-        } else {
-            textViewMhsNIM1.setText(arrayListProyekAkhir.get(0).getMhs_nim());
-            textViewMhsNama1.setText(arrayListProyekAkhir.get(0).getMhs_nama());
-            textViewKelompok.setText(arrayListProyekAkhir.get(0).getNama_tim());
         }
     }
 

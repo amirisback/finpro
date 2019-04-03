@@ -9,12 +9,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import org.d3ifcool.dosen.R;
 
 public class DosenBimbinganInfoActivity extends AppCompatActivity {
 
+    public static final String EXTRA_JUDUL = "extra_judul";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

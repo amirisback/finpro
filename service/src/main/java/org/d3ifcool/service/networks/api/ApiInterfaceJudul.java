@@ -94,6 +94,7 @@ public interface ApiInterfaceJudul {
     @POST(URL_JUDUL_PA + PATH_DELETE + PARAMETER_JUDUL)
     Call<Judul> deleteJudul(@Path(VAR_JUDUL) int judul_id);
 
+    @FormUrlEncoded
     @POST(URL_JUDUL_PA + PATH_UPDATE + PATH_STATUS + PARAMETER_JUDUL)
     Call<Judul> updateStatusJudul(@Path(VAR_JUDUL) int judul_id,
                                   @Field("judul_status") String judul_status);

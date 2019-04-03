@@ -8,16 +8,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.adapters.viewpagers.DosenBimbinganPagerAdapter;
 
 public class DosenMahasiswaBimbinganDetailActivity extends AppCompatActivity {
 
-    public static final String EXTRA_MAHASISWA = "extra_mahasiswa";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dosen_mahasiswa_bimbingan_detail);
+        setContentView(R.layout.activity_dosen_pa_bimbingan_detail);
 
         setTitle(getString(R.string.title_kelompok_mahasiswa_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

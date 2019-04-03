@@ -43,6 +43,11 @@ public class ProyekAkhirPresenter {
         this.viewResult = viewResult;
     }
 
+    public ProyekAkhirPresenter(ProyekAkhirWorkView viewEditor, ProyekAkhirListView viewResult) {
+        this.viewEditor = viewEditor;
+        this.viewResult = viewResult;
+    }
+
     public ProyekAkhirPresenter(ProyekAkhirView viewObject) {
         this.viewObject = viewObject;
     }
@@ -111,6 +116,7 @@ public class ProyekAkhirPresenter {
     }
 
     public void deleteProyekAkhir(int proyek_akhir_id){
+        viewEditor.showProgress();
         ApiInterfaceProyekAkhir apiInterfaceProyekAkhir = ApiClient.getApiClient().create(ApiInterfaceProyekAkhir.class);
         Call<ProyekAkhir> call = apiInterfaceProyekAkhir.deleteProyekAkhir(proyek_akhir_id);
         call.enqueue(new Callback<ProyekAkhir>() {
@@ -129,6 +135,7 @@ public class ProyekAkhirPresenter {
     }
 
     public void searchProyekAkhir(String parameter, String query){
+        viewResult.showProgress();
         ApiInterfaceProyekAkhir apiInterfaceProyekAkhir = ApiClient.getApiClient().create(ApiInterfaceProyekAkhir.class);
         Call<List<ProyekAkhir>> call = apiInterfaceProyekAkhir.getProyekAkhirSearch(parameter, query);
         call.enqueue(new Callback<List<ProyekAkhir>>() {

@@ -25,6 +25,7 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
     private JudulPresenter presenter;
     private ProgressDialog dialog;
     private SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +35,13 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
         tv_kategori = findViewById(R.id.frg_dsn_pa_textview_kategoripa);
         tv_deskripsi = findViewById(R.id.frg_dsn_pa_textview_deskripsi);
 
-
         extradata = getIntent().getParcelableExtra(EXTRA_INFORMASI);
         String judul = extradata.getJudul();
-//        String kategori = extradata.getKategori();
+        String kategori = extradata.getKategori_nama();
         String deskripsi = extradata.getDeskripsi();
 
         tv_judul.setText(judul);
-//        tv_kategori.setText(kategori);
+        tv_kategori.setText(kategori);
         tv_deskripsi.setText(deskripsi);
 
         presenter = new JudulPresenter(this);

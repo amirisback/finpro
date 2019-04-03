@@ -181,7 +181,6 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
     @Override
     public void onSuccesWorkJudul() {
         judulPresenter.getJudul();
-        finish();
     }
 
     @Override
@@ -190,17 +189,15 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         arrayListJudul.addAll(judulpa);
         int judul_id = arrayListJudul.get(arrayListJudul.size()-1).getId();
 
+        proyekAkhirPresenter.createProyekAkhir(judul_id, sessionManager.getSessionMahasiswaNim(), kelompok);
+        mahasiswaPresenter.updateMahasiswaJudul(sessionManager.getSessionMahasiswaNim(), judul_id);
+        sessionManager.createSessionJudulMahasiswa(judul_id);
+
         if (!nim2.isEmpty()) {
-            proyekAkhirPresenter.createProyekAkhir(judul_id, sessionManager.getSessionMahasiswaNim(), kelompok);
             proyekAkhirPresenter.createProyekAkhir(judul_id, nim2, kelompok);
-            mahasiswaPresenter.updateMahasiswaJudul(sessionManager.getSessionMahasiswaNim(), judul_id);
             mahasiswaPresenter.updateMahasiswaJudul(nim2, judul_id);
-            sessionManager.createSessionJudulMahasiswa(judul_id);
-        } else {
-            proyekAkhirPresenter.createProyekAkhir(judul_id, sessionManager.getSessionMahasiswaNim(), kelompok);
-            mahasiswaPresenter.updateMahasiswaJudul(sessionManager.getSessionMahasiswaNim(), judul_id);
-            sessionManager.createSessionJudulMahasiswa(judul_id);
         }
+
     }
 
     @Override
@@ -219,6 +216,7 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
 
     @Override
     public void onSucces() {
+        finish();
     }
 
     @Override

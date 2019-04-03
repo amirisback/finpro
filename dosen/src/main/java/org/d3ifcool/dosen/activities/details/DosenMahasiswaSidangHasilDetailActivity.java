@@ -11,6 +11,6 @@ public class DosenMahasiswaSidangHasilDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dosen_mahasiswa_sidang_hasil_detail);
+        setContentView(R.layout.activity_dosen_pa_sidang_hasil_detail);
     }
 }

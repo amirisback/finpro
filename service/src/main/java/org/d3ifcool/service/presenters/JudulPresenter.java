@@ -178,5 +178,26 @@ public class JudulPresenter {
         });
     }
 
+    public void updateStatusJudul(int judul_id, String status_judul) {
+        viewEditor.showProgress();
+        ApiInterfaceJudul apiInterfaceJudul = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
+        Call<Judul> call = apiInterfaceJudul.updateStatusJudul(judul_id, status_judul);
+        call.enqueue(new Callback<Judul>() {
+            @Override
+            public void onResponse(Call<Judul> call, Response<Judul> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSuccesWorkJudul();
+            }
+
+            @Override
+            public void onFailure(Call<Judul> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getMessage());
+            }
+        });
+
+
+    }
+
 
 }

@@ -37,7 +37,7 @@
                     <TextView
                         android:id="@+id/act_dsn_mhs_judul_tanggal"
                         style="@style/textview_pa_color_accent_small"
-                        android:text="@string/dummy_tanggal"/>
+                        tools:text="@string/dummy_tanggal"/>
 
                 </LinearLayout>
 
@@ -69,7 +69,7 @@
                     <TextView
                         android:id="@+id/act_dsn_mhs_judul"
                         style="@style/textview_pa_color_primary"
-                        android:text="@string/dummy_pa_judul"/>
+                        tools:text="@string/dummy_pa_judul"/>
 
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"
@@ -87,7 +87,7 @@
                     <TextView
                         android:id="@+id/act_dsn_mhs_judul_kategori"
                         style="@style/textview_pa_color_primary"
-                        android:text="@string/dummy_kategori"/>
+                        tools:text="@string/dummy_kategori"/>
 
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"
@@ -105,7 +105,7 @@
 
                     <TextView
                         android:id="@+id/act_dsn_mhs_judul_kelompok"
-                        android:text="@string/dummy_mahasiswa_kelompok"
+                        tools:text="@string/dummy_mahasiswa_kelompok"
                         style="@style/textview_pa_color_primary"
                         android:layout_marginBottom="@dimen/dimen_medium"/>
 
@@ -175,7 +175,7 @@
                     <TextView
                         style="@style/textview_pa_color_primary"
                         android:id="@+id/act_dsn_mhs_judul_nama_1"
-                        android:hint="@string/dummy_anggota_kelompok_1"/>
+                        tools:hint="@string/dummy_anggota_kelompok_1"/>
 
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"
@@ -193,7 +193,7 @@
                     <TextView
                         style="@style/textview_pa_color_black"
                         android:id="@+id/act_dsn_mhs_judul_nim_1"
-                        android:hint="@string/dummy_anggota_nim_1"/>
+                        tools:hint="@string/dummy_anggota_nim_1"/>
 
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"
@@ -212,7 +212,7 @@
                     <TextView
                         style="@style/textview_pa_color_primary"
                         android:id="@+id/act_dsn_mhs_judul_nama_2"
-                        android:hint="@string/dummy_anggota_kelompok_2"/>
+                        tools:hint="@string/dummy_anggota_kelompok_2"/>
 
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"
@@ -230,7 +230,7 @@
                     <TextView
                         style="@style/textview_pa_color_black"
                         android:id="@+id/act_dsn_mhs_judul_nim_2"
-                        android:hint="@string/dummy_anggota_nim_2"
+                        tools:hint="@string/dummy_anggota_nim_2"
                         android:layout_marginBottom="@dimen/dimen_medium"/>
 
 

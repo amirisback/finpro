@@ -40,21 +40,15 @@ import androidx.recyclerview.widget.RecyclerView;
 public class DosenPaBimbinganViewAdapter extends RecyclerView.Adapter<DosenPaBimbinganViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<ProyekAkhir> dataPa;
-    private ArrayList<KategoriJudul> dataKategori;
+    private ArrayList<Judul> data;
     private int layoutType;
 
     public DosenPaBimbinganViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void addItemPa(ArrayList<ProyekAkhir> data){
-        this.dataPa = data;
-        notifyDataSetChanged();
-    }
-
-    public void addItemKategori(ArrayList<KategoriJudul> data){
-        this.dataKategori = data;
+    public void addItemPa(ArrayList<Judul> data){
+        this.data = data;
         notifyDataSetChanged();
     }
 
@@ -71,22 +65,20 @@ public class DosenPaBimbinganViewAdapter extends RecyclerView.Adapter<DosenPaBim
             // -------------------------------------------------------------------------------------
             judul = itemView.findViewById(R.id.ctn_dsn_pa_bimbingan_textview_judul);
             kategori = itemView.findViewById(R.id.ctn_dsn_pa_bimbingan_textview_kategori);
-            kelompok = itemView.findViewById(R.id.ctn_dsn_pa_bimbingan_textview_kelompok);
             // -------------------------------------------------------------------------------------
         }
     }
 
     @Override
     public void onBindViewHolder(final DosenPaBimbinganViewAdapter.ViewHolder holder, final int position) {
-        holder.judul.setText(dataPa.get(position).getJudul_nama());
-        holder.kategori.setText(dataKategori.get(position).getKategori_nama());
-        holder.kelompok.setText(dataPa.get(position).getNama_tim());
+        holder.judul.setText(data.get(position).getJudul());
+        holder.kategori.setText(data.get(position).getKategori_nama());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentData = new Intent(context, DosenBimbinganInfoActivity.class);
-//                Mahasiswa parcelInfo = data.get(position);
-//                intentData.putExtra(DosenMahasiswaBimbinganDetailActivity.EXTRA_MAHASISWA, parcelInfo);
+                Judul parcelJudul = data.get(position);
+                intentData.putExtra(DosenBimbinganInfoActivity.EXTRA_JUDUL, parcelJudul);
                 context.startActivity(intentData);
             }
         });
@@ -101,7 +93,7 @@ public class DosenPaBimbinganViewAdapter extends RecyclerView.Adapter<DosenPaBim
 
     @Override
     public int getItemCount() {
-        return dataPa.size();
+        return data.size();
     }
 
 }

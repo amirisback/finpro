@@ -26,6 +26,7 @@ import org.d3ifcool.service.presenters.JudulPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERSEDIA;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.FIELD_DOSEN_NAMA;
 
 
@@ -33,6 +34,9 @@ import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.FIELD_DOSEN_
  * A simple {@link Fragment} subclass.
  */
 public class DosenJudulSubdosenFragment extends Fragment implements JudulListView {
+
+    private static final String PARAMS_1 = "judul.judul_status";
+    private static final String PARAMS_2 = "judul.dsn_nip";
 
     private RecyclerView recyclerView;
     private FloatingActionButton floatingActionButton;
@@ -68,7 +72,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
         sessionManager = new SessionManager(getContext());
 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
-        presenter.getJudulSearch(FIELD_DOSEN_NAMA, sessionManager.getSessionDosenNama());
+        presenter.getJudulSearchTwoParameter(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionDosenNip());
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +84,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.getJudulSearch(FIELD_DOSEN_NAMA, sessionManager.getSessionDosenNama());
+                presenter.getJudulSearchTwoParameter(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionDosenNip());
             }
         });
 
@@ -89,7 +93,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
     @Override
     public void onResume() {
         super.onResume();
-        presenter.getJudulSearch(FIELD_DOSEN_NAMA, sessionManager.getSessionDosenNama());
+        presenter.getJudulSearchTwoParameter(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionDosenNip());
     }
 
     @Override
