@@ -117,16 +117,17 @@ android:background="@color/colorBackground">
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/content_item_mahasiswa_pa_monev"/>
-    </androidx.core.widget.NestedScrollView>
 
+
+    </androidx.core.widget.NestedScrollView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/act_dsn_monev_tambah"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="@dimen/dimen_big"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_fab_add"/>
 </LinearLayout>
 
-<com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:id="@+id/act_dsn_mhs_judul_fab_accept"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentRight="true"
-    android:layout_margin="@dimen/dimen_big"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@drawable/ic_fab_add"/>
+
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

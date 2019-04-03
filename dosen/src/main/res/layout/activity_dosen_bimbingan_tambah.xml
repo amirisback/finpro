@@ -16,12 +16,37 @@
         android:layout_marginBottom="@dimen/dimen_big_ultra"
         android:src="@drawable/ic_announcement"/>
 
+    <TextView
+        android:textSize="@dimen/text_size_title_small"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/textview_judul_bimbingan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"/>
+
+    <TextView
+        android:id="@+id/act_dsn_mhs_bimbingan_textview_tanggal"
+        android:textSize="@dimen/text_size_title_small"
+        android:textColor="@color/colorTextBlack"
+        android:drawableLeft="@drawable/ic_date"
+        android:drawablePadding="@dimen/dimen_medium"
+        android:text="Pilih Tanggal"
+        android:layout_marginBottom="@dimen/dimen_medium"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_height="wrap_content"
+        android:maxLines="1"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="@dimen/dimen_big"/>
+
 
     <TextView
         android:textSize="@dimen/text_size_title_small"
         android:textColor="@color/colorPrimary"
         android:text="@string/textview_judul_bimbingan"
-        android:id="@+id/tv_judul_review"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="1"/>

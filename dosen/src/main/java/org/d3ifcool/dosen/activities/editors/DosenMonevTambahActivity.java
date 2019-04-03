@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import org.d3ifcool.dosen.R;
 
@@ -17,6 +19,11 @@ public class DosenMonevTambahActivity extends AppCompatActivity {
         setTitle(getString(R.string.title_monev_tambah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0);
+
+        EditText et_review_monev = findViewById(R.id.act_dsn_edittext_deskripsi);
+        EditText et_nilai_monev = findViewById(R.id.act_dsn_edittext_nilai_monev);
+
+
 
     }
 
@@ -36,5 +43,4 @@ public class DosenMonevTambahActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

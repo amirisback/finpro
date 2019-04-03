@@ -1,5 +1,10 @@
 package org.d3ifcool.service.helpers;
 
+import android.app.DatePickerDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.view.View;
+import android.widget.DatePicker;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -28,5 +33,4 @@ public class MethodHelper {
         return randomChar;
     }
     // ---------------------------------------------------------------------------------------------
-
 }
