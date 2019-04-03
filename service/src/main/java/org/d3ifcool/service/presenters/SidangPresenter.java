@@ -1,4 +1,123 @@
 package org.d3ifcool.service.presenters;
 
+import org.d3ifcool.service.interfaces.lists.SidangListView;
+import org.d3ifcool.service.interfaces.objects.SidangView;
+import org.d3ifcool.service.interfaces.works.SidangWorkView;
+import org.d3ifcool.service.models.Sidang;
+import org.d3ifcool.service.networks.api.ApiInterfaceSidang;
+import org.d3ifcool.service.networks.bridge.ApiClient;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class SidangPresenter {
+
+    private SidangListView viewResult;
+    private SidangWorkView viewEditor;
+    private SidangView viewObject;
+
+    public SidangPresenter(SidangListView viewResult, SidangWorkView viewEditor, SidangView viewObject) {
+        this.viewResult = viewResult;
+        this.viewEditor = viewEditor;
+        this.viewObject = viewObject;
+    }
+
+    public SidangPresenter(SidangListView viewResult) {
+        this.viewResult = viewResult;
+    }
+
+    public SidangPresenter(SidangWorkView viewEditor) {
+        this.viewEditor = viewEditor;
+    }
+
+    public SidangPresenter(SidangView viewObject) {
+        this.viewObject = viewObject;
+    }
+
+    public SidangPresenter(SidangListView viewResult, SidangWorkView viewEditor) {
+        this.viewResult = viewResult;
+        this.viewEditor = viewEditor;
+    }
+
+    public void createSidang(String sidang_review, String sidang_tanggal, int sidang_nilai,String sidang_status, int proyek_akhir_id){
+        viewEditor.showProgress();
+        ApiInterfaceSidang apiInterfaceSidang = ApiClient.getApiClient().create(ApiInterfaceSidang.class);
+        Call<Sidang> call = apiInterfaceSidang.createSidang(sidang_review, sidang_tanggal, sidang_nilai, sidang_status, proyek_akhir_id);
+        call.enqueue(new Callback<Sidang>() {
+            @Override
+            public void onResponse(Call<Sidang> call, Response<Sidang> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<Sidang> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getMessage());
+            }
+        });
+    }
+
+    public void getSidang(){
+        viewResult.showProgress();
+        ApiInterfaceSidang apiInterfaceSidang = ApiClient.getApiClient().create(ApiInterfaceSidang.class);
+        Call<List<Sidang>> call = apiInterfaceSidang.getSidang();
+        call.enqueue(new Callback<List<Sidang>>() {
+            @Override
+            public void onResponse(Call<List<Sidang>> call, Response<List<Sidang>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetListSidang(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Sidang>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getMessage());
+            }
+        });
+    }
+
+    public void deleteSidang(int sidang_id){
+        viewEditor.showProgress();
+        ApiInterfaceSidang apiInterfaceSidang = ApiClient.getApiClient().create(ApiInterfaceSidang.class);
+        Call<Sidang> call = apiInterfaceSidang.deleteSidang(sidang_id);
+        call.enqueue(new Callback<Sidang>() {
+            @Override
+            public void onResponse(Call<Sidang> call, Response<Sidang> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<Sidang> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getMessage());
+            }
+        });
+    }
+
+
+    public void updateSidang(int sidang_id, String sidang_review, String sidang_tanggal, int sidang_nilai, String sidang_status, int proyek_akhir_id){
+        viewEditor.showProgress();
+        ApiInterfaceSidang apiInterfaceSidang = ApiClient.getApiClient().create(ApiInterfaceSidang.class);
+        Call<Sidang> call = apiInterfaceSidang.updateSidang(sidang_id,sidang_review, sidang_tanggal, sidang_nilai, sidang_status, proyek_akhir_id);
+        call.enqueue(new Callback<Sidang>() {
+            @Override
+            public void onResponse(Call<Sidang> call, Response<Sidang> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<Sidang> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getMessage());
+            }
+        });
+    }
+
+
 }

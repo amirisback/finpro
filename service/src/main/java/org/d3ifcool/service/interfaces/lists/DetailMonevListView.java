@@ -1,7 +1,6 @@
 package org.d3ifcool.service.interfaces.lists;
 
-import org.d3ifcool.service.models.Bimbingan;
-import org.d3ifcool.service.models.Informasi;
+import org.d3ifcool.service.models.DetailMonev;
 
 import java.util.List;
 
@@ -22,13 +21,13 @@ import java.util.List;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public interface BimbinganListView {
+public interface DetailMonevListView {
 
     void showProgress();
 
     void hideProgress();
 
-    void onGetListBimbingan(List<Bimbingan> bimbinganList);
+    void onGetListDetailMonev(List<DetailMonev> detailMonevList);
 
     void onFailed(String message);
 

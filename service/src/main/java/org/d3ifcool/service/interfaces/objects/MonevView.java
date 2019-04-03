@@ -1,9 +1,6 @@
-package org.d3ifcool.service.interfaces.lists;
+package org.d3ifcool.service.interfaces.objects;
 
-import org.d3ifcool.service.models.Bimbingan;
-import org.d3ifcool.service.models.Informasi;
-
-import java.util.List;
+import org.d3ifcool.service.models.Monev;
 
 /**
  * Created by Faisal Amir
@@ -22,14 +19,12 @@ import java.util.List;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public interface BimbinganListView {
-
+public interface MonevView {
     void showProgress();
 
     void hideProgress();
 
-    void onGetListBimbingan(List<Bimbingan> bimbinganList);
+    void onGetObjectMonev(Monev monev);
 
     void onFailed(String message);
-
 }

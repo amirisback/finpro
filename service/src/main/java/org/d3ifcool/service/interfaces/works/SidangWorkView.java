@@ -1,9 +1,4 @@
-package org.d3ifcool.service.interfaces.lists;
-
-import org.d3ifcool.service.models.Bimbingan;
-import org.d3ifcool.service.models.Informasi;
-
-import java.util.List;
+package org.d3ifcool.service.interfaces.works;
 
 /**
  * Created by Faisal Amir
@@ -22,14 +17,15 @@ import java.util.List;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public interface BimbinganListView {
+public interface SidangWorkView {
 
     void showProgress();
 
     void hideProgress();
 
-    void onGetListBimbingan(List<Bimbingan> bimbinganList);
+    void onSucces();
 
     void onFailed(String message);
+
 
 }

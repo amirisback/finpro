@@ -45,66 +45,78 @@ public class KoorPresenter {
     }
 
     public void createKoor(String koor_nip , String koor_nama , String koor_kontak, String koor_foto, String koor_email){
+        viewEditor.showProgress();
         ApiInterfaceKoor interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
         Call<KoordinatorPa>call = interfaceAdmin.createKoor(koor_nip,koor_nama,koor_kontak,koor_foto,koor_email);
         call.enqueue(new Callback<KoordinatorPa>() {
             @Override
             public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
-
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
             }
 
             @Override
             public void onFailure(Call<KoordinatorPa> call, Throwable t) {
-
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getMessage());
             }
         });
     }
 
     public void updateKoor(String koor_nip , String koor_nama , String koor_kontak, String koor_foto, String koor_email){
+        viewEditor.showProgress();
         ApiInterfaceKoor interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
         Call<KoordinatorPa>call = interfaceAdmin.updateKoor(koor_nip,koor_nama,koor_kontak,koor_foto,koor_email);
         call.enqueue(new Callback<KoordinatorPa>() {
             @Override
             public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
-
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
             }
 
             @Override
             public void onFailure(Call<KoordinatorPa> call, Throwable t) {
-
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getMessage());
             }
         });
     }
 
     public void getKoor(){
+        viewResult.showProgress();
         ApiInterfaceKoor interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
         Call<List<KoordinatorPa>> call = interfaceAdmin.getKoor();
         call.enqueue(new Callback<List<KoordinatorPa>>() {
             @Override
             public void onResponse(Call<List<KoordinatorPa>> call, Response<List<KoordinatorPa>> response) {
-
+                viewResult.hideProgress();
+                viewResult.onGetListKoor(response.body());
             }
 
             @Override
             public void onFailure(Call<List<KoordinatorPa>> call, Throwable t) {
-
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getMessage());
             }
         });
 
     }
 
     public void deleteKoor(String koor_nip){
+        viewEditor.showProgress();
         ApiInterfaceKoor apiInterfaceKoorPa = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
         Call<KoordinatorPa>call = apiInterfaceKoorPa.deleteKoor(koor_nip);
         call.enqueue(new Callback<KoordinatorPa>() {
             @Override
             public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
-
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
             }
 
             @Override
             public void onFailure(Call<KoordinatorPa> call, Throwable t) {
-
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getMessage());
             }
         });
     }
