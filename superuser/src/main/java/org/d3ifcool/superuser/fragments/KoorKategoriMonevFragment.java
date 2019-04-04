@@ -118,7 +118,7 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
     @Override
     public void onResume() {
         super.onResume();
-        dialog.show();
+        notify();
         presenter.getMonev();
     }
 
