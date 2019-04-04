@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.d3ifcool.mahasiswa.R;
+import org.d3ifcool.mahasiswa.activities.MahasiswaInformasiDetailActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPaBimbinganDetailActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPaMonevDetailActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPaSidangDetailActivity;
@@ -24,6 +25,7 @@ import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.interfaces.objects.JudulView;
+import org.d3ifcool.service.models.Bimbingan;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.models.Mahasiswa;
 import org.d3ifcool.service.models.ProyekAkhir;

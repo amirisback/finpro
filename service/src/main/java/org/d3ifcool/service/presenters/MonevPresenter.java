@@ -43,6 +43,11 @@ public class MonevPresenter {
         this.viewObject = viewObject;
     }
 
+    public MonevPresenter(MonevListView viewResult, MonevWorkView viewEditor) {
+        this.viewResult = viewResult;
+        this.viewEditor = viewEditor;
+    }
+
     public MonevPresenter(MonevWorkView viewEditor) {
         this.viewEditor = viewEditor;
     }

@@ -121,6 +121,7 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
     @Override
     public void onResume() {
         super.onResume();
+        progressDialog.show();
         presenter.getKategori();
     }
 

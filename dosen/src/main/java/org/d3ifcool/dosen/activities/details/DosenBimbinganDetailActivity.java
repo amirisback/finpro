@@ -26,6 +26,7 @@ public class DosenBimbinganDetailActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProgressDialog dialog;
     private BimbinganPresenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +49,7 @@ public class DosenBimbinganDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DosenBimbinganDetailActivity.this, DosenBimbinganTambahActivity.class);
+
                 startActivity(intent);
 
             }
