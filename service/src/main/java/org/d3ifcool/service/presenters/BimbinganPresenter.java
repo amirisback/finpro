@@ -129,6 +129,27 @@ public class BimbinganPresenter {
             }
         });
     }
+
+
+    public void searchBimbingan(String parameter, String query){
+        viewResult.showProgress();
+        ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
+        Call<List<Bimbingan>> call = apiInterfaceBimbingan.getBimbinganSearch(parameter, query);
+        call.enqueue(new Callback<List<Bimbingan>>() {
+            @Override
+            public void onResponse(Call<List<Bimbingan>> call, Response<List<Bimbingan>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetListBimbingan(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Bimbingan>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getMessage());
+            }
+        });
+
+    }
     
     
 }

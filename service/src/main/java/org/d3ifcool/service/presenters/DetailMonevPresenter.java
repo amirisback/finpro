@@ -119,4 +119,24 @@ public class DetailMonevPresenter {
         });
 
     }
+
+    public void searchDetailMonevBy2(String parameter1, String query1, String parameter2, String query2) {
+        viewResult.showProgress();
+        ApiInterfaceDetailMonev apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceDetailMonev.class);
+        Call<List<DetailMonev>> call = apiInterfaceDetailMonev.getDetailMonevSearchTwoParameter(parameter1, query1, parameter2, query2);
+        call.enqueue(new Callback<List<DetailMonev>>() {
+            @Override
+            public void onResponse(Call<List<DetailMonev>> call, Response<List<DetailMonev>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetListDetailMonev(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<DetailMonev>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getMessage());
+            }
+        });
+    }
+
 }

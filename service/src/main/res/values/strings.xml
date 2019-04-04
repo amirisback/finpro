@@ -223,6 +223,9 @@
     <string name="hint_masukkan_nama_kelompok">Masukkan Nama Kelompok</string>
     <string name="hint_masukkan_judul_pa">Masukkan Judul PA</string>
     <string name="hint_masukkan_deskripsi_judul_pa">Masukkan Deskripsi Judul PA</string>
+    <string name="text_no_dosen_monev">Belum dapat dosen reviewer</string>
+    <string name="text_no_dosen_pembimbing">Belum dapat dosen pembimbing</string>
+    <string name="text_disable_pa">Anda wajib mengajukan judul pa</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

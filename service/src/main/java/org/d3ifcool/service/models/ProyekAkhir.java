@@ -86,7 +86,7 @@ public class ProyekAkhir implements Parcelable{
 
     @Expose
     @SerializedName("reviewer_dsn_nip")
-    private int reviewer_dsn_nip;
+    private String reviewer_dsn_nip;
 
     @Expose
     @SerializedName("reviewer_dsn_nama")
@@ -112,7 +112,7 @@ public class ProyekAkhir implements Parcelable{
     @SerializedName("reviewer_dsn_username")
     private String dsn_username;
 
-    public ProyekAkhir(int proyek_akhir_id, int nilai_total, String nama_tim, String mhs_nim, String mhs_nama, String mhs_angkatan, String mhs_kontak, String mhs_foto, String mhs_email, String mhs_status, int mhs_judul_id, String mhs_username, String pembimbing_dsn_nip, int judul_id, String judul_nama, String judul_deskripsi, String judul_status, String judul_waktu, String kategori_id, int reviewer_dsn_nip, String reviewer_dsn_nama, String reviewer_dsn_kode, String reviewer_dsn_kontak, String reviewer_dsn_foto, String reviewer_dsn_email, String dsn_username) {
+    public ProyekAkhir(int proyek_akhir_id, int nilai_total, String nama_tim, String mhs_nim, String mhs_nama, String mhs_angkatan, String mhs_kontak, String mhs_foto, String mhs_email, String mhs_status, int mhs_judul_id, String mhs_username, String pembimbing_dsn_nip, int judul_id, String judul_nama, String judul_deskripsi, String judul_status, String judul_waktu, String kategori_id, String reviewer_dsn_nip, String reviewer_dsn_nama, String reviewer_dsn_kode, String reviewer_dsn_kontak, String reviewer_dsn_foto, String reviewer_dsn_email, String dsn_username) {
         this.proyek_akhir_id = proyek_akhir_id;
         this.nilai_total = nilai_total;
         this.nama_tim = nama_tim;
@@ -145,208 +145,104 @@ public class ProyekAkhir implements Parcelable{
         return proyek_akhir_id;
     }
 
-    public void setProyek_akhir_id(int proyek_akhir_id) {
-        this.proyek_akhir_id = proyek_akhir_id;
-    }
-
     public int getNilai_total() {
         return nilai_total;
-    }
-
-    public void setNilai_total(int nilai_total) {
-        this.nilai_total = nilai_total;
     }
 
     public String getNama_tim() {
         return nama_tim;
     }
 
-    public void setNama_tim(String nama_tim) {
-        this.nama_tim = nama_tim;
-    }
-
     public String getMhs_nim() {
         return mhs_nim;
-    }
-
-    public void setMhs_nim(String mhs_nim) {
-        this.mhs_nim = mhs_nim;
     }
 
     public String getMhs_nama() {
         return mhs_nama;
     }
 
-    public void setMhs_nama(String mhs_nama) {
-        this.mhs_nama = mhs_nama;
-    }
-
     public String getMhs_angkatan() {
         return mhs_angkatan;
-    }
-
-    public void setMhs_angkatan(String mhs_angkatan) {
-        this.mhs_angkatan = mhs_angkatan;
     }
 
     public String getMhs_kontak() {
         return mhs_kontak;
     }
 
-    public void setMhs_kontak(String mhs_kontak) {
-        this.mhs_kontak = mhs_kontak;
-    }
-
     public String getMhs_foto() {
         return mhs_foto;
-    }
-
-    public void setMhs_foto(String mhs_foto) {
-        this.mhs_foto = mhs_foto;
     }
 
     public String getMhs_email() {
         return mhs_email;
     }
 
-    public void setMhs_email(String mhs_email) {
-        this.mhs_email = mhs_email;
-    }
-
     public String getMhs_status() {
         return mhs_status;
-    }
-
-    public void setMhs_status(String mhs_status) {
-        this.mhs_status = mhs_status;
     }
 
     public int getMhs_judul_id() {
         return mhs_judul_id;
     }
 
-    public void setMhs_judul_id(int mhs_judul_id) {
-        this.mhs_judul_id = mhs_judul_id;
-    }
-
     public String getMhs_username() {
         return mhs_username;
-    }
-
-    public void setMhs_username(String mhs_username) {
-        this.mhs_username = mhs_username;
     }
 
     public String getPembimbing_dsn_nip() {
         return pembimbing_dsn_nip;
     }
 
-    public void setPembimbing_dsn_nip(String pembimbing_dsn_nip) {
-        this.pembimbing_dsn_nip = pembimbing_dsn_nip;
-    }
-
     public int getJudul_id() {
         return judul_id;
-    }
-
-    public void setJudul_id(int judul_id) {
-        this.judul_id = judul_id;
     }
 
     public String getJudul_nama() {
         return judul_nama;
     }
 
-    public void setJudul_nama(String judul_nama) {
-        this.judul_nama = judul_nama;
-    }
-
     public String getJudul_deskripsi() {
         return judul_deskripsi;
-    }
-
-    public void setJudul_deskripsi(String judul_deskripsi) {
-        this.judul_deskripsi = judul_deskripsi;
     }
 
     public String getJudul_status() {
         return judul_status;
     }
 
-    public void setJudul_status(String judul_status) {
-        this.judul_status = judul_status;
-    }
-
     public String getJudul_waktu() {
         return judul_waktu;
-    }
-
-    public void setJudul_waktu(String judul_waktu) {
-        this.judul_waktu = judul_waktu;
     }
 
     public String getKategori_id() {
         return kategori_id;
     }
 
-    public void setKategori_id(String kategori_id) {
-        this.kategori_id = kategori_id;
-    }
-
-    public int getReviewer_dsn_nip() {
+    public String getReviewer_dsn_nip() {
         return reviewer_dsn_nip;
-    }
-
-    public void setReviewer_dsn_nip(int reviewer_dsn_nip) {
-        this.reviewer_dsn_nip = reviewer_dsn_nip;
     }
 
     public String getReviewer_dsn_nama() {
         return reviewer_dsn_nama;
     }
 
-    public void setReviewer_dsn_nama(String reviewer_dsn_nama) {
-        this.reviewer_dsn_nama = reviewer_dsn_nama;
-    }
-
     public String getReviewer_dsn_kode() {
         return reviewer_dsn_kode;
-    }
-
-    public void setReviewer_dsn_kode(String reviewer_dsn_kode) {
-        this.reviewer_dsn_kode = reviewer_dsn_kode;
     }
 
     public String getReviewer_dsn_kontak() {
         return reviewer_dsn_kontak;
     }
 
-    public void setReviewer_dsn_kontak(String reviewer_dsn_kontak) {
-        this.reviewer_dsn_kontak = reviewer_dsn_kontak;
-    }
-
     public String getReviewer_dsn_foto() {
         return reviewer_dsn_foto;
-    }
-
-    public void setReviewer_dsn_foto(String reviewer_dsn_foto) {
-        this.reviewer_dsn_foto = reviewer_dsn_foto;
     }
 
     public String getReviewer_dsn_email() {
         return reviewer_dsn_email;
     }
 
-    public void setReviewer_dsn_email(String reviewer_dsn_email) {
-        this.reviewer_dsn_email = reviewer_dsn_email;
-    }
-
     public String getDsn_username() {
         return dsn_username;
-    }
-
-    public void setDsn_username(String dsn_username) {
-        this.dsn_username = dsn_username;
     }
 
 
@@ -376,7 +272,7 @@ public class ProyekAkhir implements Parcelable{
         dest.writeString(this.judul_status);
         dest.writeString(this.judul_waktu);
         dest.writeString(this.kategori_id);
-        dest.writeInt(this.reviewer_dsn_nip);
+        dest.writeString(this.reviewer_dsn_nip);
         dest.writeString(this.reviewer_dsn_nama);
         dest.writeString(this.reviewer_dsn_kode);
         dest.writeString(this.reviewer_dsn_kontak);
@@ -405,7 +301,7 @@ public class ProyekAkhir implements Parcelable{
         this.judul_status = in.readString();
         this.judul_waktu = in.readString();
         this.kategori_id = in.readString();
-        this.reviewer_dsn_nip = in.readInt();
+        this.reviewer_dsn_nip = in.readString();
         this.reviewer_dsn_nama = in.readString();
         this.reviewer_dsn_kode = in.readString();
         this.reviewer_dsn_kontak = in.readString();

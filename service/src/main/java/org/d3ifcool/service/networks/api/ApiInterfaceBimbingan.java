@@ -11,11 +11,16 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.BASE_PARAMETER;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_BIMBINGAN;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_SEARCH;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_BIMBINGAN;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_BIMBINGAN;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_PARAMS;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_QUERY;
 
 /**
  * Created by ikhsan ramadhan
@@ -53,5 +58,11 @@ public interface ApiInterfaceBimbingan {
 
     @POST(URL_BIMBINGAN + PATH_DELETE + PARAMETER_BIMBINGAN)
     Call<Bimbingan> deleteBimbingan(@Path(VAR_BIMBINGAN) String bimbingan_id);
+
+    @GET(URL_BIMBINGAN + PATH_SEARCH + BASE_PARAMETER + PARAMETER_QUERY)
+    Call<List<Bimbingan>> getBimbinganSearch(
+            @Path(VAR_PARAMS) String parameter,
+            @Path(VAR_QUERY) String query
+    );
 
 }

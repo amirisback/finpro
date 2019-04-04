@@ -1,5 +1,7 @@
 package org.d3ifcool.service.presenters;
 
+import org.d3ifcool.service.interfaces.objects.DosenPembimbingView;
+import org.d3ifcool.service.interfaces.objects.DosenReviewerView;
 import org.d3ifcool.service.interfaces.objects.DosenView;
 import org.d3ifcool.service.interfaces.works.DosenWorkView;
 import org.d3ifcool.service.interfaces.lists.DosenListView;
@@ -31,6 +33,9 @@ public class DosenPresenter {
     private DosenListView viewResult;
     private DosenWorkView viewEditor;
     private DosenView viewObject;
+    private DosenPembimbingView viewObjectPembimbing;
+    private DosenReviewerView viewObjectReviewer;
+
 
     public DosenPresenter(DosenListView viewResult) {
         this.viewResult = viewResult;
@@ -47,6 +52,11 @@ public class DosenPresenter {
     public DosenPresenter(DosenListView viewResult, DosenView viewObject) {
         this.viewResult = viewResult;
         this.viewObject = viewObject;
+    }
+
+    public DosenPresenter(DosenPembimbingView viewObjectPembimbing, DosenReviewerView viewObjectReviewer) {
+        this.viewObjectPembimbing = viewObjectPembimbing;
+        this.viewObjectReviewer = viewObjectReviewer;
     }
 
     public void getDosen(){
@@ -147,4 +157,40 @@ public class DosenPresenter {
         });
     }
 
+
+    public void getDosenPembimbing(String dsn_nip){
+        ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
+        Call<Dosen> call = apiInterfaceDosen.getDosenByParameter(dsn_nip);
+        call.enqueue(new Callback<Dosen>() {
+            @Override
+            public void onResponse(Call<Dosen> call, Response<Dosen> response) {
+                viewObjectPembimbing.hideProgress();
+                viewObjectPembimbing.onGetObjectDosenPembimbing(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Dosen> call, Throwable t) {
+                viewObjectPembimbing.hideProgress();
+                viewObjectPembimbing.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void getDosenReviewer(String dsn_nip){
+        ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
+        Call<Dosen> call = apiInterfaceDosen.getDosenByParameter(dsn_nip);
+        call.enqueue(new Callback<Dosen>() {
+            @Override
+            public void onResponse(Call<Dosen> call, Response<Dosen> response) {
+                viewObjectReviewer.hideProgress();
+                viewObjectReviewer.onGetObjectDosenReviewer(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Dosen> call, Throwable t) {
+                viewObjectReviewer.hideProgress();
+                viewObjectReviewer.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
 }
