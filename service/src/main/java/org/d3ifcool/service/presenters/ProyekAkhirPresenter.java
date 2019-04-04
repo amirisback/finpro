@@ -153,4 +153,23 @@ public class ProyekAkhirPresenter {
         });
     }
 
+    public void searchProyekAkhirTwoParam(String parameter1, String query1, String parameter2, String query2){
+        viewResult.showProgress();
+        ApiInterfaceProyekAkhir apiInterfaceProyekAkhir = ApiClient.getApiClient().create(ApiInterfaceProyekAkhir.class);
+        Call<List<ProyekAkhir>> call = apiInterfaceProyekAkhir.getProyekAkhirSearchTwo(parameter1, query1, parameter2, query2);
+        call.enqueue(new Callback<List<ProyekAkhir>>() {
+            @Override
+            public void onResponse(Call<List<ProyekAkhir>> call, Response<List<ProyekAkhir>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetListProyekAkhir(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<ProyekAkhir>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getMessage());
+            }
+        });
+    }
+
 }

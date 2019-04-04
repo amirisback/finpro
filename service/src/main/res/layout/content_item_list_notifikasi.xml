@@ -46,11 +46,11 @@
                 android:textColor="@color/colorPrimary"/>
 
             <View
-                android:layout_width="2dp"
+                android:layout_width="1dp"
                 android:layout_height="16dp"
                 android:layout_marginLeft="@dimen/dimen_medium"
                 android:layout_marginRight="@dimen/dimen_medium"
-                android:background="@color/colorTextBlack"
+                android:background="@color/colorBackground"
                 android:textStyle="bold"/>
 
             <TextView

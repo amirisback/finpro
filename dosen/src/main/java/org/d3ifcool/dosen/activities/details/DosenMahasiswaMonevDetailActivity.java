@@ -16,6 +16,7 @@ import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editors.DosenMonevTambahActivity;
 import org.d3ifcool.service.interfaces.lists.MonevListView;
 import org.d3ifcool.service.models.DetailMonev;
+import org.d3ifcool.service.models.Monev;
 import org.d3ifcool.service.presenters.DetailMonevPresenter;
 
 import java.util.List;
@@ -81,9 +82,10 @@ public class DosenMahasiswaMonevDetailActivity extends AppCompatActivity impleme
     }
 
     @Override
-    public void onGetListDetailMonev(List<DetailMonev> monevs) {
+    public void onGetListMonev(List<Monev> monevList) {
 
     }
+
 
     @Override
     public void onFailed(String message) {

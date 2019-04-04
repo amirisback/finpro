@@ -12,6 +12,10 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.BASE_PARAMETER;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.BASE_PARAMETER_1;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.BASE_PARAMETER_2;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY_1;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY_2;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_ALL;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_JUDUL;
@@ -65,11 +69,19 @@ public interface ApiInterfaceProyekAkhir {
     @GET(URL_PROYEK_AKHIR)
     Call<List<ProyekAkhir>> getProyekAkhir();
 
-    @GET(URL_PROYEK_AKHIR + PATH_SEARCH + PATH_ALL +BASE_PARAMETER + PARAMETER_QUERY)
+    @GET(URL_PROYEK_AKHIR + PATH_SEARCH + PATH_ALL + BASE_PARAMETER + PARAMETER_QUERY)
     Call<List<ProyekAkhir>> getProyekAkhirSearch(
             @Path(VAR_PARAMS) String parameter,
             @Path(VAR_QUERY) String query
     );
+
+    @GET(URL_PROYEK_AKHIR + PATH_SEARCH + PATH_ALL + BASE_PARAMETER_1 + PARAMETER_QUERY_1 + BASE_PARAMETER_2 + PARAMETER_QUERY_2)
+    Call<List<ProyekAkhir>> getProyekAkhirSearchTwo(
+            @Path(VAR_PARAMS+"1") String parameter1,
+            @Path(VAR_QUERY+"1") String query1,
+            @Path(VAR_PARAMS+"2") String parameter2,
+            @Path(VAR_QUERY+"2") String query2
+            );
 
     @POST(URL_PROYEK_AKHIR + PATH_DELETE + PARAMETER_PROYEK_AKHIR)
     Call<ProyekAkhir> deleteProyekAkhir(@Path(VAR_PROYEK_AKHIR) int proyek_akhir);
