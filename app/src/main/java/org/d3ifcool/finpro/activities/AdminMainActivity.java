@@ -30,6 +30,7 @@ import org.d3ifcool.superuser.fragments.KoorDosenFragment;
 import org.d3ifcool.superuser.fragments.KoorInformasiFragment;
 import org.d3ifcool.superuser.fragments.KoorKategoriJudulFragment;
 import org.d3ifcool.superuser.fragments.KoorJudulFragment;
+import org.d3ifcool.superuser.fragments.KoorKategoriMonevFragment;
 import org.d3ifcool.superuser.fragments.KoorMahasiswaFragment;
 import org.d3ifcool.superuser.fragments.KoorPemetaanMahasiswaMonev;
 import org.d3ifcool.superuser.fragments.KoorProyekAkhirFragment;
@@ -44,6 +45,7 @@ public class AdminMainActivity extends AppCompatActivity
     private KoorProyekAkhirFragment koorProyekAkhirFragment = new KoorProyekAkhirFragment();
     private KoorKategoriJudulFragment koorJudulPaKategoriFragment = new KoorKategoriJudulFragment();
     private KoorPemetaanMahasiswaMonev koorPemetaanMahasiswaMonev = new KoorPemetaanMahasiswaMonev();
+    private KoorKategoriMonevFragment koorKategoriMonevFragment = new KoorKategoriMonevFragment();
 
     private SessionManager sessionManager;
 
@@ -153,9 +155,10 @@ public class AdminMainActivity extends AppCompatActivity
         }else if (id == R.id.nav_menu_mahasiswa_pemetaan_monev){
             setTitle(getString(R.string.title_pemetaan_monev));
             setFragmentLayout(koorPemetaanMahasiswaMonev);
+        }else if (id == R.id.nav_menu_kategori_monev){
+            setTitle(getString(R.string.text_title_kategori_monev));
+            setFragmentLayout(koorKategoriMonevFragment);
         }
-
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

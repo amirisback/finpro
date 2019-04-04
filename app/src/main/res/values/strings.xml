@@ -2,4 +2,5 @@
 <resources>
     <string name="keluar">Keluar</string>
     <string name="messagekeluar">Anda Yakin Ingin Keluar?</string>
+    <string name="menu_kategori_monev">Kategori Monev</string>
 </resources>

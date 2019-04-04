@@ -33,7 +33,7 @@
             android:textColor="@color/colorPrimary"/>
 
         <Spinner
-            android:id="@+id/act_dsn_edittext_judul"
+            android:id="@+id/act_dsn_spinner_kategori_monev"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/kategori_monev"/>

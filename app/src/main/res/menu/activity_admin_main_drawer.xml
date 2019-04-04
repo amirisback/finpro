@@ -37,5 +37,9 @@
         android:id="@+id/nav_menu_mahasiswa_pemetaan_monev"
         android:icon="@drawable/ic_nav_pemetaan_monev"
         android:title="@string/menu_pemetaan_monev" />
+    <item
+        android:id="@+id/nav_menu_kategori_monev"
+        android:icon="@drawable/ic_nav_pemetaan_monev"
+        android:title="@string/menu_kategori_monev" />
 
 </menu>

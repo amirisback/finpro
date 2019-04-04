@@ -39,6 +39,7 @@ public class DosenBimbinganInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DosenBimbinganInfoActivity.this, DosenBimbinganDetailActivity.class);
+
                 startActivity(intent);
             }
         });
@@ -47,6 +48,7 @@ public class DosenBimbinganInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DosenBimbinganInfoActivity.this, DosenMahasiswaMonevDetailActivity.class);
+
                 startActivity(intent);
             }
         });
