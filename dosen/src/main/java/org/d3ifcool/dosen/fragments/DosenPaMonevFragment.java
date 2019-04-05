@@ -12,8 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.adapters.recyclerviews.DosenPaMonevViewAdapter;
-import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.dosen.adapters.recyclerviews.DosenProyekAkhirMonevViewAdapter;
 import org.d3ifcool.service.models.KategoriJudul;
 import org.d3ifcool.service.models.ProyekAkhir;
 
@@ -40,7 +39,7 @@ public class DosenPaMonevFragment extends Fragment {
         RecyclerView recyclerView = rootView.findViewById(R.id.frg_dsn_pa_monev_recyclerview);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
 
-        DosenPaMonevViewAdapter adapter = new DosenPaMonevViewAdapter(getContext());
+        DosenProyekAkhirMonevViewAdapter adapter = new DosenProyekAkhirMonevViewAdapter(getContext());
 
         ArrayList<ProyekAkhir> arrayList = new ArrayList<>();
 //        arrayList.add(new ProyekAkhir("seven primavera","finpro"));

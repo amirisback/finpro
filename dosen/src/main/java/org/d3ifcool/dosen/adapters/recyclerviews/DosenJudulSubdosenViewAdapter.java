@@ -32,13 +32,13 @@ import java.util.ArrayList;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public class DosenJudulPaSubdosenViewAdapter extends RecyclerView.Adapter<DosenJudulPaSubdosenViewAdapter.ViewHolder> {
+public class DosenJudulSubdosenViewAdapter extends RecyclerView.Adapter<DosenJudulSubdosenViewAdapter.ViewHolder> {
 
     private Context context;
     private ArrayList<Judul> data;
     private int layoutType;
 
-    public DosenJudulPaSubdosenViewAdapter(Context context) {
+    public DosenJudulSubdosenViewAdapter(Context context) {
         this.context = context;
     }
 

@@ -1,19 +1,17 @@
-package org.d3ifcool.mahasiswa.adapters;
+package org.d3ifcool.dosen.adapters.recyclerviews;
 
 import android.content.Context;
-
+import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.mahasiswa.activities.MahasiswaBimbinganListDetail;
-import org.d3ifcool.service.models.Bimbingan;
+import org.d3ifcool.dosen.R;
+import org.d3ifcool.dosen.activities.details.DosenJudulPaSubmahasiswaDetailActivity;
+import org.d3ifcool.service.models.Judul;
 
 import java.util.ArrayList;
 
@@ -22,7 +20,7 @@ import java.util.ArrayList;
  * FrogoBox Inc License
  * =========================================
  * Finpro
- * Copyright (C) 27/01/2019.
+ * Copyright (C) 26/01/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -34,17 +32,17 @@ import java.util.ArrayList;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public class MahasiswaPaBimbinganViewAdapter extends RecyclerView.Adapter<MahasiswaPaBimbinganViewAdapter.ViewHolder> {
+public class DosenJudulSubmahasiswaViewAdapter extends RecyclerView.Adapter<DosenJudulSubmahasiswaViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<Bimbingan> data;
+    private ArrayList<Judul> data;
     private int layoutType;
 
-    public MahasiswaPaBimbinganViewAdapter(Context context) {
+    public DosenJudulSubmahasiswaViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void addItem(ArrayList<Bimbingan> data){
+    public void addItem(ArrayList<Judul> data){
         this.data = data;
         notifyDataSetChanged();
     }
@@ -55,26 +53,28 @@ public class MahasiswaPaBimbinganViewAdapter extends RecyclerView.Adapter<Mahasi
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView infoIsi, infoTanggal;
+        TextView judul, kategori;
 
         public ViewHolder(View itemView) {
             super(itemView);
             // -------------------------------------------------------------------------------------
-            infoIsi = itemView.findViewById(R.id.ctn_mhs_pa_bimbingan_textview_isi);
-            infoTanggal = itemView.findViewById(R.id.ctn_mhs_pa_bimbingan_textview_tanggal);
+            judul = itemView.findViewById(R.id.ctn_dsn_judul_mhs_textview_judul);
+            kategori = itemView.findViewById(R.id.ctn_dsn_judul_mhs_textview_kategori);
             // -------------------------------------------------------------------------------------
         }
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.infoTanggal.setText(data.get(position).getTanggal());
-        holder.infoIsi.setText(data.get(position).getIsi());
+        holder.judul.setText(data.get(position).getJudul());
+        holder.kategori.setText(data.get(position).getKategori_nama());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, MahasiswaBimbinganListDetail.class);
-                context.startActivity(intent);
+                Intent intentData = new Intent(context, DosenJudulPaSubmahasiswaDetailActivity.class);
+                Judul extraJudul = data.get(position);
+                intentData.putExtra(DosenJudulPaSubmahasiswaDetailActivity.EXTRA_JUDUL, extraJudul);
+                context.startActivity(intentData);
             }
         });
     }

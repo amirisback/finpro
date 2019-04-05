@@ -38,7 +38,7 @@ import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_QUERY;
 public interface ApiInterfaceBimbingan {
 
     @FormUrlEncoded
-    @GET(URL_BIMBINGAN)
+    @POST(URL_BIMBINGAN)
     Call<Bimbingan> createBimbingan(
             @Field("bimbingan_review") String bimbingan_review,
             @Field("bimbingan_judul") String bimbingan_judul,

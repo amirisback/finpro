@@ -20,13 +20,18 @@ import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.interfaces.works.BimbinganWorkView;
+import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.BimbinganPresenter;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class DosenBimbinganTambahActivity extends AppCompatActivity implements BimbinganWorkView {
+
+    public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
+
     private DatePickerDialog.OnDateSetListener datePickerDialog;
     TextView tv_tanggal;
     String date;
@@ -40,30 +45,40 @@ public class DosenBimbinganTambahActivity extends AppCompatActivity implements B
 
         setTitle(getString(R.string.title_bimbingan_tambah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setElevation(0);
 
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.text_progress_dialog));
         presenter = new BimbinganPresenter(this);
 
         tv_tanggal = findViewById(R.id.act_dsn_mhs_bimbingan_textview_tanggal);
-        EditText et_judul = findViewById(R.id.act_dsn_info_edittext_judul_bimbingan);
-        EditText et_review = findViewById(R.id.act_dsn_info_edittext_konten);
+        final EditText et_judul = findViewById(R.id.act_dsn_info_edittext_judul_bimbingan);
+        final EditText et_review = findViewById(R.id.act_dsn_info_edittext_konten);
         Button btn_simpan = findViewById(R.id.act_dsn_info_button_simpan);
 
+        final ArrayList<ProyekAkhir> extraArrayProyekAkhir = getIntent().getParcelableArrayListExtra(EXTRA_PROYEK_AKHIR);
         setDate();
 
-        String judul = et_judul.getText().toString();
-        String review = et_review.getText().toString();
-        String tanggal = tv_tanggal.getText().toString();
+        btn_simpan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        if (judul.isEmpty()) {
-            et_judul.setError("Judul Harus di Isi");
-        }else if (review.isEmpty()){
-            et_review.setError("Review Harus di Isi");
-        }else{
-            presenter.createBimbingan(review,judul,tanggal,1);
-        }
+                String judul = et_judul.getText().toString();
+                String review = et_review.getText().toString();
+                String tanggal = tv_tanggal.getText().toString();
+
+                if (judul.isEmpty()) {
+                    et_judul.setError("Judul Harus di Isi");
+                }else if (review.isEmpty()){
+                    et_review.setError("Review Harus di Isi");
+                }else{
+                    presenter.createBimbingan(review,judul,tanggal,extraArrayProyekAkhir.get(0).getProyek_akhir_id());
+                    if (extraArrayProyekAkhir.size()==2){
+                        presenter.createBimbingan(review,judul,tanggal,extraArrayProyekAkhir.get(extraArrayProyekAkhir.size()-1).getProyek_akhir_id());
+                    }
+                }
+
+            }
+        });
     }
 
     private void setDate(){
@@ -74,7 +89,7 @@ public class DosenBimbinganTambahActivity extends AppCompatActivity implements B
         int day = cal.get(Calendar.DAY_OF_MONTH);
 
         month = month + 1;
-        date = checkDigit(day)+ " - "+ checkDigit(month)+ " - " + year ;
+        date = year+ "-"+ checkDigit(month)+ "-" + checkDigit(day) ;
         tv_tanggal.setText(date);
         datePickerDialog = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -104,26 +119,8 @@ public class DosenBimbinganTambahActivity extends AppCompatActivity implements B
     }
 
 
-    public String checkDigit(int number)
-    {
+    public String checkDigit(int number) {
         return number<=9?"0"+number:String.valueOf(number);
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_edit_delete, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
-            default:
-                break;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

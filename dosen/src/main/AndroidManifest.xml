@@ -8,7 +8,7 @@
     <application>
         <activity android:name=".activities.details.DosenJudulPaArsipActivity"></activity>
         <activity android:name=".activities.details.DosenMahasiswaSidangHasilDetailActivity" />
-        <activity android:name=".activities.details.DosenBimbinganInfoActivity" />
+        <activity android:name=".activities.details.DosenProyekAkhirActivity" />
         <activity android:name=".activities.editors.DosenMonevUbahActivity" />
         <activity android:name=".activities.editors.DosenBimbinganUbahActivity" />
         <activity android:name=".activities.editors.DosenJudulPaSubdosenUbahActivity" />
@@ -16,7 +16,7 @@
         <activity android:name=".activities.editors.DosenInformasiUbahActivity" />
         <activity android:name=".activities.DosenPemberitahuanActivity" />
         <activity android:name=".activities.details.DosenMonevDetailActivity" />
-        <activity android:name=".activities.details.DosenBimbinganDetailActivity" />
+        <activity android:name=".activities.details.DosenProyekAkhirBimbinganActivity" />
         <activity android:name=".activities.editors.DosenMonevTambahActivity" />
         <activity android:name=".activities.editors.DosenBimbinganTambahActivity" />
         <activity android:name=".activities.details.DosenJudulPaSubmahasiswaDetailActivity" />
@@ -25,8 +25,8 @@
         <activity android:name=".activities.editors.DosenInformasiTambahActivity" />
         <activity android:name=".activities.details.DosenInformasiDetailActivity" />
         <activity android:name=".activities.details.DosenMahasiswaSidangDetailActivity" />
-        <activity android:name=".activities.details.DosenMahasiswaMonevDetailActivity" />
-        <activity android:name=".activities.details.DosenMahasiswaBimbinganDetailActivity" />
+        <activity android:name=".activities.details.DosenProyekAkhirMonevActivity" />
+        <activity android:name=".activities.details.DosenBimbinganDetailActivity" />
         <activity android:name=".activities.DosenProfilActivity" />
     </application>
 

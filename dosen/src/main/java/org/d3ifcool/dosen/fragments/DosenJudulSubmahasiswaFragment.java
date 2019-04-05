@@ -17,7 +17,7 @@ import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.dosen.adapters.recyclerviews.DosenJudulPaSubmahasiswaViewAdapter;
+import org.d3ifcool.dosen.adapters.recyclerviews.DosenJudulSubmahasiswaViewAdapter;
 import org.d3ifcool.service.presenters.JudulPresenter;
 
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class DosenJudulSubmahasiswaFragment extends Fragment implements JudulLis
     private static final String PARAMS_1 = "judul.judul_status";
     private static final String PARAMS_2 = "judul.dsn_nip";
     private RecyclerView recyclerView;
-    private DosenJudulPaSubmahasiswaViewAdapter adapter;
+    private DosenJudulSubmahasiswaViewAdapter adapter;
     private JudulPresenter presenter;
     private ProgressDialog progressDialog;
     private ArrayList<Judul> arrayList = new ArrayList<>();
@@ -55,7 +55,7 @@ public class DosenJudulSubmahasiswaFragment extends Fragment implements JudulLis
 
         sessionManager = new SessionManager(getContext());
         recyclerView = rootView.findViewById(R.id.frg_dsn_judul_mhs_recyclerview);
-        adapter = new DosenJudulPaSubmahasiswaViewAdapter(getContext());
+        adapter = new DosenJudulSubmahasiswaViewAdapter(getContext());
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         presenter = new JudulPresenter(this);

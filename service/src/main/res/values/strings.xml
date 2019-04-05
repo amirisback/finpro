@@ -227,6 +227,10 @@
     <string name="text_no_dosen_pembimbing">Belum dapat dosen pembimbing</string>
     <string name="text_disable_pa">Anda wajib mengajukan judul pa</string>
     <string name="text_belum_sidang">Belum Sidang</string>
+    <string name="textview_tanggal_bimbingan">Tanggal Bimbingan</string>
+    <string name="text_judul_bimbingan">Judul Bimbingan</string>
+    <string name="text_review_bimbingan">Review Bimbingan</string>
+    <string name="text_tanggal_bimbingan">Tanggal Bimbingan</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

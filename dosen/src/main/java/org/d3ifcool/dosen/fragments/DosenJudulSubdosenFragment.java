@@ -20,14 +20,13 @@ import org.d3ifcool.dosen.activities.editors.DosenJudulPaSubdosenTambahActivity;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.dosen.adapters.recyclerviews.DosenJudulPaSubdosenViewAdapter;
+import org.d3ifcool.dosen.adapters.recyclerviews.DosenJudulSubdosenViewAdapter;
 import org.d3ifcool.service.presenters.JudulPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERSEDIA;
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.FIELD_DOSEN_NAMA;
 
 
 /**
@@ -40,7 +39,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
 
     private RecyclerView recyclerView;
     private FloatingActionButton floatingActionButton;
-    private DosenJudulPaSubdosenViewAdapter adapter;
+    private DosenJudulSubdosenViewAdapter adapter;
     private JudulPresenter presenter;
     private ProgressDialog progressDialog;
     private ArrayList<Judul> arrayList = new ArrayList<>();
@@ -68,7 +67,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
 
         presenter = new JudulPresenter(this);
         progressDialog = new ProgressDialog(getContext());
-        adapter = new DosenJudulPaSubdosenViewAdapter(getContext());
+        adapter = new DosenJudulSubdosenViewAdapter(getContext());
         sessionManager = new SessionManager(getContext());
 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));

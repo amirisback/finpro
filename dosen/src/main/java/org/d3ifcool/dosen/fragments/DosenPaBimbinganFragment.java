@@ -12,23 +12,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.adapters.recyclerviews.DosenJudulPaSubdosenViewAdapter;
-import org.d3ifcool.dosen.adapters.recyclerviews.DosenPaBimbinganViewAdapter;
+import org.d3ifcool.dosen.adapters.recyclerviews.DosenProyekAkhirBimbinganViewAdapter;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.models.KategoriJudul;
-import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.JudulPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERSEDIA;
 
 public class DosenPaBimbinganFragment extends Fragment implements JudulListView {
 
@@ -36,7 +30,7 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
     private static final String PARAMS_2 = "judul.dsn_nip";
 
     private RecyclerView recyclerView;
-    private DosenPaBimbinganViewAdapter adapter;
+    private DosenProyekAkhirBimbinganViewAdapter adapter;
     private JudulPresenter presenter;
     private ProgressDialog progressDialog;
     private ArrayList<Judul> arrayList = new ArrayList<>();
@@ -56,7 +50,7 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
         View rootView = inflater.inflate(R.layout.fragment_dosen_pa_bimbingan, container, false);
 
         recyclerView = rootView.findViewById(R.id.frg_dsn_pa_bimbingan_recyclerview);
-        adapter = new DosenPaBimbinganViewAdapter(getContext());
+        adapter = new DosenProyekAkhirBimbinganViewAdapter(getContext());
         sessionManager = new SessionManager(getContext());
         swipeRefreshLayout = rootView.findViewById(R.id.frg_dsn_pa_bimbingan_swiperefresh);
         progressDialog = new ProgressDialog(getContext());

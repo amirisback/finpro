@@ -12,7 +12,7 @@
         <activity android:name=".activities.MahasiswaBimbinganListDetail" />
         <activity android:name=".activities.MahasiswaInformasiDetailActivity" />
         <activity android:name=".activities.MahasiswaPaMonevDetailActivity" />
-        <activity android:name=".activities.MahasiswaPaBimbinganDetailActivity" />
+        <activity android:name=".activities.MahasiswaPaBimbinganActivity" />
         <activity android:name=".activities.MahasiswaProfilActivity" />
         <activity android:name=".activities.MahasiswaPemberitahuanActivity" />
         <activity android:name=".activities.MahasiswaJudulPaMandiriPengajuanActivity" />

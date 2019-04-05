@@ -14,12 +14,12 @@ import org.d3ifcool.mahasiswa.adapters.MahasiswaPaBimbinganViewAdapter;
 
 import java.util.ArrayList;
 
-public class MahasiswaPaBimbinganDetailActivity extends AppCompatActivity {
+public class MahasiswaPaBimbinganActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mahasiswa_pa_bimbingan_detail);
+        setContentView(R.layout.activity_mahasiswa_pa_bimbingan);
 
         getSupportActionBar().setTitle(getString(R.string.title_bimbingan_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

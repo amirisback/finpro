@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class DosenJudulPaArsipViewAdapter extends RecyclerView.Adapter<DosenJudulPaArsipViewAdapter.ViewHolder> {
+public class DosenJudulArsipViewAdapter extends RecyclerView.Adapter<DosenJudulArsipViewAdapter.ViewHolder> {
     private ArrayList<Judul> listjudul;
     private ArrayList<KategoriJudul> listKategori;
     private Context mContext;
@@ -26,7 +26,7 @@ public class DosenJudulPaArsipViewAdapter extends RecyclerView.Adapter<DosenJudu
         notifyDataSetChanged();
     }
 
-    public DosenJudulPaArsipViewAdapter(Context mContext) {
+    public DosenJudulArsipViewAdapter(Context mContext) {
         this.mContext = mContext;
     }
 

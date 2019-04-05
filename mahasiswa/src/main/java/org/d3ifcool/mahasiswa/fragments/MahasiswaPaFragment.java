@@ -15,16 +15,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.mahasiswa.activities.MahasiswaPaBimbinganDetailActivity;
+import org.d3ifcool.mahasiswa.activities.MahasiswaPaBimbinganActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPaMonevDetailActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPaSidangDetailActivity;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.BimbinganListView;
-import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.interfaces.objects.DosenPembimbingView;
 import org.d3ifcool.service.interfaces.objects.DosenReviewerView;
-import org.d3ifcool.service.interfaces.objects.DosenView;
 import org.d3ifcool.service.models.Bimbingan;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.ProyekAkhir;
@@ -113,7 +111,7 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
         cardViewBimbingan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(), MahasiswaPaBimbinganDetailActivity.class);
+                Intent i = new Intent(getContext(), MahasiswaPaBimbinganActivity.class);
                 startActivity(i);
             }
         });
@@ -133,8 +131,6 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
                 startActivity(i);
             }
         });
-
-
 
         return rootView;
     }
@@ -199,8 +195,6 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
 
         if (!arrayListProyekAkhir.isEmpty()) {
 
-            String stringNipPembimbing = String.valueOf(arrayListProyekAkhir.get(0).getPembimbing_dsn_nip());
-            String stringNipReviewer = String.valueOf(arrayListProyekAkhir.get(0).getReviewer_dsn_nip());
             String stringProyekAkhirId = String.valueOf(arrayListProyekAkhir.get(0).getProyek_akhir_id());
 
             tv_judul_pa.setText(arrayListProyekAkhir.get(0).getJudul_nama());

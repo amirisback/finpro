@@ -8,10 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.activities.details.DosenBimbinganInfoActivity;
-import org.d3ifcool.dosen.activities.details.DosenMahasiswaBimbinganDetailActivity;
-import org.d3ifcool.dosen.fragments.DosenBimbinganInfoFragment;
-import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.dosen.activities.details.DosenProyekAkhirMonevActivity;
 import org.d3ifcool.service.models.KategoriJudul;
 import org.d3ifcool.service.models.ProyekAkhir;
 
@@ -37,48 +34,55 @@ import androidx.recyclerview.widget.RecyclerView;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public class DosenPaBimbinganViewAdapter extends RecyclerView.Adapter<DosenPaBimbinganViewAdapter.ViewHolder> {
+public class DosenProyekAkhirMonevViewAdapter extends RecyclerView.Adapter<DosenProyekAkhirMonevViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<Judul> data;
+    private ArrayList<ProyekAkhir> data_proyek_akhir;
+    private ArrayList<KategoriJudul> data_kategori;
     private int layoutType;
 
-    public DosenPaBimbinganViewAdapter(Context context) {
+    public DosenProyekAkhirMonevViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void addItemPa(ArrayList<Judul> data){
-        this.data = data;
+    public void addItemPa(ArrayList<ProyekAkhir> data_proyek_akhir){
+        this.data_proyek_akhir = data_proyek_akhir;
         notifyDataSetChanged();
     }
 
+    public void addItemKategori(ArrayList<KategoriJudul> data_kategori){
+        this.data_kategori = data_kategori;
+        notifyDataSetChanged();
+    }
     public void setLayoutType(int mLayoutType){
         this.layoutType = mLayoutType;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView judul, kategori, kelompok;
+        TextView tv_pa_judul, tv_pa_kategori, tv_pa_kelompok;
 
         public ViewHolder(View itemView) {
             super(itemView);
             // -------------------------------------------------------------------------------------
-            judul = itemView.findViewById(R.id.ctn_dsn_pa_bimbingan_textview_judul);
-            kategori = itemView.findViewById(R.id.ctn_dsn_pa_bimbingan_textview_kategori);
+            tv_pa_judul = itemView.findViewById(R.id.ctn_dsn_pa_monev_textview_judul);
+            tv_pa_kategori = itemView.findViewById(R.id.ctn_dsn_pa_monev_textview_kategori);
+            tv_pa_kelompok = itemView.findViewById(R.id.ctn_dsn_pa_monev_textview_kelompok);
             // -------------------------------------------------------------------------------------
         }
     }
 
     @Override
-    public void onBindViewHolder(final DosenPaBimbinganViewAdapter.ViewHolder holder, final int position) {
-        holder.judul.setText(data.get(position).getJudul());
-        holder.kategori.setText(data.get(position).getKategori_nama());
+    public void onBindViewHolder(final DosenProyekAkhirMonevViewAdapter.ViewHolder holder, final int position) {
+        holder.tv_pa_judul.setText(data_proyek_akhir.get(position).getJudul_nama());
+        holder.tv_pa_kategori.setText(data_kategori.get(position).getKategori_nama());
+        holder.tv_pa_kelompok.setText(data_proyek_akhir.get(position).getNama_tim());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentData = new Intent(context, DosenBimbinganInfoActivity.class);
-                Judul parcelJudul = data.get(position);
-                intentData.putExtra(DosenBimbinganInfoActivity.EXTRA_JUDUL, parcelJudul);
+                Intent intentData = new Intent(context, DosenProyekAkhirMonevActivity.class);
+                ProyekAkhir parcelInfo = data_proyek_akhir.get(position);
+                intentData.putExtra(DosenProyekAkhirMonevActivity.EXTRA_PROYEK_AKHIR, parcelInfo);
                 context.startActivity(intentData);
             }
         });
@@ -86,14 +90,14 @@ public class DosenPaBimbinganViewAdapter extends RecyclerView.Adapter<DosenPaBim
 
     @NonNull
     @Override
-    public DosenPaBimbinganViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
+    public DosenProyekAkhirMonevViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
         View v = LayoutInflater.from(parent.getContext()).inflate(layoutType, parent, false);
-        return new DosenPaBimbinganViewAdapter.ViewHolder(v);
+        return new DosenProyekAkhirMonevViewAdapter.ViewHolder(v);
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return data_proyek_akhir.size();
     }
 
 }

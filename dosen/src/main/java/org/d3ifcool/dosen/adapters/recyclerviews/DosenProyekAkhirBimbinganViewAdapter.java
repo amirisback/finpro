@@ -2,25 +2,26 @@ package org.d3ifcool.dosen.adapters.recyclerviews;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.activities.details.DosenJudulPaSubmahasiswaDetailActivity;
+import org.d3ifcool.dosen.activities.details.DosenProyekAkhirActivity;
 import org.d3ifcool.service.models.Judul;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by Faisal Amir
  * FrogoBox Inc License
  * =========================================
  * Finpro
- * Copyright (C) 26/01/2019.
+ * Copyright (C) 28/02/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -32,17 +33,17 @@ import java.util.ArrayList;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public class DosenJudulPaSubmahasiswaViewAdapter extends RecyclerView.Adapter<DosenJudulPaSubmahasiswaViewAdapter.ViewHolder> {
+public class DosenProyekAkhirBimbinganViewAdapter extends RecyclerView.Adapter<DosenProyekAkhirBimbinganViewAdapter.ViewHolder> {
 
     private Context context;
     private ArrayList<Judul> data;
     private int layoutType;
 
-    public DosenJudulPaSubmahasiswaViewAdapter(Context context) {
+    public DosenProyekAkhirBimbinganViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void addItem(ArrayList<Judul> data){
+    public void addItemPa(ArrayList<Judul> data){
         this.data = data;
         notifyDataSetChanged();
     }
@@ -53,27 +54,27 @@ public class DosenJudulPaSubmahasiswaViewAdapter extends RecyclerView.Adapter<Do
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView judul, kategori;
+        TextView judul, kategori, kelompok;
 
         public ViewHolder(View itemView) {
             super(itemView);
             // -------------------------------------------------------------------------------------
-            judul = itemView.findViewById(R.id.ctn_dsn_judul_mhs_textview_judul);
-            kategori = itemView.findViewById(R.id.ctn_dsn_judul_mhs_textview_kategori);
+            judul = itemView.findViewById(R.id.ctn_dsn_pa_bimbingan_textview_judul);
+            kategori = itemView.findViewById(R.id.ctn_dsn_pa_bimbingan_textview_kategori);
             // -------------------------------------------------------------------------------------
         }
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position) {
+    public void onBindViewHolder(final DosenProyekAkhirBimbinganViewAdapter.ViewHolder holder, final int position) {
         holder.judul.setText(data.get(position).getJudul());
         holder.kategori.setText(data.get(position).getKategori_nama());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentData = new Intent(context, DosenJudulPaSubmahasiswaDetailActivity.class);
-                Judul extraJudul = data.get(position);
-                intentData.putExtra(DosenJudulPaSubmahasiswaDetailActivity.EXTRA_JUDUL, extraJudul);
+                Intent intentData = new Intent(context, DosenProyekAkhirActivity.class);
+                Judul parcelJudul = data.get(position);
+                intentData.putExtra(DosenProyekAkhirActivity.EXTRA_JUDUL, parcelJudul);
                 context.startActivity(intentData);
             }
         });
@@ -81,9 +82,9 @@ public class DosenJudulPaSubmahasiswaViewAdapter extends RecyclerView.Adapter<Do
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
+    public DosenProyekAkhirBimbinganViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
         View v = LayoutInflater.from(parent.getContext()).inflate(layoutType, parent, false);
-        return new ViewHolder(v);
+        return new DosenProyekAkhirBimbinganViewAdapter.ViewHolder(v);
     }
 
     @Override

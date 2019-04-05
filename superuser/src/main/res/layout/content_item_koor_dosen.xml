@@ -60,6 +60,7 @@
 
                 <TextView
                     android:textSize="@dimen/text_size_title_small"
+                    android:maxLines="1"
                     android:id="@+id/ctn_koor_textview_nama_dosen"
                     android:textColor="@color/colorPrimary"
                     android:layout_width="wrap_content"
@@ -76,16 +77,7 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/ctn_koor_dosen_bimbing"
-                android:layout_width="@dimen/dimen_circle_background"
-                android:layout_height="@dimen/dimen_circle_background"
-                android:gravity="center"
-                android:layout_marginStart="@dimen/dimen_medium"
-                android:textColor="@color/colorTextWhite"
-                android:background="@drawable/circle_border_judul_pa"
-                android:text="@string/dummy_jumlah_bimbingan"
-                android:textSize="@dimen/text_size_title_medium"/>
+
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

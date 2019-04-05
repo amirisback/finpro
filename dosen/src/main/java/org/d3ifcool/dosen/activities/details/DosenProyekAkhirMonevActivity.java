@@ -15,13 +15,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editors.DosenMonevTambahActivity;
 import org.d3ifcool.service.interfaces.lists.MonevListView;
-import org.d3ifcool.service.models.DetailMonev;
 import org.d3ifcool.service.models.Monev;
 import org.d3ifcool.service.presenters.DetailMonevPresenter;
 
 import java.util.List;
 
-public class DosenMahasiswaMonevDetailActivity extends AppCompatActivity implements MonevListView {
+public class DosenProyekAkhirMonevActivity extends AppCompatActivity implements MonevListView {
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
     private RecyclerView recyclerView;
@@ -32,7 +31,7 @@ public class DosenMahasiswaMonevDetailActivity extends AppCompatActivity impleme
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dosen_pa_monev_detail);
+        setContentView(R.layout.activity_dosen_proyek_akhir_monev);
 
         recyclerView = findViewById(R.id.act_mhs_pa_monev_detail_recyclerview);
         dialog = new ProgressDialog(this);
@@ -46,7 +45,7 @@ public class DosenMahasiswaMonevDetailActivity extends AppCompatActivity impleme
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DosenMahasiswaMonevDetailActivity.this, DosenMonevTambahActivity.class);
+                Intent intent = new Intent(DosenProyekAkhirMonevActivity.this, DosenMonevTambahActivity.class);
                 startActivity(intent);
             }
         });

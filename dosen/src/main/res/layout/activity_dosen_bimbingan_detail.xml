@@ -1,109 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorBackground">
+    android:background="@color/colorBackground"
+    android:padding="@dimen/dimen_medium"
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:clickable="true"
-        android:focusable="true"
-        android:elevation="14dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"
+            android:paddingTop="@dimen/dimen_medium"
+            android:paddingBottom="@dimen/dimen_medium"
+            android:paddingStart="@dimen/dimen_big"
+            android:paddingEnd="@dimen/dimen_big"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_small"
-                android:text="@string/text_judul"/>
-
-            <TextView
-                android:id="@+id/act_dsn_pa_bimbingan_detail_textview_judul"
-                style="@style/textview_pa_color_primary"
-                android:text="@string/dummy_pa_judul"/>
+                android:text="@string/text_tanggal_bimbingan"/>
 
             <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
                 android:layout_marginTop="@dimen/dimen_medium"
                 android:layout_marginBottom="@dimen/dimen_medium"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_view_line"
-                android:background="@color/colorBackground"/>
+                android:background="@android:color/darker_gray"/>
 
             <TextView
-                android:layout_marginStart="@dimen/dimen_big"
+                android:id="@+id/act_dsn_mhs_bimbingan_textview_tanggal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_small"
-                android:text="@string/text_anggota_kelompok"/>
-
-            <TextView
-                android:id="@+id/act_mhs_pa_bimbingan_detail_textview_mhs1"
-                style="@style/textview_pa_color_primary"
-                android:text="@string/dummy_anggota_kelompok_1"/>
-
-            <TextView
-                android:id="@+id/act_mhs_pa_bimbingan_detail_textview_mhs2"
-                style="@style/textview_pa_color_primary"
-                android:text="@string/dummy_anggota_kelompok_2"/>
-
-            <View
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_view_line"
-                android:background="@color/colorBackground"/>
-
-            <TextView
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_jumlah_bimbingan"/>
-
-            <TextView
-                android:id="@+id/act_mhs_pa_bimbingan_detail_textview_jumlah"
-                style="@style/textview_pa_color_accent"
-                android:text="@string/dummy_jumlah_bimbingan"/>
+                android:drawableStart="@drawable/ic_date"
+                android:gravity="center_vertical"
+                android:drawablePadding="@dimen/dimen_medium"
+                android:text="@string/dummy_tanggal"
+                android:textColor="@color/colorPrimary" />
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:layout_marginTop="@dimen/dimen_big"
-        android:layout_marginEnd="@dimen/dimen_big"
-        android:layout_marginStart="@dimen/dimen_big"
-        android:layout_marginBottom="@dimen/dimen_big"
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="@dimen/dimen_medium"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_title_small"
-        android:text="@string/text_daftar_bimbingan"/>
+        android:layout_height="wrap_content">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/act_mhs_pa_bimbingan_detail_recyclerview"
+        <LinearLayout
+            android:paddingTop="@dimen/dimen_medium"
+            android:paddingBottom="@dimen/dimen_medium"
+            android:paddingStart="@dimen/dimen_big"
+            android:paddingEnd="@dimen/dimen_big"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_judul_bimbingan"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:layout_marginBottom="@dimen/dimen_medium"
+                android:background="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/act_dsn_mhs_bimbingan_textview_judul"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextBlack"
+                tools:text="@string/dummy"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/content_item_mahasiswa_pa_bimbingan"></androidx.recyclerview.widget.RecyclerView>
+        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_height="wrap_content">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/act_dsn_bimbingan_tambah"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right|bottom"
-        android:layout_margin="@dimen/dimen_big"
-        android:src="@drawable/ic_fab_add"/>
+        <LinearLayout
+            android:paddingTop="@dimen/dimen_medium"
+            android:paddingBottom="@dimen/dimen_medium"
+            android:paddingStart="@dimen/dimen_big"
+            android:paddingEnd="@dimen/dimen_big"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_review_bimbingan"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:layout_marginBottom="@dimen/dimen_medium"
+                android:background="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/act_dsn_mhs_bimbingan_textview_review"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextBlack"
+                android:text="@string/dummyLong"
+               />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>
-</ScrollView>

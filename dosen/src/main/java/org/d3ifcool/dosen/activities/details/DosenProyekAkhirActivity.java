@@ -31,7 +31,7 @@ import java.util.List;
 
 import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
 
-public class DosenBimbinganInfoActivity extends AppCompatActivity implements ProyekAkhirListView, BimbinganListView, DosenPembimbingView, DosenReviewerView {
+public class DosenProyekAkhirActivity extends AppCompatActivity implements ProyekAkhirListView, BimbinganListView, DosenPembimbingView, DosenReviewerView {
 
     public static final String EXTRA_JUDUL = "extra_judul";
     private static final String PROYEK_AKHIR_PARAM_1 = "proyek_akhir.judul_id";
@@ -54,7 +54,7 @@ public class DosenBimbinganInfoActivity extends AppCompatActivity implements Pro
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dosen_bimbingan_info);
+        setContentView(R.layout.activity_dosen_proyek_akhir);
 
         setTitle(R.string.title_proyekakhir);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -64,8 +64,6 @@ public class DosenBimbinganInfoActivity extends AppCompatActivity implements Pro
         dosenPresenter = new DosenPresenter(this, this);
         sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
-
-
         progressDialog.setMessage(getString(org.d3ifcool.mahasiswa.R.string.text_progress_dialog));
 
         tv_judul_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_judulpa);
@@ -91,11 +89,9 @@ public class DosenBimbinganInfoActivity extends AppCompatActivity implements Pro
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DosenBimbinganInfoActivity.this, DosenBimbinganDetailActivity.class);
+                Intent intent = new Intent(DosenProyekAkhirActivity.this, DosenProyekAkhirBimbinganActivity.class);
                 ArrayList<ProyekAkhir> extraArrayProyekAkhir = arrayListProyekAkhir;
-                ArrayList<Bimbingan> extraArrayBimbingan = arrayListBimbingan;
-                intent.putParcelableArrayListExtra(DosenBimbinganDetailActivity.EXTRA_PROYEK_AKHIR, extraArrayProyekAkhir);
-                intent.putParcelableArrayListExtra(DosenBimbinganDetailActivity.EXTRA_BIMBINGAN, extraArrayBimbingan);
+                intent.putParcelableArrayListExtra(DosenProyekAkhirBimbinganActivity.EXTRA_PROYEK_AKHIR, extraArrayProyekAkhir);
                 startActivity(intent);
             }
         });
@@ -103,7 +99,7 @@ public class DosenBimbinganInfoActivity extends AppCompatActivity implements Pro
         cardViewMonev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DosenBimbinganInfoActivity.this, DosenMahasiswaMonevDetailActivity.class);
+                Intent intent = new Intent(DosenProyekAkhirActivity.this, DosenProyekAkhirMonevActivity.class);
 
                 startActivity(intent);
             }
