@@ -134,7 +134,7 @@ public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implem
 
     @Override
     public void onSuccesWorkJudul() {
-
+        finish();
     }
 
     @Override

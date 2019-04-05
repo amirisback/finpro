@@ -14,15 +14,24 @@ import android.widget.Toast;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editors.DosenJudulPaSubdosenUbahActivity;
 import org.d3ifcool.service.helpers.SessionManager;
+import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.interfaces.works.JudulWorkView;
+import org.d3ifcool.service.interfaces.works.MahasiswaWorkView;
+import org.d3ifcool.service.interfaces.works.ProyekAkhirWorkView;
 import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.JudulPresenter;
+import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 
-public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implements JudulWorkView {
+import java.util.List;
+
+public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implements JudulWorkView, MahasiswaWorkView, ProyekAkhirListView, ProyekAkhirWorkView {
+
     public static final String EXTRA_INFORMASI = "extra_informasi";
     private TextView tv_judul,tv_kategori,tv_deskripsi;
     private Judul extradata;
-    private JudulPresenter presenter;
+    private JudulPresenter judulPresenter;
+    private ProyekAkhirPresenter proyekAkhirPresenter;
     private ProgressDialog dialog;
     private SessionManager sessionManager;
 
@@ -44,7 +53,7 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
         tv_kategori.setText(kategori);
         tv_deskripsi.setText(deskripsi);
 
-        presenter = new JudulPresenter(this);
+        judulPresenter = new JudulPresenter(this);
         dialog = new ProgressDialog(this);
         sessionManager = new SessionManager(this);
         dialog.setMessage(getString(R.string.text_progress_dialog));
@@ -87,7 +96,7 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
                     .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // Continue with delete operation
-                            presenter.deleteJudul(extradata.getId());
+                            judulPresenter.deleteJudul(extradata.getId());
                         }
                     })
 
@@ -109,6 +118,16 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
     @Override
     public void hideProgress() {
         dialog.dismiss();
+    }
+
+    @Override
+    public void onSucces() {
+
+    }
+
+    @Override
+    public void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList) {
+
     }
 
     @Override

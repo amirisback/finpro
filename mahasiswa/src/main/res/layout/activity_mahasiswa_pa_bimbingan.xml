@@ -29,7 +29,7 @@
             <TextView
                 android:id="@+id/act_mhs_pa_bimbingan_detail_textview_dosen"
                 style="@style/textview_pa_color_primary"
-                android:text="@string/dummy_dosen_pembimbing"/>
+                tools:text="@string/dummy_dosen_pembimbing"/>
 
             <View
                 android:layout_marginTop="@dimen/dimen_medium"
@@ -47,7 +47,7 @@
             <TextView
                 android:id="@+id/act_mhs_pa_bimbingan_detail_textview_jumlah"
                 style="@style/textview_pa_color_accent"
-                android:text="@string/dummy_jumlah_bimbingan"/>
+                tools:text="@string/dummy_jumlah_bimbingan"/>
 
         </LinearLayout>
 
@@ -63,11 +63,28 @@
         android:textSize="@dimen/text_size_title_small"
         android:text="@string/text_daftar_bimbingan"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/act_mhs_pa_bimbingan_detail_recyclerview"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/content_item_mahasiswa_pa_bimbingan">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/act_mhs_pa_bimbingan_detail_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/content_item_mahasiswa_pa_bimbingan">
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <!-- Empty View -->
+        <RelativeLayout
+            android:id="@+id/view_emptyview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+            <include layout="@layout/content_list_empty"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
 
 </LinearLayout>

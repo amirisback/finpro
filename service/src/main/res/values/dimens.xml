@@ -32,6 +32,7 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="dimen_navigation_drawer">60dp</dimen>
 
+    <dimen name="dimen_large">64dp</dimen>
     <dimen name="dimen_big_ultra">32dp</dimen>
     <dimen name="dimen_big_super">24dp</dimen>
     <dimen name="dimen_big">16dp</dimen>

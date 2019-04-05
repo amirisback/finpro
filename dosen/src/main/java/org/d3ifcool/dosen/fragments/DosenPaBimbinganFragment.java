@@ -11,6 +11,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenProyekAkhirBimbinganViewAdapter;
@@ -71,13 +72,19 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
     }
 
     @Override
-    public void showProgress() {
+    public void onResume() {
+        super.onResume();
+        presenter.getJudulSearchTwoParameter(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
+    }
 
+    @Override
+    public void showProgress() {
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-
+        progressDialog.dismiss();
     }
 
     @Override
@@ -99,6 +106,6 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
 
     @Override
     public void onFailed(String message) {
-
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 }

@@ -103,10 +103,17 @@
             android:layout_height="wrap_content"
             android:text="@string/text_daftar_mahasiswa"/>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/content_item_dosen_judulpa_pengajuan"/>
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/content_item_dosen_judulpa_pengajuan"/>
+
+
+        </RelativeLayout>
 
     </LinearLayout>
 </ScrollView>

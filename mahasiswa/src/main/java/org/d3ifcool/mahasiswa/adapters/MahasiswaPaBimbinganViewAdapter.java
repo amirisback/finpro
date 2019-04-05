@@ -74,6 +74,8 @@ public class MahasiswaPaBimbinganViewAdapter extends RecyclerView.Adapter<Mahasi
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, MahasiswaBimbinganListDetail.class);
+                Bimbingan parcelBimbingan = data.get(position);
+                intent.putExtra(MahasiswaBimbinganListDetail.EXTRA_BIMBINGAN, parcelBimbingan);
                 context.startActivity(intent);
             }
         });
