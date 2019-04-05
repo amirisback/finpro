@@ -43,6 +43,7 @@ public class ApiUrl {
         public static final String VAR_KATEGORI_JUDUL = "kategori_judul";
         public static final String VAR_NOTIFIKASI = "notifikasi";
         public static final String VAR_PROYEK_AKHIR = "proyek_akhir";
+        public static final String VAR_NILAI = "nilai";
         public static final String VAR_SIDANG = "sidang";
         public static final String VAR_BIMBINGAN = "bimbingan";
         public static final String VAR_MONEV = "monev";
@@ -59,6 +60,7 @@ public class ApiUrl {
         public static final String PATH_KATEGORI_JUDUL = "/" + VAR_KATEGORI_JUDUL;
         public static final String PATH_NOTIFIKASI = "/" + VAR_NOTIFIKASI;
         public static final String PATH_PROYEK_AKHIR = "/" + VAR_PROYEK_AKHIR;
+        public static final String PATH_NILAI = "/" + VAR_NILAI;
         public static final String PATH_SIDANG = "/" + VAR_SIDANG;
         public static final String PATH_BIMBINGAN = "/" + VAR_BIMBINGAN;
         public static final String PATH_MONEV = "/" + VAR_MONEV;

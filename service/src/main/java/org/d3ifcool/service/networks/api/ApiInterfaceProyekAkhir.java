@@ -21,6 +21,8 @@ import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_JUDUL;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_PROYEK_AKHIR;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_DOSEN;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_NILAI;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_SEARCH;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_PROYEK_AKHIR;
@@ -57,7 +59,7 @@ public interface ApiInterfaceProyekAkhir {
 
 
     @FormUrlEncoded
-    @POST(URL_PROYEK_AKHIR + PATH_UPDATE + PARAMETER_JUDUL)
+    @POST(URL_PROYEK_AKHIR + PATH_UPDATE + PARAMETER_PROYEK_AKHIR)
     Call<ProyekAkhir> updateProyekAkhir(
             @Path(VAR_PROYEK_AKHIR) int proyek_akhir_id,
             @Field("judul_id") int id_judul,
@@ -85,5 +87,19 @@ public interface ApiInterfaceProyekAkhir {
 
     @POST(URL_PROYEK_AKHIR + PATH_DELETE + PARAMETER_PROYEK_AKHIR)
     Call<ProyekAkhir> deleteProyekAkhir(@Path(VAR_PROYEK_AKHIR) int proyek_akhir);
+
+    @FormUrlEncoded
+    @POST(URL_PROYEK_AKHIR + PATH_UPDATE + PATH_NILAI + PARAMETER_PROYEK_AKHIR)
+    Call<ProyekAkhir> updateNilai(
+            @Path(VAR_PROYEK_AKHIR) int proyek_akhir_id,
+            @Field("nilai_total") int nilai_total
+    );
+
+    @FormUrlEncoded
+    @POST(URL_PROYEK_AKHIR + PATH_UPDATE + PATH_DOSEN + PARAMETER_PROYEK_AKHIR)
+    Call<ProyekAkhir> updateDosenReviewer(
+            @Path(VAR_PROYEK_AKHIR) int proyek_akhir_id,
+            @Field("dsn_nip") String nip_dosen
+    );
 
 }

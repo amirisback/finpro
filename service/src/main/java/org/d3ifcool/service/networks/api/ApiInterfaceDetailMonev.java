@@ -11,11 +11,18 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.BASE_PARAMETER_1;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.BASE_PARAMETER_2;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_MONEV_DETAIL;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY_1;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY_2;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_SEARCH;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_MONEV_DETAIL;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_MONEV_DETAIL;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_PARAMS;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_QUERY;
 
 public interface ApiInterfaceDetailMonev {
 
@@ -43,6 +50,14 @@ public interface ApiInterfaceDetailMonev {
             @Field("monev_tanggal") String monev_tanggal,
             @Field("monev_ulasan") String monev_ulasan,
             @Field("monev_reviewer") String monev_reviewer
+    );
+
+    @GET(URL_MONEV_DETAIL + PATH_SEARCH + BASE_PARAMETER_1 + PARAMETER_QUERY_1 + BASE_PARAMETER_2 + PARAMETER_QUERY_2)
+    Call<List<DetailMonev>> getDetailMonevSearchTwoParameter(
+            @Path(VAR_PARAMS+"1") String parameter1,
+            @Path(VAR_QUERY+"1") String query1,
+            @Path(VAR_PARAMS+"2") String parameter2,
+            @Path(VAR_QUERY+"2") String query2
     );
 
 }

@@ -172,4 +172,44 @@ public class ProyekAkhirPresenter {
         });
     }
 
+    public void updateNilai(int proyek_akhir_id, int nilai_total){
+        viewEditor.showProgress();
+        ApiInterfaceProyekAkhir apiInterfaceProyekAkhir = ApiClient.getApiClient().create(ApiInterfaceProyekAkhir.class);
+        Call<ProyekAkhir> call = apiInterfaceProyekAkhir.updateNilai(proyek_akhir_id, nilai_total);
+        call.enqueue(new Callback<ProyekAkhir>() {
+            @Override
+            public void onResponse(Call<ProyekAkhir> call, Response<ProyekAkhir> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<ProyekAkhir> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getMessage());
+            }
+        });
+    }
+
+    public void updateReviewer(int proyek_akhir_id,String nip_dosen){
+        viewEditor.showProgress();
+        ApiInterfaceProyekAkhir apiInterfaceProyekAkhir = ApiClient.getApiClient().create(ApiInterfaceProyekAkhir.class);
+        Call<ProyekAkhir> call = apiInterfaceProyekAkhir.updateDosenReviewer(proyek_akhir_id, nip_dosen);
+        call.enqueue(new Callback<ProyekAkhir>() {
+            @Override
+            public void onResponse(Call<ProyekAkhir> call, Response<ProyekAkhir> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<ProyekAkhir> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getMessage());
+            }
+        });
+
+    }
+
+
 }
