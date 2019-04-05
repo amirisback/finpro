@@ -71,6 +71,7 @@ public class KoorMonevKategoriViewAdapter extends RecyclerView.Adapter<KoorMonev
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 presenter.deleteMonev(monev.get(position).getMonev_id());
+                                notifyDataSetChanged();
                                 presenter.getMonev();
                                 dialogInterface.dismiss();
                                 if (mDialogView.getParent() != null) {
@@ -96,15 +97,17 @@ public class KoorMonevKategoriViewAdapter extends RecyclerView.Adapter<KoorMonev
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mDialogView = LayoutInflater.from(mContext).inflate(R.layout.content_item_edit_kategori_monev, null);
+                mDialog = new AlertDialog.Builder(mDialogView.getContext());
                 mDialog.setView(mDialogView);
                 mDialog.setCancelable(true);
                 mDialog.setPositiveButton(mContext.getText(R.string.ubah), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        EditText et_kategori = mDialogView.findViewById(R.id.dialog_kategori_ubah);
-                        et_kategori.setText(monev.get(position).getKategori());
+                        EditText et_kategori = mDialogView.findViewById(R.id.dialog_kategori_monev);
                         String result = et_kategori.getText().toString();
                         presenter.updateMonev(monev.get(position).getMonev_id() , result);
+                        notifyDataSetChanged();
 
                         dialog.dismiss(); // Keluar Dari Dialog
                         if (mDialogView.getParent() != null) {

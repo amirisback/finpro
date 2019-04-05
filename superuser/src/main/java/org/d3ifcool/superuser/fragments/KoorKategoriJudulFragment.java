@@ -66,7 +66,7 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
 
         empty_view = rootView.findViewById(R.id.view_emptyview);
 
-        adapter.initDialog(mDialog, mDialogView);
+//        adapter.initDialog(mDialog, mDialogView);
 
         presenter.getKategori();
 

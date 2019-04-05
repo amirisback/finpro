@@ -57,20 +57,19 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
         dialog = new ProgressDialog(getContext());
         dialog.setMessage(getString(R.string.text_progress_dialog));
 
-        final View mDialogView = getLayoutInflater().inflate(R.layout.content_item_add_kategori_monev,null);
-        final AlertDialog.Builder builder = new AlertDialog.Builder(mDialogView.getContext());
-
         presenter = new MonevPresenter(this, this);
         adapter = new KoorMonevKategoriViewAdapter(getContext(), presenter);
 
         empty_view = view.findViewById(R.id.view_emptyview);
         recyclerView = view.findViewById(R.id.frg_koor_kategori_monev_rv);
-        adapter.initDialog(builder, mDialogView);
+
         presenter.getMonev();
 
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final View mDialogView = getLayoutInflater().inflate(R.layout.content_item_add_kategori_monev,null);
+                AlertDialog.Builder builder = new AlertDialog.Builder(mDialogView.getContext());
                 builder.setView(mDialogView)
                         .setPositiveButton(R.string.tambah, new DialogInterface.OnClickListener() {
                             @Override
@@ -84,7 +83,6 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
                                     presenter.getMonev();
                                     et_kategori_monev.setText("");
                                     dialogInterface.dismiss();
-
                                     if (mDialogView.getParent() != null) {
                                         ((ViewGroup) mDialogView.getParent()).removeView(mDialogView);
                                     }
@@ -118,8 +116,9 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
     @Override
     public void onResume() {
         super.onResume();
-        notify();
+        adapter.notifyDataSetChanged();
         presenter.getMonev();
+
     }
 
     @Override

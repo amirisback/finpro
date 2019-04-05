@@ -35,10 +35,6 @@ public class KoorJudulPaKategoriViewAdapter extends RecyclerView.Adapter<KoorJud
         this.presenter = presenter;
     }
 
-    public void initDialog(AlertDialog.Builder mDialog, View mDialogView) {
-        this.mDialog = mDialog;
-        this.mDialogView = mDialogView;
-    }
 
     public void setKategoriJudul(ArrayList<KategoriJudul> kategori) {
         this.data = kategori;
@@ -86,6 +82,7 @@ public class KoorJudulPaKategoriViewAdapter extends RecyclerView.Adapter<KoorJud
                     .setPositiveButton(org.d3ifcool.dosen.R.string.iya, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             presenter.deleteKategori(data.get(position).getId());
+                            notifyDataSetChanged();
                             presenter.getKategori();
                             dialog.dismiss(); // Keluar Dari Dialog
                             if (mDialogView.getParent() != null) {
@@ -103,7 +100,7 @@ public class KoorJudulPaKategoriViewAdapter extends RecyclerView.Adapter<KoorJud
                             }
                         }
                     })
-                    .setIcon(android.R.drawable.ic_dialog_alert)
+
                     .show();
             }
         });
@@ -111,16 +108,17 @@ public class KoorJudulPaKategoriViewAdapter extends RecyclerView.Adapter<KoorJud
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mDialogView = LayoutInflater.from(context).inflate(R.layout.content_item_dialog_edit_kategori, null);
+                mDialog = new AlertDialog.Builder(mDialogView.getContext());
                 mDialog.setView(mDialogView);
                 mDialog.setCancelable(true);
                 mDialog.setPositiveButton(context.getText(R.string.ubah), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         EditText et_kategori = mDialogView.findViewById(R.id.dialog_kategori_ubah);
-                        et_kategori.setText(data.get(position).getKategori_nama());
                         String result = et_kategori.getText().toString();
                         presenter.updateKategori(data.get(position).getId() , result);
-
+                        notifyDataSetChanged();
                         dialog.dismiss(); // Keluar Dari Dialog
                         if (mDialogView.getParent() != null) {
                             ((ViewGroup) mDialogView.getParent()).removeView(mDialogView);
