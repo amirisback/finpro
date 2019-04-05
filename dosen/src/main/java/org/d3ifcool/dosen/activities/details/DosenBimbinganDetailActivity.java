@@ -23,6 +23,10 @@ import org.d3ifcool.service.presenters.BimbinganPresenter;
 import java.util.List;
 
 public class DosenBimbinganDetailActivity extends AppCompatActivity {
+
+    public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
+    public static final String EXTRA_BIMBINGAN = "extra_bimbingan";
+
     private RecyclerView recyclerView;
     private ProgressDialog dialog;
     private BimbinganPresenter presenter;
@@ -41,6 +45,8 @@ public class DosenBimbinganDetailActivity extends AppCompatActivity {
         TextView tv_nama_anggota_1 = findViewById(R.id.act_mhs_pa_bimbingan_detail_textview_mhs1);
         TextView tv_nama_anggota_2 = findViewById(R.id.act_mhs_pa_bimbingan_detail_textview_mhs2);
         TextView tv_jml_bimbingan = findViewById(R.id.act_mhs_pa_bimbingan_detail_textview_jumlah);
+
+
 
         setTitle(getString(R.string.title_bimbingan_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

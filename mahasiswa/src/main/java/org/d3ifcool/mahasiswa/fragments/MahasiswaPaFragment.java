@@ -57,8 +57,6 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
     private ArrayList<Bimbingan> arrayListBimbingan = new ArrayList<>();
     private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
 
-    private View enable_view, disable_view;
-
     private TextView tv_judul_pa,tv_kelompok_pa,tv_nama_anggota1_pa, tv_nama_anggota2_pa,
             tv_nim_anggota1_pa, tv_nim_anggota2_pa, tv_dosen_pembimbing_pa, tv_jumlah_bimbingan_pa,
             tv_dosen_reviewer_pa, tv_jumlah_monev_pa, tv_status_sidang_pa;
@@ -82,8 +80,6 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
         progressDialog = new ProgressDialog(getContext());
 
         swipeRefreshLayout = rootView.findViewById(R.id.swipe_refresh);
-        enable_view = rootView.findViewById(R.id.enable_view);
-        disable_view = rootView.findViewById(R.id.disable_view);
 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -215,7 +211,7 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
             bimbinganPresenter.searchBimbingan(BIMBINGAN_PARAM, stringProyekAkhirId);
             dosenPresenter.getDosenPembimbing(arrayListProyekAkhir.get(0).getPembimbing_dsn_nip());
 
-            if (!arrayListProyekAkhir.get(0).getReviewer_dsn_nip().isEmpty()) {
+            if (arrayListProyekAkhir.get(0).getReviewer_dsn_nip() != null) {
                 dosenPresenter.getDosenReviewer(arrayListProyekAkhir.get(0).getReviewer_dsn_nip());
             } else {
                 tv_dosen_reviewer_pa.setText(R.string.text_no_dosen_monev);
