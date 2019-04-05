@@ -63,6 +63,7 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
         empty_view = view.findViewById(R.id.view_emptyview);
         recyclerView = view.findViewById(R.id.frg_koor_kategori_monev_rv);
 
+        adapter.notifyDataSetChanged();
         presenter.getMonev();
 
         actionButton.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +125,7 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
     @Override
     public void showProgress() {
         dialog.show();
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -152,7 +154,7 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
 
     @Override
     public void onSucces() {
-
+        presenter.getMonev();
     }
 
     @Override

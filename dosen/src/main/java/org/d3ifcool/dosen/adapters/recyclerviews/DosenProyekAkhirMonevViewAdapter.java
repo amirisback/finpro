@@ -67,7 +67,7 @@ public class DosenProyekAkhirMonevViewAdapter extends RecyclerView.Adapter<Dosen
             // -------------------------------------------------------------------------------------
             tv_pa_judul = itemView.findViewById(R.id.ctn_dsn_pa_monev_textview_judul);
             tv_pa_kategori = itemView.findViewById(R.id.ctn_dsn_pa_monev_textview_kategori);
-            tv_pa_kelompok = itemView.findViewById(R.id.ctn_dsn_pa_monev_textview_kelompok);
+//            tv_pa_kelompok = itemView.findViewById(R.id.ctn_dsn_pa_monev_textview_kelompok);
             // -------------------------------------------------------------------------------------
         }
     }

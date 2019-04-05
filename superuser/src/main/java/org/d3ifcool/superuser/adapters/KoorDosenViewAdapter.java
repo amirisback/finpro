@@ -68,7 +68,7 @@ public class KoorDosenViewAdapter extends RecyclerView.Adapter<KoorDosenViewAdap
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.nama_dosen.setText(dosens.get(position).getDsn_nama());
         holder.nip_dosen.setText(dosens.get(position).getDsn_nip());
-        holder.bimbing.setText("6");
+//        holder.bimbing.setText("6");
         Picasso.get().load(URL_FOTO_DOSEN+dosens.get(position).getDsn_foto()).into(holder.foto);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -95,7 +95,7 @@ public class KoorDosenViewAdapter extends RecyclerView.Adapter<KoorDosenViewAdap
             nama_dosen = itemView.findViewById(R.id.ctn_koor_textview_nama_dosen);
             nip_dosen = itemView.findViewById(R.id.ctn_koor_dosen_nip);
             foto = itemView.findViewById(R.id.ctn_koor_dosen_circle_image);
-            bimbing = itemView.findViewById(R.id.ctn_koor_dosen_bimbing);
+//            bimbing = itemView.findViewById(R.id.ctn_koor_dosen_bimbing);
 
         }
     }

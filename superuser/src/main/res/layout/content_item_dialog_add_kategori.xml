@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/dimen_medium"
-        android:text="Ubah Kategori Judul"
+        android:text="Tambah Kategori Judul"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorTextWhite"
         android:textStyle="bold"

@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -53,7 +54,7 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
         View rootView = inflater.inflate(R.layout.fragment_koor_kategori_judul, container, false);
 
         final AlertDialog.Builder mDialog = new AlertDialog.Builder(getContext());
-        final View mDialogView = inflater.inflate(R.layout.content_item_dialog_edit_kategori, null);
+        final View mDialogView = inflater.inflate(R.layout.content_item_dialog_add_kategori, null);
 
         recyclerView = rootView.findViewById(R.id.frg_koor_judul_kategori_rv);
         final FloatingActionButton floatingActionButton = rootView.findViewById(R.id.frg_koor_info_home_fab);
@@ -67,7 +68,7 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
         empty_view = rootView.findViewById(R.id.view_emptyview);
 
 //        adapter.initDialog(mDialog, mDialogView);
-
+        adapter.notifyDataSetChanged();
         presenter.getKategori();
 
 
@@ -81,6 +82,8 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        TextView tv_title = mDialogView.findViewById(R.id.ctn_dialog_title);
+                        tv_title.setText("Tambah Kategori Judul");
                         EditText et_kategori = mDialogView.findViewById(R.id.dialog_kategori_ubah);
                         String result = et_kategori.getText().toString();
                         presenter.createKategori(result);
@@ -122,12 +125,14 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
     public void onResume() {
         super.onResume();
         progressDialog.show();
+        adapter.notifyDataSetChanged();
         presenter.getKategori();
     }
 
     @Override
     public void showProgress() {
         progressDialog.show();
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -137,7 +142,7 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
 
     @Override
     public void onSucces() {
-
+        presenter.getKategori();
     }
 
     @Override

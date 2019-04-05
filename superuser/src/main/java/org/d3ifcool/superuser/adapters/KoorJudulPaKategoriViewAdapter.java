@@ -115,10 +115,13 @@ public class KoorJudulPaKategoriViewAdapter extends RecyclerView.Adapter<KoorJud
                 mDialog.setPositiveButton(context.getText(R.string.ubah), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        TextView tv_title = mDialogView.findViewById(R.id.ctn_dialog_title);
+                        tv_title.setText("Ubah Kategori Judul");
                         EditText et_kategori = mDialogView.findViewById(R.id.dialog_kategori_ubah);
                         String result = et_kategori.getText().toString();
                         presenter.updateKategori(data.get(position).getId() , result);
                         notifyDataSetChanged();
+                        presenter.getKategori();
                         dialog.dismiss(); // Keluar Dari Dialog
                         if (mDialogView.getParent() != null) {
                             ((ViewGroup) mDialogView.getParent()).removeView(mDialogView);
