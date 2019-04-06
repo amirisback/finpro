@@ -5,63 +5,94 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editors.DosenJudulPaSubdosenUbahActivity;
+import org.d3ifcool.dosen.adapters.recyclerviews.DosenKelompokPengajuanJudulViewAdapter;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.interfaces.works.JudulWorkView;
-import org.d3ifcool.service.interfaces.works.MahasiswaWorkView;
-import org.d3ifcool.service.interfaces.works.ProyekAkhirWorkView;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.JudulPresenter;
 import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implements JudulWorkView, MahasiswaWorkView, ProyekAkhirListView, ProyekAkhirWorkView {
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERSEDIA;
+
+public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implements JudulWorkView, ProyekAkhirListView {
 
     public static final String EXTRA_INFORMASI = "extra_informasi";
-    private TextView tv_judul,tv_kategori,tv_deskripsi;
     private Judul extradata;
     private JudulPresenter judulPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private ProgressDialog dialog;
     private SessionManager sessionManager;
+    private RecyclerView recyclerView;
+    private View empty_view;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private DosenKelompokPengajuanJudulViewAdapter adapter;
+    private ArrayList<ProyekAkhir> proyekAkhirArrayList = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dosen_judul_pa_subdosen_detail);
 
-        tv_judul = findViewById(R.id.frg_dsn_pa_textview_judulpa);
-        tv_kategori = findViewById(R.id.frg_dsn_pa_textview_kategoripa);
-        tv_deskripsi = findViewById(R.id.frg_dsn_pa_textview_deskripsi);
+        setTitle(getString(R.string.title_judulpa_detail));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        extradata = getIntent().getParcelableExtra(EXTRA_INFORMASI);
-        String judul = extradata.getJudul();
-        String kategori = extradata.getKategori_nama();
-        String deskripsi = extradata.getDeskripsi();
+        TextView tv_judul = findViewById(R.id.frg_dsn_pa_textview_judulpa);
+        TextView tv_kategori = findViewById(R.id.frg_dsn_pa_textview_kategoripa);
+        TextView tv_deskripsi = findViewById(R.id.frg_dsn_pa_textview_deskripsi);
+        recyclerView = findViewById(R.id.act_dsn_recycler_view_kelompok);
+        empty_view = findViewById(R.id.view_emptyview);
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh);
 
-        tv_judul.setText(judul);
-        tv_kategori.setText(kategori);
-        tv_deskripsi.setText(deskripsi);
-
+        proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         judulPresenter = new JudulPresenter(this);
         dialog = new ProgressDialog(this);
         sessionManager = new SessionManager(this);
         dialog.setMessage(getString(R.string.text_progress_dialog));
 
-        setTitle(getString(R.string.title_judulpa_detail));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        adapter = new DosenKelompokPengajuanJudulViewAdapter(this);
+
+        extradata = getIntent().getParcelableExtra(EXTRA_INFORMASI);
+        String judul = extradata.getJudul();
+        String kategori = extradata.getKategori_nama();
+        String deskripsi = extradata.getDeskripsi();
+        final int judul_id = extradata.getId();
+
+        adapter.addExtraJudul(judul_id);
+
+        tv_judul.setText(judul);
+        tv_kategori.setText(kategori);
+        tv_deskripsi.setText(deskripsi);
+
+        proyekAkhirPresenter.getNamaTimByParam(judul_id, JUDUL_STATUS_TERSEDIA);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                proyekAkhirPresenter.getNamaTimByParam(judul_id, JUDUL_STATUS_TERSEDIA);
+            }
+        });
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -104,7 +135,6 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
 
-        } else {
         }
         return super.onOptionsItemSelected(item);
     }
@@ -121,12 +151,20 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
     }
 
     @Override
-    public void onSucces() {
-
-    }
-
-    @Override
     public void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList) {
+        proyekAkhirArrayList.clear();
+        proyekAkhirArrayList.addAll(proyekAkhirList);
+        adapter.addItem(proyekAkhirArrayList);
+        adapter.setLayoutType(R.layout.content_item_dosen_kelompok_pengajuan_pa);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        swipeRefreshLayout.setRefreshing(false);
+
+        if (proyekAkhirArrayList.size() == 0) {
+            empty_view.setVisibility(View.VISIBLE);
+        } else {
+            empty_view.setVisibility(View.GONE);
+        }
 
     }
 

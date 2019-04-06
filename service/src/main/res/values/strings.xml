@@ -232,6 +232,7 @@
     <string name="text_review_bimbingan">Review Bimbingan</string>
     <string name="text_tanggal_bimbingan">Tanggal Bimbingan</string>
     <string name="text_belum_sidang">Belum Sidang</string>
+    <string name="text_aturan_judul_mandiri_1">Pastikan anda tidak memilih judul yang ada di daftar judul dosen</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

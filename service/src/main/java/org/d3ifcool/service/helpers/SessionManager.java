@@ -97,7 +97,7 @@ public class SessionManager {
     }
 
     public void createSessionDataDosen(Dosen dosen){
-        editor.putString(DSN_NIP, dosen.getDsn_nip());
+        editor.putString(DSN_NIP, getSessionUsername());
         editor.putString(DSN_NAMA, dosen.getDsn_nama());
         editor.putString(DSN_FOTO, dosen.getDsn_foto());
         editor.putString(DSN_EMAIL, dosen.getDsn_email());

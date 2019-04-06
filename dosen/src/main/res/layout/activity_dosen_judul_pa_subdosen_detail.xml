@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/swipe_refresh"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:background="@color/colorBackground"
@@ -108,12 +109,22 @@
             android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/act_dsn_recycler_view_kelompok"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/content_item_dosen_judulpa_pengajuan"/>
+                tools:listitem="@layout/content_item_dosen_kelompok_pengajuan_pa"/>
 
+            <!-- Empty View -->
+            <RelativeLayout
+                android:id="@+id/view_emptyview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="gone">
+                <include layout="@layout/content_list_empty"/>
+            </RelativeLayout>
 
         </RelativeLayout>
 
     </LinearLayout>
-</ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

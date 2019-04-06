@@ -41,12 +41,35 @@
             <TextView
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginBottom="@dimen/dimen_big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_aturan_judul_mandiri_1"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorTextBlack"/>
+
+            <TextView
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginBottom="@dimen/dimen_big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_aturan_judul_mandiri_2"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorTextBlack"/>
+
+            <TextView
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
                 android:layout_marginBottom="@dimen/dimen_small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1. "
+                android:text="@string/text_aturan_judul_mandiri_3"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/colorTextBlack"/>
+
+
+
 
         </LinearLayout>
 

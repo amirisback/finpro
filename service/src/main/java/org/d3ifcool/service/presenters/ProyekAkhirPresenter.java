@@ -211,5 +211,42 @@ public class ProyekAkhirPresenter {
 
     }
 
+    public void getNamaTim(){
+        viewResult.showProgress();
+        ApiInterfaceProyekAkhir apiInterfaceProyekAkhir = ApiClient.getApiClient().create(ApiInterfaceProyekAkhir.class);
+        Call<List<ProyekAkhir>> call = apiInterfaceProyekAkhir.getNamaTim();
+        call.enqueue(new Callback<List<ProyekAkhir>>() {
+            @Override
+            public void onResponse(Call<List<ProyekAkhir>> call, Response<List<ProyekAkhir>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetListProyekAkhir(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<ProyekAkhir>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getMessage());
+            }
+        });
+    }
+
+    public void getNamaTimByParam(int judul_id, String judul_status){
+        viewResult.showProgress();
+        ApiInterfaceProyekAkhir apiInterfaceProyekAkhir = ApiClient.getApiClient().create(ApiInterfaceProyekAkhir.class);
+        Call<List<ProyekAkhir>> call = apiInterfaceProyekAkhir.getNamaTimByJudulStatus(judul_id, judul_status);
+        call.enqueue(new Callback<List<ProyekAkhir>>() {
+            @Override
+            public void onResponse(Call<List<ProyekAkhir>> call, Response<List<ProyekAkhir>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetListProyekAkhir(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<ProyekAkhir>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getMessage());
+            }
+        });
+    }
 
 }

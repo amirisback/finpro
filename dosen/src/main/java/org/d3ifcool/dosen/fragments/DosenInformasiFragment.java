@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import org.d3ifcool.dosen.activities.editors.DosenInformasiTambahActivity;
 import org.d3ifcool.dosen.R;
+import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.InformasiListView;
 import org.d3ifcool.service.models.Informasi;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenInformasiViewAdapter;

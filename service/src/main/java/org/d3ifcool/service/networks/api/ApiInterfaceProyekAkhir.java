@@ -22,8 +22,10 @@ import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_JU
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_PROYEK_AKHIR;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_DOSEN;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_NAMA_TIM;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_NILAI;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_SEARCH;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_SORT;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_PROYEK_AKHIR;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_PARAMS;
@@ -101,5 +103,13 @@ public interface ApiInterfaceProyekAkhir {
             @Path(VAR_PROYEK_AKHIR) int proyek_akhir_id,
             @Field("dsn_nip") String nip_dosen
     );
+
+    @GET(URL_PROYEK_AKHIR + PATH_SORT + PATH_NAMA_TIM)
+    Call<List<ProyekAkhir>> getNamaTim();
+
+    @GET(URL_PROYEK_AKHIR + PATH_SORT + PATH_NAMA_TIM + "/{judul_id}" + "/{judul_status}")
+    Call<List<ProyekAkhir>> getNamaTimByJudulStatus(
+            @Path("judul_id") int judul_id,
+            @Path("judul_status") String judul_status);
 
 }

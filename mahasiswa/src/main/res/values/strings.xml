@@ -24,4 +24,6 @@
     <string name="dummy_status_sidang">Lulus</string>
     <string name="text_ubah_data">Ubah Data</string>
     <string name="text_angkatan">Angkatan</string>
+    <string name="text_aturan_judul_mandiri_2">Setelah di ajukan silahkan menghungi dosen yang bersangkutan untuk melakukan konsultasi terkait judul yang di ajukan.</string>
+    <string name="text_aturan_judul_mandiri_3">Jika judul anda sudah di terima oleh dosen yang bersangkutan maka akan muncul di menu proyek akhir</string>
 </resources>

@@ -6,7 +6,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
-        <activity android:name=".activities.details.DosenJudulPaArsipActivity"></activity>
+        <activity android:name=".activities.details.DosenJudulPaSubdosenAccActivity"></activity>
+        <activity android:name=".activities.details.DosenJudulPaArsipActivity" />
         <activity android:name=".activities.details.DosenMahasiswaSidangHasilDetailActivity" />
         <activity android:name=".activities.details.DosenProyekAkhirActivity" />
         <activity android:name=".activities.editors.DosenMonevUbahActivity" />
