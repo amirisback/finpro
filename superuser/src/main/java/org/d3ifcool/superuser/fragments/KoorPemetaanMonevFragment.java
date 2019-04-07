@@ -65,7 +65,7 @@ public class KoorPemetaanMonevFragment extends Fragment implements DosenListView
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =inflater.inflate(R.layout.fragment_koor_pemetaan_monev, container, false);
+        View view = inflater.inflate(R.layout.fragment_koor_pemetaan_monev, container, false);
         sp_dosen = view.findViewById(R.id.spinner_dosen);
         recyclerView = view.findViewById(R.id.frg_koor_judul_dsn_recyclerview);
         FloatingActionButton floatingActionButton = view.findViewById(R.id.frg_koor_judul_dsn_fab);

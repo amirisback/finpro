@@ -12,5 +12,6 @@
     <string name="hint_masukkan_deskripsi_judul_pa">Masukkan Deskripsi Judul PA</string>
     <string name="hint_masukkan_kategori_monev">Masukkan Kategori Monev</string>
     <string name="text_tambah_kategori_monev">Tambah Kategori Monev</string>
+    <string name="text_atur_reviewer">ATUR REVIEWER</string>
 
 </resources>

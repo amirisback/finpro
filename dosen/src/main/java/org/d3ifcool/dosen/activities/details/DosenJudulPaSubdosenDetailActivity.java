@@ -44,6 +44,7 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
     private SessionManager sessionManager;
     private RecyclerView recyclerView;
     private View empty_view;
+    private int judul_id;
     private SwipeRefreshLayout swipeRefreshLayout;
     private DosenKelompokPengajuanJudulViewAdapter adapter;
     private ArrayList<ProyekAkhir> proyekAkhirArrayList = new ArrayList<>();
@@ -78,7 +79,7 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
         String judul = extradata.getJudul();
         String kategori = extradata.getKategori_nama();
         String deskripsi = extradata.getDeskripsi();
-        final int judul_id = extradata.getId();
+        judul_id = extradata.getId();
 
         adapter.addExtraJudul(judul_id);
 
@@ -97,6 +98,11 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        proyekAkhirPresenter.searchDistinctProyekAkhirBy(PARAM_JUDUL_ID, String.valueOf(judul_id));
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

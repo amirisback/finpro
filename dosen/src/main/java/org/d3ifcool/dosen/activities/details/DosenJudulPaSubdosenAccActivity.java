@@ -89,7 +89,7 @@ public class DosenJudulPaSubdosenAccActivity extends AppCompatActivity implement
                 mahasiswaPresenter.updateMahasiswaJudul(tempProyekAkhirArrayList.get(0).getMhs_nim(), extraJudulId);
                 if (tempProyekAkhirArrayList.size() == 2){
                     proyekAkhirPresenter.createProyekAkhir(extraJudulId, tempProyekAkhirArrayList.get(1).getMhs_nim(), extraNamaTim);
-                    mahasiswaPresenter.updateMahasiswaJudul(tempProyekAkhirArrayList.get(0).getMhs_nim(), extraJudulId);
+                    mahasiswaPresenter.updateMahasiswaJudul(tempProyekAkhirArrayList.get(1).getMhs_nim(), extraJudulId);
                 }
                 judulPresenter.updateStatusJudul(extraJudulId, JUDUL_STATUS_DIGUNAKAN);
 
@@ -101,10 +101,12 @@ public class DosenJudulPaSubdosenAccActivity extends AppCompatActivity implement
             public void onClick(View v) {
                 proyekAkhirPresenter.deleteProyekAkhir(tempProyekAkhirArrayList.get(0).getProyek_akhir_id());
                 mahasiswaPresenter.updateMahasiswaJudul(tempProyekAkhirArrayList.get(0).getMhs_nim(), 0);
+
                 if (tempProyekAkhirArrayList.size() == 2) {
-                    proyekAkhirPresenter.deleteProyekAkhir(tempProyekAkhirArrayList.get(tempProyekAkhirArrayList.size()-1).getProyek_akhir_id());
+                    proyekAkhirPresenter.deleteProyekAkhir(tempProyekAkhirArrayList.get(1).getProyek_akhir_id());
                     mahasiswaPresenter.updateMahasiswaJudul(tempProyekAkhirArrayList.get(1).getMhs_nim(), 0);
                 }
+
                 finish();
             }
         });

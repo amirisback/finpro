@@ -68,7 +68,6 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
         View view = inflater.inflate(R.layout.fragment_koor_proyek_akhir, container, false);
         sp_dosen = view.findViewById(R.id.spinner_dosen);
         recyclerView = view.findViewById(R.id.frg_koor_judul_dsn_recyclerview);
-        FloatingActionButton floatingActionButton = view.findViewById(R.id.frg_koor_judul_dsn_fab);
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
