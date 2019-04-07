@@ -52,6 +52,7 @@ public class KoorPemetaanMonevViewAdapter extends RecyclerView.Adapter<KoorPemet
     public void onBindViewHolder(@NonNull org.d3ifcool.superuser.adapters.KoorPemetaanMonevViewAdapter.ViewHolder holder, final int position) {
         holder.judulpa.setText(judul.get(position).getJudul());
         holder.kategori.setText(judul.get(position).getKategori_nama());
+        holder.pembimbing.setText(judul.get(position).getDsn_nama());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

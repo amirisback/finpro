@@ -13,15 +13,17 @@ import android.view.ViewGroup;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenProyekAkhirMonevViewAdapter;
+import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.models.KategoriJudul;
 import org.d3ifcool.service.models.ProyekAkhir;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DosenPaMonevFragment extends Fragment {
+public class DosenPaMonevFragment extends Fragment implements ProyekAkhirListView {
 
 
     public DosenPaMonevFragment() {
@@ -57,4 +59,23 @@ public class DosenPaMonevFragment extends Fragment {
 
     }
 
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList) {
+
+    }
+
+    @Override
+    public void onFailed(String message) {
+
+    }
 }
