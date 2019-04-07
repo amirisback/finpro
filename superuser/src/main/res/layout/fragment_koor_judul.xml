@@ -48,13 +48,6 @@
             android:layout_margin="@dimen/dimen_big"
             android:src="@drawable/ic_fab_add"/>
 
-        <ProgressBar
-            android:visibility="invisible"
-            android:id="@+id/progressbar_list"
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
     </RelativeLayout>
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

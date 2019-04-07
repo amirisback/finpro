@@ -76,7 +76,7 @@ public class DosenJudulPaSubdosenAccActivity extends AppCompatActivity implement
 
         textViewKelompok.setText(extraNamaTim);
         // search proyek_akhir berdasarkan judul_id
-        proyekAkhirPresenter.searchProyekAkhir(PARAM_PROYEK_AKHIR_JUDUL_ID, String.valueOf(extraJudulId));
+        proyekAkhirPresenter.searchAllProyekAkhirBy(PARAM_PROYEK_AKHIR_JUDUL_ID, String.valueOf(extraJudulId));
 
         floatingActionButtonAccept.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,12 +137,10 @@ public class DosenJudulPaSubdosenAccActivity extends AppCompatActivity implement
 
     @Override
     public void showProgress() {
-        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        progressDialog.dismiss();
     }
 
     @Override
@@ -152,7 +150,7 @@ public class DosenJudulPaSubdosenAccActivity extends AppCompatActivity implement
 
         for (int i = 0; i < arrayListProyekAkhir.size(); i++){
             if (arrayListProyekAkhir.get(i).getNama_tim().equalsIgnoreCase(extraNamaTim)){
-                // jika proyek_akhir getNamaTim = session
+                // jika proyek_akhir getProyekAkhirDistinct = session
                 tempProyekAkhirArrayList.add(arrayListProyekAkhir.get(i));
             }
         }

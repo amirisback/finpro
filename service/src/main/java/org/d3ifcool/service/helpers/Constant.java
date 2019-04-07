@@ -25,7 +25,7 @@ public class Constant {
     public static final class ObjectConstanta {
 
         public static final String JUDUL_STATUS_TERSEDIA = "tersedia"; // judul yang di buat dosen
-        public static final String JUDUL_STATUS_TERTUNDA = "tertunda"; // judul yang di buat mahasiswa
+        public static final String JUDUL_STATUS_PENDING = "pending"; // judul yang di buat mahasiswa
         public static final String JUDUL_STATUS_DITOLAK = "ditolak";
         public static final String JUDUL_STATUS_DIGUNAKAN = "digunakan";
         public static final String JUDUL_STATUS_ARSIP = "arsip";

@@ -1,62 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/dimen_medium"
+    android:layout_marginTop="@dimen/dimen_medium"
     android:layout_marginLeft="@dimen/dimen_medium"
-    android:layout_marginRight="@dimen/dimen_medium"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_marginRight="@dimen/dimen_medium">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_margin="@dimen/dimen_big"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="@dimen/dimen_medium">
+        <TextView
+            android:id="@+id/ctn_koor_pemetaan_textview_judul"
+            android:text="@string/dummy_pa_judul"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:drawableStart="@drawable/ic_content_judul_pa_judul"
+            style="@style/textview_item_list_judul_pa"/>
 
-            <TextView
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_judul"/>
-
-            <TextView
-                android:id="@+id/ctn_koor_pemetaan_judul"
-                style="@style/textview_pa_color_black"
-                android:text="@string/dummy_pa_judul"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_view_line"
-                android:background="@color/colorBackground"
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"/>
-
-            <TextView
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_nama_reviewer"/>
-
-            <TextView
-                android:id="@+id/ctn_koor_pemetaan_reviewer"
-                style="@style/textview_pa_color_primary_icon"
-                android:text="@string/dummy_dosen_reviewer"/>
+        <TextView
+            android:id="@+id/ctn_koor_pemetaan_textview_kategori"
+            android:text="@string/dummy_kategori"
+            android:layout_marginTop="@dimen/dimen_small"
+            android:layout_marginBottom="@dimen/dimen_small"
+            android:drawableStart="@drawable/ic_content_judul_pa_kategori"
+            style="@style/textview_item_list_judul_pa"/>
 
 
-            <View
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_view_line"
-                android:background="@color/colorBackground"/>
-
-        </LinearLayout>
+        <TextView
+            android:maxLines="1"
+            android:id="@+id/ctn_koor_pemetaan_textview_dosenbimbing"
+            android:text="@string/dummy_dosen_pembimbing"
+            android:drawableStart="@drawable/ic_person"
+            style="@style/textview_item_list_judul_pa"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

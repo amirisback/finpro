@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-    android:id="@+id/refresh"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".fragments.KoorPemetaanMahasiswaMonev">
+    tools:context=".fragments.KoorJudulFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,25 +22,21 @@
             <include layout="@layout/content_list_empty"/>
         </RelativeLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/frg_koor_pemetaan_home_recyclerview"
+        <Spinner
+            android:id="@+id/spinner_dosen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            android:layout_marginStart="@dimen/dimen_medium"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@id/spinner_dosen"
+            android:id="@+id/frg_koor_judul_dsn_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:paddingBottom="@dimen/dimen_medium"
-            tools:listitem="@layout/content_item_pemetaan_monev"/>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/frg_koor_pemetaan_home_fab"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/dimen_big"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_fab_add"/>
-
+            tools:listitem="@layout/content_item_koor_pa"/>
 
     </RelativeLayout>
-
-
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

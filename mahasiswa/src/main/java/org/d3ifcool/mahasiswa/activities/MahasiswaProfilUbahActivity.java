@@ -25,7 +25,11 @@ public class MahasiswaProfilUbahActivity extends AppCompatActivity implements Ma
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mahasiswa_profil_ubah);
+
+        setTitle(getString(R.string.title_profil_ubah));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0f);
+
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.text_progress_dialog));
         manager = new SessionManager(this);
@@ -63,8 +67,7 @@ public class MahasiswaProfilUbahActivity extends AppCompatActivity implements Ma
                 }
             }
         });
-        setTitle(getString(R.string.title_profil_ubah));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
     }
 

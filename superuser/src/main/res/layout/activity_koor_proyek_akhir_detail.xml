@@ -38,7 +38,7 @@
                 <TextView
                     android:id="@+id/frg_koor_pa_textview_judulpa"
                     style="@style/textview_pa_color_primary"
-                    android:text="@string/dummy_pa_judul" />
+                    tools:text="@string/dummy_pa_judul" />
 
                 <View
                     android:layout_marginTop="@dimen/dimen_medium"
@@ -55,7 +55,7 @@
 
                 <TextView
                     android:id="@+id/frg_koor_pa_textview_kelompokpa"
-                    android:text="@string/dummy_mahasiswa_kelompok"
+                    tools:text="@string/dummy_mahasiswa_kelompok"
                     style="@style/textview_pa_color_black"
                     android:layout_marginBottom="@dimen/dimen_medium"/>
 
@@ -92,7 +92,7 @@
                 <TextView
                     style="@style/textview_pa_color_primary"
                     android:id="@+id/frg_koor_pa_textview_nama_1"
-                    android:text="@string/dummy_anggota_kelompok_1"/>
+                    tools:text="@string/dummy_anggota_kelompok_1"/>
 
                 <View
                     android:layout_marginTop="@dimen/dimen_medium"
@@ -110,7 +110,7 @@
                 <TextView
                     style="@style/textview_pa_color_black"
                     android:id="@+id/frg_koor_pa_textview_nim_1"
-                    android:text="@string/dummy_anggota_nim_1"/>
+                    tools:text="@string/dummy_anggota_nim_1"/>
 
                 <View
                     android:layout_marginTop="@dimen/dimen_medium"
@@ -129,7 +129,7 @@
                 <TextView
                     style="@style/textview_pa_color_primary"
                     android:id="@+id/frg_koor_pa_textview_nama_2"
-                    android:text="@string/dummy_anggota_kelompok_2"/>
+                    tools:text="@string/dummy_anggota_kelompok_2"/>
 
                 <View
                     android:layout_marginTop="@dimen/dimen_medium"
@@ -147,7 +147,7 @@
                 <TextView
                     style="@style/textview_pa_color_black"
                     android:id="@+id/frg_koor_pa_textview_nim_2"
-                    android:text="@string/dummy_anggota_nim_2"
+                    tools:text="@string/dummy_anggota_nim_2"
                     android:layout_marginBottom="@dimen/dimen_medium"/>
 
 
@@ -185,7 +185,7 @@
                 <TextView
                     android:id="@+id/frg_koor_pa_textview_dsn_pembimbing"
                     style="@style/textview_pa_color_primary"
-                    android:text="@string/dummy_dosen_pembimbing"/>
+                    tools:text="@string/dummy_dosen_pembimbing"/>
 
                 <View
                     android:layout_marginTop="@dimen/dimen_medium"
@@ -203,7 +203,7 @@
                 <TextView
                     android:id="@+id/frg_koor_pa_textview_jml_bimbingan"
                     style="@style/textview_pa_color_accent"
-                    android:text="@string/dummy_jumlah_bimbingan"/>
+                    tools:text="@string/dummy_jumlah_bimbingan"/>
 
             </LinearLayout>
 
@@ -239,7 +239,7 @@
                 <TextView
                     android:id="@+id/frg_koor_pa_textview_dsn_reviewer"
                     style="@style/textview_pa_color_primary"
-                    android:text="@string/dummy_dosen_reviewer" />
+                    tools:text="@string/dummy_dosen_reviewer" />
 
                 <View
                     android:layout_marginTop="@dimen/dimen_medium"
@@ -257,7 +257,7 @@
                 <TextView
                     android:id="@+id/frg_koor_pa_textview_jml_monev"
                     style="@style/textview_pa_color_accent"
-                    android:text="@string/dummy_monev_terkahir"/>
+                    tools:text="@string/dummy_monev_terkahir"/>
 
             </LinearLayout>
 
@@ -281,10 +281,11 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/frg_koor_pa_textview_sidang"
                     android:layout_marginStart="@dimen/dimen_big"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/dummy"/>
+                    android:text="@string/text_belum_sidang"/>
 
             </LinearLayout>
 

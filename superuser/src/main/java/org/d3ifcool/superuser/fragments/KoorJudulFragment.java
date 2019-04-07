@@ -33,7 +33,7 @@ import org.d3ifcool.superuser.adapters.KoorJudulPaSubdosenViewAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.FIELD_DOSEN_NAMA;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAM_DOSEN_NAMA;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -92,7 +92,7 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 spinnerItemPosition = parent.getItemAtPosition(position).toString();
-                judulPresenter.getJudulSearch(FIELD_DOSEN_NAMA, spinnerItemPosition);
+                judulPresenter.searchJudulBy(PARAM_DOSEN_NAMA, spinnerItemPosition);
             }
 
             @Override
@@ -104,7 +104,7 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                judulPresenter.getJudulSearch(FIELD_DOSEN_NAMA, spinnerItemPosition);
+                judulPresenter.searchJudulBy(PARAM_DOSEN_NAMA, spinnerItemPosition);
             }
         });
 

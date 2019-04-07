@@ -35,7 +35,7 @@ import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERTUNDA;
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_PENDING;
 
 public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         implements ProyekAkhirWorkView, MahasiswaWorkView, JudulWorkView,
@@ -123,7 +123,7 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
                 deskripsi = editTextDeskripsi.getText().toString();
                 kelompok = editTextNamaKelompok.getText().toString();
                 nim2 = editTextNIM2.getText().toString();
-                judulPresenter.createJudul(judul, spinnerItemKategoriId, deskripsi, spinnerItemNipDosen, JUDUL_STATUS_TERTUNDA);
+                judulPresenter.createJudul(judul, spinnerItemKategoriId, deskripsi, spinnerItemNipDosen, JUDUL_STATUS_PENDING);
             }
         });
 

@@ -71,8 +71,8 @@ public class KoorJudulPaSubdosenViewAdapter extends RecyclerView.Adapter<KoorJud
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, KoorJudulPaSubdosenDetailActivity.class);
-                Judul parcelInfo = judul.get(position);
-//                intent.putExtra(KoorJudulPaSubdosenTambahActivity.EXTRA_INFORMASI, parcelInfo);
+                Judul parcelJudul = judul.get(position);
+                intent.putExtra(KoorJudulPaSubdosenDetailActivity.EXTRA_JUDUL, parcelJudul);
                 context.startActivity(intent);
             }
         });

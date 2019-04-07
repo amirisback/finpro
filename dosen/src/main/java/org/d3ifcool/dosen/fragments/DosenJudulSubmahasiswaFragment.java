@@ -23,7 +23,7 @@ import org.d3ifcool.service.presenters.JudulPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERTUNDA;
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_PENDING;
 
 
 /**
@@ -63,12 +63,12 @@ public class DosenJudulSubmahasiswaFragment extends Fragment implements JudulLis
 
         empty_view = rootView.findViewById(R.id.view_emptyview);
 
-        presenter.getJudulSearchTwoParameter(PARAMS_1, JUDUL_STATUS_TERTUNDA, PARAMS_2, sessionManager.getSessionDosenNip());
+        presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_PENDING, PARAMS_2, sessionManager.getSessionDosenNip());
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.getJudulSearchTwoParameter(PARAMS_1, JUDUL_STATUS_TERTUNDA, PARAMS_2, sessionManager.getSessionDosenNip());
+                presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_PENDING, PARAMS_2, sessionManager.getSessionDosenNip());
             }
         });
 

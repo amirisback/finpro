@@ -58,12 +58,12 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
         empty_view = rootView.findViewById(R.id.view_emptyview);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         presenter = new JudulPresenter(this);
-        presenter.getJudulSearchTwoParameter(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
+        presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.getJudulSearchTwoParameter(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
+                presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
             }
         });
 
@@ -74,7 +74,7 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
     @Override
     public void onResume() {
         super.onResume();
-        presenter.getJudulSearchTwoParameter(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
+        presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
     }
 
     @Override

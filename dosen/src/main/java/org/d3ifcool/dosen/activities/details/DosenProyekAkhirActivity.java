@@ -80,7 +80,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
 
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
         final String stringJudulId = String.valueOf(extraJudul.getId());
-        proyekAkhirPresenter.searchProyekAkhirTwoParam(PROYEK_AKHIR_PARAM_1, stringJudulId, PROYEK_AKHIR_PARAM_2, JUDUL_STATUS_DIGUNAKAN);
+        proyekAkhirPresenter.searchAllProyekAkhirByTwo(PROYEK_AKHIR_PARAM_1, stringJudulId, PROYEK_AKHIR_PARAM_2, JUDUL_STATUS_DIGUNAKAN);
 
 
         CardView cardView = findViewById(R.id.frg_mhs_pa_cardview_bimbingan);

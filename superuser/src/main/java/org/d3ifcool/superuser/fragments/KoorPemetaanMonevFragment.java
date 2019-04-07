@@ -1,5 +1,6 @@
 package org.d3ifcool.superuser.fragments;
 
+
 import android.app.ProgressDialog;
 import android.os.Bundle;
 
@@ -25,6 +26,7 @@ import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.presenters.DosenPresenter;
 import org.d3ifcool.service.presenters.JudulPresenter;
 import org.d3ifcool.superuser.R;
+import org.d3ifcool.superuser.adapters.KoorPemetaanMonevViewAdapter;
 import org.d3ifcool.superuser.adapters.KoorProyekAkhirViewAdapter;
 
 import java.util.ArrayList;
@@ -34,15 +36,14 @@ import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAM_DOSEN_NAMA;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAM_JUDUL_STATUS;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
-public class KoorProyekAkhirFragment extends Fragment implements DosenListView, JudulListView {
+public class KoorPemetaanMonevFragment extends Fragment implements DosenListView, JudulListView {
 
     private Spinner sp_dosen;
     private RecyclerView recyclerView;
-    private KoorProyekAkhirViewAdapter adapter;
+    private KoorPemetaanMonevViewAdapter adapter;
     private ProgressDialog progressDialog;
     private View empty_view;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -55,7 +56,7 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
     private DosenPresenter dosenPresenter;
     private JudulPresenter judulPresenter;
 
-    public KoorProyekAkhirFragment() {
+    public KoorPemetaanMonevFragment() {
         // Required empty public constructor
     }
 
@@ -64,8 +65,7 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        View view = inflater.inflate(R.layout.fragment_koor_proyek_akhir, container, false);
+        View view =inflater.inflate(R.layout.fragment_koor_pemetaan_monev, container, false);
         sp_dosen = view.findViewById(R.id.spinner_dosen);
         recyclerView = view.findViewById(R.id.frg_koor_judul_dsn_recyclerview);
         FloatingActionButton floatingActionButton = view.findViewById(R.id.frg_koor_judul_dsn_fab);
@@ -129,7 +129,7 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
     public void onGetListJudul(List<Judul> judulpa) {
         arrayListJudul.clear();
         arrayListJudul.addAll(judulpa);
-        adapter = new KoorProyekAkhirViewAdapter(getContext());
+        adapter = new KoorPemetaanMonevViewAdapter(getContext());
         adapter.additem(arrayListJudul);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);

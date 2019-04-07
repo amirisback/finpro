@@ -16,30 +16,25 @@
             android:id="@+id/ctn_koor_pa_textview_judul"
             android:text="@string/dummy_pa_judul"
             android:layout_weight="1"
-            android:layout_marginBottom="@dimen/dimen_small"
+            android:maxLines="1"
             android:drawableStart="@drawable/ic_content_judul_pa_judul"
             style="@style/textview_item_list_judul_pa"/>
 
         <TextView
             android:id="@+id/ctn_koor_pa_textview_kategori"
             android:text="@string/dummy_kategori"
+            android:layout_marginTop="@dimen/dimen_small"
+            android:layout_marginBottom="@dimen/dimen_small"
             android:drawableStart="@drawable/ic_content_judul_pa_kategori"
             style="@style/textview_item_list_judul_pa"/>
 
-        <TextView
-            android:id="@+id/ctn_koor_pa_textview_kelompok"
-            android:text="@string/dummy_mahasiswa_kelompok"
-            android:layout_marginBottom="@dimen/dimen_small"
-            android:drawableStart="@drawable/ic_content_judul_pa_kelompok"
-            style="@style/textview_item_list_judul_pa"/>
 
         <TextView
+            android:maxLines="1"
             android:id="@+id/ctn_koor_pa_textview_dosenbimbing"
             android:text="@string/dummy_dosen_pembimbing"
             android:drawableStart="@drawable/ic_person"
             style="@style/textview_item_list_judul_pa"/>
     </LinearLayout>
-
-
 
 </androidx.cardview.widget.CardView>

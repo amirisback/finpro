@@ -24,15 +24,14 @@ import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.objects.KoorView;
 import org.d3ifcool.service.models.KoordinatorPa;
 import org.d3ifcool.service.presenters.KoorPresenter;
-import org.d3ifcool.superuser.AdminPemberitahuanActivity;
-import org.d3ifcool.superuser.AdminProfilActivity;
+import org.d3ifcool.superuser.activities.AdminProfilActivity;
 import org.d3ifcool.superuser.fragments.KoorDosenFragment;
 import org.d3ifcool.superuser.fragments.KoorInformasiFragment;
 import org.d3ifcool.superuser.fragments.KoorKategoriJudulFragment;
 import org.d3ifcool.superuser.fragments.KoorJudulFragment;
 import org.d3ifcool.superuser.fragments.KoorKategoriMonevFragment;
 import org.d3ifcool.superuser.fragments.KoorMahasiswaFragment;
-import org.d3ifcool.superuser.fragments.KoorPemetaanMahasiswaMonev;
+import org.d3ifcool.superuser.fragments.KoorPemetaanMonevFragment;
 import org.d3ifcool.superuser.fragments.KoorProyekAkhirFragment;
 
 public class AdminMainActivity extends AppCompatActivity
@@ -44,7 +43,7 @@ public class AdminMainActivity extends AppCompatActivity
     private KoorJudulFragment koorJudulPaSubdosenFragment = new KoorJudulFragment();
     private KoorProyekAkhirFragment koorProyekAkhirFragment = new KoorProyekAkhirFragment();
     private KoorKategoriJudulFragment koorJudulPaKategoriFragment = new KoorKategoriJudulFragment();
-    private KoorPemetaanMahasiswaMonev koorPemetaanMahasiswaMonev = new KoorPemetaanMahasiswaMonev();
+    private KoorPemetaanMonevFragment koorPemetaanMahasiswaMonev = new KoorPemetaanMonevFragment();
     private KoorKategoriMonevFragment koorKategoriMonevFragment = new KoorKategoriMonevFragment();
 
     private SessionManager sessionManager;

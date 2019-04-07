@@ -59,6 +59,10 @@ public class DosenPresenter {
         this.viewObjectReviewer = viewObjectReviewer;
     }
 
+    public DosenPresenter(DosenReviewerView viewObjectReviewer) {
+        this.viewObjectReviewer = viewObjectReviewer;
+    }
+
     public void getDosen(){
         viewResult.showProgress();
 

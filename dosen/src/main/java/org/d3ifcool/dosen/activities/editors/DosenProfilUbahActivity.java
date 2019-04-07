@@ -26,6 +26,10 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dosen_profil_ubah);
 
+        setTitle(getString(R.string.title_profil_ubah));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setElevation(0f);
+
         presenter = new DosenPresenter(this);
         manager = new SessionManager(this);
         dialog = new ProgressDialog(this);
@@ -70,10 +74,6 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
 
             }
         });
-
-        setTitle(getString(R.string.title_profil_ubah));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
 
     @Override

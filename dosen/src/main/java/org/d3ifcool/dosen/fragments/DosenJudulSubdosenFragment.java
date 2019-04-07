@@ -71,7 +71,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
         sessionManager = new SessionManager(getContext());
 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
-        presenter.getJudulSearchTwoParameter(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionDosenNip());
+        presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionDosenNip());
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +83,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.getJudulSearchTwoParameter(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionDosenNip());
+                presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionDosenNip());
             }
         });
 
@@ -92,7 +92,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
     @Override
     public void onResume() {
         super.onResume();
-        presenter.getJudulSearchTwoParameter(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionDosenNip());
+        presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionDosenNip());
     }
 
     @Override

@@ -85,7 +85,7 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
         textViewDeskripsi.setText(extraJudulDeskripsi);
         textViewKategori.setText(extraJudulKategori);
 
-        proyekAkhirPresenter.searchProyekAkhir(PARAM_PROYEK_AKHIR, String.valueOf(extraJudulId));
+        proyekAkhirPresenter.searchAllProyekAkhirBy(PARAM_PROYEK_AKHIR, String.valueOf(extraJudulId));
 
         floatingActionButtonAccept.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,8 +97,6 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
         floatingActionButtonDecline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                judulPresenter.updateStatusJudul(extraJudulId, JUDUL_STATUS_DITOLAK);
-
                 proyekAkhirPresenter.deleteProyekAkhir(arrayListProyekAkhir.get(0).getProyek_akhir_id());
                 mahasiswaPresenter.updateMahasiswaJudul(arrayListProyekAkhir.get(0).getMhs_nim(), 0);
 
@@ -106,6 +104,8 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
                     proyekAkhirPresenter.deleteProyekAkhir(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getProyek_akhir_id());
                     mahasiswaPresenter.updateMahasiswaJudul(arrayListProyekAkhir.get(1).getMhs_nim(), 0);
                 }
+
+                judulPresenter.updateStatusJudul(extraJudulId, JUDUL_STATUS_DITOLAK);
 
             }
         });
@@ -138,17 +138,14 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
 
     @Override
     public void showProgress() {
-        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        progressDialog.dismiss();
     }
 
     @Override
     public void onSucces() {
-
     }
 
     @Override

@@ -6,10 +6,10 @@
 
     <application>
         <activity android:name=".activities.details.KoorJudulPaArsipActivity"></activity>
-        <activity android:name=".activities.details.KoorPemetaanMahasiswaMonevDetailActivity" />
+        <activity android:name=".activities.details.KoorPemetaanMonevDetailActivity" />
         <activity android:name=".activities.editors.KoorPemetaanMahasiswaMonevTambahActivity" />
-        <activity android:name=".AdminPemberitahuanActivity" />
-        <activity android:name=".AdminProfilActivity" />
+        <activity android:name=".activities.AdminPemberitahuanActivity" />
+        <activity android:name=".activities.AdminProfilActivity" />
         <activity android:name=".activities.editors.KoorMahasiswaTambahActivity" />
         <activity android:name=".activities.editors.KoorDosenTambahActivity" />
         <activity android:name=".activities.editors.KoorInformasiTambahActivity" />

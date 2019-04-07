@@ -35,6 +35,8 @@ import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS
 public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implements JudulWorkView, ProyekAkhirListView {
 
     public static final String EXTRA_INFORMASI = "extra_informasi";
+    public static final String PARAM_JUDUL_ID = "proyek_akhir.judul_id";
+    public static final String PARAM_JUDUL_STATUS = "judul.judul_status";
     private Judul extradata;
     private JudulPresenter judulPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
@@ -62,6 +64,8 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
         empty_view = findViewById(R.id.view_emptyview);
         swipeRefreshLayout = findViewById(R.id.swipe_refresh);
 
+        recyclerView.setNestedScrollingEnabled(false);
+
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         judulPresenter = new JudulPresenter(this);
         dialog = new ProgressDialog(this);
@@ -82,12 +86,12 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
         tv_kategori.setText(kategori);
         tv_deskripsi.setText(deskripsi);
 
-        proyekAkhirPresenter.getNamaTimByParam(judul_id, JUDUL_STATUS_TERSEDIA);
+        proyekAkhirPresenter.searchDistinctProyekAkhirBy(PARAM_JUDUL_ID, String.valueOf(judul_id));
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                proyekAkhirPresenter.getNamaTimByParam(judul_id, JUDUL_STATUS_TERSEDIA);
+                proyekAkhirPresenter.searchDistinctProyekAkhirBy(PARAM_JUDUL_ID, String.valueOf(judul_id));
             }
         });
 

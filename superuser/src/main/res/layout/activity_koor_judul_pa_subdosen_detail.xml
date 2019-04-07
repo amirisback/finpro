@@ -39,7 +39,7 @@
                 <TextView
                     android:id="@+id/frg_koor_pa_textview_judulpa"
                     style="@style/textview_pa_color_primary"
-                    android:text="@string/dummy_pa_judul"/>
+                    tools:text="@string/dummy_pa_judul"/>
 
                 <View
                     android:layout_marginTop="@dimen/dimen_medium"
@@ -58,7 +58,7 @@
                     android:id="@+id/frg_koor_pa_textview_kategoripa"
                     android:text="@string/dummy_kategori"
                     style="@style/textview_pa_color_black"
-                    android:layout_marginBottom="@dimen/dimen_medium"/>
+                    tools:layout_marginBottom="@dimen/dimen_medium"/>
 
             </LinearLayout>
 
@@ -90,7 +90,7 @@
                 <TextView
                     android:id="@+id/frg_dsn_pa_textview_deskripsi"
                     style="@style/textview_pa_color_black_small"
-                    android:text="@string/dummyLong"
+                    tools:text="@string/dummyLong"
                     android:layout_marginBottom="@dimen/dimen_medium"/>
 
             </LinearLayout>

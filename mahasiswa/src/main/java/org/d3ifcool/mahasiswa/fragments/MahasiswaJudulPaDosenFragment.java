@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -30,7 +29,7 @@ import org.d3ifcool.service.presenters.JudulPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.FIELD_DOSEN_NAMA;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAM_DOSEN_NAMA;
 
 
 /**
@@ -102,7 +101,7 @@ public class MahasiswaJudulPaDosenFragment extends Fragment implements DosenList
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     String spinnerItemPosition = parent.getItemAtPosition(position).toString();
-                    judulPresenter.getJudulSearchShowMahasiswa(FIELD_DOSEN_NAMA, spinnerItemPosition);
+                    judulPresenter.searchJudulMahasiswaBy(PARAM_DOSEN_NAMA, spinnerItemPosition);
                 }
 
                 @Override
@@ -115,7 +114,7 @@ public class MahasiswaJudulPaDosenFragment extends Fragment implements DosenList
                 @Override
                 public void onRefresh() {
                     dosenPresenter.getDosen();
-                    judulPresenter.getJudulSearchShowMahasiswa(FIELD_DOSEN_NAMA, sp_dosen.getSelectedItem().toString());
+                    judulPresenter.searchJudulMahasiswaBy(PARAM_DOSEN_NAMA, sp_dosen.getSelectedItem().toString());
                 }
             });
         }

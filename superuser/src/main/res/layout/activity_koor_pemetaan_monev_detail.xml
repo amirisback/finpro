@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="@dimen/dimen_medium"
-    android:layout_marginLeft="@dimen/dimen_medium"
-    android:layout_marginRight="@dimen/dimen_medium"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:background="@color/colorBackground"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_big"
-        android:layout_marginLeft="@dimen/dimen_big"
-        android:text="@string/text_proyek_akhir"/>
+        android:text="@string/text_proyek_akhir"
+        android:layout_margin="@dimen/dimen_big"/>
 
     <androidx.cardview.widget.CardView
-        android:layout_marginTop="@dimen/dimen_medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -24,7 +21,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="@dimen/dimen_medium">
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_medium">
+
             <TextView
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_width="wrap_content"
@@ -34,7 +33,7 @@
             <TextView
                 android:id="@+id/ctn_koor_pemetaan_judul"
                 style="@style/textview_pa_color_black"
-                android:text="@string/dummy_pa_judul"/>
+                tools:text="@string/dummy_pa_judul"/>
 
             <View
                 android:layout_width="match_parent"
@@ -51,7 +50,7 @@
             <TextView
                 android:id="@+id/ctn_koor_pemetaan_kelompok"
                 style="@style/textview_pa_color_black"
-                android:text="@string/dummy_mahasiswa_kelompok"/>
+                tools:text="@string/dummy_mahasiswa_kelompok"/>
 
             <View
                 android:layout_width="match_parent"
@@ -69,53 +68,45 @@
                 android:id="@+id/ctn_koor_pemetaan_anggota1"
                 android:layout_marginLeft="@dimen/dimen_big"
                 style="@style/textwiew_item_dosen_mahasiswa_nama"
-                android:text="@string/dummy_anggota_kelompok_1"/>
+                tools:text="@string/dummy_anggota_kelompok_1"/>
             <TextView
                 android:id="@+id/ctn_koor_pemetaan_anggota2"
                 android:layout_marginLeft="@dimen/dimen_big"
                 style="@style/textwiew_item_dosen_mahasiswa_nama"
-                android:text="@string/dummy_anggota_kelompok_2"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_view_line"
-                android:background="@color/colorBackground"
-                android:layout_marginTop="@dimen/dimen_medium"/>
-
-
+                tools:text="@string/dummy_anggota_kelompok_2"/>
 
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_big"
-        android:layout_marginLeft="@dimen/dimen_big"
+        android:layout_margin="@dimen/dimen_big"
         android:text="@string/text_dosen_reviewer"/>
 
     <androidx.cardview.widget.CardView
-        android:layout_marginTop="@dimen/dimen_big"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/text_nama_reviewer"/>
+
             <TextView
                 android:id="@+id/ctn_koor_pemetaan_reviewer"
-                style="@style/textview_pa_color_primary_icon"
-                android:text="@string/dummy_dosen_reviewer"/>
-            <View
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_view_line"
-                android:background="@color/colorBackground" />
+                style="@style/textview_pa_color_primary"
+                tools:text="@string/dummy_dosen_reviewer" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

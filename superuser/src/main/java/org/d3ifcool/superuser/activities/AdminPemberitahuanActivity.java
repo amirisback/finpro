@@ -1,8 +1,10 @@
-package org.d3ifcool.superuser;
+package org.d3ifcool.superuser.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import org.d3ifcool.superuser.R;
 
 public class AdminPemberitahuanActivity extends AppCompatActivity {
 

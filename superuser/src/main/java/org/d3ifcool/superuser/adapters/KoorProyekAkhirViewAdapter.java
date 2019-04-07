@@ -11,6 +11,7 @@ import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.superuser.R;
+import org.d3ifcool.superuser.activities.details.KoorJudulPaSubdosenDetailActivity;
 import org.d3ifcool.superuser.activities.details.KoorProyekAkhirDetailActivity;
 
 import java.util.ArrayList;
@@ -36,60 +37,53 @@ import androidx.recyclerview.widget.RecyclerView;
  * id.amirisback.frogobox
  */
 public class KoorProyekAkhirViewAdapter extends RecyclerView.Adapter<KoorProyekAkhirViewAdapter.ViewHolder> {
-    private Context mContext;
-    private ArrayList<ProyekAkhir> proyekAkhirs;
-    private ArrayList<Judul> juduls;
-    private ArrayList<Dosen> dosens;
-    private int layoutType;
 
-    public KoorProyekAkhirViewAdapter(Context mContext) {
-        this.mContext = mContext;
+    private Context context;
+    private ArrayList<Judul> judul;
+
+    public KoorProyekAkhirViewAdapter(Context context) {
+        this.context = context;
     }
 
-    public void setProyekAkhirs(ArrayList<ProyekAkhir> proyekAkhirs) {
-        this.proyekAkhirs = proyekAkhirs;
+    public void additem(ArrayList<Judul> juduls){
+        this.judul = juduls;
+        notifyDataSetChanged();
     }
 
-    public void setLayoutType(int layoutType) {
-        this.layoutType = layoutType;
+    public static class ViewHolder extends RecyclerView.ViewHolder{
+        TextView judulpa, kategori, pembimbing;
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            judulpa = itemView.findViewById(R.id.ctn_koor_pa_textview_judul);
+            kategori = itemView.findViewById(R.id.ctn_koor_pa_textview_kategori);
+            pembimbing = itemView.findViewById(R.id.ctn_koor_pa_textview_dosenbimbing);
+        }
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(layoutType,parent,false);
-        return new ViewHolder(view);
+    public org.d3ifcool.superuser.adapters.KoorProyekAkhirViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.content_item_koor_pa, parent, false);
+        return new org.d3ifcool.superuser.adapters.KoorProyekAkhirViewAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.judul.setText("finpro - an mobile based final project management system");
-        holder.kategori.setText("android");
-        holder.pembimbing.setText("Hariandi Maulid");
-        holder.kelompok.setText("seven primavera");
+    public void onBindViewHolder(@NonNull org.d3ifcool.superuser.adapters.KoorProyekAkhirViewAdapter.ViewHolder holder, final int position) {
+        holder.judulpa.setText(judul.get(position).getJudul());
+        holder.kategori.setText(judul.get(position).getKategori_nama());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, KoorProyekAkhirDetailActivity.class);
-                mContext.startActivity(intent);
+                Intent intent = new Intent(context, KoorProyekAkhirDetailActivity.class);
+                Judul parcelJudul = judul.get(position);
+                intent.putExtra(KoorProyekAkhirDetailActivity.EXTRA_JUDUL, parcelJudul);
+                context.startActivity(intent);
             }
         });
-
     }
 
     @Override
     public int getItemCount() {
-        return 1;
-    }
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView judul, kelompok, pembimbing, kategori;
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            judul = itemView.findViewById(R.id.ctn_koor_pa_textview_judul);
-            kelompok = itemView.findViewById(R.id.ctn_koor_pa_textview_kelompok);
-            pembimbing = itemView.findViewById(R.id.ctn_koor_pa_textview_dosenbimbing);
-            kategori = itemView.findViewById(R.id.ctn_koor_pa_textview_kategori);
-        }
+        return judul.size();
     }
 }

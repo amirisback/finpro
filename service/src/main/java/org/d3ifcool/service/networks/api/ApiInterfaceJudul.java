@@ -58,7 +58,6 @@ public interface ApiInterfaceJudul {
             @Field("judul_status") String judul_status
     );
 
-
     @FormUrlEncoded
     @POST(URL_JUDUL_PA + PATH_UPDATE + PARAMETER_JUDUL)
     Call<Judul> updateJudul(
@@ -71,26 +70,6 @@ public interface ApiInterfaceJudul {
     @GET(URL_JUDUL_PA)
     Call<List<Judul>> getJudul();
 
-    @GET(URL_JUDUL_PA + PATH_SEARCH + BASE_PARAMETER + PARAMETER_QUERY)
-    Call<List<Judul>> getJudulSearch(
-            @Path(VAR_PARAMS) String parameter,
-            @Path(VAR_QUERY) String query
-    );
-
-    @GET(URL_JUDUL_PA + PATH_SEARCH + BASE_PARAMETER_1 + PARAMETER_QUERY_1 + BASE_PARAMETER_2 + PARAMETER_QUERY_2)
-    Call<List<Judul>> getJudulSearchTwoParameter(
-            @Path(VAR_PARAMS+"1") String parameter1,
-            @Path(VAR_QUERY+"1") String query1,
-            @Path(VAR_PARAMS+"2") String parameter2,
-            @Path(VAR_QUERY+"2") String query2
-    );
-
-    @GET(URL_JUDUL_PA + PATH_SEARCH + PATH_MAHASISWA + BASE_PARAMETER + PARAMETER_QUERY)
-    Call<List<Judul>> getJudulSearchShowMahasiswa(
-            @Path(VAR_PARAMS) String parameter,
-            @Path(VAR_QUERY) String query
-    );
-
     @POST(URL_JUDUL_PA + PATH_DELETE + PARAMETER_JUDUL)
     Call<Judul> deleteJudul(@Path(VAR_JUDUL) int judul_id);
 
@@ -98,5 +77,25 @@ public interface ApiInterfaceJudul {
     @POST(URL_JUDUL_PA + PATH_UPDATE + PATH_STATUS + PARAMETER_JUDUL)
     Call<Judul> updateStatusJudul(@Path(VAR_JUDUL) int judul_id,
                                   @Field("judul_status") String judul_status);
+
+    @GET(URL_JUDUL_PA + PATH_SEARCH + BASE_PARAMETER + PARAMETER_QUERY)
+    Call<List<Judul>> searchJudulBy(
+            @Path(VAR_PARAMS) String parameter,
+            @Path(VAR_QUERY) String query
+    );
+
+    @GET(URL_JUDUL_PA + PATH_SEARCH + BASE_PARAMETER_1 + PARAMETER_QUERY_1 + BASE_PARAMETER_2 + PARAMETER_QUERY_2)
+    Call<List<Judul>> searchJudulByTwo(
+            @Path(VAR_PARAMS+"1") String parameter1,
+            @Path(VAR_QUERY+"1") String query1,
+            @Path(VAR_PARAMS+"2") String parameter2,
+            @Path(VAR_QUERY+"2") String query2
+    );
+
+    @GET(URL_JUDUL_PA + PATH_SEARCH + PATH_MAHASISWA + BASE_PARAMETER + PARAMETER_QUERY)
+    Call<List<Judul>> searchJudulMahasiswaBy(
+            @Path(VAR_PARAMS) String parameter,
+            @Path(VAR_QUERY) String query
+    );
 
 }
