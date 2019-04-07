@@ -39,10 +39,10 @@
             style="@style/textview_item_list_judul_pa"/>
 
         <TextView
-            android:drawableStart="@drawable/ic_content_judul_pa_kategori"
-            android:id="@+id/ctn_dsn_pa_monev_textview_kategori"
+            android:id="@+id/ctn_dsn_pa_monev_textview_kelompok"
             android:text="@string/dummy"
-            style="@style/textview_item_list_judul_kategori"/>
+            style="@style/textview_item_list_judul_pa"
+            android:drawableLeft="@drawable/ic_content_judul_pa_kelompok"/>
 
     </LinearLayout>
 
