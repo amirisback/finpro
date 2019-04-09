@@ -12,6 +12,7 @@ import android.widget.TextView;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.details.DosenMonevDetailActivity;
 import org.d3ifcool.service.models.DetailMonev;
+import org.d3ifcool.service.models.ProyekAkhir;
 
 import java.util.ArrayList;
 
@@ -74,6 +75,8 @@ public class DosenMonevViewAdapter extends RecyclerView.Adapter<DosenMonevViewAd
             @Override
             public void onClick(View v) {
                 Intent intentData = new Intent(context, DosenMonevDetailActivity.class);
+                DetailMonev parcelDetailMonev = data.get(position);
+                intentData.putExtra(DosenMonevDetailActivity.EXTRA_MONEV, parcelDetailMonev);
                 context.startActivity(intentData);
             }
         });

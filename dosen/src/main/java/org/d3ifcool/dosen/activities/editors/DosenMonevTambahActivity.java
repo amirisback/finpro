@@ -18,6 +18,9 @@ import org.d3ifcool.service.presenters.DetailMonevPresenter;
 import org.d3ifcool.service.presenters.MonevPresenter;
 
 public class DosenMonevTambahActivity extends AppCompatActivity implements DetailMonevWorkView {
+
+    public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
+
     private ProgressDialog dialog;
     private DetailMonevPresenter presenter;
 
@@ -28,7 +31,7 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Detai
 
         setTitle(getString(R.string.title_monev_tambah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setElevation(0);
+
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.text_progress_dialog));
         presenter = new DetailMonevPresenter(this);
@@ -38,7 +41,7 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Detai
 
         String review = et_review_monev.getText().toString();
         String nilai_st = et_nilai_monev.getText().toString();
-        int nilai = Integer.parseInt(nilai_st);
+//        int nilai = Integer.parseInt(nilai_st);
 
         if (review.isEmpty()){
             et_review_monev.setError("Review Ini Harus Di isi");
@@ -51,7 +54,6 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Detai
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_edit_delete,menu);
         return super.onCreateOptionsMenu(menu);
     }
 

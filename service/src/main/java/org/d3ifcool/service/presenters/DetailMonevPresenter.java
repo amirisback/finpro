@@ -42,11 +42,11 @@ public class DetailMonevPresenter {
         this.viewEditor = viewEditor;
     }
 
-    public void createDetailMonev(int monev_nilai, String monev_tanggal, String monev_ulasan, String monev_reviewer, int monev_id, int proyek_akhir_id
+    public void createDetailMonev(int monev_nilai, String monev_tanggal, String monev_ulasan, int monev_id, int proyek_akhir_id
     ){
         viewEditor.showProgress();
         ApiInterfaceDetailMonev apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceDetailMonev.class);
-        Call<DetailMonev> call = apiInterfaceDetailMonev.createDetailMonev(monev_nilai, monev_tanggal, monev_ulasan, monev_reviewer, monev_id, proyek_akhir_id);
+        Call<DetailMonev> call = apiInterfaceDetailMonev.createDetailMonev(monev_nilai, monev_tanggal, monev_ulasan, monev_id, proyek_akhir_id);
         call.enqueue(new Callback<DetailMonev>() {
             @Override
             public void onResponse(Call<DetailMonev> call, Response<DetailMonev> response) {
@@ -100,10 +100,10 @@ public class DetailMonevPresenter {
         });
     }
 
-    public void updateDetailMonev(int monev_detail_id, int monev_nilai, String monev_tanggal, String monev_ulasan, String monev_reviewer){
+    public void updateDetailMonev(int monev_detail_id, int monev_nilai, String monev_tanggal, String monev_ulasan){
         viewEditor.showProgress();
         ApiInterfaceDetailMonev apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceDetailMonev.class);
-        Call<DetailMonev> call = apiInterfaceDetailMonev.updateDetailMonev(monev_detail_id, monev_nilai, monev_tanggal, monev_ulasan, monev_reviewer);
+        Call<DetailMonev> call = apiInterfaceDetailMonev.updateDetailMonev(monev_detail_id, monev_nilai, monev_tanggal, monev_ulasan);
         call.enqueue(new Callback<DetailMonev>() {
             @Override
             public void onResponse(Call<DetailMonev> call, Response<DetailMonev> response) {
@@ -120,10 +120,29 @@ public class DetailMonevPresenter {
 
     }
 
-    public void searchDetailMonevBy2(String parameter1, String query1, String parameter2, String query2) {
+    public void searchDetailMonevByTwo(String parameter1, String query1, String parameter2, String query2) {
         viewResult.showProgress();
         ApiInterfaceDetailMonev apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceDetailMonev.class);
-        Call<List<DetailMonev>> call = apiInterfaceDetailMonev.getDetailMonevSearchTwoParameter(parameter1, query1, parameter2, query2);
+        Call<List<DetailMonev>> call = apiInterfaceDetailMonev.searchDetailMonevByTwo(parameter1, query1, parameter2, query2);
+        call.enqueue(new Callback<List<DetailMonev>>() {
+            @Override
+            public void onResponse(Call<List<DetailMonev>> call, Response<List<DetailMonev>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetListDetailMonev(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<DetailMonev>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getMessage());
+            }
+        });
+    }
+
+    public void searchDetailMonevBy(String parameter, String query){
+        viewResult.showProgress();
+        ApiInterfaceDetailMonev apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceDetailMonev.class);
+        Call<List<DetailMonev>> call = apiInterfaceDetailMonev.searchDetailMonevBy(parameter, query);
         call.enqueue(new Callback<List<DetailMonev>>() {
             @Override
             public void onResponse(Call<List<DetailMonev>> call, Response<List<DetailMonev>> response) {

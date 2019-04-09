@@ -1,7 +1,7 @@
 package org.d3ifcool.dosen.activities.details;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.cardview.widget.CardView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,47 +9,89 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.activities.editors.DosenMonevTambahActivity;
-import org.d3ifcool.service.interfaces.lists.MonevListView;
-import org.d3ifcool.service.models.Monev;
-import org.d3ifcool.service.presenters.DetailMonevPresenter;
+import org.d3ifcool.service.interfaces.lists.BimbinganListView;
+import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
+import org.d3ifcool.service.models.Bimbingan;
+import org.d3ifcool.service.models.ProyekAkhir;
+import org.d3ifcool.service.presenters.BimbinganPresenter;
+import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class DosenProyekAkhirMonevActivity extends AppCompatActivity implements MonevListView {
+public class DosenProyekAkhirMonevActivity extends AppCompatActivity implements ProyekAkhirListView, BimbinganListView {
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
-    private RecyclerView recyclerView;
-    private ProgressDialog dialog;
-    private FloatingActionButton actionButton;
-    private DetailMonevPresenter presenter;
+    private static final String PARAM_PROYEK_AKHIR = "proyek_akhir.judul_id";
+    private static final String PARAM_BIMBINGAN = "bimbingan.proyek_akhir_id";
+
+    private ProgressDialog progressDialog;
+    private CardView cardViewMhs1, cardViewMhs2;
+    private ProyekAkhirPresenter proyekAkhirPresenter;
+    private BimbinganPresenter bimbinganPresenter;
+    private ArrayList<ProyekAkhir> proyekAkhirArrayList = new ArrayList<>();
+    private ArrayList<Bimbingan> bimbinganArrayList = new ArrayList<>();
+    private TextView textViewBimbingan, textViewNim1, textViewNim2, textViewNama1, textViewNama2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dosen_proyek_akhir_monev);
 
-        recyclerView = findViewById(R.id.act_mhs_pa_monev_detail_recyclerview);
-        dialog = new ProgressDialog(this);
-        actionButton = findViewById(R.id.act_dsn_monev_tambah);
-//        presenter = new DetailMonevPresenter(this);
-
-        setTitle(getString(R.string.title_mahasiswa_detail));
+        setTitle(getString(R.string.title_proyekakhir_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0);
 
-        actionButton.setOnClickListener(new View.OnClickListener() {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
+        proyekAkhirPresenter = new ProyekAkhirPresenter(this);
+        bimbinganPresenter = new BimbinganPresenter(this);
+
+        TextView textViewJudul = findViewById(R.id.frg_mhs_pa_textview_judulpa);
+        TextView textViewKelompok = findViewById(R.id.frg_mhs_pa_textview_kelompokpa);
+        textViewBimbingan = findViewById(R.id.act_mhs_pa_monev_bimbingan);
+        textViewNim1= findViewById(R.id.frg_mhs_pa_nim_1);
+        textViewNim2 = findViewById(R.id.frg_mhs_pa_nim_2);
+        textViewNama1 = findViewById(R.id.frg_mhs_pa_nama_1);
+        textViewNama2 = findViewById(R.id.frg_mhs_pa_nama_2);
+
+        cardViewMhs1 = findViewById(R.id.card_view_mhs_1);
+        cardViewMhs2 = findViewById(R.id.card_view_mhs_2);
+
+        ProyekAkhir extraProyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
+        String extraJudul = extraProyekAkhir.getJudul_nama();
+        String extraNamaTim = extraProyekAkhir.getNama_tim();
+        String extraJudulId = String.valueOf(extraProyekAkhir.getJudul_id());
+
+        textViewJudul.setText(extraJudul);
+        textViewKelompok.setText(extraNamaTim);
+
+        proyekAkhirPresenter.searchAllProyekAkhirBy(PARAM_PROYEK_AKHIR, extraJudulId);
+
+        cardViewMhs1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DosenProyekAkhirMonevActivity.this, DosenMonevTambahActivity.class);
-                startActivity(intent);
+            public void onClick(View v) {
+                Intent intentMhs1 = new Intent(DosenProyekAkhirMonevActivity.this, DosenMonevMahasiswaActivity.class);
+                ProyekAkhir parcelProyekAkhir = proyekAkhirArrayList.get(0);
+                intentMhs1.putExtra(DosenMonevMahasiswaActivity.EXTRA_PROYEK_AKHIR_MONEV, parcelProyekAkhir);
+                startActivity(intentMhs1);
+
             }
         });
 
+        cardViewMhs2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMhs2 = new Intent(DosenProyekAkhirMonevActivity.this, DosenMonevMahasiswaActivity.class);
+                ProyekAkhir parcelProyekAkhir = proyekAkhirArrayList.get(1);
+                intentMhs2.putExtra(DosenMonevMahasiswaActivity.EXTRA_PROYEK_AKHIR_MONEV, parcelProyekAkhir);
+                startActivity(intentMhs2);
+            }
+        });
 
     }
 
@@ -70,24 +112,48 @@ public class DosenProyekAkhirMonevActivity extends AppCompatActivity implements 
         return super.onOptionsItemSelected(item);
     }
 
+
     @Override
     public void showProgress() {
-
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-
+        progressDialog.dismiss();
     }
 
     @Override
-    public void onGetListMonev(List<Monev> monevList) {
-
+    public void onGetListBimbingan(List<Bimbingan> bimbinganList) {
+        bimbinganArrayList.clear();
+        bimbinganArrayList.addAll(bimbinganList);
+        textViewBimbingan.setText(String.valueOf(bimbinganArrayList.size()));
     }
 
+    @Override
+    public void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList) {
+        proyekAkhirArrayList.clear();
+        proyekAkhirArrayList.addAll(proyekAkhirList);
+
+        String stringProyekAkhirId = String.valueOf(proyekAkhirArrayList.get(0).getProyek_akhir_id());
+
+        bimbinganPresenter.searchBimbingan(PARAM_BIMBINGAN, stringProyekAkhirId);
+
+        if (proyekAkhirArrayList.size() == 2) {
+            textViewNama1.setText(proyekAkhirArrayList.get(0).getMhs_nama());
+            textViewNama2.setText(proyekAkhirArrayList.get(1).getMhs_nama());
+            textViewNim1.setText(proyekAkhirArrayList.get(0).getMhs_nim());
+            textViewNim2.setText(proyekAkhirArrayList.get(1).getMhs_nim());
+        } else {
+            textViewNama1.setText(proyekAkhirArrayList.get(0).getMhs_nama());
+            textViewNim1.setText(proyekAkhirArrayList.get(0).getMhs_nim());
+            cardViewMhs2.setVisibility(View.GONE);
+        }
+
+    }
 
     @Override
     public void onFailed(String message) {
-
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

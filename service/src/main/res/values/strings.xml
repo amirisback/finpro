@@ -253,6 +253,9 @@
     <string name="text_status_sidang_hasil">Lulus</string>
     <string name="dummy_email">ikhsanramadhan28@gmail.com</string>
     <string name="text_input_dosen_reviewer">Pilih dosen reviewer</string>
+    <string name="title_monev_mahasiswa">Monev Mahasiswa</string>
+    <string name="text_tanggal_monev">Tanggal Monev</string>
+    <string name="text_nilai_monev">Nilai Monev</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>
