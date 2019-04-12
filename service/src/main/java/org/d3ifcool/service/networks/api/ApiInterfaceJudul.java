@@ -63,7 +63,7 @@ public interface ApiInterfaceJudul {
     Call<Judul> updateJudul(
             @Path("judul") int judul_id,
             @Field("judul_nama") String judul_nama,
-            @Field("judul_kategori") String judul_kategori,
+            @Field("kategori_id") int kategori_id,
             @Field("judul_deskripsi") String judul_deskripsi
     );
 

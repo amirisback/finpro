@@ -63,7 +63,7 @@ public class JudulPresenter {
 
     }
 
-    public void updateJudul (int id, String judul_nama, String judul_kategori, String judul_deskripsi, String nip_dosen){
+    public void updateJudul (int id, String judul_nama, int judul_kategori, String judul_deskripsi){
         viewEditor.showProgress();
         ApiInterfaceJudul apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
         Call<Judul> call = apiInterface.updateJudul(id, judul_nama,judul_kategori,judul_deskripsi);
@@ -135,7 +135,7 @@ public class JudulPresenter {
             @Override
             public void onFailure(Call<Judul> call, Throwable t) {
                 viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
+                viewEditor.onFailed(t.getLocalizedMessage());
             }
         });
 
@@ -156,7 +156,7 @@ public class JudulPresenter {
             @Override
             public void onFailure(Call<List<Judul>> call, Throwable t) {
                 viewResult.hideProgress();
-                viewResult.onFailed(t.getMessage());
+                viewResult.onFailed(t.getLocalizedMessage());
             }
         });
     }
@@ -175,7 +175,7 @@ public class JudulPresenter {
             @Override
             public void onFailure(Call<List<Judul>> call, Throwable t) {
                 viewResult.hideProgress();
-                viewResult.onFailed(t.getMessage());
+                viewResult.onFailed(t.getLocalizedMessage());
             }
         });
     }
@@ -194,7 +194,7 @@ public class JudulPresenter {
             @Override
             public void onFailure(Call<List<Judul>> call, Throwable t) {
                 viewResult.hideProgress();
-                viewResult.onFailed(t.getMessage());
+                viewResult.onFailed(t.getLocalizedMessage());
             }
         });
     }

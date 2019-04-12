@@ -73,7 +73,7 @@ public class ProyekAkhirPresenter {
             @Override
             public void onFailure(Call<ProyekAkhir> call, Throwable t) {
                 viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
+                viewEditor.onFailed(t.getLocalizedMessage());
             }
         });
 
@@ -92,7 +92,7 @@ public class ProyekAkhirPresenter {
             @Override
             public void onFailure(Call<List<ProyekAkhir>> call, Throwable t) {
                 viewResult.hideProgress();
-                viewResult.onFailed(t.getMessage());
+                viewResult.onFailed(t.getLocalizedMessage());
             }
         });
     }
@@ -110,7 +110,7 @@ public class ProyekAkhirPresenter {
             @Override
             public void onFailure(Call<ProyekAkhir> call, Throwable t) {
                 viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
+                viewEditor.onFailed(t.getLocalizedMessage());
             }
         });
     }
@@ -129,7 +129,7 @@ public class ProyekAkhirPresenter {
             @Override
             public void onFailure(Call<ProyekAkhir> call, Throwable t) {
                 viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
+                viewEditor.onFailed(t.getLocalizedMessage());
             }
         });
     }
@@ -148,7 +148,7 @@ public class ProyekAkhirPresenter {
             @Override
             public void onFailure(Call<ProyekAkhir> call, Throwable t) {
                 viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
+                viewEditor.onFailed(t.getLocalizedMessage());
             }
         });
     }
@@ -167,7 +167,7 @@ public class ProyekAkhirPresenter {
             @Override
             public void onFailure(Call<ProyekAkhir> call, Throwable t) {
                 viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
+                viewEditor.onFailed(t.getLocalizedMessage());
             }
         });
 
@@ -186,7 +186,7 @@ public class ProyekAkhirPresenter {
             @Override
             public void onFailure(Call<ProyekAkhir> call, Throwable t) {
                 viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
+                viewEditor.onFailed(t.getLocalizedMessage());
             }
         });
 
@@ -206,7 +206,7 @@ public class ProyekAkhirPresenter {
             @Override
             public void onFailure(Call<List<ProyekAkhir>> call, Throwable t) {
                 viewResult.hideProgress();
-                viewResult.onFailed(t.getMessage());
+                viewResult.onFailed(t.getLocalizedMessage());
             }
         });
     }
@@ -225,7 +225,7 @@ public class ProyekAkhirPresenter {
             @Override
             public void onFailure(Call<List<ProyekAkhir>> call, Throwable t) {
                 viewResult.hideProgress();
-                viewResult.onFailed(t.getMessage());
+                viewResult.onFailed(t.getLocalizedMessage());
             }
         });
     }
@@ -244,7 +244,7 @@ public class ProyekAkhirPresenter {
             @Override
             public void onFailure(Call<List<ProyekAkhir>> call, Throwable t) {
                 viewResult.hideProgress();
-                viewResult.onFailed(t.getMessage());
+                viewResult.onFailed(t.getLocalizedMessage());
             }
         });
     }
@@ -263,7 +263,7 @@ public class ProyekAkhirPresenter {
             @Override
             public void onFailure(Call<List<ProyekAkhir>> call, Throwable t) {
                 viewResult.hideProgress();
-                viewResult.onFailed(t.getMessage());
+                viewResult.onFailed(t.getLocalizedMessage());
             }
         });
     }

@@ -38,7 +38,6 @@ public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implem
     private ProgressDialog dialog;
     private int getIdKategori;
 
-
     private ArrayList<KategoriJudul> arrayListKategoriJudul = new ArrayList<>();
 
     @Override

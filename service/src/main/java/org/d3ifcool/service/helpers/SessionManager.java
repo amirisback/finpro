@@ -38,6 +38,7 @@ public class SessionManager {
     private static final String PENGGUNA = "PENGGUNA";
 
     private static final String DSN_NIP = "DSN_NIP";
+    private static final String DSN_NIP_TEMP = "DSN_NIP_TEMP";
     private static final String DSN_NAMA = "DSN_NAMA";
     private static final String DSN_FOTO = "DSN_FOTO";
     private static final String DSN_EMAIL = "DSN_EMAIL";
@@ -97,7 +98,7 @@ public class SessionManager {
     }
 
     public void createSessionDataDosen(Dosen dosen){
-        editor.putString(DSN_NIP, getSessionUsername());
+        editor.putString(DSN_NIP, dosen.getDsn_nip());
         editor.putString(DSN_NAMA, dosen.getDsn_nama());
         editor.putString(DSN_FOTO, dosen.getDsn_foto());
         editor.putString(DSN_EMAIL, dosen.getDsn_email());
