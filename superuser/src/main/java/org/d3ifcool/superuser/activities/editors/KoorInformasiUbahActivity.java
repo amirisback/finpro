@@ -54,7 +54,7 @@ public class KoorInformasiUbahActivity extends AppCompatActivity implements Info
                 new AlertDialog
                         .Builder(KoorInformasiUbahActivity.this)
                         .setTitle(getString(R.string.dialog_ubah_title))
-                        .setMessage(getString(R.string.dialog_ubah))
+                        .setMessage(getString(R.string.dialog_ubah_text))
                         .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {

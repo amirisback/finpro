@@ -2,17 +2,29 @@ package org.d3ifcool.superuser.activities.details;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import org.d3ifcool.service.interfaces.works.JudulWorkView;
 import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.service.presenters.JudulPresenter;
 import org.d3ifcool.superuser.R;
+import org.d3ifcool.superuser.activities.editors.KoorJudulPaSubdosenUbahActivity;
 
-public class KoorJudulPaSubdosenDetailActivity extends AppCompatActivity {
+public class KoorJudulPaSubdosenDetailActivity extends AppCompatActivity implements JudulWorkView {
 
     public static final String EXTRA_JUDUL = "extra_judul";
+    private JudulPresenter judulPresenter;
+    private ProgressDialog progressDialog;
+
+    private int extraJudulId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +34,15 @@ public class KoorJudulPaSubdosenDetailActivity extends AppCompatActivity {
         setTitle(getString(org.d3ifcool.dosen.R.string.title_judulpa_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        judulPresenter = new JudulPresenter(this);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
+
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
         String extraJudulNama = extraJudul.getJudul();
         String extraJudulKategori = extraJudul.getKategori_nama();
         String extraJudulDeskripsi = extraJudul.getDeskripsi();
+        extraJudulId = extraJudul.getId();
 
         TextView textViewJudul = findViewById(R.id.frg_koor_pa_textview_judulpa);
         TextView textViewKategori = findViewById(R.id.frg_koor_pa_textview_kategoripa);
@@ -39,6 +56,7 @@ public class KoorJudulPaSubdosenDetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_edit_delete, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -50,12 +68,51 @@ public class KoorJudulPaSubdosenDetailActivity extends AppCompatActivity {
             finish();
 
         } else if (i == R.id.toolbar_menu_ubah) {
-            //
+            Intent intent = new Intent(KoorJudulPaSubdosenDetailActivity.this, KoorJudulPaSubdosenUbahActivity.class);
+            intent.putExtra(KoorJudulPaSubdosenUbahActivity.EXTRA_JUDUL, getIntent().getParcelableExtra(EXTRA_JUDUL));
+            startActivity(intent);
+            finish();
         } else if (i == R.id.toolbar_menu_hapus) {
-            //
+            new AlertDialog
+                    .Builder(this)
+                    .setTitle(getString(R.string.dialog_hapus_title))
+                    .setMessage(getString(R.string.dialog_hapus_text))
+
+                    .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Continue with delete operation
+                            judulPresenter.deleteJudul(extraJudulId);
+                        }
+                    })
+
+                    .setNegativeButton(R.string.tidak, null)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
+
+
         } else {
         }
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void showProgress() {
+        progressDialog.show();
+    }
+
+    @Override
+    public void hideProgress() {
+        progressDialog.show();
+    }
+
+    @Override
+    public void onSuccesWorkJudul() {
+        finish();
+    }
+
+    @Override
+    public void onFailed(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
 }

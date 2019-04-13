@@ -2,7 +2,9 @@ package org.d3ifcool.dosen.activities.editors;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -83,16 +85,30 @@ public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implemen
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String judul = et_judul.getText().toString();
-                int kategori = getIdKategori;
-                String deskripsi = et_deskripsi.getText().toString();
-                if(judul.isEmpty()){
-                    et_judul.setError("judul tidak boleh kosong");
-                }else if(deskripsi.isEmpty()){
-                    et_deskripsi.setError("deskripsi tidak boleh kosong");
-                }else{
-                    presenter.updateJudul(id, judul, kategori, deskripsi);
-                }
+                new AlertDialog
+                        .Builder(DosenJudulPaSubdosenUbahActivity.this)
+                        .setTitle(getString(R.string.dialog_ubah_title))
+                        .setMessage(getString(R.string.dialog_ubah_text))
+
+                        .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                String judul = et_judul.getText().toString();
+                                int kategori = getIdKategori;
+                                String deskripsi = et_deskripsi.getText().toString();
+                                if(judul.isEmpty()){
+                                    et_judul.setError("judul tidak boleh kosong");
+                                }else if(deskripsi.isEmpty()){
+                                    et_deskripsi.setError("deskripsi tidak boleh kosong");
+                                }else{
+                                    presenter.updateJudul(id, judul, kategori, deskripsi);
+                                }
+                            }
+                        })
+
+                        .setNegativeButton(R.string.tidak, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
             }
         });
 

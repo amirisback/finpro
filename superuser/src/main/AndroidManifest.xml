@@ -8,8 +8,8 @@
         <activity android:name=".activities.details.KoorJudulPaArsipActivity"></activity>
         <activity android:name=".activities.details.KoorPemetaanMonevDetailActivity" />
         <activity android:name=".activities.editors.KoorPemetaanMahasiswaMonevTambahActivity" />
-        <activity android:name=".activities.AdminPemberitahuanActivity" />
-        <activity android:name=".activities.AdminProfilActivity" />
+        <activity android:name=".activities.KoorPemberitahuanActivity" />
+        <activity android:name=".activities.KoorProfilActivity" />
         <activity android:name=".activities.editors.KoorMahasiswaTambahActivity" />
         <activity android:name=".activities.editors.KoorDosenTambahActivity" />
         <activity android:name=".activities.editors.KoorInformasiTambahActivity" />

@@ -24,7 +24,7 @@ import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.objects.KoorView;
 import org.d3ifcool.service.models.KoordinatorPa;
 import org.d3ifcool.service.presenters.KoorPresenter;
-import org.d3ifcool.superuser.activities.AdminProfilActivity;
+import org.d3ifcool.superuser.activities.KoorProfilActivity;
 import org.d3ifcool.superuser.fragments.KoorDosenFragment;
 import org.d3ifcool.superuser.fragments.KoorInformasiFragment;
 import org.d3ifcool.superuser.fragments.KoorKategoriJudulFragment;
@@ -98,7 +98,7 @@ public class AdminMainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.toolbar_menu_profil:
-                Intent intentProfil = new Intent(AdminMainActivity.this, AdminProfilActivity.class);
+                Intent intentProfil = new Intent(AdminMainActivity.this, KoorProfilActivity.class);
                 startActivity(intentProfil);
                 break;
             case R.id.toolbar_menu_keluar:

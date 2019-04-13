@@ -18,10 +18,11 @@ import org.d3ifcool.service.presenters.DosenPresenter;
 import org.d3ifcool.superuser.R;
 
 public class KoorDosenUbahActivity extends AppCompatActivity implements DosenWorkView {
+
     private EditText et_nip, et_nama,et_kode, et_kontak, et_email;
     private Button btn_simpan;
     private DosenPresenter presenter;
-    private ProgressDialog dialog;
+    private ProgressDialog progressDialog;
 
     public static final String EXTRA_DOSEN = "extra_dosen";
     private Dosen extraDosen;
@@ -30,8 +31,8 @@ public class KoorDosenUbahActivity extends AppCompatActivity implements DosenWor
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_dosen_ubah);
         presenter = new DosenPresenter(this);
-        dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.text_progress_dialog));
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         extraDosen =getIntent().getParcelableExtra(EXTRA_DOSEN);
         String nip = extraDosen.getDsn_nip();
@@ -59,7 +60,7 @@ public class KoorDosenUbahActivity extends AppCompatActivity implements DosenWor
                 new AlertDialog
                         .Builder(KoorDosenUbahActivity.this)
                         .setTitle(getString(R.string.dialog_ubah_title))
-                        .setMessage(getString(R.string.dialog_ubah))
+                        .setMessage(getString(R.string.dialog_ubah_text))
                         .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -92,24 +93,19 @@ public class KoorDosenUbahActivity extends AppCompatActivity implements DosenWor
         int i = item.getItemId();
         if (i == android.R.id.home) {
             finish();
-
-        } else if (i == R.id.toolbar_menu_ubah) {
-            //
-        } else if (i == R.id.toolbar_menu_hapus) {
-            //
-        } else {
         }
+
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override

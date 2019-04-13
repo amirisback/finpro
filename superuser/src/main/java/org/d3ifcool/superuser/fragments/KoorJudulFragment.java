@@ -123,6 +123,14 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        if (spinnerItemPosition != null) {
+            judulPresenter.searchJudulBy(PARAM_DOSEN_NAMA, spinnerItemPosition);
+        }
+    }
+
+    @Override
     public void showProgress() {
         progressDialog.show();
     }

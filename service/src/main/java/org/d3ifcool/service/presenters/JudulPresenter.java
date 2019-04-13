@@ -63,10 +63,10 @@ public class JudulPresenter {
 
     }
 
-    public void updateJudul (int id, String judul_nama, int judul_kategori, String judul_deskripsi){
+    public void updateJudul (int id, String judul_nama, int kategori_id, String judul_deskripsi){
         viewEditor.showProgress();
         ApiInterfaceJudul apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
-        Call<Judul> call = apiInterface.updateJudul(id, judul_nama,judul_kategori,judul_deskripsi);
+        Call<Judul> call = apiInterface.updateJudul(id, judul_nama,kategori_id,judul_deskripsi);
         call.enqueue(new Callback<Judul>() {
             @Override
             public void onResponse(Call<Judul> call, Response<Judul> response) {

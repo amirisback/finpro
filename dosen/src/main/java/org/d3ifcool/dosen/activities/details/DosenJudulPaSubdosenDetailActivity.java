@@ -37,6 +37,7 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
     public static final String EXTRA_INFORMASI = "extra_informasi";
     public static final String PARAM_JUDUL_ID = "proyek_akhir.judul_id";
     public static final String PARAM_JUDUL_STATUS = "judul.judul_status";
+
     private Judul extradata;
     private JudulPresenter judulPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;

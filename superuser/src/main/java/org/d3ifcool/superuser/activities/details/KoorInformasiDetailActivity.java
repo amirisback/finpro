@@ -59,7 +59,6 @@ public class KoorInformasiDetailActivity extends AppCompatActivity implements In
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.menu_edit_delete, menu);
         return super.onCreateOptionsMenu(menu);
     }

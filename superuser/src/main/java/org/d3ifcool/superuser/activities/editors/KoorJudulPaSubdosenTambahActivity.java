@@ -1,12 +1,8 @@
 package org.d3ifcool.superuser.activities.editors;
 
 import androidx.appcompat.app.AppCompatActivity;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,48 +14,62 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.d3ifcool.service.interfaces.lists.DosenListView;
+import org.d3ifcool.service.interfaces.lists.KategoriJudulListView;
 import org.d3ifcool.service.interfaces.works.JudulWorkView;
 import org.d3ifcool.service.models.Dosen;
-import org.d3ifcool.service.networks.api.ApiInterfaceDosen;
-import org.d3ifcool.service.networks.bridge.ApiClient;
+import org.d3ifcool.service.models.KategoriJudul;
+import org.d3ifcool.service.presenters.DosenPresenter;
 import org.d3ifcool.service.presenters.JudulPresenter;
+import org.d3ifcool.service.presenters.KategoriJudulPresenter;
 import org.d3ifcool.superuser.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity implements JudulWorkView {
-    private EditText et_judul, et_deskripsi;
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERSEDIA;
+
+public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity implements JudulWorkView, DosenListView, KategoriJudulListView {
+
     private Spinner sp_dosen, sp_kategori;
-    private JudulPresenter presenter;
-    private ProgressDialog dialog;
-    private Button btn_simpan;
-    private Context mContext;
-    private List<Dosen> dosens;
-    private String nip_dosen;
+    private JudulPresenter judulPresenter;
+    private DosenPresenter dosenPresenter;
+    private KategoriJudulPresenter kategoriJudulPresenter;
+    private ProgressDialog progressDialog;
+
+    private ArrayList<KategoriJudul> arrayListKategori = new ArrayList<>();
+    private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
+
+    private int getKategoriId;
+    private String getNipDosen;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_judul_pa_subdosen_tambah);
-        mContext = this;
-        et_judul = findViewById(R.id.act_koor_judul_pa_edittext_judul);
-        et_deskripsi = findViewById(R.id.act_koor_judul_pa_edittext_deskripsi);
-        sp_dosen = findViewById(R.id.act_koor_judul_pa_spinner_nama_dosen);
-        sp_kategori = findViewById(R.id.act_koor_judul_pa_spinner_kategori);
-        btn_simpan = findViewById(R.id.act_koor_judul_pa_button_simpan);
-
-        presenter = new JudulPresenter(this);
-        dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.text_progress_dialog));
 
         setTitle(getString(org.d3ifcool.dosen.R.string.title_judulpa_dosen_tambah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        initSpinner();
+        judulPresenter = new JudulPresenter(this);
+        dosenPresenter = new DosenPresenter(this);
+        kategoriJudulPresenter = new KategoriJudulPresenter(this);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
+
+        final EditText et_judul = findViewById(R.id.act_koor_judul_pa_edittext_judul);
+        final EditText et_deskripsi = findViewById(R.id.act_koor_judul_pa_edittext_deskripsi);
+        sp_dosen = findViewById(R.id.act_koor_judul_pa_spinner_nama_dosen);
+        sp_kategori = findViewById(R.id.act_koor_judul_pa_spinner_kategori);
+        Button btn_simpan = findViewById(R.id.act_koor_judul_pa_button_simpan);
+
+        dosenPresenter.getDosen();
+        kategoriJudulPresenter.getKategori();
+
         sp_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(mContext, nip_dosen, Toast.LENGTH_SHORT).show();
+                getNipDosen = arrayListDosen.get(position).getDsn_nip();
             }
 
             @Override
@@ -67,7 +77,61 @@ public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity impleme
 
             }
         });
+
+        sp_kategori.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                getKategoriId = arrayListKategori.get(position).getId();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+        btn_simpan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String judul = et_judul.getText().toString();
+                String deskripsi = et_deskripsi.getText().toString();
+                String nipDosen = getNipDosen;
+                int kategori = getKategoriId;
+
+                if(judul.isEmpty()){
+                    et_judul.setError("judul tidak boleh kosong");
+                }else if(deskripsi.isEmpty()){
+                    et_deskripsi.setError("deskripsi tidak boleh kosong");
+                }else{
+                    judulPresenter.createJudul(judul, kategori, deskripsi, nipDosen, JUDUL_STATUS_TERSEDIA);
+                }
+            }
+        });
+
     }
+
+    private void initSpinnerKategori(ArrayList<KategoriJudul> arrayList, Spinner spinner) {
+        List<String> spinnerItem = new ArrayList<>();
+        for (int i = 0; i < arrayList.size(); i++) {
+            spinnerItem.add(arrayList.get(i).getKategori_nama());
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, org.d3ifcool.mahasiswa.R.layout.support_simple_spinner_dropdown_item, spinnerItem);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+    }
+
+    private void initSpinnerDosen(ArrayList<Dosen> arrayList, Spinner spinner) {
+        List<String> spinnerItem = new ArrayList<>();
+        for (int i = 0; i < arrayList.size(); i++) {
+            spinnerItem.add(arrayList.get(i).getDsn_nama());
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, org.d3ifcool.mahasiswa.R.layout.support_simple_spinner_dropdown_item, spinnerItem);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -81,27 +145,33 @@ public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity impleme
         int i = item.getItemId();
         if (i == android.R.id.home) {
             finish();
-
-        } else if (i == R.id.toolbar_menu_ubah) {
-            //
-        } else if (i == R.id.toolbar_menu_hapus) {
-            //
-        } else {
         }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
+    @Override
+    public void onGetListKategoriJudul(List<KategoriJudul> kategori) {
+        arrayListKategori.clear();
+        arrayListKategori.addAll(kategori);
+        initSpinnerKategori(arrayListKategori, sp_kategori);
+    }
 
+    @Override
+    public void onGetListDosen(List<Dosen> dosen) {
+        arrayListDosen.clear();
+        arrayListDosen.addAll(dosen);
+        initSpinnerDosen(arrayListDosen, sp_dosen);
+    }
 
     @Override
     public void onSuccesWorkJudul() {
@@ -113,31 +183,4 @@ public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity impleme
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-    private void initSpinner(){
-        ApiInterfaceDosen interfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
-        Call<List<Dosen>> call = interfaceDosen.getDosen();
-        call.enqueue(new Callback<List<Dosen>>() {
-            @Override
-            public void onResponse(Call<List<Dosen>> call, Response<List<Dosen>> response) {
-                if(response.isSuccessful()) {
-                    dosens = response.body();
-                    List<String> spinner = new ArrayList<String>();
-                    for (int i = 0; i < dosens.size(); i++) {
-                        nip_dosen = dosens.get(i).getDsn_nip();
-                        spinner.add(dosens.get(i).getDsn_nama());
-                    }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext, R.layout.support_simple_spinner_dropdown_item
-                            , spinner);
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    sp_dosen.setAdapter(adapter);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Dosen>> call, Throwable t) {
-                Toast.makeText(KoorJudulPaSubdosenTambahActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
 }

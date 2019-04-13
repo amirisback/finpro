@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimen_small"
-            android:text="Judul Proyek Akhir"
+            android:text="@string/text_judul_proyek_akhir"
             android:textSize="@dimen/text_size_title_small"
             android:textColor="@color/colorPrimary"/>
 
@@ -41,7 +41,7 @@
             android:layout_marginStart="@dimen/dimen_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kategori Proyek Akhir"
+            android:text="@string/text_kategori"
             android:textSize="@dimen/text_size_title_small"
             android:textColor="@color/colorPrimary"/>
 
@@ -57,7 +57,7 @@
             android:layout_marginStart="@dimen/dimen_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Deskripsi Proyek Akhir"
+            android:text="@string/text_deskripsi_judul_pa"
             android:textSize="@dimen/text_size_title_small"
             android:textColor="@color/colorPrimary"/>
 
@@ -73,7 +73,7 @@
             android:layout_marginTop="@dimen/dimen_big"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Simpan Judul"
+            android:text="@string/text_ubah_judul"
             android:textColor="@color/colorTextWhite"
             android:background="@drawable/box_border_button_action"/>
 

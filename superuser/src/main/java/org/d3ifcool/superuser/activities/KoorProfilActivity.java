@@ -18,14 +18,12 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import org.d3ifcool.dosen.activities.DosenProfilActivity;
-import org.d3ifcool.dosen.activities.editors.DosenProfilUbahActivity;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.superuser.R;
 
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 
-public class AdminProfilActivity extends AppCompatActivity {
+public class KoorProfilActivity extends AppCompatActivity {
 
     private SessionManager sessionManager;
     private CircleImageView imageView;
@@ -35,7 +33,7 @@ public class AdminProfilActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_profil);
+        setContentView(R.layout.activity_koor_profil);
 
         setTitle(getString(org.d3ifcool.dosen.R.string.title_profil));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -119,7 +117,7 @@ public class AdminProfilActivity extends AppCompatActivity {
             finish();
 
         } else if (i == R.id.toolbar_menu_hanya_ubah) {
-//            Intent intentUbah = new Intent(AdminProfilActivity.this, DosenProfilUbahActivity.class);
+//            Intent intentUbah = new Intent(KoorProfilActivity.this, DosenProfilUbahActivity.class);
 //            startActivity(intentUbah);
 
         } else {

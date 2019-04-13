@@ -64,7 +64,7 @@ public class KoorMahasiswaUbahActivity extends AppCompatActivity implements Maha
                 new AlertDialog
                         .Builder(KoorMahasiswaUbahActivity.this)
                         .setTitle(getString(R.string.dialog_ubah_title))
-                        .setMessage(getString(R.string.dialog_ubah))
+                        .setMessage(getString(R.string.dialog_ubah_text))
 
                         .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {

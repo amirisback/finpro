@@ -83,7 +83,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionDosenNip());
+                presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionUsername());
             }
         });
 
@@ -92,7 +92,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
     @Override
     public void onResume() {
         super.onResume();
-        presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionDosenNip());
+        presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionUsername());
     }
 
     @Override
