@@ -111,6 +111,9 @@ public class DosenBimbinganTambahActivity extends AppCompatActivity implements B
                 DatePickerDialog dialog = new DatePickerDialog(DosenBimbinganTambahActivity.this,
                         R.style.Theme_AppCompat_DayNight_Dialog_MinWidth,
                         datePickerDialog,year,month,day);
+                cal.set(Calendar.MONTH, month);
+                cal.set(Calendar.DAY_OF_MONTH, day);
+                cal.set(Calendar.YEAR,year, -2);
                 dialog.getDatePicker().setMinDate(cal.getTimeInMillis());
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
                 dialog.show();
