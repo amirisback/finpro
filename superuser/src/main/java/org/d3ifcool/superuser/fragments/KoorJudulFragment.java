@@ -48,6 +48,7 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
     private SwipeRefreshLayout swipeRefreshLayout;
 
     private String spinnerItemPosition;
+    private int positionSpinner;
 
     private ArrayList<Judul> arrayListJudul = new ArrayList<>();
     private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
@@ -80,18 +81,13 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
 
         dosenPresenter.getDosen();
 
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), KoorJudulPaSubdosenTambahActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
         sp_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 spinnerItemPosition = parent.getItemAtPosition(position).toString();
+                positionSpinner = position;
                 judulPresenter.searchJudulBy(PARAM_DOSEN_NAMA, spinnerItemPosition);
             }
 
@@ -105,6 +101,15 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
             @Override
             public void onRefresh() {
                 judulPresenter.searchJudulBy(PARAM_DOSEN_NAMA, spinnerItemPosition);
+            }
+        });
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), KoorJudulPaSubdosenTambahActivity.class);
+                intent.putExtra(KoorJudulPaSubdosenTambahActivity.EXTRA_POSITION_SPINNER, positionSpinner);
+                startActivity(intent);
             }
         });
 

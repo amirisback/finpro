@@ -31,6 +31,8 @@ import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS
 
 public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity implements JudulWorkView, DosenListView, KategoriJudulListView {
 
+    public static final String EXTRA_POSITION_SPINNER = "extra_spinner";
+
     private Spinner sp_dosen, sp_kategori;
     private JudulPresenter judulPresenter;
     private DosenPresenter dosenPresenter;
@@ -171,6 +173,7 @@ public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity impleme
         arrayListDosen.clear();
         arrayListDosen.addAll(dosen);
         initSpinnerDosen(arrayListDosen, sp_dosen);
+        sp_dosen.setSelection(getIntent().getIntExtra(EXTRA_POSITION_SPINNER, 0));
     }
 
     @Override
