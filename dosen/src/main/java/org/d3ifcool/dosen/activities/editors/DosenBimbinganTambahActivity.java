@@ -4,13 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -23,21 +19,20 @@ import org.d3ifcool.service.interfaces.works.BimbinganWorkView;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.BimbinganPresenter;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Locale;
 
 public class DosenBimbinganTambahActivity extends AppCompatActivity implements BimbinganWorkView {
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
 
     private DatePickerDialog.OnDateSetListener datePickerDialog;
-    TextView tv_tanggal;
-    String date;
-
     private BimbinganPresenter presenter;
-    private ProgressDialog dialog;
+    private ProgressDialog progressDialog;
+
+    private TextView tv_tanggal;
+    private String date;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +41,8 @@ public class DosenBimbinganTambahActivity extends AppCompatActivity implements B
         setTitle(getString(R.string.title_bimbingan_tambah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.text_progress_dialog));
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
         presenter = new BimbinganPresenter(this);
 
         tv_tanggal = findViewById(R.id.act_dsn_mhs_bimbingan_textview_tanggal);
@@ -128,12 +123,12 @@ public class DosenBimbinganTambahActivity extends AppCompatActivity implements B
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override

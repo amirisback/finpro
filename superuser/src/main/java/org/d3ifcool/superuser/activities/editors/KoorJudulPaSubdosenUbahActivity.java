@@ -38,8 +38,7 @@ public class KoorJudulPaSubdosenUbahActivity extends AppCompatActivity implement
 
     private ArrayList<KategoriJudul> arrayListKategori = new ArrayList<>();
 
-    private int getKategoriId;
-    private int getJudulId;
+    private int getKategoriId, getJudulId, positionSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +57,8 @@ public class KoorJudulPaSubdosenUbahActivity extends AppCompatActivity implement
         String extraJudulNama = extraJudul.getJudul();
         String extraJudulDeskripsi = extraJudul.getDeskripsi();
         getJudulId = extraJudul.getId();
+        String extraJudulKategoriId = extraJudul.getKategori_id();
+        positionSpinner = Integer.parseInt(extraJudulKategoriId)-1;
 
         final EditText et_judul = findViewById(R.id.act_koor_judul_ubah_edittext_judul);
         final EditText et_deskripsi = findViewById(R.id.act_koor_judul_ubah_edittext_deskripsi);
@@ -68,6 +69,7 @@ public class KoorJudulPaSubdosenUbahActivity extends AppCompatActivity implement
         et_deskripsi.setText(extraJudulDeskripsi);
 
         kategoriJudulPresenter.getKategori();
+
 
         sp_kategori.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -144,6 +146,7 @@ public class KoorJudulPaSubdosenUbahActivity extends AppCompatActivity implement
         arrayListKategori.clear();
         arrayListKategori.addAll(kategori);
         initSpinnerKategori(arrayListKategori, sp_kategori);
+        sp_kategori.setSelection(positionSpinner);
     }
 
     @Override

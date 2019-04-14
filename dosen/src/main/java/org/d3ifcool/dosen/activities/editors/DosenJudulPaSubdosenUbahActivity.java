@@ -39,7 +39,7 @@ public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implemen
     private ProgressDialog progressDialog;
 
     private ArrayList<KategoriJudul> arrayListKategoriJudul = new ArrayList<>();
-    private int getIdKategori;
+    private int getIdKategori, spinnerPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +61,8 @@ public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implemen
         String extra_judul = extradata.getJudul();
         String extra_deskripsi = extradata.getDeskripsi();
         final int id = extradata.getId();
+        String extra_kategori_id = extradata.getKategori_id();
+        spinnerPosition = Integer.parseInt(extra_kategori_id)-1;
 
         et_judul.setText(extra_judul);
         et_deskripsi.setText(extra_deskripsi);
@@ -157,6 +159,7 @@ public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implemen
         arrayListKategoriJudul.clear();
         arrayListKategoriJudul.addAll(kategori);
         initSpinner(arrayListKategoriJudul, spinner_kategori);
+        spinner_kategori.setSelection(spinnerPosition);
     }
 
     @Override
