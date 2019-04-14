@@ -43,6 +43,16 @@ public class MahasiswaPresenter {
         this.viewObject = viewObject;
     }
 
+    public MahasiswaPresenter(MahasiswaListView viewResult, MahasiswaView viewObject) {
+        this.viewResult = viewResult;
+        this.viewObject = viewObject;
+    }
+
+    public MahasiswaPresenter(MahasiswaWorkView viewEditor, MahasiswaView viewObject) {
+        this.viewEditor = viewEditor;
+        this.viewObject = viewObject;
+    }
+
     public void getMahasiswa(){
         viewResult.showProgress();
         ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);

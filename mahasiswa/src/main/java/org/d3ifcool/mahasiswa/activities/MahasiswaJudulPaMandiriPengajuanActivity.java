@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -20,12 +22,14 @@ import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.interfaces.lists.KategoriJudulListView;
+import org.d3ifcool.service.interfaces.objects.MahasiswaView;
 import org.d3ifcool.service.interfaces.works.JudulWorkView;
 import org.d3ifcool.service.interfaces.works.MahasiswaWorkView;
 import org.d3ifcool.service.interfaces.works.ProyekAkhirWorkView;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.models.KategoriJudul;
+import org.d3ifcool.service.models.Mahasiswa;
 import org.d3ifcool.service.presenters.DosenPresenter;
 import org.d3ifcool.service.presenters.JudulPresenter;
 import org.d3ifcool.service.presenters.KategoriJudulPresenter;
@@ -39,7 +43,7 @@ import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS
 
 public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         implements ProyekAkhirWorkView, MahasiswaWorkView, JudulWorkView,
-        KategoriJudulListView, DosenListView, JudulListView {
+        KategoriJudulListView, DosenListView, JudulListView, MahasiswaView {
 
     private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
     private ArrayList<Judul> arrayListJudul = new ArrayList<>();
@@ -50,7 +54,7 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
     private MahasiswaPresenter mahasiswaPresenter;
     private JudulPresenter judulPresenter;
     private ProgressDialog progressDialog;
-
+    private TextView textViewNama2;
     private SessionManager sessionManager;
     private String nim2, deskripsi, kelompok, judul, spinnerItemNipDosen;
     private int spinnerItemKategoriId;
@@ -65,7 +69,7 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
 
         DosenPresenter dosenPresenter = new DosenPresenter(this);
         KategoriJudulPresenter kategoriJudulPresenter = new KategoriJudulPresenter(this);
-        mahasiswaPresenter = new MahasiswaPresenter(this);
+        mahasiswaPresenter = new MahasiswaPresenter(this, this);
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         judulPresenter = new JudulPresenter(this, this);
         sessionManager = new SessionManager(this);
@@ -80,7 +84,7 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         final EditText editTextDeskripsi = findViewById(R.id.act_mhs_pa_mandiri_deskripsi);
         final EditText editTextNamaKelompok = findViewById(R.id.act_mhs_pa_mandiri_kelompok);
         final EditText editTextNIM2 = findViewById(R.id.act_mhs_pa_mandiri_nim_anggota_2);
-        final EditText editTextNama2 = findViewById(R.id.act_mhs_pa_mandiri_nama_anggota_2);
+        textViewNama2 = findViewById(R.id.act_mhs_pa_mandiri_nama_anggota_2);
         TextView textViewNIM1 = findViewById(R.id.act_mhs_pa_mandiri_nim_anggota_1);
         TextView textViewNama1 = findViewById(R.id.act_mhs_pa_mandiri_nama_anggota_1);
         Button buttonAjukan = findViewById(R.id.act_mhs_pa_mandiri_simpan);
@@ -90,6 +94,17 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
 
         textViewNama1.setText(sessionManager.getSessionMahasiswaNama());
         textViewNIM1.setText(sessionManager.getSessionMahasiswaNim());
+
+        editTextNIM2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    mahasiswaPresenter.getMahasiswaByParameter(v.getText().toString());
+                    return true;
+                }
+                return false;
+            }
+        });
 
         spinner_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -118,18 +133,26 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         buttonAjukan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nama2 = editTextNama2.getText().toString();
                 judul = editTextJudul.getText().toString();
                 deskripsi = editTextDeskripsi.getText().toString();
                 kelompok = editTextNamaKelompok.getText().toString();
                 nim2 = editTextNIM2.getText().toString();
-                judulPresenter.createJudul(judul, spinnerItemKategoriId, deskripsi, spinnerItemNipDosen, JUDUL_STATUS_PENDING);
+
+                if (judul.isEmpty()) {
+                    editTextJudul.setError(getString(R.string.text_tidak_boleh_kosong));
+                } else if (deskripsi.isEmpty()) {
+                    editTextDeskripsi.setError(getString(R.string.text_tidak_boleh_kosong));
+                } else if (kelompok.isEmpty()) {
+                    editTextNamaKelompok.setError(getString(R.string.text_tidak_boleh_kosong));
+                } else {
+                    judulPresenter.createJudul(judul, spinnerItemKategoriId, deskripsi, spinnerItemNipDosen, JUDUL_STATUS_PENDING);
+                }
+
             }
         });
 
-
-
     }
+
 
     private void initSpinnerNamaDosen(ArrayList<Dosen> arrayDosen, Spinner spinner) {
         List<String> spinnerItem = new ArrayList<>();
@@ -176,6 +199,22 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
     @Override
     public void hideProgress() {
 //        progressDialog.dismiss();
+    }
+
+    @Override
+    public void onGetObjectMahasiswa(Mahasiswa mahasiswa) {
+        if (mahasiswa.getMhs_nama() != null){
+            if (!mahasiswa.getMhs_nama().equalsIgnoreCase(sessionManager.getSessionMahasiswaNama())){
+                textViewNama2.setText(mahasiswa.getMhs_nama());
+                textViewNama2.setError(null);
+            } else {
+                textViewNama2.setText(getString(R.string.text_nim_dilarang));
+                textViewNama2.setError(getString(R.string.text_nim_dilarang));
+            }
+        } else {
+            textViewNama2.setText(getString(R.string.text_nim_tidak_ada));
+            textViewNama2.setError(getString(R.string.text_nim_salah));
+        }
     }
 
     @Override

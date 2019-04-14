@@ -239,8 +239,6 @@
     <string name="text_aturan_judul_mandiri_2">Setelah di ajukan silahkan menghungi dosen yang bersangkutan untuk melakukan konsultasi terkait judul yang di ajukan.</string>
     <string name="text_aturan_judul_mandiri_3">Jika judul anda sudah di terima oleh dosen yang bersangkutan maka akan muncul di menu proyek akhir</string>
 
-
-
     <string name="textview_review_bimbingan">Review Bimbingan</string>
     <string name="hint_review_bimbingan">Masukkan Review Bimbingan</string>
     <string name="textview_judul_bimbingan">Judul Bimbingan</string>
@@ -258,6 +256,9 @@
     <string name="text_nilai_monev">Nilai Monev</string>
     <string name="text_tambah_judul">Tambah Judul</string>
     <string name="text_ubah_judul">Ubah Judul</string>
+    <string name="text_nim_salah">Nim Mahasiswa Salah</string>
+    <string name="text_nim_tidak_ada">Mahasiswa tidak ada</string>
+    <string name="text_nim_dilarang">Tidak boleh menggunakan NIM sendiri</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

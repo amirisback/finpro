@@ -135,6 +135,7 @@
             android:textSize="@dimen/text_size_medium"
             android:inputType="number"
             android:layout_marginStart="-4dp"
+            android:imeOptions="actionSearch"
             android:layout_marginEnd="-4dp"
             android:hint="@string/hint_masukkan_nim"/>
 
@@ -146,17 +147,14 @@
             android:layout_marginBottom="@dimen/dimen_small"
             android:textColor="@color/colorPrimary"/>
 
-        <EditText
+        <TextView
             android:id="@+id/act_mhs_pa_mandiri_nama_anggota_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dimen_big"
             android:textColor="@color/colorTextBlack"
             android:textSize="@dimen/text_size_medium"
-            android:inputType="text"
-            android:layout_marginStart="-4dp"
-            android:layout_marginEnd="-4dp"
-            android:hint="@string/hint_masukkan_nama"/>
+            android:text="@string/hint_masukkan_nim"/>
 
         <TextView
             android:layout_width="wrap_content"
