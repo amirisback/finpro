@@ -259,6 +259,8 @@
     <string name="text_nim_salah">Nim Mahasiswa Salah</string>
     <string name="text_nim_tidak_ada">Mahasiswa tidak ada</string>
     <string name="text_nim_dilarang">Tidak boleh menggunakan NIM sendiri</string>
+    <string name="menu_arsip_judul">Arsip Judul</string>
+    <string name="text_title_arsip_judul">Arsip Judul</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

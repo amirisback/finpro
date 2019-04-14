@@ -64,16 +64,16 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_koor_judul, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_koor_judul, container, false);
 
-        sp_dosen = view.findViewById(R.id.spinner_dosen);
-        recyclerView = view.findViewById(R.id.frg_koor_judul_dsn_recyclerview);
-        FloatingActionButton floatingActionButton = view.findViewById(R.id.frg_koor_judul_dsn_fab);
+        sp_dosen = rootView.findViewById(R.id.spinner_dosen);
+        recyclerView = rootView.findViewById(R.id.frg_koor_judul_dsn_recyclerview);
+        FloatingActionButton floatingActionButton = rootView.findViewById(R.id.frg_koor_judul_dsn_fab);
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
-        swipeRefreshLayout = view.findViewById(R.id.swipe_refresh);
-        empty_view = view.findViewById(R.id.view_emptyview);
+        swipeRefreshLayout = rootView.findViewById(R.id.swipe_refresh);
+        empty_view = rootView.findViewById(R.id.view_emptyview);
 
         dosenPresenter = new DosenPresenter(this);
         judulPresenter = new JudulPresenter(this);
@@ -108,7 +108,7 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
             }
         });
 
-        return view;
+        return rootView;
     }
 
     private void initSpinner(ArrayList<Dosen> arrayDosen, Spinner spinner) {

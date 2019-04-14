@@ -25,6 +25,11 @@
         android:title="@string/menu_kategori_judul"/>
 
     <item
+        android:id="@+id/nav_menu_kategori_monev"
+        android:icon="@drawable/ic_nav_kategori_monev"
+        android:title="@string/menu_kategori_monev" />
+
+    <item
         android:id="@+id/nav_menu_judul_pa"
         android:icon="@drawable/ic_judul_pa"
         android:title="@string/menu_judul_pa" />
@@ -33,13 +38,15 @@
         android:id="@+id/nav_menu_proyek_akhir"
         android:icon="@drawable/ic_nav_proyek_akhir"
         android:title="@string/menu_proyek_akhir" />
+
     <item
         android:id="@+id/nav_menu_mahasiswa_pemetaan_monev"
         android:icon="@drawable/ic_nav_pemetaan_reviewer"
         android:title="@string/menu_pemetaan_monev" />
+
     <item
-        android:id="@+id/nav_menu_kategori_monev"
-        android:icon="@drawable/ic_nav_kategori_monev"
-        android:title="@string/menu_kategori_monev" />
+        android:id="@+id/nav_menu_arsip_judul"
+        android:icon="@drawable/ic_nav_arsip_judul"
+        android:title="@string/menu_arsip_judul" />
 
 </menu>

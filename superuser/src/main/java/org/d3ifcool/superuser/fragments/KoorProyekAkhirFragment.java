@@ -16,8 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.models.Dosen;
@@ -65,14 +63,14 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_koor_proyek_akhir, container, false);
-        sp_dosen = view.findViewById(R.id.spinner_dosen);
-        recyclerView = view.findViewById(R.id.frg_koor_judul_dsn_recyclerview);
+        View rootView = inflater.inflate(R.layout.fragment_koor_proyek_akhir, container, false);
+        sp_dosen = rootView.findViewById(R.id.spinner_dosen);
+        recyclerView = rootView.findViewById(R.id.frg_koor_judul_dsn_recyclerview);
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
-        swipeRefreshLayout = view.findViewById(R.id.swipe_refresh);
-        empty_view = view.findViewById(R.id.view_emptyview);
+        swipeRefreshLayout = rootView.findViewById(R.id.swipe_refresh);
+        empty_view = rootView.findViewById(R.id.view_emptyview);
 
         dosenPresenter = new DosenPresenter(this);
         judulPresenter = new JudulPresenter(this);
@@ -100,7 +98,7 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
             }
         });
 
-        return view;
+        return rootView;
     }
 
     private void initSpinner(ArrayList<Dosen> arrayDosen, Spinner spinner) {

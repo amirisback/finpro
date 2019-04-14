@@ -25,6 +25,7 @@ import org.d3ifcool.service.interfaces.objects.KoorView;
 import org.d3ifcool.service.models.KoordinatorPa;
 import org.d3ifcool.service.presenters.KoorPresenter;
 import org.d3ifcool.superuser.activities.KoorProfilActivity;
+import org.d3ifcool.superuser.fragments.KoorArsipJudulFragment;
 import org.d3ifcool.superuser.fragments.KoorDosenFragment;
 import org.d3ifcool.superuser.fragments.KoorInformasiFragment;
 import org.d3ifcool.superuser.fragments.KoorKategoriJudulFragment;
@@ -37,14 +38,15 @@ import org.d3ifcool.superuser.fragments.KoorProyekAkhirFragment;
 public class AdminMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, KoorView {
 
-    private KoorDosenFragment koorDosenFragment = new KoorDosenFragment();
-    private KoorInformasiFragment koorInformasiFragment = new KoorInformasiFragment();
-    private KoorMahasiswaFragment koorMahasiswaFragment = new KoorMahasiswaFragment();
-    private KoorJudulFragment koorJudulPaSubdosenFragment = new KoorJudulFragment();
-    private KoorProyekAkhirFragment koorProyekAkhirFragment = new KoorProyekAkhirFragment();
-    private KoorKategoriJudulFragment koorJudulPaKategoriFragment = new KoorKategoriJudulFragment();
-    private KoorPemetaanMonevFragment koorPemetaanMahasiswaMonev = new KoorPemetaanMonevFragment();
-    private KoorKategoriMonevFragment koorKategoriMonevFragment = new KoorKategoriMonevFragment();
+    private KoorDosenFragment koorDosenFragment;
+    private KoorInformasiFragment koorInformasiFragment;
+    private KoorMahasiswaFragment koorMahasiswaFragment;
+    private KoorJudulFragment koorJudulPaSubdosenFragment;
+    private KoorProyekAkhirFragment koorProyekAkhirFragment;
+    private KoorKategoriJudulFragment koorJudulPaKategoriFragment;
+    private KoorPemetaanMonevFragment koorPemetaanMahasiswaMonev;
+    private KoorKategoriMonevFragment koorKategoriMonevFragment;
+    private KoorArsipJudulFragment koorArsipJudulFragment;
 
     private SessionManager sessionManager;
 
@@ -62,8 +64,19 @@ public class AdminMainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
         sessionManager = new SessionManager(this);
         presenter = new KoorPresenter(this);
+
+        koorDosenFragment = new KoorDosenFragment();
+        koorInformasiFragment = new KoorInformasiFragment();
+        koorMahasiswaFragment = new KoorMahasiswaFragment();
+        koorJudulPaSubdosenFragment = new KoorJudulFragment();
+        koorProyekAkhirFragment = new KoorProyekAkhirFragment();
+        koorJudulPaKategoriFragment = new KoorKategoriJudulFragment();
+        koorPemetaanMahasiswaMonev = new KoorPemetaanMonevFragment();
+        koorKategoriMonevFragment = new KoorKategoriMonevFragment();
+        koorArsipJudulFragment = new KoorArsipJudulFragment();
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -157,6 +170,9 @@ public class AdminMainActivity extends AppCompatActivity
         }else if (id == R.id.nav_menu_kategori_monev){
             setTitle(getString(R.string.text_title_kategori_monev));
             setFragmentLayout(koorKategoriMonevFragment);
+        }else if (id == R.id.nav_menu_arsip_judul){
+            setTitle(getString(R.string.text_title_arsip_judul));
+            setFragmentLayout(koorArsipJudulFragment);
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
