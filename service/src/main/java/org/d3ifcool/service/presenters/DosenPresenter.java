@@ -129,10 +129,10 @@ public class DosenPresenter {
     }
 
 
-    public void UpdateDosen(String nip_lama, String nama_baru, String kode_baru, String kontak_baru, String email_baru) {
+    public void UpdateDosen(String nip_dosen, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_email) {
         viewEditor.showProgress();
         ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
-        Call<Dosen> call = apiInterfaceDosen.updateDosen(nip_lama ,nama_baru, kode_baru, kontak_baru, email_baru);
+        Call<Dosen> call = apiInterfaceDosen.updateDosen(nip_dosen, dsn_nama, dsn_kode, dsn_kontak, dsn_email);
         call.enqueue(new Callback<Dosen>() {
             @Override
             public void onResponse(Call<Dosen> call, Response<Dosen> response) {

@@ -49,7 +49,7 @@ public interface ApiInterfaceDosen {
     @FormUrlEncoded
     @POST(URL_DOSEN + PATH_UPDATE + PARAMETER_DOSEN)
     Call<Dosen> updateDosen(
-            @Path("dosen") String dsn_nip,
+            @Path(VAR_DOSEN) String dsn_nip,
             @Field("dsn_nama") String dsn_nama,
             @Field("dsn_kode") String dsn_kode,
             @Field("dsn_kontak") String dsn_kontak,
