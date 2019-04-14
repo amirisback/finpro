@@ -56,9 +56,9 @@ public class MahasiswaJudulPaDosenDetailActivity extends AppCompatActivity {
                 Judul parcelJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
                 intent.putExtra(MahasiswaJudulPaDosenPengajuanActivity.EXTRA_JUDUL, parcelJudul);
                 startActivity(intent);
+                finish();
             }
         });
-
 
     }
 

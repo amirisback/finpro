@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.MahasiswaJudulPaDosenViewAdapter;
-import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.models.Dosen;
@@ -31,7 +30,6 @@ import java.util.List;
 
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAM_DOSEN_NAMA;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -42,7 +40,6 @@ public class MahasiswaJudulPaDosenFragment extends Fragment implements DosenList
     private RecyclerView recyclerView;
     private MahasiswaJudulPaDosenViewAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private View disableView;
 
     private ArrayList<Judul> arrayListJudul = new ArrayList<>();
     private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
@@ -72,52 +69,31 @@ public class MahasiswaJudulPaDosenFragment extends Fragment implements DosenList
 
         dosenPresenter = new DosenPresenter(this);
         judulPresenter = new JudulPresenter(this);
-
-        disableView = rootView.findViewById(R.id.disable_view);
         empty_view = rootView.findViewById(R.id.view_emptyview);
 
-        SessionManager sessionManager = new SessionManager(getContext());
+        adapter = new MahasiswaJudulPaDosenViewAdapter(getContext());
+        dosenPresenter.getDosen();
 
-        if (sessionManager.getSessionMahasiswaIdJudul() != 0) {
-            disableView.setVisibility(View.VISIBLE); // Tidak Bisa Mengajukan Judul
-            recyclerView.setVisibility(View.GONE);
-            sp_dosen.setVisibility(View.GONE);
-            swipeRefreshLayout.setRefreshing(false);
-            swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-                @Override
-                public void onRefresh() {
-                    swipeRefreshLayout.setRefreshing(false);
-                }
-            });
-        } else {
-            disableView.setVisibility(View.GONE);
-            recyclerView.setVisibility(View.VISIBLE);
-            sp_dosen.setVisibility(View.VISIBLE);
+        sp_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String spinnerItemPosition = parent.getItemAtPosition(position).toString();
+                judulPresenter.searchJudulMahasiswaBy(PARAM_DOSEN_NAMA, spinnerItemPosition);
+            }
 
-            dosenPresenter.getDosen();
-            adapter = new MahasiswaJudulPaDosenViewAdapter(getContext());
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
-            sp_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    String spinnerItemPosition = parent.getItemAtPosition(position).toString();
-                    judulPresenter.searchJudulMahasiswaBy(PARAM_DOSEN_NAMA, spinnerItemPosition);
-                }
+            }
+        });
 
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-
-            swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-                @Override
-                public void onRefresh() {
-                    dosenPresenter.getDosen();
-                    judulPresenter.searchJudulMahasiswaBy(PARAM_DOSEN_NAMA, sp_dosen.getSelectedItem().toString());
-                }
-            });
-        }
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                dosenPresenter.getDosen();
+                judulPresenter.searchJudulMahasiswaBy(PARAM_DOSEN_NAMA, sp_dosen.getSelectedItem().toString());
+            }
+        });
 
         return rootView;
     }

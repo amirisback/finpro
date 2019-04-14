@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,20 +16,23 @@ import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.service.helpers.SessionManager;
+import org.d3ifcool.service.interfaces.objects.MahasiswaView;
 import org.d3ifcool.service.interfaces.works.MahasiswaWorkView;
 import org.d3ifcool.service.interfaces.works.ProyekAkhirWorkView;
 import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.service.models.Mahasiswa;
 import org.d3ifcool.service.presenters.MahasiswaPresenter;
 import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 
-public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity implements ProyekAkhirWorkView, MahasiswaWorkView {
-
+public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity implements 
+        ProyekAkhirWorkView, MahasiswaWorkView, MahasiswaView {
 
     public static final String EXTRA_JUDUL = "extra_judul";
     private SessionManager sessionManager;
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private MahasiswaPresenter mahasiswaPresenter;
     private ProgressDialog progressDialog;
+    private TextView textViewJudulNama2;
 
 
     @Override
@@ -42,7 +47,7 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
-        mahasiswaPresenter = new MahasiswaPresenter(this);
+        mahasiswaPresenter = new MahasiswaPresenter(this, this);
 
         TextView textViewJudul = findViewById(R.id.act_mhs_pa_pengajuan_textview_judul);
         TextView textViewJudulKategori = findViewById(R.id.act_mhs_pa_pengajuan_textview_kategori);
@@ -51,7 +56,7 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
         TextView textViewJudulNim1 = findViewById(R.id.act_mhs_pa_pengajuan_textview_nim_anggota_1);
         TextView textViewJudulNama1 = findViewById(R.id.act_mhs_pa_pengajuan_textview_nama_anggota_1);
         final EditText editTextJudulNim2 = findViewById(R.id.act_mhs_pa_pengajuan_editview_nim_anggota_2);
-        final EditText editTextJudulNama2 = findViewById(R.id.act_mhs_pa_pengajuan_editview_nama_anggota_2);
+        textViewJudulNama2 = findViewById(R.id.act_mhs_pa_pengajuan_editview_nama_anggota_2);
         final EditText editTextJudulKelompok = findViewById(R.id.act_mhs_pa_pengajuan_editview_nama_kelompok);
         Button buttonAjukan = findViewById(R.id.act_mhs_pa_pengajuan_button_simpan);
 
@@ -80,23 +85,37 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
         textViewJudul.setText(extraJudulNama);
         textViewJudul.setText(extraJudulNama);
 
+        editTextJudulNim2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    mahasiswaPresenter.getMahasiswaByParameter(v.getText().toString());
+                    return true;
+                }
+                return false;
+            }
+        });
+
         buttonAjukan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String mahasiswaNim2 = editTextJudulNim2.getText().toString();
-                String mahasiswaNama2 = editTextJudulNama2.getText().toString();
                 String namaKelompok = editTextJudulKelompok.getText().toString();
 
-                if (!mahasiswaNim2.isEmpty()) {
-                    proyekAkhirPresenter.createProyekAkhir(extraJudulId, extraMahasiswaNim1, namaKelompok);
-                    proyekAkhirPresenter.createProyekAkhir(extraJudulId, mahasiswaNim2, namaKelompok);
-                    mahasiswaPresenter.updateMahasiswaJudul(extraMahasiswaNim1, extraJudulId);
-                    mahasiswaPresenter.updateMahasiswaJudul(mahasiswaNim2, extraJudulId);
-                    sessionManager.createSessionJudulMahasiswa(extraJudulId);
+                if (namaKelompok.isEmpty()) {
+                    editTextJudulKelompok.setError(getString(R.string.text_tidak_boleh_kosong));
                 } else {
-                    proyekAkhirPresenter.createProyekAkhir(extraJudulId, extraMahasiswaNim1, namaKelompok);
-                    mahasiswaPresenter.updateMahasiswaJudul(extraMahasiswaNim1, extraJudulId);
-                    sessionManager.createSessionJudulMahasiswa(extraJudulId);
+                    if (!mahasiswaNim2.isEmpty()) {
+                        proyekAkhirPresenter.createProyekAkhir(extraJudulId, extraMahasiswaNim1, namaKelompok);
+                        proyekAkhirPresenter.createProyekAkhir(extraJudulId, mahasiswaNim2, namaKelompok);
+                        mahasiswaPresenter.updateMahasiswaJudul(extraMahasiswaNim1, extraJudulId);
+                        mahasiswaPresenter.updateMahasiswaJudul(mahasiswaNim2, extraJudulId);
+                        sessionManager.createSessionJudulMahasiswa(extraJudulId);
+                    } else {
+                        proyekAkhirPresenter.createProyekAkhir(extraJudulId, extraMahasiswaNim1, namaKelompok);
+                        mahasiswaPresenter.updateMahasiswaJudul(extraMahasiswaNim1, extraJudulId);
+                        sessionManager.createSessionJudulMahasiswa(extraJudulId);
+                    }
                 }
             }
         });
@@ -127,6 +146,28 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
     @Override
     public void hideProgress() {
         progressDialog.dismiss();
+    }
+
+    @Override
+    public void onGetObjectMahasiswa(Mahasiswa mahasiswa) {
+        if (mahasiswa.getMhs_nama() != null){
+            if (mahasiswa.getJudul_id() == 0){
+                if (!mahasiswa.getMhs_nama().equalsIgnoreCase(sessionManager.getSessionMahasiswaNama())){
+                    textViewJudulNama2.setText(mahasiswa.getMhs_nama());
+                    textViewJudulNama2.setError(null);
+                } else {
+                    textViewJudulNama2.setText(getString(R.string.text_nim_dilarang));
+                    textViewJudulNama2.setError(getString(R.string.text_nim_dilarang));
+                }
+            } else {
+                textViewJudulNama2.setText(getString(R.string.text_mahasiswa_sudah_mengajukan_judul));
+                textViewJudulNama2.setError(getString(R.string.text_mahasiswa_sudah_mengajukan_judul));
+            }
+
+        } else {
+            textViewJudulNama2.setText(getString(R.string.text_nim_tidak_ada));
+            textViewJudulNama2.setError(getString(R.string.text_nim_salah));
+        }
     }
 
     @Override

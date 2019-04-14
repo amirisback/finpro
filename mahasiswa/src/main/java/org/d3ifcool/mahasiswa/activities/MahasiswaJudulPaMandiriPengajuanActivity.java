@@ -204,12 +204,17 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
     @Override
     public void onGetObjectMahasiswa(Mahasiswa mahasiswa) {
         if (mahasiswa.getMhs_nama() != null){
-            if (!mahasiswa.getMhs_nama().equalsIgnoreCase(sessionManager.getSessionMahasiswaNama())){
-                textViewNama2.setText(mahasiswa.getMhs_nama());
-                textViewNama2.setError(null);
+            if (mahasiswa.getJudul_id() == 0){
+                if (!mahasiswa.getMhs_nama().equalsIgnoreCase(sessionManager.getSessionMahasiswaNama())){
+                    textViewNama2.setText(mahasiswa.getMhs_nama());
+                    textViewNama2.setError(null);
+                } else {
+                    textViewNama2.setText(getString(R.string.text_nim_dilarang));
+                    textViewNama2.setError(getString(R.string.text_nim_dilarang));
+                }
             } else {
-                textViewNama2.setText(getString(R.string.text_nim_dilarang));
-                textViewNama2.setError(getString(R.string.text_nim_dilarang));
+                textViewNama2.setText(getString(R.string.text_mahasiswa_sudah_mengajukan_judul));
+                textViewNama2.setError(getString(R.string.text_mahasiswa_sudah_mengajukan_judul));
             }
         } else {
             textViewNama2.setText(getString(R.string.text_nim_tidak_ada));

@@ -39,7 +39,8 @@ import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView, BimbinganListView, DosenPembimbingView, DosenReviewerView {
+public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView,
+        BimbinganListView, DosenPembimbingView, DosenReviewerView {
 
     private static final String PROYEK_AKHIR_PARAM_1 = "proyek_akhir.judul_id";
     private static final String PROYEK_AKHIR_PARAM_2 = "judul_status";
