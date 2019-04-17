@@ -100,20 +100,36 @@
                 android:layout_marginBottom="@dimen/dimen_medium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginRight="@dimen/dimen_medium"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_marginStart="@dimen/dimen_big"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/text_nama_reviewer"/>
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_marginStart="@dimen/dimen_big"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_nama_reviewer"/>
 
-                <TextView
-                    android:id="@+id/ctn_koor_pemetaan_reviewer"
-                    style="@style/textview_pa_color_primary"
-                    tools:text="@string/dummy_dosen_reviewer" />
-
+                    <TextView
+                        android:id="@+id/ctn_koor_pemetaan_reviewer"
+                        style="@style/textview_pa_color_primary"
+                        tools:text="@string/dummy_dosen_reviewer" />
+                </LinearLayout>
+                <Button
+                    android:id="@+id/act_koor_btn_ubah_reviewer"
+                    android:layout_marginTop="@dimen/dimen_medium"
+                    android:layout_weight="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_ubah_reviewer"
+                    android:textColor="@color/colorTextWhite"
+                    android:background="@drawable/box_border_button_action"/>
             </LinearLayout>
+
         </androidx.cardview.widget.CardView>
 
         <RelativeLayout

@@ -2,11 +2,17 @@ package org.d3ifcool.superuser.activities.details;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -38,10 +44,13 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
     private DosenPresenter dosenPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private ProgressDialog progressDialog;
-    private Spinner sp_dosen;
+    private Spinner sp_dosen,sp_ubah_reviewer;
     private View view_atur;
+    private Button btn_ubah_reviewer;
 
-    private String spinnerItemPosition, spinnerItemNipDosen, extraDsnNip;
+    private String spinnerItemPosition, spinnerItemNipDosen, extraDsnNip, spinnerItemPositionBaru, spinnerItemNipDosenBaru
+            , tempreviewer;
+
 
     private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
     private ArrayList<Dosen> tempArrayListDosen = new ArrayList<>();
@@ -49,6 +58,7 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
 
     private TextView tv_judul_pa,tv_kelompok_pa,tv_nama_anggota1_pa, tv_nama_anggota2_pa,
             tv_dosen_reviewer_pa;
+    private AlertDialog.Builder mDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +67,7 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
 
         setTitle(getString(R.string.title_pemetaan_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         proyekAkhirPresenter = new ProyekAkhirPresenter(this, this);
         dosenPresenter = new DosenPresenter(this, this);
@@ -68,8 +79,13 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
         tv_nama_anggota1_pa = findViewById(R.id.ctn_koor_pemetaan_anggota1);
         tv_nama_anggota2_pa = findViewById(R.id.ctn_koor_pemetaan_anggota2);
         tv_dosen_reviewer_pa = findViewById(R.id.ctn_koor_pemetaan_reviewer);
+        btn_ubah_reviewer = findViewById(R.id.act_koor_btn_ubah_reviewer);
         sp_dosen = findViewById(R.id.sp_dosen);
+
+        final View view_ubah = LayoutInflater.from(KoorPemetaanMonevDetailActivity.this).inflate(R.layout.content_item_ubah_reviewer, null);
+        sp_ubah_reviewer = view_ubah.findViewById(R.id.spinner_reviewer_ubah);
         view_atur = findViewById(R.id.view_atur);
+
         Button buttonAtur = findViewById(R.id.ctn_koor_pemetaan_button_atur);
 
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
@@ -84,6 +100,7 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 spinnerItemPosition = parent.getItemAtPosition(position).toString();
                 spinnerItemNipDosen = arrayListDosen.get(position).getDsn_nip();
+
             }
 
             @Override
@@ -91,6 +108,8 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
 
             }
         });
+
+
 
         buttonAtur.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,10 +125,68 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
             }
         });
 
+        btn_ubah_reviewer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                sp_ubah_reviewer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        spinnerItemNipDosenBaru = parent.getItemAtPosition(position).toString();
+                        spinnerItemNipDosenBaru = arrayListDosen.get(position).getDsn_nip();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+                mDialog = new AlertDialog.Builder(view_ubah.getContext());
+                        mDialog.setView(view_ubah)
+                                .setCancelable(true)
+                                .setPositiveButton(R.string.ubah, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                        if (arrayListProyekAkhir.size() == 2){
+                                            proyekAkhirPresenter.updateReviewer(arrayListProyekAkhir.get(0).getProyek_akhir_id(), spinnerItemNipDosenBaru);
+                                            proyekAkhirPresenter.updateReviewerFinish(arrayListProyekAkhir.get(1).getProyek_akhir_id(), spinnerItemNipDosenBaru);
+                                        } else {
+                                            proyekAkhirPresenter.updateReviewerFinish(arrayListProyekAkhir.get(0).getProyek_akhir_id(), spinnerItemNipDosenBaru);
+                                        }
+                                        dialog.dismiss();
+                                        if (view_ubah.getParent() != null) {
+                                            ((ViewGroup) view_ubah.getParent()).removeView(view_ubah);
+                                        }
+                                    }
+                                })
+                                .setNegativeButton(R.string.batal, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                        if (view_ubah.getParent() != null) {
+                                            ((ViewGroup) view_ubah.getParent()).removeView(view_ubah);
+                                        }
+                                    }
+                                })
+                        .show();
+            }
+        });
+
 
     }
 
-    private void initSpinner(ArrayList<Dosen> arrayDosen, Spinner spinner) {
+    private void initSpinner(ArrayList<Dosen> arrayDosen, Spinner spinner_dosen) {
+        List<String> spinnerItem = new ArrayList<>();
+        for (int i = 0; i < arrayDosen.size(); i++) {
+            spinnerItem.add(arrayDosen.get(i).getDsn_nama());
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, spinnerItem);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_dosen.setAdapter(adapter);
+
+    }
+
+    private void initSpinnerReviewer(ArrayList<Dosen> arrayDosen, Spinner spinner) {
         List<String> spinnerItem = new ArrayList<>();
         for (int i = 0; i < arrayDosen.size(); i++) {
             spinnerItem.add(arrayDosen.get(i).getDsn_nama());
@@ -117,10 +194,7 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, spinnerItem);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -162,8 +236,8 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
                 arrayListDosen.add(tempArrayListDosen.get(i));
             }
         }
-
         initSpinner(arrayListDosen, sp_dosen);
+        initSpinnerReviewer(arrayListDosen, sp_ubah_reviewer);
 
     }
 
@@ -175,8 +249,6 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
         } else {
             tv_dosen_reviewer_pa.setText(org.d3ifcool.mahasiswa.R.string.text_no_dosen_monev);
         }
-
-
     }
 
     @Override
@@ -193,8 +265,10 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
             if (arrayListProyekAkhir.get(0).getReviewer_dsn_nip() != null) {
                 dosenPresenter.getDosenReviewer(arrayListProyekAkhir.get(0).getReviewer_dsn_nip());
                 view_atur.setVisibility(View.GONE);
+                btn_ubah_reviewer.setVisibility(View.VISIBLE);
             } else {
                 tv_dosen_reviewer_pa.setText(R.string.text_no_dosen_monev);
+                btn_ubah_reviewer.setVisibility(View.GONE);
                 view_atur.setVisibility(View.VISIBLE);
             }
 
