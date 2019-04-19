@@ -33,9 +33,10 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements De
     private RecyclerView recyclerView;
     private View empty_view;
     private ProgressDialog progressDialog;
-    private DetailMonevPresenter presenter;
+    private DetailMonevPresenter detailMonevPresenter;
     private ArrayList<DetailMonev> arrayList = new ArrayList<>();
     private DosenMonevViewAdapter dosenMonevViewAdapter;
+    int extraProyekAkhirId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements De
         recyclerView = findViewById(R.id.act_mhs_pa_monev_recyclerview);
         empty_view = findViewById(R.id.view_emptyview);
 
-        presenter = new DetailMonevPresenter(this);
+        detailMonevPresenter = new DetailMonevPresenter(this);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
@@ -57,9 +58,9 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements De
         dosenMonevViewAdapter = new DosenMonevViewAdapter(this);
 
         final ProyekAkhir extraProyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR_MONEV);
-        int extraProyekAkhirId = extraProyekAkhir.getProyek_akhir_id();
+        extraProyekAkhirId = extraProyekAkhir.getProyek_akhir_id();
 
-        presenter.searchDetailMonevBy(PARAM_PROYEK_AKHIR, String.valueOf(extraProyekAkhirId));
+        detailMonevPresenter.searchDetailMonevBy(PARAM_PROYEK_AKHIR, String.valueOf(extraProyekAkhirId));
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +72,12 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements De
         });
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        detailMonevPresenter.searchDetailMonevBy(PARAM_PROYEK_AKHIR, String.valueOf(extraProyekAkhirId));
     }
 
     @Override

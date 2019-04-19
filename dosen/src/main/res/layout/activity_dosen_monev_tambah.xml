@@ -35,8 +35,7 @@
         <Spinner
             android:id="@+id/act_dsn_spinner_kategori_monev"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/kategori_monev"/>
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_marginStart="@dimen/dimen_small"
@@ -80,7 +79,7 @@
             android:id="@+id/act_dsn_info_button_simpan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_click_simpan"
+            android:text="@string/button_click_tambah_monev"
             android:textColor="@color/colorTextWhite"
             android:background="@drawable/box_border_button_action"/>
 

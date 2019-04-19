@@ -7,6 +7,7 @@ import android.widget.Spinner;
 import org.d3ifcool.service.R;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.KategoriJudul;
+import org.d3ifcool.service.models.Monev;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +50,17 @@ public class SpinnerHelper {
         List<String> spinnerItem = new ArrayList<>();
         for (int i = 0; i < dosenArrayList.size(); i++) {
             spinnerItem.add(dosenArrayList.get(i).getDsn_nama());
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, spinnerItem);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+    }
+
+    public void initSpinnerMonev(ArrayList<Monev> monevArrayList, Spinner spinner) {
+        List<String> spinnerItem = new ArrayList<>();
+        for (int i = 0; i < monevArrayList.size(); i++) {
+            spinnerItem.add(monevArrayList.get(i).getKategori());
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, spinnerItem);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

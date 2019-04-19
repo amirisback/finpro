@@ -39,8 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:maxLines="1"
-            android:textStyle="bold"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/text_size_title_medium"
             android:id="@+id/content_nama_kelompok"
             android:text="@string/dummy"/>

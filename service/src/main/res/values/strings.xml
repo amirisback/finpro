@@ -125,6 +125,7 @@
     <string name="text_kategori">Kategori Proyek Akhir</string>
     <string name="text_proyek_akhir">Proyek Akhir</string>
     <string name="text_daftar_mahasiswa">Daftar Pengajuan Mahasiswa</string>
+    <string name="text_daftar_tim">Daftar kelompok yang mengajukan judul</string>
     <string name="text_setuju">Setuju</string>
     <string name="text_tolak">Tolak</string>
     <string name="text_ajukan_judul">Ajukan Judul</string>
@@ -284,6 +285,7 @@
     <string name="text_judul_status">Status</string>
     <string name="text_belum_disetujui">Status proyek akhir belum ada</string>
     <string name="text_mengajukan_judul_pa">Silahkan mengajukan judul di menu Judul PA</string>
+    <string name="button_click_tambah_monev">Tambah Monev</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

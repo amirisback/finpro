@@ -1,5 +1,7 @@
 package org.d3ifcool.service.presenters;
 
+import android.util.Log;
+
 import org.d3ifcool.service.interfaces.lists.DetailMonevListView;
 import org.d3ifcool.service.interfaces.objects.DetailMonevView;
 import org.d3ifcool.service.interfaces.works.DetailMonevWorkView;
@@ -42,8 +44,8 @@ public class DetailMonevPresenter {
         this.viewEditor = viewEditor;
     }
 
-    public void createDetailMonev(int monev_nilai, String monev_tanggal, String monev_ulasan, int monev_id, int proyek_akhir_id
-    ){
+    public void createDetailMonev(int monev_nilai, String monev_tanggal, String monev_ulasan, int monev_id, int proyek_akhir_id){
+
         viewEditor.showProgress();
         ApiInterfaceDetailMonev apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceDetailMonev.class);
         Call<DetailMonev> call = apiInterfaceDetailMonev.createDetailMonev(monev_nilai, monev_tanggal, monev_ulasan, monev_id, proyek_akhir_id);
