@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.d3ifcool.service.models.Monev;
 import org.d3ifcool.service.presenters.MonevPresenter;
@@ -97,7 +96,7 @@ public class KoorMonevKategoriViewAdapter extends RecyclerView.Adapter<KoorMonev
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDialogView = LayoutInflater.from(mContext).inflate(R.layout.content_item_edit_kategori_monev, null);
+                mDialogView = LayoutInflater.from(mContext).inflate(R.layout.dialog_edit_kategori_monev, null);
                 mDialog = new AlertDialog.Builder(mDialogView.getContext());
                 mDialog.setView(mDialogView);
                 mDialog.setCancelable(true);

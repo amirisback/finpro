@@ -21,20 +21,9 @@
         android:id="@+id/dialog_kategori_ubah"
         android:layout_below="@id/ctn_dialog_title"
         android:layout_width="match_parent"
-        android:layout_marginLeft="@dimen/dimen_medium"
-        android:layout_marginRight="@dimen/dimen_medium"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dimen_medium"
-        android:hint="Kategori"
-        android:layout_marginTop="@dimen/dimen_medium"
-        android:background="@android:color/transparent"/>
-
-    <View
-        android:layout_below="@id/dialog_kategori_ubah"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="@dimen/dimen_medium"
-        android:layout_marginRight="@dimen/dimen_medium"
-        android:background="@color/colorPrimary"/>
+        android:hint="@string/hint_kategori"
+        android:paddingBottom="@dimen/dimen_big"
+        android:layout_margin="@dimen/dimen_big"/>
 
 </RelativeLayout>

@@ -108,7 +108,7 @@ public class KoorJudulPaKategoriViewAdapter extends RecyclerView.Adapter<KoorJud
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDialogView = LayoutInflater.from(context).inflate(R.layout.content_item_dialog_edit_kategori, null);
+                mDialogView = LayoutInflater.from(context).inflate(R.layout.dialog_edit_kategori_judul, null);
                 mDialog = new AlertDialog.Builder(mDialogView.getContext());
                 mDialog.setView(mDialogView);
                 mDialog.setCancelable(true);

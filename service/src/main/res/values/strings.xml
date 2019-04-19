@@ -264,6 +264,24 @@
     <string name="text_ubah_reviewer">Ubah Reviewer</string>
     <string name="dialog_pengajuan_judul_title">Ajukan Judul</string>
     <string name="dialog_pengajuan_judul_text">Apakah anda yakin data sudah benar</string>
+    <string name="text_kategori_judul_tambah">Tambah Kategori Judul</string>
+    <string name="text_kategori_judul_ubah">Ubah Kategori Judul</string>
+    <string name="text_dosen_reviewer_ubah">Ubah Dosen Reviewer</string>
+    <string name="hint_kategori">Masukkan Kategori Proyek Akhir</string>
+
+    <string name="text_nama_reviewer">Nama Reviewer</string>
+    <string name="text_pilih_dosen_reviewer">Pilih Dosen Reviewer</string>
+    <string name="text_pilih_dosen">Pilih Dosen</string>
+    <string name="text_kategori_proyek_akhir">Kategori Proyek Akhir</string>
+    <string name="text_deskripsi_proyek_akhir">Deskripsi Proyek Akhir</string>
+    <string name="hint_masukkan_kategori_monev">Masukkan Kategori Monev</string>
+    <string name="text_tambah_kategori_monev">Tambah Kategori Monev</string>
+    <string name="text_atur_reviewer">ATUR REVIEWER</string>
+    <string name="text_ubah_kategori_monev">Ubah Kategori Monev</string>
+
+    <string name="text_nama_mahasiswa">Mahasiswa</string>
+    <string name="text_mahasiswa_sudah_mengajukan_judul">Mahasiswa sudah mengajukan judul</string>
+    <string name="text_judul_status">Status</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

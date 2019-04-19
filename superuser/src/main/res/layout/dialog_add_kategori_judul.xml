@@ -2,30 +2,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/ctn_dialog_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/dimen_medium"
+        android:text="@string/text_kategori_judul_tambah"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorTextWhite"
-        android:text="@string/text_tambah_kategori_monev"
         android:textStyle="bold"
         android:gravity="center"
-        android:textSize="@dimen/text_size_title_medium"
-        />
+        android:textSize="@dimen/text_size_title_medium" />
 
     <EditText
-        android:id="@+id/dialog_kategori_monev"
-        android:layout_below="@id/title"
+        android:id="@+id/dialog_kategori_ubah"
+        android:layout_below="@id/ctn_dialog_title"
         android:layout_width="match_parent"
-        android:layout_marginLeft="@dimen/dimen_medium"
-        android:layout_marginRight="@dimen/dimen_medium"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dimen_medium"
-        android:hint="@string/hint_masukkan_kategori_monev"
-        android:layout_marginTop="@dimen/dimen_medium"/>
+        android:hint="@string/hint_kategori"
+        android:layout_margin="@dimen/dimen_big"
+        android:paddingBottom="@dimen/dimen_big"/>
+
 
 </RelativeLayout>

@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -82,7 +80,7 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
         btn_ubah_reviewer = findViewById(R.id.act_koor_btn_ubah_reviewer);
         sp_dosen = findViewById(R.id.sp_dosen);
 
-        final View view_ubah = LayoutInflater.from(KoorPemetaanMonevDetailActivity.this).inflate(R.layout.content_item_ubah_reviewer, null);
+        final View view_ubah = LayoutInflater.from(KoorPemetaanMonevDetailActivity.this).inflate(R.layout.dialog_edit_reviewer, null);
         sp_ubah_reviewer = view_ubah.findViewById(R.id.spinner_reviewer_ubah);
         view_atur = findViewById(R.id.view_atur);
 

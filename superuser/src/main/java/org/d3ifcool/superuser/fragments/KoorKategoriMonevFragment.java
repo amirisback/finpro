@@ -69,7 +69,7 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final View mDialogView = getLayoutInflater().inflate(R.layout.content_item_add_kategori_monev,null);
+                final View mDialogView = getLayoutInflater().inflate(R.layout.dialog_add_kategori_monev,null);
                 AlertDialog.Builder builder = new AlertDialog.Builder(mDialogView.getContext());
                 builder.setView(mDialogView)
                         .setPositiveButton(R.string.tambah, new DialogInterface.OnClickListener() {

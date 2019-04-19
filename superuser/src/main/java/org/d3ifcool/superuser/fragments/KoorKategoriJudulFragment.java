@@ -54,7 +54,7 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
         View rootView = inflater.inflate(R.layout.fragment_koor_kategori_judul, container, false);
 
         final AlertDialog.Builder mDialog = new AlertDialog.Builder(getContext());
-        final View mDialogView = inflater.inflate(R.layout.content_item_dialog_add_kategori, null);
+        final View mDialogView = inflater.inflate(R.layout.dialog_add_kategori_judul, null);
 
         recyclerView = rootView.findViewById(R.id.frg_koor_judul_kategori_rv);
         final FloatingActionButton floatingActionButton = rootView.findViewById(R.id.frg_koor_info_home_fab);

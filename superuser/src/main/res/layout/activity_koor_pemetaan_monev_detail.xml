@@ -119,6 +119,7 @@
                         style="@style/textview_pa_color_primary"
                         tools:text="@string/dummy_dosen_reviewer" />
                 </LinearLayout>
+
                 <Button
                     android:id="@+id/act_koor_btn_ubah_reviewer"
                     android:layout_marginTop="@dimen/dimen_medium"
