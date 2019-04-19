@@ -22,4 +22,5 @@
 <resources>
     <string name="text_nama_mahasiswa">Mahasiswa</string>
     <string name="text_mahasiswa_sudah_mengajukan_judul">Mahasiswa sudah mengajukan judul</string>
+    <string name="text_judul_status">Status</string>
 </resources>

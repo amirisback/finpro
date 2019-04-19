@@ -1,0 +1,131 @@
+package org.d3ifcool.service.presenters;
+
+import org.d3ifcool.service.interfaces.works.ProyekMahasiswaWorkView;
+import org.d3ifcool.service.models.Mahasiswa;
+import org.d3ifcool.service.models.ProyekAkhir;
+import org.d3ifcool.service.networks.api.ApiInterfaceMahasiswa;
+import org.d3ifcool.service.networks.api.ApiInterfaceProyekAkhir;
+import org.d3ifcool.service.networks.bridge.ApiClient;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by Faisal Amir
+ * FrogoBox Inc License
+ * =========================================
+ * Finpro
+ * Copyright (C) 19/04/2019.
+ * All rights reserved
+ * -----------------------------------------
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Majors   : D3 Teknik Informatika 2016
+ * Campus   : Telkom University
+ * -----------------------------------------
+ * FrogoBox Software Industries
+ */
+public class ProyekMahasiswaPresenter {
+
+    ProyekMahasiswaWorkView viewEditor;
+
+    public ProyekMahasiswaPresenter(ProyekMahasiswaWorkView viewEditor) {
+        this.viewEditor = viewEditor;
+    }
+
+    public void createProyekAkhir(int judul_id, String mhs_nim, String nama_tim){
+        ApiInterfaceProyekAkhir apiInterfaceProyekAkhir = ApiClient.getApiClient().create(ApiInterfaceProyekAkhir.class);
+        ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
+
+        Call<ProyekAkhir> callProyek = apiInterfaceProyekAkhir.createProyekAkhir(judul_id, mhs_nim, nama_tim);
+        final Call<Mahasiswa> callMahasiswa = apiInterfaceMahasiswa.updateJudulMahasiswa(mhs_nim, judul_id);
+
+        viewEditor.showProgress();
+        callProyek.enqueue(new Callback<ProyekAkhir>() {
+            @Override
+            public void onResponse(Call<ProyekAkhir> call, Response<ProyekAkhir> response) {
+                callMahasiswa.enqueue(new Callback<Mahasiswa>() {
+                    @Override
+                    public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
+                        viewEditor.hideProgress();
+                        viewEditor.onSucces();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Mahasiswa> call, Throwable t) {
+                        viewEditor.hideProgress();
+                        viewEditor.onFailed(t.getMessage());
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call<ProyekAkhir> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getMessage());
+            }
+        });
+    }
+
+    public void createProyekAkhir2(int judul_id, String mhs_nim1, String mhs_nim2, String nama_tim){
+        ApiInterfaceProyekAkhir apiInterfaceProyekAkhir = ApiClient.getApiClient().create(ApiInterfaceProyekAkhir.class);
+        ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
+
+        Call<ProyekAkhir> callProyek1 = apiInterfaceProyekAkhir.createProyekAkhir(judul_id, mhs_nim1, nama_tim);
+        final Call<ProyekAkhir> callProyek2 = apiInterfaceProyekAkhir.createProyekAkhir(judul_id, mhs_nim2, nama_tim);
+
+        final Call<Mahasiswa> callMahasiswa1 = apiInterfaceMahasiswa.updateJudulMahasiswa(mhs_nim1, judul_id);
+        final Call<Mahasiswa> callMahasiswa2= apiInterfaceMahasiswa.updateJudulMahasiswa(mhs_nim2, judul_id);
+
+        viewEditor.showProgress();
+
+        callProyek1.enqueue(new Callback<ProyekAkhir>() {
+            @Override
+            public void onResponse(Call<ProyekAkhir> call, Response<ProyekAkhir> response) {
+                callMahasiswa1.enqueue(new Callback<Mahasiswa>() {
+                    @Override
+                    public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
+                        callProyek2.enqueue(new Callback<ProyekAkhir>() {
+                            @Override
+                            public void onResponse(Call<ProyekAkhir> call, Response<ProyekAkhir> response) {
+                                callMahasiswa2.enqueue(new Callback<Mahasiswa>() {
+                                    @Override
+                                    public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
+                                        viewEditor.hideProgress();
+                                        viewEditor.onSucces();
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Mahasiswa> call, Throwable t) {
+                                        viewEditor.hideProgress();
+                                        viewEditor.onFailed(t.getMessage());
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onFailure(Call<ProyekAkhir> call, Throwable t) {
+                                viewEditor.hideProgress();
+                                viewEditor.onFailed(t.getMessage());
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onFailure(Call<Mahasiswa> call, Throwable t) {
+                        viewEditor.hideProgress();
+                        viewEditor.onFailed(t.getMessage());
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call<ProyekAkhir> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getMessage());
+            }
+        });
+
+    }
+}

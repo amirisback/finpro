@@ -76,6 +76,12 @@ public class DosenJudulSubmahasiswaFragment extends Fragment implements JudulLis
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_PENDING, PARAMS_2, sessionManager.getSessionDosenNip());
+    }
+
+    @Override
     public void showProgress() {
         progressDialog.show();
     }

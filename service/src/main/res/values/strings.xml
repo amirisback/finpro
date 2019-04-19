@@ -262,6 +262,8 @@
     <string name="menu_arsip_judul">Arsip Judul</string>
     <string name="text_title_arsip_judul">Arsip Judul</string>
     <string name="text_ubah_reviewer">Ubah Reviewer</string>
+    <string name="dialog_pengajuan_judul_title">Ajukan Judul</string>
+    <string name="dialog_pengajuan_judul_text">Apakah anda yakin data sudah benar</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

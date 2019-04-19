@@ -81,8 +81,6 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
 
         dosenPresenter.getDosen();
 
-
-
         sp_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

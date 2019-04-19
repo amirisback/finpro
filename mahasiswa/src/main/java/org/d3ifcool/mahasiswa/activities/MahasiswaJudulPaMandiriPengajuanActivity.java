@@ -2,7 +2,9 @@ package org.d3ifcool.mahasiswa.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -26,6 +28,7 @@ import org.d3ifcool.service.interfaces.objects.MahasiswaView;
 import org.d3ifcool.service.interfaces.works.JudulWorkView;
 import org.d3ifcool.service.interfaces.works.MahasiswaWorkView;
 import org.d3ifcool.service.interfaces.works.ProyekAkhirWorkView;
+import org.d3ifcool.service.interfaces.works.ProyekMahasiswaWorkView;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.models.KategoriJudul;
@@ -35,6 +38,7 @@ import org.d3ifcool.service.presenters.JudulPresenter;
 import org.d3ifcool.service.presenters.KategoriJudulPresenter;
 import org.d3ifcool.service.presenters.MahasiswaPresenter;
 import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
+import org.d3ifcool.service.presenters.ProyekMahasiswaPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +46,7 @@ import java.util.List;
 import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_PENDING;
 
 public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
-        implements ProyekAkhirWorkView, MahasiswaWorkView, JudulWorkView,
+        implements JudulWorkView, ProyekMahasiswaWorkView,
         KategoriJudulListView, DosenListView, JudulListView, MahasiswaView {
 
     private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
@@ -50,7 +54,7 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
     private ArrayList<KategoriJudul> arrayListKategoriJudul = new ArrayList<>();
     private Spinner spinner_dosen, spinner_kategori;
 
-    private ProyekAkhirPresenter proyekAkhirPresenter;
+    private ProyekMahasiswaPresenter proyekMahasiswaPresenter;
     private MahasiswaPresenter mahasiswaPresenter;
     private JudulPresenter judulPresenter;
     private ProgressDialog progressDialog;
@@ -69,11 +73,10 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
 
         DosenPresenter dosenPresenter = new DosenPresenter(this);
         KategoriJudulPresenter kategoriJudulPresenter = new KategoriJudulPresenter(this);
-        mahasiswaPresenter = new MahasiswaPresenter(this, this);
-        proyekAkhirPresenter = new ProyekAkhirPresenter(this);
+        mahasiswaPresenter = new MahasiswaPresenter(this);
         judulPresenter = new JudulPresenter(this, this);
         sessionManager = new SessionManager(this);
-
+        proyekMahasiswaPresenter = new ProyekMahasiswaPresenter(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -133,20 +136,36 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         buttonAjukan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                judul = editTextJudul.getText().toString();
-                deskripsi = editTextDeskripsi.getText().toString();
-                kelompok = editTextNamaKelompok.getText().toString();
-                nim2 = editTextNIM2.getText().toString();
 
-                if (judul.isEmpty()) {
-                    editTextJudul.setError(getString(R.string.text_tidak_boleh_kosong));
-                } else if (deskripsi.isEmpty()) {
-                    editTextDeskripsi.setError(getString(R.string.text_tidak_boleh_kosong));
-                } else if (kelompok.isEmpty()) {
-                    editTextNamaKelompok.setError(getString(R.string.text_tidak_boleh_kosong));
-                } else {
-                    judulPresenter.createJudul(judul, spinnerItemKategoriId, deskripsi, spinnerItemNipDosen, JUDUL_STATUS_PENDING);
-                }
+                new AlertDialog
+                        .Builder(MahasiswaJudulPaMandiriPengajuanActivity.this)
+                        .setTitle(getString(R.string.dialog_pengajuan_judul_title))
+                        .setMessage(getString(R.string.dialog_pengajuan_judul_text))
+
+                        .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                judul = editTextJudul.getText().toString();
+                                deskripsi = editTextDeskripsi.getText().toString();
+                                kelompok = editTextNamaKelompok.getText().toString();
+                                nim2 = editTextNIM2.getText().toString();
+
+                                if (judul.isEmpty()) {
+                                    editTextJudul.setError(getString(R.string.text_tidak_boleh_kosong));
+                                } else if (deskripsi.isEmpty()) {
+                                    editTextDeskripsi.setError(getString(R.string.text_tidak_boleh_kosong));
+                                } else if (kelompok.isEmpty()) {
+                                    editTextNamaKelompok.setError(getString(R.string.text_tidak_boleh_kosong));
+                                } else {
+                                    judulPresenter.createJudul(judul, spinnerItemKategoriId, deskripsi, spinnerItemNipDosen, JUDUL_STATUS_PENDING);
+                                }
+
+                            }
+                        })
+
+                        .setNegativeButton(R.string.tidak, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
 
             }
         });
@@ -193,12 +212,12 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
 
     @Override
     public void showProgress() {
-//        progressDialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-//        progressDialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override
@@ -232,14 +251,12 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         arrayListJudul.clear();
         arrayListJudul.addAll(judulpa);
         int judul_id = arrayListJudul.get(arrayListJudul.size()-1).getId();
-
-        proyekAkhirPresenter.createProyekAkhir(judul_id, sessionManager.getSessionMahasiswaNim(), kelompok);
-        mahasiswaPresenter.updateMahasiswaJudul(sessionManager.getSessionMahasiswaNim(), judul_id);
         sessionManager.createSessionJudulMahasiswa(judul_id);
 
         if (!nim2.isEmpty()) {
-            proyekAkhirPresenter.createProyekAkhir(judul_id, nim2, kelompok);
-            mahasiswaPresenter.updateMahasiswaJudul(nim2, judul_id);
+            proyekMahasiswaPresenter.createProyekAkhir2(judul_id, sessionManager.getSessionMahasiswaNim(), nim2, kelompok);
+        } else {
+            proyekMahasiswaPresenter.createProyekAkhir(judul_id, sessionManager.getSessionMahasiswaNim(), kelompok);
         }
 
     }

@@ -29,6 +29,8 @@ public class Constant {
         public static final String JUDUL_STATUS_DITOLAK = "ditolak";
         public static final String JUDUL_STATUS_DIGUNAKAN = "digunakan";
         public static final String JUDUL_STATUS_ARSIP = "arsip";
+        public static final String JUDUL_STATUS_MENUNGGU = "Menunggu persetujuan";
+        public static final String JUDUL_STATUS_DISETUJUI = "Judul disetujui";
         // -----------------------------------------------------------------------------------------
         public static final String PACKAGE_ROOT = "id.frogobox.cataloguemovie";
         public static final String PACKAGE_PATH_ACTIVITIES = PACKAGE_ROOT+".views.activities";
