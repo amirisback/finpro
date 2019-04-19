@@ -25,7 +25,7 @@
             android:text="@string/dummy_kategori"
             android:layout_marginTop="@dimen/dimen_small"
             android:layout_marginBottom="@dimen/dimen_small"
-            android:drawableStart="@drawable/ic_content_judul_pa_kategori"
+            android:drawableStart="@drawable/ic_content_kategori_judul"
             style="@style/textview_item_list_judul_pa"/>
 
 

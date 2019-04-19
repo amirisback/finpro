@@ -17,7 +17,6 @@ public class DosenBimbinganUbahActivity extends AppCompatActivity {
         setTitle(getString(R.string.title_bimbingan_ubah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
     }
 
     @Override

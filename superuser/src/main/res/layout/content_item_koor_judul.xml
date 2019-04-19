@@ -18,7 +18,7 @@
             style="@style/textview_item_list_judul_pa"/>
 
         <TextView
-            android:drawableStart="@drawable/ic_content_judul_pa_kategori"
+            android:drawableStart="@drawable/ic_content_kategori_judul"
             android:id="@+id/ctn_koor_judul_dsn_textview_kategori"
             android:text="@string/dummy"
             style="@style/textview_item_list_judul_kategori"/>

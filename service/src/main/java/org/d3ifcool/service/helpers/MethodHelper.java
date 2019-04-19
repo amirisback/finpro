@@ -1,14 +1,22 @@
 package org.d3ifcool.service.helpers;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.d3ifcool.service.R;
+import org.d3ifcool.service.models.KategoriJudul;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Random;
 
 public class MethodHelper {
@@ -19,7 +27,8 @@ public class MethodHelper {
     private Random random = new Random();
     private String randomChar;
     // ---------------------------------------------------------------------------------------------
-    public MethodHelper() {
+
+    public MethodHelper(Context context) {
     }
 
     // Method Random Character ---------------------------------------------------------------------
@@ -33,4 +42,5 @@ public class MethodHelper {
         return randomChar;
     }
     // ---------------------------------------------------------------------------------------------
+
 }

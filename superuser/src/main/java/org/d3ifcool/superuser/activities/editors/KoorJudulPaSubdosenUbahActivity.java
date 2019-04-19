@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.d3ifcool.service.helpers.SpinnerHelper;
 import org.d3ifcool.service.interfaces.lists.KategoriJudulListView;
 import org.d3ifcool.service.interfaces.works.JudulWorkView;
 import org.d3ifcool.service.models.Judul;
@@ -35,6 +36,7 @@ public class KoorJudulPaSubdosenUbahActivity extends AppCompatActivity implement
     private JudulPresenter judulPresenter;
     private KategoriJudulPresenter kategoriJudulPresenter;
     private ProgressDialog progressDialog;
+    private SpinnerHelper spinnerHelper;
 
     private ArrayList<KategoriJudul> arrayListKategori = new ArrayList<>();
 
@@ -52,6 +54,7 @@ public class KoorJudulPaSubdosenUbahActivity extends AppCompatActivity implement
         kategoriJudulPresenter = new KategoriJudulPresenter(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
+        spinnerHelper = new SpinnerHelper(this);
 
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
         String extraJudulNama = extraJudul.getJudul();
@@ -116,15 +119,6 @@ public class KoorJudulPaSubdosenUbahActivity extends AppCompatActivity implement
 
     }
 
-    private void initSpinnerKategori(ArrayList<KategoriJudul> arrayList, Spinner spinner) {
-        List<String> spinnerItem = new ArrayList<>();
-        for (int i = 0; i < arrayList.size(); i++) {
-            spinnerItem.add(arrayList.get(i).getKategori_nama());
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, org.d3ifcool.mahasiswa.R.layout.support_simple_spinner_dropdown_item, spinnerItem);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -145,7 +139,7 @@ public class KoorJudulPaSubdosenUbahActivity extends AppCompatActivity implement
     public void onGetListKategoriJudul(List<KategoriJudul> kategori) {
         arrayListKategori.clear();
         arrayListKategori.addAll(kategori);
-        initSpinnerKategori(arrayListKategori, sp_kategori);
+        spinnerHelper.initSpinnerKategoriJudul(arrayListKategori, sp_kategori);
         sp_kategori.setSelection(positionSpinner);
     }
 

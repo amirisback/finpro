@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.service.helpers.SessionManager;
+import org.d3ifcool.service.helpers.SpinnerHelper;
 import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.interfaces.lists.KategoriJudulListView;
@@ -53,6 +54,7 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
     private ArrayList<Judul> arrayListJudul = new ArrayList<>();
     private ArrayList<KategoriJudul> arrayListKategoriJudul = new ArrayList<>();
     private Spinner spinner_dosen, spinner_kategori;
+    private SpinnerHelper spinnerHelper;
 
     private ProyekMahasiswaPresenter proyekMahasiswaPresenter;
     private MahasiswaPresenter mahasiswaPresenter;
@@ -79,6 +81,8 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         proyekMahasiswaPresenter = new ProyekMahasiswaPresenter(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
+
+        spinnerHelper = new SpinnerHelper(this);
 
         spinner_dosen = findViewById(R.id.act_mhs_list_dosen_pengajuan);
         spinner_kategori = findViewById(R.id.act_mhs_list_kategori);
@@ -172,27 +176,6 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
 
     }
 
-
-    private void initSpinnerNamaDosen(ArrayList<Dosen> arrayDosen, Spinner spinner) {
-        List<String> spinnerItem = new ArrayList<>();
-        for (int i = 0; i < arrayDosen.size(); i++) {
-            spinnerItem.add(arrayDosen.get(i).getDsn_nama());
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, spinnerItem);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-    }
-
-    private void initSpinnerKategori(ArrayList<KategoriJudul> arrayKategori, Spinner spinner) {
-        List<String> spinnerItem = new ArrayList<>();
-        for (int i = 0; i < arrayKategori.size(); i++) {
-            spinnerItem.add(arrayKategori.get(i).getKategori_nama());
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, spinnerItem);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return super.onCreateOptionsMenu(menu);
@@ -265,14 +248,14 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
     public void onGetListKategoriJudul(List<KategoriJudul> kategori) {
         arrayListKategoriJudul.clear();
         arrayListKategoriJudul.addAll(kategori);
-        initSpinnerKategori(arrayListKategoriJudul, spinner_kategori);
+        spinnerHelper.initSpinnerKategoriJudul(arrayListKategoriJudul, spinner_kategori);
     }
 
     @Override
     public void onGetListDosen(List<Dosen> dosen) {
         arrayListDosen.clear();
         arrayListDosen.addAll(dosen);
-        initSpinnerNamaDosen(arrayListDosen, spinner_dosen);
+        spinnerHelper.initSpinnerDosen(arrayListDosen, spinner_dosen);
     }
 
     @Override

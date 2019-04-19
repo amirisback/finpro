@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.d3ifcool.service.helpers.SpinnerHelper;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.interfaces.lists.KategoriJudulListView;
 import org.d3ifcool.service.models.Judul;
@@ -52,6 +53,7 @@ public class KoorArsipJudulFragment extends Fragment implements JudulListView, K
 
     private JudulPresenter judulPresenter;
     private KategoriJudulPresenter kategoriJudulPresenter;
+    private SpinnerHelper spinnerHelper;
 
     private String kategori_id;
 
@@ -70,6 +72,8 @@ public class KoorArsipJudulFragment extends Fragment implements JudulListView, K
         recyclerView = rootView.findViewById(R.id.frg_koor_judul_arsip_recyclerview);
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
+
+        spinnerHelper = new SpinnerHelper(getContext());
 
         adapter = new KoorJudulPaArsipViewAdapter(getContext());
         swipeRefreshLayout = rootView.findViewById(R.id.swipe_refresh);
@@ -103,16 +107,6 @@ public class KoorArsipJudulFragment extends Fragment implements JudulListView, K
         return rootView;
     }
 
-    private void initSpinner(ArrayList<KategoriJudul> arrayKategori, Spinner spinner) {
-        List<String> spinnerItem = new ArrayList<>();
-        for (int i = 0; i < arrayKategori.size(); i++) {
-            spinnerItem.add(arrayKategori.get(i).getKategori_nama());
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.support_simple_spinner_dropdown_item, spinnerItem);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-
-    }
 
     @Override
     public void onResume() {
@@ -136,7 +130,7 @@ public class KoorArsipJudulFragment extends Fragment implements JudulListView, K
     public void onGetListKategoriJudul(List<KategoriJudul> kategori) {
         arrayListKategoriJudul.clear();
         arrayListKategoriJudul.addAll(kategori);
-        initSpinner(arrayListKategoriJudul, sp_kategori);
+        spinnerHelper.initSpinnerKategoriJudul(arrayListKategoriJudul, sp_kategori);
     }
 
     @Override

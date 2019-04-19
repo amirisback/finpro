@@ -4,25 +4,30 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
+import org.d3ifcool.service.interfaces.lists.MonevListView;
 import org.d3ifcool.service.interfaces.works.DetailMonevWorkView;
-import org.d3ifcool.service.interfaces.works.MonevWorkView;
+import org.d3ifcool.service.models.Monev;
 import org.d3ifcool.service.presenters.DetailMonevPresenter;
 import org.d3ifcool.service.presenters.MonevPresenter;
 
-public class DosenMonevTambahActivity extends AppCompatActivity implements DetailMonevWorkView {
+import java.util.ArrayList;
+import java.util.List;
+
+public class DosenMonevTambahActivity extends AppCompatActivity implements DetailMonevWorkView, MonevListView {
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
 
-    private ProgressDialog dialog;
-    private DetailMonevPresenter presenter;
+    private ProgressDialog progressDialog;
+    private DetailMonevPresenter detailMonevPresenter;
+    private MonevPresenter monevPresenter;
+
+    private ArrayList<Monev> arrayListMonev = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +37,11 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Detai
         setTitle(getString(R.string.title_monev_tambah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.text_progress_dialog));
-        presenter = new DetailMonevPresenter(this);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
+
+        monevPresenter = new MonevPresenter(this);
+        detailMonevPresenter = new DetailMonevPresenter(this);
 
         EditText et_review_monev = findViewById(R.id.act_dsn_edittext_deskripsi);
         EditText et_nilai_monev = findViewById(R.id.act_dsn_edittext_nilai_monev);
@@ -48,7 +55,7 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Detai
         }else if (nilai_st.isEmpty()){
             et_nilai_monev.setError("Nilai Harus di Isi");
         }else {
-//            presenter.createDetailMonev(nilai);
+//            detailMonevPresenter.createDetailMonev(nilai);
         }
     }
 
@@ -72,12 +79,20 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Detai
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
+    }
+
+    @Override
+    public void onGetListMonev(List<Monev> monevList) {
+        arrayListMonev.clear();
+        arrayListMonev.addAll(monevList);
+
+
     }
 
     @Override

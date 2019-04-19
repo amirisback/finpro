@@ -12,12 +12,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.d3ifcool.service.helpers.SpinnerHelper;
 import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.interfaces.objects.DosenReviewerView;
@@ -36,12 +36,13 @@ import java.util.List;
 public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implements ProyekAkhirListView, DosenReviewerView, DosenListView, ProyekAkhirWorkView {
 
     public static final String EXTRA_JUDUL = "extra_judul";
-    private static final String PROYEK_AKHIR_PARAM_1 = "proyek_akhir.judul_id";
-    private static final String PROYEK_AKHIR_PARAM_2 = "judul_status";
+    private static final String PARAM_PROYEK_AKHIR_JUDUL_ID = "proyek_akhir.judul_id";
+    private static final String PARAM_JUDUL_STATUS = "judul_status";
 
     private DosenPresenter dosenPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private ProgressDialog progressDialog;
+    private SpinnerHelper spinnerHelper;
     private Spinner sp_dosen,sp_ubah_reviewer;
     private View view_atur;
     private Button btn_ubah_reviewer;
@@ -79,6 +80,7 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
         tv_dosen_reviewer_pa = findViewById(R.id.ctn_koor_pemetaan_reviewer);
         btn_ubah_reviewer = findViewById(R.id.act_koor_btn_ubah_reviewer);
         sp_dosen = findViewById(R.id.sp_dosen);
+        spinnerHelper = new SpinnerHelper(this);
 
         final View view_ubah = LayoutInflater.from(KoorPemetaanMonevDetailActivity.this).inflate(R.layout.dialog_edit_reviewer, null);
         sp_ubah_reviewer = view_ubah.findViewById(R.id.spinner_reviewer_ubah);
@@ -91,7 +93,7 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
         extraDsnNip = extraJudul.getNip_dosen();
 
         dosenPresenter.getDosen();
-        proyekAkhirPresenter.searchAllProyekAkhirBy(PROYEK_AKHIR_PARAM_1, stringJudulId);
+        proyekAkhirPresenter.searchAllProyekAkhirBy(PARAM_PROYEK_AKHIR_JUDUL_ID, stringJudulId);
 
         sp_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -173,26 +175,8 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
 
     }
 
-    private void initSpinner(ArrayList<Dosen> arrayDosen, Spinner spinner_dosen) {
-        List<String> spinnerItem = new ArrayList<>();
-        for (int i = 0; i < arrayDosen.size(); i++) {
-            spinnerItem.add(arrayDosen.get(i).getDsn_nama());
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, spinnerItem);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_dosen.setAdapter(adapter);
 
-    }
 
-    private void initSpinnerReviewer(ArrayList<Dosen> arrayDosen, Spinner spinner) {
-        List<String> spinnerItem = new ArrayList<>();
-        for (int i = 0; i < arrayDosen.size(); i++) {
-            spinnerItem.add(arrayDosen.get(i).getDsn_nama());
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, spinnerItem);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -234,8 +218,8 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
                 arrayListDosen.add(tempArrayListDosen.get(i));
             }
         }
-        initSpinner(arrayListDosen, sp_dosen);
-        initSpinnerReviewer(arrayListDosen, sp_ubah_reviewer);
+        spinnerHelper.initSpinnerDosen(arrayListDosen, sp_dosen);
+        spinnerHelper.initSpinnerDosen(arrayListDosen, sp_ubah_reviewer);
 
     }
 

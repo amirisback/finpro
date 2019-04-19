@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginStart="@dimen/dimen_medium"
     android:layout_marginEnd="@dimen/dimen_medium"
     android:layout_marginTop="@dimen/dimen_medium"
@@ -17,12 +18,11 @@
         <TextView
             android:id="@+id/ctn_koor_monev_kategori"
             android:layout_width="match_parent"
-            android:layout_toLeftOf="@id/ctn_koor_button_hapus"
+            android:layout_toStartOf="@id/ctn_koor_button_hapus"
             android:layout_height="wrap_content"
-            android:text="Android"
+            tools:text="@string/dummy"
             android:drawablePadding="@dimen/dimen_medium"
-            android:drawableLeft="@drawable/ic_content_judul_pa_kategori"
-            android:textStyle="bold|italic"
+            android:drawableStart="@drawable/ic_content_kategori_monev"
             android:textSize="@dimen/text_size_title_small"
             android:textColor="@color/colorTextBlack"/>
 

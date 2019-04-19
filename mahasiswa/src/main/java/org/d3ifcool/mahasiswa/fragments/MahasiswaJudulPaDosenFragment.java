@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.MahasiswaJudulPaDosenViewAdapter;
+import org.d3ifcool.service.helpers.SpinnerHelper;
 import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.models.Dosen;
@@ -40,6 +41,7 @@ public class MahasiswaJudulPaDosenFragment extends Fragment implements DosenList
     private RecyclerView recyclerView;
     private MahasiswaJudulPaDosenViewAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private SpinnerHelper spinnerHelper;
 
     private ArrayList<Judul> arrayListJudul = new ArrayList<>();
     private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
@@ -63,6 +65,8 @@ public class MahasiswaJudulPaDosenFragment extends Fragment implements DosenList
         recyclerView = rootView.findViewById(R.id.frg_mhs_judul_pa_dosen_recyclerview);
         sp_dosen = rootView.findViewById(R.id.spinner_dosen);
         swipeRefreshLayout = rootView.findViewById(R.id.frg_mhs_judul_pa_dosen_swiperefresh);
+
+        spinnerHelper = new SpinnerHelper(getContext());
 
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
@@ -98,16 +102,6 @@ public class MahasiswaJudulPaDosenFragment extends Fragment implements DosenList
         return rootView;
     }
 
-    private void initSpinner(ArrayList<Dosen> arrayDosen, Spinner spinner) {
-        List<String> spinnerItem = new ArrayList<>();
-        for (int i = 0; i < arrayDosen.size(); i++) {
-            spinnerItem.add(arrayDosen.get(i).getDsn_nama());
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.support_simple_spinner_dropdown_item, spinnerItem);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-
-    }
 
     @Override
     public void showProgress() {
@@ -140,7 +134,7 @@ public class MahasiswaJudulPaDosenFragment extends Fragment implements DosenList
     public void onGetListDosen(List<Dosen> dosen) {
         arrayListDosen.clear();
         arrayListDosen.addAll(dosen);
-        initSpinner(arrayListDosen, sp_dosen);
+        spinnerHelper.initSpinnerDosen(arrayListDosen, sp_dosen);
         swipeRefreshLayout.setRefreshing(false);
     }
 

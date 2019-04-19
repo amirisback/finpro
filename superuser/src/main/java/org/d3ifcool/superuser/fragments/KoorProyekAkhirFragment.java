@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.d3ifcool.service.helpers.SpinnerHelper;
 import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.models.Dosen;
@@ -46,6 +47,7 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
     private SwipeRefreshLayout swipeRefreshLayout;
 
     private String spinnerItemPosition;
+    private SpinnerHelper spinnerHelper;
 
     private ArrayList<Judul> arrayListJudul = new ArrayList<>();
     private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
@@ -69,6 +71,7 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
+        spinnerHelper = new SpinnerHelper(getContext());
         swipeRefreshLayout = rootView.findViewById(R.id.swipe_refresh);
         empty_view = rootView.findViewById(R.id.view_emptyview);
 
@@ -101,16 +104,6 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
         return rootView;
     }
 
-    private void initSpinner(ArrayList<Dosen> arrayDosen, Spinner spinner) {
-        List<String> spinnerItem = new ArrayList<>();
-        for (int i = 0; i < arrayDosen.size(); i++) {
-            spinnerItem.add(arrayDosen.get(i).getDsn_nama());
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.support_simple_spinner_dropdown_item, spinnerItem);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-
-    }
 
     @Override
     public void showProgress() {
@@ -144,7 +137,7 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
     public void onGetListDosen(List<Dosen> dosen) {
         arrayListDosen.clear();
         arrayListDosen.addAll(dosen);
-        initSpinner(arrayListDosen, sp_dosen);
+        spinnerHelper.initSpinnerDosen(arrayListDosen, sp_dosen);
     }
 
     @Override
