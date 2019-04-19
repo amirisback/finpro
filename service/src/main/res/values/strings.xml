@@ -282,6 +282,8 @@
     <string name="text_nama_mahasiswa">Mahasiswa</string>
     <string name="text_mahasiswa_sudah_mengajukan_judul">Mahasiswa sudah mengajukan judul</string>
     <string name="text_judul_status">Status</string>
+    <string name="text_belum_disetujui">Status proyek akhir belum ada</string>
+    <string name="text_mengajukan_judul_pa">Silahkan mengajukan judul di menu Judul PA</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>
