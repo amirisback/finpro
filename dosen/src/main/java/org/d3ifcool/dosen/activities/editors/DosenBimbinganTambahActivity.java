@@ -2,36 +2,27 @@ package org.d3ifcool.dosen.activities.editors;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
+import org.d3ifcool.service.helpers.MethodHelper;
 import org.d3ifcool.service.interfaces.works.BimbinganWorkView;
+import org.d3ifcool.service.models.Bimbingan;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.BimbinganPresenter;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class DosenBimbinganTambahActivity extends AppCompatActivity implements BimbinganWorkView {
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
-
-    private DatePickerDialog.OnDateSetListener datePickerDialog;
-    private BimbinganPresenter presenter;
     private ProgressDialog progressDialog;
-
-    private TextView tv_tanggal;
-    private String date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,15 +34,17 @@ public class DosenBimbinganTambahActivity extends AppCompatActivity implements B
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
-        presenter = new BimbinganPresenter(this);
+        final BimbinganPresenter bimbinganPresenter = new BimbinganPresenter(this);
+        MethodHelper methodHelper = new MethodHelper();
 
-        tv_tanggal = findViewById(R.id.act_dsn_mhs_bimbingan_textview_tanggal);
+        final TextView tv_tanggal = findViewById(R.id.act_dsn_mhs_bimbingan_textview_tanggal);
         final EditText et_judul = findViewById(R.id.act_dsn_info_edittext_judul_bimbingan);
         final EditText et_review = findViewById(R.id.act_dsn_info_edittext_konten);
         Button btn_simpan = findViewById(R.id.act_dsn_info_button_simpan);
 
         final ArrayList<ProyekAkhir> extraArrayProyekAkhir = getIntent().getParcelableArrayListExtra(EXTRA_PROYEK_AKHIR);
-        setDate();
+
+        methodHelper.setDatePicker(this, tv_tanggal);
 
         btn_simpan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,59 +59,14 @@ public class DosenBimbinganTambahActivity extends AppCompatActivity implements B
                 }else if (review.isEmpty()){
                     et_review.setError("Review Harus di Isi");
                 }else{
-                    presenter.createBimbingan(review,judul,tanggal,extraArrayProyekAkhir.get(0).getProyek_akhir_id());
+                    bimbinganPresenter.createBimbingan(review,judul,tanggal,extraArrayProyekAkhir.get(0).getProyek_akhir_id());
                     if (extraArrayProyekAkhir.size()==2){
-                        presenter.createBimbingan(review,judul,tanggal,extraArrayProyekAkhir.get(extraArrayProyekAkhir.size()-1).getProyek_akhir_id());
+                        bimbinganPresenter.createBimbingan(review,judul,tanggal,extraArrayProyekAkhir.get(extraArrayProyekAkhir.size()-1).getProyek_akhir_id());
                     }
                 }
 
             }
         });
-    }
-
-    private void setDate(){
-
-        Calendar cal = Calendar.getInstance();
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH);
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-
-        month = month + 1;
-        date = year+ "-"+ checkDigit(month)+ "-" + checkDigit(day) ;
-        tv_tanggal.setText(date);
-        datePickerDialog = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                month = month + 1;
-                date = checkDigit(dayOfMonth)+ " - "+ checkDigit(month)+ " - " + year ;
-                tv_tanggal.setText(date);
-            }
-        };
-
-        tv_tanggal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog dialog = new DatePickerDialog(DosenBimbinganTambahActivity.this,
-                        R.style.Theme_AppCompat_DayNight_Dialog_MinWidth,
-                        datePickerDialog,year,month,day);
-                cal.set(Calendar.MONTH, month);
-                cal.set(Calendar.DAY_OF_MONTH, day);
-                cal.set(Calendar.YEAR,year, -2);
-                dialog.getDatePicker().setMinDate(cal.getTimeInMillis());
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-                dialog.show();
-            }
-        });
-    }
-
-
-    public String checkDigit(int number) {
-        return number<=9?"0"+number:String.valueOf(number);
     }
 
     @Override

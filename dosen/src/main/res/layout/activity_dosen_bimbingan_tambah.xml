@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     android:orientation="vertical">
 
     <LinearLayout
@@ -31,11 +32,17 @@
         <TextView
             android:id="@+id/act_dsn_mhs_bimbingan_textview_tanggal"
             android:textSize="@dimen/text_size_title_small"
+            android:background="@color/colorBackgroundWhite"
+            android:elevation="2dp"
+            android:paddingTop="@dimen/dimen_big"
+            android:paddingBottom="@dimen/dimen_big"
+            android:paddingEnd="@dimen/dimen_big"
+            android:paddingStart="@dimen/dimen_big"
             android:textColor="@color/colorTextBlack"
-            android:drawableLeft="@drawable/ic_date"
-            android:drawablePadding="@dimen/dimen_medium"
-            android:text="Pilih Tanggal"
+            android:drawableEnd="@drawable/ic_date"
+            android:drawablePadding="@dimen/dimen_big"
             android:layout_marginBottom="@dimen/dimen_medium"
+            android:text="@string/dummy_tanggal"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/dimen_medium"
             android:layout_height="wrap_content"
@@ -82,7 +89,7 @@
             android:id="@+id/act_dsn_info_button_simpan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_click_simpan"
+            android:text="@string/button_click_tambah_bimbingan"
             android:textColor="@color/colorTextWhite"
             android:background="@drawable/box_border_button_action"/>
 
