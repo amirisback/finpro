@@ -68,7 +68,7 @@ public class KoorDosenUbahActivity extends AppCompatActivity implements DosenWor
                                 String kode_baru = et_kode.getText().toString();
                                 String kontak_baru = et_kontak.getText().toString();
                                 String email_baru = et_email.getText().toString();
-                                presenter.UpdateDosen(extraDosen.getDsn_nip(), nama_baru,kode_baru,kontak_baru,email_baru);
+                                presenter.updateDosen(extraDosen.getDsn_nip(), nama_baru,kode_baru,kontak_baru,email_baru);
                             }
                         })
                         .setNegativeButton(org.d3ifcool.dosen.R.string.tidak, null)

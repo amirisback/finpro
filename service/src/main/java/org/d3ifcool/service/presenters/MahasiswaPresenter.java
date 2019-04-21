@@ -92,7 +92,7 @@ public class MahasiswaPresenter {
 
     }
 
-    public void updateMahasiswa(String nim, String nama, String angkatan,String kontak, String email){
+    public void updateMahasiswa(String nim, String nama, String angkatan, String kontak, String email){
         viewEditor.showProgress();
         ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
         Call<Mahasiswa> call = apiInterfaceMahasiswa.updateMahasiswa(nim, nama, angkatan, kontak, email);

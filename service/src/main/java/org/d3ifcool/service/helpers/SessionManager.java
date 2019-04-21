@@ -8,6 +8,8 @@ import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.KoordinatorPa;
 import org.d3ifcool.service.models.Mahasiswa;
 
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.*;
+
 
 /**
  * Created by Faisal Amir
@@ -32,38 +34,6 @@ public class SessionManager {
     private SharedPreferences.Editor editor;
     private Context context;
 
-    private static final String PREF_NAME = "LOGIN";
-    private static final String LOGIN = "IS_LOGIN";
-    private static final String USERNAME = "USERNAME";
-    private static final String PENGGUNA = "PENGGUNA";
-
-    private static final String DSN_NIP = "DSN_NIP";
-    private static final String DSN_NIP_TEMP = "DSN_NIP_TEMP";
-    private static final String DSN_NAMA = "DSN_NAMA";
-    private static final String DSN_FOTO = "DSN_FOTO";
-    private static final String DSN_EMAIL = "DSN_EMAIL";
-    private static final String DSN_KONTAK = "DSN_KONTAK";
-    private static final String DSN_KODE = "DSN_KODE";
-    private static final String DSN_STATUS = "DSN_STATUS";
-
-    private static final String MHS_NIM = "MHS_NIM";
-    private static final String MHS_NAMA = "MHS_NAMA";
-    private static final String MHS_FOTO = "MHS_FOTO";
-    private static final String MHS_EMAIL = "MHS_EMAIL";
-    private static final String MHS_KONTAK = "MHS_KONTAK";
-    private static final String MHS_STATUS = "STATUS";
-    private static final String MHS_ANGKATAN = "ANGKATAN";
-    private static final String MHS_ID_JUDUL = "MHS_ID_JUDUL";
-
-    private static final String KOOR_NIP = "KOOR_NIM";
-    private static final String KOOR_NAMA = "KOOR_NAMA";
-    private static final String KOOR_KODE = "KOOR_KODE";
-    private static final String KOOR_EMAIL = "KOOR_EMAIL";
-    private static final String KOOR_KONTAK = "KOOR_KONTAK";
-    private static final String KOOR_FOTO = "KOOR_FOTO";
-    private static final String KOOR_USERNAME = "USERNAME_KOOR";
-
-
     @SuppressLint("CommitPrefEdits")
     public SessionManager(Context context) {
         this.context = context;
@@ -86,6 +56,7 @@ public class SessionManager {
         editor.putString(MHS_EMAIL, mahasiswa.getMhs_email());
         editor.putString(MHS_KONTAK, mahasiswa.getMhs_kontak());
         editor.putString(MHS_STATUS, mahasiswa.getStatus());
+        editor.putString(MHS_ANGKATAN, mahasiswa.getAngkatan());
         editor.putInt(MHS_ID_JUDUL, mahasiswa.getJudul_id());
         editor.apply();
         editor.commit();
@@ -116,6 +87,24 @@ public class SessionManager {
         editor.putString(KOOR_KONTAK, koor.getKoor_kontak());
         editor.putString(KOOR_KODE, koor.getKoor_kode());
         editor.putString(KOOR_USERNAME, koor.getUsername());
+        editor.apply();
+        editor.commit();
+    }
+
+    public void updateSessionMahasiswa(String nama, String angkatan, String kontak, String email){
+        editor.putString(MHS_NAMA, nama);
+        editor.putString(MHS_EMAIL, email);
+        editor.putString(MHS_KONTAK, kontak);
+        editor.putString(MHS_ANGKATAN, angkatan);
+        editor.apply();
+        editor.commit();
+    }
+
+    public void updateSessionDosen(String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_email){
+        editor.putString(DSN_NAMA, dsn_nama);
+        editor.putString(DSN_EMAIL, dsn_email);
+        editor.putString(DSN_KONTAK, dsn_kontak);
+        editor.putString(DSN_KODE, dsn_kode);
         editor.apply();
         editor.commit();
     }

@@ -9,18 +9,29 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.works.MahasiswaWorkView;
 import org.d3ifcool.service.presenters.MahasiswaPresenter;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
+
 public class MahasiswaProfilUbahActivity extends AppCompatActivity implements MahasiswaWorkView {
-    private ProgressDialog dialog;
-    private SessionManager manager;
-    private MahasiswaPresenter presenter;
+
+    private ProgressDialog progressDialog;
+    private SessionManager sessionManager;
+    private MahasiswaPresenter mahasiswaPresenter;
+
+    private String nama_baru, angkatan_baru, kontak_baru, email_baru;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,40 +41,42 @@ public class MahasiswaProfilUbahActivity extends AppCompatActivity implements Ma
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0f);
 
-        dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.text_progress_dialog));
-        manager = new SessionManager(this);
-        presenter = new MahasiswaPresenter(this);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
+        sessionManager = new SessionManager(this);
+        mahasiswaPresenter = new MahasiswaPresenter(this);
 
         TextView tv_nim = findViewById(R.id.act_mhs_profil_nim);
         final EditText et_nama = findViewById(R.id.act_mhs_profil_nama);
         final EditText et_angkatan= findViewById(R.id.act_mhs_profil_angkatan);
         final EditText et_email = findViewById(R.id.act_mhs_profil_email);
         final EditText et_kontak = findViewById(R.id.act_mhs_profil_kontak);
+        final CircleImageView mahasiswa_foto = findViewById(R.id.act_mhs_profil_foto);
 
-        final String nama = manager.getSessionMahasiswaNama();
-        String angkatan = manager.getSessionMahasiswaAngkatan();
-        String kontak = manager.getSessionMahasiswaKontak();
-        String email = manager.getSessionMahasiswaEmail();
+        final String nama = sessionManager.getSessionMahasiswaNama();
+        String angkatan = sessionManager.getSessionMahasiswaAngkatan();
+        String kontak = sessionManager.getSessionMahasiswaKontak();
+        String email = sessionManager.getSessionMahasiswaEmail();
 
-        tv_nim.setText(manager.getSessionMahasiswaNim());
+        tv_nim.setText(sessionManager.getSessionMahasiswaNim());
         et_nama.setText(nama);
         et_angkatan.setText(angkatan);
         et_kontak.setText(kontak);
         et_email.setText(email);
+        Picasso.get().load(URL_FOTO_MAHASISWA + sessionManager.getSessionMahasiswaFoto()).into(mahasiswa_foto);
 
         Button btn_ubah = findViewById(R.id.act_mhs_profil_button);
         btn_ubah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nama_baru = et_nama.getText().toString();
-                String angkatan_baru = et_angkatan.getText().toString();
-                String kontak_baru = et_kontak.getText().toString();
-                String email_baru = et_email.getText().toString();
+                nama_baru = et_nama.getText().toString();
+                angkatan_baru = et_angkatan.getText().toString();
+                kontak_baru = et_kontak.getText().toString();
+                email_baru = et_email.getText().toString();
                 if (nama_baru.isEmpty()){
                     et_nama.setError("Field ini harus di isi");
                 }else {
-                    presenter.updateMahasiswa(manager.getSessionMahasiswaNim(), nama_baru, angkatan_baru, kontak_baru,email_baru);
+                    mahasiswaPresenter.updateMahasiswa(sessionManager.getSessionMahasiswaNim(), nama_baru, angkatan_baru, kontak_baru, email_baru);
                 }
             }
         });
@@ -91,16 +104,17 @@ public class MahasiswaProfilUbahActivity extends AppCompatActivity implements Ma
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override
     public void onSucces() {
+        sessionManager.updateSessionMahasiswa(nama_baru, angkatan_baru, kontak_baru, email_baru);
         finish();
     }
 

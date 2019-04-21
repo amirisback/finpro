@@ -287,6 +287,7 @@
     <string name="text_mengajukan_judul_pa">Silahkan mengajukan judul di menu Judul PA</string>
     <string name="button_click_tambah_monev">Tambah Monev</string>
     <string name="button_click_tambah_bimbingan">Tambah Bimbingan</string>
+    <string name="text_ubah_profil">Ubah Profil</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

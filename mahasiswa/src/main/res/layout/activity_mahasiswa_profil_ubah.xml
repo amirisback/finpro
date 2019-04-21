@@ -1,275 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground">
 
-    <View
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:background="@drawable/circle_profile_header"/>
+        android:layout_height="wrap_content">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/act_mhs_profil_foto"
-        android:background="@drawable/circle_border_photo_profil"
-        android:layout_width="@dimen/dimen_profil_photo"
-        android:layout_height="@dimen/dimen_profil_photo"
-        android:src="@drawable/ic_dummy_photo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/dimen_big"/>
-
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="110dp"
-        android:src="@drawable/ic_camera"
-        android:padding="@dimen/dimen_medium"
-        android:background="@drawable/circle_image_edit_foto"
-        android:layout_alignEnd="@id/act_mhs_profil_foto"/>
-
-
-
-    <LinearLayout
-        android:padding="@dimen/dimen_big_ultra"
-        android:layout_below="@+id/act_mhs_profil_foto"
-        android:layout_above="@id/text_d3rpla"
-        android:orientation="vertical"
-        android:layout_marginTop="@dimen/dimen_big_ultra"
-        android:layout_marginLeft="@dimen/dimen_big"
-        android:layout_marginRight="@dimen/dimen_big"
-        android:layout_marginBottom="@dimen/dimen_medium"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="@dimen/dimen_big"
-        android:background="@drawable/circle_profile_body">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
-            android:layout_marginBottom="@dimen/dimen_small"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:textSize="@dimen/text_size_small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_profil_detail_nip"/>
-
-            <TextView
-                android:id="@+id/act_mhs_profil_nim"
-                android:layout_width="@dimen/dimen_weight"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:layout_marginLeft="52dp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
-                android:textAlignment="textEnd"
-                android:textSize="@dimen/text_size_title_small"
-                android:layout_height="wrap_content"
-                android:text="@string/dummy_anggota_nim_2"/>
-
-
-        </LinearLayout>
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginRight="@dimen/dimen_big"
-            android:layout_marginLeft="@dimen/dimen_big"
-            android:background="@color/colorBackground"/>
+            android:layout_height="220dp"
+            android:background="@drawable/circle_profile_header"/>
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/act_mhs_profil_foto"
+            android:background="@drawable/circle_border_photo_profil"
+            android:layout_width="@dimen/dimen_profil_photo"
+            android:layout_height="@dimen/dimen_profil_photo"
+            android:src="@drawable/ic_dummy_photo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen_big"/>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
-            android:layout_marginBottom="@dimen/dimen_small"
-            android:layout_marginTop="@dimen/dimen_big_ultra"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:textSize="@dimen/text_size_small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_nama"/>
-
-            <EditText
-                android:id="@+id/act_mhs_profil_nama"
-                android:layout_width="@dimen/dimen_weight"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:layout_marginLeft="42dp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
-                android:textAlignment="textEnd"
-                android:textSize="@dimen/text_size_title_small"
-                android:layout_height="wrap_content"
-                android:text="@string/dummy_anggota_nim_2"/>
-
-
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginRight="@dimen/dimen_big"
-            android:layout_marginLeft="@dimen/dimen_big"
-            android:background="@color/colorBackground"/>
-
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="110dp"
+            android:src="@drawable/ic_camera"
+            android:padding="@dimen/dimen_medium"
+            android:background="@drawable/circle_image_edit_foto"
+            android:layout_alignEnd="@id/act_mhs_profil_foto"/>
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
-            android:layout_marginBottom="@dimen/dimen_small"
+            android:padding="@dimen/dimen_big_ultra"
+            android:layout_below="@+id/act_mhs_profil_foto"
+            android:orientation="vertical"
             android:layout_marginTop="@dimen/dimen_big_ultra"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:textSize="@dimen/text_size_small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_angkatan"/>
-
-            <EditText
-                android:id="@+id/act_mhs_profil_angkatan"
-                android:layout_width="@dimen/dimen_weight"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:layout_marginLeft="@dimen/dimen_big_super"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
-                android:textAlignment="textEnd"
-                android:textSize="@dimen/text_size_title_small"
-                android:layout_height="wrap_content"
-                android:text="@string/dummy_anggota_nim_2"/>
-
-
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginRight="@dimen/dimen_big"
             android:layout_marginLeft="@dimen/dimen_big"
-            android:background="@color/colorBackground"/>
-
-
-        <LinearLayout
-            android:layout_gravity="bottom"
-            android:gravity="bottom"
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:layout_marginTop="@dimen/dimen_big_ultra"
+            android:layout_marginRight="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_big"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/dimen_big"
+            android:background="@drawable/circle_profile_body">
 
-            <TextView
-                android:textSize="@dimen/text_size_small"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginBottom="@dimen/dimen_small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="@dimen/text_size_small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_profil_detail_nip"/>
+
+                <TextView
+                    android:id="@+id/act_mhs_profil_nim"
+                    android:layout_width="@dimen/dimen_weight"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:layout_marginLeft="52dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:textAlignment="textEnd"
+                    android:textSize="@dimen/text_size_title_small"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummy_anggota_nim_2"/>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="@dimen/dimen_big"
+                android:layout_marginLeft="@dimen/dimen_big"
+                android:background="@color/colorBackground"/>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginBottom="@dimen/dimen_small"
+                android:layout_marginTop="@dimen/dimen_big_ultra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="@dimen/text_size_small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_nama"/>
+
+                <EditText
+                    android:id="@+id/act_mhs_profil_nama"
+                    android:layout_width="@dimen/dimen_weight"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:layout_marginLeft="42dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:textAlignment="textEnd"
+                    android:textSize="@dimen/text_size_title_small"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummy_anggota_nim_2"/>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="@dimen/dimen_big"
+                android:layout_marginLeft="@dimen/dimen_big"
+                android:background="@color/colorBackground"/>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginBottom="@dimen/dimen_small"
+                android:layout_marginTop="@dimen/dimen_big_ultra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="@dimen/text_size_small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_angkatan"/>
+
+                <EditText
+                    android:id="@+id/act_mhs_profil_angkatan"
+                    android:layout_width="@dimen/dimen_weight"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:layout_marginLeft="@dimen/dimen_big_super"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:textAlignment="textEnd"
+                    android:textSize="@dimen/text_size_title_small"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummy_anggota_nim_2"/>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="@dimen/dimen_big"
+                android:layout_marginLeft="@dimen/dimen_big"
+                android:background="@color/colorBackground"/>
+
+
+            <LinearLayout
+                android:layout_gravity="bottom"
                 android:gravity="bottom"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_profil_detail_email"/>
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginBottom="@dimen/dimen_medium"
+                android:layout_marginTop="@dimen/dimen_big_ultra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/act_mhs_profil_email"
-                android:layout_width="@dimen/dimen_weight"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:layout_marginLeft="43dp"
-                android:textAlignment="textEnd"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/text_size_title_small"
-                android:textStyle="bold" />
+                <TextView
+                    android:textSize="@dimen/text_size_small"
+                    android:gravity="bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_profil_detail_email"/>
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/act_mhs_profil_email"
+                    android:layout_width="@dimen/dimen_weight"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:layout_marginLeft="43dp"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_size_title_small"
+                    android:textStyle="bold" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginRight="@dimen/dimen_big"
-            android:layout_marginLeft="@dimen/dimen_big"
-            android:background="@color/colorBackground"/>
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_gravity="bottom"
-            android:gravity="bottom"
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:layout_marginTop="@dimen/dimen_big_ultra"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="@dimen/dimen_big"
+                android:layout_marginLeft="@dimen/dimen_big"
+                android:background="@color/colorBackground"/>
 
-            <TextView
-                android:textSize="@dimen/text_size_small"
+            <LinearLayout
+                android:layout_gravity="bottom"
                 android:gravity="bottom"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_profil_detail_notelp"/>
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginBottom="@dimen/dimen_medium"
+                android:layout_marginTop="@dimen/dimen_big_ultra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/act_mhs_profil_kontak"
-                android:layout_width="@dimen/dimen_weight"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
-                android:layout_marginLeft="34dp"
-                android:textSize="@dimen/text_size_title_small"
+                <TextView
+                    android:textSize="@dimen/text_size_small"
+                    android:gravity="bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_profil_detail_notelp"/>
+
+                <EditText
+                    android:id="@+id/act_mhs_profil_kontak"
+                    android:layout_width="@dimen/dimen_weight"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="34dp"
+                    android:textSize="@dimen/text_size_title_small"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:text="@string/dummy_no_telp"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="@dimen/dimen_big"
+                android:layout_marginLeft="@dimen/dimen_big"
+                android:background="@color/colorBackground"/>
+
+
+            <Button
+                android:id="@+id/act_mhs_profil_button"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="textEnd"
-                android:text="@string/dummy_no_telp"/>
+                android:layout_marginTop="@dimen/dimen_big_super"
+                android:background="@drawable/box_border_button_action"
+                android:text="@string/text_ubah_profil"
+                android:textColor="@color/colorTextWhite"/>
 
         </LinearLayout>
 
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginRight="@dimen/dimen_big"
-            android:layout_marginLeft="@dimen/dimen_big"
-            android:background="@color/colorBackground"/>
+    </RelativeLayout>
 
 
-        <Button
-            android:id="@+id/act_mhs_profil_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_big_super"
-            android:background="@drawable/box_border_button_action"
-            android:text="@string/text_ubah_data"
-            android:textColor="@color/colorTextWhite"/>
-
-    </LinearLayout>
-
-
-    <TextView
-        android:textColor="@color/colorTextBlack"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/text_d3rpla"
-        android:textSize="@dimen/text_size_small"
-        android:layout_above="@id/text_telkom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/text_d3rpla"/>
-
-    <TextView
-        android:textColor="@color/colorTextBlack"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/text_telkom"
-
-        android:textSize="@dimen/text_size_small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/text_telkomuniversity"
-        android:layout_marginBottom="@dimen/dimen_medium"/>
-
-
-</RelativeLayout>
+</ScrollView>

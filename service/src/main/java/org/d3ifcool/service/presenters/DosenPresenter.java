@@ -129,7 +129,7 @@ public class DosenPresenter {
     }
 
 
-    public void UpdateDosen(String nip_dosen, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_email) {
+    public void updateDosen(String nip_dosen, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_email) {
         viewEditor.showProgress();
         ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
         Call<Dosen> call = apiInterfaceDosen.updateDosen(nip_dosen, dsn_nama, dsn_kode, dsn_kontak, dsn_email);

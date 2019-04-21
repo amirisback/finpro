@@ -1,4 +1,4 @@
-package org.d3ifcool.dosen.activities.editors;
+package org.d3ifcool.dosen.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,9 +18,13 @@ import org.d3ifcool.service.interfaces.works.DosenWorkView;
 import org.d3ifcool.service.presenters.DosenPresenter;
 
 public class DosenProfilUbahActivity extends AppCompatActivity implements DosenWorkView {
-    private DosenPresenter presenter;
-    private SessionManager manager;
-    private ProgressDialog dialog;
+
+    private DosenPresenter dosenPresenter;
+    private SessionManager sessionManager;
+    private ProgressDialog progressDialog;
+
+    private String nama_baru, kode_baru, kontak_baru, email_baru;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +34,10 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0f);
 
-        presenter = new DosenPresenter(this);
-        manager = new SessionManager(this);
-        dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.text_progress_dialog));
+        dosenPresenter = new DosenPresenter(this);
+        sessionManager = new SessionManager(this);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         final EditText et_nama = findViewById(R.id.act_dsn_profil_nama);
         TextView et_nip = findViewById(R.id.act_dsn_profil_nip);
@@ -42,13 +46,13 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
         final EditText et_kontak = findViewById(R.id.act_dsn_profil_kontak);
         Button btn_ubah = findViewById(R.id.act_dsn_profil_button);
 
-        String nama = manager.getSessionDosenNama();
-        String kode = manager.getSessionDosenKode();
-        String email = manager.getSessionDosenEmail();
-        String kontak = manager.getSessionDosenKontak();
+        String nama = sessionManager.getSessionDosenNama();
+        String kode = sessionManager.getSessionDosenKode();
+        String email = sessionManager.getSessionDosenEmail();
+        String kontak = sessionManager.getSessionDosenKontak();
 
         et_nama.setText(nama);
-        et_nip.setText(manager.getSessionDosenNip());
+        et_nip.setText(sessionManager.getSessionDosenNip());
         et_kode.setText(kode);
         et_email.setText(email);
         et_kontak.setText(kontak);
@@ -56,10 +60,10 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
         btn_ubah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nama_baru = et_nama.getText().toString();
-                String kode_baru = et_kode.getText().toString();
-                String email_baru = et_email.getText().toString();
-                String kontak_baru = et_kontak.getText().toString();
+                nama_baru = et_nama.getText().toString();
+                kode_baru = et_kode.getText().toString();
+                email_baru = et_email.getText().toString();
+                kontak_baru = et_kontak.getText().toString();
                 if (nama_baru.isEmpty()){
                     et_nama.setError("Field ini harus di isi");
                 }else if (kode_baru.isEmpty()){
@@ -69,7 +73,7 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
 //                }else if (kontak_baru.isEmpty()){
 //                    et_kontak.setError("Field ini harus di isi");
                 }else {
-                    presenter.UpdateDosen(manager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,email_baru);
+                    dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,email_baru);
                 }
 
             }
@@ -96,16 +100,17 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override
     public void onSucces() {
+        sessionManager.updateSessionDosen(nama_baru, kode_baru, kontak_baru, email_baru);
         finish();
     }
 

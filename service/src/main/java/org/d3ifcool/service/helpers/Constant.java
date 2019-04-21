@@ -37,7 +37,36 @@ public class Constant {
         public static final String PATH_MAIN_ACTIVITY = PACKAGE_PATH_ACTIVITIES+".MainActivity";
         // -----------------------------------------------------------------------------------------
 
+        public static final String PREF_NAME = "LOGIN";
+        public static final String LOGIN = "IS_LOGIN";
+        public static final String USERNAME = "USERNAME";
+        public static final String PENGGUNA = "PENGGUNA";
 
+        public static final String DSN_NIP = "DSN_NIP";
+        public static final String DSN_NIP_TEMP = "DSN_NIP_TEMP";
+        public static final String DSN_NAMA = "DSN_NAMA";
+        public static final String DSN_FOTO = "DSN_FOTO";
+        public static final String DSN_EMAIL = "DSN_EMAIL";
+        public static final String DSN_KONTAK = "DSN_KONTAK";
+        public static final String DSN_KODE = "DSN_KODE";
+        public static final String DSN_STATUS = "DSN_STATUS";
+
+        public static final String MHS_NIM = "MHS_NIM";
+        public static final String MHS_NAMA = "MHS_NAMA";
+        public static final String MHS_FOTO = "MHS_FOTO";
+        public static final String MHS_EMAIL = "MHS_EMAIL";
+        public static final String MHS_KONTAK = "MHS_KONTAK";
+        public static final String MHS_STATUS = "STATUS";
+        public static final String MHS_ANGKATAN = "ANGKATAN";
+        public static final String MHS_ID_JUDUL = "MHS_ID_JUDUL";
+
+        public static final String KOOR_NIP = "KOOR_NIM";
+        public static final String KOOR_NAMA = "KOOR_NAMA";
+        public static final String KOOR_KODE = "KOOR_KODE";
+        public static final String KOOR_EMAIL = "KOOR_EMAIL";
+        public static final String KOOR_KONTAK = "KOOR_KONTAK";
+        public static final String KOOR_FOTO = "KOOR_FOTO";
+        public static final String KOOR_USERNAME = "USERNAME_KOOR";
 
     }
 
