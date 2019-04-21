@@ -310,7 +310,7 @@
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <RelativeLayout
-        android:visibility="visible"
+        android:visibility="gone"
         android:id="@+id/disable_view"
         android:background="@color/colorBackground"
         android:layout_width="match_parent"

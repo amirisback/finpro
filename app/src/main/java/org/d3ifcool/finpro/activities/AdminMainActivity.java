@@ -13,8 +13,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,16 +36,6 @@ import org.d3ifcool.superuser.fragments.KoorProyekAkhirFragment;
 public class AdminMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, KoorView {
 
-    private KoorDosenFragment koorDosenFragment;
-    private KoorInformasiFragment koorInformasiFragment;
-    private KoorMahasiswaFragment koorMahasiswaFragment;
-    private KoorJudulFragment koorJudulPaSubdosenFragment;
-    private KoorProyekAkhirFragment koorProyekAkhirFragment;
-    private KoorKategoriJudulFragment koorJudulPaKategoriFragment;
-    private KoorPemetaanMonevFragment koorPemetaanMahasiswaMonev;
-    private KoorKategoriMonevFragment koorKategoriMonevFragment;
-    private KoorArsipJudulFragment koorArsipJudulFragment;
-
     private SessionManager sessionManager;
 
     private KoorPresenter presenter;
@@ -68,21 +56,11 @@ public class AdminMainActivity extends AppCompatActivity
         sessionManager = new SessionManager(this);
         presenter = new KoorPresenter(this);
 
-        koorDosenFragment = new KoorDosenFragment();
-        koorInformasiFragment = new KoorInformasiFragment();
-        koorMahasiswaFragment = new KoorMahasiswaFragment();
-        koorJudulPaSubdosenFragment = new KoorJudulFragment();
-        koorProyekAkhirFragment = new KoorProyekAkhirFragment();
-        koorJudulPaKategoriFragment = new KoorKategoriJudulFragment();
-        koorPemetaanMahasiswaMonev = new KoorPemetaanMonevFragment();
-        koorKategoriMonevFragment = new KoorKategoriMonevFragment();
-        koorArsipJudulFragment = new KoorArsipJudulFragment();
-
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         presenter.getKoorByParameter(sessionManager.getSessionUsername());
-        setFragmentLayout(koorInformasiFragment);
+        openFragment(new KoorInformasiFragment());
         setTitle(getString(R.string.title_informasi));
 
     }
@@ -148,42 +126,42 @@ public class AdminMainActivity extends AppCompatActivity
 
         if (id == R.id.nav_menu_informasi) {
             setTitle(getString(R.string.title_informasi));
-            setFragmentLayout(koorInformasiFragment);
+            openFragment(new KoorInformasiFragment());
         } else if (id == R.id.nav_menu_mahasiswa) {
             setTitle(getString(R.string.title_mahasiswa));
-            setFragmentLayout(koorMahasiswaFragment);
+            openFragment(new KoorMahasiswaFragment());
         } else if (id == R.id.nav_menu_dosen) {
             setTitle(getString(R.string.title_dosen));
-            setFragmentLayout(koorDosenFragment);
+            openFragment(new KoorDosenFragment());
         } else if (id == R.id.nav_menu_proyek_akhir) {
             setTitle(getString(R.string.title_proyekakhir));
-            setFragmentLayout(koorProyekAkhirFragment);
+            openFragment(new KoorProyekAkhirFragment());
         } else if (id == R.id.nav_menu_judul_pa) {
             setTitle(getString(R.string.title_judulpa));
-            setFragmentLayout(koorJudulPaSubdosenFragment);
+            openFragment(new KoorJudulFragment());
         }else if (id == R.id.nav_menu_judul_pa_kategori){
             setTitle(getString(R.string.title_kategori_judul_pa));
-            setFragmentLayout(koorJudulPaKategoriFragment);
+            openFragment(new KoorKategoriJudulFragment());
         }else if (id == R.id.nav_menu_mahasiswa_pemetaan_monev){
             setTitle(getString(R.string.title_pemetaan_monev));
-            setFragmentLayout(koorPemetaanMahasiswaMonev);
+            openFragment(new KoorPemetaanMonevFragment());
         }else if (id == R.id.nav_menu_kategori_monev){
             setTitle(getString(R.string.text_title_kategori_monev));
-            setFragmentLayout(koorKategoriMonevFragment);
+            openFragment(new KoorKategoriMonevFragment());
         }else if (id == R.id.nav_menu_arsip_judul){
             setTitle(getString(R.string.text_title_arsip_judul));
-            setFragmentLayout(koorArsipJudulFragment);
+            openFragment(new KoorArsipJudulFragment());
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    private void setFragmentLayout(Fragment mFragment) {
-        FragmentManager mFragmentManager = getSupportFragmentManager();
-        FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.framelayout_container, mFragment);
-        mFragmentTransaction.commit();
+    private void openFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.framelayout_container, fragment)
+                .commit();
     }
 
     @Override

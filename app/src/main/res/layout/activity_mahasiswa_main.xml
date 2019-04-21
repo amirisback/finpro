@@ -8,7 +8,7 @@
     tools:context=".activities.MahasiswaMainActivity"
     android:background="@color/colorBackground">
 
-    <!--<android.support.design.widget.BottomNavigationView-->
+    <!--<com.google.android.material.bottomnavigation.BottomNavigationView-->
         <!--android:id="@+id/act_mhs_home_bottom_navigation"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
@@ -30,13 +30,19 @@
         app:itemBackground="@drawable/navbottom_selector_background"
         app:menu="@menu/menu_bottom_navigation_mahasiswa" />
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/act_mhs_home_viewpager"
+    <!--<androidx.viewpager.widget.ViewPager-->
+        <!--android:id="@+id/act_mhs_home_viewpager"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_above="@+id/act_mhs_home_bottom_navigation"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
+
+    <FrameLayout
+        android:layout_above="@id/act_mhs_home_bottom_navigation"
+        android:id="@+id/framelayout_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/act_mhs_home_bottom_navigation"
-        android:layout_alignParentTop="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        android:layout_height="match_parent"/>
 
     <View
         android:layout_width="match_parent"

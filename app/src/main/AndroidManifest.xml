@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_logo_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:hardwareAccelerated="true">
         <activity
             android:name=".activities.AdminMainActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>

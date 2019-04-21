@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import org.d3ifcool.service.R;
 
 import java.text.DateFormat;
@@ -26,6 +29,8 @@ public class MethodHelper {
     private String randomChar;
     // ---------------------------------------------------------------------------------------------
 
+    private FragmentTransaction fragmentTransaction;
+    private int frameLayoutId;
 
     public MethodHelper() {
     }

@@ -20,14 +20,22 @@
         app:itemBackground="@drawable/navbottom_selector_background"
         app:menu="@menu/menu_bottom_navigation_dosen"/>
 
+    <!--<androidx.viewpager.widget.ViewPager-->
+        <!--android:id="@+id/act_dsn_home_viewpager"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_above="@+id/act_dsn_home_bottom_navigation"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/act_dsn_home_viewpager"
+    <FrameLayout
+        android:id="@+id/framelayout_container"
+        android:layout_above="@id/act_dsn_home_bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/act_dsn_home_bottom_navigation"
-        android:layout_alignParentTop="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        android:layout_height="match_parent">
+
+
+    </FrameLayout>
 
     <View
         android:layout_width="match_parent"
