@@ -36,13 +36,17 @@ public class DosenPaSidangFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dosen_pa_sidang, container, false);
         ArrayList<ProyekAkhir> proyekAkhir = new ArrayList<>();
 //        proyekAkhir.add(new ProyekAkhir("Seven Primavera", "finpro"));
+
         ArrayList<KategoriJudul> kategoriJudul = new ArrayList<>();
         kategoriJudul.add(new KategoriJudul(1,"android"));
         RecyclerView recyclerView = view.findViewById(R.id.frg_dsn_pa_sidang_recyclerview);
+
         DosenMahasiswaSidangViewAdapter adapter = new DosenMahasiswaSidangViewAdapter(getContext());
+
         adapter.addItem(proyekAkhir);
         adapter.addItemkategori(kategoriJudul);
         adapter.setLayoutType(R.layout.content_item_dosen_pa_sidang);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 

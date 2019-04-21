@@ -117,16 +117,16 @@ public class MahasiswaJudulPaDosenFragment extends Fragment implements DosenList
     public void onGetListJudul(List<Judul> judulpa) {
         arrayListJudul.clear();
         arrayListJudul.addAll(judulpa);
-        adapter.setLayoutType(R.layout.content_item_mahasiswa_judulpa_dosen);
-        adapter.addItemJudul(arrayListJudul);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapter);
-        swipeRefreshLayout.setRefreshing(false);
 
         if (arrayListJudul.size() == 0) {
             empty_view.setVisibility(View.VISIBLE);
         } else {
             empty_view.setVisibility(View.GONE);
+            adapter.setLayoutType(R.layout.content_item_mahasiswa_judulpa_dosen);
+            adapter.addItemJudul(arrayListJudul);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            recyclerView.setAdapter(adapter);
+            swipeRefreshLayout.setRefreshing(false);
         }
     }
 

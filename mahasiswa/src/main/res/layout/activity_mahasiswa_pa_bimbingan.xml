@@ -46,7 +46,7 @@
 
             <TextView
                 android:id="@+id/act_mhs_pa_bimbingan_detail_textview_jumlah"
-                style="@style/textview_pa_color_accent"
+                style="@style/textview_pa_color_black"
                 tools:text="@string/dummy_jumlah_bimbingan"/>
 
         </LinearLayout>

@@ -140,16 +140,17 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
     public void onGetListJudul(List<Judul> judulpa) {
         arrayListJudul.clear();
         arrayListJudul.addAll(judulpa);
-        adapter = new KoorJudulPaSubdosenViewAdapter(getContext());
-        adapter.additem(arrayListJudul);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapter);
-        swipeRefreshLayout.setRefreshing(false);
+
 
         if (arrayListJudul.size() == 0) {
             empty_view.setVisibility(View.VISIBLE);
         } else {
             empty_view.setVisibility(View.GONE);
+            adapter = new KoorJudulPaSubdosenViewAdapter(getContext());
+            adapter.additem(arrayListJudul);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            recyclerView.setAdapter(adapter);
+            swipeRefreshLayout.setRefreshing(false);
         }
 
     }

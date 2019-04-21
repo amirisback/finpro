@@ -99,20 +99,18 @@ public class DosenInformasiFragment extends Fragment implements InformasiListVie
 
     @Override
     public void onGetListInformasi(List<Informasi> informasi) {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         arrayList.clear();
         arrayList.addAll(informasi);
-
-        adapter.addItem(arrayList);
-        adapter.setLayoutType(R.layout.content_item_dosen_informasi);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        swipeRefreshLayout.setRefreshing(false);
 
         if (arrayList.size() == 0) {
             empty_view.setVisibility(View.VISIBLE);
         } else {
             empty_view.setVisibility(View.GONE);
+            adapter.addItem(arrayList);
+            adapter.setLayoutType(R.layout.content_item_dosen_informasi);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            swipeRefreshLayout.setRefreshing(false);
         }
 
     }

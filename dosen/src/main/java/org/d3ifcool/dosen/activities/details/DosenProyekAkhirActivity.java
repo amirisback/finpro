@@ -46,6 +46,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
 
     private ArrayList<Bimbingan> arrayListBimbingan = new ArrayList<>();
     private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
+    private ProyekAkhir parcelProyekAkhir;
 
     private TextView tv_judul_pa,tv_kelompok_pa,tv_nama_anggota1_pa, tv_nama_anggota2_pa,
             tv_nim_anggota1_pa, tv_nim_anggota2_pa, tv_dosen_pembimbing_pa, tv_jumlah_bimbingan_pa,
@@ -75,7 +76,6 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
         tv_dosen_pembimbing_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_dosen_pembimbing);
         tv_jumlah_bimbingan_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_jml_bimbingan);
         tv_dosen_reviewer_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_dosen_reviewer);
-        tv_jumlah_monev_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_jml_monev);
         tv_status_sidang_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_status_sidang);
 
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
@@ -100,7 +100,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DosenProyekAkhirActivity.this, DosenProyekAkhirMonevActivity.class);
-
+                intent.putExtra(DosenProyekAkhirMonevActivity.EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
                 startActivity(intent);
             }
         });
@@ -188,8 +188,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
 
         if (!arrayListProyekAkhir.isEmpty()) {
 
-            String stringNipPembimbing = String.valueOf(arrayListProyekAkhir.get(0).getPembimbing_dsn_nip());
-            String stringNipReviewer = String.valueOf(arrayListProyekAkhir.get(0).getReviewer_dsn_nip());
+            parcelProyekAkhir = arrayListProyekAkhir.get(0);
             String stringProyekAkhirId = String.valueOf(arrayListProyekAkhir.get(0).getProyek_akhir_id());
 
             tv_judul_pa.setText(arrayListProyekAkhir.get(0).getJudul_nama());

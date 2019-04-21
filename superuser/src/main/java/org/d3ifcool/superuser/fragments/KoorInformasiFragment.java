@@ -98,19 +98,21 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
 
     @Override
     public void onGetListInformasi(List<Informasi> informasi) {
-        adapter = new KoorInformasiViewAdapter(getContext());
-        rv_informasi.setLayoutManager(new LinearLayoutManager(getContext()));
         arrayList.clear();
         arrayList.addAll(informasi);
-        adapter.addItem(arrayList);
-        adapter.setLayoutType(R.layout.content_item_koor_informasi);
-        rv_informasi.setAdapter(adapter);
+
         swipeRefreshLayout.setRefreshing(false);
 
         if (arrayList.size() == 0) {
             empty_view.setVisibility(View.VISIBLE);
         } else {
             empty_view.setVisibility(View.GONE);
+            adapter = new KoorInformasiViewAdapter(getContext());
+            adapter.addItem(arrayList);
+            adapter.setLayoutType(R.layout.content_item_koor_informasi);
+
+            rv_informasi.setLayoutManager(new LinearLayoutManager(getContext()));
+            rv_informasi.setAdapter(adapter);
         }
 
     }

@@ -289,6 +289,7 @@
     <string name="button_click_tambah_bimbingan">Tambah Bimbingan</string>
     <string name="text_ubah_profil">Ubah Profil</string>
     <string name="text_monev_jumlah">Jumlah Monev</string>
+    <string name="text_lihat_detail">Lihat Detail</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

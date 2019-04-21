@@ -17,6 +17,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editors.DosenMonevTambahActivity;
 import org.d3ifcool.dosen.adapters.recyclerviews.DosenMonevViewAdapter;
+import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.DetailMonevListView;
 import org.d3ifcool.service.models.DetailMonev;
 import org.d3ifcool.service.models.ProyekAkhir;
@@ -46,6 +47,7 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements De
         setTitle(getString(R.string.title_monev_mahasiswa));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        SessionManager sessionManager = new SessionManager(this);
         FloatingActionButton floatingActionButton = findViewById(R.id.frg_dsn_add_monev);
         recyclerView = findViewById(R.id.act_mhs_pa_monev_recyclerview);
         empty_view = findViewById(R.id.view_emptyview);
@@ -59,20 +61,29 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements De
 
         final ProyekAkhir extraProyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR_MONEV);
         extraProyekAkhirId = extraProyekAkhir.getProyek_akhir_id();
+        String extraDosenReviewer = extraProyekAkhir.getReviewer_dsn_nip();
+
 
         detailMonevPresenter.searchDetailMonevBy(PARAM_PROYEK_AKHIR, String.valueOf(extraProyekAkhirId));
 
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DosenMonevMahasiswaActivity.this, DosenMonevTambahActivity.class);
-                intent.putExtra(DosenMonevTambahActivity.EXTRA_PROYEK_AKHIR, extraProyekAkhir);
-                startActivity(intent);
-            }
-        });
+        if (sessionManager.getSessionDosenNip().equalsIgnoreCase(extraDosenReviewer)){
+            floatingActionButton.setVisibility(View.VISIBLE);
 
+            floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(DosenMonevMahasiswaActivity.this, DosenMonevTambahActivity.class);
+                    intent.putExtra(DosenMonevTambahActivity.EXTRA_PROYEK_AKHIR, extraProyekAkhir);
+                    startActivity(intent);
+                }
+            });
+
+        } else {
+            floatingActionButton.setVisibility(View.GONE);
+        }
 
     }
+
 
     @Override
     protected void onResume() {
