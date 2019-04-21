@@ -7,35 +7,94 @@
     android:layout_marginLeft="@dimen/dimen_medium"
     android:layout_marginRight="@dimen/dimen_medium">
 
+
     <LinearLayout
-        android:layout_margin="@dimen/dimen_big"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/ctn_koor_pemetaan_textview_judul"
-            android:text="@string/dummy_pa_judul"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dimen_medium"
+        android:layout_marginTop="@dimen/dimen_medium"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_medium"
+            android:layout_marginRight="@dimen/dimen_big"
             android:layout_weight="1"
-            android:maxLines="1"
-            android:drawableStart="@drawable/ic_content_judul_pa_judul"
-            style="@style/textview_item_list_judul_pa"/>
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_judulpa"
+                android:layout_marginBottom="@dimen/dimen_medium"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                    android:id="@+id/ctn_koor_pemetaan_textview_judul"
+                    android:text="@string/dummy_pa_judul"
+                    android:layout_weight="2"
+                    android:maxLines="2"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginBottom="@dimen/dimen_medium"
+                />
 
-        <TextView
-            android:id="@+id/ctn_koor_pemetaan_textview_kategori"
-            android:text="@string/dummy_kategori"
-            android:layout_marginTop="@dimen/dimen_small"
-            android:layout_marginBottom="@dimen/dimen_small"
-            android:drawableStart="@drawable/ic_content_kategori_judul"
-            style="@style/textview_item_list_judul_pa"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_kategori_judul_pa"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ctn_koor_pemetaan_textview_kategori"
+                android:text="@string/dummy_kategori"
+                android:layout_marginTop="@dimen/dimen_small"
+                android:layout_marginBottom="@dimen/dimen_small"
+                android:textColor="@color/colorPrimary"/>
 
-        <TextView
-            android:maxLines="1"
-            android:id="@+id/ctn_koor_pemetaan_textview_dosenbimbing"
-            android:text="@string/dummy_dosen_pembimbing"
-            android:drawableStart="@drawable/ic_person"
-            style="@style/textview_item_list_judul_pa"/>
+        </LinearLayout>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/dimen_medium"
+            android:background="@android:color/darker_gray"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_medium"
+            android:layout_marginRight="@dimen/dimen_medium"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_dosen_pembimbing"
+                android:layout_marginBottom="@dimen/dimen_medium"/>
+
+            <TextView
+                android:maxLines="2"
+                android:id="@+id/ctn_koor_pemetaan_textview_dosenbimbing"
+                android:text="@string/dummy_dosen_pembimbing"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="@dimen/dimen_medium"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_dosen_reviewer"
+                android:layout_marginBottom="@dimen/dimen_medium"/>
+
+            <TextView
+                android:maxLines="2"
+                android:id="@+id/ctn_koor_pemetaan_textview_dosenreview"
+                android:text="@string/dummy_dosen_pembimbing"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorPrimary"/>
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
