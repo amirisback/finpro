@@ -26,7 +26,7 @@
             <TextView
                 android:id="@+id/act_mhs_pa_monev_detail_textview_dosen"
                 style="@style/textview_pa_color_primary"
-                android:text="@string/dummy_dosen_reviewer"/>
+                tools:text="@string/dummy_dosen_reviewer"/>
 
             <View
                 android:layout_marginTop="@dimen/dimen_medium"
@@ -39,12 +39,12 @@
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_monev_terakhir"/>
+                android:text="@string/text_monev_jumlah"/>
 
             <TextView
                 android:id="@+id/act_mhs_pa_monev_detail_textview_jumlah"
                 style="@style/textview_pa_color_accent"
-                android:text="@string/dummy_monev_terkahir"/>
+                tools:text="@string/dummy_monev_terkahir"/>
 
         </LinearLayout>
 
@@ -57,11 +57,27 @@
         android:textSize="@dimen/text_size_title_small"
         android:text="@string/text_daftar_monev"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/act_mhs_pa_monev_detail_recyclerview"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/content_item_mahasiswa_pa_monev">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/act_mhs_pa_monev_detail_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/content_item_mahasiswa_pa_monev">
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <!-- Empty View -->
+        <RelativeLayout
+            android:id="@+id/view_emptyview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+            <include layout="@layout/content_list_empty"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

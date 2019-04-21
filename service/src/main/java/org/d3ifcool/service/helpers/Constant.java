@@ -59,6 +59,7 @@ public class Constant {
         public static final String MHS_STATUS = "STATUS";
         public static final String MHS_ANGKATAN = "ANGKATAN";
         public static final String MHS_ID_JUDUL = "MHS_ID_JUDUL";
+        public static final String MHS_ID_PROYEK_AKHIR = "MHS_ID_PROYEK_AKHIR";
 
         public static final String KOOR_NIP = "KOOR_NIM";
         public static final String KOOR_NAMA = "KOOR_NAMA";

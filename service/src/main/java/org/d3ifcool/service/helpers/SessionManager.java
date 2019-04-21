@@ -32,11 +32,9 @@ public class SessionManager {
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
-    private Context context;
 
     @SuppressLint("CommitPrefEdits")
     public SessionManager(Context context) {
-        this.context = context;
         sharedPreferences = context.getSharedPreferences(PREF_NAME, context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
     }
@@ -109,6 +107,12 @@ public class SessionManager {
         editor.commit();
     }
 
+    public void createSessionProyekAkhirMahasiswa(int id){
+        editor.putInt(MHS_ID_PROYEK_AKHIR, id);
+        editor.apply();
+        editor.commit();
+    }
+
     public String getSessionMahasiswaNim(){
         return sharedPreferences.getString(MHS_NIM, null);
     }
@@ -131,6 +135,10 @@ public class SessionManager {
 
     public String getSessionMahasiswaAngkatan(){
         return sharedPreferences.getString(MHS_ANGKATAN, null);
+    }
+
+    public int getSessionProyekAkhirId(){
+        return sharedPreferences.getInt(MHS_ID_PROYEK_AKHIR, 0);
     }
 
     public String getSessionMahasiswaStatus(){

@@ -59,6 +59,7 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
     private SwipeRefreshLayout swipeRefreshLayout;
     private View disable_view;
     private Dosen parcelDosenPembimbing;
+    private Dosen parcelDosenReviewer;
 
     private ArrayList<Bimbingan> arrayListBimbingan = new ArrayList<>();
     private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
@@ -131,6 +132,7 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(), MahasiswaPaMonevDetailActivity.class);
+                i.putExtra(MahasiswaPaMonevDetailActivity.EXTRA_PROYEK_AKHIR_MONEV, parcelDosenReviewer);
                 startActivity(i);
             }
         });
@@ -173,6 +175,9 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
 
     @Override
     public void onGetObjectDosenReviewer(Dosen dosen) {
+
+        parcelDosenReviewer = dosen;
+
         if (dosen != null) {
             tv_dosen_reviewer_pa.setText(dosen.getDsn_nama());
         } else {

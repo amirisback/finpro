@@ -5,10 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
-        <activity android:name=".activities.MahasiswaJudulPaArsipActivity"></activity>
+        <activity android:name=".activities.MahasiswaJudulPaArsipActivity"/>
         <activity android:name=".activities.MahasiswaPaSidangDetailActivity" />
         <activity android:name=".activities.MahasiswaJudulPaDosenPengajuanActivity" />
-        <activity android:name=".activities.MahasiswaMonevListDetail" />
         <activity android:name=".activities.MahasiswaBimbinganListDetail" />
         <activity android:name=".activities.MahasiswaInformasiDetailActivity" />
         <activity android:name=".activities.MahasiswaPaMonevDetailActivity" />
