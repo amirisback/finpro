@@ -1,15 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.details.DosenJudulPaArsipActivity">
+    android:background="@color/colorBackground">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/act_dsn_judul_pa_arsip_recyclerview"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/content_item_judul_pa_arsip"/>
+        android:layout_height="match_parent">
 
-</RelativeLayout>
+        <!-- Empty View -->
+        <RelativeLayout
+            android:id="@+id/view_emptyview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+            <include layout="@layout/content_list_empty"/>
+        </RelativeLayout>
+
+        <Spinner
+            android:id="@+id/spinner_kategori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            android:layout_marginStart="@dimen/dimen_medium"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@id/spinner_kategori"
+            android:id="@+id/frg_dosen_judul_arsip_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/dimen_medium"
+            tools:listitem="@layout/content_item_dosen_judul_pa_arsip">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </RelativeLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -73,7 +73,6 @@ public class KoorProyekAkhirDetailActivity extends AppCompatActivity implements 
         tv_dosen_pembimbing_pa = findViewById(R.id.frg_koor_pa_textview_dsn_pembimbing);
         tv_jumlah_bimbingan_pa = findViewById(R.id.frg_koor_pa_textview_jml_bimbingan);
         tv_dosen_reviewer_pa = findViewById(R.id.frg_koor_pa_textview_dsn_reviewer);
-        tv_jumlah_monev_pa = findViewById(R.id.frg_koor_pa_textview_jml_monev);
         tv_status_sidang_pa = findViewById(R.id.frg_koor_pa_textview_sidang);
 
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);

@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import org.d3ifcool.dosen.activities.DosenPemberitahuanActivity;
 import org.d3ifcool.dosen.activities.DosenProfilActivity;
+import org.d3ifcool.dosen.activities.details.DosenJudulPaArsipActivity;
 import org.d3ifcool.dosen.fragments.DosenInformasiFragment;
 import org.d3ifcool.dosen.fragments.DosenJudulFragment;
 import org.d3ifcool.dosen.fragments.DosenPaFragment;
@@ -140,10 +141,17 @@ public class DosenMainActivity extends AppCompatActivity implements DosenView {
                 Intent intentPemberitahuan = new Intent(DosenMainActivity.this, DosenPemberitahuanActivity.class);
                 startActivity(intentPemberitahuan);
                 break;
+
             case R.id.toolbar_menu_profil:
                 Intent intentProfil = new Intent(DosenMainActivity.this, DosenProfilActivity.class);
                 startActivity(intentProfil);
                 break;
+
+            case R.id.toolbar_menu_arsip_judul:
+                Intent intentArsip = new Intent(DosenMainActivity.this, DosenJudulPaArsipActivity.class);
+                startActivity(intentArsip);
+                break;
+
             case R.id.toolbar_menu_keluar:
 
                 new AlertDialog

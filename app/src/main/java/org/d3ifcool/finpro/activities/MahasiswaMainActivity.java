@@ -7,18 +7,17 @@ import androidx.annotation.NonNull;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import org.d3ifcool.finpro.R;
+import org.d3ifcool.mahasiswa.activities.MahasiswaJudulPaArsipActivity;
 import org.d3ifcool.mahasiswa.fragments.MahasiswaInformasiFragment;
 import org.d3ifcool.mahasiswa.fragments.MahasiswaJudulPaFragment;
 import org.d3ifcool.mahasiswa.fragments.MahasiswaPaFragment;
 import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.finpro.adapters.MahasiswaPagerAdapter;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPemberitahuanActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaProfilActivity;
 import org.d3ifcool.service.interfaces.objects.MahasiswaView;
@@ -139,10 +138,17 @@ public class MahasiswaMainActivity extends AppCompatActivity implements Mahasisw
                 Intent intentPemberitahuan = new Intent(MahasiswaMainActivity.this, MahasiswaPemberitahuanActivity.class);
                 startActivity(intentPemberitahuan);
                 break;
+
             case R.id.toolbar_menu_profil:
                 Intent intentProfil = new Intent(MahasiswaMainActivity.this, MahasiswaProfilActivity.class);
                 startActivity(intentProfil);
                 break;
+
+            case R.id.toolbar_menu_arsip_judul:
+                Intent intentArsip = new Intent(MahasiswaMainActivity.this, MahasiswaJudulPaArsipActivity.class);
+                startActivity(intentArsip);
+                break;
+
             case R.id.toolbar_menu_keluar:
                 new AlertDialog
                         .Builder(this)

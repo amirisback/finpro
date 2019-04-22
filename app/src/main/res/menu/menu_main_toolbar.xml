@@ -33,6 +33,10 @@
         android:title="@string/title_profil" />
 
     <item
+        android:id="@+id/toolbar_menu_arsip_judul"
+        android:title="@string/text_title_arsip_judul" />
+
+    <item
         android:id="@+id/toolbar_menu_keluar"
         android:title="@string/title_keluar"/>
 
