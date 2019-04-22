@@ -9,11 +9,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".activities.editors.DosenMonevTambahActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="@dimen/dimen_big">
+        android:padding="@dimen/dimen_big">
 
         <ImageView
             android:layout_width="@dimen/dimen_profil_photo"
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
-            android:hint="Masukkan Review Monev"/>
+            android:hint="@string/hint_monev_review"/>
 
             <TextView
                 android:id="@+id/text"
@@ -65,14 +65,13 @@
                 android:textSize="@dimen/text_size_title_small"
                 android:textColor="@color/colorPrimary"/>
 
-            <EditText
-                android:layout_toRightOf="@id/text"
-                android:id="@+id/act_dsn_edittext_nilai_monev"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="Masukkan Nilai Monev"
-                android:layout_marginBottom="@dimen/dimen_big_ultra"/>
+        <EditText
+            android:id="@+id/act_dsn_edittext_nilai_monev"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_big_ultra"
+            android:hint="@string/hint_monev_nilai"
+            android:inputType="number" />
 
 
         <Button

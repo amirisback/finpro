@@ -290,6 +290,10 @@
     <string name="text_ubah_profil">Ubah Profil</string>
     <string name="text_monev_jumlah">Jumlah Monev</string>
     <string name="text_lihat_detail">Lihat Detail</string>
+    <string name="hint_monev_review">Masukkan Review Monev</string>
+    <string name="text_ubah_monev">Ubah Monev</string>
+    <string name="text_list_mahasiswa">Daftar mahasiswa</string>
+    <string name="hint_monev_nilai">Masukkan Nilai Monev</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

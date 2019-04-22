@@ -63,7 +63,6 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements De
         extraProyekAkhirId = extraProyekAkhir.getProyek_akhir_id();
         String extraDosenReviewer = extraProyekAkhir.getReviewer_dsn_nip();
 
-
         detailMonevPresenter.searchDetailMonevBy(PARAM_PROYEK_AKHIR, String.valueOf(extraProyekAkhirId));
 
         if (sessionManager.getSessionDosenNip().equalsIgnoreCase(extraDosenReviewer)){

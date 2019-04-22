@@ -9,11 +9,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".activities.editors.DosenMonevUbahActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="@dimen/dimen_big">
+        android:padding="@dimen/dimen_big">
 
         <ImageView
             android:layout_width="@dimen/dimen_profil_photo"
@@ -33,10 +33,9 @@
             android:textColor="@color/colorPrimary"/>
 
         <Spinner
-            android:id="@+id/act_dsn_edittext_judul"
+            android:id="@+id/act_dsn_spinner_kategori_monev"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/kategori_monev"/>
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_marginStart="@dimen/dimen_small"
@@ -53,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
-            android:hint="Masukkan Review Monev"/>
+            android:hint="@string/hint_monev_review"/>
 
         <TextView
             android:id="@+id/text"
@@ -67,20 +66,19 @@
             android:textColor="@color/colorPrimary"/>
 
         <EditText
-            android:layout_toRightOf="@id/text"
             android:id="@+id/act_dsn_edittext_nilai_monev"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="Masukkan Nilai Monev"
+            android:hint="@string/hint_monev_nilai"
             android:layout_marginBottom="@dimen/dimen_big_ultra"/>
 
 
         <Button
-            android:id="@+id/act_dsn_info_button_simpan"
+            android:id="@+id/act_dsn_info_button_ubah"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_click_simpan"
+            android:text="@string/text_ubah_monev"
             android:textColor="@color/colorTextWhite"
             android:background="@drawable/box_border_button_action"/>
 
