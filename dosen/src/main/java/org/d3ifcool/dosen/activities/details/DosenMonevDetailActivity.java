@@ -83,6 +83,7 @@ public class DosenMonevDetailActivity extends AppCompatActivity implements Detai
             Intent intentUbah = new Intent(DosenMonevDetailActivity.this, DosenMonevUbahActivity.class);
             intentUbah.putExtra(DosenMonevUbahActivity.EXTRA_DETAIL_MONEV, extraDetailMonev);
             startActivity(intentUbah);
+            finish();
 
         } else if (i == R.id.toolbar_menu_hapus) {
 

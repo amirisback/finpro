@@ -294,6 +294,9 @@
     <string name="text_ubah_monev">Ubah Monev</string>
     <string name="text_list_mahasiswa">Daftar mahasiswa</string>
     <string name="hint_monev_nilai">Masukkan Nilai Monev</string>
+    <string name="hint_informasi_isi">Masukkan Informasi</string>
+    <string name="button_click_tambah_info">Tambah Informasi</string>
+    <string name="button_click_ubah_informasi">Ubah Informasi</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

@@ -54,14 +54,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
-            android:hint="Masukkan Informasi"
+            android:hint="@string/hint_informasi_isi"
             android:layout_marginBottom="@dimen/dimen_big_ultra"/>
 
         <Button
             android:id="@+id/act_dsn_info_button_simpan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_click_simpan"
+            android:text="@string/button_click_ubah_informasi"
             android:textColor="@color/colorTextWhite"
             android:background="@drawable/box_border_button_action"/>
 
