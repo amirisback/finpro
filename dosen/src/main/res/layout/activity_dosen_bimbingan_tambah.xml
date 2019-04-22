@@ -24,7 +24,7 @@
         <TextView
             android:textSize="@dimen/text_size_title_small"
             android:textColor="@color/colorPrimary"
-            android:text="@string/textview_tanggal_bimbingan"
+            android:text="@string/text_tanggal_bimbingan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"/>
@@ -51,7 +51,7 @@
         <TextView
             android:textSize="@dimen/text_size_title_small"
             android:textColor="@color/colorPrimary"
-            android:text="@string/textview_judul_bimbingan"
+            android:text="@string/text_judul_bimbingan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"/>
@@ -69,7 +69,7 @@
         <TextView
             android:textSize="@dimen/text_size_title_small"
             android:textColor="@color/colorPrimary"
-            android:text="@string/textview_review_bimbingan"
+            android:text="@string/text_review_bimbingan"
             android:id="@+id/tv_review"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

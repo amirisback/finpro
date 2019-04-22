@@ -131,7 +131,7 @@
         android:layout_height="wrap_content"
 
         android:textSize="@dimen/text_size_small"
-        android:text="@string/prodi"
+        android:text="@string/text_prodi"
         android:layout_above="@id/text_telkom"/>
 
     <TextView

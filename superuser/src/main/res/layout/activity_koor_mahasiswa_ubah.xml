@@ -75,7 +75,7 @@
             android:maxLines="1"
             android:inputType="number"
             android:singleLine="true"
-            android:hint="@string/text_hint_angkatan_mahasiswa"/>
+            android:hint="@string/hint_angkatan_mahasiswa"/>
 
         <TextView
             android:layout_marginStart="@dimen/dimen_small"

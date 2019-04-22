@@ -26,7 +26,7 @@
             android:layout_marginStart="@dimen/dimen_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_title_review_monev"
+            android:text="@string/title_review_monev"
             android:layout_marginTop="@dimen/dimen_medium"
             android:layout_marginBottom="@dimen/dimen_medium"
             android:textSize="@dimen/text_size_title_small"
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_medium"
-            android:text="@string/act_dsn_mone_edittext_nilai"
+            android:text="@string/text_nilai_monev"
             android:layout_marginBottom="@dimen/dimen_medium"
             android:textSize="@dimen/text_size_title_small"
             android:textColor="@color/colorPrimary"/>

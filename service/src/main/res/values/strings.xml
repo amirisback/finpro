@@ -5,17 +5,18 @@
     <!--Contoh : hint_username-->
     <!--Contoh : view_nilai :-->
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
     <string name="app_name">Finpro</string>
     <string name="app_name_long">Finpro - Final Project Management System</string>
-    <string name="prodi">D3 Rekayasa Perangkat Lunak Aplikasi</string>
-
-    <string name="hint_id_pengguna">ID Pengguna</string>
-    <string name="hint_kata_sandi">Kata Sandi</string>
-    <string name="hint_info_judul">Judul</string>
-    <string name="hint_info_isi">Isi</string>
-    <string name="hint_judulpa_judul">Judul Proyek Akhir</string>
-    <string name="hint_judulpa_kategori">Kategori</string>
-    <string name="hint_judulpa_deskripsi">Deskripsi</string>
+    <string name="app_name_subtitle">Final Project Management System</string>
 
     <string name="title_judulpa_pengajuan">Pengajuan Mandiri</string>
     <string name="title_bimbingan">Bimbingan</string>
@@ -52,16 +53,38 @@
     <string name="title_monev_ubah">Ubah Monev</string>
     <string name="title_judulpa_dosen_ubah">Ubah Judul Proyek Akhir Dosen</string>
     <string name="title_profil_ubah">Ubah Profil</string>
+    <string name="title_kontak_dosen">Kontak</string>
+    <string name="title_dosen_detail">Detail Dosen</string>
+    <string name="title_proyekakhir_detail">Detail Proyek Akhir</string>
+    <string name="title_tambah_dosen">Tambah Dosen</string>
+    <string name="title_tambah_pemetaan">Tambah Pemetaan Monev</string>
+    <string name="title_dosen_ubah">Ubah Dosen</string>
+    <string name="title_mahasiswa_tambah">Tambah Mahasiswa</string>
+    <string name="title_mahasiswa_ubah">Ubah Mahasiswa</string>
+    <string name="title_email_dosen">Email</string>
+    <string name="title_activity_admin_main">AdminMainActivity</string>
+    <string name="title_dosen">Dosen</string>
+    <string name="title_kelompok_mahasiswa_detail">Detail Kelompok</string>
+    <string name="title_review_monev">Review Monev</string>
+    <string name="title_kategori_monev">Kategori Monev</string>
+    <string name="title_kategori_judul_pa">Kategori Judul PA</string>
+    <string name="title_pemetaan_monev">Pemetaan Monev</string>
+    <string name="title_monev_mahasiswa">Monev Mahasiswa</string>
 
     <string name="button_click_masuk">Masuk</string>
     <string name="button_click_simpan">Simpan</string>
     <string name="button_click_tambah_judul">Tambah Judul</string>
+    <string name="button_click_tambah_mahasiswa">Tambah Mahasiswa</string>
+    <string name="button_click_ubah_mahasiswa">Ubah Mahasiswa</string>
+    <string name="button_click_tambah_monev">Tambah Monev</string>
+    <string name="button_click_tambah_bimbingan">Tambah Bimbingan</string>
+    <string name="button_click_tambah_info">Tambah Informasi</string>
+    <string name="button_click_ubah_informasi">Ubah Informasi</string>
+    <string name="button_click_tambah_dosen">Tambah Dosen</string>
+    <string name="button_click_ubah_dosen">Ubah Dosen</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string name="dummy">Dummy</string>
     <string name="dummyLong">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam veniam similique voluptates odit, ipsum laborum architecto distinctio harum, provident fugiat praesentium ex quod dolores laudantium aliquid quidem placeat incidunt vitae!</string>
+    <string name="dummy">Dummy</string>
     <string name="dummy_mahasiswa_nim">6706160014</string>
     <string name="dummy_mahasiswa_nama">Ikhsan Ramadhan</string>
     <string name="dummy_mahasiswa_kelompok">Seven Primavera</string>
@@ -83,6 +106,60 @@
     <string name="dummy_kategori">Android</string>
     <string name="dummy_pa_kategori">Android</string>
     <string name="dummy_pa_jumlah_pengajuan">4</string>
+    <string name="dummy_status_sidang">Lulus</string>
+    <string name="dummy_dosen_kode">HMU</string>
+    <string name="dummy_email">ikhsanramadhan28@gmail.com</string>
+
+    <string name="dialog_hapus_title">Hapus Data</string>
+    <string name="dialog_hapus_text">Anda yakin ingin menghapus ini?</string>
+    <string name="dialog_ubah_text">Apakah anda yakin ingin merubah ini?</string>
+    <string name="dialog_ubah_title">Ubah Data</string>
+    <string name="dialog_tambah">Tambah</string>
+    <string name="dialog_pengajuan_judul_title">Ajukan Judul</string>
+    <string name="dialog_pengajuan_judul_text">Apakah anda yakin data sudah benar</string>
+
+    <string name="iya">Iya</string>
+    <string name="tidak">Tidak</string>
+    <string name="ubah">Ubah</string>
+    <string name="batal">Batal</string>
+    <string name="tambah">Tambah</string>
+
+    <string name="menu_informasi">Informasi</string>
+    <string name="menu_mahasiswa">Mahasiswa</string>
+    <string name="menu_dosen">Dosen</string>
+    <string name="menu_proyek_akhir">Proyek Akhir</string>
+    <string name="menu_pemetaan_monev">Pemetaan Monev</string>
+    <string name="menu_judul_pa">Judul</string>
+    <string name="menu_kategori_judul">Kategori Judul</string>
+    <string name="menu_arsip_judul">Arsip Judul</string>
+
+    <string-array name="nama_dosen">
+        <item>--- Pilih Dosen ---</item>
+        <item>Amir Hasanudin Fauzi, S.T., M.T.</item>
+        <item>Hariandi Maulid, S.T., M.Sc.</item>
+        <item>Hetti Hidayati, S.Kom., M.T.</item>
+        <item>Indra Azimi, S.T., M.T.</item>
+        <item>Rahmadi Wijaya, S.Si., M.T.</item>
+        <item>Rizza Indah Mega Mandasari, S.Kom., M.T.</item>
+        <item>Tri Brotoharsono, S.T., M.T.</item>
+    </string-array>
+
+    <string-array name="kategori_proyek_akhir">
+        <item>Games</item>
+        <item>Website</item>
+        <item>Android</item>
+        <item>IoT</item>
+    </string-array>
+
+    <string-array name="kategori_monev">
+        <item>Pilih Kategori Monev</item>
+        <item>Pra Monev 1</item>
+        <item>Pra Monev 2</item>
+        <item>Pra Monev 3</item>
+        <item>Monev 1</item>
+        <item>Monev 2</item>
+        <item>Monev 3</item>
+    </string-array>
 
     <string name="text_profil_detail_nama">Nama</string>
     <string name="text_profil_detail_nip">NIP</string>
@@ -134,125 +211,36 @@
     <string name="text_daftar_mahasiswa_sidang">Daftar mahasiswa sidang</string>
     <string name="text_daftar_judul_pa_dosen">Daftar Judul Proyek Akhir Dosen</string>
     <string name="text_daftar_judul_pa_mahasiswa">Daftar Judul Proyek Akhir Pengajuan Mahasiswa</string>
-
-    <string-array name="nama_dosen">
-        <item>--- Pilih Dosen ---</item>
-        <item>Amir Hasanudin Fauzi, S.T., M.T.</item>
-        <item>Hariandi Maulid, S.T., M.Sc.</item>
-        <item>Hetti Hidayati, S.Kom., M.T.</item>
-        <item>Indra Azimi, S.T., M.T.</item>
-        <item>Rahmadi Wijaya, S.Si., M.T.</item>
-        <item>Rizza Indah Mega Mandasari, S.Kom., M.T.</item>
-        <item>Tri Brotoharsono, S.T., M.T.</item>
-    </string-array>
-
-    <string name="title_activity_admin_main">AdminMainActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-    <string name="menu_informasi">Informasi</string>
-    <string name="menu_mahasiswa">Mahasiswa</string>
-    <string name="menu_dosen">Dosen</string>
-    <string name="menu_proyek_akhir">Proyek Akhir</string>
-    <string name="menu_pemetaan_monev">Pemetaan Monev</string>
-    <string name="menu_judul_pa">Judul</string>
-    <string name="hint_nama_dosen">Masukkan Nama Dosen</string>
-    <string name="title_email_dosen">Email</string>
-    <string name="hint_email_dosen">Masukkan Email</string>
-    <string name="hint_kontak_dosen">Masukkan Kontak Dosen</string>
-    <string name="title_kontak_dosen">Kontak</string>
-    <string name="title_dosen_detail">Detail Dosen</string>
-    <string name="title_proyekakhir_detail">Detail Proyek Akhir</string>
-    <string name="title_tambah_dosen">Tambah Dosen</string>
-    <string name="title_tambah_pemetaan">Tambah Pemetaan Monev</string>
-    <string name="title_dosen_ubah">Ubah Dosen</string>
-    <string name="title_mahasiswa_tambah">Tambah Mahasiswa</string>
-    <string name="title_mahasiswa_ubah">Ubah Mahasiswa</string>
-    <string name="dialog_hapus_title">Hapus Data</string>
-    <string name="dialog_hapus_text">Anda yakin ingin menghapus ini?</string>
-    <string name="iya">Iya</string>
-    <string name="tidak">Tidak</string>
-    <string name="ubah">Ubah</string>
-    <string name="batal">Batal</string>
-    <string name="tambah">Tambah</string>
-
-    <string name="textview_jumlah_bimbingan">Jumlah Bimbingan</string>
-    <string name="textview_jumlah_monev">Jumlah Monev</string>
+    <string name="text_jumlah_monev">Jumlah Monev</string>
     <string name="text_status_sidang">Status Sidang</string>
-    <string name="dummy_status_sidang">Lulus</string>
-    
-
     <string name="text_kode_dosen">Kode Dosen</string>
-    <string name="text_hint_kode_dosen">Masukkan Kode Dosen</string>
-    <string name="text_hint_angkatan_mahasiswa">Masukkan Angkatan Mahasiswa</string>
-
-    <!-- Copy dari String App -->
-    <string name="app_name_subtitle">Final Project Management System</string>
-    <string name="title_dosen">Dosen</string>
-
-    <!-- Copy dari String Dosen -->
     <string name="text_judul">Judul</string>
     <string name="text_profil_detail_email">Email</string>
-    <string name="hint_judul">Masukkan judul</string>
     <string name="text_daftar_pa_mahasiswa">Daftar Judul Proyek Akhir Mahasiswa Bimbingan</string>
     <string name="text_tidak_boleh_kosong">Tidak boleh kosong</string>
-    <string name="title_kelompok_mahasiswa_detail">Detail Kelompok</string>
-
     <string name="text_daftar_pa_monev_mahasiswa">Daftar Judul Proyek Akhir Monev</string>
-    <string name="dialog_ubah_text">Apakah anda yakin ingin merubah ini?</string>
-    <string name="dialog_ubah_title">Ubah Data</string>
-    <string name="text_title_kategori_monev">Kategori Monev</string>
-    <string name="text_title_review_monev">Review Monev</string>
     <string name="text_progress_dialog">Tunggu Sebentar . . .</string>
-    <string name="textview_dosen_kode">HMU</string>
-    <string name="title_kategori_judul_pa">Kategori Judul PA</string>
-    <string name="title_pemetaan_monev">Pemetaan Monev</string>
-    <string name="act_dsn_mone_edittext_nilai">Nilai Monev</string>
     <string name="text_judul_digunakan">Judul sudah di gunakan oleh kelompok lain</string>
     <string name="text_data_not_found">Tidak ada data</string>
-    <string name="menu_kategori_judul">Kategori Judul</string>
-    <string name="dialog_tambah">Tambah</string>
     <string name="text_nim_anggota_2">NIM Anggota 2</string>
     <string name="text_nama_anggota_2">Nama Anggota 2</string>
     <string name="text_disable_pengajuan_judul">Sudah mengajukan judul</string>
     <string name="text_nim_anggota_1">NIM Anggota 1</string>
     <string name="text_nama_anggota_1">Nama Angota 1</string>
-    <string name="hint_masukkan_nim">Masukkan NIM</string>
-    <string name="hint_masukkan_nama">Masukkan Nama</string>
-    <string name="hint_masukkan_nama_kelompok">Masukkan Nama Kelompok</string>
-    <string name="hint_masukkan_judul_pa">Masukkan Judul PA</string>
-    <string name="hint_masukkan_deskripsi_judul_pa">Masukkan Deskripsi Judul PA</string>
     <string name="text_no_dosen_pembimbing">Belum dapat dosen pembimbing</string>
     <string name="text_no_dosen_monev">Belum dapat dosen reviewer</string>
     <string name="text_disable_pa">Anda wajib mengajukan judul pa</string>
-    <string name="textview_tanggal_bimbingan">Tanggal Bimbingan</string>
     <string name="text_judul_bimbingan">Judul Bimbingan</string>
     <string name="text_review_bimbingan">Review Bimbingan</string>
     <string name="text_tanggal_bimbingan">Tanggal Bimbingan</string>
     <string name="text_belum_sidang">Belum Sidang</string>
     <string name="text_aturan_judul_mandiri_1">Pastikan anda tidak memilih judul yang ada di daftar judul dosen</string>
-
     <string name="text_ubah_data">Ubah Data</string>
     <string name="text_angkatan">Angkatan</string>
     <string name="text_aturan_judul_mandiri_2">Setelah di ajukan silahkan menghungi dosen yang bersangkutan untuk melakukan konsultasi terkait judul yang di ajukan.</string>
     <string name="text_aturan_judul_mandiri_3">Jika judul anda sudah di terima oleh dosen yang bersangkutan maka akan muncul di menu proyek akhir</string>
-
-    <string name="textview_review_bimbingan">Review Bimbingan</string>
-    <string name="hint_review_bimbingan">Masukkan Review Bimbingan</string>
-    <string name="textview_judul_bimbingan">Judul Bimbingan</string>
-    <string name="hint_judul_bimbingan">Masukkan Judul Bimbingan</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="textview_title_pa_sidang">Daftar Judul Proyek Akhir Sidang</string>
-    <string name="textview_penilaian_sidang">Penilaian Sidang</string>
-    <string name="textview_nilai_proposal">Nilai Proposal</string>
     <string name="text_status_sidang_hasil">Lulus</string>
-    <string name="dummy_email">ikhsanramadhan28@gmail.com</string>
     <string name="text_input_dosen_reviewer">Pilih dosen reviewer</string>
-    <string name="title_monev_mahasiswa">Monev Mahasiswa</string>
     <string name="text_tanggal_monev">Tanggal Monev</string>
     <string name="text_nilai_monev">Nilai Monev</string>
     <string name="text_tambah_judul">Tambah Judul</string>
@@ -260,67 +248,61 @@
     <string name="text_nim_salah">Nim Mahasiswa Salah</string>
     <string name="text_nim_tidak_ada">Mahasiswa tidak ada</string>
     <string name="text_nim_dilarang">Tidak boleh menggunakan NIM sendiri</string>
-    <string name="menu_arsip_judul">Arsip Judul</string>
-    <string name="text_title_arsip_judul">Arsip Judul</string>
-    <string name="text_ubah_reviewer">Ubah Reviewer</string>
-    <string name="dialog_pengajuan_judul_title">Ajukan Judul</string>
-    <string name="dialog_pengajuan_judul_text">Apakah anda yakin data sudah benar</string>
     <string name="text_kategori_judul_tambah">Tambah Kategori Judul</string>
     <string name="text_kategori_judul_ubah">Ubah Kategori Judul</string>
     <string name="text_dosen_reviewer_ubah">Ubah Dosen Reviewer</string>
-    <string name="hint_kategori">Masukkan Kategori Proyek Akhir</string>
-
-    <string name="text_nama_reviewer">Nama Reviewer</string>
-    <string name="text_pilih_dosen_reviewer">Pilih Dosen Reviewer</string>
-    <string name="text_pilih_dosen">Pilih Dosen</string>
-    <string name="text_kategori_proyek_akhir">Kategori Proyek Akhir</string>
-    <string name="text_deskripsi_proyek_akhir">Deskripsi Proyek Akhir</string>
-    <string name="hint_masukkan_kategori_monev">Masukkan Kategori Monev</string>
     <string name="text_tambah_kategori_monev">Tambah Kategori Monev</string>
     <string name="text_atur_reviewer">ATUR REVIEWER</string>
     <string name="text_ubah_kategori_monev">Ubah Kategori Monev</string>
-
     <string name="text_nama_mahasiswa">Mahasiswa</string>
     <string name="text_mahasiswa_sudah_mengajukan_judul">Mahasiswa sudah mengajukan judul</string>
     <string name="text_judul_status">Status</string>
     <string name="text_belum_disetujui">Status proyek akhir belum ada</string>
     <string name="text_mengajukan_judul_pa">Silahkan mengajukan judul di menu Judul PA</string>
-    <string name="button_click_tambah_monev">Tambah Monev</string>
-    <string name="button_click_tambah_bimbingan">Tambah Bimbingan</string>
+    <string name="text_title_arsip_judul">Arsip Judul</string>
+    <string name="text_ubah_reviewer">Ubah Reviewer</string>
+    <string name="text_nama_reviewer">Nama Reviewer</string>
+    <string name="text_pilih_dosen_reviewer">Pilih Dosen Reviewer</string>
+    <string name="text_pilih_dosen">Pilih Dosen</string>
+    <string name="text_kategori_proyek_akhir">Kategori Proyek Akhir</string>
+    <string name="text_deskripsi_proyek_akhir">Deskripsi Proyek Akhir</string>
     <string name="text_ubah_profil">Ubah Profil</string>
     <string name="text_monev_jumlah">Jumlah Monev</string>
     <string name="text_lihat_detail">Lihat Detail</string>
-    <string name="hint_monev_review">Masukkan Review Monev</string>
     <string name="text_ubah_monev">Ubah Monev</string>
     <string name="text_list_mahasiswa">Daftar mahasiswa</string>
+    <string name="text_nim_mahasiswa">Nim Mahasiswa</string>
+    <string name="text_title_pa_sidang">Daftar Judul Proyek Akhir Sidang</string>
+    <string name="text_penilaian_sidang">Penilaian Sidang</string>
+    <string name="text_nilai_proposal">Nilai Proposal</string>
+
+    <string name="hint_id_pengguna">ID Pengguna</string>
+    <string name="hint_kata_sandi">Kata Sandi</string>
+    <string name="hint_info_judul">Judul</string>
+    <string name="hint_info_isi">Isi</string>
+    <string name="hint_judulpa_judul">Judul Proyek Akhir</string>
+    <string name="hint_judulpa_kategori">Kategori</string>
+    <string name="hint_judulpa_deskripsi">Deskripsi</string>
+    <string name="hint_nama_dosen">Masukkan Nama Dosen</string>
+    <string name="hint_email_dosen">Masukkan Email</string>
+    <string name="hint_kontak_dosen">Masukkan Kontak Dosen</string>
+    <string name="hint_judul">Masukkan judul</string>
+    <string name="hint_kode_dosen">Masukkan Kode Dosen</string>
+    <string name="hint_angkatan_mahasiswa">Masukkan Angkatan Mahasiswa</string>
+    <string name="hint_masukkan_nim">Masukkan NIM</string>
+    <string name="hint_masukkan_nama">Masukkan Nama</string>
+    <string name="hint_masukkan_nama_kelompok">Masukkan Nama Kelompok</string>
+    <string name="hint_masukkan_judul_pa">Masukkan Judul PA</string>
+    <string name="hint_masukkan_deskripsi_judul_pa">Masukkan Deskripsi Judul PA</string>
+    <string name="hint_review_bimbingan">Masukkan Review Bimbingan</string>
+    <string name="hint_judul_bimbingan">Masukkan Judul Bimbingan</string>
+    <string name="hint_kategori">Masukkan Kategori Proyek Akhir</string>
+    <string name="hint_masukkan_kategori_monev">Masukkan Kategori Monev</string>
+    <string name="hint_monev_review">Masukkan Review Monev</string>
     <string name="hint_monev_nilai">Masukkan Nilai Monev</string>
     <string name="hint_informasi_isi">Masukkan Informasi</string>
-    <string name="button_click_tambah_info">Tambah Informasi</string>
-    <string name="button_click_ubah_informasi">Ubah Informasi</string>
-    <string name="button_click_tambah_dosen">Tambah Dosen</string>
-    <string name="button_click_ubah_dosen">Ubah Dosen</string>
-    <string name="text_nim_mahasiswa">Nim Mahasiswa</string>
     <string name="hint_nim_mahasiswa">Masukkan NIM Mahasiswa</string>
     <string name="hint_nama_mahasiswa">Masukkan Nama Mahasiswa</string>
     <string name="hint_kontak_mahasiswa">Masukkan Kontak Mahasiswa</string>
-    <string name="button_click_tambah_mahasiswa">Tambah Mahasiswa</string>
-    <string name="button_click_ubah_mahasiswa">Ubah Mahasiswa</string>
-
-    <string-array name="kategori_proyek_akhir">
-        <item>Games</item>
-        <item>Website</item>
-        <item>Android</item>
-        <item>IoT</item>
-    </string-array>
-
-    <string-array name="kategori_monev">
-        <item>Pilih Kategori Monev</item>
-        <item>Pra Monev 1</item>
-        <item>Pra Monev 2</item>
-        <item>Pra Monev 3</item>
-        <item>Monev 1</item>
-        <item>Monev 2</item>
-        <item>Monev 3</item>
-    </string-array>
 
 </resources>
