@@ -9,9 +9,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".activities.editors.KoorMahasiswaTambahActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="@dimen/dimen_big">
 
@@ -26,7 +26,7 @@
             android:layout_marginStart="@dimen/dimen_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nim Mahasiswa"
+            android:text="@string/text_nim_mahasiswa"
             android:layout_marginTop="@dimen/dimen_medium"
             android:layout_marginBottom="@dimen/dimen_medium"
             android:textSize="@dimen/text_size_title_small"
@@ -38,13 +38,13 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:singleLine="true"
-            android:hint="Masukkan NIM Mahasiswa"/>
+            android:hint="@string/hint_nim_mahasiswa"/>
 
         <TextView
             android:layout_marginStart="@dimen/dimen_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama Mahasiswa"
+            android:text="@string/text_nama_mahasiswa"
             android:layout_marginTop="@dimen/dimen_medium"
             android:layout_marginBottom="@dimen/dimen_medium"
             android:textSize="@dimen/text_size_title_small"
@@ -56,13 +56,13 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:singleLine="true"
-            android:hint="Masukkan Nama Mahasiswa"/>
+            android:hint="@string/hint_nama_mahasiswa"/>
 
         <TextView
             android:layout_marginStart="@dimen/dimen_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Angkatan"
+            android:text="@string/text_angkatan"
             android:layout_marginTop="@dimen/dimen_medium"
             android:layout_marginBottom="@dimen/dimen_medium"
             android:textSize="@dimen/text_size_title_small"
@@ -109,14 +109,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="Masukkan Kontak Mahasiswa"
+            android:hint="@string/hint_kontak_mahasiswa"
             android:layout_marginBottom="@dimen/dimen_big_ultra"/>
 
         <Button
             android:id="@+id/act_koor_mahasiswa_button_simpan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_click_simpan"
+            android:text="@string/button_click_tambah_mahasiswa"
             android:textColor="@color/colorTextWhite"
             android:background="@drawable/box_border_button_action"/>
 

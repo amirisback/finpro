@@ -297,6 +297,14 @@
     <string name="hint_informasi_isi">Masukkan Informasi</string>
     <string name="button_click_tambah_info">Tambah Informasi</string>
     <string name="button_click_ubah_informasi">Ubah Informasi</string>
+    <string name="button_click_tambah_dosen">Tambah Dosen</string>
+    <string name="button_click_ubah_dosen">Ubah Dosen</string>
+    <string name="text_nim_mahasiswa">Nim Mahasiswa</string>
+    <string name="hint_nim_mahasiswa">Masukkan NIM Mahasiswa</string>
+    <string name="hint_nama_mahasiswa">Masukkan Nama Mahasiswa</string>
+    <string name="hint_kontak_mahasiswa">Masukkan Kontak Mahasiswa</string>
+    <string name="button_click_tambah_mahasiswa">Tambah Mahasiswa</string>
+    <string name="button_click_ubah_mahasiswa">Ubah Mahasiswa</string>
 
     <string-array name="kategori_proyek_akhir">
         <item>Games</item>

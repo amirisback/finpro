@@ -9,9 +9,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".activities.editors.KoorInformasiUbahActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="@dimen/dimen_big">
 
@@ -55,14 +55,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
-            android:hint="Masukkan Informasi"
+            android:hint="@string/hint_informasi_isi"
             android:layout_marginBottom="@dimen/dimen_big_ultra"/>
 
         <Button
             android:id="@+id/act_koor_info_button_simpan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_click_simpan"
+            android:text="@string/button_click_ubah_informasi"
             android:textColor="@color/colorTextWhite"
             android:background="@drawable/box_border_button_action"/>
 
