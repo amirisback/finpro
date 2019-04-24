@@ -6,4 +6,6 @@
         <item name="android:layout_height">@dimen/dimen_profil_photo_list</item>
         <item name="android:layout_marginEnd">@dimen/dimen_big</item>
     </style>
+
+    <string name="text_nama_dosen">Nama Dosen</string>
 </resources>

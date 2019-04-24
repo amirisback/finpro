@@ -29,7 +29,7 @@
             android:spinnerMode="dropdown"
             android:layout_marginStart="@dimen/dimen_medium"
             android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginRight="@dimen/dimen_medium"/>
+            android:layout_marginEnd="@dimen/dimen_medium"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_below="@id/spinner_dosen"
@@ -40,5 +40,5 @@
             tools:listitem="@layout/content_item_koor_pa"/>
 
     </RelativeLayout>
-
+    
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

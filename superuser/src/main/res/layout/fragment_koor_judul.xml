@@ -39,9 +39,8 @@
                     android:id="@+id/text_dosen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_dosen"
+                    android:text="@string/text_nama_dosen"
                     android:textColor="@color/colorTextBlack"
-                    android:textSize="@dimen/text_size_title_small"
                     android:layout_marginBottom="@dimen/dimen_medium"
                     />
                 <Spinner

@@ -11,7 +11,5 @@
     android:gravity="center_vertical"
     android:padding="@dimen/dimen_medium"
     android:paddingBottom="@dimen/dimen_small"
-    android:textStyle="bold"
-    android:drawablePadding="@dimen/dimen_medium"
-    android:drawableStart="@drawable/ic_content_kategori_judul">
+    android:textStyle="bold">
 </TextView>

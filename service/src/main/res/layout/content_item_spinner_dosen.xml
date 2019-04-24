@@ -12,7 +12,5 @@
     android:gravity="center_vertical"
     android:padding="@dimen/dimen_medium"
     android:paddingBottom="@dimen/dimen_small"
-    android:textStyle="bold"
-    android:drawablePadding="@dimen/dimen_medium"
-    android:drawableStart="@drawable/ic_person">
+    android:textStyle="bold">
 </TextView>
