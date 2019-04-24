@@ -30,8 +30,6 @@ import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERSEDIA;
-
 public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implements JudulWorkView, ProyekAkhirListView {
 
     public static final String EXTRA_INFORMASI = "extra_informasi";
@@ -41,7 +39,7 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
     private Judul extradata;
     private JudulPresenter judulPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
-    private ProgressDialog dialog;
+    private ProgressDialog progressDialog;
     private SessionManager sessionManager;
     private RecyclerView recyclerView;
     private View empty_view;
@@ -70,9 +68,9 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
 
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         judulPresenter = new JudulPresenter(this);
-        dialog = new ProgressDialog(this);
+        progressDialog = new ProgressDialog(this);
         sessionManager = new SessionManager(this);
-        dialog.setMessage(getString(R.string.text_progress_dialog));
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         adapter = new DosenKelompokPengajuanJudulViewAdapter(this);
 
@@ -153,12 +151,12 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override

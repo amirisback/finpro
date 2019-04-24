@@ -19,7 +19,7 @@
             android:layout_marginBottom="@dimen/dimen_medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/textview_title_pa_sidang"/>
+            android:text="@string/text_title_pa_sidang"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_below="@id/dummytext"

@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:singleLine="true"
-            android:hint="@string/text_hint_kode_dosen"/>
+            android:hint="@string/hint_kode_dosen"/>
 
         <TextView
             android:layout_marginStart="@dimen/dimen_small"
@@ -116,7 +116,7 @@
             android:id="@+id/act_koor_dosen_button_simpan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_click_simpan"
+            android:text="@string/button_click_tambah_dosen"
             android:textColor="@color/colorTextWhite"
             android:background="@drawable/box_border_button_action"/>
 

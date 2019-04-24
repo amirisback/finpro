@@ -44,8 +44,8 @@ public class DosenPaPagerAdapter extends FragmentPagerAdapter {
                 return new DosenPaBimbinganFragment();
             case 1:
                 return new DosenPaMonevFragment();
-            case 2:
-                return new DosenPaSidangFragment();
+//            case 2:
+//                return new DosenPaSidangFragment();
             default:
                 throw new IllegalArgumentException();
         }
@@ -54,7 +54,7 @@ public class DosenPaPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 
     @Override
@@ -64,8 +64,8 @@ public class DosenPaPagerAdapter extends FragmentPagerAdapter {
                 return mContext.getString(R.string.title_bimbingan);
             case 1:
                 return mContext.getString(R.string.title_monev);
-            case 2:
-                return mContext.getString(R.string.title_sidang);
+//            case 2:
+//                return mContext.getString(R.string.title_sidang);
             default:
                 return null;
         }

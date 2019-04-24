@@ -146,7 +146,7 @@ public class AdminMainActivity extends AppCompatActivity
             setTitle(getString(R.string.title_pemetaan_monev));
             openFragment(new KoorPemetaanMonevFragment());
         }else if (id == R.id.nav_menu_kategori_monev){
-            setTitle(getString(R.string.text_title_kategori_monev));
+            setTitle(getString(R.string.title_kategori_monev));
             openFragment(new KoorKategoriMonevFragment());
         }else if (id == R.id.nav_menu_arsip_judul){
             setTitle(getString(R.string.text_title_arsip_judul));
