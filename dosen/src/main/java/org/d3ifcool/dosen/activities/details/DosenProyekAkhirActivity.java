@@ -52,6 +52,8 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
             tv_nim_anggota1_pa, tv_nim_anggota2_pa, tv_dosen_pembimbing_pa, tv_jumlah_bimbingan_pa,
             tv_dosen_reviewer_pa, tv_jumlah_monev_pa, tv_status_sidang_pa;
 
+    private String stringJudulId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +81,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
         tv_status_sidang_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_status_sidang);
 
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
-        final String stringJudulId = String.valueOf(extraJudul.getId());
+        stringJudulId = String.valueOf(extraJudul.getId());
         proyekAkhirPresenter.searchAllProyekAkhirByTwo(PROYEK_AKHIR_PARAM_1, stringJudulId, PROYEK_AKHIR_PARAM_2, JUDUL_STATUS_DIGUNAKAN);
 
 
@@ -106,6 +108,12 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
         });
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        proyekAkhirPresenter.searchAllProyekAkhirByTwo(PROYEK_AKHIR_PARAM_1, stringJudulId, PROYEK_AKHIR_PARAM_2, JUDUL_STATUS_DIGUNAKAN);
     }
 
     @Override
