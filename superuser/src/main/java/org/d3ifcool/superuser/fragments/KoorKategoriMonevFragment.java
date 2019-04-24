@@ -138,7 +138,7 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
         monevs.clear();
         monevs.addAll(monevList);
 
-        koorMonevKategoriViewAdapter.setLayoutType(R.layout.content_item_spinner_kategori_monev);
+        koorMonevKategoriViewAdapter.setLayoutType(R.layout.content_item_kategori_monev);
         koorMonevKategoriViewAdapter.setMonev(monevs);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(koorMonevKategoriViewAdapter);
