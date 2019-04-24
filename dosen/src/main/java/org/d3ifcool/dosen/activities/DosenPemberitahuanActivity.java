@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.adapters.recyclerviews.DosenPemberitahuanViewAdapter;
+import org.d3ifcool.dosen.adapters.recyclerview.DosenPemberitahuanViewAdapter;
 import org.d3ifcool.service.models.Notifikasi;
 
 import java.util.ArrayList;

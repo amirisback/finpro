@@ -14,10 +14,10 @@ import android.view.MenuItem;
 
 import org.d3ifcool.dosen.activities.DosenPemberitahuanActivity;
 import org.d3ifcool.dosen.activities.DosenProfilActivity;
-import org.d3ifcool.dosen.activities.details.DosenJudulPaArsipActivity;
-import org.d3ifcool.dosen.fragments.DosenInformasiFragment;
-import org.d3ifcool.dosen.fragments.DosenJudulFragment;
-import org.d3ifcool.dosen.fragments.DosenPaFragment;
+import org.d3ifcool.dosen.activities.DosenJudulPaArsipActivity;
+import org.d3ifcool.dosen.fragments.parent.DosenInformasiFragment;
+import org.d3ifcool.dosen.fragments.parent.DosenJudulFragment;
+import org.d3ifcool.dosen.fragments.parent.DosenPaFragment;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.service.helpers.MethodHelper;
 import org.d3ifcool.service.helpers.SessionManager;

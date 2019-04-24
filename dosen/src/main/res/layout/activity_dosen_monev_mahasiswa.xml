@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorBackground"
-    tools:context=".activities.details.DosenMonevMahasiswaActivity">
+    tools:context=".activities.DosenMonevMahasiswaActivity">
 
     <TextView
         android:id="@+id/text_monev"

@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import org.d3ifcool.dosen.fragments.DosenInformasiFragment;
-import org.d3ifcool.dosen.fragments.DosenJudulFragment;
-import org.d3ifcool.dosen.fragments.DosenPaFragment;
+import org.d3ifcool.dosen.fragments.parent.DosenInformasiFragment;
+import org.d3ifcool.dosen.fragments.parent.DosenJudulFragment;
+import org.d3ifcool.dosen.fragments.parent.DosenPaFragment;
 import org.d3ifcool.finpro.R;
 
 /**

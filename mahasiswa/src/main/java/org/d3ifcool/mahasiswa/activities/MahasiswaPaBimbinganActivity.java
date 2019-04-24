@@ -15,7 +15,7 @@ import android.widget.Toast;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.service.interfaces.lists.BimbinganListView;
 import org.d3ifcool.service.models.Bimbingan;
-import org.d3ifcool.mahasiswa.adapters.MahasiswaPaBimbinganViewAdapter;
+import org.d3ifcool.mahasiswa.adapters.recyclerview.MahasiswaPaBimbinganViewAdapter;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.BimbinganPresenter;

@@ -4,7 +4,7 @@
     android:id="@+id/frg_mhs_info_swiperefresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.MahasiswaInformasiFragment"
+    tools:context=".fragments.parent.MahasiswaInformasiFragment"
     android:background="@color/colorBackground">
 
     <RelativeLayout

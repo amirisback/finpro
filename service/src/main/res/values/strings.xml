@@ -161,6 +161,35 @@
         <item>Monev 3</item>
     </string-array>
 
+    <string name="hint_id_pengguna">ID Pengguna</string>
+    <string name="hint_kata_sandi">Kata Sandi</string>
+    <string name="hint_info_judul">Judul</string>
+    <string name="hint_info_isi">Isi</string>
+    <string name="hint_judulpa_judul">Judul Proyek Akhir</string>
+    <string name="hint_judulpa_kategori">Kategori</string>
+    <string name="hint_judulpa_deskripsi">Deskripsi</string>
+    <string name="hint_nama_dosen">Masukkan Nama Dosen</string>
+    <string name="hint_email_dosen">Masukkan Email</string>
+    <string name="hint_kontak_dosen">Masukkan Kontak Dosen</string>
+    <string name="hint_judul">Masukkan judul</string>
+    <string name="hint_kode_dosen">Masukkan Kode Dosen</string>
+    <string name="hint_angkatan_mahasiswa">Masukkan Angkatan Mahasiswa</string>
+    <string name="hint_masukkan_nim">Masukkan NIM</string>
+    <string name="hint_masukkan_nama">Masukkan Nama</string>
+    <string name="hint_masukkan_nama_kelompok">Masukkan Nama Kelompok</string>
+    <string name="hint_masukkan_judul_pa">Masukkan Judul PA</string>
+    <string name="hint_masukkan_deskripsi_judul_pa">Masukkan Deskripsi Judul PA</string>
+    <string name="hint_review_bimbingan">Masukkan Review Bimbingan</string>
+    <string name="hint_judul_bimbingan">Masukkan Judul Bimbingan</string>
+    <string name="hint_kategori">Masukkan Kategori Proyek Akhir</string>
+    <string name="hint_masukkan_kategori_monev">Masukkan Kategori Monev</string>
+    <string name="hint_monev_review">Masukkan Review Monev</string>
+    <string name="hint_monev_nilai">Masukkan Nilai Monev</string>
+    <string name="hint_informasi_isi">Masukkan Informasi</string>
+    <string name="hint_nim_mahasiswa">Masukkan NIM Mahasiswa</string>
+    <string name="hint_nama_mahasiswa">Masukkan Nama Mahasiswa</string>
+    <string name="hint_kontak_mahasiswa">Masukkan Kontak Mahasiswa</string>
+
     <string name="text_profil_detail_nama">Nama</string>
     <string name="text_profil_detail_nip">NIP</string>
     <string name="text_profil_detail_nim">NIM</string>
@@ -274,35 +303,12 @@
     <string name="text_nim_mahasiswa">Nim Mahasiswa</string>
     <string name="text_title_pa_sidang">Daftar Judul Proyek Akhir Sidang</string>
     <string name="text_penilaian_sidang">Penilaian Sidang</string>
-    <string name="text_nilai_proposal">Nilai Proposal</string>
+    <string name="text_sidang_nilai_proposal">Nilai Proposal</string>
+    <string name="text_nilai_sidang_mahasiswa">Nilai Sidang Mahasiswa</string>
+    <string name="text_sidang_penguji_1">Nilai Penguji 1</string>
+    <string name="text_sidang_penguji_2">Nilai Penguji 2</string>
+    <string name="text_sidang_pembimbing_1">Nilai Pembimbing 1</string>
+    <string name="text_sidang_nilai_total">Nilai Total</string>
 
-    <string name="hint_id_pengguna">ID Pengguna</string>
-    <string name="hint_kata_sandi">Kata Sandi</string>
-    <string name="hint_info_judul">Judul</string>
-    <string name="hint_info_isi">Isi</string>
-    <string name="hint_judulpa_judul">Judul Proyek Akhir</string>
-    <string name="hint_judulpa_kategori">Kategori</string>
-    <string name="hint_judulpa_deskripsi">Deskripsi</string>
-    <string name="hint_nama_dosen">Masukkan Nama Dosen</string>
-    <string name="hint_email_dosen">Masukkan Email</string>
-    <string name="hint_kontak_dosen">Masukkan Kontak Dosen</string>
-    <string name="hint_judul">Masukkan judul</string>
-    <string name="hint_kode_dosen">Masukkan Kode Dosen</string>
-    <string name="hint_angkatan_mahasiswa">Masukkan Angkatan Mahasiswa</string>
-    <string name="hint_masukkan_nim">Masukkan NIM</string>
-    <string name="hint_masukkan_nama">Masukkan Nama</string>
-    <string name="hint_masukkan_nama_kelompok">Masukkan Nama Kelompok</string>
-    <string name="hint_masukkan_judul_pa">Masukkan Judul PA</string>
-    <string name="hint_masukkan_deskripsi_judul_pa">Masukkan Deskripsi Judul PA</string>
-    <string name="hint_review_bimbingan">Masukkan Review Bimbingan</string>
-    <string name="hint_judul_bimbingan">Masukkan Judul Bimbingan</string>
-    <string name="hint_kategori">Masukkan Kategori Proyek Akhir</string>
-    <string name="hint_masukkan_kategori_monev">Masukkan Kategori Monev</string>
-    <string name="hint_monev_review">Masukkan Review Monev</string>
-    <string name="hint_monev_nilai">Masukkan Nilai Monev</string>
-    <string name="hint_informasi_isi">Masukkan Informasi</string>
-    <string name="hint_nim_mahasiswa">Masukkan NIM Mahasiswa</string>
-    <string name="hint_nama_mahasiswa">Masukkan Nama Mahasiswa</string>
-    <string name="hint_kontak_mahasiswa">Masukkan Kontak Mahasiswa</string>
 
 </resources>

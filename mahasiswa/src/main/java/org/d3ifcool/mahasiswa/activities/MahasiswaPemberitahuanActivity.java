@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.mahasiswa.adapters.MahasiswaPemberitahuanViewAdapter;
+import org.d3ifcool.mahasiswa.adapters.recyclerview.MahasiswaPemberitahuanViewAdapter;
 import org.d3ifcool.service.models.Notifikasi;
 
 import java.util.ArrayList;

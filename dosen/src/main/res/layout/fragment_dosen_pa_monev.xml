@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".fragments.DosenPaMonevFragment">
+    tools:context=".fragments.child.DosenPaMonevFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

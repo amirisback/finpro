@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.DosenPaFragment">
+    tools:context=".fragments.parent.DosenPaFragment">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/frg_dsn_pa_home_tablayout"

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".fragments.DosenPaBimbinganFragment">
+    tools:context=".fragments.child.DosenPaBimbinganFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

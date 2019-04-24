@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".activities.editors.DosenJudulPaSubdosenUbahActivity">
+    tools:context=".activities.editor.update.DosenJudulPaSubdosenUbahActivity">
 
     <LinearLayout
         android:orientation="vertical"

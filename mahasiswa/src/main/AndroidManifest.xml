@@ -6,16 +6,16 @@
 
     <application>
         <activity android:name=".activities.MahasiswaJudulPaArsipActivity" />
-        <activity android:name=".activities.MahasiswaPaSidangDetailActivity" />
+        <activity android:name=".activities.detail.MahasiswaPaSidangDetailActivity" />
         <activity android:name=".activities.MahasiswaJudulPaDosenPengajuanActivity" />
-        <activity android:name=".activities.MahasiswaBimbinganListDetail" />
-        <activity android:name=".activities.MahasiswaInformasiDetailActivity" />
-        <activity android:name=".activities.MahasiswaPaMonevDetailActivity" />
+        <activity android:name=".activities.detail.MahasiswaBimbinganDetailActivity" />
+        <activity android:name=".activities.detail.MahasiswaInformasiDetailActivity" />
+        <activity android:name=".activities.detail.MahasiswaPaMonevDetailActivity" />
         <activity android:name=".activities.MahasiswaPaBimbinganActivity" />
         <activity android:name=".activities.MahasiswaProfilActivity" />
         <activity android:name=".activities.MahasiswaPemberitahuanActivity" />
         <activity android:name=".activities.MahasiswaJudulPaMandiriPengajuanActivity" />
-        <activity android:name=".activities.MahasiswaJudulPaDosenDetailActivity" />
+        <activity android:name=".activities.detail.MahasiswaJudulPaDosenDetailActivity" />
         <activity android:name=".activities.MahasiswaProfilUbahActivity" />
     </application>
 
