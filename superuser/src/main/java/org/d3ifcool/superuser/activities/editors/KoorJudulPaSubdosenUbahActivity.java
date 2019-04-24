@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.angmarch.views.NiceSpinner;
 import org.d3ifcool.service.helpers.SpinnerHelper;
 import org.d3ifcool.service.interfaces.lists.KategoriJudulListView;
 import org.d3ifcool.service.interfaces.works.JudulWorkView;

@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.angmarch.views.NiceSpinner;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.MethodHelper;
 import org.d3ifcool.service.helpers.SpinnerHelper;

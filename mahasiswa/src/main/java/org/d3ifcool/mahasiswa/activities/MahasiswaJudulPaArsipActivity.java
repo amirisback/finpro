@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.angmarch.views.NiceSpinner;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.MahasiswaJudulPaArsipViewAdapter;
 import org.d3ifcool.service.helpers.SpinnerHelper;

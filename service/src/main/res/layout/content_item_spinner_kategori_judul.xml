@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:singleLine="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAlignment="inherit"
+    android:text="@string/text_dosen_pembimbing"
+    android:textSize="16sp"
+    android:textColor="@color/colorPrimary"
+    android:gravity="center_vertical"
+    android:padding="@dimen/dimen_medium"
+    android:paddingBottom="@dimen/dimen_small"
+    android:textStyle="bold"
+    android:drawablePadding="@dimen/dimen_medium"
+    android:drawableStart="@drawable/ic_content_kategori_judul">
+</TextView>

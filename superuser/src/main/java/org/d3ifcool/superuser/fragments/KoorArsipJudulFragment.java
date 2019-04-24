@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.angmarch.views.NiceSpinner;
 import org.d3ifcool.service.helpers.SpinnerHelper;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
 import org.d3ifcool.service.interfaces.lists.KategoriJudulListView;
@@ -88,6 +89,7 @@ public class KoorArsipJudulFragment extends Fragment implements JudulListView, K
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 kategori_id = String.valueOf(arrayListKategoriJudul.get(position).getId());
+
                 judulPresenter.searchJudulByTwo(PARAM_KATEGORI, kategori_id, PARAM_STATUS, JUDUL_STATUS_ARSIP);
             }
 

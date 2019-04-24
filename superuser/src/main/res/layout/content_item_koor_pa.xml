@@ -28,6 +28,7 @@
             android:layout_marginLeft="@dimen/dimen_big"
             android:layout_marginRight="@dimen/dimen_medium"
             android:maxLines="1"
+            android:textStyle="bold"
             android:text="@string/dummy_pa_judul"
             android:textColor="@color/colorPrimary"
             android:textSize="12sp" />
@@ -55,6 +56,7 @@
             android:layout_marginLeft="@dimen/dimen_big"
             android:layout_marginRight="@dimen/dimen_medium"
             android:text="@string/dummy_kategori"
+            android:textStyle="bold"
             android:textColor="@color/colorPrimary"
             android:textSize="12sp" />
 

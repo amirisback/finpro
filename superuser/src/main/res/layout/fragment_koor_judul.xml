@@ -22,15 +22,42 @@
             <include layout="@layout/content_list_empty"/>
         </RelativeLayout>
 
-        <Spinner
-            android:id="@+id/spinner_dosen"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:spinnerMode="dropdown"
-            android:layout_marginStart="@dimen/dimen_medium"/>
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_big"
+            android:layout_marginStart="@dimen/dimen_medium"
+            android:layout_marginEnd="@dimen/dimen_medium">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_medium"
+                android:layout_marginEnd="@dimen/dimen_medium">
+                <TextView
+                    android:id="@+id/text_dosen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_dosen"
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="@dimen/text_size_title_small"
+                    android:layout_marginBottom="@dimen/dimen_medium"
+                    />
+                <Spinner
+                    android:id="@+id/spinner_dosen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown"
+                    android:layout_below="@id/text_dosen"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_marginStart="@dimen/dimen_medium"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_below="@id/spinner_dosen"
+            android:layout_below="@id/card_view"
             android:id="@+id/frg_koor_judul_dsn_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

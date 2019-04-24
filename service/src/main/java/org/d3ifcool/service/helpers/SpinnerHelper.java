@@ -10,7 +10,6 @@ import org.d3ifcool.service.models.KategoriJudul;
 import org.d3ifcool.service.models.Monev;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Faisal Amir
@@ -37,33 +36,33 @@ public class SpinnerHelper {
 
 
     public void initSpinnerKategoriJudul(ArrayList<KategoriJudul> kategoriJudulArrayList, Spinner spinner) {
-        List<String> spinnerItem = new ArrayList<>();
+        ArrayList<String> spinnerItem = new ArrayList<>();
         for (int i = 0; i < kategoriJudulArrayList.size(); i++) {
             spinnerItem.add(kategoriJudulArrayList.get(i).getKategori_nama());
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, spinnerItem);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.content_item_spinner_kategori_judul, spinnerItem);
+        adapter.setDropDownViewResource(R.layout.content_item_spinner_kategori_judul);
         spinner.setAdapter(adapter);
     }
 
     public void initSpinnerDosen(ArrayList<Dosen> dosenArrayList, Spinner spinner) {
-        List<String> spinnerItem = new ArrayList<>();
+        ArrayList<String> spinnerItem = new ArrayList<>();
         for (int i = 0; i < dosenArrayList.size(); i++) {
             spinnerItem.add(dosenArrayList.get(i).getDsn_nama());
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, spinnerItem);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.content_item_spinner_dosen, spinnerItem);
+        adapter.setDropDownViewResource(R.layout.content_item_spinner_dosen);
         spinner.setAdapter(adapter);
 
     }
 
     public void initSpinnerMonev(ArrayList<Monev> monevArrayList, Spinner spinner) {
-        List<String> spinnerItem = new ArrayList<>();
+        ArrayList<String> spinnerItem = new ArrayList<>();
         for (int i = 0; i < monevArrayList.size(); i++) {
             spinnerItem.add(monevArrayList.get(i).getKategori());
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.support_simple_spinner_dropdown_item, spinnerItem);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.content_item_spinner_kategori_monev, spinnerItem);
+        adapter.setDropDownViewResource(R.layout.content_item_spinner_kategori_monev);
         spinner.setAdapter(adapter);
 
     }

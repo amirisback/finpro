@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -79,7 +78,6 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
         judulPresenter = new JudulPresenter(this);
 
         dosenPresenter.getDosen();
-
         sp_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -104,6 +102,11 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
         return rootView;
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 
     @Override
     public void showProgress() {
@@ -140,8 +143,12 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
         spinnerHelper.initSpinnerDosen(arrayListDosen, sp_dosen);
     }
 
+
     @Override
     public void onFailed(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
+
 }
+
+
