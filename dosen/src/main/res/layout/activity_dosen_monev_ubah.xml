@@ -59,6 +59,7 @@
             android:layout_marginBottom="@dimen/dimen_big_ultra"/>
 
         <Button
+            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/act_dsn_info_button_ubah"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

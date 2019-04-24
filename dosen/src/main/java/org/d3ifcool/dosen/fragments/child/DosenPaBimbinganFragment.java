@@ -32,7 +32,7 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
 
     private RecyclerView recyclerView;
     private DosenProyekAkhirBimbinganViewAdapter adapter;
-    private JudulPresenter presenter;
+    private JudulPresenter judulPresenter;
     private ProgressDialog progressDialog;
     private ArrayList<Judul> arrayList = new ArrayList<>();
     private SessionManager sessionManager;
@@ -57,15 +57,15 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
         progressDialog = new ProgressDialog(getContext());
         empty_view = rootView.findViewById(R.id.view_emptyview);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
-        presenter = new JudulPresenter(this);
-//        presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
-        presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionUsername());
+        judulPresenter = new JudulPresenter(this);
+//        judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
+        judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionUsername());
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-//                presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
-                presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionUsername());
+//                judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
+                judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionUsername());
             }
         });
 
@@ -76,8 +76,8 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
     @Override
     public void onResume() {
         super.onResume();
-//        presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
-        presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionUsername());
+//        judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
+        judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionUsername());
     }
 
     @Override

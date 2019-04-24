@@ -35,12 +35,12 @@ import java.util.List;
 public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView , MonevListView {
 
     private RecyclerView recyclerView;
-    private KoorMonevKategoriViewAdapter adapter;
+    private KoorMonevKategoriViewAdapter koorMonevKategoriViewAdapter;
     private SwipeRefreshLayout swipeRefreshLayout;
     private ArrayList<Monev> monevs = new ArrayList<>();
     private View empty_view;
-    private MonevPresenter presenter;
-    private ProgressDialog dialog;
+    private MonevPresenter presenterMonev;
+    private ProgressDialog progressDialog;
     public KoorKategoriMonevFragment() {
         // Required empty public constructor
     }
@@ -54,17 +54,17 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
 
         FloatingActionButton actionButton = view.findViewById(R.id.frg_koor_kategori_monev_fab);
         swipeRefreshLayout = view.findViewById(R.id.swipe_refresh);
-        dialog = new ProgressDialog(getContext());
-        dialog.setMessage(getString(R.string.text_progress_dialog));
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
-        presenter = new MonevPresenter(this, this);
-        adapter = new KoorMonevKategoriViewAdapter(getContext(), presenter);
+        presenterMonev = new MonevPresenter(this, this);
+        koorMonevKategoriViewAdapter = new KoorMonevKategoriViewAdapter(getContext(), presenterMonev);
 
         empty_view = view.findViewById(R.id.view_emptyview);
         recyclerView = view.findViewById(R.id.frg_koor_kategori_monev_rv);
 
-        adapter.notifyDataSetChanged();
-        presenter.getMonev();
+        koorMonevKategoriViewAdapter.notifyDataSetChanged();
+        presenterMonev.getMonev();
 
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,8 +80,8 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
                                 if (kategori.isEmpty()){
                                     et_kategori_monev.setError("Kategori Harus di isi");
                                 }else {
-                                    presenter.createMonev(kategori);
-                                    presenter.getMonev();
+                                    presenterMonev.createMonev(kategori);
+                                    presenterMonev.getMonev();
                                     et_kategori_monev.setText("");
                                     dialogInterface.dismiss();
                                     if (mDialogView.getParent() != null) {
@@ -106,7 +106,7 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.getMonev();
+                presenterMonev.getMonev();
             }
         });
 
@@ -117,20 +117,20 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
     @Override
     public void onResume() {
         super.onResume();
-        adapter.notifyDataSetChanged();
-        presenter.getMonev();
+        koorMonevKategoriViewAdapter.notifyDataSetChanged();
+        presenterMonev.getMonev();
 
     }
 
     @Override
     public void showProgress() {
-        dialog.show();
-        adapter.notifyDataSetChanged();
+        progressDialog.show();
+        koorMonevKategoriViewAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override
@@ -138,10 +138,10 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
         monevs.clear();
         monevs.addAll(monevList);
 
-        adapter.setLayoutType(R.layout.content_item_spinner_kategori_monev);
-        adapter.setMonev(monevs);
+        koorMonevKategoriViewAdapter.setLayoutType(R.layout.content_item_spinner_kategori_monev);
+        koorMonevKategoriViewAdapter.setMonev(monevs);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(koorMonevKategoriViewAdapter);
         swipeRefreshLayout.setRefreshing(false);
 
         if (monevs.size() == 0){
@@ -154,7 +154,7 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
 
     @Override
     public void onSucces() {
-        presenter.getMonev();
+        presenterMonev.getMonev();
     }
 
     @Override

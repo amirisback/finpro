@@ -83,6 +83,7 @@
             android:hint="@string/hint_masukkan_deskripsi_judul_pa"/>
 
         <Button
+            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/act_koor_judul_pa_button_simpan"
             android:layout_marginTop="@dimen/dimen_big"
             android:layout_width="match_parent"

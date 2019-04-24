@@ -86,6 +86,7 @@
             android:layout_height="wrap_content" />
 
         <Button
+            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/act_dsn_info_button_simpan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
