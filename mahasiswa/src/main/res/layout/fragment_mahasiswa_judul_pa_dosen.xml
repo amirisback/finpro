@@ -9,16 +9,37 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <Spinner
-            android:id="@+id/spinner_dosen"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:spinnerMode="dropdown"
-            android:layout_marginStart="@dimen/dimen_medium"/>
-
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginStart="@dimen/dimen_medium"
+            android:layout_marginEnd="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_big">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_medium">
+                <TextView
+                    android:id="@+id/text_dosen_nama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_medium"
+                    android:text="@string/text_dosen_pembimbing"
+                    android:textColor="@color/colorTextBlack"/>
+                <Spinner
+                    android:id="@+id/spinner_dosen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown"
+                    android:layout_below="@id/text_dosen_nama"
+                    android:layout_marginStart="@dimen/dimen_medium"
+                    android:layout_marginBottom="@dimen/dimen_medium"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
         <RelativeLayout
-            android:layout_below="@id/spinner_dosen"
+            android:layout_below="@id/card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
