@@ -3,6 +3,7 @@ package org.d3ifcool.mahasiswa.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,7 +13,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import org.d3ifcool.mahasiswa.R;
+import org.d3ifcool.mahasiswa.activities.editor.MahasiswaPaBimbinganTambahActivity;
 import org.d3ifcool.service.interfaces.lists.BimbinganListView;
 import org.d3ifcool.service.models.Bimbingan;
 import org.d3ifcool.mahasiswa.adapters.recyclerview.MahasiswaPaBimbinganViewAdapter;
@@ -55,6 +59,7 @@ public class MahasiswaPaBimbinganActivity extends AppCompatActivity implements B
         empty_view = findViewById(R.id.view_emptyview);
 
         recyclerView = findViewById(R.id.act_mhs_pa_bimbingan_detail_recyclerview);
+        FloatingActionButton btn_tambah_bimbingan = findViewById(R.id.act_mhs_bimbingan_tambah);
 
         TextView textViewDosen = findViewById(R.id.act_mhs_pa_bimbingan_detail_textview_dosen);
         textViewJumlah = findViewById(R.id.act_mhs_pa_bimbingan_detail_textview_jumlah);
@@ -65,10 +70,26 @@ public class MahasiswaPaBimbinganActivity extends AppCompatActivity implements B
 
         bimbinganPresenter.searchBimbingan(BIMBINGAN_PARAM, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
 
+        btn_tambah_bimbingan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MahasiswaPaBimbinganActivity.this, MahasiswaPaBimbinganTambahActivity.class);
+                intent.putParcelableArrayListExtra(MahasiswaPaBimbinganTambahActivity.EXTRA_PROYEK_AKHIR, extraArrayProyekAkhir);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        bimbinganPresenter.searchBimbingan(BIMBINGAN_PARAM, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_edit_delete, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

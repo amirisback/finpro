@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_big"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/dimen_profil_photo"
+            android:layout_height="@dimen/dimen_profil_photo"
+            android:layout_marginBottom="@dimen/dimen_big_ultra"
+            android:src="@drawable/ic_announcement"/>
+
+        <TextView
+            android:textSize="@dimen/text_size_title_small"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/text_tanggal_bimbingan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/act_mhs_bimbingan_textview_tanggal"
+            android:textSize="@dimen/text_size_title_small"
+            android:background="@color/colorBackgroundWhite"
+            android:elevation="2dp"
+            android:paddingTop="@dimen/dimen_big"
+            android:paddingBottom="@dimen/dimen_big"
+            android:paddingEnd="@dimen/dimen_big"
+            android:paddingStart="@dimen/dimen_big"
+            android:textColor="@color/colorTextBlack"
+            android:drawableEnd="@drawable/ic_date"
+            android:drawablePadding="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_medium"
+            android:text="@string/dummy_tanggal"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_height="wrap_content"
+            android:maxLines="1"/>
+
+        <TextView
+            android:textSize="@dimen/text_size_title_small"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/text_judul_bimbingan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"/>
+
+        <EditText
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_medium"
+            android:hint="@string/hint_judul_bimbingan"
+            android:inputType="textMultiLine"
+            android:layout_marginStart="-4dp"
+            android:id="@+id/act_mhs_info_edittext_judul_bimbingan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textSize="@dimen/text_size_title_small"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/text_review_bimbingan"
+            android:id="@+id/tv_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"/>
+
+        <EditText
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_big_ultra"
+            android:hint="@string/hint_review_bimbingan"
+            android:inputType="textMultiLine"
+            android:layout_marginStart="-4dp"
+            android:id="@+id/act_mhs_info_edittext_konten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/act_mhs_info_button_simpan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_click_ubah_bimbingan"
+            android:textColor="@color/colorTextWhite"
+            android:background="@drawable/box_border_button_action"/>
+
+    </LinearLayout>
+
+</ScrollView>
+

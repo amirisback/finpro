@@ -95,6 +95,11 @@ public class MethodHelper {
                 cal.set(Calendar.DAY_OF_MONTH, day);
                 cal.set(Calendar.YEAR,year, -2);
                 dialog.getDatePicker().setMinDate(cal.getTimeInMillis());
+
+                cal.set(Calendar.MONTH, month);
+                cal.set(Calendar.DAY_OF_MONTH, day);
+                cal.set(Calendar.YEAR,year);
+                dialog.getDatePicker().setMaxDate(cal.getTimeInMillis());
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
                 dialog.show();
             }

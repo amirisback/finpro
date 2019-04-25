@@ -68,9 +68,6 @@ public class DosenInformasiUbahActivity extends AppCompatActivity implements Inf
                         .setNegativeButton(R.string.tidak, null)
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
-
-
-
             }
         });
 

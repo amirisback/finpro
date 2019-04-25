@@ -1,1 +1,3 @@
-<resources></resources>
+<resources>
+    <string name="button_click_ubah_bimbingan">Ubah Bimbingan</string>
+</resources>
