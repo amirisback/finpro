@@ -1,12 +1,14 @@
 package org.d3ifcool.dosen.adapters.recyclerview;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
+import org.d3ifcool.dosen.activities.detail.DosenJudulPaArsipDetailActivity;
 import org.d3ifcool.service.models.Judul;
 
 import java.util.ArrayList;
@@ -51,10 +53,10 @@ public class DosenJudulArsipViewAdapter extends RecyclerView.Adapter<DosenJudulA
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(context, KoorJudulPaArsipDetailActivity.class);
-//                Judul parcelJudul = judul.get(position);
-//                intent.putExtra(KoorJudulPaArsipDetailActivity.EXTRA_JUDUL, parcelJudul);
-//                context.startActivity(intent);
+                Intent intent = new Intent(context, DosenJudulPaArsipDetailActivity.class);
+                Judul parcelJudul = judul.get(position);
+                intent.putExtra(DosenJudulPaArsipDetailActivity.EXTRA_JUDUL, parcelJudul);
+                context.startActivity(intent);
             }
         });
     }

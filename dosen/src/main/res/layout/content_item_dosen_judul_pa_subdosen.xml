@@ -33,14 +33,30 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_judulpa"
+            android:textSize="12sp"
+            android:textColor="@color/colorTextBlack"/>
         <TextView
             android:id="@+id/ctn_dsn_judul_dsn_textview_judul"
             android:text="@string/dummy"
             style="@style/textview_item_list_judul_pa"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorBackground"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_medium"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_kategori"
+            android:textSize="12sp"
+            android:textColor="@color/colorTextBlack"/>
 
         <TextView
-            android:drawableStart="@drawable/ic_content_judul_pa_kategori"
             android:id="@+id/ctn_dsn_judul_dsn_textview_kategori"
             android:text="@string/dummy"
             style="@style/textview_item_list_judul_kategori"/>

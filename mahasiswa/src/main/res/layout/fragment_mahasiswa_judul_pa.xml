@@ -43,8 +43,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/text_size_title_small"
+                    android:textColor="@color/colorTextBlack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_judul"/>
@@ -54,7 +53,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
-                    android:textColor="@color/colorTextBlack"
+                    android:textSize="@dimen/text_size_title_small"
+                    android:textColor="@color/colorPrimary"
                     tools:text="@string/dummy"/>
 
                 <View
@@ -65,8 +65,8 @@
                     android:background="@color/colorBackground"/>
 
                 <TextView
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/text_size_title_small"
+                    android:textColor="@color/colorTextBlack"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_dosen_pembimbing"/>
@@ -76,7 +76,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
-                    android:textColor="@color/colorTextBlack"
+                    android:textSize="@dimen/text_size_title_small"
+                    android:textColor="@color/colorPrimary"
                     tools:text="@string/dummy"/>
 
                 <View
@@ -88,8 +89,7 @@
 
 
                 <TextView
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/text_size_title_small"
+                    android:textColor="@color/colorTextBlack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_judul_status"/>
@@ -98,6 +98,7 @@
                     android:id="@+id/dis_status"
                     android:textColor="@color/colorAccent"
                     android:layout_width="wrap_content"
+                    android:textSize="@dimen/text_size_title_small"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
                     tools:text="@string/dummy"/>

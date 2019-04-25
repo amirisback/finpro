@@ -1,12 +1,14 @@
 package org.d3ifcool.mahasiswa.adapters.recyclerview;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.R;
+import org.d3ifcool.mahasiswa.activities.detail.MahasiswaJudulPaArsipDetailActivity;
 import org.d3ifcool.service.models.Judul;
 
 import java.util.ArrayList;
@@ -51,10 +53,10 @@ public class MahasiswaJudulPaArsipViewAdapter extends RecyclerView.Adapter<Mahas
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(context, KoorJudulPaArsipDetailActivity.class);
-//                Judul parcelJudul = judul.get(position);
-//                intent.putExtra(KoorJudulPaArsipDetailActivity.EXTRA_JUDUL, parcelJudul);
-//                context.startActivity(intent);
+                Intent intent = new Intent(context, MahasiswaJudulPaArsipDetailActivity.class);
+                Judul parcelJudul = judul.get(position);
+                intent.putExtra(MahasiswaJudulPaArsipDetailActivity.EXTRA_JUDUL, parcelJudul);
+                context.startActivity(intent);
             }
         });
     }
