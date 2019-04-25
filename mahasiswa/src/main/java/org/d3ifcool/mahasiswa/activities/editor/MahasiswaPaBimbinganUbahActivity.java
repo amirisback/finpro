@@ -16,10 +16,14 @@ import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.service.helpers.MethodHelper;
 import org.d3ifcool.service.interfaces.works.BimbinganWorkView;
 import org.d3ifcool.service.models.Bimbingan;
+import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.BimbinganPresenter;
+
+import java.util.ArrayList;
 
 public class MahasiswaPaBimbinganUbahActivity extends AppCompatActivity implements BimbinganWorkView {
     public static final String EXTRA_BIMBINGAN = "extra_bimbingan";
+    public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
     private BimbinganPresenter presenter;
     private ProgressDialog dialog;
     private Bimbingan extrabimbingan;
@@ -43,8 +47,8 @@ public class MahasiswaPaBimbinganUbahActivity extends AppCompatActivity implemen
 
         methodHelper.setDatePicker(this, tv_tanggal);
 
-        String tanggal = extrabimbingan.getTanggal();
-        String judul = extrabimbingan.getJudul_bimbingan();
+        final String tanggal = extrabimbingan.getTanggal();
+        final String judul = extrabimbingan.getJudul_bimbingan();
         String isi = extrabimbingan.getIsi();
 
         tv_tanggal.setText(tanggal);
@@ -59,13 +63,20 @@ public class MahasiswaPaBimbinganUbahActivity extends AppCompatActivity implemen
                         .Builder(MahasiswaPaBimbinganUbahActivity.this)
                         .setTitle(getString(R.string.dialog_ubah_title))
                         .setMessage(getString(R.string.dialog_ubah_text))
-
                         .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 String tanggal_baru = tv_tanggal.getText().toString();
                                 String judul_baru = et_judul.getText().toString();
                                 String isi_baru = et_review.getText().toString();
-                                presenter.updateBimbingan(extrabimbingan.getId(), isi_baru, judul_baru, tanggal_baru);
+                                if (tanggal_baru.isEmpty()){
+                                    tv_tanggal.setError(getString(R.string.tanggal_harus));
+                                }else if (judul_baru.isEmpty()){
+                                    et_judul.setError("Judul Harus di Isi");
+                                }else if (isi_baru.isEmpty()){
+                                    et_review.setError("Review Harus di Isi");
+                                }else{
+                                    presenter.updateBimbingan(extrabimbingan.getId(), isi_baru, judul_baru, tanggal_baru);
+                                }
                             }
                         })
 

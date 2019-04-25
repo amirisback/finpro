@@ -309,6 +309,11 @@
     <string name="text_sidang_penguji_2">Nilai Penguji 2</string>
     <string name="text_sidang_pembimbing_1">Nilai Pembimbing 1</string>
     <string name="text_sidang_nilai_total">Nilai Total</string>
+    <string name="tanggal_harus">Tanggal Harus Di isi</string>
+    <string name="No_Telepon_Tidak_Valid">No Telepon Tidak Valid</string>
+    <string name="email_tidak_valid">Email Tidak Valid</string>
+    <string name="no_lebih">No Telepon Lebih dari 12 Digit</string>
+    <string name="no_telp_kurang">No Telepon Kurang dari 7</string>
 
 
 </resources>

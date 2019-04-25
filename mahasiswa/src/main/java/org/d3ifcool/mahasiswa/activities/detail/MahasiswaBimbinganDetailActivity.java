@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -18,14 +19,19 @@ import org.d3ifcool.mahasiswa.activities.editor.MahasiswaPaBimbinganTambahActivi
 import org.d3ifcool.mahasiswa.activities.editor.MahasiswaPaBimbinganUbahActivity;
 import org.d3ifcool.service.interfaces.works.BimbinganWorkView;
 import org.d3ifcool.service.models.Bimbingan;
+import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.BimbinganPresenter;
+
+import java.util.ArrayList;
 
 public class MahasiswaBimbinganDetailActivity extends AppCompatActivity implements BimbinganWorkView {
 
     public static final String EXTRA_BIMBINGAN = "extra_bimbingan";
+    public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
     private BimbinganPresenter presenter;
     private ProgressDialog dialog;
-    Bimbingan extraBimbingan;
+    private Bimbingan extraBimbingan;
+    private ArrayList<ProyekAkhir> extraProyekAkhir = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +50,7 @@ public class MahasiswaBimbinganDetailActivity extends AppCompatActivity implemen
         TextView textViewReviewBimbingan = findViewById(R.id.act_dsn_mhs_bimbingan_textview_review);
 
         extraBimbingan = getIntent().getParcelableExtra(EXTRA_BIMBINGAN);
+        extraProyekAkhir = getIntent().getParcelableArrayListExtra(EXTRA_PROYEK_AKHIR);
 
         textViewTanggal.setText(extraBimbingan.getTanggal());
         textViewJudulBimbingan.setText(extraBimbingan.getJudul_bimbingan());
@@ -68,6 +75,7 @@ public class MahasiswaBimbinganDetailActivity extends AppCompatActivity implemen
         } else if (i == R.id.toolbar_menu_ubah) {
             Intent intentUbah = new Intent(MahasiswaBimbinganDetailActivity.this, MahasiswaPaBimbinganUbahActivity.class);
             intentUbah.putExtra(MahasiswaPaBimbinganUbahActivity.EXTRA_BIMBINGAN, extraBimbingan);
+            intentUbah.putExtra(MahasiswaPaBimbinganUbahActivity.EXTRA_PROYEK_AKHIR, extraProyekAkhir);
             startActivity(intentUbah);
             finish();
 

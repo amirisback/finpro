@@ -31,6 +31,7 @@ public class MahasiswaProfilUbahActivity extends AppCompatActivity implements Ma
     private MahasiswaPresenter mahasiswaPresenter;
 
     private String nama_baru, angkatan_baru, kontak_baru, email_baru;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +55,9 @@ public class MahasiswaProfilUbahActivity extends AppCompatActivity implements Ma
         final CircleImageView mahasiswa_foto = findViewById(R.id.act_mhs_profil_foto);
 
         final String nama = sessionManager.getSessionMahasiswaNama();
-        String angkatan = sessionManager.getSessionMahasiswaAngkatan();
+        final String angkatan = sessionManager.getSessionMahasiswaAngkatan();
         String kontak = sessionManager.getSessionMahasiswaKontak();
-        String email = sessionManager.getSessionMahasiswaEmail();
+        final String email = sessionManager.getSessionMahasiswaEmail();
 
         tv_nim.setText(sessionManager.getSessionMahasiswaNim());
         et_nama.setText(nama);
@@ -74,8 +75,16 @@ public class MahasiswaProfilUbahActivity extends AppCompatActivity implements Ma
                 kontak_baru = et_kontak.getText().toString();
                 email_baru = et_email.getText().toString();
                 if (nama_baru.isEmpty()){
-                    et_nama.setError("Field ini harus di isi");
-                }else {
+                    et_nama.setError(getString(R.string.text_tidak_boleh_kosong));
+                }else if (angkatan_baru.isEmpty()){
+                    et_angkatan.setError(getString(R.string.text_tidak_boleh_kosong));
+                } else if (kontak_baru.length() < 7 ){
+                    et_kontak.setError(getString(R.string.no_telp_kurang));
+                }else if (kontak_baru.length() > 12){
+                    et_kontak.setError(getString(R.string.no_lebih));
+                } else if (!email_baru.matches(emailPattern)){
+                    et_email.setError(getString(R.string.email_tidak_valid));
+                } else {
                     mahasiswaPresenter.updateMahasiswa(sessionManager.getSessionMahasiswaNim(), nama_baru, angkatan_baru, kontak_baru, email_baru);
                 }
             }

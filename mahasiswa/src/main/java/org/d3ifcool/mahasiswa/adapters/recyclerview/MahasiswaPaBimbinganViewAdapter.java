@@ -14,6 +14,7 @@ import android.widget.TextView;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.activities.detail.MahasiswaBimbinganDetailActivity;
 import org.d3ifcool.service.models.Bimbingan;
+import org.d3ifcool.service.models.ProyekAkhir;
 
 import java.util.ArrayList;
 
@@ -38,6 +39,7 @@ public class MahasiswaPaBimbinganViewAdapter extends RecyclerView.Adapter<Mahasi
 
     private Context context;
     private ArrayList<Bimbingan> data;
+    private ArrayList<ProyekAkhir> datapa;
     private int layoutType;
 
     public MahasiswaPaBimbinganViewAdapter(Context context) {

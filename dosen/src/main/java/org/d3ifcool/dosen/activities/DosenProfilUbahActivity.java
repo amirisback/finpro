@@ -24,6 +24,7 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
     private ProgressDialog progressDialog;
 
     private String nama_baru, kode_baru, kontak_baru, email_baru;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,13 +66,15 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
                 email_baru = et_email.getText().toString();
                 kontak_baru = et_kontak.getText().toString();
                 if (nama_baru.isEmpty()){
-                    et_nama.setError("Field ini harus di isi");
+                    et_nama.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else if (kode_baru.isEmpty()){
-                    et_kode.setError("Field ini harus di isi");
-//                }else if (email_baru.isEmpty()){
-//                    et_email.setError("Field ini harus di isi");
-//                }else if (kontak_baru.isEmpty()){
-//                    et_kontak.setError("Field ini harus di isi");
+                    et_kode.setError(getString(R.string.text_tidak_boleh_kosong));
+                } else if (kontak_baru.length() < 7){
+                    et_kontak.setError(getString(R.string.no_telp_kurang));
+                }else if (kontak_baru.length() > 14 || kontak_baru.length() == 13){
+                    et_kontak.setError(getString(R.string.no_lebih));
+                } else if (!email_baru.matches(emailPattern)){
+                    et_email.setError(getString(R.string.email_tidak_valid));
                 }else {
                     dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,email_baru);
                 }
