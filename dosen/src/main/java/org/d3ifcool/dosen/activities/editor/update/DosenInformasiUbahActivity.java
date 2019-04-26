@@ -61,7 +61,13 @@ public class DosenInformasiUbahActivity extends AppCompatActivity implements Inf
                             public void onClick(DialogInterface dialog, int which) {
                                 String judul_baru = info_judul.getText().toString();
                                 String isi_baru = info_deskripsi.getText().toString();
-                                presenter.updateInformasi(extraInfo.getId(), judul_baru, isi_baru);
+                                if (judul_baru.isEmpty()) {
+                                    info_judul.setError(getString(R.string.text_tidak_boleh_kosong));
+                                } else if (judul_baru.isEmpty()) {
+                                    info_deskripsi.setError(getString(R.string.text_tidak_boleh_kosong));
+                                }else {
+                                    presenter.updateInformasi(extraInfo.getId(), judul_baru, isi_baru);
+                                }
                             }
                         })
 

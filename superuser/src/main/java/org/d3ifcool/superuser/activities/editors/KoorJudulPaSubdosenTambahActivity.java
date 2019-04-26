@@ -108,9 +108,9 @@ public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity impleme
                 int kategori = getKategoriId;
 
                 if(judul.isEmpty()){
-                    et_judul.setError("judul tidak boleh kosong");
+                    et_judul.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else if(deskripsi.isEmpty()){
-                    et_deskripsi.setError("deskripsi tidak boleh kosong");
+                    et_deskripsi.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else{
                     judulPresenter.createJudul(judul, kategori, deskripsi, nipDosen, JUDUL_STATUS_TERSEDIA);
                 }

@@ -90,9 +90,9 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Detai
                 String tanggal = methodHelper.getDateToday();
 
                 if (review.isEmpty()){
-                    et_review_monev.setError("Review Ini Harus Di isi");
+                    et_review_monev.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else if (nilai_st.isEmpty()){
-                    et_nilai_monev.setError("Nilai Harus di Isi");
+                    et_nilai_monev.setError(getString(R.string.text_tidak_boleh_kosong));
                 } else {
                     detailMonevPresenter.createDetailMonev(nilai, tanggal, review, monevId, extraProyekAkhirId);
                     Log.d("review", review);

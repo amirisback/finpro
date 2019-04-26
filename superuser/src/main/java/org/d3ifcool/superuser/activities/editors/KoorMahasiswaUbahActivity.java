@@ -75,9 +75,9 @@ public class KoorMahasiswaUbahActivity extends AppCompatActivity implements Maha
                                 final String email_baru = et_email.getText().toString();
 
                                 if (nama_baru.isEmpty()) {
-                                    et_nama.setError("nama harus di isi");
+                                    et_nama.setError(getString(R.string.text_tidak_boleh_kosong));
                                 } else if (angkatan_baru.isEmpty()) {
-                                    et_angkatan.setError("angkatan harus di isi");
+                                    et_angkatan.setError(getString(R.string.text_tidak_boleh_kosong));
 //                                } else if (email_baru.isEmpty()) {
 //                                    et_email.setError("emai harus di isi");
 //                                } else if (kontak_baru.isEmpty()) {

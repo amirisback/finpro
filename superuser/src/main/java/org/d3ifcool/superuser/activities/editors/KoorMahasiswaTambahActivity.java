@@ -51,11 +51,11 @@ public class KoorMahasiswaTambahActivity extends AppCompatActivity implements Ma
                 String email = et_email.getText().toString();
 
                 if (nim.isEmpty()) {
-                    et_nim.setError("nim harus di isi");
+                    et_nim.setError(getString(R.string.text_tidak_boleh_kosong));
                 } else if (nama.isEmpty()) {
-                    et_nama.setError("nim harus di isi");
+                    et_nama.setError(getString(R.string.text_tidak_boleh_kosong));
                 } else if (angkatan.isEmpty()) {
-                    et_angkatan.setError("nim harus di isi");
+                    et_angkatan.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else {
                     presenter.createMahasiswa(nim, nama, angkatan, kontak, email);
                 }

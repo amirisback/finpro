@@ -34,7 +34,7 @@ public class KoorInformasiUbahActivity extends AppCompatActivity implements Info
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         extraInfo = getIntent().getParcelableExtra(EXTRA_INFORMASI);
-        String judul = extraInfo.getInfo_judul();
+        final String judul = extraInfo.getInfo_judul();
         final String isi = extraInfo.getInfo_deskripsi();
 
         et_judul = findViewById(R.id.act_koor_edittext_judul);
@@ -60,7 +60,14 @@ public class KoorInformasiUbahActivity extends AppCompatActivity implements Info
                             public void onClick(DialogInterface dialog, int which) {
                                 String judul_baru = et_judul.getText().toString();
                                 String isi_baru = et_isi.getText().toString();
-                                presenter.updateInformasi(extraInfo.getId(), judul_baru, isi_baru);
+                                if (judul_baru.isEmpty()) {
+                                    et_judul.setError(getString(R.string.text_tidak_boleh_kosong));
+                                } else if (isi_baru.isEmpty()) {
+                                    et_isi.setError(getString(R.string.text_tidak_boleh_kosong));
+                                } else {
+                                    presenter.updateInformasi(extraInfo.getId(), judul_baru, isi_baru);
+
+                                }
                             }
                         })
                         .setNegativeButton(org.d3ifcool.dosen.R.string.tidak, null)

@@ -103,9 +103,9 @@ public class KoorJudulPaSubdosenUbahActivity extends AppCompatActivity implement
                                 int kategori = getKategoriId;
 
                                 if(judul.isEmpty()){
-                                    et_judul.setError("judul tidak boleh kosong");
+                                    et_judul.setError(getString(R.string.text_tidak_boleh_kosong));
                                 }else if(deskripsi.isEmpty()){
-                                    et_deskripsi.setError("deskripsi tidak boleh kosong");
+                                    et_deskripsi.setError(getString(R.string.text_tidak_boleh_kosong));
                                 }else{
                                     judulPresenter.updateJudul(getJudulId, judul, kategori, deskripsi);
                                 }

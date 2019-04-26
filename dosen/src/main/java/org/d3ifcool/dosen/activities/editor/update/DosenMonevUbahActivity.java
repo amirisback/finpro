@@ -2,7 +2,9 @@ package org.d3ifcool.dosen.activities.editor.update;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -58,21 +60,35 @@ public class DosenMonevUbahActivity extends AppCompatActivity implements DetailM
         buttonMonev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                new AlertDialog
+                        .Builder(DosenMonevUbahActivity.this)
+                        .setTitle(getString(R.string.dialog_ubah_title))
+                        .setMessage(getString(R.string.dialog_ubah_text))
+                        .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String review = et_review_monev.getText().toString();
+                                String nilai_st = et_nilai_monev.getText().toString();
+                                int nilai = Integer.parseInt(nilai_st);
+                                String tanggal = methodHelper.getDateToday();
 
-                String review = et_review_monev.getText().toString();
-                String nilai_st = et_nilai_monev.getText().toString();
-                int nilai = Integer.parseInt(nilai_st);
-                String tanggal = methodHelper.getDateToday();
-
-                if (review.isEmpty()){
-                    et_review_monev.setError("Review Ini Harus Di isi");
-                }else if (nilai_st.isEmpty()){
-                    et_nilai_monev.setError("Nilai Harus di Isi");
-                } else {
-                    detailMonevPresenter.updateDetailMonev(extraMonevDetailId, nilai, tanggal, review);
-                }
-
-
+                                if (review.isEmpty()){
+                                    et_review_monev.setError(getString(R.string.text_tidak_boleh_kosong));
+                                }else if (nilai_st.isEmpty()){
+                                    et_nilai_monev.setError(getString(R.string.text_tidak_boleh_kosong));
+                                } else {
+                                    detailMonevPresenter.updateDetailMonev(extraMonevDetailId, nilai, tanggal, review);
+                                }
+                            }
+                        })
+                        .setNegativeButton(R.string.tidak, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
             }
         });
 

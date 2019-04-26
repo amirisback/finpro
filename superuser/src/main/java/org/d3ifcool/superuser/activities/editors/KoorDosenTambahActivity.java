@@ -63,10 +63,7 @@ public class KoorDosenTambahActivity extends AppCompatActivity implements DosenW
                     et_nama.setError("nama tidak boleh kosong");
                 }else if (kode.isEmpty()){
                     et_kode.setError("kode dosen tidak boleh kosong");
-//                }else if (email.isEmpty()){
-//                    et_email.setError("email tidak boleh kosong");
-//                }else if (kontak.isEmpty()){
-//                    et_kontak.setError("kontak tidak boleh kosong");
+//
                 }else{
                     presenter.createDosen(nip,nama,kode,kontak,email);
                 }
