@@ -152,6 +152,24 @@ public class DosenPresenter {
             }
         });
     }
+    public void updateDosen(String nip_dosen, String dsn_nama, String dsn_kode, String dsn_kontak,String dsn_foto, String dsn_email) {
+        viewEditor.showProgress();
+        ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
+        Call<Dosen> call = apiInterfaceDosen.updateDosen(nip_dosen, dsn_nama, dsn_kode, dsn_kontak, dsn_foto,dsn_email);
+        call.enqueue(new Callback<Dosen>() {
+            @Override
+            public void onResponse(Call<Dosen> call, Response<Dosen> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<Dosen> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
 
     public void getDosenByParameter(String dsn_nip){
         ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);

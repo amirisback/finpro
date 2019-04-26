@@ -55,6 +55,16 @@ public interface ApiInterfaceDosen {
             @Field("dsn_kontak") String dsn_kontak,
             @Field("dsn_email") String dsn_email
     );
+    @FormUrlEncoded
+    @POST(URL_DOSEN + PATH_UPDATE + PARAMETER_DOSEN)
+    Call<Dosen> updateDosen(
+            @Path(VAR_DOSEN) String dsn_nip,
+            @Field("dsn_nama") String dsn_nama,
+            @Field("dsn_kode") String dsn_kode,
+            @Field("dsn_kontak") String dsn_kontak,
+            @Field("dsn_foto") String dsn_foto,
+            @Field("dsn_email") String dsn_email
+    );
 
     @POST(URL_DOSEN + PATH_DELETE + PARAMETER_DOSEN)
     Call<Dosen> deleteDosen(@Path(VAR_DOSEN) String dsn_nip);

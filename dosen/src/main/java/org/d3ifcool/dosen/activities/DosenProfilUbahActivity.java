@@ -47,7 +47,8 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
     private SessionManager sessionManager;
     private ProgressDialog progressDialog;
 
-    private String nama_baru, kode_baru, kontak_baru, email_baru;
+    private String nama_baru, kode_baru, kontak_baru, email_baru,foto_baru;
+    private String hasil;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     String phonePattern ="^(^\\+62\\s?|^0)(\\d{3,4}-?){2}\\d{3,4}$";
 
@@ -125,6 +126,8 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
                 kode_baru = et_kode.getText().toString();
                 email_baru = et_email.getText().toString();
                 kontak_baru = et_kontak.getText().toString();
+                foto_baru = tv_hasil.getText().toString();
+
                 if (nama_baru.isEmpty()){
                     et_nama.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else if (kode_baru.isEmpty()){
@@ -140,7 +143,7 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
                 } else if (!kontak_baru.isEmpty()) {
                     for (int i =0 ; i < dosens.size() ; i++){
                         if (kontak_baru.equalsIgnoreCase(kontak)){
-                            dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,email_baru);
+                            dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,foto_baru,email_baru);
                         }else if (kontak_baru.equalsIgnoreCase(dosens.get(i).getDsn_kontak())){
                             et_kontak.setError(getString(R.string.no_sudah_ada));
                         }
@@ -148,14 +151,14 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
                 }else if (!email_baru.isEmpty()){
                     for (int i =0 ; i < dosens.size() ; i++){
                         if (email_baru.equalsIgnoreCase(email)){
-                            dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,email_baru);
+                            dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,foto_baru,email_baru);
                         }else if (email_baru.equalsIgnoreCase(dosens.get(i).getDsn_email())){
                             et_email.setError(getString(R.string.email_ada));
                         }
                     }
 
                 } else {
-                    dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,email_baru);
+                    dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,foto_baru,email_baru);
                 }
 
             }
@@ -179,7 +182,7 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
                     fileImagePath = cursor.getString(index);
 
                     File file = new File(fileImagePath);
-                    String hasil = file.getName();
+                     hasil= file.getName();
                     tv_hasil.setText(hasil);
                     dosen_foto.setImageURI(imageFile);
                     cursor.close();
