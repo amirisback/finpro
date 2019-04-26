@@ -50,6 +50,17 @@ public interface ApiInterfaceMahasiswa {
             @Field("mhs_nama") String mhs_nama,
             @Field("mhs_angkatan") String angkatan,
             @Field("mhs_kontak") String mhs_kontak,
+            @Field("mhs_foto") String mhs_foto,
+            @Field("mhs_email") String mhs_email
+    );
+
+    @FormUrlEncoded
+    @POST(URL_MAHASISWA + PATH_UPDATE + PARAMETER_MAHASISWA)
+    Call<Mahasiswa> updateMahasiswa(
+            @Path(VAR_MAHASISWA) String nim_mhs,
+            @Field("mhs_nama") String mhs_nama,
+            @Field("mhs_angkatan") String angkatan,
+            @Field("mhs_kontak") String mhs_kontak,
             @Field("mhs_email") String mhs_email
     );
 

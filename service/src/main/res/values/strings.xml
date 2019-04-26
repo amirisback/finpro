@@ -314,6 +314,8 @@
     <string name="email_tidak_valid">Email Tidak Valid</string>
     <string name="no_lebih">No Telepon Lebih dari 12 Digit</string>
     <string name="no_telp_kurang">No Telepon Kurang dari 7</string>
+    <string name="no_sudah_ada">No Sudah di Pakai</string>
+    <string name="email_ada">Email Sudah di Pakai</string>
 
 
 </resources>

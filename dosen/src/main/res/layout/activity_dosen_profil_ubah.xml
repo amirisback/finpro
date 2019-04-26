@@ -32,6 +32,13 @@
             android:padding="@dimen/dimen_medium"
             android:background="@drawable/circle_image_edit_foto"
             android:layout_alignEnd="@id/act_dsn_profil_foto"/>
+        <TextView
+            android:id="@+id/act_dsn_profil_hasil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/act_dsn_profil_foto"
+            android:textColor="@color/colorTextWhite"
+            android:gravity="center"/>
 
         <LinearLayout
             android:padding="@dimen/dimen_big_ultra"

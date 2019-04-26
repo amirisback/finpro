@@ -41,6 +41,11 @@ public class DosenPresenter {
         this.viewResult = viewResult;
     }
 
+    public DosenPresenter(DosenListView viewResult, DosenWorkView viewEditor) {
+        this.viewResult = viewResult;
+        this.viewEditor = viewEditor;
+    }
+
     public DosenPresenter(DosenWorkView viewEditor) {
         this.viewEditor = viewEditor;
     }

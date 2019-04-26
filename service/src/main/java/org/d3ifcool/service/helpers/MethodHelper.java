@@ -1,14 +1,19 @@
 package org.d3ifcool.service.helpers;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -20,6 +25,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
+
 public class MethodHelper {
 
     // Requirement Random Karakter -----------------------------------------------------------------
@@ -27,6 +35,8 @@ public class MethodHelper {
     private StringBuilder stringBuilder = new StringBuilder();
     private Random random = new Random();
     private String randomChar;
+    Context context;
+    private static final int REQUEST_SELECT_IMAGE = 1;
     // ---------------------------------------------------------------------------------------------
 
     private FragmentTransaction fragmentTransaction;
@@ -105,5 +115,4 @@ public class MethodHelper {
             }
         });
     }
-
 }

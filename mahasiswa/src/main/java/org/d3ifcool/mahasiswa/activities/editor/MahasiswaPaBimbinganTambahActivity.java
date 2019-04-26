@@ -53,9 +53,9 @@ public class MahasiswaPaBimbinganTambahActivity extends AppCompatActivity implem
                 String tanggal = tv_tanggal.getText().toString();
 
                 if (judul.isEmpty()) {
-                    et_judul.setError("Judul Harus di Isi");
+                    et_judul.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else if (review.isEmpty()){
-                    et_review.setError("Review Harus di Isi");
+                    et_review.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else{
                     bimbinganPresenter.createBimbingan(review,judul,tanggal,extraArrayProyekAkhir.get(0).getProyek_akhir_id());
 

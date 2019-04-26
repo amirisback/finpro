@@ -71,9 +71,9 @@ public class MahasiswaPaBimbinganUbahActivity extends AppCompatActivity implemen
                                 if (tanggal_baru.isEmpty()){
                                     tv_tanggal.setError(getString(R.string.tanggal_harus));
                                 }else if (judul_baru.isEmpty()){
-                                    et_judul.setError("Judul Harus di Isi");
+                                    et_judul.setError(getString(R.string.text_tidak_boleh_kosong));
                                 }else if (isi_baru.isEmpty()){
-                                    et_review.setError("Review Harus di Isi");
+                                    et_review.setError(getString(R.string.text_tidak_boleh_kosong));
                                 }else{
                                     presenter.updateBimbingan(extrabimbingan.getId(), isi_baru, judul_baru, tanggal_baru);
                                 }

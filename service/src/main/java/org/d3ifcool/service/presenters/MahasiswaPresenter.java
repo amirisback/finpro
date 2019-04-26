@@ -35,6 +35,11 @@ public class MahasiswaPresenter {
         this.viewResult = viewResult;
     }
 
+    public MahasiswaPresenter(MahasiswaListView viewResult, MahasiswaWorkView viewEditor) {
+        this.viewResult = viewResult;
+        this.viewEditor = viewEditor;
+    }
+
     public MahasiswaPresenter(MahasiswaWorkView viewEditor) {
         this.viewEditor = viewEditor;
     }
@@ -76,6 +81,26 @@ public class MahasiswaPresenter {
         viewEditor.showProgress();
         ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
         Call<Mahasiswa> call = apiInterfaceMahasiswa.createMahasiswa(nim, nama, angkatan, kontak, email);
+        call.enqueue(new Callback<Mahasiswa>() {
+            @Override
+            public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<Mahasiswa> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onFailed(t.getLocalizedMessage());
+            }
+        });
+
+    }
+
+    public void updateMahasiswa(String nim, String nama, String angkatan, String kontak,String mhs_foto, String email){
+        viewEditor.showProgress();
+        ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
+        Call<Mahasiswa> call = apiInterfaceMahasiswa.updateMahasiswa(nim, nama, angkatan, kontak, mhs_foto,email);
         call.enqueue(new Callback<Mahasiswa>() {
             @Override
             public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
