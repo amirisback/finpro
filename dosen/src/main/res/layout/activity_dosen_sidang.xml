@@ -111,6 +111,7 @@
                 android:text="@string/text_nilai_sidang_mahasiswa"/>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_mhs_1"
                 android:layout_marginBottom="@dimen/dimen_big"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -285,13 +286,24 @@
                             android:text="@string/dummy_nilai_monev"/>
 
                     </LinearLayout>
-
-
+                    <View
+                        android:layout_marginTop="@dimen/dimen_medium"
+                        android:layout_marginBottom="@dimen/dimen_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_view_line"
+                        android:background="@color/colorBackground"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_lihat_detail"
+                        android:textColor="@color/colorPrimary"
+                        android:gravity="end"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_mhs_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -466,7 +478,18 @@
 
                     </LinearLayout>
 
-
+                    <View
+                        android:layout_marginTop="@dimen/dimen_medium"
+                        android:layout_marginBottom="@dimen/dimen_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_view_line"
+                        android:background="@color/colorBackground"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_lihat_detail"
+                        android:textColor="@color/colorPrimary"
+                        android:gravity="end"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>

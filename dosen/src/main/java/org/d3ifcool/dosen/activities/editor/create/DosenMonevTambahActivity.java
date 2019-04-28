@@ -93,6 +93,8 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Detai
                     et_review_monev.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else if (nilai_st.isEmpty()){
                     et_nilai_monev.setError(getString(R.string.text_tidak_boleh_kosong));
+                } else if (nilai >100){
+                    et_nilai_monev.setError("Nilai Tidak Boleh Lebih Dari 100");
                 } else {
                     detailMonevPresenter.createDetailMonev(nilai, tanggal, review, monevId, extraProyekAkhirId);
                     Log.d("review", review);

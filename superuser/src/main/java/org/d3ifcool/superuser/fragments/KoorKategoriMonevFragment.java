@@ -14,6 +14,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -70,36 +71,53 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
             @Override
             public void onClick(View view) {
                 final View mDialogView = getLayoutInflater().inflate(R.layout.dialog_add_kategori_monev,null);
-                AlertDialog.Builder builder = new AlertDialog.Builder(mDialogView.getContext());
-                builder.setView(mDialogView)
-                        .setPositiveButton(R.string.tambah, new DialogInterface.OnClickListener() {
+                AlertDialog alertDialog = new AlertDialog.Builder(mDialogView.getContext())
+                .setView(mDialogView)
+                .setPositiveButton(R.string.tambah, null)
+                .setNegativeButton(R.string.batal, null)
+                .create();
+
+                alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(final DialogInterface dialog) {
+                        Button buttonPositive = ((AlertDialog) dialog).getButton(DialogInterface.BUTTON_POSITIVE);
+                        buttonPositive.setOnClickListener(new View.OnClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
+                            public void onClick(View v) {
                                 EditText et_kategori_monev = mDialogView.findViewById(R.id.dialog_kategori_monev);
+                                EditText et_jml_bimbingan = mDialogView.findViewById(R.id.dialog_jumlah_bimbingan);
                                 String kategori = et_kategori_monev.getText().toString();
+                                String bimbingan = et_jml_bimbingan.getText().toString();
+                                int jml = Integer.parseInt(bimbingan);
                                 if (kategori.isEmpty()){
-                                    et_kategori_monev.setError("Kategori Harus di isi");
-                                }else {
-                                    presenterMonev.createMonev(kategori);
+                                    et_kategori_monev.setError(getString(R.string.text_tidak_boleh_kosong));
+                                }else if (bimbingan.isEmpty()){
+                                    et_jml_bimbingan.setError(getString(R.string.text_tidak_boleh_kosong));
+                                }else if (jml > 16){
+                                    et_jml_bimbingan.setError(getString(R.string.tidak_lebih16));
+                                } else {
+                                    presenterMonev.createMonev(kategori, bimbingan);
                                     presenterMonev.getMonev();
                                     et_kategori_monev.setText("");
-                                    dialogInterface.dismiss();
+                                    dialog.dismiss();
                                     if (mDialogView.getParent() != null) {
                                         ((ViewGroup) mDialogView.getParent()).removeView(mDialogView);
                                     }
                                 }
                             }
-                        })
-                        .setNegativeButton(R.string.batal, new DialogInterface.OnClickListener() {
+                        });
+
+                        Button buttonNegative = ((AlertDialog) dialog).getButton(DialogInterface.BUTTON_NEGATIVE);
+                        buttonNegative.setOnClickListener(new View.OnClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                                if (mDialogView.getParent() != null) {
-                                    ((ViewGroup) mDialogView.getParent()).removeView(mDialogView);
-                                }
+                            public void onClick(View v) {
+                                dialog.dismiss();
                             }
                         });
-                builder.show();
+                    }
+                });
+                alertDialog.show();
+
             }
         });
 

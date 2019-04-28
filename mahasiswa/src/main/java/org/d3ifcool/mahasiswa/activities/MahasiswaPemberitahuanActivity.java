@@ -26,7 +26,7 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         recyclerView = findViewById(R.id.act_mhs_pemberitahuan_recyclerview);
         final ArrayList<Notifikasi> notifs = new ArrayList<>();
-        notifs.add(new Notifikasi("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi","ready"));
+        notifs.add(new Notifikasi("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi",true));
 
         MahasiswaPemberitahuanViewAdapter adapter = new MahasiswaPemberitahuanViewAdapter(this, notifs);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);;

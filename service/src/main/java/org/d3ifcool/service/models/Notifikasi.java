@@ -26,115 +26,59 @@ public class Notifikasi implements Parcelable {
     private String notifikasi_id;
 
     @Expose
-    @SerializedName("token_pesan")
-    private String token_pesan;
+    @SerializedName("notifikasi_tanggal")
+    private String notifikasi_tanggal;
 
     @Expose
-    @SerializedName("dari")
-    private String dari;
+    @SerializedName("notifikasi_kategori")
+    private String notifikasi_kategori;
 
     @Expose
-    @SerializedName("untuk")
-    private String untuk;
+    @SerializedName("notifikasi_deskripsi")
+    private String notifikasi_deskripsi;
 
     @Expose
-    @SerializedName("info_kategori")
-    private String info_kategori;
+    @SerializedName("notifikasi_dari")
+    private String notifikasi_dari;
 
     @Expose
-    @SerializedName("deskripsi")
-    private String deskripsi;
+    @SerializedName("notifikasi_untuk")
+    private String notifikasi_untuk;
 
     @Expose
-    @SerializedName("status")
-    private String status;
+    @SerializedName("notifikasi_baca")
+    private Boolean notifikasi_baca;
 
 
-    public Notifikasi(String notifikasi_id, String token_pesan, String dari, String untuk, String info_kategori, String deskripsi, String status) {
+    public Notifikasi(String notifikasi_id, String notifikasi_tanggal, String notifikasi_kategori, String notifikasi_deskripsi, String notifikasi_dari, String notifikasi_untuk, Boolean notifikasi_baca) {
         this.notifikasi_id = notifikasi_id;
-        this.token_pesan = token_pesan;
-        this.dari = dari;
-        this.untuk = untuk;
-        this.info_kategori = info_kategori;
-        this.deskripsi = deskripsi;
-        this.status = status;
-    }
-
-    public String getNotifikasi_id() {
-        return notifikasi_id;
-    }
-
-    public void setNotifikasi_id(String notifikasi_id) {
-        this.notifikasi_id = notifikasi_id;
-    }
-
-    public String getToken_pesan() {
-        return token_pesan;
-    }
-
-    public void setToken_pesan(String token_pesan) {
-        this.token_pesan = token_pesan;
-    }
-
-    public String getDari() {
-        return dari;
-    }
-
-    public void setDari(String dari) {
-        this.dari = dari;
-    }
-
-    public String getUntuk() {
-        return untuk;
-    }
-
-    public void setUntuk(String untuk) {
-        this.untuk = untuk;
-    }
-
-    public String getInfo_kategori() {
-        return info_kategori;
-    }
-
-    public void setInfo_kategori(String info_kategori) {
-        this.info_kategori = info_kategori;
-    }
-
-    public String getDeskripsi() {
-        return deskripsi;
-    }
-
-    public void setDeskripsi(String deskripsi) {
-        this.deskripsi = deskripsi;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+        this.notifikasi_tanggal = notifikasi_tanggal;
+        this.notifikasi_kategori = notifikasi_kategori;
+        this.notifikasi_deskripsi = notifikasi_deskripsi;
+        this.notifikasi_dari = notifikasi_dari;
+        this.notifikasi_untuk = notifikasi_untuk;
+        this.notifikasi_baca = notifikasi_baca;
     }
 
     protected Notifikasi(Parcel in) {
         notifikasi_id = in.readString();
-        token_pesan = in.readString();
-        dari = in.readString();
-        untuk = in.readString();
-        info_kategori = in.readString();
-        deskripsi = in.readString();
-        status = in.readString();
+        notifikasi_tanggal = in.readString();
+        notifikasi_kategori = in.readString();
+        notifikasi_deskripsi = in.readString();
+        notifikasi_dari = in.readString();
+        notifikasi_untuk = in.readString();
+        notifikasi_baca = in.readInt() != 0;
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(notifikasi_id);
-        dest.writeString(token_pesan);
-        dest.writeString(dari);
-        dest.writeString(untuk);
-        dest.writeString(info_kategori);
-        dest.writeString(deskripsi);
-        dest.writeString(status);
+        dest.writeString(notifikasi_tanggal);
+        dest.writeString(notifikasi_kategori);
+        dest.writeString(notifikasi_deskripsi);
+        dest.writeString(notifikasi_dari);
+        dest.writeString(notifikasi_untuk);
+        dest.writeInt(notifikasi_baca ? 1 :0);
     }
 
     @Override
@@ -153,4 +97,60 @@ public class Notifikasi implements Parcelable {
             return new Notifikasi[size];
         }
     };
+
+    public String getNotifikasi_id() {
+        return notifikasi_id;
+    }
+
+    public void setNotifikasi_id(String notifikasi_id) {
+        this.notifikasi_id = notifikasi_id;
+    }
+
+    public String getNotifikasi_tanggal() {
+        return notifikasi_tanggal;
+    }
+
+    public void setNotifikasi_tanggal(String notifikasi_tanggal) {
+        this.notifikasi_tanggal = notifikasi_tanggal;
+    }
+
+    public String getNotifikasi_kategori() {
+        return notifikasi_kategori;
+    }
+
+    public void setNotifikasi_kategori(String notifikasi_kategori) {
+        this.notifikasi_kategori = notifikasi_kategori;
+    }
+
+    public String getNotifikasi_deskripsi() {
+        return notifikasi_deskripsi;
+    }
+
+    public void setNotifikasi_deskripsi(String notifikasi_deskripsi) {
+        this.notifikasi_deskripsi = notifikasi_deskripsi;
+    }
+
+    public String getNotifikasi_dari() {
+        return notifikasi_dari;
+    }
+
+    public void setNotifikasi_dari(String notifikasi_dari) {
+        this.notifikasi_dari = notifikasi_dari;
+    }
+
+    public String getNotifikasi_untuk() {
+        return notifikasi_untuk;
+    }
+
+    public void setNotifikasi_untuk(String notifikasi_untuk) {
+        this.notifikasi_untuk = notifikasi_untuk;
+    }
+
+    public Boolean getNotifikasi_baca() {
+        return notifikasi_baca;
+    }
+
+    public void setNotifikasi_baca(Boolean notifikasi_baca) {
+        this.notifikasi_baca = notifikasi_baca;
+    }
 }

@@ -59,10 +59,10 @@ public class NotifikasiPresenter {
         this.viewEditor = viewEditor;
     }
 
-    public void createNotifikasi(String token_pesan, String dari, String untuk, String info_kategori, String deskripsi, String status){
+    public void createNotifikasi(String notifikasi_tanggal, String notifikasi_kategori, String notifikasi_deskripsi, String notifikasi_dari, String notifikasi_untuk, Boolean notifikasi_baca){
         viewEditor.showProgress();
         ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
-        Call<Notifikasi> call = apiInterfaceNotifikasi.createNotifikasi(token_pesan, dari, untuk, info_kategori, deskripsi, status);
+        Call<Notifikasi> call = apiInterfaceNotifikasi.createNotifikasi(notifikasi_tanggal, notifikasi_kategori, notifikasi_deskripsi, notifikasi_dari, notifikasi_untuk, notifikasi_baca);
         call.enqueue(new Callback<Notifikasi>() {
             @Override
             public void onResponse(Call<Notifikasi> call, Response<Notifikasi> response) {
@@ -117,10 +117,10 @@ public class NotifikasiPresenter {
     }
 
 
-    public void updateNotifikasi(int notifikasi_id, String token_pesan, String dari, String untuk, String info_kategori, String deskripsi, String status){
+    public void updateNotifikasi(int notifikasi_id, String notifikasi_tanggal, String notifikasi_kategori, String notifikasi_deskripsi, String notifikasi_dari, String notifikasi_untuk, Boolean notifikasi_baca){
         viewEditor.showProgress();
         ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
-        Call<Notifikasi> call = apiInterfaceNotifikasi.updateNotifikasi(notifikasi_id, token_pesan, dari, untuk, info_kategori, deskripsi, status);
+        Call<Notifikasi> call = apiInterfaceNotifikasi.updateNotifikasi(notifikasi_id, notifikasi_tanggal, notifikasi_kategori, notifikasi_deskripsi, notifikasi_dari, notifikasi_untuk, notifikasi_baca);
         call.enqueue(new Callback<Notifikasi>() {
             @Override
             public void onResponse(Call<Notifikasi> call, Response<Notifikasi> response) {

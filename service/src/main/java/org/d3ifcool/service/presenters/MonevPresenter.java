@@ -60,10 +60,10 @@ public class MonevPresenter {
         this.viewObject = viewObject;
     }
 
-    public void createMonev(String monev_kategori) {
+    public void createMonev(String monev_kategori, String jumlah_bimbingan) {
         viewEditor.showProgress();
         ApiInterfaceMonev apiInterfaceMonev = ApiClient.getApiClient().create(ApiInterfaceMonev.class);
-        Call<Monev> call = apiInterfaceMonev.createMonev(monev_kategori);
+        Call<Monev> call = apiInterfaceMonev.createMonev(monev_kategori, jumlah_bimbingan);
         call.enqueue(new Callback<Monev>() {
             @Override
             public void onResponse(Call<Monev> call, Response<Monev> response) {
@@ -119,10 +119,10 @@ public class MonevPresenter {
         });
     }
 
-    public void updateMonev(int monev_id, String kategori){
+    public void updateMonev(int monev_id, String kategori, String jumlah_bimbingan){
         viewEditor.showProgress();
         ApiInterfaceMonev apiInterfaceMonev = ApiClient.getApiClient().create(ApiInterfaceMonev.class);
-        Call<Monev> call = apiInterfaceMonev.updateMonev(monev_id, kategori);
+        Call<Monev> call = apiInterfaceMonev.updateMonev(monev_id, kategori, jumlah_bimbingan);
         call.enqueue(new Callback<Monev>() {
             @Override
             public void onResponse(Call<Monev> call, Response<Monev> response) {

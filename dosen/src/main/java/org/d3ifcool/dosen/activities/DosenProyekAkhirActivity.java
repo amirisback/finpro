@@ -87,6 +87,8 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
 
         CardView cardView = findViewById(R.id.frg_mhs_pa_cardview_bimbingan);
         CardView cardViewMonev = findViewById(R.id.frg_mhs_pa_cardview_monev);
+        CardView cardViewSidang = findViewById(R.id.frg_mhs_pa_cardview_sidang);
+
 
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +105,15 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
             public void onClick(View view) {
                 Intent intent = new Intent(DosenProyekAkhirActivity.this, DosenProyekAkhirMonevActivity.class);
                 intent.putExtra(DosenProyekAkhirMonevActivity.EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
+                startActivity(intent);
+            }
+        });
+
+        cardViewSidang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DosenProyekAkhirActivity.this, DosenSidangActivity.class);
+                intent.putExtra(DosenSidangActivity.EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
                 startActivity(intent);
             }
         });

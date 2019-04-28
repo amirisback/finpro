@@ -16,14 +16,48 @@
         android:gravity="center"
         android:textSize="@dimen/text_size_title_medium"
         />
-
-    <EditText
-        android:id="@+id/dialog_kategori_monev"
+    <LinearLayout
+        android:id="@+id/lie"
         android:layout_below="@id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_masukkan_kategori_monev"
-        android:paddingBottom="@dimen/dimen_big"
-        android:layout_margin="@dimen/dimen_big"/>
-
+        android:layout_margin="@dimen/dimen_medium"
+        android:orientation="vertical">
+            <TextView
+                android:id="@+id/title_kategori"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:textColor="@color/colorTextBlack"
+                android:text="@string/text_kategori"
+                />
+            <EditText
+                android:id="@+id/dialog_kategori_monev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_masukkan_kategori_monev"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@id/lie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_medium"
+        android:layout_marginRight="@dimen/dimen_medium"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/title_jumlah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:textColor="@color/colorTextBlack"
+            android:text="@string/text_minimal_jumlah_bimbingan"
+            />
+        <EditText
+            android:id="@+id/dialog_jumlah_bimbingan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="2"
+            android:hint="@string/hint_masukkan_minimal_jumlah_bimbingan" />
+    </LinearLayout>
 </RelativeLayout>

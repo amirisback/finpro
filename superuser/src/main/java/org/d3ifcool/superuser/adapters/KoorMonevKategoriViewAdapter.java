@@ -59,6 +59,7 @@ public class KoorMonevKategoriViewAdapter extends RecyclerView.Adapter<KoorMonev
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.tv_kategori_monev.setText(monev.get(position).getKategori());
+        holder.tv_jumlah_bimbingan.setText(monev.get(position).getJumlah_bimbingan());
         holder.btn_hapus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,8 +105,11 @@ public class KoorMonevKategoriViewAdapter extends RecyclerView.Adapter<KoorMonev
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         EditText et_kategori = mDialogView.findViewById(R.id.dialog_kategori_monev);
+                        EditText et_jml_bimbingan = mDialogView.findViewById(R.id.dialog_jumlah_bimbingan);
                         String result = et_kategori.getText().toString();
-                        presenter.updateMonev(monev.get(position).getMonev_id() , result);
+                        String bimbingan = et_jml_bimbingan.getText().toString();
+
+                        presenter.updateMonev(monev.get(position).getMonev_id() , result, bimbingan);
                         notifyDataSetChanged();
 
                         dialog.dismiss(); // Keluar Dari Dialog
@@ -135,11 +139,13 @@ public class KoorMonevKategoriViewAdapter extends RecyclerView.Adapter<KoorMonev
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tv_kategori_monev;
+        TextView tv_kategori_monev, tv_jumlah_bimbingan;
+
         ImageView btn_hapus;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_kategori_monev = itemView.findViewById(R.id.ctn_koor_monev_kategori);
+            tv_jumlah_bimbingan = itemView.findViewById(R.id.ctn_koor_monev_jumlah_bimbingan);
             btn_hapus = itemView.findViewById(R.id.ctn_koor_button_hapus);
         }
     }

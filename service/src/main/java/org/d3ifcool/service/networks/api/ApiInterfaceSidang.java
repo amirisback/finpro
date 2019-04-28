@@ -23,7 +23,12 @@ public interface ApiInterfaceSidang {
     Call<Sidang> createSidang(
             @Field("sidang_review") String sidang_review,
             @Field("sidang_tanggal") String sidang_tanggal,
-            @Field("sidang_nilai") int sidang_nilai,
+            @Field("nilai_proposal") int nilai_proposal,
+            @Field("nilai_penguji_1") int nilai_penguji_1,
+            @Field("nilai_penguji_2") int nilai_penguji_2,
+            @Field("nilai_pembimbing") int nilai_pembimbing,
+            @Field("nilai_sidang") int nilai_sidang,
+            @Field("nilai_sidang") int nilai_total,
             @Field("sidang_status") String sidang_status,
             @Field("proyek_akhir_id") int proyek_akhir_id
     );
@@ -34,9 +39,13 @@ public interface ApiInterfaceSidang {
             @Path("sidang_id") int sidang_id,
             @Field("sidang_review") String sidang_review,
             @Field("sidang_tanggal") String sidang_tanggal,
-            @Field("sidang_nilai") int sidang_nilai,
-            @Field("sidang_status") String sidang_status,
-            @Field("proyek_akhir_id") int proyek_akhir_id
+            @Field("nilai_proposal") int nilai_proposal,
+            @Field("nilai_penguji_1") int nilai_penguji_1,
+            @Field("nilai_penguji_2") int nilai_penguji_2,
+            @Field("nilai_pembimbing") int nilai_pembimbing,
+            @Field("nilai_sidang") int nilai_sidang,
+            @Field("nilai_sidang") int nilai_total,
+            @Field("sidang_status") String sidang_status
     );
 
     @FormUrlEncoded

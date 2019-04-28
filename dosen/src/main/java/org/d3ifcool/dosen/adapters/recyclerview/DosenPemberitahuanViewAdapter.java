@@ -50,7 +50,7 @@ public class DosenPemberitahuanViewAdapter extends RecyclerView.Adapter<DosenPem
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.isi.setText(data.get(position).getDeskripsi());
+        holder.isi.setText(data.get(position).getNotifikasi_deskripsi());
     }
 
     @Override

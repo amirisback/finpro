@@ -33,20 +33,51 @@ public class Monev implements Parcelable {
     @SerializedName("monev_kategori")
     private String kategori;
 
-    public Monev(int monev_id, String kategori) {
+    @Expose
+    @SerializedName("jumlah_bimbingan")
+    private String jumlah_bimbingan;
+
+    public Monev(int monev_id, String kategori, String jumlah_bimbingan) {
         this.monev_id = monev_id;
         this.kategori = kategori;
+        this.jumlah_bimbingan = jumlah_bimbingan;
+    }
+
+    public int getMonev_id() {
+        return monev_id;
+    }
+
+    public void setMonev_id(int monev_id) {
+        this.monev_id = monev_id;
+    }
+
+    public String getKategori() {
+        return kategori;
+    }
+
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
+    }
+
+    public String getJumlah_bimbingan() {
+        return jumlah_bimbingan;
+    }
+
+    public void setJumlah_bimbingan(String jumlah_bimbingan) {
+        this.jumlah_bimbingan = jumlah_bimbingan;
     }
 
     protected Monev(Parcel in) {
         monev_id = in.readInt();
         kategori = in.readString();
+        jumlah_bimbingan = in.readString();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(monev_id);
         dest.writeString(kategori);
+        dest.writeString(jumlah_bimbingan);
     }
 
     @Override
@@ -65,20 +96,4 @@ public class Monev implements Parcelable {
             return new Monev[size];
         }
     };
-
-    public int getMonev_id() {
-        return monev_id;
-    }
-
-    public void setMonev_id(int monev_id) {
-        this.monev_id = monev_id;
-    }
-
-    public String getKategori() {
-        return kategori;
-    }
-
-    public void setKategori(String kategori) {
-        this.kategori = kategori;
-    }
 }

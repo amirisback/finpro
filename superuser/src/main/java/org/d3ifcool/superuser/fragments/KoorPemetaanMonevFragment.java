@@ -23,10 +23,13 @@ import org.angmarch.views.NiceSpinner;
 import org.d3ifcool.service.helpers.SpinnerHelper;
 import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.interfaces.lists.JudulListView;
+import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.DosenPresenter;
 import org.d3ifcool.service.presenters.JudulPresenter;
+import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.adapters.KoorPemetaanMonevViewAdapter;
 
@@ -40,7 +43,7 @@ import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAM_JUDUL_
 /**
  * A simple {@link Fragment} subclass.
  */
-public class KoorPemetaanMonevFragment extends Fragment implements DosenListView, JudulListView {
+public class KoorPemetaanMonevFragment extends Fragment implements DosenListView, JudulListView, ProyekAkhirListView {
 
     private Spinner sp_dosen;
     private RecyclerView recyclerView;
@@ -57,6 +60,7 @@ public class KoorPemetaanMonevFragment extends Fragment implements DosenListView
 
     private DosenPresenter dosenPresenter;
     private JudulPresenter judulPresenter;
+    private ProyekAkhirPresenter proyekAkhirPresenter;
 
     public KoorPemetaanMonevFragment() {
         // Required empty public constructor
@@ -81,6 +85,7 @@ public class KoorPemetaanMonevFragment extends Fragment implements DosenListView
 
         dosenPresenter = new DosenPresenter(this);
         judulPresenter = new JudulPresenter(this);
+        proyekAkhirPresenter = new ProyekAkhirPresenter(this);
 
         dosenPresenter.getDosen();
 
@@ -116,6 +121,11 @@ public class KoorPemetaanMonevFragment extends Fragment implements DosenListView
     @Override
     public void hideProgress() {
         progressDialog.dismiss();
+    }
+
+    @Override
+    public void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList) {
+
     }
 
     @Override

@@ -50,7 +50,7 @@ public class MahasiswaPemberitahuanViewAdapter extends RecyclerView.Adapter<Maha
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.isi.setText(notifs.get(position).getDeskripsi());
+        holder.isi.setText(notifs.get(position).getNotifikasi_deskripsi());
     }
 
     @Override

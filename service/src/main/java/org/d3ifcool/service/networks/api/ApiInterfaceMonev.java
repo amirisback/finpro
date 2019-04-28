@@ -22,14 +22,16 @@ public interface ApiInterfaceMonev {
     @FormUrlEncoded
     @POST(URL_MONEV)
     Call<Monev> createMonev(
-            @Field("monev_kategori") String monev_kategori
+            @Field("monev_kategori") String monev_kategori,
+            @Field("jumlah_bimbingan") String jumlah_bimbingan
     );
 
     @FormUrlEncoded
     @POST(URL_MONEV + PATH_UPDATE + PARAMETER_MONEV)
     Call<Monev> updateMonev(
             @Path(VAR_MONEV) int monev_id,
-            @Field("monev_kategori") String kategori
+            @Field("monev_kategori") String kategori,
+            @Field("jumlah_bimbingan") String jumlah_bimbingan
     );
 
     @GET(URL_MONEV)

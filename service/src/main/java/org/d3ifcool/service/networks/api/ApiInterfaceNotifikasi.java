@@ -39,24 +39,24 @@ public interface ApiInterfaceNotifikasi {
     @FormUrlEncoded
     @POST(URL_NOTIFIKASI)
     Call<Notifikasi> createNotifikasi(
-            @Field("token_pesan") String token_pesan,
-            @Field("dari") String dari,
-            @Field("untuk") String untuk,
-            @Field("info_kategori") String info_kategori,
-            @Field("deskripsi") String deskripsi,
-            @Field("status") String status
+            @Field("notifikasi_tanggal") String notifikasi_tanggal,
+            @Field("notifikasi_kategori") String notifikasi_kategori,
+            @Field("notifikasi_deskripsi") String notifikasi_deskripsi,
+            @Field("notifikasi_dari") String notifikasi_dari,
+            @Field("notifikasi_untuk") String notifikasi_untuk,
+            @Field("notifikasi_baca") Boolean notifikasi_baca
     );
 
     @FormUrlEncoded
     @POST(URL_NOTIFIKASI + PATH_UPDATE + PARAMETER_NOTIFIKASI)
     Call<Notifikasi> updateNotifikasi(
             @Path(VAR_NOTIFIKASI) int notifikasi_id,
-            @Field("token_pesan") String token_pesan,
-            @Field("dari") String dari,
-            @Field("untuk") String untuk,
-            @Field("info_kategori") String info_kategori,
-            @Field("deskripsi") String deskripsi,
-            @Field("status") String status
+            @Field("notifikasi_tanggal") String notifikasi_tanggal,
+            @Field("notifikasi_kategori") String notifikasi_kategori,
+            @Field("notifikasi_deskripsi") String notifikasi_deskripsi,
+            @Field("notifikasi_dari") String notifikasi_dari,
+            @Field("notifikasi_untuk") String notifikasi_untuk,
+            @Field("notifikasi_baca") Boolean notifikasi_baca
     );
 
     @GET(URL_NOTIFIKASI)

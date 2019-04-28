@@ -1,4 +1,7 @@
 <resources>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_minimal_jumlah_bimbingan">Minimal Jumlah Bimbingan</string>
+    <string name="hint_masukkan_minimal_jumlah_bimbingan">Masukkan Minimal Jumlah BImbingan</string>
+    <string name="tidak_lebih16">Tidak Boleh Lebih Dari 16</string>
 </resources>
