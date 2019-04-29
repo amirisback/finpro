@@ -316,6 +316,7 @@
     <string name="no_telp_kurang">No Telepon Kurang dari 7</string>
     <string name="no_sudah_ada">No Sudah di Pakai</string>
     <string name="email_ada">Email Sudah di Pakai</string>
+    <string name="title_sidang_tambah">Tambah Sidang</string>
 
 
 </resources>

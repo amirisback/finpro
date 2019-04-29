@@ -53,9 +53,6 @@ public class Sidang implements Parcelable {
     @SerializedName("nilai_pembimbing")
     private int nilai_pembimbing;
 
-    @Expose
-    @SerializedName("nilai_sidang")
-    private int nilai_sidang;
 
     @Expose
     @SerializedName("nilai_total")
@@ -70,7 +67,7 @@ public class Sidang implements Parcelable {
     @SerializedName("proyek_akhir_id")
     private int proyek_akhir_id;
 
-    public Sidang(String sidang_id, String sidang_review, String sidang_tanggal, int nilai_proposal, int nilai_penguji_1, int nilai_penguji_2, int nilai_pembimbing, int nilai_sidang, String nilai_total, String sidang_status, int proyek_akhir_id) {
+    public Sidang(String sidang_id, String sidang_review, String sidang_tanggal, int nilai_proposal, int nilai_penguji_1, int nilai_penguji_2, int nilai_pembimbing,  String nilai_total, String sidang_status, int proyek_akhir_id) {
         this.sidang_id = sidang_id;
         this.sidang_review = sidang_review;
         this.sidang_tanggal = sidang_tanggal;
@@ -78,7 +75,6 @@ public class Sidang implements Parcelable {
         this.nilai_penguji_1 = nilai_penguji_1;
         this.nilai_penguji_2 = nilai_penguji_2;
         this.nilai_pembimbing = nilai_pembimbing;
-        this.nilai_sidang = nilai_sidang;
         this.nilai_total = nilai_total;
         this.sidang_status = sidang_status;
         this.proyek_akhir_id = proyek_akhir_id;
@@ -92,7 +88,6 @@ public class Sidang implements Parcelable {
         nilai_penguji_1 = in.readInt();
         nilai_penguji_2 = in.readInt();
         nilai_pembimbing = in.readInt();
-        nilai_sidang = in.readInt();
         nilai_total = in.readString();
         sidang_status = in.readString();
         proyek_akhir_id = in.readInt();
@@ -107,7 +102,6 @@ public class Sidang implements Parcelable {
         dest.writeInt(nilai_penguji_1);
         dest.writeInt(nilai_penguji_2);
         dest.writeInt(nilai_pembimbing);
-        dest.writeInt(nilai_sidang);
         dest.writeString(nilai_total);
         dest.writeString(sidang_status);
         dest.writeInt(proyek_akhir_id);
@@ -210,11 +204,5 @@ public class Sidang implements Parcelable {
         this.nilai_pembimbing = nilai_pembimbing;
     }
 
-    public int getNilai_sidang() {
-        return nilai_sidang;
-    }
 
-    public void setNilai_sidang(int nilai_sidang) {
-        this.nilai_sidang = nilai_sidang;
-    }
 }

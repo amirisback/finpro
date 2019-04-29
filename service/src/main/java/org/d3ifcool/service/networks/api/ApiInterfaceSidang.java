@@ -27,9 +27,7 @@ public interface ApiInterfaceSidang {
             @Field("nilai_penguji_1") int nilai_penguji_1,
             @Field("nilai_penguji_2") int nilai_penguji_2,
             @Field("nilai_pembimbing") int nilai_pembimbing,
-            @Field("nilai_sidang") int nilai_sidang,
             @Field("nilai_sidang") int nilai_total,
-            @Field("sidang_status") String sidang_status,
             @Field("proyek_akhir_id") int proyek_akhir_id
     );
 
@@ -43,7 +41,6 @@ public interface ApiInterfaceSidang {
             @Field("nilai_penguji_1") int nilai_penguji_1,
             @Field("nilai_penguji_2") int nilai_penguji_2,
             @Field("nilai_pembimbing") int nilai_pembimbing,
-            @Field("nilai_sidang") int nilai_sidang,
             @Field("nilai_sidang") int nilai_total,
             @Field("sidang_status") String sidang_status
     );

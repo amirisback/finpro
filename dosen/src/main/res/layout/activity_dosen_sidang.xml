@@ -88,6 +88,7 @@
                         android:text="@string/text_status_sidang"/>
 
                     <TextView
+                        android:id="@+id/dsn_sidang_textview_status_sidang"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dimen_big"
@@ -190,16 +191,14 @@
                             android:layout_weight="1"
                             android:layout_width="@dimen/dimen_weight"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"
-                            android:text="@string/dummy_nilai_monev"/>
+                            android:textColor="@color/colorTextBlack"/>
 
                         <TextView
                             android:id="@+id/dsn_sidang_nilai_pembimbing1_1"
                             android:layout_weight="1"
                             android:layout_width="@dimen/dimen_weight"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"
-                            android:text="@string/dummy_nilai_monev"/>
+                            android:textColor="@color/colorTextBlack"/>
 
                     </LinearLayout>
 
@@ -241,16 +240,14 @@
                             android:layout_weight="1"
                             android:layout_width="@dimen/dimen_weight"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"
-                            android:text="@string/dummy_nilai_monev"/>
+                            android:textColor="@color/colorTextBlack"/>
 
                         <TextView
                             android:id="@+id/dsn_sidang_nilai_penguji2_1"
                             android:layout_weight="1"
                             android:layout_width="@dimen/dimen_weight"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"
-                            android:text="@string/dummy_nilai_monev"/>
+                            android:textColor="@color/colorTextBlack"/>
 
                     </LinearLayout>
 
@@ -282,8 +279,7 @@
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
                             android:textSize="@dimen/text_size_title_big"
-                            android:textColor="@color/colorPrimary"
-                            android:text="@string/dummy_nilai_monev"/>
+                            android:textColor="@color/colorPrimary"/>
 
                     </LinearLayout>
                     <View
@@ -297,6 +293,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/text_lihat_detail"
                         android:textColor="@color/colorPrimary"
+                        android:layout_marginRight="@dimen/dimen_medium"
                         android:gravity="end"/>
                 </LinearLayout>
 
@@ -381,16 +378,14 @@
                             android:layout_weight="1"
                             android:layout_width="@dimen/dimen_weight"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"
-                            android:text="@string/dummy_nilai_monev"/>
+                            android:textColor="@color/colorTextBlack"/>
 
                         <TextView
                             android:id="@+id/dsn_sidang_nilai_pembimbing1_2"
                             android:layout_weight="1"
                             android:layout_width="@dimen/dimen_weight"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"
-                            android:text="@string/dummy_nilai_monev"/>
+                            android:textColor="@color/colorTextBlack"/>
 
                     </LinearLayout>
 
@@ -432,16 +427,14 @@
                             android:layout_weight="1"
                             android:layout_width="@dimen/dimen_weight"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"
-                            android:text="@string/dummy_nilai_monev"/>
+                            android:textColor="@color/colorTextBlack"/>
 
                         <TextView
                             android:id="@+id/dsn_sidang_nilai_penguji2_2"
                             android:layout_weight="1"
                             android:layout_width="@dimen/dimen_weight"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"
-                            android:text="@string/dummy_nilai_monev"/>
+                            android:textColor="@color/colorTextBlack"/>
 
                     </LinearLayout>
 
@@ -473,8 +466,7 @@
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
                             android:textSize="@dimen/text_size_title_big"
-                            android:textColor="@color/colorPrimary"
-                            android:text="@string/dummy_nilai_monev"/>
+                            android:textColor="@color/colorPrimary"/>
 
                     </LinearLayout>
 
@@ -489,6 +481,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/text_lihat_detail"
                         android:textColor="@color/colorPrimary"
+                        android:layout_marginRight="@dimen/dimen_medium"
                         android:gravity="end"/>
                 </LinearLayout>
 
