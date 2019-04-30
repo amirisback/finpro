@@ -13,11 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
+import org.d3ifcool.service.helpers.MethodHelper;
 import org.d3ifcool.service.interfaces.works.SidangWorkView;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.SidangPresenter;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class DosenProyekAkhirSidangTambahActivity extends AppCompatActivity implements SidangWorkView {
@@ -40,6 +40,7 @@ public class DosenProyekAkhirSidangTambahActivity extends AppCompatActivity impl
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.text_progress_dialog));
         presenter = new SidangPresenter(this);
+        MethodHelper helper = new MethodHelper();
 
         ProyekAkhir proyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
         extraProyeAkhirId = proyekAkhir.getProyek_akhir_id();
@@ -52,6 +53,8 @@ public class DosenProyekAkhirSidangTambahActivity extends AppCompatActivity impl
         final EditText et_penguji1 = findViewById(R.id.dsn_sidang_nilai_penguji1_1);
         final EditText et_penguji2 = findViewById(R.id.dsn_sidang_nilai_penguji2_1);
         final TextView tv_nilaiTotal = findViewById(R.id.dsn_sidang_nilai_total_1);
+
+        tv_tanggal.setText(helper.getDateToday());
 
         Button btn_simpan = findViewById(R.id.act_dsn_info_button_simpan);
 
@@ -159,6 +162,7 @@ public class DosenProyekAkhirSidangTambahActivity extends AppCompatActivity impl
                     double n_proposal = (nilai_proposal*10)/100;
                     double n_pembimbing = (nilai_pembimbing1 * 50)/100;
                     double n_penguji = (((nilai_penguji1 + nilai_penguji2)/2)*40)/100;
+
                     nilai_total = n_proposal + n_pembimbing + n_penguji;
                     tv_nilaiTotal.setText(String.valueOf(nilai_total));
                 }else {
@@ -183,15 +187,35 @@ public class DosenProyekAkhirSidangTambahActivity extends AppCompatActivity impl
                 nilai_peng1 = et_penguji1.getText().toString();
                 nilai_peng2 = et_penguji2.getText().toString();
                 nilai_tot = tv_nilaiTotal.getText().toString();
-
-                int np = Integer.parseInt(nilai_pro);
-                int npem = Integer.parseInt(nilai_pem);
-                int npeng1 = Integer.parseInt(nilai_peng1);
-                int npeng2 = Integer.parseInt(nilai_peng2);
-                int ntotal = Integer.parseInt(nilai_tot);
-
-                presenter.createSidang(review, tanggal, np, npem, npeng1, npeng2, ntotal, extraProyeAkhirId);
-
+                if (!nilai_pro.isEmpty() && !nilai_pem.isEmpty() && !nilai_peng1.isEmpty() && !nilai_peng2.isEmpty()) {
+                    nilai_proposal = Double.parseDouble(nilai_pro);
+                    nilai_pembimbing1 = Double.parseDouble(nilai_pem);
+                    nilai_penguji1 = Double.parseDouble(nilai_peng1);
+                    nilai_penguji2 = Double.parseDouble(nilai_peng2);
+                    nilai_total = Double.parseDouble(nilai_tot);
+                }
+                if (nilai_proposal > 100.0){
+                    et_np.setError(getString(R.string.tidak_lebih_100));
+                } else if (nilai_pembimbing1 > 100.0){
+                    et_pembimbing1.setError(getString(R.string.tidak_lebih_100));
+                }else if (nilai_penguji1 > 100.0) {
+                    et_penguji1.setError(getString(R.string.tidak_lebih_100));
+                }else if (nilai_penguji2 > 100.0) {
+                    et_penguji2.setError(getString(R.string.tidak_lebih_100));
+                }else if (review.isEmpty()){
+                    et_review.setError(getString(R.string.text_tidak_boleh_kosong));
+                }else if (nilai_pro.isEmpty()){
+                    et_np.setError(getString(R.string.text_tidak_boleh_kosong));
+                }else if (nilai_pem.isEmpty()){
+                    et_pembimbing1.setError(getString(R.string.text_tidak_boleh_kosong));
+                }else if (nilai_peng1.isEmpty()){
+                    et_penguji1.setError(getString(R.string.text_tidak_boleh_kosong));
+                }else if (nilai_peng2.isEmpty()){
+                    et_penguji2.setError(getString(R.string.text_tidak_boleh_kosong));
+                }
+                else {
+                    presenter.createSidang(review, tanggal, nilai_proposal, nilai_pembimbing1, nilai_penguji1, nilai_penguji2, nilai_total, extraProyeAkhirId);
+                }
             }
         });
     }

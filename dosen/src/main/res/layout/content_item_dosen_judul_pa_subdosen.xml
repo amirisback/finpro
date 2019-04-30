@@ -29,7 +29,12 @@
     android:layout_marginRight="@dimen/dimen_medium">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <LinearLayout
         android:layout_margin="@dimen/dimen_big"
+        android:layout_weight="1"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -61,6 +66,17 @@
             android:text="@string/dummy"
             style="@style/textview_item_list_judul_kategori"/>
 
+        </LinearLayout>
+        <TextView
+            android:id="@+id/ctn_dsn_judul_dsn_textview_kelompok_pengajuan"
+            android:layout_width="@dimen/dimen_circle_background"
+            android:layout_height="@dimen/dimen_circle_background"
+            android:background="@drawable/circle_border_jumlah_kelompok"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="@string/text_jumlah_kelompok"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="@color/colorTextWhite"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

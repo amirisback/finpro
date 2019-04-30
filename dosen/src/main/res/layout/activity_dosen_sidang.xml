@@ -35,8 +35,7 @@
 
                     <TextView
                         android:id="@+id/dsn_sidang_textview_judulpa"
-                        style="@style/textview_pa_color_primary"
-                        android:text="@string/dummy_pa_judul"/>
+                        style="@style/textview_pa_color_primary"/>
 
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"
@@ -53,7 +52,6 @@
 
                     <TextView
                         android:id="@+id/dsn_sidang_textview_kelompok"
-                        android:text="@string/dummy_mahasiswa_kelompok"
                         style="@style/textview_pa_color_black" />
 
                     <View
@@ -71,8 +69,7 @@
 
                     <TextView
                         android:id="@+id/dsn_sidang_textview_jumlah_bimbingan"
-                        style="@style/textview_pa_color_black"
-                        android:text="@string/dummy_monev_terkahir"/>
+                        style="@style/textview_pa_color_black"/>
 
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"
@@ -96,7 +93,7 @@
                         android:textStyle="bold"
                         android:textAllCaps="true"
                         android:textSize="@dimen/text_size_title_small"
-                        android:text="@string/text_status_sidang_hasil"/>
+                        android:text="@string/text_belum_sidang"/>
 
 
                 </LinearLayout>
@@ -132,8 +129,7 @@
 
                     <TextView
                         style="@style/textview_pa_color_primary"
-                        android:id="@+id/dsn_sidang_textview_nama_1"
-                        android:text="@string/dummy_anggota_kelompok_1"/>
+                        android:id="@+id/dsn_sidang_textview_nama_1"/>
 
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"
@@ -150,8 +146,7 @@
 
                     <TextView
                         style="@style/textview_pa_color_black"
-                        android:id="@+id/dsn_sidang_textview_nim_1"
-                        android:text="@string/dummy_anggota_nim_1"/>
+                        android:id="@+id/dsn_sidang_textview_nim_1"/>
 
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"
@@ -319,8 +314,7 @@
 
                     <TextView
                         style="@style/textview_pa_color_primary"
-                        android:id="@+id/dsn_sidang_textview_nama_2"
-                        android:text="@string/dummy_anggota_kelompok_1"/>
+                        android:id="@+id/dsn_sidang_textview_nama_2"/>
 
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"
@@ -337,8 +331,7 @@
 
                     <TextView
                         style="@style/textview_pa_color_black"
-                        android:id="@+id/dsn_sidang_textview_nim_2"
-                        android:text="@string/dummy_anggota_nim_1"/>
+                        android:id="@+id/dsn_sidang_textview_nim_2"/>
 
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"

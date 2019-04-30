@@ -70,6 +70,8 @@
     <string name="title_kategori_judul_pa">Kategori Judul PA</string>
     <string name="title_pemetaan_monev">Pemetaan Monev</string>
     <string name="title_monev_mahasiswa">Monev Mahasiswa</string>
+    <string name="title_sidang_tambah">Tambah Sidang</string>
+    <string name="title_masukkan_review_sidang">Masukkan Review Sidang</string>
 
     <string name="button_click_masuk">Masuk</string>
     <string name="button_click_simpan">Simpan</string>
@@ -82,6 +84,8 @@
     <string name="button_click_ubah_informasi">Ubah Informasi</string>
     <string name="button_click_tambah_dosen">Tambah Dosen</string>
     <string name="button_click_ubah_dosen">Ubah Dosen</string>
+    <string name="button_click_tambah_sidang">Tambah Nilai Sidang</string>
+    <string name="button_click_ubah_bimbingan">Ubah Bimbingan</string>
 
     <string name="dummyLong">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam veniam similique voluptates odit, ipsum laborum architecto distinctio harum, provident fugiat praesentium ex quod dolores laudantium aliquid quidem placeat incidunt vitae!</string>
     <string name="dummy">Dummy</string>
@@ -189,6 +193,7 @@
     <string name="hint_nim_mahasiswa">Masukkan NIM Mahasiswa</string>
     <string name="hint_nama_mahasiswa">Masukkan Nama Mahasiswa</string>
     <string name="hint_kontak_mahasiswa">Masukkan Kontak Mahasiswa</string>
+    <string name="hint_masukkan_minimal_jumlah_bimbingan">Masukkan Minimal Jumlah BImbingan</string>
 
     <string name="text_profil_detail_nama">Nama</string>
     <string name="text_profil_detail_nip">NIP</string>
@@ -309,6 +314,13 @@
     <string name="text_sidang_penguji_2">Nilai Penguji 2</string>
     <string name="text_sidang_pembimbing_1">Nilai Pembimbing 1</string>
     <string name="text_sidang_nilai_total">Nilai Total</string>
+    <string name="text_review_sidang">Review Sidang</string>
+    <string name="text_nilai_sidang">Nilai Sidang</string>
+    <string name="text_tanggal_sidang">Tanggal Sidang</string>
+    <string name="text_minimal_jumlah_bimbingan">Minimal Jumlah Bimbingan</string>
+    <string name="text_jumlah_kelompok">1</string>
+
+ <!--Validasi Form-->
     <string name="tanggal_harus">Tanggal Harus Di isi</string>
     <string name="No_Telepon_Tidak_Valid">No Telepon Tidak Valid</string>
     <string name="email_tidak_valid">Email Tidak Valid</string>
@@ -316,7 +328,11 @@
     <string name="no_telp_kurang">No Telepon Kurang dari 7</string>
     <string name="no_sudah_ada">No Sudah di Pakai</string>
     <string name="email_ada">Email Sudah di Pakai</string>
-    <string name="title_sidang_tambah">Tambah Sidang</string>
-
+    <string name="tidak_lebih_100">Tidak Boleh Lebih dari 100</string>
+    <string name="tidak_lebih16">Tidak Boleh Lebih Dari 16</string>
+<!--App String for logout-->
+    <string name="keluar">Keluar</string>
+    <string name="messagekeluar">Anda Yakin Ingin Keluar?</string>
+    <string name="menu_kategori_monev">Kategori Monev</string>
 
 </resources>

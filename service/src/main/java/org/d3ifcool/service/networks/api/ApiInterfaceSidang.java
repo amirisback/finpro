@@ -23,11 +23,11 @@ public interface ApiInterfaceSidang {
     Call<Sidang> createSidang(
             @Field("sidang_review") String sidang_review,
             @Field("sidang_tanggal") String sidang_tanggal,
-            @Field("nilai_proposal") int nilai_proposal,
-            @Field("nilai_penguji_1") int nilai_penguji_1,
-            @Field("nilai_penguji_2") int nilai_penguji_2,
-            @Field("nilai_pembimbing") int nilai_pembimbing,
-            @Field("nilai_sidang") int nilai_total,
+            @Field("nilai_proposal") double nilai_proposal,
+            @Field("nilai_penguji_1") double nilai_penguji_1,
+            @Field("nilai_penguji_2") double nilai_penguji_2,
+            @Field("nilai_pembimbing") double nilai_pembimbing,
+            @Field("nilai_sidang") double nilai_total,
             @Field("proyek_akhir_id") int proyek_akhir_id
     );
 
@@ -37,11 +37,11 @@ public interface ApiInterfaceSidang {
             @Path("sidang_id") int sidang_id,
             @Field("sidang_review") String sidang_review,
             @Field("sidang_tanggal") String sidang_tanggal,
-            @Field("nilai_proposal") int nilai_proposal,
-            @Field("nilai_penguji_1") int nilai_penguji_1,
-            @Field("nilai_penguji_2") int nilai_penguji_2,
-            @Field("nilai_pembimbing") int nilai_pembimbing,
-            @Field("nilai_sidang") int nilai_total,
+            @Field("nilai_proposal") double nilai_proposal,
+            @Field("nilai_penguji_1") double nilai_penguji_1,
+            @Field("nilai_penguji_2") double nilai_penguji_2,
+            @Field("nilai_pembimbing") double nilai_pembimbing,
+            @Field("nilai_sidang") double nilai_total,
             @Field("sidang_status") String sidang_status
     );
 

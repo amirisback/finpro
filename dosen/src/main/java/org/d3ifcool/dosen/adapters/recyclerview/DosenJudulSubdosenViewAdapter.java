@@ -53,13 +53,14 @@ public class DosenJudulSubdosenViewAdapter extends RecyclerView.Adapter<DosenJud
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView judul, kategori;
+        TextView judul, kategori, jumlah_kelompok;
 
         public ViewHolder(View itemView) {
             super(itemView);
             // -------------------------------------------------------------------------------------
             judul = itemView.findViewById(R.id.ctn_dsn_judul_dsn_textview_judul);
             kategori = itemView.findViewById(R.id.ctn_dsn_judul_dsn_textview_kategori);
+            jumlah_kelompok = itemView.findViewById(R.id.ctn_dsn_judul_dsn_textview_kelompok_pengajuan);
             // -------------------------------------------------------------------------------------
         }
     }
@@ -68,6 +69,7 @@ public class DosenJudulSubdosenViewAdapter extends RecyclerView.Adapter<DosenJud
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.judul.setText(data.get(position).getJudul());
         holder.kategori.setText(data.get(position).getKategori_nama());
+        holder.jumlah_kelompok.setText("1");
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -39,24 +39,24 @@ public class Sidang implements Parcelable {
 
     @Expose
     @SerializedName("nilai_proposal")
-    private int nilai_proposal;
+    private double nilai_proposal;
 
     @Expose
     @SerializedName("nilai_penguji_1")
-    private int nilai_penguji_1;
+    private double nilai_penguji_1;
 
     @Expose
     @SerializedName("nilai_penguji_2")
-    private int nilai_penguji_2;
+    private double nilai_penguji_2;
 
     @Expose
     @SerializedName("nilai_pembimbing")
-    private int nilai_pembimbing;
+    private double nilai_pembimbing;
 
 
     @Expose
     @SerializedName("nilai_total")
-    private String nilai_total;
+    private double nilai_total;
 
 
     @Expose
@@ -67,7 +67,7 @@ public class Sidang implements Parcelable {
     @SerializedName("proyek_akhir_id")
     private int proyek_akhir_id;
 
-    public Sidang(String sidang_id, String sidang_review, String sidang_tanggal, int nilai_proposal, int nilai_penguji_1, int nilai_penguji_2, int nilai_pembimbing,  String nilai_total, String sidang_status, int proyek_akhir_id) {
+    public Sidang(String sidang_id, String sidang_review, String sidang_tanggal, double nilai_proposal, double nilai_penguji_1, double nilai_penguji_2, double nilai_pembimbing,  double nilai_total, String sidang_status, int proyek_akhir_id) {
         this.sidang_id = sidang_id;
         this.sidang_review = sidang_review;
         this.sidang_tanggal = sidang_tanggal;
@@ -84,11 +84,11 @@ public class Sidang implements Parcelable {
         sidang_id = in.readString();
         sidang_review = in.readString();
         sidang_tanggal = in.readString();
-        nilai_proposal = in.readInt();
-        nilai_penguji_1 = in.readInt();
-        nilai_penguji_2 = in.readInt();
-        nilai_pembimbing = in.readInt();
-        nilai_total = in.readString();
+        nilai_proposal = in.readDouble();
+        nilai_penguji_1 = in.readDouble();
+        nilai_penguji_2 = in.readDouble();
+        nilai_pembimbing = in.readDouble();
+        nilai_total = in.readDouble();
         sidang_status = in.readString();
         proyek_akhir_id = in.readInt();
     }
@@ -98,11 +98,11 @@ public class Sidang implements Parcelable {
         dest.writeString(sidang_id);
         dest.writeString(sidang_review);
         dest.writeString(sidang_tanggal);
-        dest.writeInt(nilai_proposal);
-        dest.writeInt(nilai_penguji_1);
-        dest.writeInt(nilai_penguji_2);
-        dest.writeInt(nilai_pembimbing);
-        dest.writeString(nilai_total);
+        dest.writeDouble(nilai_proposal);
+        dest.writeDouble(nilai_penguji_1);
+        dest.writeDouble(nilai_penguji_2);
+        dest.writeDouble(nilai_pembimbing);
+        dest.writeDouble(nilai_total);
         dest.writeString(sidang_status);
         dest.writeInt(proyek_akhir_id);
     }
@@ -148,11 +148,11 @@ public class Sidang implements Parcelable {
         this.sidang_tanggal = sidang_tanggal;
     }
 
-    public String getNilai_total() {
+    public double getNilai_total() {
         return nilai_total;
     }
 
-    public void setNilai_total(String nilai_total) {
+    public void setNilai_total(double nilai_total) {
         this.nilai_total = nilai_total;
     }
 
@@ -172,35 +172,35 @@ public class Sidang implements Parcelable {
         this.proyek_akhir_id = proyek_akhir_id;
     }
 
-    public int getNilai_proposal() {
+    public double getNilai_proposal() {
         return nilai_proposal;
     }
 
-    public void setNilai_proposal(int nilai_proposal) {
+    public void setNilai_proposal(double nilai_proposal) {
         this.nilai_proposal = nilai_proposal;
     }
 
-    public int getNilai_penguji_1() {
+    public double getNilai_penguji_1() {
         return nilai_penguji_1;
     }
 
-    public void setNilai_penguji_1(int nilai_penguji_1) {
+    public void setNilai_penguji_1(double nilai_penguji_1) {
         this.nilai_penguji_1 = nilai_penguji_1;
     }
 
-    public int getNilai_penguji_2() {
+    public double getNilai_penguji_2() {
         return nilai_penguji_2;
     }
 
-    public void setNilai_penguji_2(int nilai_penguji_2) {
+    public void setNilai_penguji_2(double nilai_penguji_2) {
         this.nilai_penguji_2 = nilai_penguji_2;
     }
 
-    public int getNilai_pembimbing() {
+    public double getNilai_pembimbing() {
         return nilai_pembimbing;
     }
 
-    public void setNilai_pembimbing(int nilai_pembimbing) {
+    public void setNilai_pembimbing(double nilai_pembimbing) {
         this.nilai_pembimbing = nilai_pembimbing;
     }
 

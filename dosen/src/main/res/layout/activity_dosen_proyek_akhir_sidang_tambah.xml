@@ -32,21 +32,24 @@
         <TextView
             android:id="@+id/act_dsn_mhs_sidang_textview_tanggal"
             android:textSize="@dimen/text_size_title_small"
-            android:background="@color/colorBackgroundWhite"
-            android:elevation="2dp"
             android:paddingTop="@dimen/dimen_big"
-            android:paddingBottom="@dimen/dimen_big"
             android:paddingEnd="@dimen/dimen_big"
             android:paddingStart="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_medium"
             android:textColor="@color/colorTextBlack"
             android:drawableEnd="@drawable/ic_date"
             android:drawablePadding="@dimen/dimen_big"
-            android:layout_marginBottom="@dimen/dimen_medium"
             android:text="@string/dummy_tanggal"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/dimen_medium"
             android:layout_height="wrap_content"
             android:maxLines="1"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginRight="@dimen/dimen_medium"
+            android:layout_marginLeft="@dimen/dimen_medium"/>
         <TextView
             android:layout_marginStart="@dimen/dimen_small"
             android:layout_width="wrap_content"
@@ -63,6 +66,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
+            android:layout_marginLeft="@dimen/dimen_medium"
+            android:layout_marginRight="@dimen/dimen_medium"
             android:hint="@string/title_masukkan_review_sidang"/>
 
         <TextView
@@ -75,11 +80,7 @@
             android:textSize="@dimen/text_size_title_small"
             android:textColor="@color/colorPrimary"/>
 
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_big"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+
 
             <LinearLayout
                 android:layout_marginTop="@dimen/dimen_medium"
@@ -97,12 +98,15 @@
                     <TextView
                         android:layout_weight="1"
                         android:layout_width="@dimen/dimen_weight"
+                        android:textColor="@color/colorPrimary"
                         android:layout_height="wrap_content"
                         android:text="@string/text_sidang_nilai_proposal"/>
 
                     <TextView
                         android:layout_weight="1"
                         android:layout_width="@dimen/dimen_weight"
+                        android:layout_marginStart="@dimen/dimen_big_super"
+                        android:textColor="@color/colorPrimary"
                         android:layout_height="wrap_content"
                         android:text="@string/text_sidang_pembimbing_1"/>
 
@@ -119,8 +123,8 @@
                         android:layout_weight="1"
                         android:layout_width="@dimen/dimen_weight"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/dimen_medium"
-                        android:maxLength="2"
+                        android:layout_marginEnd="@dimen/dimen_big_super"
+                        android:maxLength="3"
                         android:inputType="numberDecimal"
                         android:textColor="@color/colorTextBlack"/>
 
@@ -128,7 +132,7 @@
                         android:id="@+id/dsn_sidang_nilai_pembimbing1_1"
                         android:layout_weight="1"
                         android:layout_width="@dimen/dimen_weight"
-                        android:maxLength="2"
+                        android:maxLength="3"
                         android:inputType="numberDecimal"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorTextBlack"/>
@@ -151,12 +155,15 @@
                     <TextView
                         android:layout_weight="1"
                         android:layout_width="@dimen/dimen_weight"
+                        android:textColor="@color/colorPrimary"
                         android:layout_height="wrap_content"
                         android:text="@string/text_sidang_penguji_1"/>
 
                     <TextView
                         android:layout_weight="1"
                         android:layout_width="@dimen/dimen_weight"
+                        android:layout_marginStart="@dimen/dimen_big_super"
+                        android:textColor="@color/colorPrimary"
                         android:layout_height="wrap_content"
                         android:text="@string/text_sidang_penguji_2"/>
 
@@ -173,8 +180,8 @@
                         android:layout_weight="1"
                         android:layout_width="@dimen/dimen_weight"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/dimen_medium"
-                        android:maxLength="2"
+                        android:layout_marginEnd="@dimen/dimen_big_super"
+                        android:maxLength="3"
                         android:inputType="numberDecimal"
                         android:textColor="@color/colorTextBlack"/>
 
@@ -183,7 +190,7 @@
                         android:layout_width="@dimen/dimen_weight"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:maxLength="2"
+                        android:maxLength="3"
                         android:inputType="numberDecimal"
                         android:textColor="@color/colorTextBlack" />
 
@@ -207,6 +214,7 @@
                         android:textAllCaps="true"
                         android:layout_gravity="center_vertical"
                         android:layout_width="@dimen/dimen_weight"
+                        android:textColor="@color/colorPrimary"
                         android:layout_height="wrap_content"
                         android:text="@string/text_sidang_nilai_total"/>
 
@@ -217,14 +225,12 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:textSize="@dimen/text_size_title_big"
-                        android:textColor="@color/colorPrimary"/>
+                        android:textColor="@color/colorTextBlack"/>
 
                 </LinearLayout>
 
 
             </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
 
 
         <Button
@@ -232,7 +238,7 @@
             android:id="@+id/act_dsn_info_button_simpan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_click_tambah_monev"
+            android:text="@string/button_click_tambah_sidang"
             android:textColor="@color/colorTextWhite"
             android:layout_marginTop="@dimen/dimen_big_ultra"
             android:background="@drawable/box_border_button_action"/>

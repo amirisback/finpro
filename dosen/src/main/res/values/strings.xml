@@ -1,8 +1,5 @@
 <resources>
 
 
-    <string name="text_review_sidang">Review Sidang</string>
-    <string name="title_masukkan_review_sidang">Masukkan Review Sidang</string>
-    <string name="text_nilai_sidang">Nilai Sidang</string>
-    <string name="text_tanggal_sidang">Tanggal Sidang</string>
+
 </resources>
