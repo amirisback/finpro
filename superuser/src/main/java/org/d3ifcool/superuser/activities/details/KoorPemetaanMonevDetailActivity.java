@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implements ProyekAkhirListView, DosenReviewerView, DosenListView, ProyekAkhirWorkView {
+public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implements ProyekAkhirListView, DosenListView, ProyekAkhirWorkView {
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
     private static final String PARAM_PROYEK_AKHIR_JUDUL_ID = "proyek_akhir.judul_id";
@@ -69,7 +69,7 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
 
 
         proyekAkhirPresenter = new ProyekAkhirPresenter(this, this);
-        dosenPresenter = new DosenPresenter(this, this);
+        dosenPresenter = new DosenPresenter(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(org.d3ifcool.mahasiswa.R.string.text_progress_dialog));
 
@@ -224,16 +224,6 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
     }
 
     @Override
-    public void onGetObjectDosenReviewer(Dosen dosen) {
-
-        if (dosen != null) {
-            tv_dosen_reviewer_pa.setText(dosen.getDsn_nama());
-        } else {
-            tv_dosen_reviewer_pa.setText(org.d3ifcool.mahasiswa.R.string.text_no_dosen_monev);
-        }
-    }
-
-    @Override
     public void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList) {
         arrayListProyekAkhir.clear();
         arrayListProyekAkhir.addAll(proyekAkhirList);
@@ -245,15 +235,14 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
             tv_nama_anggota1_pa.setText(arrayListProyekAkhir.get(0).getMhs_nama());
 
             if (arrayListProyekAkhir.get(0).getReviewer_dsn_nip() != null) {
-                dosenPresenter.getDosenReviewer(arrayListProyekAkhir.get(0).getReviewer_dsn_nip());
                 view_atur.setVisibility(View.GONE);
                 btn_ubah_reviewer.setVisibility(View.VISIBLE);
+                tv_dosen_reviewer_pa.setText(arrayListProyekAkhir.get(0).getReviewer_dsn_nama());
             } else {
                 tv_dosen_reviewer_pa.setText(R.string.text_no_dosen_monev);
                 btn_ubah_reviewer.setVisibility(View.GONE);
                 view_atur.setVisibility(View.VISIBLE);
             }
-
             if (arrayListProyekAkhir.size() == 2) {
                 tv_nama_anggota2_pa.setText(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getMhs_nama());
             } else {

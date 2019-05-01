@@ -117,7 +117,9 @@ public class KoorPemetaanMonevFragment extends Fragment implements DosenListView
     @Override
     public void onResume() {
         super.onResume();
-        proyekAkhirPresenter.searchDistinctProyekAkhirByTwo(PARAM_PROYEK_AKHIR_DOSEN_PEMBIMBING, dosenPembimbingNip, PARAM_JUDUL_STATUS, JUDUL_STATUS_DIGUNAKAN);
+        if (dosenPembimbingNip != null) {
+            proyekAkhirPresenter.searchDistinctProyekAkhirByTwo(PARAM_PROYEK_AKHIR_DOSEN_PEMBIMBING, dosenPembimbingNip, PARAM_JUDUL_STATUS, JUDUL_STATUS_DIGUNAKAN);
+        }
     }
 
     @Override
