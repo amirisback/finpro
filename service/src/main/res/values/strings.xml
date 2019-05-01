@@ -337,4 +337,11 @@
     <string name="menu_kategori_monev">Kategori Monev</string>
     <string name="text_siap_sidang">Siap Sidang</string>
 
+    <string-array name="array_status_sidang">
+        <item>Lulus</item>
+        <item>Lulus Bersyarat</item>
+        <item>Tidak Lulus</item>
+    </string-array>
+
+
 </resources>

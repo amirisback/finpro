@@ -68,6 +68,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         detailMonevPresenter = new DetailMonevPresenter(this);
         sidangPresenter.getSidang();
 
+
         TextView tv_judul = findViewById(R.id.dsn_sidang_textview_judulpa);
         TextView tv_kelompok = findViewById(R.id.dsn_sidang_textview_kelompok);
         tv_bimbingan = findViewById(R.id.dsn_sidang_textview_jumlah_bimbingan);
@@ -164,6 +165,12 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
                 startActivity(intent);
             }
         });
+
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sidangPresenter.getSidang();
     }
 
     @Override
@@ -227,6 +234,8 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         }
     }
 
+
+
     @Override
     public void onGetListSidang(List<Sidang> sidangList) {
         sidangArrayList.clear();
@@ -237,14 +246,22 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
             tv_nilai_pembimbing.setText(String.valueOf(sidangArrayList.get(0).getNilai_pembimbing()));
             tv_nilai_penguji1_1.setText(String.valueOf(sidangArrayList.get(0).getNilai_penguji_1()));
             tv_nilai_penguji1_2.setText(String.valueOf(sidangArrayList.get(0).getNilai_penguji_2()));
-            tv_nilai_total_1.setText(String.valueOf(sidangArrayList.get(0).getNilai_total()));
+            tv_nilai_total_1.setText(String.valueOf(sidangArrayList.get(0).getNilai_sidang()));
 
             tv_nilai_proposal2.setText(String.valueOf(sidangArrayList.get(1).getNilai_proposal()));
             tv_nilai_pembimbing2.setText(String.valueOf(sidangArrayList.get(1).getNilai_pembimbing()));
             tv_nilai_penguji2_1.setText(String.valueOf(sidangArrayList.get(1).getNilai_penguji_1()));
             tv_nilai_penguji2_2.setText(String.valueOf(sidangArrayList.get(1).getNilai_penguji_2()));
-            tv_nilai_total_2.setText(String.valueOf(sidangArrayList.get(1).getNilai_total()));
+            tv_nilai_total_2.setText(String.valueOf(sidangArrayList.get(1).getNilai_sidang()));
+        }else {
+            tv_nilai_proposal1.setText(String.valueOf(sidangArrayList.get(0).getNilai_proposal()));
+            tv_nilai_pembimbing.setText(String.valueOf(sidangArrayList.get(0).getNilai_pembimbing()));
+            tv_nilai_penguji1_1.setText(String.valueOf(sidangArrayList.get(0).getNilai_penguji_1()));
+            tv_nilai_penguji1_2.setText(String.valueOf(sidangArrayList.get(0).getNilai_penguji_2()));
+            tv_nilai_total_1.setText(String.valueOf(sidangArrayList.get(0).getNilai_sidang()));
         }
+
+
     }
 
     @Override

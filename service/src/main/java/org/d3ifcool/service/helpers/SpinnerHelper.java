@@ -67,4 +67,11 @@ public class SpinnerHelper {
 
     }
 
+    public void initSpinnerStatus( Spinner spinner) {
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(context, R.array.array_status_sidang,R.layout.content_item_spinner_kategori_monev);
+        adapter.setDropDownViewResource(R.layout.content_item_spinner_kategori_monev);
+        spinner.setAdapter(adapter);
+
+    }
+
 }

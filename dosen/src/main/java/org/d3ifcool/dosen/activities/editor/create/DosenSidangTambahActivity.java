@@ -2,18 +2,22 @@ package org.d3ifcool.dosen.activities.editor.create;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.MethodHelper;
+import org.d3ifcool.service.helpers.SpinnerHelper;
 import org.d3ifcool.service.interfaces.works.SidangWorkView;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.SidangPresenter;
@@ -25,7 +29,7 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
     private ProgressDialog dialog;
     private SidangPresenter presenter;
     private ArrayList<ProyekAkhir> extraPa = new ArrayList<>();
-    String tanggal, review, nilai_pro, nilai_pem, nilai_peng1, nilai_peng2, nilai_tot;
+    String tanggal, review, nilai_pro, nilai_pem, nilai_peng1, nilai_peng2, nilai_tot, status_sidang;
     int nilai_proposal, nilai_pembimbing1,nilai_penguji1,nilai_penguji2;
     double nilai_total;
     int extraProyeAkhirId;
@@ -42,6 +46,7 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
         dialog.setMessage(getString(R.string.text_progress_dialog));
         presenter = new SidangPresenter(this);
         MethodHelper helper = new MethodHelper();
+        SpinnerHelper helper1 = new SpinnerHelper(this);
 
         ProyekAkhir proyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
         extraProyeAkhirId = proyekAkhir.getProyek_akhir_id();
@@ -54,8 +59,10 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
         final EditText et_penguji1 = findViewById(R.id.dsn_sidang_nilai_penguji1_1);
         final EditText et_penguji2 = findViewById(R.id.dsn_sidang_nilai_penguji2_1);
         final TextView tv_nilaiTotal = findViewById(R.id.dsn_sidang_nilai_total_1);
+        final Spinner sp_status_sidang = findViewById(R.id.act_dsn_sidang_spinner);
 
         tv_tanggal.setText(helper.getDateToday());
+        helper1.initSpinnerStatus(sp_status_sidang);
 
         Button btn_simpan = findViewById(R.id.act_dsn_info_button_simpan);
 
@@ -188,6 +195,8 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
                 nilai_peng1 = et_penguji1.getText().toString();
                 nilai_peng2 = et_penguji2.getText().toString();
                 nilai_tot = tv_nilaiTotal.getText().toString();
+                status_sidang = sp_status_sidang.getSelectedItem().toString();
+
                 if (!nilai_pro.isEmpty() && !nilai_pem.isEmpty() && !nilai_peng1.isEmpty() && !nilai_peng2.isEmpty()) {
                     nilai_proposal = Integer.parseInt(nilai_pro);
                     nilai_pembimbing1 = Integer.parseInt(nilai_pem);
@@ -213,9 +222,8 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
                     et_penguji1.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else if (nilai_peng2.isEmpty()){
                     et_penguji2.setError(getString(R.string.text_tidak_boleh_kosong));
-                }
-                else {
-                    presenter.createSidang(review, tanggal, nilai_proposal, nilai_pembimbing1, nilai_penguji1, nilai_penguji2, nilai_total, extraProyeAkhirId);
+                }else {
+                    presenter.createSidang(review, tanggal, nilai_proposal, nilai_pembimbing1, nilai_penguji1, nilai_penguji2, nilai_total,status_sidang, extraProyeAkhirId);
                 }
             }
         });
