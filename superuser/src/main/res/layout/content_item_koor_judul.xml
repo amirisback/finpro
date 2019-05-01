@@ -3,49 +3,61 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:foreground="?android:attr/selectableItemBackground"
-    android:layout_marginTop="@dimen/dimen_medium"
+    android:layout_marginBottom="@dimen/dimen_medium"
     android:layout_marginLeft="@dimen/dimen_medium"
     android:layout_marginRight="@dimen/dimen_medium">
 
     <LinearLayout
-        android:layout_margin="@dimen/dimen_medium"
+        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_marginBottom="@dimen/dimen_medium"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_judulpa"
-            android:textSize="12sp"
+            android:textSize="@dimen/text_size_default"
+            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginEnd="@dimen/dimen_big"
             android:textColor="@color/colorTextBlack"/>
+        
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/ctn_koor_judul_dsn_textview_judul"
             android:text="@string/dummy"
+            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginEnd="@dimen/dimen_big"
             android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:textSize="16sp"/>
+            android:textColor="@color/colorPrimary" />
+        
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/colorBackground"
             android:layout_marginTop="@dimen/dimen_medium"
             android:layout_marginBottom="@dimen/dimen_medium"/>
+        
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/text_kategori"
-            android:textSize="12sp"
+            android:textSize="@dimen/text_size_default"
+            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginEnd="@dimen/dimen_big"
             android:textColor="@color/colorTextBlack"/>
+        
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/ctn_koor_judul_dsn_textview_kategori"
             android:text="@string/dummy"
+            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginEnd="@dimen/dimen_big"
             android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:textSize="16sp"/>
+            android:textColor="@color/colorPrimary" />
 
     </LinearLayout>
 

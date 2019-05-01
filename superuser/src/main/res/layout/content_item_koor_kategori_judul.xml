@@ -22,9 +22,7 @@
             android:layout_toStartOf="@id/ctn_koor_button_hapus"
             android:layout_height="wrap_content"
             tools:text="@string/dummy"
-            android:drawablePadding="@dimen/dimen_medium"
-            android:drawableStart="@drawable/ic_content_kategori_judul"
-            android:textSize="@dimen/text_size_title_small"
+            android:layout_centerVertical="true"
             android:textColor="@color/colorTextBlack"/>
 
         <ImageView
