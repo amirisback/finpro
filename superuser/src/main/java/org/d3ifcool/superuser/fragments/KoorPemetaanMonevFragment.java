@@ -43,7 +43,9 @@ import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAM_JUDUL_
 /**
  * A simple {@link Fragment} subclass.
  */
-public class KoorPemetaanMonevFragment extends Fragment implements DosenListView, JudulListView, ProyekAkhirListView {
+public class KoorPemetaanMonevFragment extends Fragment implements DosenListView, ProyekAkhirListView {
+
+    private static final String PARAM_PROYEK_AKHIR_DOSEN_PEMBIMBING = "judul.dsn_nip";
 
     private Spinner sp_dosen;
     private RecyclerView recyclerView;
@@ -54,12 +56,12 @@ public class KoorPemetaanMonevFragment extends Fragment implements DosenListView
 
     private SpinnerHelper spinnerHelper;
     private String spinnerItemPosition;
+    private String dosenPembimbingNip;
 
-    private ArrayList<Judul> arrayListJudul = new ArrayList<>();
     private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
+    private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
 
     private DosenPresenter dosenPresenter;
-    private JudulPresenter judulPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
 
     public KoorPemetaanMonevFragment() {
@@ -74,7 +76,6 @@ public class KoorPemetaanMonevFragment extends Fragment implements DosenListView
         View view = inflater.inflate(R.layout.fragment_koor_pemetaan_monev, container, false);
         sp_dosen = view.findViewById(R.id.spinner_dosen);
         recyclerView = view.findViewById(R.id.frg_koor_judul_dsn_recyclerview);
-        FloatingActionButton floatingActionButton = view.findViewById(R.id.frg_koor_judul_dsn_fab);
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -84,7 +85,6 @@ public class KoorPemetaanMonevFragment extends Fragment implements DosenListView
         empty_view = view.findViewById(R.id.view_emptyview);
 
         dosenPresenter = new DosenPresenter(this);
-        judulPresenter = new JudulPresenter(this);
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
 
         dosenPresenter.getDosen();
@@ -93,7 +93,8 @@ public class KoorPemetaanMonevFragment extends Fragment implements DosenListView
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 spinnerItemPosition = parent.getItemAtPosition(position).toString();
-                judulPresenter.searchJudulByTwo(PARAM_DOSEN_NAMA, spinnerItemPosition, PARAM_JUDUL_STATUS, JUDUL_STATUS_DIGUNAKAN);
+                dosenPembimbingNip = arrayListDosen.get(position).getDsn_nip();
+                proyekAkhirPresenter.searchDistinctProyekAkhirByTwo(PARAM_PROYEK_AKHIR_DOSEN_PEMBIMBING, dosenPembimbingNip, PARAM_JUDUL_STATUS, JUDUL_STATUS_DIGUNAKAN);
 
             }
 
@@ -106,11 +107,17 @@ public class KoorPemetaanMonevFragment extends Fragment implements DosenListView
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                judulPresenter.searchJudulByTwo(PARAM_DOSEN_NAMA, spinnerItemPosition, PARAM_JUDUL_STATUS, JUDUL_STATUS_DIGUNAKAN);
+                proyekAkhirPresenter.searchDistinctProyekAkhirByTwo(PARAM_PROYEK_AKHIR_DOSEN_PEMBIMBING, dosenPembimbingNip, PARAM_JUDUL_STATUS, JUDUL_STATUS_DIGUNAKAN);
             }
         });
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        proyekAkhirPresenter.searchDistinctProyekAkhirByTwo(PARAM_PROYEK_AKHIR_DOSEN_PEMBIMBING, dosenPembimbingNip, PARAM_JUDUL_STATUS, JUDUL_STATUS_DIGUNAKAN);
     }
 
     @Override
@@ -125,25 +132,20 @@ public class KoorPemetaanMonevFragment extends Fragment implements DosenListView
 
     @Override
     public void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList) {
+        arrayListProyekAkhir.clear();
+        arrayListProyekAkhir.addAll(proyekAkhirList);
 
-    }
-
-    @Override
-    public void onGetListJudul(List<Judul> judulpa) {
-        arrayListJudul.clear();
-        arrayListJudul.addAll(judulpa);
         adapter = new KoorPemetaanMonevViewAdapter(getContext());
-        adapter.additem(arrayListJudul);
+        adapter.additem(arrayListProyekAkhir);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         swipeRefreshLayout.setRefreshing(false);
 
-        if (arrayListJudul.size() == 0) {
+        if (arrayListProyekAkhir.size() == 0) {
             empty_view.setVisibility(View.VISIBLE);
         } else {
             empty_view.setVisibility(View.GONE);
         }
-
     }
 
     @Override

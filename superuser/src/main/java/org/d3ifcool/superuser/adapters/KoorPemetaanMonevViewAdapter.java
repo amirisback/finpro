@@ -2,12 +2,14 @@ package org.d3ifcool.superuser.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.activities.details.KoorPemetaanMonevDetailActivity;
 
@@ -19,24 +21,26 @@ import androidx.recyclerview.widget.RecyclerView;
 public class KoorPemetaanMonevViewAdapter extends RecyclerView.Adapter<KoorPemetaanMonevViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<Judul> judul;
+    private ArrayList<ProyekAkhir> proyekAkhir;
 
     public KoorPemetaanMonevViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void additem(ArrayList<Judul> juduls){
-        this.judul = juduls;
+    public void additem(ArrayList<ProyekAkhir> proyekAkhir){
+        this.proyekAkhir = proyekAkhir;
         notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        TextView judulpa, kategori;
+        TextView judulpa, reviewer;
+        LinearLayout container;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             judulpa = itemView.findViewById(R.id.ctn_koor_pemetaan_textview_judul);
-            kategori = itemView.findViewById(R.id.ctn_koor_pemetaan_textview_kategori);
+            reviewer = itemView.findViewById(R.id.ctn_koor_pemetaan_textview_judul_reviewer);
+            container = itemView.findViewById(R.id.container_content);
         }
     }
 
@@ -49,14 +53,22 @@ public class KoorPemetaanMonevViewAdapter extends RecyclerView.Adapter<KoorPemet
 
     @Override
     public void onBindViewHolder(@NonNull KoorPemetaanMonevViewAdapter.ViewHolder holder, final int position) {
-        holder.judulpa.setText(judul.get(position).getJudul());
-        holder.kategori.setText(judul.get(position).getKategori_nama());
+        holder.judulpa.setText(proyekAkhir.get(position).getJudul_nama());
+
+        if (proyekAkhir.get(position).getReviewer_dsn_nama() != null){
+            holder.reviewer.setText(proyekAkhir.get(position).getReviewer_dsn_nama());
+            holder.container.setBackgroundColor(Color.TRANSPARENT);
+        } else {
+            holder.reviewer.setText(context.getString(R.string.text_no_dosen_monev));
+            holder.container.setBackgroundColor(context.getResources().getColor(R.color.colorBackgroundNotYet));
+        }
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, KoorPemetaanMonevDetailActivity.class);
-                Judul parcelJudul = judul.get(position);
-                intent.putExtra(KoorPemetaanMonevDetailActivity.EXTRA_JUDUL, parcelJudul);
+                ProyekAkhir parcelProyekAkhir = proyekAkhir.get(position);
+                intent.putExtra(KoorPemetaanMonevDetailActivity.EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
                 context.startActivity(intent);
             }
         });
@@ -64,7 +76,7 @@ public class KoorPemetaanMonevViewAdapter extends RecyclerView.Adapter<KoorPemet
 
     @Override
     public int getItemCount() {
-        return judul.size();
+        return proyekAkhir.size();
     }
 }
 

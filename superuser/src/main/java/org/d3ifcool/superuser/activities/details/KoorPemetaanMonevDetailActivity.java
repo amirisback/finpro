@@ -17,7 +17,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.angmarch.views.NiceSpinner;
 import org.d3ifcool.service.helpers.SpinnerHelper;
 import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
@@ -36,7 +35,7 @@ import java.util.List;
 
 public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implements ProyekAkhirListView, DosenReviewerView, DosenListView, ProyekAkhirWorkView {
 
-    public static final String EXTRA_JUDUL = "extra_judul";
+    public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
     private static final String PARAM_PROYEK_AKHIR_JUDUL_ID = "proyek_akhir.judul_id";
     private static final String PARAM_JUDUL_STATUS = "judul_status";
 
@@ -89,9 +88,9 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
 
         Button buttonAtur = findViewById(R.id.ctn_koor_pemetaan_button_atur);
 
-        Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
-        final String stringJudulId = String.valueOf(extraJudul.getId());
-        extraDsnNip = extraJudul.getNip_dosen();
+        ProyekAkhir extraProyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
+        final String stringJudulId = String.valueOf(extraProyekAkhir.getJudul_id());
+        extraDsnNip = extraProyekAkhir.getPembimbing_dsn_nip();
 
         dosenPresenter.getDosen();
         proyekAkhirPresenter.searchAllProyekAkhirBy(PARAM_PROYEK_AKHIR_JUDUL_ID, stringJudulId);
