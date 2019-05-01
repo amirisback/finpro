@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.activities.editor.create.DosenProyekAkhirSidangTambahActivity;
+import org.d3ifcool.dosen.activities.editor.create.DosenSidangTambahActivity;
 import org.d3ifcool.service.interfaces.lists.BimbinganListView;
 import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.interfaces.lists.SidangListView;
@@ -41,7 +41,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
     private SidangPresenter sidangPresenter;
     private BimbinganPresenter bimbinganPresenter;
     private TextView tv_bimbingan,tv_nama1,tv_nim1,tv_nama2,tv_nim2,tv_status;
-    CardView cardView_mhs_1,cardView_mhs_2;
+    private CardView cardView_mhs_1,cardView_mhs_2;
     private TextView tv_nilai_proposal1, tv_nilai_pembimbing,tv_nilai_penguji1_1,tv_nilai_penguji1_2,tv_nilai_total_1;
     private TextView tv_nilai_proposal2, tv_nilai_pembimbing2,tv_nilai_penguji2_1,tv_nilai_penguji2_2,tv_nilai_total_2;
 
@@ -97,7 +97,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         cardView_mhs_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DosenSidangActivity.this, DosenProyekAkhirSidangTambahActivity.class);
+                Intent intent = new Intent(DosenSidangActivity.this, DosenSidangTambahActivity.class);
                 ProyekAkhir parcelProyekAkhir = proyekAkhirArrayList.get(0);
                 intent.putExtra(EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
                 startActivity(intent);
@@ -107,7 +107,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         cardView_mhs_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DosenSidangActivity.this, DosenProyekAkhirSidangTambahActivity.class);
+                Intent intent = new Intent(DosenSidangActivity.this, DosenSidangTambahActivity.class);
                 ProyekAkhir parcelProyekAkhir = proyekAkhirArrayList.get(1);
                 intent.putExtra(EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
                 startActivity(intent);

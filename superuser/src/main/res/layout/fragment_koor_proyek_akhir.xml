@@ -20,6 +20,7 @@
             android:visibility="gone">
             <include layout="@layout/content_list_empty"/>
         </RelativeLayout>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/line1"
             android:layout_width="match_parent"
@@ -27,36 +28,34 @@
             android:layout_marginTop="@dimen/dimen_medium"
             android:layout_marginRight="@dimen/dimen_medium"
             android:layout_marginLeft="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_big">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="@dimen/dimen_medium">
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dimen_medium"
-            android:textColor="@color/colorTextBlack"
-            android:text="@string/text_dosen_pembimbing"
-            android:layout_marginTop="@dimen/dimen_medium"/>
-        <Spinner
-            android:layout_below="@id/text"
-            android:id="@+id/spinner_dosen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            />
+            android:layout_marginBottom="@dimen/dimen_medium">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/dimen_medium">
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextBlack"
+                    android:layout_marginStart="@dimen/dimen_medium"
+                    android:text="@string/text_dosen_pembimbing"/>
+
+                <Spinner
+                    android:id="@+id/spinner_dosen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown" />
             </LinearLayout>
+
         </androidx.cardview.widget.CardView>
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_below="@id/line1"
             android:id="@+id/frg_koor_judul_dsn_recyclerview"
-            android:layout_marginStart="@dimen/dimen_medium"
-            android:layout_marginEnd="@dimen/dimen_medium"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingBottom="@dimen/dimen_medium"

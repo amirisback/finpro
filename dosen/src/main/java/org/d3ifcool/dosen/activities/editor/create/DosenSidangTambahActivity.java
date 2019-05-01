@@ -20,7 +20,7 @@ import org.d3ifcool.service.presenters.SidangPresenter;
 
 import java.util.ArrayList;
 
-public class DosenProyekAkhirSidangTambahActivity extends AppCompatActivity implements SidangWorkView {
+public class DosenSidangTambahActivity extends AppCompatActivity implements SidangWorkView {
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
     private ProgressDialog dialog;
     private SidangPresenter presenter;
@@ -32,7 +32,7 @@ public class DosenProyekAkhirSidangTambahActivity extends AppCompatActivity impl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dosen_proyek_akhir_sidang_tambah);
+        setContentView(R.layout.activity_dosen_sidang_tambah);
 
         setTitle(getString(R.string.title_sidang_tambah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -10,7 +10,6 @@ import android.widget.TextView;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.superuser.R;
 import org.d3ifcool.superuser.activities.details.KoorPemetaanMonevDetailActivity;
-import org.d3ifcool.superuser.activities.details.KoorProyekAkhirDetailActivity;
 
 import java.util.ArrayList;
 
@@ -44,7 +43,7 @@ public class KoorPemetaanMonevViewAdapter extends RecyclerView.Adapter<KoorPemet
     @NonNull
     @Override
     public KoorPemetaanMonevViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.content_item_pemetaan_monev, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.content_item_koor_pemetaan_monev, parent, false);
         return new org.d3ifcool.superuser.adapters.KoorPemetaanMonevViewAdapter.ViewHolder(view);
     }
 
