@@ -31,6 +31,8 @@
 
     <color name="colorTextBlack">#000000</color>
     <color name="colorTextWhite">#FFFFFF</color>
+    <color name="colorTextRed">#FF0000</color>
+    <color name="colorTextGreen">#4CAF50</color>
 
     <color name="colorBackground">#E9E7E7</color>
     <color name="colorBackgroundDark">#A3A3A3</color>

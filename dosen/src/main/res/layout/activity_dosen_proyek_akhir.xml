@@ -314,12 +314,11 @@
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:textColor="@color/colorBackgroundYellow"
-                    android:textSize="@dimen/text_size_title_small"
+                    android:textSize="@dimen/text_size_medium"
                     android:id="@+id/act_dsn_pa_bimbingan_textview_status_sidang"
                     android:layout_marginStart="@dimen/dimen_big"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_belum_sidang"/>
+                    android:layout_height="wrap_content"/>
 
                 <View
                     android:layout_marginTop="@dimen/dimen_medium"

@@ -267,7 +267,7 @@
     <string name="text_judul_bimbingan">Judul Bimbingan</string>
     <string name="text_review_bimbingan">Review Bimbingan</string>
     <string name="text_tanggal_bimbingan">Tanggal Bimbingan</string>
-    <string name="text_belum_sidang">Belum Sidang</string>
+    <string name="text_belum_sidang">Belum Siap Sidang</string>
     <string name="text_aturan_judul_mandiri_1">Pastikan anda tidak memilih judul yang ada di daftar judul dosen</string>
     <string name="text_ubah_data">Ubah Data</string>
     <string name="text_angkatan">Angkatan</string>
@@ -301,6 +301,7 @@
     <string name="text_kategori_proyek_akhir">Kategori Proyek Akhir</string>
     <string name="text_deskripsi_proyek_akhir">Deskripsi Proyek Akhir</string>
     <string name="text_ubah_profil">Ubah Profil</string>
+    <string name="text_pop_up_alert_sidang">Belum Siap Sidang</string>
     <string name="text_monev_jumlah">Jumlah Monev</string>
     <string name="text_lihat_detail">Lihat Detail</string>
     <string name="text_ubah_monev">Ubah Monev</string>
@@ -334,5 +335,6 @@
     <string name="keluar">Keluar</string>
     <string name="messagekeluar">Anda Yakin Ingin Keluar?</string>
     <string name="menu_kategori_monev">Kategori Monev</string>
+    <string name="text_siap_sidang">Siap Sidang</string>
 
 </resources>

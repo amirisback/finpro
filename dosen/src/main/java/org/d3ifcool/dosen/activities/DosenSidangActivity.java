@@ -15,19 +15,23 @@ import android.widget.Toast;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editor.create.DosenProyekAkhirSidangTambahActivity;
 import org.d3ifcool.service.interfaces.lists.BimbinganListView;
+import org.d3ifcool.service.interfaces.lists.DetailMonevListView;
 import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.interfaces.lists.SidangListView;
 import org.d3ifcool.service.models.Bimbingan;
+import org.d3ifcool.service.models.DetailMonev;
+import org.d3ifcool.service.models.Monev;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.models.Sidang;
 import org.d3ifcool.service.presenters.BimbinganPresenter;
+import org.d3ifcool.service.presenters.DetailMonevPresenter;
 import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 import org.d3ifcool.service.presenters.SidangPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DosenSidangActivity extends AppCompatActivity implements SidangListView , ProyekAkhirListView, BimbinganListView {
+public class DosenSidangActivity extends AppCompatActivity implements SidangListView , ProyekAkhirListView, BimbinganListView, DetailMonevListView {
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
     private static final String PARAM_PROYEK_AKHIR = "proyek_akhir.judul_id";
@@ -36,10 +40,12 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
     private ArrayList<ProyekAkhir> proyekAkhirArrayList = new ArrayList<>();
     private ArrayList<Bimbingan> bimbinganArrayList = new ArrayList<>();
     private ArrayList<Sidang> sidangArrayList = new ArrayList<>();
+    private ArrayList<DetailMonev> detailMonevArrayList = new ArrayList<>();
     private ProgressDialog dialog;
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private SidangPresenter sidangPresenter;
     private BimbinganPresenter bimbinganPresenter;
+    private DetailMonevPresenter detailMonevPresenter;
     private TextView tv_bimbingan,tv_nama1,tv_nim1,tv_nama2,tv_nim2,tv_status;
     CardView cardView_mhs_1,cardView_mhs_2;
     private TextView tv_nilai_proposal1, tv_nilai_pembimbing,tv_nilai_penguji1_1,tv_nilai_penguji1_2,tv_nilai_total_1;
@@ -59,6 +65,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         sidangPresenter = new SidangPresenter(this);
         bimbinganPresenter = new BimbinganPresenter(this);
+        detailMonevPresenter = new DetailMonevPresenter(this);
         sidangPresenter.getSidang();
 
         TextView tv_judul = findViewById(R.id.dsn_sidang_textview_judulpa);
@@ -93,6 +100,50 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         tv_kelompok.setText(extraNamaTim);
 
         proyekAkhirPresenter.searchAllProyekAkhirBy(PARAM_PROYEK_AKHIR, extraJudulId);
+        detailMonevPresenter.getDetailMonev();
+        bimbinganPresenter.getBimbingan();
+        if (bimbinganArrayList.size() > 16 && detailMonevArrayList.size() > 6){
+            tv_status.setText(getString(R.string.text_siap_sidang));
+            tv_status.setTextColor(getResources().getColor(R.color.colorTextGreen));
+
+//            cardView_mhs_1.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent = new Intent(DosenSidangActivity.this, DosenProyekAkhirSidangTambahActivity.class);
+//                    ProyekAkhir parcelProyekAkhir = proyekAkhirArrayList.get(0);
+//                    intent.putExtra(EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
+//                    startActivity(intent);
+//                }
+//            });
+//
+//            cardView_mhs_2.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent = new Intent(DosenSidangActivity.this, DosenProyekAkhirSidangTambahActivity.class);
+//                    ProyekAkhir parcelProyekAkhir = proyekAkhirArrayList.get(1);
+//                    intent.putExtra(EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
+//                    startActivity(intent);
+//                }
+//            });
+
+        }else {
+            tv_status.setText(getString(R.string.text_belum_sidang));
+            tv_status.setTextColor(getResources().getColor(R.color.colorTextRed));
+
+//            cardView_mhs_1.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Toast.makeText(DosenSidangActivity.this, "Tidak Bisa Sidang", Toast.LENGTH_SHORT).show();
+//                }
+//            });
+//
+//            cardView_mhs_2.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Toast.makeText(DosenSidangActivity.this, "Tidak Bisa Sidang", Toast.LENGTH_SHORT).show();
+//                }
+//            });
+        }
 
         cardView_mhs_1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,6 +191,12 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
     @Override
     public void hideProgress() {
         dialog.dismiss();
+    }
+
+    @Override
+    public void onGetListDetailMonev(List<DetailMonev> detailMonevList) {
+        detailMonevArrayList.clear();
+        detailMonevArrayList.addAll(detailMonevList);
     }
 
     @Override

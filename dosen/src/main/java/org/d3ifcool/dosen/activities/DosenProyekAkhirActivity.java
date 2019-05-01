@@ -15,14 +15,19 @@ import android.widget.Toast;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.BimbinganListView;
+import org.d3ifcool.service.interfaces.lists.DetailMonevListView;
+import org.d3ifcool.service.interfaces.lists.MonevListView;
 import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.interfaces.objects.DosenPembimbingView;
 import org.d3ifcool.service.interfaces.objects.DosenReviewerView;
 import org.d3ifcool.service.models.Bimbingan;
+import org.d3ifcool.service.models.DetailMonev;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.service.models.Monev;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.BimbinganPresenter;
+import org.d3ifcool.service.presenters.DetailMonevPresenter;
 import org.d3ifcool.service.presenters.DosenPresenter;
 import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 
@@ -31,7 +36,7 @@ import java.util.List;
 
 import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
 
-public class DosenProyekAkhirActivity extends AppCompatActivity implements ProyekAkhirListView, BimbinganListView, DosenPembimbingView, DosenReviewerView {
+public class DosenProyekAkhirActivity extends AppCompatActivity implements ProyekAkhirListView, BimbinganListView, DosenPembimbingView, DosenReviewerView, DetailMonevListView {
 
     public static final String EXTRA_JUDUL = "extra_judul";
     private static final String PROYEK_AKHIR_PARAM_1 = "proyek_akhir.judul_id";
@@ -41,10 +46,12 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
     private DosenPresenter dosenPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private BimbinganPresenter bimbinganPresenter;
+    private DetailMonevPresenter detailMonevPresenter;
     private SessionManager sessionManager;
     private ProgressDialog progressDialog;
 
     private ArrayList<Bimbingan> arrayListBimbingan = new ArrayList<>();
+    private ArrayList<DetailMonev> arrayListDetailMonev = new ArrayList<>();
     private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
     private ProyekAkhir parcelProyekAkhir;
 
@@ -64,6 +71,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
 
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         bimbinganPresenter = new BimbinganPresenter(this);
+        detailMonevPresenter = new DetailMonevPresenter(this);
         dosenPresenter = new DosenPresenter(this, this);
         sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
@@ -83,6 +91,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
         stringJudulId = String.valueOf(extraJudul.getId());
         proyekAkhirPresenter.searchAllProyekAkhirByTwo(PROYEK_AKHIR_PARAM_1, stringJudulId, PROYEK_AKHIR_PARAM_2, JUDUL_STATUS_DIGUNAKAN);
+
 
 
         CardView cardView = findViewById(R.id.frg_mhs_pa_cardview_bimbingan);
@@ -108,7 +117,6 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
                 startActivity(intent);
             }
         });
-
         cardViewSidang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,6 +127,17 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
         });
 
 
+        bimbinganPresenter.getBimbingan();
+        detailMonevPresenter.getDetailMonev();
+        if (arrayListBimbingan.size() > 16 && arrayListDetailMonev.size() < 6){
+            tv_status_sidang_pa.setText(getString(R.string.text_siap_sidang));
+            tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextGreen));
+
+        }else {
+            tv_status_sidang_pa.setText(getString(R.string.text_belum_sidang));
+            tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextRed));
+
+        }
     }
 
     @Override
@@ -157,6 +176,14 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
     public void hideProgress() {
         progressDialog.dismiss();
     }
+
+    @Override
+    public void onGetListDetailMonev(List<DetailMonev> detailMonevList) {
+        arrayListDetailMonev.clear();
+        arrayListDetailMonev.addAll(detailMonevList);
+    }
+
+
 
     @Override
     public void onGetObjectDosenReviewer(Dosen dosen) {

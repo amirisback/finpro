@@ -2,8 +2,10 @@ package org.d3ifcool.service.helpers;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -114,5 +116,16 @@ public class MethodHelper {
                 dialog.show();
             }
         });
+    }
+
+    public void popupAllert(String alert) {
+        new AlertDialog.Builder(context)
+                .setTitle(R.string.text_pop_up_alert_sidang)
+                .setMessage(alert)
+                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int arg1) {
+                        dialog.dismiss();
+                    }
+                }).create().show();
     }
 }

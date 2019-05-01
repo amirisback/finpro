@@ -42,7 +42,7 @@ public class SidangPresenter {
         this.viewEditor = viewEditor;
     }
 
-    public void createSidang(String sidang_review, String sidang_tanggal, double nilai_proposal, double nilai_penguji_1, double nilai_penguji_2, double nilai_pembimbing, double nilai_total,  int proyek_akhir_id){
+    public void createSidang(String sidang_review, String sidang_tanggal, int nilai_proposal, int nilai_penguji_1, int nilai_penguji_2, int nilai_pembimbing, double nilai_total,  int proyek_akhir_id){
         viewEditor.showProgress();
         ApiInterfaceSidang apiInterfaceSidang = ApiClient.getApiClient().create(ApiInterfaceSidang.class);
         Call<Sidang> call = apiInterfaceSidang.createSidang(sidang_review, sidang_tanggal, nilai_proposal , nilai_penguji_1,nilai_penguji_2,nilai_pembimbing, nilai_total,  proyek_akhir_id);
@@ -100,7 +100,7 @@ public class SidangPresenter {
     }
 
 
-    public void updateSidang(int sidang_id, String sidang_review, String sidang_tanggal, int nilai_proposal, int nilai_penguji_1, int nilai_penguji_2, int nilai_pembimbing, int nilai_total, String sidang_status){
+    public void updateSidang(int sidang_id, String sidang_review, String sidang_tanggal, int nilai_proposal, int nilai_penguji_1, int nilai_penguji_2, int nilai_pembimbing, double nilai_total, String sidang_status){
         viewEditor.showProgress();
         ApiInterfaceSidang apiInterfaceSidang = ApiClient.getApiClient().create(ApiInterfaceSidang.class);
         Call<Sidang> call = apiInterfaceSidang.updateSidang(sidang_id,sidang_review, sidang_tanggal, nilai_proposal , nilai_penguji_1,nilai_penguji_2,nilai_pembimbing, nilai_total, sidang_status);
