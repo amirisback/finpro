@@ -21,6 +21,7 @@
             android:visibility="gone">
             <include layout="@layout/content_list_empty"/>
         </RelativeLayout>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view"
             android:layout_width="match_parent"
@@ -28,26 +29,30 @@
             android:layout_margin="@dimen/dimen_medium"
             android:layout_marginTop="@dimen/dimen_medium"
             android:layout_marginBottom="@dimen/dimen_medium">
-            <RelativeLayout
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dimen_medium">
+
                 <TextView
-                    android:id="@+id/text"
+                    android:layout_marginStart="@dimen/dimen_medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/text_kategori"
                     android:textColor="@color/colorTextBlack"/>
+
                 <Spinner
-                    android:layout_below="@id/text"
                     android:id="@+id/spinner_kategori"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:spinnerMode="dropdown"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:layout_marginStart="@dimen/dimen_medium"/>
-            </RelativeLayout>
+                    android:spinnerMode="dropdown"/>
+
+            </LinearLayout>
+
         </androidx.cardview.widget.CardView>
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_below="@id/card_view"
             android:id="@+id/frg_koor_judul_arsip_recyclerview"

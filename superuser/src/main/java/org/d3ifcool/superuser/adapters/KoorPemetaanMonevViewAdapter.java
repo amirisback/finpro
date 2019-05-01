@@ -31,12 +31,12 @@ public class KoorPemetaanMonevViewAdapter extends RecyclerView.Adapter<KoorPemet
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        TextView judulpa, kategori, pembimbing;
+        TextView judulpa, kategori;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             judulpa = itemView.findViewById(R.id.ctn_koor_pemetaan_textview_judul);
             kategori = itemView.findViewById(R.id.ctn_koor_pemetaan_textview_kategori);
-            pembimbing = itemView.findViewById(R.id.ctn_koor_pemetaan_textview_dosenbimbing);
         }
     }
 
@@ -44,14 +44,13 @@ public class KoorPemetaanMonevViewAdapter extends RecyclerView.Adapter<KoorPemet
     @Override
     public KoorPemetaanMonevViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.content_item_koor_pemetaan_monev, parent, false);
-        return new org.d3ifcool.superuser.adapters.KoorPemetaanMonevViewAdapter.ViewHolder(view);
+        return new KoorPemetaanMonevViewAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull org.d3ifcool.superuser.adapters.KoorPemetaanMonevViewAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull KoorPemetaanMonevViewAdapter.ViewHolder holder, final int position) {
         holder.judulpa.setText(judul.get(position).getJudul());
         holder.kategori.setText(judul.get(position).getKategori_nama());
-        holder.pembimbing.setText(judul.get(position).getDsn_nama());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
