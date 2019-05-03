@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-
+    android:id="@+id/swipe_refresh"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground">
-    <androidx.core.widget.NestedScrollView
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_margin="@dimen/dimen_medium"
+            android:padding="@dimen/dimen_medium"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -85,10 +86,10 @@
                         android:background="@color/colorBackground"/>
 
                     <TextView
-                        android:layout_marginStart="@dimen/dimen_big"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/text_profil_detail_nim"/>
+                        android:layout_marginStart="@dimen/dimen_big"
+                        android:text="@string/text_profil_detail_nim" />
 
                     <TextView
                         style="@style/textview_pa_color_black"
@@ -100,144 +101,183 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimen_view_line"
                         android:background="@color/colorBackground"/>
-                    <TextView
-                        android:layout_marginStart="@dimen/dimen_big"
-                        android:layout_width="wrap_content"
+
+                    <!--penilaian mahasiswa 1-->
+                    <LinearLayout
+                        android:id="@+id/linear_mhs_1"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/text_review_sidang"/>
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_marginStart="@dimen/dimen_big"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_review_sidang"/>
 
-                    <TextView
-                        style="@style/textview_pa_color_black"
-                        android:id="@+id/dsn_sidang_textview_review_1"/>
+                        <TextView
+                            style="@style/textview_pa_color_black"
+                            android:id="@+id/dsn_sidang_textview_review_1"/>
+                        <View
+                            android:layout_marginTop="@dimen/dimen_medium"
+                            android:layout_marginBottom="@dimen/dimen_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_view_line"
+                            android:background="@color/colorBackground"/>
+
+                        <LinearLayout
+                            android:layout_marginStart="@dimen/dimen_big"
+                            android:layout_marginEnd="@dimen/dimen_big"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:text="@string/text_sidang_nilai_proposal"/>
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:text="@string/text_sidang_pembimbing_1"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginStart="@dimen/dimen_big"
+                            android:layout_marginEnd="@dimen/dimen_big"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/dsn_sidang_nilai_proposal_1"
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorTextBlack"/>
+
+                            <TextView
+                                android:id="@+id/dsn_sidang_nilai_pembimbing1_1"
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorTextBlack"/>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_marginTop="@dimen/dimen_medium"
+                            android:layout_marginBottom="@dimen/dimen_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_view_line"
+                            android:background="@color/colorBackground"/>
+
+                        <LinearLayout
+                            android:layout_marginStart="@dimen/dimen_big"
+                            android:layout_marginEnd="@dimen/dimen_big"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:text="@string/text_sidang_penguji_1"/>
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:text="@string/text_sidang_penguji_2"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginStart="@dimen/dimen_big"
+                            android:layout_marginEnd="@dimen/dimen_big"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/dsn_sidang_nilai_penguji1_1"
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorTextBlack"/>
+
+                            <TextView
+                                android:id="@+id/dsn_sidang_nilai_penguji2_1"
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorTextBlack"/>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_marginTop="@dimen/dimen_medium"
+                            android:layout_marginBottom="@dimen/dimen_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_view_line"
+                            android:background="@color/colorBackground"/>
+
+                        <LinearLayout
+                            android:layout_marginStart="@dimen/dimen_big"
+                            android:layout_marginEnd="@dimen/dimen_big"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:textAllCaps="true"
+                                android:layout_gravity="center_vertical"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:text="@string/text_sidang_nilai_total"/>
+
+                            <TextView
+                                android:id="@+id/dsn_sidang_nilai_total_1"
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:textSize="@dimen/text_size_title_big"
+                                android:textColor="@color/colorPrimary"/>
+
+                        </LinearLayout>
+                        <View
+                            android:layout_marginTop="@dimen/dimen_medium"
+                            android:layout_marginBottom="@dimen/dimen_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_view_line"
+                            android:background="@color/colorBackground"/>
+                        <LinearLayout
+                            android:layout_marginStart="@dimen/dimen_big"
+                            android:layout_marginEnd="@dimen/dimen_big"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:text="@string/text_status_sidang"/>
+
+                            <TextView
+                                android:layout_weight="1"
+                                style="@style/textview_pa_color_black"
+                                android:id="@+id/dsn_sidang_textview_status_1"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"
                         android:layout_marginBottom="@dimen/dimen_medium"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimen_view_line"
                         android:background="@color/colorBackground"/>
-
-                    <LinearLayout
-                        android:layout_marginStart="@dimen/dimen_big"
-                        android:layout_marginEnd="@dimen/dimen_big"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:text="@string/text_sidang_nilai_proposal"/>
-
-                        <TextView
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:text="@string/text_sidang_pembimbing_1"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginStart="@dimen/dimen_big"
-                        android:layout_marginEnd="@dimen/dimen_big"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/dsn_sidang_nilai_proposal_1"
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"/>
-
-                        <TextView
-                            android:id="@+id/dsn_sidang_nilai_pembimbing1_1"
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"/>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_marginTop="@dimen/dimen_medium"
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
-
-                    <LinearLayout
-                        android:layout_marginStart="@dimen/dimen_big"
-                        android:layout_marginEnd="@dimen/dimen_big"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:text="@string/text_sidang_penguji_1"/>
-
-                        <TextView
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:text="@string/text_sidang_penguji_2"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginStart="@dimen/dimen_big"
-                        android:layout_marginEnd="@dimen/dimen_big"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/dsn_sidang_nilai_penguji1_1"
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"/>
-
-                        <TextView
-                            android:id="@+id/dsn_sidang_nilai_penguji2_1"
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"/>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_marginTop="@dimen/dimen_medium"
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
-
-                    <LinearLayout
-                        android:layout_marginStart="@dimen/dimen_big"
-                        android:layout_marginEnd="@dimen/dimen_big"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_weight="1"
-                            android:textAllCaps="true"
-                            android:layout_gravity="center_vertical"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:text="@string/text_sidang_nilai_total"/>
-
-                        <TextView
-                            android:id="@+id/dsn_sidang_nilai_total_1"
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/text_size_title_big"
-                            android:textColor="@color/colorPrimary"/>
-
-                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -246,8 +286,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_mhs_2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_big">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_marginTop="@dimen/dimen_medium"
@@ -274,30 +313,14 @@
                         android:background="@color/colorBackground"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="10dp"
                         android:layout_marginStart="@dimen/dimen_big"
-                        android:text="@string/text_profil_detail_nim" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_profil_detail_nim"/>
 
                     <TextView
                         style="@style/textview_pa_color_black"
                         android:id="@+id/dsn_sidang_textview_nim_2"/>
-
-                    <View
-                        android:layout_marginTop="@dimen/dimen_medium"
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
-                    <TextView
-                        android:layout_marginStart="@dimen/dimen_big"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/text_review_sidang"/>
-
-                    <TextView
-                        style="@style/textview_pa_color_black"
-                        android:id="@+id/dsn_sidang_textview_review_2"/>
                     <View
                         android:layout_marginTop="@dimen/dimen_medium"
                         android:layout_marginBottom="@dimen/dimen_medium"
@@ -305,148 +328,190 @@
                         android:layout_height="@dimen/dimen_view_line"
                         android:background="@color/colorBackground"/>
 
+                    <!--penilaian sidang mhs 2-->
                     <LinearLayout
-                        android:layout_marginStart="@dimen/dimen_big"
-                        android:layout_marginEnd="@dimen/dimen_big"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:text="@string/text_sidang_nilai_proposal"/>
-
-                        <TextView
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:text="@string/text_sidang_pembimbing_1"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginStart="@dimen/dimen_big"
-                        android:layout_marginEnd="@dimen/dimen_big"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/dsn_sidang_nilai_proposal_2"
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"/>
-
-                        <TextView
-                            android:id="@+id/dsn_sidang_nilai_pembimbing1_2"
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"/>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_marginTop="@dimen/dimen_medium"
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
-
-                    <LinearLayout
-                        android:layout_marginStart="@dimen/dimen_big"
-                        android:layout_marginEnd="@dimen/dimen_big"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:text="@string/text_sidang_penguji_1"/>
-
-                        <TextView
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:text="@string/text_sidang_penguji_2"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginStart="@dimen/dimen_big"
-                        android:layout_marginEnd="@dimen/dimen_big"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/dsn_sidang_nilai_penguji1_2"
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"/>
-
-                        <TextView
-                            android:id="@+id/dsn_sidang_nilai_penguji2_2"
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextBlack"/>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_marginTop="@dimen/dimen_medium"
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
-
-                    <LinearLayout
-                        android:layout_marginStart="@dimen/dimen_big"
-                        android:layout_marginEnd="@dimen/dimen_big"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_weight="1"
-                            android:textAllCaps="true"
-                            android:layout_gravity="center_vertical"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:text="@string/text_sidang_nilai_total"/>
-
-                        <TextView
-                            android:id="@+id/dsn_sidang_nilai_total_2"
-                            android:layout_weight="1"
-                            android:layout_width="@dimen/dimen_weight"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/text_size_title_big"
-                            android:textColor="@color/colorPrimary"/>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_marginTop="@dimen/dimen_medium"
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
-                    <TextView
+                        android:id="@+id/linear_mhs_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/text_lihat_detail"
-                        android:textColor="@color/colorPrimary"
-                        android:layout_marginRight="@dimen/dimen_medium"
-                        android:gravity="end"/>
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_marginStart="@dimen/dimen_big"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_review_sidang"/>
+
+                        <TextView
+                            style="@style/textview_pa_color_black"
+                            android:id="@+id/dsn_sidang_textview_review_2"/>
+                        <View
+                            android:layout_marginTop="@dimen/dimen_medium"
+                            android:layout_marginBottom="@dimen/dimen_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_view_line"
+                            android:background="@color/colorBackground"/>
+
+                        <LinearLayout
+                            android:layout_marginStart="@dimen/dimen_big"
+                            android:layout_marginEnd="@dimen/dimen_big"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:text="@string/text_sidang_nilai_proposal"/>
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:text="@string/text_sidang_pembimbing_1"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginStart="@dimen/dimen_big"
+                            android:layout_marginEnd="@dimen/dimen_big"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/dsn_sidang_nilai_proposal_2"
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorTextBlack"/>
+
+                            <TextView
+                                android:id="@+id/dsn_sidang_nilai_pembimbing1_2"
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorTextBlack"/>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_marginTop="@dimen/dimen_medium"
+                            android:layout_marginBottom="@dimen/dimen_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_view_line"
+                            android:background="@color/colorBackground"/>
+
+                        <LinearLayout
+                            android:layout_marginStart="@dimen/dimen_big"
+                            android:layout_marginEnd="@dimen/dimen_big"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:text="@string/text_sidang_penguji_1"/>
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:text="@string/text_sidang_penguji_2"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginStart="@dimen/dimen_big"
+                            android:layout_marginEnd="@dimen/dimen_big"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/dsn_sidang_nilai_penguji1_2"
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorTextBlack"/>
+
+                            <TextView
+                                android:id="@+id/dsn_sidang_nilai_penguji2_2"
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorTextBlack"/>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_marginTop="@dimen/dimen_medium"
+                            android:layout_marginBottom="@dimen/dimen_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_view_line"
+                            android:background="@color/colorBackground"/>
+
+                        <LinearLayout
+                            android:layout_marginStart="@dimen/dimen_big"
+                            android:layout_marginEnd="@dimen/dimen_big"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:textAllCaps="true"
+                                android:layout_gravity="center_vertical"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:text="@string/text_sidang_nilai_total"/>
+
+                            <TextView
+                                android:id="@+id/dsn_sidang_nilai_total_2"
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:textSize="@dimen/text_size_title_big"
+                                android:textColor="@color/colorPrimary"/>
+
+                        </LinearLayout>
+                        <View
+                            android:layout_marginTop="@dimen/dimen_medium"
+                            android:layout_marginBottom="@dimen/dimen_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_view_line"
+                            android:background="@color/colorBackground"/>
+                        <LinearLayout
+                            android:layout_marginStart="@dimen/dimen_big"
+                            android:layout_marginEnd="@dimen/dimen_big"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_width="@dimen/dimen_weight"
+                                android:layout_height="wrap_content"
+                                android:text="@string/text_status_sidang"/>
+
+                            <TextView
+                                android:layout_weight="1"
+                                style="@style/textview_pa_color_black"
+                                android:id="@+id/dsn_sidang_textview_status_2"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_marginTop="@dimen/dimen_medium"
+                            android:layout_marginBottom="@dimen/dimen_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_view_line"
+                            android:background="@color/colorBackground"/>
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

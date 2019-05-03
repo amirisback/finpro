@@ -103,12 +103,10 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
 
 
         proyekAkhirPresenter.searchAllProyekAkhirBy(PARAM_PROYEK_AKHIR, extraJudulId);
+        sidangPresenter.searchAllSidangBy(PARAM_PROYEK_AKHIR, extraJudulId);
         detailMonevPresenter.getDetailMonev();
         bimbinganPresenter.getBimbingan();
         if (bimbinganArrayList.size() > 16 && detailMonevArrayList.size() > 6){
-            tv_status.setText(getString(R.string.text_siap_sidang));
-            tv_status.setTextColor(getResources().getColor(R.color.colorTextGreen));
-
             cardView_mhs_1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -130,8 +128,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
             });
 
         }else {
-            tv_status.setText(getString(R.string.text_belum_sidang));
-            tv_status.setTextColor(getResources().getColor(R.color.colorTextRed));
+
 
             cardView_mhs_1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -149,6 +146,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
                 }
             });
         }
+
 
 
 
@@ -226,12 +224,11 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
     public void onGetListSidang(List<Sidang> sidangList) {
         sidangArrayList.clear();
         sidangArrayList.addAll(sidangList);
-
         sidangPresenter.searchAllSidangBy(PARAM_PROYEK_AKHIR, extraJudulId);
         if (sidangArrayList.size() == 0){
-           linearLayout_mhs1.setVisibility(View.GONE);
-           linearLayout_mhs2.setVisibility(View.GONE);
-        }else {
+            linearLayout_mhs1.setVisibility(View.GONE);
+            linearLayout_mhs2.setVisibility(View.GONE);
+        }
 
             if (sidangArrayList.size() == 2) {
                 tv_nilai_proposal1.setText(String.valueOf(sidangArrayList.get(0).getNilai_proposal()));
@@ -259,7 +256,6 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
                 linearLayout_mhs2.setVisibility(View.GONE);
             }
         }
-    }
 
     @Override
     public void onFailed(String message) {

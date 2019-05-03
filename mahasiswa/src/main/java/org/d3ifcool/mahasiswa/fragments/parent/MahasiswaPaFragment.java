@@ -144,6 +144,7 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getContext(), MahasiswaPaSidangDetailActivity.class);
+                i.putExtra(MahasiswaPaSidangDetailActivity.EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
                 startActivity(i);
             }
         });
