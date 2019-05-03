@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,9 +49,9 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
     private DetailMonevPresenter detailMonevPresenter;
     private TextView tv_bimbingan,tv_nama1,tv_nim1,tv_nama2,tv_nim2,tv_status;
     private CardView cardView_mhs_1,cardView_mhs_2;
-    private TextView tv_nilai_proposal1, tv_nilai_pembimbing,tv_nilai_penguji1_1,tv_nilai_penguji1_2,tv_nilai_total_1;
-    private TextView tv_nilai_proposal2, tv_nilai_pembimbing2,tv_nilai_penguji2_1,tv_nilai_penguji2_2,tv_nilai_total_2;
-
+    private TextView tv_nilai_proposal1, tv_nilai_pembimbing,tv_nilai_penguji1_1,tv_nilai_penguji1_2,tv_nilai_total_1, tv_review_1, tv_status_1;
+    private TextView tv_nilai_proposal2, tv_nilai_pembimbing2,tv_nilai_penguji2_1,tv_nilai_penguji2_2,tv_nilai_total_2,tv_review_2, tv_status_2;
+    private LinearLayout linearLayout_mhs1, linearLayout_mhs2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,36 +70,36 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         sidangPresenter.getSidang();
 
 
-        TextView tv_judul = findViewById(R.id.dsn_sidang_textview_judulpa);
-        TextView tv_kelompok = findViewById(R.id.dsn_sidang_textview_kelompok);
-        tv_bimbingan = findViewById(R.id.dsn_sidang_textview_jumlah_bimbingan);
-        tv_status = findViewById(R.id.dsn_sidang_textview_status_sidang);
         tv_nama1 = findViewById(R.id.dsn_sidang_textview_nama_1);
         tv_nim1 = findViewById(R.id.dsn_sidang_textview_nim_1);
         tv_nama2 = findViewById(R.id.dsn_sidang_textview_nama_2);
         tv_nim2 = findViewById(R.id.dsn_sidang_textview_nim_2);
         cardView_mhs_1 = findViewById(R.id.card_view_mhs_1);
         cardView_mhs_2 = findViewById(R.id.card_view_mhs_2);
+        linearLayout_mhs1 = findViewById(R.id.linear_mhs_1);
+        linearLayout_mhs2 = findViewById(R.id.linear_mhs_2);
 
         tv_nilai_proposal1 = findViewById(R.id.dsn_sidang_nilai_proposal_1);
         tv_nilai_pembimbing = findViewById(R.id.dsn_sidang_nilai_pembimbing1_1);
         tv_nilai_penguji1_1 = findViewById(R.id.dsn_sidang_nilai_penguji1_1);
         tv_nilai_penguji1_2 = findViewById(R.id.dsn_sidang_nilai_penguji1_2);
         tv_nilai_total_1 = findViewById(R.id.dsn_sidang_nilai_total_1);
+        tv_review_1 = findViewById(R.id.dsn_sidang_textview_review_1);
+        tv_status_1 = findViewById(R.id.dsn_sidang_textview_status_1);
 
         tv_nilai_proposal2 = findViewById(R.id.dsn_sidang_nilai_proposal_2);
         tv_nilai_pembimbing2 = findViewById(R.id.dsn_sidang_nilai_pembimbing1_2);
         tv_nilai_penguji2_1 = findViewById(R.id.dsn_sidang_nilai_penguji2_1);
         tv_nilai_penguji2_2 = findViewById(R.id.dsn_sidang_nilai_penguji2_2);
         tv_nilai_total_2 = findViewById(R.id.dsn_sidang_nilai_total_2);
+        tv_review_2 = findViewById(R.id.dsn_sidang_textview_review_2);
+        tv_status_2 = findViewById(R.id.dsn_sidang_textview_status_2);
+        final TextView tv_tambah_sidang1 = findViewById(R.id.act_dsn_textview_tambah_sidang_mhs_1);
+        final TextView tv_tambah_sidang2 = findViewById(R.id.act_dsn_textview_tambah_sidang_mhs_2);
 
         ProyekAkhir extraProyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
-        String extraJudul = extraProyekAkhir.getJudul_nama();
-        String extraNamaTim = extraProyekAkhir.getNama_tim();
         String extraJudulId = String.valueOf(extraProyekAkhir.getJudul_id());
 
-        tv_judul.setText(extraJudul);
-        tv_kelompok.setText(extraNamaTim);
 
         proyekAkhirPresenter.searchAllProyekAkhirBy(PARAM_PROYEK_AKHIR, extraJudulId);
         detailMonevPresenter.getDetailMonev();
@@ -107,64 +108,48 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
             tv_status.setText(getString(R.string.text_siap_sidang));
             tv_status.setTextColor(getResources().getColor(R.color.colorTextGreen));
 
-//            cardView_mhs_1.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent = new Intent(DosenSidangActivity.this, DosenProyekAkhirSidangTambahActivity.class);
-//                    ProyekAkhir parcelProyekAkhir = proyekAkhirArrayList.get(0);
-//                    intent.putExtra(EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
-//                    startActivity(intent);
-//                }
-//            });
-//
-//            cardView_mhs_2.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent = new Intent(DosenSidangActivity.this, DosenProyekAkhirSidangTambahActivity.class);
-//                    ProyekAkhir parcelProyekAkhir = proyekAkhirArrayList.get(1);
-//                    intent.putExtra(EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
-//                    startActivity(intent);
-//                }
-//            });
+            cardView_mhs_1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(DosenSidangActivity.this, DosenSidangTambahActivity.class);
+                    ProyekAkhir parcelProyekAkhir = proyekAkhirArrayList.get(0);
+                    intent.putExtra(EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
+                    startActivity(intent);
+                }
+            });
+
+            cardView_mhs_2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(DosenSidangActivity.this, DosenSidangTambahActivity.class);
+                    ProyekAkhir parcelProyekAkhir = proyekAkhirArrayList.get(1);
+                    intent.putExtra(EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
+                    startActivity(intent);
+                }
+            });
 
         }else {
             tv_status.setText(getString(R.string.text_belum_sidang));
             tv_status.setTextColor(getResources().getColor(R.color.colorTextRed));
 
-//            cardView_mhs_1.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Toast.makeText(DosenSidangActivity.this, "Tidak Bisa Sidang", Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//
-//            cardView_mhs_2.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Toast.makeText(DosenSidangActivity.this, "Tidak Bisa Sidang", Toast.LENGTH_SHORT).show();
-//                }
-//            });
+            cardView_mhs_1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(DosenSidangActivity.this, "Belum Memenuhi Syarat untuk Sidang", Toast.LENGTH_SHORT).show();
+                    tv_tambah_sidang1.setVisibility(View.GONE);
+                }
+            });
+
+            cardView_mhs_2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(DosenSidangActivity.this, "Belum Memenuhi Syarat untuk Sidang", Toast.LENGTH_SHORT).show();
+                    tv_tambah_sidang2.setVisibility(View.GONE);
+                }
+            });
         }
 
-        cardView_mhs_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DosenSidangActivity.this, DosenSidangTambahActivity.class);
-                ProyekAkhir parcelProyekAkhir = proyekAkhirArrayList.get(0);
-                intent.putExtra(EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
-                startActivity(intent);
-            }
-        });
 
-        cardView_mhs_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DosenSidangActivity.this, DosenSidangTambahActivity.class);
-                ProyekAkhir parcelProyekAkhir = proyekAkhirArrayList.get(1);
-                intent.putExtra(EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
-                startActivity(intent);
-            }
-        });
 
     }
     @Override
@@ -240,28 +225,37 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
     public void onGetListSidang(List<Sidang> sidangList) {
         sidangArrayList.clear();
         sidangArrayList.addAll(sidangList);
-
-        if (sidangArrayList.size() == 2){
-            tv_nilai_proposal1.setText(String.valueOf(sidangArrayList.get(0).getNilai_proposal()));
-            tv_nilai_pembimbing.setText(String.valueOf(sidangArrayList.get(0).getNilai_pembimbing()));
-            tv_nilai_penguji1_1.setText(String.valueOf(sidangArrayList.get(0).getNilai_penguji_1()));
-            tv_nilai_penguji1_2.setText(String.valueOf(sidangArrayList.get(0).getNilai_penguji_2()));
-            tv_nilai_total_1.setText(String.valueOf(sidangArrayList.get(0).getNilai_sidang()));
-
-            tv_nilai_proposal2.setText(String.valueOf(sidangArrayList.get(1).getNilai_proposal()));
-            tv_nilai_pembimbing2.setText(String.valueOf(sidangArrayList.get(1).getNilai_pembimbing()));
-            tv_nilai_penguji2_1.setText(String.valueOf(sidangArrayList.get(1).getNilai_penguji_1()));
-            tv_nilai_penguji2_2.setText(String.valueOf(sidangArrayList.get(1).getNilai_penguji_2()));
-            tv_nilai_total_2.setText(String.valueOf(sidangArrayList.get(1).getNilai_sidang()));
+        if (sidangArrayList.size() == 0){
+           linearLayout_mhs1.setVisibility(View.GONE);
+           linearLayout_mhs2.setVisibility(View.GONE);
         }else {
-            tv_nilai_proposal1.setText(String.valueOf(sidangArrayList.get(0).getNilai_proposal()));
-            tv_nilai_pembimbing.setText(String.valueOf(sidangArrayList.get(0).getNilai_pembimbing()));
-            tv_nilai_penguji1_1.setText(String.valueOf(sidangArrayList.get(0).getNilai_penguji_1()));
-            tv_nilai_penguji1_2.setText(String.valueOf(sidangArrayList.get(0).getNilai_penguji_2()));
-            tv_nilai_total_1.setText(String.valueOf(sidangArrayList.get(0).getNilai_sidang()));
+
+            if (sidangArrayList.size() == 2) {
+                tv_nilai_proposal1.setText(String.valueOf(sidangArrayList.get(0).getNilai_proposal()));
+                tv_nilai_pembimbing.setText(String.valueOf(sidangArrayList.get(0).getNilai_pembimbing()));
+                tv_nilai_penguji1_1.setText(String.valueOf(sidangArrayList.get(0).getNilai_penguji_1()));
+                tv_nilai_penguji1_2.setText(String.valueOf(sidangArrayList.get(0).getNilai_penguji_2()));
+                tv_nilai_total_1.setText(String.valueOf(sidangArrayList.get(0).getNilai_sidang()));
+                tv_status_1.setText(sidangArrayList.get(0).getSidang_status());
+                tv_review_1.setText(sidangArrayList.get(0).getSidang_review());
+
+                tv_nilai_proposal2.setText(String.valueOf(sidangArrayList.get(1).getNilai_proposal()));
+                tv_nilai_pembimbing2.setText(String.valueOf(sidangArrayList.get(1).getNilai_pembimbing()));
+                tv_nilai_penguji2_1.setText(String.valueOf(sidangArrayList.get(1).getNilai_penguji_1()));
+                tv_nilai_penguji2_2.setText(String.valueOf(sidangArrayList.get(1).getNilai_penguji_2()));
+                tv_nilai_total_2.setText(String.valueOf(sidangArrayList.get(1).getNilai_sidang()));
+                tv_status_2.setText(sidangArrayList.get(1).getSidang_status());
+                tv_review_2.setText(sidangArrayList.get(1).getSidang_review());
+            } else {
+                tv_nilai_proposal1.setText(String.valueOf(sidangArrayList.get(0).getNilai_proposal()));
+                tv_nilai_pembimbing.setText(String.valueOf(sidangArrayList.get(0).getNilai_pembimbing()));
+                tv_nilai_penguji1_1.setText(String.valueOf(sidangArrayList.get(0).getNilai_penguji_1()));
+                tv_nilai_penguji1_2.setText(String.valueOf(sidangArrayList.get(0).getNilai_penguji_2()));
+                tv_nilai_total_1.setText(String.valueOf(sidangArrayList.get(0).getNilai_sidang()));
+
+                linearLayout_mhs2.setVisibility(View.GONE);
+            }
         }
-
-
     }
 
     @Override

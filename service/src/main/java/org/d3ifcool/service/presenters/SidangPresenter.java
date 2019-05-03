@@ -3,7 +3,9 @@ package org.d3ifcool.service.presenters;
 import org.d3ifcool.service.interfaces.lists.SidangListView;
 import org.d3ifcool.service.interfaces.objects.SidangView;
 import org.d3ifcool.service.interfaces.works.SidangWorkView;
+import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.models.Sidang;
+import org.d3ifcool.service.networks.api.ApiInterfaceProyekAkhir;
 import org.d3ifcool.service.networks.api.ApiInterfaceSidang;
 import org.d3ifcool.service.networks.bridge.ApiClient;
 
@@ -119,5 +121,41 @@ public class SidangPresenter {
         });
     }
 
+    public void searchAllSidangBy(String parameter, String query){
+        viewResult.showProgress();
+        ApiInterfaceSidang apiInterfaceSidang = ApiClient.getApiClient().create(ApiInterfaceSidang.class);
+        Call<List<Sidang>> call = apiInterfaceSidang.searchAllSidangBy(parameter, query);
+        call.enqueue(new Callback<List<Sidang>>() {
+            @Override
+            public void onResponse(Call<List<Sidang>> call, Response<List<Sidang>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetListSidang(response.body());
+            }
 
+            @Override
+            public void onFailure(Call<List<Sidang>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void searchAllSidangByTwo(String parameter1, String query1, String parameter2, String query2){
+        viewResult.showProgress();
+        ApiInterfaceSidang apiInterfaceSidang = ApiClient.getApiClient().create(ApiInterfaceSidang.class);
+        Call<List<Sidang>> call = apiInterfaceSidang.searchAllSidangByTwo(parameter1, query1, parameter2, query2);
+        call.enqueue(new Callback<List<Sidang>>() {
+            @Override
+            public void onResponse(Call<List<Sidang>> call, Response<List<Sidang>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetListSidang(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Sidang>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
 }

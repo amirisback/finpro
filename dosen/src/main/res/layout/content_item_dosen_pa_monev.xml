@@ -42,6 +42,7 @@
         <TextView
             android:id="@+id/ctn_dsn_pa_monev_textview_judul"
             android:text="@string/dummy"
+            android:textSize="@dimen/text_size_default"
             style="@style/textview_item_list_judul_pa"/>
         <View
             android:layout_width="match_parent"
@@ -53,11 +54,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/text_nama_kelompok"
-            android:textSize="12sp"
+            android:textSize="@dimen/text_size_default"
             android:textColor="@color/colorTextBlack"/>
         <TextView
             android:id="@+id/ctn_dsn_pa_monev_textview_kelompok"
             android:text="@string/dummy"
+            android:textSize="@dimen/text_size_default"
             style="@style/textview_item_list_judul_pa"/>
 
     </LinearLayout>

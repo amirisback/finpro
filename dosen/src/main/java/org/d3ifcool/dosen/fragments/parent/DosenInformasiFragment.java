@@ -4,6 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,20 +49,25 @@ public class DosenInformasiFragment extends Fragment implements InformasiListVie
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_dosen_informasi, container, false);
 
-        View rootView = inflater.inflate(R.layout.fragment_dosen_informasi, container, false);
+    }
 
-        recyclerView = rootView.findViewById(R.id.frg_dsn_info_home_recyclerview);
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        recyclerView = view.findViewById(R.id.frg_dsn_info_home_recyclerview);
         adapter = new DosenInformasiViewAdapter(getContext());
         presenter = new InformasiPresenter(this);
         progressDialog = new ProgressDialog(getContext());
-        swipeRefreshLayout = rootView.findViewById(R.id.frg_dsn_info_home_swiperefresh);
+        swipeRefreshLayout = view.findViewById(R.id.frg_dsn_info_home_swiperefresh);
 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         presenter.getInformasi();
 
-        FloatingActionButton floatingActionButton = rootView.findViewById(R.id.frg_dsn_info_home_fab);
+        FloatingActionButton floatingActionButton = view.findViewById(R.id.frg_dsn_info_home_fab);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +76,7 @@ public class DosenInformasiFragment extends Fragment implements InformasiListVie
             }
         });
 
-        empty_view = rootView.findViewById(R.id.view_emptyview);
+        empty_view = view.findViewById(R.id.view_emptyview);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -77,7 +85,6 @@ public class DosenInformasiFragment extends Fragment implements InformasiListVie
             }
         });
 
-        return rootView;
     }
 
     @Override

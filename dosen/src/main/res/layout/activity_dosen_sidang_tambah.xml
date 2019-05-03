@@ -244,13 +244,13 @@
             android:textSize="@dimen/text_size_medium"
             android:textColor="@color/colorPrimary"
             android:layout_marginStart="@dimen/dimen_big"
+
             android:layout_marginBottom="@dimen/dimen_medium"/>
         <Spinner
             android:id="@+id/act_dsn_sidang_spinner"
             android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/dimen_big"
             android:layout_marginBottom="@dimen/dimen_big"/>
         </LinearLayout>
 

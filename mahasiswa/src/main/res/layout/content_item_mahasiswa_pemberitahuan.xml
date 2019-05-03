@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:maxLines="3"
             android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/text_size_default"
             android:text="hariandi maulid mengirim suatu pesan"/>
 
         <LinearLayout

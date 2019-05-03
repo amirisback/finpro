@@ -14,10 +14,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:textSize="@dimen/text_size_default"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/title_judulpa"
+                android:textSize="@dimen/text_size_default"
                 android:textColor="@color/colorTextBlack"/>
 
             <TextView
@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dummy"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/text_size_medium"
+                android:textSize="@dimen/text_size_default"
                 android:textStyle="bold" />
             <View
                 android:layout_width="match_parent"
@@ -35,10 +35,10 @@
                 android:layout_marginTop="@dimen/dimen_medium"
                 android:layout_marginBottom="@dimen/dimen_medium"/>
             <TextView
-                android:textSize="@dimen/text_size_default"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_kategori"
+                android:textSize="@dimen/text_size_default"
                 android:textColor="@color/colorTextBlack"/>
             <TextView
                 android:layout_width="match_parent"
@@ -47,6 +47,6 @@
                 android:text="@string/dummy"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/text_size_medium"/>
+                android:textSize="@dimen/text_size_default"/>
         </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_judulpa"
-            android:textSize="12sp"
+            android:textSize="@dimen/text_size_default"
             android:textColor="@color/colorTextBlack"/>
         <TextView
             android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             android:text="@string/dummy"
             android:textStyle="bold"
             android:textColor="@color/colorPrimary"
-            android:textSize="16sp"/>
+            android:textSize="@dimen/text_size_default"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -46,7 +46,7 @@
             android:text="@string/dummy"
             android:textStyle="bold"
             android:textColor="@color/colorPrimary"
-            android:textSize="16sp"/>
+            android:textSize="@dimen/text_size_default"/>
 
     </LinearLayout>
 
