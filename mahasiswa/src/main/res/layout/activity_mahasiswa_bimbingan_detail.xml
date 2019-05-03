@@ -65,7 +65,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/text_judul_bimbingan"/>
+                android:text="@string/text_bimbingan_kehadiran"/>
 
             <View
                 android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                 android:background="@android:color/darker_gray"/>
 
             <TextView
-                android:id="@+id/act_dsn_mhs_bimbingan_textview_judul"
+                android:id="@+id/act_dsn_mhs_bimbingan_textview_kehadiran"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorTextBlack"

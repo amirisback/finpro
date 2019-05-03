@@ -22,14 +22,14 @@ public class DosenBimbinganDetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView textViewTanggal = findViewById(R.id.act_dsn_mhs_bimbingan_textview_tanggal);
-        TextView textViewJudulBimbingan = findViewById(R.id.act_dsn_mhs_bimbingan_textview_judul);
+        TextView textViewKehadiranBimbingan = findViewById(R.id.act_dsn_mhs_bimbingan_textview_kehadiran);
         TextView textViewReviewBimbingan = findViewById(R.id.act_dsn_mhs_bimbingan_textview_review);
 
         Bimbingan extraBimbingan = getIntent().getParcelableExtra(EXTRA_BIMBINGAN);
 
-        textViewTanggal.setText(extraBimbingan.getTanggal());
-        textViewJudulBimbingan.setText(extraBimbingan.getJudul_bimbingan());
-        textViewReviewBimbingan.setText(extraBimbingan.getIsi());
+        textViewTanggal.setText(extraBimbingan.getBimbingan_tanggal());
+        textViewKehadiranBimbingan.setText(extraBimbingan.getBimbingan_kehadiran());
+        textViewReviewBimbingan.setText(extraBimbingan.getBimbingan_review());
 
     }
 

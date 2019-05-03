@@ -58,9 +58,9 @@ public class DosenBimbinganTambahActivity extends AppCompatActivity implements B
                 }else if (review.isEmpty()){
                     et_review.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else{
-                    bimbinganPresenter.createBimbingan(review,judul,tanggal,extraArrayProyekAkhir.get(0).getProyek_akhir_id());
+                    bimbinganPresenter.createBimbingan(review,"tidak hadir",tanggal,"pending",extraArrayProyekAkhir.get(0).getProyek_akhir_id());
                     if (extraArrayProyekAkhir.size()==2){
-                        bimbinganPresenter.createBimbingan(review,judul,tanggal,extraArrayProyekAkhir.get(extraArrayProyekAkhir.size()-1).getProyek_akhir_id());
+                        bimbinganPresenter.createBimbingan(review,"tidak hadir",tanggal,"pending",extraArrayProyekAkhir.get(extraArrayProyekAkhir.size()-1).getProyek_akhir_id());
                     }
                 }
 

@@ -57,7 +57,7 @@ public class MahasiswaPaBimbinganTambahActivity extends AppCompatActivity implem
                 }else if (review.isEmpty()){
                     et_review.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else{
-                    bimbinganPresenter.createBimbingan(review,judul,tanggal,extraArrayProyekAkhir.get(0).getProyek_akhir_id());
+                    bimbinganPresenter.createBimbingan(review,"tidak hadir",tanggal,"pending",extraArrayProyekAkhir.get(0).getProyek_akhir_id());
 
                 }
 

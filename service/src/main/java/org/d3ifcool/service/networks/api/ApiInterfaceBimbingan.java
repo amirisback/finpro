@@ -16,6 +16,7 @@ import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_BI
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_SEARCH;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_STATUS;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_BIMBINGAN;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_BIMBINGAN;
@@ -41,10 +42,13 @@ public interface ApiInterfaceBimbingan {
     @POST(URL_BIMBINGAN)
     Call<Bimbingan> createBimbingan(
             @Field("bimbingan_review") String bimbingan_review,
-            @Field("bimbingan_judul") String bimbingan_judul,
+            @Field("bimbingan_kehadiran") String bimbingan_kehadiran,
             @Field("bimbingan_tanggal") String bimbingan_tanggal,
+            @Field("bimbingan_status") String bimbingan_status,
             @Field("proyek_akhir_id") int proyek_akhir_id
+
     );
+
     @FormUrlEncoded
     @POST(URL_BIMBINGAN + PATH_UPDATE + PARAMETER_BIMBINGAN)
     Call<Bimbingan> updateBimbingan(@Path(VAR_BIMBINGAN) String bimbingan_id,
@@ -64,5 +68,9 @@ public interface ApiInterfaceBimbingan {
             @Path(VAR_PARAMS) String parameter,
             @Path(VAR_QUERY) String query
     );
+
+    @FormUrlEncoded
+    @POST(URL_BIMBINGAN + PATH_UPDATE + PATH_STATUS + PARAMETER_BIMBINGAN)
+    Call<Bimbingan> updateBimbinganStatus(@Path(VAR_BIMBINGAN) String bimbingan_id, @Field("bimbingan_status") String bimbingan_status);
 
 }

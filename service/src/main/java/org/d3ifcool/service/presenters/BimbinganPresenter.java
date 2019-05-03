@@ -54,10 +54,10 @@ public class BimbinganPresenter {
         this.viewEditor = viewEditor;
     }
 
-    public void createBimbingan(String bimbingan_review, String bimbingan_judul, String bimbingan_tanggal, int proyek_akhir_id){
+    public void createBimbingan(String bimbingan_review, String bimbingan_kehadiran, String bimbingan_tanggal, String bimbingan_status, int proyek_akhir_id){
         viewEditor.showProgress();
         ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
-        Call<Bimbingan> call = apiInterfaceBimbingan.createBimbingan(bimbingan_review, bimbingan_judul, bimbingan_tanggal, proyek_akhir_id);
+        Call<Bimbingan> call = apiInterfaceBimbingan.createBimbingan(bimbingan_review, bimbingan_kehadiran, bimbingan_tanggal, bimbingan_status ,proyek_akhir_id);
         call.enqueue(new Callback<Bimbingan>() {
             @Override
             public void onResponse(Call<Bimbingan> call, Response<Bimbingan> response) {
@@ -148,8 +148,25 @@ public class BimbinganPresenter {
                 viewResult.onFailed(t.getMessage());
             }
         });
-
     }
 
+    public void updateBimbinganStatus(String bimbingan_id, String bimbingan_status){
+        viewEditor.showProgress();
+        ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
+        Call<Bimbingan> call = apiInterfaceBimbingan.updateBimbinganStatus(bimbingan_id, bimbingan_status);
+        call.enqueue(new Callback<Bimbingan>() {
+            @Override
+            public void onResponse(Call<Bimbingan> call, Response<Bimbingan> response) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
+            }
+
+            @Override
+            public void onFailure(Call<Bimbingan> call, Throwable t) {
+                viewEditor.hideProgress();
+                viewEditor.onSucces();
+            }
+        });
+    }
 
 }

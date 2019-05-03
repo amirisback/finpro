@@ -47,12 +47,12 @@ public class MahasiswaPaBimbinganUbahActivity extends AppCompatActivity implemen
 
         methodHelper.setDatePicker(this, tv_tanggal);
 
-        final String tanggal = extrabimbingan.getTanggal();
-        final String judul = extrabimbingan.getJudul_bimbingan();
-        String isi = extrabimbingan.getIsi();
+        final String tanggal = extrabimbingan.getBimbingan_tanggal();
+        final String kehadiran = extrabimbingan.getBimbingan_kehadiran();
+        String isi = extrabimbingan.getBimbingan_review();
 
         tv_tanggal.setText(tanggal);
-        et_judul.setText(judul);
+        et_judul.setText(kehadiran);
         et_review.setText(isi);
 
         btn_simpan.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +75,7 @@ public class MahasiswaPaBimbinganUbahActivity extends AppCompatActivity implemen
                                 }else if (isi_baru.isEmpty()){
                                     et_review.setError(getString(R.string.text_tidak_boleh_kosong));
                                 }else{
-                                    presenter.updateBimbingan(extrabimbingan.getId(), isi_baru, judul_baru, tanggal_baru);
+                                    presenter.updateBimbingan(extrabimbingan.getBimbingan_id(), isi_baru, judul_baru, tanggal_baru);
                                 }
                             }
                         })

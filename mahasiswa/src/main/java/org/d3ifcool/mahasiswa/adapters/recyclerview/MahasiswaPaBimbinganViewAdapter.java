@@ -70,8 +70,8 @@ public class MahasiswaPaBimbinganViewAdapter extends RecyclerView.Adapter<Mahasi
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.infoTanggal.setText(data.get(position).getTanggal());
-        holder.infoIsi.setText(data.get(position).getIsi());
+        holder.infoTanggal.setText(data.get(position).getBimbingan_tanggal());
+        holder.infoIsi.setText(data.get(position).getBimbingan_review());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
