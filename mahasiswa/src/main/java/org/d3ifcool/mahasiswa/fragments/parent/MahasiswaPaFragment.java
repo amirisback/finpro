@@ -140,8 +140,6 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
         });
 
 
-
-
         cardViewSidang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
