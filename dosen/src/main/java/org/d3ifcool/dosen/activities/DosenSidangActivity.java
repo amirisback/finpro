@@ -52,6 +52,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
     private TextView tv_nilai_proposal1, tv_nilai_pembimbing,tv_nilai_penguji1_1,tv_nilai_penguji1_2,tv_nilai_total_1, tv_review_1, tv_status_1;
     private TextView tv_nilai_proposal2, tv_nilai_pembimbing2,tv_nilai_penguji2_1,tv_nilai_penguji2_2,tv_nilai_total_2,tv_review_2, tv_status_2;
     private LinearLayout linearLayout_mhs1, linearLayout_mhs2;
+    String extraJudulId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,7 +99,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         final TextView tv_tambah_sidang2 = findViewById(R.id.act_dsn_textview_tambah_sidang_mhs_2);
 
         ProyekAkhir extraProyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
-        String extraJudulId = String.valueOf(extraProyekAkhir.getJudul_id());
+        extraJudulId = String.valueOf(extraProyekAkhir.getJudul_id());
 
 
         proyekAkhirPresenter.searchAllProyekAkhirBy(PARAM_PROYEK_AKHIR, extraJudulId);
@@ -225,6 +226,8 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
     public void onGetListSidang(List<Sidang> sidangList) {
         sidangArrayList.clear();
         sidangArrayList.addAll(sidangList);
+
+        sidangPresenter.searchAllSidangBy(PARAM_PROYEK_AKHIR, extraJudulId);
         if (sidangArrayList.size() == 0){
            linearLayout_mhs1.setVisibility(View.GONE);
            linearLayout_mhs2.setVisibility(View.GONE);
