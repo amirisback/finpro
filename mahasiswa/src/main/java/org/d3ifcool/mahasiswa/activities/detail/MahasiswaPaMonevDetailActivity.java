@@ -29,7 +29,7 @@ import java.util.List;
 
 public class MahasiswaPaMonevDetailActivity extends AppCompatActivity implements DetailMonevListView, ProyekAkhirListView {
 
-    public static final String EXTRA_PROYEK_AKHIR_MONEV = "extra_monev";
+    public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
     private static final String PARAM_DETAIL_MONEV = "detail_monev.proyek_akhir_id";
     private static final String PARAM_PROYEK_AKHIR = "proyek_akhir.mhs_nim";
 
@@ -60,8 +60,8 @@ public class MahasiswaPaMonevDetailActivity extends AppCompatActivity implements
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         SessionManager sessionManager = new SessionManager(this);
-        Dosen extraDosen = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR_MONEV);
-        String extraDosenNama = extraDosen.getDsn_nama();
+        ProyekAkhir extraProyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
+        String extraDosenNama = extraProyekAkhir.getReviewer_dsn_nama();
 
         TextView textViewDosen = findViewById(R.id.act_mhs_pa_monev_detail_textview_dosen);
         textViewDosen.setText(extraDosenNama);

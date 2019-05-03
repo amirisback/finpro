@@ -68,6 +68,10 @@ public class DosenPresenter {
         this.viewObjectReviewer = viewObjectReviewer;
     }
 
+    public DosenPresenter(DosenPembimbingView viewObjectPembimbing) {
+        this.viewObjectPembimbing = viewObjectPembimbing;
+    }
+
     public DosenPresenter(DosenListView viewResult, DosenReviewerView viewObjectReviewer) {
         this.viewResult = viewResult;
         this.viewObjectReviewer = viewObjectReviewer;

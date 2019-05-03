@@ -22,13 +22,11 @@ import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.BimbinganListView;
 import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.interfaces.objects.DosenPembimbingView;
-import org.d3ifcool.service.interfaces.objects.DosenReviewerView;
 import org.d3ifcool.service.models.Bimbingan;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.BimbinganPresenter;
 import org.d3ifcool.service.presenters.DosenPresenter;
-import org.d3ifcool.service.presenters.JudulPresenter;
 import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 
 import java.util.ArrayList;
@@ -41,7 +39,7 @@ import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS
  * A simple {@link Fragment} subclass.
  */
 public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView,
-        BimbinganListView, DosenPembimbingView, DosenReviewerView{
+        BimbinganListView, DosenPembimbingView{
 
     private static final String PARAM_PROYEK_AKHIR_JUDUL = "proyek_akhir.judul_id";
     private static final String PARAM_BIMBINGAN_ID = "bimbingan.proyek_akhir_id";
@@ -51,13 +49,12 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
     private DosenPresenter dosenPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private BimbinganPresenter bimbinganPresenter;
-    private JudulPresenter judulPresenter;
     private SessionManager sessionManager;
     private ProgressDialog progressDialog;
     private SwipeRefreshLayout swipeRefreshLayout;
     private View disable_view;
     private Dosen parcelDosenPembimbing;
-    private Dosen parcelDosenReviewer;
+    private ProyekAkhir parcelProyekAkhir;
 
     private ArrayList<Bimbingan> arrayListBimbingan = new ArrayList<>();
     private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
@@ -80,7 +77,7 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
 
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         bimbinganPresenter = new BimbinganPresenter(this);
-        dosenPresenter = new DosenPresenter(this, this);
+        dosenPresenter = new DosenPresenter(this);
 
         sessionManager = new SessionManager(getContext());
         progressDialog = new ProgressDialog(getContext());
@@ -126,14 +123,24 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
             }
         });
 
+
         cardViewMonev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(), MahasiswaPaMonevDetailActivity.class);
-                i.putExtra(MahasiswaPaMonevDetailActivity.EXTRA_PROYEK_AKHIR_MONEV, parcelDosenReviewer);
-                startActivity(i);
+
+                if (parcelProyekAkhir.getReviewer_dsn_nip() != null) {
+                    Intent i = new Intent(getContext(), MahasiswaPaMonevDetailActivity.class);
+                    i.putExtra(MahasiswaPaMonevDetailActivity.EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
+                    startActivity(i);
+                } else {
+                    Toast.makeText(getContext(), getContext().getString(R.string.text_no_dosen_monev), Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
+
+
+
 
         cardViewSidang.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,19 +176,6 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
     @Override
     public void hideProgress() {
         progressDialog.dismiss();
-    }
-
-    @Override
-    public void onGetObjectDosenReviewer(Dosen dosen) {
-
-        parcelDosenReviewer = dosen;
-
-        if (dosen != null) {
-            tv_dosen_reviewer_pa.setText(dosen.getDsn_nama());
-        } else {
-            tv_dosen_reviewer_pa.setText(R.string.text_no_dosen_monev);
-        }
-
     }
 
     @Override
@@ -226,6 +220,7 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
             disable_view.setVisibility(View.GONE);
             swipeRefreshLayout.setVisibility(View.VISIBLE);
 
+            parcelProyekAkhir = arrayListProyekAkhir.get(0);
             String stringProyekAkhirId = String.valueOf(arrayListProyekAkhir.get(0).getProyek_akhir_id());
 
             tv_judul_pa.setText(arrayListProyekAkhir.get(0).getJudul_nama());
@@ -237,7 +232,7 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
             dosenPresenter.getDosenPembimbing(arrayListProyekAkhir.get(0).getPembimbing_dsn_nip());
 
             if (arrayListProyekAkhir.get(0).getReviewer_dsn_nip() != null) {
-                dosenPresenter.getDosenReviewer(arrayListProyekAkhir.get(0).getReviewer_dsn_nip());
+                tv_dosen_reviewer_pa.setText(arrayListProyekAkhir.get(0).getReviewer_dsn_nama());
             } else {
                 tv_dosen_reviewer_pa.setText(R.string.text_no_dosen_monev);
             }
