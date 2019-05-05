@@ -34,6 +34,7 @@
         android:paddingBottom="@dimen/dimen_medium"
         android:paddingStart="@dimen/dimen_big"
         android:paddingEnd="@dimen/dimen_big"
+        android:background="@color/colorBackgroundNotYet"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

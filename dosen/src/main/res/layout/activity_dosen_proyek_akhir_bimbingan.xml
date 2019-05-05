@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_height="match_parent"
+<RelativeLayout
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
@@ -28,50 +29,6 @@
                     android:layout_marginStart="@dimen/dimen_big"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/dimen_small"
-                    android:text="@string/text_judul"/>
-
-                <TextView
-                    android:id="@+id/act_dsn_pa_bimbingan_detail_textview_judul"
-                    style="@style/textview_pa_color_primary"
-                    tools:text="@string/dummy_pa_judul"/>
-
-                <View
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"/>
-
-                <TextView
-                    android:layout_marginStart="@dimen/dimen_big"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/dimen_small"
-                    android:text="@string/text_anggota_kelompok"/>
-
-                <TextView
-                    android:id="@+id/act_mhs_pa_bimbingan_detail_textview_mhs1"
-                    style="@style/textview_pa_color_primary"
-                    tools:text="@string/dummy_anggota_kelompok_1"/>
-
-                <TextView
-                    android:id="@+id/act_mhs_pa_bimbingan_detail_textview_mhs2"
-                    style="@style/textview_pa_color_primary"
-                    android:layout_marginTop="-4dp"
-                    tools:text="@string/dummy_anggota_kelompok_2"/>
-
-                <View
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"/>
-
-                <TextView
-                    android:layout_marginStart="@dimen/dimen_big"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/text_jumlah_bimbingan"/>
 
                 <TextView
@@ -90,7 +47,6 @@
             android:layout_marginBottom="@dimen/dimen_big"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_size_title_small"
             android:text="@string/text_daftar_bimbingan"/>
 
         <RelativeLayout
@@ -115,14 +71,5 @@
 
         </RelativeLayout>
     </LinearLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/act_dsn_bimbingan_tambah"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="@dimen/dimen_big"
-        android:src="@drawable/ic_fab_add"/>
 
 </RelativeLayout>

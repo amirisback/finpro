@@ -89,10 +89,10 @@ public class MahasiswaPaBimbinganViewAdapter extends RecyclerView.Adapter<Mahasi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, MahasiswaBimbinganDetailActivity.class);
+                Intent intentData = new Intent(context, MahasiswaBimbinganDetailActivity.class);
                 Bimbingan parcelBimbingan = data.get(position);
-                intent.putExtra(MahasiswaBimbinganDetailActivity.EXTRA_BIMBINGAN, parcelBimbingan);
-                context.startActivity(intent);
+                intentData.putExtra(MahasiswaBimbinganDetailActivity.EXTRA_BIMBINGAN, parcelBimbingan);
+                context.startActivity(intentData);
             }
         });
     }
