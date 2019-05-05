@@ -37,13 +37,13 @@ public class AdminMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, KoorView {
 
     private SessionManager sessionManager;
-
     private KoorPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -56,12 +56,13 @@ public class AdminMainActivity extends AppCompatActivity
         sessionManager = new SessionManager(this);
         presenter = new KoorPresenter(this);
 
+        presenter.getKoorByParameter(sessionManager.getSessionUsername());
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        presenter.getKoorByParameter(sessionManager.getSessionUsername());
-        openFragment(new KoorInformasiFragment());
-        setTitle(getString(R.string.title_informasi));
+        navigationView.getMenu().getItem(0).setChecked(true);
+        onNavigationItemSelected(navigationView.getMenu().getItem(0));
 
     }
 
@@ -152,8 +153,11 @@ public class AdminMainActivity extends AppCompatActivity
             setTitle(getString(R.string.text_title_arsip_judul));
             openFragment(new KoorArsipJudulFragment());
         }
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+        item.setCheckable(true);
+
         return true;
     }
 
