@@ -70,7 +70,7 @@
             android:id="@+id/ctn_dsn_judul_dsn_textview_kategori"
             android:text="@string/dummy"
             android:textSize="@dimen/text_size_default"
-            style="@style/textview_item_list_judul_kategori"/>
+            style="@style/textview_item_list_judul_pa"/>
 
         </LinearLayout>
 
