@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:foreground="?android:attr/selectableItemBackground"
-    android:layout_marginTop="@dimen/dimen_medium"
+    android:layout_marginBottom="@dimen/dimen_medium"
     android:layout_marginLeft="@dimen/dimen_medium"
     android:layout_marginRight="@dimen/dimen_medium">
 
@@ -18,7 +18,6 @@
             <TextView
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_marginEnd="@dimen/dimen_big"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/title_judulpa"
@@ -28,14 +27,14 @@
             <TextView
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_marginEnd="@dimen/dimen_big"
-
                 android:id="@+id/ctn_judul_pa_arsip_textview_judul"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/dummy"
+                android:maxLines="1"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/text_size_default"
                 android:textStyle="bold" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -45,22 +44,21 @@
             <TextView
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_marginEnd="@dimen/dimen_big"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_kategori"
                 android:textSize="@dimen/text_size_default"
                 android:textColor="@color/colorTextBlack"/>
+
             <TextView
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_marginEnd="@dimen/dimen_big"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/ctn_judul_pa_arsip_textview_kategori"
                 android:text="@string/dummy"
                 android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/text_size_default"/>
+                android:textColor="@color/colorPrimary" />
+
         </LinearLayout>
 </androidx.cardview.widget.CardView>

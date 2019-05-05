@@ -31,6 +31,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/ctn_judul_pa_arsip_textview_judul"
             android:text="@string/dummy"
+            android:maxLines="1"
             android:textStyle="bold"
             android:textColor="@color/colorPrimary" />
 

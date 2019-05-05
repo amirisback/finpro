@@ -29,7 +29,6 @@
     android:layout_marginRight="@dimen/dimen_medium">
 
     <LinearLayout
-
         android:layout_marginTop="@dimen/dimen_medium"
         android:layout_marginBottom="@dimen/dimen_medium"
         android:layout_marginStart="@dimen/dimen_big"
@@ -41,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/text_nama_kelompok"
-            android:textSize="12sp"
+            android:textSize="@dimen/text_size_default"
             android:textColor="@color/colorTextBlack"/>
 
         <TextView
@@ -49,7 +48,6 @@
             android:layout_width="wrap_content"
             android:maxLines="1"
             android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/text_size_title_small"
             android:id="@+id/content_nama_kelompok"
             android:text="@string/dummy"/>
 
