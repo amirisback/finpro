@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private String username, password;
 
     private ProgressDialog progressDialog;
-    private LoginPresenter presenter;
+    private LoginPresenter loginPresenter;
     private SessionManager sessionManager;
 
     private static final String ROLE_DOSEN = "dosen";
@@ -38,10 +38,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         editTextUsername = findViewById(R.id.act_main_edittext_username);
         editTextPassword = findViewById(R.id.act_main_edittext_password);
 
-        sessionManager = new SessionManager(LoginActivity.this);
-        presenter = new LoginPresenter(this);
+        sessionManager = new SessionManager(this);
+        loginPresenter = new LoginPresenter(this);
 
-        progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(org.d3ifcool.dosen.R.string.text_progress_dialog));
 
         button_login.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             public void onClick(View v) {
                 username = editTextUsername.getText().toString();
                 password = editTextPassword.getText().toString();
-                presenter.getLogin(username, password);
+                loginPresenter.getLogin(username, password);
             }
         });
 

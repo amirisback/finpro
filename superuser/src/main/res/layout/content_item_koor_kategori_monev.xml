@@ -22,6 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/menu_kategori_monev"
+                android:textSize="@dimen/text_size_default"
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_marginEnd="@dimen/dimen_big"
                 android:layout_toStartOf="@id/ctn_koor_button_hapus"/>
@@ -35,6 +36,7 @@
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_marginEnd="@dimen/dimen_big"
                 android:text="@string/dummy"
+                android:textStyle="bold"
                 android:textColor="@color/colorTextBlack"/>
 
             <View
@@ -50,6 +52,7 @@
                 android:id="@+id/text_view_bimbingan"
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_marginEnd="@dimen/dimen_big"
+                android:textSize="@dimen/text_size_default"
                 android:layout_below="@id/view_atur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,6 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_marginEnd="@dimen/dimen_big"
+                android:textStyle="bold"
                 android:text="@string/dummy"
                 android:textColor="@color/colorTextBlack"/>
 
