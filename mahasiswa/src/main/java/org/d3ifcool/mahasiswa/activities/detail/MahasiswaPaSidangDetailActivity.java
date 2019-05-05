@@ -6,6 +6,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,21 +27,26 @@ import java.util.List;
 public class MahasiswaPaSidangDetailActivity extends AppCompatActivity implements SidangListView, ProyekAkhirListView{
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
+
     private static final String PARAM_PROYEK_AKHIR = "proyek_akhir.judul_id";
+
     private ArrayList<ProyekAkhir> proyekAkhirArrayList = new ArrayList<>();
     private ArrayList<Sidang> sidangArrayList = new ArrayList<>();
+
     private SidangPresenter sidangPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
-    private ProgressDialog dialog;
+    private ProgressDialog progressDialog;
+
     private SwipeRefreshLayout swipeRefreshLayout;
     private CardView cardView_mhs_1,cardView_mhs_2;
-    TextView tv_nama1,tv_nim1,tv_nama2,tv_nim2;
-    String nama_1, nama_2, nim_1, nim_2;
-    String judul_id;
     private LinearLayout linearLayout_mhs1, linearLayout_mhs2;
-    int nilai_prop1,nilai_prop2, nilai_pemb1,nilai_pemb2, nilai_peng1_1, nilai_peng1_2,nilai_peng2_1,nilai_peng2_2, nilai_total1,nilai_total2;
+    private TextView tv_nama1,tv_nim1,tv_nama2,tv_nim2;
     private TextView tv_nilai_proposal1, tv_nilai_pembimbing,tv_nilai_penguji1_1,tv_nilai_penguji1_2,tv_nilai_total_1, tv_review_1, tv_status_1;
     private TextView tv_nilai_proposal2, tv_nilai_pembimbing2,tv_nilai_penguji2_1,tv_nilai_penguji2_2,tv_nilai_total_2,tv_review_2, tv_status_2;
+
+    private String nama_1, nama_2, nim_1, nim_2, judul_id;
+    private int nilai_prop1,nilai_prop2, nilai_pemb1,nilai_pemb2, nilai_peng1_1, nilai_peng1_2,nilai_peng2_1,nilai_peng2_2, nilai_total1,nilai_total2;
+
 
 
     @Override
@@ -47,8 +54,11 @@ public class MahasiswaPaSidangDetailActivity extends AppCompatActivity implement
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mahasiswa_pa_sidang_detail);
 
-        dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.text_progress_dialog));
+        setTitle(getString(R.string.title_sidang));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
         swipeRefreshLayout = findViewById(R.id.swipe_refresh);
         sidangPresenter = new SidangPresenter(this);
 
@@ -80,22 +90,37 @@ public class MahasiswaPaSidangDetailActivity extends AppCompatActivity implement
         ProyekAkhir extra_proyek_akhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
         judul_id = String.valueOf(extra_proyek_akhir.getJudul_id());
 
-        proyekAkhirPresenter.searchAllProyekAkhirBy(PARAM_PROYEK_AKHIR, judul_id);
-        sidangPresenter.searchAllSidangBy(PARAM_PROYEK_AKHIR, judul_id);
-
+//        proyekAkhirPresenter.searchAllProyekAkhirBy(PARAM_PROYEK_AKHIR, judul_id);
+//        sidangPresenter.searchAllSidangBy(PARAM_PROYEK_AKHIR, judul_id);
 
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override
