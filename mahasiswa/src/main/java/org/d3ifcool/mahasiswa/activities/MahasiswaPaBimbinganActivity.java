@@ -27,11 +27,15 @@ import org.d3ifcool.service.presenters.BimbinganPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_DISETUJUI;
+
 public class MahasiswaPaBimbinganActivity extends AppCompatActivity implements BimbinganListView {
 
     public static final String EXTRA_DOSEN_PEMBIMBING = "extra_dosen_pembimbing";
+    public static final String EXTRA_BIMBINGAN_JUMLAH = "extra_bimbingan_jumlah";
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
-    private static final String BIMBINGAN_PARAM = "bimbingan.proyek_akhir_id";
+    private static final String PARAM_BIMBINGAN_ID = "bimbingan.proyek_akhir_id";
+    private static final String PARAM_BIMBINGAN_STATUS = "bimbingan.bimbingan_status";
 
     private RecyclerView recyclerView;
     private BimbinganPresenter bimbinganPresenter;
@@ -66,9 +70,11 @@ public class MahasiswaPaBimbinganActivity extends AppCompatActivity implements B
 
         extraArrayProyekAkhir = getIntent().getParcelableArrayListExtra(EXTRA_PROYEK_AKHIR);
         Dosen extraDosen = getIntent().getParcelableExtra(EXTRA_DOSEN_PEMBIMBING);
+        int extraJumlahBimbingan = getIntent().getIntExtra(EXTRA_BIMBINGAN_JUMLAH, 0);
+        textViewJumlah.setText(String.valueOf(extraJumlahBimbingan));
         textViewDosen.setText(extraDosen.getDsn_nama());
 
-        bimbinganPresenter.searchBimbingan(BIMBINGAN_PARAM, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
+        bimbinganPresenter.searchBimbinganAllBy(PARAM_BIMBINGAN_ID, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
 
         btn_tambah_bimbingan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +89,7 @@ public class MahasiswaPaBimbinganActivity extends AppCompatActivity implements B
     @Override
     protected void onResume() {
         super.onResume();
-        bimbinganPresenter.searchBimbingan(BIMBINGAN_PARAM, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
+        bimbinganPresenter.searchBimbinganAllBy(PARAM_BIMBINGAN_ID, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
 
     }
 
@@ -124,7 +130,7 @@ public class MahasiswaPaBimbinganActivity extends AppCompatActivity implements B
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        textViewJumlah.setText(String.valueOf(arrayListBimbingan.size()));
+//        textViewJumlah.setText(String.valueOf(arrayListBimbingan.size()));
 
         if (arrayListBimbingan.size() == 0) {
             empty_view.setVisibility(View.VISIBLE);

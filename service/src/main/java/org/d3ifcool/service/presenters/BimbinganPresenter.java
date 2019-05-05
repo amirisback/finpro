@@ -131,10 +131,10 @@ public class BimbinganPresenter {
     }
 
 
-    public void searchBimbingan(String parameter, String query){
+    public void searchBimbinganAllBy(String parameter, String query){
         viewResult.showProgress();
         ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
-        Call<List<Bimbingan>> call = apiInterfaceBimbingan.getBimbinganSearch(parameter, query);
+        Call<List<Bimbingan>> call = apiInterfaceBimbingan.searchBimbinganBy(parameter, query);
         call.enqueue(new Callback<List<Bimbingan>>() {
             @Override
             public void onResponse(Call<List<Bimbingan>> call, Response<List<Bimbingan>> response) {
@@ -149,6 +149,27 @@ public class BimbinganPresenter {
             }
         });
     }
+
+    public void searchBimbinganAllByTwo(String parameter1, String query1, String parameter2, String query2){
+        viewResult.showProgress();
+        ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
+        Call<List<Bimbingan>> call = apiInterfaceBimbingan.searchBimbinganByTwo(parameter1, query1, parameter2, query2);
+        call.enqueue(new Callback<List<Bimbingan>>() {
+            @Override
+            public void onResponse(Call<List<Bimbingan>> call, Response<List<Bimbingan>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetListBimbingan(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Bimbingan>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getMessage());
+            }
+        });
+    }
+
+
 
     public void updateBimbinganStatus(String bimbingan_id, String bimbingan_status){
         viewEditor.showProgress();

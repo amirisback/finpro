@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_DISETUJUI;
 
 
 /**
@@ -43,6 +44,7 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
 
     private static final String PARAM_PROYEK_AKHIR_JUDUL = "proyek_akhir.judul_id";
     private static final String PARAM_BIMBINGAN_ID = "bimbingan.proyek_akhir_id";
+    private static final String PARAM_BIMBINGAN_STATUS = "bimbingan.bimbingan_status";
     private static final String PARAM_JUDUL_STATUS = "judul_status";
     private static final String PARAM_JUDUL_ID = "judul_id";
 
@@ -55,6 +57,7 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
     private View disable_view;
     private Dosen parcelDosenPembimbing;
     private ProyekAkhir parcelProyekAkhir;
+    private int jumlahBimbingan;
 
     private ArrayList<Bimbingan> arrayListBimbingan = new ArrayList<>();
     private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
@@ -119,6 +122,7 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
                 ArrayList<ProyekAkhir> extraArrayProyekAkhir = arrayListProyekAkhir;
                 i.putExtra(MahasiswaPaBimbinganActivity.EXTRA_DOSEN_PEMBIMBING, parcelDosenPembimbing);
                 i.putParcelableArrayListExtra(MahasiswaPaBimbinganActivity.EXTRA_PROYEK_AKHIR, extraArrayProyekAkhir);
+                i.putExtra(MahasiswaPaBimbinganActivity.EXTRA_BIMBINGAN_JUMLAH, jumlahBimbingan);
                 startActivity(i);
             }
         });
@@ -196,12 +200,12 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
         arrayListBimbingan.addAll(bimbinganList);
 
         if (!arrayListBimbingan.isEmpty()){
-            int jumlahBimbingan = arrayListBimbingan.size();
+            jumlahBimbingan = arrayListBimbingan.size();
             String stringJumlahBimibingan = String.valueOf(jumlahBimbingan);
             tv_jumlah_bimbingan_pa.setText(stringJumlahBimibingan);
 
         } else {
-            int jumlahBimbingan = 0;
+            jumlahBimbingan = 0;
             String stringJumlahBimibingan = String.valueOf(jumlahBimbingan);
             tv_jumlah_bimbingan_pa.setText(stringJumlahBimibingan);
         }
@@ -227,7 +231,7 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
             tv_nama_anggota1_pa.setText(arrayListProyekAkhir.get(0).getMhs_nama());
             tv_nim_anggota1_pa.setText(arrayListProyekAkhir.get(0).getMhs_nim());
 
-            bimbinganPresenter.searchBimbingan(PARAM_BIMBINGAN_ID, stringProyekAkhirId);
+            bimbinganPresenter.searchBimbinganAllByTwo(PARAM_BIMBINGAN_ID, stringProyekAkhirId, PARAM_BIMBINGAN_STATUS, STATUS_BIMBINGAN_DISETUJUI);
             dosenPresenter.getDosenPembimbing(arrayListProyekAkhir.get(0).getPembimbing_dsn_nip());
 
             if (arrayListProyekAkhir.get(0).getReviewer_dsn_nip() != null) {

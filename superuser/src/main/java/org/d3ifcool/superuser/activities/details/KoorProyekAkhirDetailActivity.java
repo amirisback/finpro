@@ -1,7 +1,6 @@
 package org.d3ifcool.superuser.activities.details;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -171,7 +170,7 @@ public class KoorProyekAkhirDetailActivity extends AppCompatActivity implements 
             tv_nama_anggota1_pa.setText(arrayListProyekAkhir.get(0).getMhs_nama());
             tv_nim_anggota1_pa.setText(arrayListProyekAkhir.get(0).getMhs_nim());
 
-            bimbinganPresenter.searchBimbingan(BIMBINGAN_PARAM, stringProyekAkhirId);
+            bimbinganPresenter.searchBimbinganAllBy(BIMBINGAN_PARAM, stringProyekAkhirId);
             dosenPresenter.getDosenPembimbing(arrayListProyekAkhir.get(0).getPembimbing_dsn_nip());
 
             if (arrayListProyekAkhir.get(0).getReviewer_dsn_nip() != null) {

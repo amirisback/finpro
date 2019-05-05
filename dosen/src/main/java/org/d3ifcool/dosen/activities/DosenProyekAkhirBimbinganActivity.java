@@ -1,7 +1,7 @@
 package org.d3ifcool.dosen.activities;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,7 +16,6 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.activities.editor.create.DosenBimbinganTambahActivity;
 import org.d3ifcool.dosen.adapters.recyclerview.DosenBimbinganViewAdapter;
 import org.d3ifcool.service.interfaces.lists.BimbinganListView;
 import org.d3ifcool.service.models.Bimbingan;
@@ -71,7 +70,7 @@ public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity impleme
             tv_nama_anggota_2.setText(extraArrayProyekAkhir.get(extraArrayProyekAkhir.size()-1).getMhs_nama());
         }
 
-        bimbinganPresenter.searchBimbingan(BIMBINGAN_PARAM, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
+        bimbinganPresenter.searchBimbinganAllBy(BIMBINGAN_PARAM, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
 
 //        btn_tambah_bimbingan.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -87,7 +86,7 @@ public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity impleme
     @Override
     protected void onResume() {
         super.onResume();
-        bimbinganPresenter.searchBimbingan(BIMBINGAN_PARAM, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
+        bimbinganPresenter.searchBimbinganAllBy(BIMBINGAN_PARAM, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
     }
 
     @Override

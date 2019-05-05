@@ -21,7 +21,6 @@ import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.interfaces.lists.SidangListView;
 import org.d3ifcool.service.models.Bimbingan;
 import org.d3ifcool.service.models.DetailMonev;
-import org.d3ifcool.service.models.Monev;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.models.Sidang;
 import org.d3ifcool.service.presenters.BimbinganPresenter;
@@ -203,7 +202,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         proyekAkhirArrayList.addAll(proyekAkhirList);
 
         String stringProyekAkhirId = String.valueOf(proyekAkhirArrayList.get(0).getProyek_akhir_id());
-        bimbinganPresenter.searchBimbingan(PARAM_BIMBINGAN, stringProyekAkhirId);
+        bimbinganPresenter.searchBimbinganAllBy(PARAM_BIMBINGAN, stringProyekAkhirId);
 
 
         if (proyekAkhirArrayList.size() == 2) {

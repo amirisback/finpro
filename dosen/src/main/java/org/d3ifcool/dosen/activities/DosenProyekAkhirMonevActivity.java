@@ -137,7 +137,7 @@ public class DosenProyekAkhirMonevActivity extends AppCompatActivity implements 
 
         String stringProyekAkhirId = String.valueOf(proyekAkhirArrayList.get(0).getProyek_akhir_id());
 
-        bimbinganPresenter.searchBimbingan(PARAM_BIMBINGAN, stringProyekAkhirId);
+        bimbinganPresenter.searchBimbinganAllBy(PARAM_BIMBINGAN, stringProyekAkhirId);
 
         if (proyekAkhirArrayList.size() == 2) {
             textViewNama1.setText(proyekAkhirArrayList.get(0).getMhs_nama());

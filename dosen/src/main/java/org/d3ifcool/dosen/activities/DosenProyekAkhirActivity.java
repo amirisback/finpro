@@ -16,7 +16,6 @@ import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.BimbinganListView;
 import org.d3ifcool.service.interfaces.lists.DetailMonevListView;
-import org.d3ifcool.service.interfaces.lists.MonevListView;
 import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.interfaces.objects.DosenPembimbingView;
 import org.d3ifcool.service.interfaces.objects.DosenReviewerView;
@@ -24,7 +23,6 @@ import org.d3ifcool.service.models.Bimbingan;
 import org.d3ifcool.service.models.DetailMonev;
 import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.models.Monev;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.BimbinganPresenter;
 import org.d3ifcool.service.presenters.DetailMonevPresenter;
@@ -242,7 +240,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
             tv_nama_anggota1_pa.setText(arrayListProyekAkhir.get(0).getMhs_nama());
             tv_nim_anggota1_pa.setText(arrayListProyekAkhir.get(0).getMhs_nim());
 
-            bimbinganPresenter.searchBimbingan(BIMBINGAN_PARAM, stringProyekAkhirId);
+            bimbinganPresenter.searchBimbinganAllBy(BIMBINGAN_PARAM, stringProyekAkhirId);
             dosenPresenter.getDosenPembimbing(arrayListProyekAkhir.get(0).getPembimbing_dsn_nip());
 
             if (arrayListProyekAkhir.get(0).getReviewer_dsn_nip() != null) {
