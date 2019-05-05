@@ -6,17 +6,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.activities.detail.MahasiswaBimbinganDetailActivity;
 import org.d3ifcool.service.models.Bimbingan;
-import org.d3ifcool.service.models.ProyekAkhir;
 
 import java.util.ArrayList;
+
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_PENDING;
 
 /**
  * Created by Faisal Amir
@@ -39,7 +42,6 @@ public class MahasiswaPaBimbinganViewAdapter extends RecyclerView.Adapter<Mahasi
 
     private Context context;
     private ArrayList<Bimbingan> data;
-    private ArrayList<ProyekAkhir> datapa;
     private int layoutType;
 
     public MahasiswaPaBimbinganViewAdapter(Context context) {
@@ -57,19 +59,31 @@ public class MahasiswaPaBimbinganViewAdapter extends RecyclerView.Adapter<Mahasi
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView infoIsi, infoTanggal;
+        TextView infoIsi, infoTanggal, status;
+        LinearLayout container;
 
         public ViewHolder(View itemView) {
             super(itemView);
             // -------------------------------------------------------------------------------------
             infoIsi = itemView.findViewById(R.id.ctn_mhs_pa_bimbingan_textview_isi);
             infoTanggal = itemView.findViewById(R.id.ctn_mhs_pa_bimbingan_textview_tanggal);
+            status = itemView.findViewById(R.id.ctn_mhs_pa_bimbingan_textview_status);
+            container = itemView.findViewById(R.id.container_bimbingan);
             // -------------------------------------------------------------------------------------
         }
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
+
+        if (data.get(position).getBimbingan_status().equals(STATUS_BIMBINGAN_PENDING)){
+            holder.status.setVisibility(View.VISIBLE);
+            holder.container.setBackgroundColor(context.getResources().getColor(R.color.colorBackgroundNotYet));
+        } else {
+            holder.container.setBackgroundColor(Color.TRANSPARENT);
+            holder.status.setVisibility(View.GONE);
+        }
+
         holder.infoTanggal.setText(data.get(position).getBimbingan_tanggal());
         holder.infoIsi.setText(data.get(position).getBimbingan_review());
         holder.itemView.setOnClickListener(new View.OnClickListener() {

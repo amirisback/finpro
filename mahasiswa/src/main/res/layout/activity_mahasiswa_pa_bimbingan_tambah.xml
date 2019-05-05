@@ -20,7 +20,6 @@
             android:src="@drawable/ic_announcement"/>
 
         <TextView
-            android:textSize="@dimen/text_size_title_small"
             android:textColor="@color/colorPrimary"
             android:text="@string/text_tanggal_bimbingan"
             android:layout_width="match_parent"
@@ -30,12 +29,8 @@
         <TextView
             android:id="@+id/act_mhs_bimbingan_textview_tanggal"
             android:textSize="@dimen/text_size_title_small"
-            android:background="@color/colorBackgroundWhite"
-            android:elevation="2dp"
-            android:paddingTop="@dimen/dimen_big"
-            android:paddingBottom="@dimen/dimen_big"
-            android:paddingEnd="@dimen/dimen_big"
-            android:paddingStart="@dimen/dimen_big"
+            android:paddingTop="@dimen/dimen_medium"
+            android:paddingBottom="@dimen/dimen_medium"
             android:textColor="@color/colorTextBlack"
             android:drawableEnd="@drawable/ic_date"
             android:drawablePadding="@dimen/dimen_big"
@@ -47,25 +42,50 @@
             android:maxLines="1"/>
 
         <TextView
-            android:textSize="@dimen/text_size_title_small"
+            android:id="@+id/act_mhs_nama_1"
             android:textColor="@color/colorPrimary"
-            android:text="@string/text_judul_bimbingan"
+            android:text="@string/dummy_anggota_kelompok_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"/>
 
-        <EditText
-            android:layout_marginTop="@dimen/dimen_medium"
+        <Spinner
+            android:entries="@array/array_kehadiran_bimbingan"
             android:layout_marginBottom="@dimen/dimen_medium"
-            android:hint="@string/hint_judul_bimbingan"
-            android:inputType="textMultiLine"
-            android:layout_marginStart="-4dp"
-            android:id="@+id/act_mhs_info_edittext_judul_bimbingan"
+            android:layout_marginStart="-8dp"
+            android:layout_marginEnd="-8dp"
+            android:id="@+id/spinner_kehadiran_1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"/>
+
+        <LinearLayout
+            android:id="@+id/container_mahasiswa_2"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/act_mhs_nama_2"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/dummy_anggota_kelompok_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
+
+            <Spinner
+                android:entries="@array/array_kehadiran_bimbingan"
+                android:layout_marginBottom="@dimen/dimen_medium"
+                android:layout_marginStart="-8dp"
+                android:layout_marginEnd="-8dp"
+                android:id="@+id/spinner_kehadiran_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"/>
+
+        </LinearLayout>
 
         <TextView
-            android:textSize="@dimen/text_size_title_small"
             android:textColor="@color/colorPrimary"
             android:text="@string/text_review_bimbingan"
             android:id="@+id/tv_review"
@@ -75,13 +95,15 @@
 
         <EditText
             android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_big_ultra"
+            android:layout_marginBottom="@dimen/dimen_medium"
             android:hint="@string/hint_review_bimbingan"
             android:inputType="textMultiLine"
             android:layout_marginStart="-4dp"
             android:id="@+id/act_mhs_info_edittext_konten"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+
 
         <Button
             android:foreground="?android:attr/selectableItemBackground"
@@ -91,6 +113,8 @@
             android:text="@string/button_click_tambah_bimbingan"
             android:textColor="@color/colorTextWhite"
             android:background="@drawable/box_border_button_action"/>
+
+
 
     </LinearLayout>
 

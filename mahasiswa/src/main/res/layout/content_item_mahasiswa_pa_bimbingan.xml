@@ -29,14 +29,15 @@
     android:layout_marginRight="@dimen/dimen_medium">
 
     <LinearLayout
-        android:layout_margin="@dimen/dimen_medium"
+        android:id="@+id/container_bimbingan"
+        android:padding="@dimen/dimen_medium"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="@dimen/min_height_list_bimbingan">
 
         <TextView
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorTextBlack"
             android:id="@+id/ctn_mhs_pa_bimbingan_textview_tanggal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,6 +57,15 @@
             android:layout_height="wrap_content"
             android:text="@string/dummyLong"
             android:maxLines="3" />
+
+        <TextView
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:id="@+id/ctn_mhs_pa_bimbingan_textview_status"
+            android:layout_width="match_parent"
+            android:gravity="end"
+            android:textColor="@color/colorBackgroundYellow"
+            android:layout_height="wrap_content"
+            android:text="@string/text_status_bimbingan_pending" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

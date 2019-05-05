@@ -338,7 +338,19 @@
     <string name="text_siap_sidang">Siap Sidang</string>
     <string name="tambah_sidang">Tambah Sidang</string>
     <string name="text_divider">|</string>
-    <string name="text_bimbingan_kehadiran">Absensi</string>
+    <string name="text_bimbingan_kehadiran">Kehadiran</string>
+    <string name="text_bimbingan_gagal">Tidak dapat menambahkan, harap tunggu bimbingan sebelumnya disetujui terlebih dahulu</string>
+    <string name="text_bimbingan_berhasil">Bimbingan Baru Berhasil ditambahkan, harap tunggu ACC dari dosen pembimbing</string>
+    <string name="dialog_setuju_title">Apakah anda setuju untuk meng-acc judul ini?</string>
+    <string name="dialog_setuju_text">Setuju</string>
+    <string name="dialog_tolak_text">Tolak</string>
+    <string name="dialog_tolak_title">Apakah anda menolak judul ini?</string>
+    <string name="text_status_bimbingan_pending">Belum di acc</string>
+
+    <string-array name="array_kehadiran_bimbingan">
+        <item>Hadir</item>
+        <item>Tidak Hadir</item>
+    </string-array>
 
     <string-array name="array_status_sidang">
         <item>Lulus</item>

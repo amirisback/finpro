@@ -75,7 +75,7 @@ public class MahasiswaPaBimbinganUbahActivity extends AppCompatActivity implemen
                                 }else if (isi_baru.isEmpty()){
                                     et_review.setError(getString(R.string.text_tidak_boleh_kosong));
                                 }else{
-                                    presenter.updateBimbingan(extrabimbingan.getBimbingan_id(), isi_baru, judul_baru, tanggal_baru);
+                                    presenter.updateBimbingan(extrabimbingan.getBimbingan_id(), isi_baru, tanggal_baru);
                                 }
                             }
                         })

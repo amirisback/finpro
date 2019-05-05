@@ -53,7 +53,6 @@ public interface ApiInterfaceBimbingan {
     @POST(URL_BIMBINGAN + PATH_UPDATE + PARAMETER_BIMBINGAN)
     Call<Bimbingan> updateBimbingan(@Path(VAR_BIMBINGAN) String bimbingan_id,
                                     @Field("bimbingan_review") String bimbingan_review,
-                                    @Field("bimbingan_judul") String bimbingan_judul,
                                     @Field("bimbingan_tanggal") String bimbingan_tanggal
     );
 

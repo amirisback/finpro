@@ -92,10 +92,10 @@ public class BimbinganPresenter {
         });
     }
 
-    public void updateBimbingan(String bimbingan_id, String bimbingan_review, String bimbingan_judul, String bimbingan_tanggal){
+    public void updateBimbingan(String bimbingan_id, String bimbingan_review, String bimbingan_tanggal){
         viewEditor.showProgress();
         ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
-        Call<Bimbingan> call = apiInterfaceBimbingan.updateBimbingan(bimbingan_id, bimbingan_review, bimbingan_judul, bimbingan_tanggal);
+        Call<Bimbingan> call = apiInterfaceBimbingan.updateBimbingan(bimbingan_id, bimbingan_review, bimbingan_tanggal);
         call.enqueue(new Callback<Bimbingan>() {
             @Override
             public void onResponse(Call<Bimbingan> call, Response<Bimbingan> response) {

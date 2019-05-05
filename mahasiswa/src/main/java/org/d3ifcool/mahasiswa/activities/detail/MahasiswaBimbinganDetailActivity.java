@@ -57,7 +57,7 @@ public class MahasiswaBimbinganDetailActivity extends AppCompatActivity implemen
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_edit_delete, menu);
+//        getMenuInflater().inflate(R.menu.menu_edit_delete, menu);
         return super.onCreateOptionsMenu(menu);
 
     }
@@ -69,31 +69,32 @@ public class MahasiswaBimbinganDetailActivity extends AppCompatActivity implemen
         if (i == android.R.id.home) {
             finish();
 
-        } else if (i == R.id.toolbar_menu_ubah) {
-            Intent intentUbah = new Intent(MahasiswaBimbinganDetailActivity.this, MahasiswaPaBimbinganUbahActivity.class);
-            intentUbah.putExtra(MahasiswaPaBimbinganUbahActivity.EXTRA_BIMBINGAN, extraBimbingan);
-            intentUbah.putExtra(MahasiswaPaBimbinganUbahActivity.EXTRA_PROYEK_AKHIR, extraProyekAkhir);
-            startActivity(intentUbah);
-            finish();
-
-        } else if (i == R.id.toolbar_menu_hapus) {
-
-            new AlertDialog
-                    .Builder(this)
-                    .setTitle(getString(R.string.dialog_hapus_title))
-                    .setMessage(getString(R.string.dialog_hapus_text))
-
-                    .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            presenter.deleteBimbingan(extraBimbingan.getBimbingan_id());
-                        }
-                    })
-
-                    .setNegativeButton(R.string.tidak, null)
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .show();
-
         }
+//        else if (i == R.id.toolbar_menu_ubah) {
+//            Intent intentUbah = new Intent(MahasiswaBimbinganDetailActivity.this, MahasiswaPaBimbinganUbahActivity.class);
+//            intentUbah.putExtra(MahasiswaPaBimbinganUbahActivity.EXTRA_BIMBINGAN, extraBimbingan);
+//            intentUbah.putExtra(MahasiswaPaBimbinganUbahActivity.EXTRA_PROYEK_AKHIR, extraProyekAkhir);
+//            startActivity(intentUbah);
+//            finish();
+//
+//        } else if (i == R.id.toolbar_menu_hapus) {
+//
+//            new AlertDialog
+//                    .Builder(this)
+//                    .setTitle(getString(R.string.dialog_hapus_title))
+//                    .setMessage(getString(R.string.dialog_hapus_text))
+//
+//                    .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            presenter.deleteBimbingan(extraBimbingan.getBimbingan_id());
+//                        }
+//                    })
+//
+//                    .setNegativeButton(R.string.tidak, null)
+//                    .setIcon(android.R.drawable.ic_dialog_alert)
+//                    .show();
+//
+//        }
 
         return super.onOptionsItemSelected(item);
     }

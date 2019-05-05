@@ -69,6 +69,11 @@ public class Constant {
         public static final String KOOR_FOTO = "KOOR_FOTO";
         public static final String KOOR_USERNAME = "USERNAME_KOOR";
 
+        public static final String BIMBINGAN_DITOLAK = "Bimbingan Ditolak!";
+        public static final String BIMBINGAN_DIACC = "Bimbingan Telah Di-Acc!";
+        public static final String STATUS_BIMBINGAN_PENDING = "pending";
+        public static final String STATUS_BIMBINGAN_DISETUJUI = "disetujui";
+
     }
 
 }

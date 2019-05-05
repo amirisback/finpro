@@ -73,14 +73,14 @@ public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity impleme
 
         bimbinganPresenter.searchBimbingan(BIMBINGAN_PARAM, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
 
-        btn_tambah_bimbingan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DosenProyekAkhirBimbinganActivity.this, DosenBimbinganTambahActivity.class);
-                intent.putParcelableArrayListExtra(DosenBimbinganTambahActivity.EXTRA_PROYEK_AKHIR, extraArrayProyekAkhir);
-                startActivity(intent);
-            }
-        });
+//        btn_tambah_bimbingan.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(DosenProyekAkhirBimbinganActivity.this, DosenBimbinganTambahActivity.class);
+//                intent.putParcelableArrayListExtra(DosenBimbinganTambahActivity.EXTRA_PROYEK_AKHIR, extraArrayProyekAkhir);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 

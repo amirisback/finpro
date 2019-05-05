@@ -2,7 +2,9 @@ package org.d3ifcool.dosen.activities.detail;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -90,22 +92,53 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
         floatingActionButtonAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                judulPresenter.updateStatusJudul(extraJudulId, JUDUL_STATUS_DIGUNAKAN);
+
+
+                new AlertDialog
+                        .Builder(getApplicationContext())
+                        .setTitle(getString(R.string.dialog_setuju_title))
+                        .setMessage(getString(R.string.dialog_setuju_text))
+
+                        .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                judulPresenter.updateStatusJudul(extraJudulId, JUDUL_STATUS_DIGUNAKAN);
+                            }
+                        })
+
+                        .setNegativeButton(R.string.tidak, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
+
             }
         });
 
         floatingActionButtonDecline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                proyekAkhirPresenter.deleteProyekAkhir(arrayListProyekAkhir.get(0).getProyek_akhir_id());
-                mahasiswaPresenter.updateMahasiswaJudul(arrayListProyekAkhir.get(0).getMhs_nim(), 0);
 
-                if (arrayListProyekAkhir.size() == 2) {
-                    proyekAkhirPresenter.deleteProyekAkhir(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getProyek_akhir_id());
-                    mahasiswaPresenter.updateMahasiswaJudul(arrayListProyekAkhir.get(1).getMhs_nim(), 0);
-                }
+                new AlertDialog
+                        .Builder(getApplicationContext())
+                        .setTitle(getString(R.string.dialog_tolak_title))
+                        .setMessage(getString(R.string.dialog_tolak_text))
 
-                judulPresenter.updateStatusJudul(extraJudulId, JUDUL_STATUS_DITOLAK);
+                        .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                proyekAkhirPresenter.deleteProyekAkhir(arrayListProyekAkhir.get(0).getProyek_akhir_id());
+                                mahasiswaPresenter.updateMahasiswaJudul(arrayListProyekAkhir.get(0).getMhs_nim(), 0);
+
+                                if (arrayListProyekAkhir.size() == 2) {
+                                    proyekAkhirPresenter.deleteProyekAkhir(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getProyek_akhir_id());
+                                    mahasiswaPresenter.updateMahasiswaJudul(arrayListProyekAkhir.get(1).getMhs_nim(), 0);
+                                }
+
+                                judulPresenter.updateStatusJudul(extraJudulId, JUDUL_STATUS_DITOLAK);
+                            }
+                        })
+
+                        .setNegativeButton(R.string.tidak, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
 
             }
         });
