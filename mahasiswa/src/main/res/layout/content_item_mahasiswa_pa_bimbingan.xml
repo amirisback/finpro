@@ -30,7 +30,10 @@
 
     <LinearLayout
         android:id="@+id/container_bimbingan"
-        android:padding="@dimen/dimen_medium"
+        android:paddingTop="@dimen/dimen_medium"
+        android:paddingBottom="@dimen/dimen_medium"
+        android:paddingStart="@dimen/dimen_big"
+        android:paddingEnd="@dimen/dimen_big"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
