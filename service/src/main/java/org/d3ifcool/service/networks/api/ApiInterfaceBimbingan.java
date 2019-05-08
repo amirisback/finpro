@@ -68,13 +68,19 @@ public interface ApiInterfaceBimbingan {
     Call<Bimbingan> deleteBimbingan(@Path(VAR_BIMBINGAN) String bimbingan_id);
 
     @GET(URL_BIMBINGAN + PATH_SEARCH + PATH_ALL + BASE_PARAMETER + PARAMETER_QUERY)
-    Call<List<Bimbingan>> searchBimbinganBy(
+    Call<List<Bimbingan>> searchBimbinganAllBy(
+            @Path(VAR_PARAMS) String parameter,
+            @Path(VAR_QUERY) String query
+    );
+
+    @GET(URL_BIMBINGAN + PATH_SEARCH + PATH_ALL + BASE_PARAMETER + PARAMETER_QUERY)
+    Call<Bimbingan> searchBimbinganBy(
             @Path(VAR_PARAMS) String parameter,
             @Path(VAR_QUERY) String query
     );
 
     @GET(URL_BIMBINGAN + PATH_SEARCH + PATH_ALL + BASE_PARAMETER_1 + PARAMETER_QUERY_1 + BASE_PARAMETER_2 + PARAMETER_QUERY_2)
-    Call<List<Bimbingan>> searchBimbinganByTwo(
+    Call<List<Bimbingan>> searchBimbinganAllByTwo(
             @Path(VAR_PARAMS+"1") String parameter1,
             @Path(VAR_QUERY+"1") String query1,
             @Path(VAR_PARAMS+"2") String parameter2,

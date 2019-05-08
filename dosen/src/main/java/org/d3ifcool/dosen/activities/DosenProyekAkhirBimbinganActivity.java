@@ -18,6 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.adapters.recyclerview.DosenBimbinganViewAdapter;
 import org.d3ifcool.service.interfaces.lists.BimbinganListView;
+import org.d3ifcool.service.interfaces.objects.BimbinganView;
 import org.d3ifcool.service.models.Bimbingan;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.BimbinganPresenter;
@@ -25,7 +26,7 @@ import org.d3ifcool.service.presenters.BimbinganPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity implements BimbinganListView{
+public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity implements BimbinganListView {
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
     private static final String BIMBINGAN_PARAM = "bimbingan.proyek_akhir_id";
@@ -60,6 +61,7 @@ public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity impleme
         tv_jml_bimbingan = findViewById(R.id.act_mhs_pa_bimbingan_detail_textview_jumlah);
 
         extraArrayProyekAkhir = getIntent().getParcelableArrayListExtra(EXTRA_PROYEK_AKHIR);
+        adapter.addProyekAkhir(extraArrayProyekAkhir);
         bimbinganPresenter.searchBimbinganAllBy(BIMBINGAN_PARAM, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
 
     }
