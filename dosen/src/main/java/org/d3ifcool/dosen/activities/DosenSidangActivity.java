@@ -37,6 +37,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
 
     private static final String PARAM_PROYEK_AKHIR = "proyek_akhir.judul_id";
     private static final String PARAM_BIMBINGAN = "bimbingan.proyek_akhir_id";
+    private static final String PARAM_BIMBINGAN2 = "bimbingan.judul_id";
 
     private ArrayList<ProyekAkhir> proyekAkhirArrayList = new ArrayList<>();
     private ArrayList<Bimbingan> bimbinganArrayList = new ArrayList<>();
