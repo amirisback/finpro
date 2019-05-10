@@ -25,7 +25,6 @@
 
     <LinearLayout
         android:layout_marginTop="@dimen/dimen_medium"
-        android:layout_marginBottom="@dimen/dimen_medium"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -60,13 +59,13 @@
             android:id="@+id/dsn_sidang_textview_nim_2"/>
         <View
             android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_view_line"
             android:background="@color/colorBackground"/>
 
         <!--penilaian sidang mhs 2-->
         <LinearLayout
+            android:layout_marginTop="@dimen/dimen_medium"
             android:id="@+id/linear_mhs_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -253,7 +252,6 @@
             </LinearLayout>
             <View
                 android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_view_line"
                 android:background="@color/colorBackground"/>
@@ -266,6 +264,8 @@
             android:text="@string/tambah_sidang"
             android:textColor="@color/colorPrimary"
             android:layout_marginEnd="@dimen/dimen_medium"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_medium"
             android:layout_gravity="end"
             android:textAllCaps="true"/>
 

@@ -25,14 +25,17 @@ import org.d3ifcool.service.presenters.SidangPresenter;
 import java.util.ArrayList;
 
 public class DosenSidangTambahActivity extends AppCompatActivity implements SidangWorkView {
+
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
+
     private ProgressDialog dialog;
     private SidangPresenter presenter;
     private ArrayList<ProyekAkhir> extraPa = new ArrayList<>();
-    String tanggal, review, nilai_pro, nilai_pem, nilai_peng1, nilai_peng2, nilai_tot, status_sidang;
-    int nilai_proposal, nilai_pembimbing1,nilai_penguji1,nilai_penguji2;
-    double nilai_total;
-    int extraProyeAkhirId;
+
+    private String tanggal, review, nilai_pro, nilai_pem, nilai_peng1, nilai_peng2, nilai_tot, status_sidang;
+    private int nilai_proposal, nilai_pembimbing1,nilai_penguji1,nilai_penguji2;
+    private double nilai_total;
+    private int extraProyeAkhirId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +53,6 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
 
         ProyekAkhir proyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
         extraProyeAkhirId = proyekAkhir.getProyek_akhir_id();
-
 
         final TextView tv_tanggal = findViewById(R.id.act_dsn_mhs_sidang_textview_tanggal);
         final EditText et_review = findViewById(R.id.act_dsn_edittext_sidang_deskripsi);

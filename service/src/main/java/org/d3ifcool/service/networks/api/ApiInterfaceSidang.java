@@ -1,6 +1,5 @@
 package org.d3ifcool.service.networks.api;
 
-import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.models.Sidang;
 
 import java.util.List;
@@ -20,7 +19,6 @@ import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QU
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY_2;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_ALL;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PATH_SEARCH;
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_PROYEK_AKHIR;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_SIDANG;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_PARAMS;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_QUERY;

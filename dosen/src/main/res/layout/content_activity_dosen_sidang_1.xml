@@ -27,7 +27,6 @@
 
     <LinearLayout
         android:layout_marginTop="@dimen/dimen_medium"
-        android:layout_marginBottom="@dimen/dimen_medium"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -63,13 +62,13 @@
 
         <View
             android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_view_line"
             android:background="@color/colorBackground"/>
 
         <!--penilaian mahasiswa 1-->
         <LinearLayout
+            android:layout_marginTop="@dimen/dimen_medium"
             android:id="@+id/linear_mhs_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -259,7 +258,6 @@
 
             <View
                 android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_view_line"
                 android:background="@color/colorBackground"/>
@@ -269,12 +267,15 @@
 
 
         <TextView
+
             android:id="@+id/act_dsn_textview_tambah_sidang_mhs_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tambah_sidang"
             android:textColor="@color/colorPrimary"
             android:layout_marginEnd="@dimen/dimen_medium"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_medium"
             android:layout_gravity="end"
             android:textAllCaps="true"/>
 

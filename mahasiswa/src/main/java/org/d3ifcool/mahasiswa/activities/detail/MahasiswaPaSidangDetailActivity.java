@@ -64,28 +64,16 @@ public class MahasiswaPaSidangDetailActivity extends AppCompatActivity implement
 
         tv_nama1 = findViewById(R.id.dsn_sidang_textview_nama_1);
         tv_nim1 = findViewById(R.id.dsn_sidang_textview_nim_1);
-        tv_nama2 = findViewById(R.id.dsn_sidang_textview_nama_2);
-        tv_nim2 = findViewById(R.id.dsn_sidang_textview_nim_2);
         cardView_mhs_1 = findViewById(R.id.card_view_mhs_1);
-        cardView_mhs_2 = findViewById(R.id.card_view_mhs_2);
         linearLayout_mhs1 = findViewById(R.id.linear_mhs_1);
-        linearLayout_mhs2 = findViewById(R.id.linear_mhs_2);
 
         tv_nilai_proposal1 = findViewById(R.id.dsn_sidang_nilai_proposal_1);
         tv_nilai_pembimbing = findViewById(R.id.dsn_sidang_nilai_pembimbing1_1);
         tv_nilai_penguji1_1 = findViewById(R.id.dsn_sidang_nilai_penguji1_1);
-        tv_nilai_penguji1_2 = findViewById(R.id.dsn_sidang_nilai_penguji1_2);
         tv_nilai_total_1 = findViewById(R.id.dsn_sidang_nilai_total_1);
         tv_review_1 = findViewById(R.id.dsn_sidang_textview_review_1);
         tv_status_1 = findViewById(R.id.dsn_sidang_textview_status_1);
-
-        tv_nilai_proposal2 = findViewById(R.id.dsn_sidang_nilai_proposal_2);
-        tv_nilai_pembimbing2 = findViewById(R.id.dsn_sidang_nilai_pembimbing1_2);
         tv_nilai_penguji2_1 = findViewById(R.id.dsn_sidang_nilai_penguji2_1);
-        tv_nilai_penguji2_2 = findViewById(R.id.dsn_sidang_nilai_penguji2_2);
-        tv_nilai_total_2 = findViewById(R.id.dsn_sidang_nilai_total_2);
-        tv_review_2 = findViewById(R.id.dsn_sidang_textview_review_2);
-        tv_status_2 = findViewById(R.id.dsn_sidang_textview_status_2);
 
         ProyekAkhir extra_proyek_akhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
         judul_id = String.valueOf(extra_proyek_akhir.getJudul_id());

@@ -50,7 +50,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
     private BimbinganPresenter bimbinganPresenter;
     private DetailMonevPresenter detailMonevPresenter;
 
-    private TextView tv_bimbingan,tv_nama1,tv_nim1,tv_nama2,tv_nim2,tv_status;
+    private TextView tv_nama1,tv_nim1,tv_nama2,tv_nim2,tv_status;
     private CardView cardView_mhs_1,cardView_mhs_2;
     private TextView tv_nilai_proposal1, tv_nilai_pembimbing,tv_nilai_penguji1_1,tv_nilai_penguji1_2,tv_nilai_total_1, tv_review_1, tv_status_1;
     private TextView tv_nilai_proposal2, tv_nilai_pembimbing2,tv_nilai_penguji2_1,tv_nilai_penguji2_2,tv_nilai_total_2,tv_review_2, tv_status_2;
@@ -62,9 +62,8 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dosen_sidang);
 
-        setTitle(getString(R.string.title_mahasiswa_detail));
+        setTitle(getString(R.string.title_sidang));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setElevation(0);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
@@ -198,9 +197,6 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
     public void onGetListBimbingan(List<Bimbingan> bimbinganList) {
         bimbinganArrayList.clear();
         bimbinganArrayList.addAll(bimbinganList);
-        if (bimbinganArrayList.size() != 0) {
-            tv_bimbingan.setText(String.valueOf(bimbinganArrayList.size()));
-        }
     }
 
     @Override
@@ -230,7 +226,6 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
     public void onGetListSidang(List<Sidang> sidangList) {
         sidangArrayList.clear();
         sidangArrayList.addAll(sidangList);
-        sidangPresenter.searchAllSidangBy(PARAM_PROYEK_AKHIR, extraJudulId);
         if (sidangArrayList.size() == 0){
             linearLayout_mhs1.setVisibility(View.GONE);
             linearLayout_mhs2.setVisibility(View.GONE);
@@ -257,7 +252,6 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
                 tv_nilai_penguji1_1.setText(String.valueOf(sidangArrayList.get(0).getNilai_penguji_1()));
                 tv_nilai_penguji1_2.setText(String.valueOf(sidangArrayList.get(0).getNilai_penguji_2()));
                 tv_nilai_total_1.setText(String.valueOf(sidangArrayList.get(0).getNilai_sidang()));
-
                 linearLayout_mhs2.setVisibility(View.GONE);
             }
         }
