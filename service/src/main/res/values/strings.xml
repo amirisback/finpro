@@ -267,7 +267,8 @@
     <string name="text_judul_bimbingan">Judul Bimbingan</string>
     <string name="text_review_bimbingan">Review Bimbingan</string>
     <string name="text_tanggal_bimbingan">Tanggal Bimbingan</string>
-    <string name="text_belum_sidang">Belum Siap Sidang</string>
+    <string name="text_belum_siap_sidang">Belum Siap Sidang</string>
+    <string name="text_belum_sidang">Belum Sidang</string>
     <string name="text_aturan_judul_mandiri_1">Pastikan anda tidak memilih judul yang ada di daftar judul dosen</string>
     <string name="text_ubah_data">Ubah Data</string>
     <string name="text_angkatan">Angkatan</string>

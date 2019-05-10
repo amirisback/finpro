@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by 
+ * FrogoBox Inc License
+ * =========================================
+ * 
+ * Copyright (C) .      
+ * All rights reserved
+ * 
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Majors   : D3 Teknik Informatika 2016
+ * Campus   : Telkom University
+ * 
+ * FrogoBox Software Industries
+ * 
+ -->
+
+<androidx.cardview.widget.CardView android:id="@+id/card_view_mhs_2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_marginBottom="@dimen/dimen_medium"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_profil_detail_nama"/>
+
+        <TextView
+            tools:text="@string/dummy_anggota_kelompok_2"
+            style="@style/textview_pa_color_black"
+            android:id="@+id/dsn_sidang_textview_nama_2"/>
+
+        <View
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_medium"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_view_line"
+            android:background="@color/colorBackground"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_profil_detail_nim"/>
+
+        <TextView
+            tools:text="@string/dummy_anggota_nim_2"
+            style="@style/textview_pa_color_black"
+            android:id="@+id/dsn_sidang_textview_nim_2"/>
+        <View
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_medium"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_view_line"
+            android:background="@color/colorBackground"/>
+
+        <!--penilaian sidang mhs 2-->
+        <LinearLayout
+            android:id="@+id/linear_mhs_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_review_sidang"/>
+
+            <TextView
+                android:textColor="@color/colorTextBlack"
+                tools:text="@string/dummyLong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:id="@+id/dsn_sidang_textview_review_2"/>
+            <View
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:layout_marginBottom="@dimen/dimen_medium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"/>
+
+            <LinearLayout
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimen_weight"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_sidang_nilai_proposal"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimen_weight"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_sidang_pembimbing_1"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/dsn_sidang_nilai_proposal_2"
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimen_weight"
+                    tools:text="@string/dummy_nilai_monev"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextBlack"/>
+
+                <TextView
+                    android:id="@+id/dsn_sidang_nilai_pembimbing1_2"
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimen_weight"
+                    tools:text="@string/dummy_nilai_monev"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextBlack"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:layout_marginBottom="@dimen/dimen_medium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"/>
+
+            <LinearLayout
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimen_weight"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_sidang_penguji_1"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimen_weight"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_sidang_penguji_2"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/dsn_sidang_nilai_penguji1_2"
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimen_weight"
+                    tools:text="@string/dummy_nilai_monev"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextBlack"/>
+
+                <TextView
+                    android:id="@+id/dsn_sidang_nilai_penguji2_2"
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimen_weight"
+                    tools:text="@string/dummy_nilai_monev"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextBlack"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:layout_marginBottom="@dimen/dimen_medium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"/>
+
+            <LinearLayout
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:textAllCaps="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="@dimen/dimen_weight"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_sidang_nilai_total"/>
+
+                <TextView
+                    android:id="@+id/dsn_sidang_nilai_total_2"
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimen_weight"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_title_big"
+                    tools:text="@string/dummy_nilai_monev"
+                    android:textColor="@color/colorPrimary"/>
+
+            </LinearLayout>
+            <View
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:layout_marginBottom="@dimen/dimen_medium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"/>
+            <LinearLayout
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_weight="1"
+                    android:textAllCaps="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="@dimen/dimen_weight"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_status_sidang"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimen_weight"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_title_big"
+                    tools:text="@string/dummy_status_sidang"
+                    android:id="@+id/dsn_sidang_textview_status_2"/>
+
+            </LinearLayout>
+            <View
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:layout_marginBottom="@dimen/dimen_medium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/act_dsn_textview_tambah_sidang_mhs_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tambah_sidang"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginEnd="@dimen/dimen_medium"
+            android:layout_gravity="end"
+            android:textAllCaps="true"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

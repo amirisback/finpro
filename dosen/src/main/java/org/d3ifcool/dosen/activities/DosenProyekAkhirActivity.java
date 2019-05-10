@@ -132,7 +132,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
             tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextGreen));
 
         }else {
-            tv_status_sidang_pa.setText(getString(R.string.text_belum_sidang));
+            tv_status_sidang_pa.setText(getString(R.string.text_belum_siap_sidang));
             tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextRed));
 
         }
