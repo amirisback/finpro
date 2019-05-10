@@ -259,14 +259,12 @@
 
         <TextView
             android:id="@+id/act_dsn_textview_tambah_sidang_mhs_2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/tambah_sidang"
             android:textColor="@color/colorPrimary"
-            android:layout_marginEnd="@dimen/dimen_medium"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:layout_gravity="end"
+            android:padding="@dimen/dimen_medium"
+            android:gravity="end"
             android:textAllCaps="true"/>
 
     </LinearLayout>

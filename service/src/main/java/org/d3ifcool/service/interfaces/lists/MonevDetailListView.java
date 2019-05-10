@@ -1,6 +1,8 @@
-package org.d3ifcool.service.interfaces.objects;
+package org.d3ifcool.service.interfaces.lists;
 
 import org.d3ifcool.service.models.DetailMonev;
+
+import java.util.List;
 
 /**
  * Created by Faisal Amir
@@ -19,13 +21,13 @@ import org.d3ifcool.service.models.DetailMonev;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public interface DetailMonevView {
+public interface MonevDetailListView {
 
     void showProgress();
 
     void hideProgress();
 
-    void onGetObjectDetailMonev(DetailMonev detailMonev);
+    void onGetListDetailMonev(List<DetailMonev> detailMonevList);
 
     void onFailed(String message);
 

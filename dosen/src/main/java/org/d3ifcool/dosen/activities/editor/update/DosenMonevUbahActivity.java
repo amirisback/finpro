@@ -15,15 +15,15 @@ import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.MethodHelper;
-import org.d3ifcool.service.interfaces.works.DetailMonevWorkView;
+import org.d3ifcool.service.interfaces.works.MonevDetailWorkView;
 import org.d3ifcool.service.models.DetailMonev;
-import org.d3ifcool.service.presenters.DetailMonevPresenter;
+import org.d3ifcool.service.presenters.MonevDetailPresenter;
 
-public class DosenMonevUbahActivity extends AppCompatActivity implements DetailMonevWorkView {
+public class DosenMonevUbahActivity extends AppCompatActivity implements MonevDetailWorkView {
 
     public static final String EXTRA_DETAIL_MONEV = "extra_detail_monev";
     private ProgressDialog progressDialog;
-    private DetailMonevPresenter detailMonevPresenter;
+    private MonevDetailPresenter detailMonevPresenter;
 
     private MethodHelper methodHelper;
 
@@ -39,7 +39,7 @@ public class DosenMonevUbahActivity extends AppCompatActivity implements DetailM
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         methodHelper = new MethodHelper();
-        detailMonevPresenter = new DetailMonevPresenter(this);
+        detailMonevPresenter = new MonevDetailPresenter(this);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
@@ -77,7 +77,7 @@ public class DosenMonevUbahActivity extends AppCompatActivity implements DetailM
                                 }else if (nilai_st.isEmpty()){
                                     et_nilai_monev.setError(getString(R.string.text_tidak_boleh_kosong));
                                 } else {
-                                    detailMonevPresenter.updateDetailMonev(extraMonevDetailId, nilai, tanggal, review);
+                                    detailMonevPresenter.updateMonevDetail(extraMonevDetailId, nilai, tanggal, review);
                                 }
                             }
                         })

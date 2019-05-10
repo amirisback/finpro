@@ -26,7 +26,7 @@ import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_MONEV_DE
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_PARAMS;
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.VAR_QUERY;
 
-public interface ApiInterfaceDetailMonev {
+public interface ApiInterfaceMonevDetail {
 
     @FormUrlEncoded
     @POST(URL_MONEV_DETAIL)

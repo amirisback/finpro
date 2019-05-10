@@ -18,15 +18,15 @@ import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editor.create.DosenMonevTambahActivity;
 import org.d3ifcool.dosen.adapters.recyclerview.DosenMonevViewAdapter;
 import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.lists.DetailMonevListView;
+import org.d3ifcool.service.interfaces.lists.MonevDetailListView;
 import org.d3ifcool.service.models.DetailMonev;
 import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.presenters.DetailMonevPresenter;
+import org.d3ifcool.service.presenters.MonevDetailPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DosenMonevMahasiswaActivity extends AppCompatActivity implements DetailMonevListView {
+public class DosenMonevMahasiswaActivity extends AppCompatActivity implements MonevDetailListView {
 
     public static final String EXTRA_PROYEK_AKHIR_MONEV = "extra_monev";
     private static final String PARAM_PROYEK_AKHIR = "detail_monev.proyek_akhir_id";
@@ -34,7 +34,7 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements De
     private RecyclerView recyclerView;
     private View empty_view;
     private ProgressDialog progressDialog;
-    private DetailMonevPresenter detailMonevPresenter;
+    private MonevDetailPresenter detailMonevPresenter;
     private ArrayList<DetailMonev> arrayList = new ArrayList<>();
     private DosenMonevViewAdapter dosenMonevViewAdapter;
     int extraProyekAkhirId;
@@ -52,7 +52,7 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements De
         recyclerView = findViewById(R.id.act_mhs_pa_monev_recyclerview);
         empty_view = findViewById(R.id.view_emptyview);
 
-        detailMonevPresenter = new DetailMonevPresenter(this);
+        detailMonevPresenter = new MonevDetailPresenter(this);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
@@ -63,7 +63,7 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements De
         extraProyekAkhirId = extraProyekAkhir.getProyek_akhir_id();
         String extraDosenReviewer = extraProyekAkhir.getReviewer_dsn_nip();
 
-        detailMonevPresenter.searchDetailMonevBy(PARAM_PROYEK_AKHIR, String.valueOf(extraProyekAkhirId));
+        detailMonevPresenter.searchMonevDetailAllBy(PARAM_PROYEK_AKHIR, String.valueOf(extraProyekAkhirId));
 
         if (sessionManager.getSessionDosenNip().equalsIgnoreCase(extraDosenReviewer)){
             floatingActionButton.setVisibility(View.VISIBLE);
@@ -87,7 +87,7 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements De
     @Override
     protected void onResume() {
         super.onResume();
-        detailMonevPresenter.searchDetailMonevBy(PARAM_PROYEK_AKHIR, String.valueOf(extraProyekAkhirId));
+        detailMonevPresenter.searchMonevDetailAllBy(PARAM_PROYEK_AKHIR, String.valueOf(extraProyekAkhirId));
     }
 
     @Override

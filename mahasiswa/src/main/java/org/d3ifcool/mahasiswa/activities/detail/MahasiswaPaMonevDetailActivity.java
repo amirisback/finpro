@@ -16,18 +16,17 @@ import android.widget.Toast;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.recyclerview.MahasiswaPaMonevViewAdapter;
 import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.lists.DetailMonevListView;
+import org.d3ifcool.service.interfaces.lists.MonevDetailListView;
 import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.models.DetailMonev;
-import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.presenters.DetailMonevPresenter;
+import org.d3ifcool.service.presenters.MonevDetailPresenter;
 import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MahasiswaPaMonevDetailActivity extends AppCompatActivity implements DetailMonevListView, ProyekAkhirListView {
+public class MahasiswaPaMonevDetailActivity extends AppCompatActivity implements MonevDetailListView, ProyekAkhirListView {
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
     private static final String PARAM_DETAIL_MONEV = "detail_monev.proyek_akhir_id";
@@ -37,7 +36,7 @@ public class MahasiswaPaMonevDetailActivity extends AppCompatActivity implements
     private View empty_view;
 
     private ProgressDialog progressDialog;
-    private DetailMonevPresenter detailMonevPresenter;
+    private MonevDetailPresenter detailMonevPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
 
     private ArrayList<DetailMonev> arrayList = new ArrayList<>();
@@ -53,7 +52,7 @@ public class MahasiswaPaMonevDetailActivity extends AppCompatActivity implements
         setTitle(getString(R.string.title_monev_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        detailMonevPresenter = new DetailMonevPresenter(this);
+        detailMonevPresenter = new MonevDetailPresenter(this);
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
 
         progressDialog = new ProgressDialog(this);
@@ -105,7 +104,7 @@ public class MahasiswaPaMonevDetailActivity extends AppCompatActivity implements
 
     @Override
     public void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList) {
-        detailMonevPresenter.searchDetailMonevBy(PARAM_DETAIL_MONEV, String.valueOf(proyekAkhirList.get(0).getProyek_akhir_id()));
+        detailMonevPresenter.searchMonevDetailAllBy(PARAM_DETAIL_MONEV, String.valueOf(proyekAkhirList.get(0).getProyek_akhir_id()));
     }
 
     @Override

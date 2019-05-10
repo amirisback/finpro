@@ -14,17 +14,17 @@ import android.widget.Toast;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editor.update.DosenMonevUbahActivity;
 import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.works.DetailMonevWorkView;
+import org.d3ifcool.service.interfaces.works.MonevDetailWorkView;
 import org.d3ifcool.service.models.DetailMonev;
-import org.d3ifcool.service.presenters.DetailMonevPresenter;
+import org.d3ifcool.service.presenters.MonevDetailPresenter;
 
-public class DosenMonevDetailActivity extends AppCompatActivity implements DetailMonevWorkView {
+public class DosenMonevDetailActivity extends AppCompatActivity implements MonevDetailWorkView {
 
     public static final String EXTRA_MONEV = "extra_monev";
 
     private SessionManager sessionManager;
     private ProgressDialog progressDialog;
-    private DetailMonevPresenter detailMonevPresenter;
+    private MonevDetailPresenter detailMonevPresenter;
 
     private String extraDsnNipReviewer;
     private int extraMonevDetailId;
@@ -39,7 +39,7 @@ public class DosenMonevDetailActivity extends AppCompatActivity implements Detai
         setTitle(getString(R.string.title_monev_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        detailMonevPresenter = new DetailMonevPresenter(this);
+        detailMonevPresenter = new MonevDetailPresenter(this);
         progressDialog = new ProgressDialog(this);
         sessionManager = new SessionManager(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
@@ -94,7 +94,7 @@ public class DosenMonevDetailActivity extends AppCompatActivity implements Detai
 
                     .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            detailMonevPresenter.deleteDetailMonev(extraMonevDetailId);
+                            detailMonevPresenter.deleteMonevDetail(extraMonevDetailId);
                         }
                     })
 

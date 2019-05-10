@@ -348,6 +348,7 @@
     <string name="dialog_tolak_title">Apakah anda menolak judul ini?</string>
     <string name="text_status_bimbingan_pending">Belum di acc</string>
     <string name="dummy_kehadiran">Hadir</string>
+    <string name="text_belum_memenuhi_syarat_sidang">Belum Memenuhi Syarat untuk Sidang</string>
 
     <string-array name="array_kehadiran_bimbingan">
         <item>Hadir</item>

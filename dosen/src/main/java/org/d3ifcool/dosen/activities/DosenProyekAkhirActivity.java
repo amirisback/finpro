@@ -15,7 +15,7 @@ import android.widget.Toast;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.BimbinganListView;
-import org.d3ifcool.service.interfaces.lists.DetailMonevListView;
+import org.d3ifcool.service.interfaces.lists.MonevDetailListView;
 import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.service.interfaces.objects.DosenPembimbingView;
 import org.d3ifcool.service.interfaces.objects.DosenReviewerView;
@@ -25,7 +25,7 @@ import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.BimbinganPresenter;
-import org.d3ifcool.service.presenters.DetailMonevPresenter;
+import org.d3ifcool.service.presenters.MonevDetailPresenter;
 import org.d3ifcool.service.presenters.DosenPresenter;
 import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 
@@ -34,7 +34,7 @@ import java.util.List;
 
 import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
 
-public class DosenProyekAkhirActivity extends AppCompatActivity implements ProyekAkhirListView, BimbinganListView, DosenPembimbingView, DosenReviewerView, DetailMonevListView {
+public class DosenProyekAkhirActivity extends AppCompatActivity implements ProyekAkhirListView, BimbinganListView, DosenPembimbingView, DosenReviewerView, MonevDetailListView {
 
     public static final String EXTRA_JUDUL = "extra_judul";
     private static final String PROYEK_AKHIR_PARAM_1 = "proyek_akhir.judul_id";
@@ -44,7 +44,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
     private DosenPresenter dosenPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private BimbinganPresenter bimbinganPresenter;
-    private DetailMonevPresenter detailMonevPresenter;
+    private MonevDetailPresenter detailMonevPresenter;
     private SessionManager sessionManager;
     private ProgressDialog progressDialog;
 
@@ -69,7 +69,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
 
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         bimbinganPresenter = new BimbinganPresenter(this);
-        detailMonevPresenter = new DetailMonevPresenter(this);
+        detailMonevPresenter = new MonevDetailPresenter(this);
         dosenPresenter = new DosenPresenter(this, this);
         sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
@@ -126,7 +126,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
 
 
         bimbinganPresenter.getBimbingan();
-        detailMonevPresenter.getDetailMonev();
+        detailMonevPresenter.getMonevDetail();
         if (arrayListBimbingan.size() > 16 && arrayListDetailMonev.size() < 6){
             tv_status_sidang_pa.setText(getString(R.string.text_siap_sidang));
             tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextGreen));

@@ -18,21 +18,21 @@ import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.MethodHelper;
 import org.d3ifcool.service.helpers.SpinnerHelper;
 import org.d3ifcool.service.interfaces.lists.MonevListView;
-import org.d3ifcool.service.interfaces.works.DetailMonevWorkView;
+import org.d3ifcool.service.interfaces.works.MonevDetailWorkView;
 import org.d3ifcool.service.models.Monev;
 import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.presenters.DetailMonevPresenter;
+import org.d3ifcool.service.presenters.MonevDetailPresenter;
 import org.d3ifcool.service.presenters.MonevPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DosenMonevTambahActivity extends AppCompatActivity implements DetailMonevWorkView, MonevListView {
+public class DosenMonevTambahActivity extends AppCompatActivity implements MonevDetailWorkView, MonevListView {
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
 
     private ProgressDialog progressDialog;
-    private DetailMonevPresenter detailMonevPresenter;
+    private MonevDetailPresenter detailMonevPresenter;
     private MonevPresenter monevPresenter;
     private Spinner spinnerMonev;
     private MethodHelper methodHelper;
@@ -51,7 +51,7 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Detai
 
         monevPresenter = new MonevPresenter(this);
         methodHelper = new MethodHelper();
-        detailMonevPresenter = new DetailMonevPresenter(this);
+        detailMonevPresenter = new MonevDetailPresenter(this);
         spinnerHelper = new SpinnerHelper(this);
 
         progressDialog = new ProgressDialog(this);
@@ -96,7 +96,7 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Detai
                 } else if (nilai >100){
                     et_nilai_monev.setError("Nilai Tidak Boleh Lebih Dari 100");
                 } else {
-                    detailMonevPresenter.createDetailMonev(nilai, tanggal, review, monevId, extraProyekAkhirId);
+                    detailMonevPresenter.createMonevDetail(nilai, tanggal, review, monevId, extraProyekAkhirId);
                     Log.d("review", review);
                     Log.d("nilai", String.valueOf(nilai));
                     Log.d("monevId", String.valueOf(monevId));

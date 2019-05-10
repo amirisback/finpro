@@ -1,12 +1,10 @@
 package org.d3ifcool.service.presenters;
 
-import android.util.Log;
-
-import org.d3ifcool.service.interfaces.lists.DetailMonevListView;
-import org.d3ifcool.service.interfaces.objects.DetailMonevView;
-import org.d3ifcool.service.interfaces.works.DetailMonevWorkView;
+import org.d3ifcool.service.interfaces.lists.MonevDetailListView;
+import org.d3ifcool.service.interfaces.objects.MonevDetailView;
+import org.d3ifcool.service.interfaces.works.MonevDetailWorkView;
 import org.d3ifcool.service.models.DetailMonev;
-import org.d3ifcool.service.networks.api.ApiInterfaceDetailMonev;
+import org.d3ifcool.service.networks.api.ApiInterfaceMonevDetail;
 import org.d3ifcool.service.networks.bridge.ApiClient;
 
 import java.util.List;
@@ -15,39 +13,39 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DetailMonevPresenter {
+public class MonevDetailPresenter {
 
-    private DetailMonevListView viewResult;
-    private DetailMonevWorkView viewEditor;
-    private DetailMonevView viewObject;
+    private MonevDetailListView viewResult;
+    private MonevDetailWorkView viewEditor;
+    private MonevDetailView viewObject;
 
-    public DetailMonevPresenter(DetailMonevListView viewResult, DetailMonevWorkView viewEditor, DetailMonevView viewObject) {
+    public MonevDetailPresenter(MonevDetailListView viewResult, MonevDetailWorkView viewEditor, MonevDetailView viewObject) {
         this.viewResult = viewResult;
         this.viewEditor = viewEditor;
         this.viewObject = viewObject;
     }
 
-    public DetailMonevPresenter(DetailMonevListView viewResult) {
+    public MonevDetailPresenter(MonevDetailListView viewResult) {
         this.viewResult = viewResult;
     }
 
-    public DetailMonevPresenter(DetailMonevWorkView viewEditor) {
+    public MonevDetailPresenter(MonevDetailWorkView viewEditor) {
         this.viewEditor = viewEditor;
     }
 
-    public DetailMonevPresenter(DetailMonevView viewObject) {
+    public MonevDetailPresenter(MonevDetailView viewObject) {
         this.viewObject = viewObject;
     }
 
-    public DetailMonevPresenter(DetailMonevListView viewResult, DetailMonevWorkView viewEditor) {
+    public MonevDetailPresenter(MonevDetailListView viewResult, MonevDetailWorkView viewEditor) {
         this.viewResult = viewResult;
         this.viewEditor = viewEditor;
     }
 
-    public void createDetailMonev(int monev_nilai, String monev_tanggal, String monev_ulasan, int monev_id, int proyek_akhir_id){
+    public void createMonevDetail(int monev_nilai, String monev_tanggal, String monev_ulasan, int monev_id, int proyek_akhir_id){
 
         viewEditor.showProgress();
-        ApiInterfaceDetailMonev apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceDetailMonev.class);
+        ApiInterfaceMonevDetail apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceMonevDetail.class);
         Call<DetailMonev> call = apiInterfaceDetailMonev.createDetailMonev(monev_nilai, monev_tanggal, monev_ulasan, monev_id, proyek_akhir_id);
         call.enqueue(new Callback<DetailMonev>() {
             @Override
@@ -64,9 +62,9 @@ public class DetailMonevPresenter {
         });
     }
 
-    public void getDetailMonev(){
+    public void getMonevDetail(){
         viewResult.showProgress();
-        ApiInterfaceDetailMonev apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceDetailMonev.class);
+        ApiInterfaceMonevDetail apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceMonevDetail.class);
         Call<List<DetailMonev>> call = apiInterfaceDetailMonev.getDetailMonev();
         call.enqueue(new Callback<List<DetailMonev>>() {
             @Override
@@ -83,9 +81,9 @@ public class DetailMonevPresenter {
         });
     }
 
-    public void deleteDetailMonev(int monev_detail_id){
+    public void deleteMonevDetail(int monev_detail_id){
         viewEditor.showProgress();
-        ApiInterfaceDetailMonev apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceDetailMonev.class);
+        ApiInterfaceMonevDetail apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceMonevDetail.class);
         Call<DetailMonev> call = apiInterfaceDetailMonev.deleteDetailMonev(monev_detail_id);
         call.enqueue(new Callback<DetailMonev>() {
             @Override
@@ -102,9 +100,9 @@ public class DetailMonevPresenter {
         });
     }
 
-    public void updateDetailMonev(int monev_detail_id, int monev_nilai, String monev_tanggal, String monev_ulasan){
+    public void updateMonevDetail(int monev_detail_id, int monev_nilai, String monev_tanggal, String monev_ulasan){
         viewEditor.showProgress();
-        ApiInterfaceDetailMonev apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceDetailMonev.class);
+        ApiInterfaceMonevDetail apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceMonevDetail.class);
         Call<DetailMonev> call = apiInterfaceDetailMonev.updateDetailMonev(monev_detail_id, monev_nilai, monev_tanggal, monev_ulasan);
         call.enqueue(new Callback<DetailMonev>() {
             @Override
@@ -122,9 +120,9 @@ public class DetailMonevPresenter {
 
     }
 
-    public void searchDetailMonevByTwo(String parameter1, String query1, String parameter2, String query2) {
+    public void searchMonevDetailByTwo(String parameter1, String query1, String parameter2, String query2) {
         viewResult.showProgress();
-        ApiInterfaceDetailMonev apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceDetailMonev.class);
+        ApiInterfaceMonevDetail apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceMonevDetail.class);
         Call<List<DetailMonev>> call = apiInterfaceDetailMonev.searchDetailMonevByTwo(parameter1, query1, parameter2, query2);
         call.enqueue(new Callback<List<DetailMonev>>() {
             @Override
@@ -141,9 +139,9 @@ public class DetailMonevPresenter {
         });
     }
 
-    public void searchDetailMonevBy(String parameter, String query){
+    public void searchMonevDetailAllBy(String parameter, String query){
         viewResult.showProgress();
-        ApiInterfaceDetailMonev apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceDetailMonev.class);
+        ApiInterfaceMonevDetail apiInterfaceDetailMonev = ApiClient.getApiClient().create(ApiInterfaceMonevDetail.class);
         Call<List<DetailMonev>> call = apiInterfaceDetailMonev.searchDetailMonevBy(parameter, query);
         call.enqueue(new Callback<List<DetailMonev>>() {
             @Override

@@ -1,4 +1,6 @@
-package org.d3ifcool.service.interfaces.works;
+package org.d3ifcool.service.interfaces.objects;
+
+import org.d3ifcool.service.models.DetailMonev;
 
 /**
  * Created by Faisal Amir
@@ -17,13 +19,13 @@ package org.d3ifcool.service.interfaces.works;
  * -----------------------------------------
  * id.amirisback.frogobox
  */
-public interface DetailMonevWorkView {
+public interface MonevDetailView {
 
     void showProgress();
 
     void hideProgress();
 
-    void onSucces();
+    void onGetObjectDetailMonev(DetailMonev detailMonev);
 
     void onFailed(String message);
 
