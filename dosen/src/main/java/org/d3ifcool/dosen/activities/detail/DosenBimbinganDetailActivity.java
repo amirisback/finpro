@@ -1,18 +1,42 @@
 package org.d3ifcool.dosen.activities.detail;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.d3ifcool.dosen.R;
+import org.d3ifcool.service.interfaces.lists.BimbinganListView;
+import org.d3ifcool.service.interfaces.works.BimbinganWorkView;
 import org.d3ifcool.service.models.Bimbingan;
+import org.d3ifcool.service.models.ProyekAkhir;
+import org.d3ifcool.service.presenters.BimbinganPresenter;
 
-public class DosenBimbinganDetailActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_DISETUJUI;
+
+public class DosenBimbinganDetailActivity extends AppCompatActivity implements BimbinganWorkView, BimbinganListView {
 
     public static final String EXTRA_BIMBINGAN = "extra_bimbingan";
+    public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir_array";
+
+    private static final String PARAM_BIMBINGAN = "bimbingan.bimbingan_review";
+
+    private ProgressDialog progressDialog;
+    private BimbinganPresenter bimbinganPresenter;
+
+    private ArrayList<Bimbingan> arrayListBimbingan = new ArrayList<>();
+    private TextView textViewKehadiranMahasiswa1, textViewKehadiranMahasiswa2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +46,53 @@ public class DosenBimbinganDetailActivity extends AppCompatActivity {
         setTitle(getString(R.string.title_bimbingan_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        progressDialog = new ProgressDialog(this);
+        bimbinganPresenter = new BimbinganPresenter(this, this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
+
         TextView textViewTanggal = findViewById(R.id.act_dsn_mhs_bimbingan_textview_tanggal);
-        TextView textViewKehadiranBimbingan = findViewById(R.id.act_dsn_mhs_bimbingan_textview_kehadiran);
+        TextView textViewMahasiswa1 = findViewById(R.id.nama_mahasiswa_1);
+        TextView textViewMahasiswa2 = findViewById(R.id.nama_mahasiswa_2);
+        textViewKehadiranMahasiswa1 = findViewById(R.id.kehadiran_mahasiswa_1);
+        textViewKehadiranMahasiswa2 = findViewById(R.id.kehadiran_mahasiswa_2);
         TextView textViewReviewBimbingan = findViewById(R.id.act_dsn_mhs_bimbingan_textview_review);
+        FloatingActionButton fabDecline = findViewById(R.id.fab_bimbingan_decline);
+        FloatingActionButton fabAccept = findViewById(R.id.fab_bimbingan_accept);
 
         Bimbingan extraBimbingan = getIntent().getParcelableExtra(EXTRA_BIMBINGAN);
 
+        ArrayList<ProyekAkhir> extraArrayProyekAkhir = getIntent().getParcelableArrayListExtra(EXTRA_PROYEK_AKHIR);
+        if (extraArrayProyekAkhir.size() !=2 ){
+            textViewKehadiranMahasiswa2.setVisibility(View.GONE);
+            textViewMahasiswa2.setVisibility(View.GONE);
+            textViewMahasiswa1.setText(extraArrayProyekAkhir.get(0).getMhs_nama());
+        } else {
+            textViewMahasiswa1.setText(extraArrayProyekAkhir.get(0).getMhs_nama());
+            textViewMahasiswa2.setText(extraArrayProyekAkhir.get(1).getMhs_nama());
+        }
+
         textViewTanggal.setText(extraBimbingan.getBimbingan_tanggal());
-        textViewKehadiranBimbingan.setText(extraBimbingan.getBimbingan_kehadiran());
         textViewReviewBimbingan.setText(extraBimbingan.getBimbingan_review());
+
+        bimbinganPresenter.searchBimbinganAllBy(PARAM_BIMBINGAN, extraBimbingan.getBimbingan_review());
+
+        fabAccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (int i = 0; i < arrayListBimbingan.size(); i++) {
+                    bimbinganPresenter.updateBimbinganStatus(arrayListBimbingan.get(i).getBimbingan_id(), STATUS_BIMBINGAN_DISETUJUI);
+                }
+            }
+        });
+
+        fabDecline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (int i = 0; i < arrayListBimbingan.size(); i++) {
+                    bimbinganPresenter.deleteBimbingan(arrayListBimbingan.get(i).getBimbingan_id());
+                }
+            }
+        });
 
     }
 
@@ -53,4 +115,34 @@ public class DosenBimbinganDetailActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void showProgress() {
+        progressDialog.show();
+    }
+
+    @Override
+    public void hideProgress() {
+        progressDialog.hide();
+    }
+
+    @Override
+    public void onGetListBimbingan(List<Bimbingan> bimbinganList) {
+        arrayListBimbingan.addAll(bimbinganList);
+        if (arrayListBimbingan.size() != 2) {
+            textViewKehadiranMahasiswa1.setText(arrayListBimbingan.get(0).getBimbingan_kehadiran());
+        } else {
+            textViewKehadiranMahasiswa1.setText(arrayListBimbingan.get(0).getBimbingan_kehadiran());
+            textViewKehadiranMahasiswa2.setText(arrayListBimbingan.get(1).getBimbingan_kehadiran());
+        }
+    }
+
+    @Override
+    public void onSucces() {
+        finish();
+    }
+
+    @Override
+    public void onFailed(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
 }

@@ -37,6 +37,8 @@ public class MahasiswaPaBimbinganTambahActivity extends AppCompatActivity implem
     private String kehadiran_1, kehadiran_2;
     private View container_view;
 
+    private int successBool = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,11 +119,14 @@ public class MahasiswaPaBimbinganTambahActivity extends AppCompatActivity implem
 
                     if (extraArrayProyekAkhir.size() != 2){
                         bimbinganPresenter.createBimbingan(review, kehadiran_1, tanggal, STATUS_BIMBINGAN_PENDING, extraArrayProyekAkhir.get(0).getProyek_akhir_id());
+
                     } else {
                         bimbinganPresenter.createBimbingan(review, kehadiran_1, tanggal, STATUS_BIMBINGAN_PENDING, extraArrayProyekAkhir.get(0).getProyek_akhir_id());
                         bimbinganPresenter.createBimbingan(review, kehadiran_2, tanggal, STATUS_BIMBINGAN_PENDING, extraArrayProyekAkhir.get(1).getProyek_akhir_id());
-                        Log.d("TES ITEM", kehadiran_1);
-                        Log.d("TES ITEM", kehadiran_2);
+                        Log.d("TES KEHADIRAN - 1", kehadiran_1);
+                        Log.d("TES KEHADIRAN - 2", kehadiran_2);
+                        Log.d("TES ORANG KE 1", String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
+                        Log.d("TES ORANG KE 2", String.valueOf(extraArrayProyekAkhir.get(1).getProyek_akhir_id()));
 
                     }
                 }

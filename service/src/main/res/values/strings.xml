@@ -346,10 +346,11 @@
     <string name="dialog_tolak_text">Tolak</string>
     <string name="dialog_tolak_title">Apakah anda menolak judul ini?</string>
     <string name="text_status_bimbingan_pending">Belum di acc</string>
+    <string name="dummy_kehadiran">Hadir</string>
 
     <string-array name="array_kehadiran_bimbingan">
         <item>Hadir</item>
-        <item>Tidak Hadir</item>
+        <item>Izin</item>
     </string-array>
 
     <string-array name="array_status_sidang">

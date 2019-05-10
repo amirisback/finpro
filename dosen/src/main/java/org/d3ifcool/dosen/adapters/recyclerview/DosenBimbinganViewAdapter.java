@@ -15,6 +15,7 @@ import android.widget.TextView;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.detail.DosenBimbinganDetailActivity;
 import org.d3ifcool.service.models.Bimbingan;
+import org.d3ifcool.service.models.ProyekAkhir;
 
 import java.util.ArrayList;
 
@@ -40,16 +41,22 @@ import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.STATUS_BIMBI
 public class DosenBimbinganViewAdapter extends RecyclerView.Adapter<DosenBimbinganViewAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<Bimbingan> data;
+    private ArrayList<Bimbingan> dataBimbingan;
+    private ArrayList<Bimbingan> extraDataBimbingan;
+    private ArrayList<ProyekAkhir> dataProyekAkhir;
     private int layoutType;
 
     public DosenBimbinganViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void addItem(ArrayList<Bimbingan> data){
-        this.data = data;
+    public void addItem(ArrayList<Bimbingan> dataBimbingan){
+        this.dataBimbingan = dataBimbingan;
         notifyDataSetChanged();
+    }
+
+    public void addProyekAkhir(ArrayList<ProyekAkhir> dataProyekAkhir){
+        this.dataProyekAkhir = dataProyekAkhir;
     }
 
     public void setLayoutType(int mLayoutType){
@@ -75,7 +82,7 @@ public class DosenBimbinganViewAdapter extends RecyclerView.Adapter<DosenBimbing
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        if (data.get(position).getBimbingan_status().equals(STATUS_BIMBINGAN_PENDING)){
+        if (dataBimbingan.get(position).getBimbingan_status().equals(STATUS_BIMBINGAN_PENDING)){
             holder.status.setVisibility(View.VISIBLE);
             holder.container.setBackgroundColor(context.getResources().getColor(org.d3ifcool.mahasiswa.R.color.colorBackgroundNotYet));
         } else {
@@ -83,14 +90,16 @@ public class DosenBimbinganViewAdapter extends RecyclerView.Adapter<DosenBimbing
             holder.status.setVisibility(View.GONE);
         }
 
-        holder.infoTanggal.setText(data.get(position).getBimbingan_tanggal());
-        holder.infoIsi.setText(data.get(position).getBimbingan_review());
+        holder.infoTanggal.setText(dataBimbingan.get(position).getBimbingan_tanggal());
+        holder.infoIsi.setText(dataBimbingan.get(position).getBimbingan_review());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentData = new Intent(context, DosenBimbinganDetailActivity.class);
-                Bimbingan parcelBimbingan = data.get(position);
+                Bimbingan parcelBimbingan = dataBimbingan.get(position);
+                ArrayList<ProyekAkhir> parcelProyekAkhir = dataProyekAkhir;
                 intentData.putExtra(DosenBimbinganDetailActivity.EXTRA_BIMBINGAN, parcelBimbingan);
+                intentData.putExtra(DosenBimbinganDetailActivity.EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
                 context.startActivity(intentData);
             }
         });
@@ -105,7 +114,7 @@ public class DosenBimbinganViewAdapter extends RecyclerView.Adapter<DosenBimbing
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return dataBimbingan.size();
     }
 
 }

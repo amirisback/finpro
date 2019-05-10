@@ -17,6 +17,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.activities.editor.MahasiswaPaBimbinganTambahActivity;
+import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.BimbinganListView;
 import org.d3ifcool.service.models.Bimbingan;
 import org.d3ifcool.mahasiswa.adapters.recyclerview.MahasiswaPaBimbinganViewAdapter;
@@ -45,7 +46,7 @@ public class MahasiswaPaBimbinganActivity extends AppCompatActivity implements B
     private ProgressDialog progressDialog;
     private ArrayList<Bimbingan> arrayListBimbingan = new ArrayList<>();
     private ArrayList<ProyekAkhir> extraArrayProyekAkhir;
-
+    private SessionManager sessionManager;
     private TextView textViewJumlah;
 
     @Override
@@ -61,6 +62,7 @@ public class MahasiswaPaBimbinganActivity extends AppCompatActivity implements B
         bimbinganPresenter = new BimbinganPresenter(this);
         progressDialog.setMessage(getString(org.d3ifcool.mahasiswa.R.string.text_progress_dialog));
         empty_view = findViewById(R.id.view_emptyview);
+        sessionManager = new SessionManager(this);
 
         recyclerView = findViewById(R.id.act_mhs_pa_bimbingan_detail_recyclerview);
         FloatingActionButton btn_tambah_bimbingan = findViewById(R.id.act_mhs_bimbingan_tambah);
@@ -74,7 +76,12 @@ public class MahasiswaPaBimbinganActivity extends AppCompatActivity implements B
         textViewJumlah.setText(String.valueOf(extraJumlahBimbingan));
         textViewDosen.setText(extraDosen.getDsn_nama());
 
-        bimbinganPresenter.searchBimbinganAllBy(PARAM_BIMBINGAN_ID, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
+
+        for (int i = 0; i < extraArrayProyekAkhir.size(); i++) {
+            if (extraArrayProyekAkhir.get(i).getMhs_nim().equals(sessionManager.getSessionMahasiswaNim())  ) {
+                bimbinganPresenter.searchBimbinganAllBy(PARAM_BIMBINGAN_ID, String.valueOf(extraArrayProyekAkhir.get(i).getProyek_akhir_id()));
+            }
+        }
 
         btn_tambah_bimbingan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,8 +96,11 @@ public class MahasiswaPaBimbinganActivity extends AppCompatActivity implements B
     @Override
     protected void onResume() {
         super.onResume();
-        bimbinganPresenter.searchBimbinganAllBy(PARAM_BIMBINGAN_ID, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
-
+        for (int i = 0; i < extraArrayProyekAkhir.size(); i++) {
+            if (extraArrayProyekAkhir.get(i).getMhs_nim() == sessionManager.getSessionMahasiswaNim()) {
+                bimbinganPresenter.searchBimbinganAllBy(PARAM_BIMBINGAN_ID, String.valueOf(extraArrayProyekAkhir.get(i).getProyek_akhir_id()));
+            }
+        }
     }
 
     @Override

@@ -54,6 +54,11 @@ public class BimbinganPresenter {
         this.viewEditor = viewEditor;
     }
 
+    public BimbinganPresenter(BimbinganListView viewResult, BimbinganView viewObject) {
+        this.viewResult = viewResult;
+        this.viewObject = viewObject;
+    }
+
     public void createBimbingan(String bimbingan_review, String bimbingan_kehadiran, String bimbingan_tanggal, String bimbingan_status, int proyek_akhir_id){
         viewEditor.showProgress();
         ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
@@ -134,7 +139,7 @@ public class BimbinganPresenter {
     public void searchBimbinganAllBy(String parameter, String query){
         viewResult.showProgress();
         ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
-        Call<List<Bimbingan>> call = apiInterfaceBimbingan.searchBimbinganBy(parameter, query);
+        Call<List<Bimbingan>> call = apiInterfaceBimbingan.searchBimbinganAllBy(parameter, query);
         call.enqueue(new Callback<List<Bimbingan>>() {
             @Override
             public void onResponse(Call<List<Bimbingan>> call, Response<List<Bimbingan>> response) {
@@ -150,10 +155,26 @@ public class BimbinganPresenter {
         });
     }
 
+    public void searchBimbinganObjectBy(String parameter, String query){
+        ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
+        Call<Bimbingan> call = apiInterfaceBimbingan.searchBimbinganBy(parameter, query);
+        call.enqueue(new Callback<Bimbingan>() {
+            @Override
+            public void onResponse(Call<Bimbingan> call, Response<Bimbingan> response) {
+                viewObject.onGetObjectBimbingan(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Bimbingan> call, Throwable t) {
+                viewObject.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
+
     public void searchBimbinganAllByTwo(String parameter1, String query1, String parameter2, String query2){
         viewResult.showProgress();
         ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
-        Call<List<Bimbingan>> call = apiInterfaceBimbingan.searchBimbinganByTwo(parameter1, query1, parameter2, query2);
+        Call<List<Bimbingan>> call = apiInterfaceBimbingan.searchBimbinganAllByTwo(parameter1, query1, parameter2, query2);
         call.enqueue(new Callback<List<Bimbingan>>() {
             @Override
             public void onResponse(Call<List<Bimbingan>> call, Response<List<Bimbingan>> response) {
