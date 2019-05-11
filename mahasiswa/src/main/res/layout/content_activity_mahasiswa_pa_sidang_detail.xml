@@ -60,19 +60,23 @@
             style="@style/textview_pa_color_black"
             android:id="@+id/dsn_sidang_textview_nim_1"/>
 
-        <View
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_view_line"
-            android:background="@color/colorBackground"/>
+
 
         <!--penilaian mahasiswa 1-->
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/linear_mhs_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <View
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:layout_marginBottom="@dimen/dimen_medium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"/>
+
             <TextView
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_width="wrap_content"
@@ -81,7 +85,7 @@
 
             <TextView
                 android:textColor="@color/colorTextBlack"
-                android:text="@string/dummyLong"
+                tools:text="@string/dummyLong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dimen_big"
