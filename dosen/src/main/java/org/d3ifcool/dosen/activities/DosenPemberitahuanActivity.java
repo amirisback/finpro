@@ -9,6 +9,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
@@ -26,6 +27,7 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
     private NotifikasiPresenter notifikasiPresenter;
     private ProgressDialog progressDialog;
     private ArrayList<Notifikasi> notifikasiArrayList = new ArrayList<>();
+    private View empty_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView = findViewById(R.id.act_dsn_pemberitahuan_recyclerview);
+        empty_view = findViewById(R.id.view_emptyview);
         progressDialog = new ProgressDialog(this);
         notifikasiPresenter = new NotifikasiPresenter(this);
         progressDialog.setMessage(getString(org.d3ifcool.mahasiswa.R.string.text_progress_dialog));
@@ -73,13 +76,26 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
 
     @Override
     public void onGetListNotifikasi(List<Notifikasi> notifikasiList) {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        DosenPemberitahuanViewAdapter adapter = new DosenPemberitahuanViewAdapter(this, notifikasiArrayList);
-        DividerItemDecoration itemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
+        notifikasiArrayList.clear();
+        notifikasiArrayList.addAll(notifikasiList);
 
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.addItemDecoration(itemDecoration);
-        recyclerView.setAdapter(adapter);
+        if (notifikasiArrayList.size() != 0){
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+            DosenPemberitahuanViewAdapter adapter = new DosenPemberitahuanViewAdapter(this, notifikasiArrayList);
+            DividerItemDecoration itemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
+
+            recyclerView.setLayoutManager(linearLayoutManager);
+            recyclerView.addItemDecoration(itemDecoration);
+            recyclerView.setAdapter(adapter);
+
+            empty_view.setVisibility(View.VISIBLE);
+
+        } else {
+
+            empty_view.setVisibility(View.VISIBLE);
+
+        }
+
     }
 
     @Override

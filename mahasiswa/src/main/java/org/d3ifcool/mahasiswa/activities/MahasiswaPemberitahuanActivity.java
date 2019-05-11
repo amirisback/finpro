@@ -9,6 +9,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
@@ -27,6 +28,7 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements
     private ProgressDialog progressDialog;
     private ArrayList<Notifikasi> notifikasiArrayList = new ArrayList<>();
     private MahasiswaPemberitahuanViewAdapter adapter;
+    private View empty_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView = findViewById(R.id.act_mhs_pemberitahuan_recyclerview);
+        empty_view = findViewById(R.id.view_emptyview);
         progressDialog = new ProgressDialog(this);
         notifikasiPresenter = new NotifikasiPresenter(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
@@ -77,13 +80,24 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements
         notifikasiArrayList.clear();
         notifikasiArrayList.addAll(notifikasiList);
 
-        adapter = new MahasiswaPemberitahuanViewAdapter(this, notifikasiArrayList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        DividerItemDecoration itemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
+        if (notifikasiArrayList.size() != 0){
 
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.addItemDecoration(itemDecoration);
+            adapter = new MahasiswaPemberitahuanViewAdapter(this, notifikasiArrayList);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+            DividerItemDecoration itemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
+
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(linearLayoutManager);
+            recyclerView.addItemDecoration(itemDecoration);
+
+            empty_view.setVisibility(View.GONE);
+
+        } else {
+
+            empty_view.setVisibility(View.VISIBLE);
+
+
+        }
 
 
     }
