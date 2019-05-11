@@ -31,6 +31,9 @@ import org.d3ifcool.service.presenters.SidangPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUMLAH_BIMBINGAN_SIDANG;
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUMLAH_MONEV_SIDANG;
+
 public class DosenSidangActivity extends AppCompatActivity implements SidangListView , ProyekAkhirListView, BimbinganListView, MonevDetailListView {
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
@@ -102,10 +105,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         extraJudulId = String.valueOf(extraProyekAkhir.getJudul_id());
 
         proyekAkhirPresenter.searchAllProyekAkhirBy(PARAM_PROYEK_AKHIR, extraJudulId);
-//        sidangPresenter.searchAllSidangBy(PARAM_PROYEK_AKHIR, extraJudulId);
-
-
-        detailMonevPresenter.getMonevDetail();
+        detailMonevPresenter.searchMonevDetailAllBy(PARAM_PROYEK_AKHIR, extraJudulId);
 
         tv_tambah_sidang1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,8 +128,11 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
 
 
     private void intentSidangAdd(ProyekAkhir parcel){
-//        if (bimbinganArrayList.size() >= JUMLAH_BIMBINGAN_SIDANG && detailMonevArrayList.size() >= JUMLAH_MONEV_SIDANG){
-        if (bimbinganArrayList.size() >= 1){
+        int jumlahBimbingan = bimbinganArrayList.size();
+        int jumlahMonev = detailMonevArrayList.size() / 2;
+
+        if (jumlahBimbingan >= JUMLAH_BIMBINGAN_SIDANG && jumlahMonev >= JUMLAH_MONEV_SIDANG){
+//        if (bimbinganArrayList.size() >= 1){
             Intent intent = new Intent(DosenSidangActivity.this, DosenSidangTambahActivity.class);
             intent.putExtra(EXTRA_PROYEK_AKHIR, parcel);
             startActivity(intent);
@@ -167,7 +170,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
     protected void onResume() {
         super.onResume();
         if (extraJudulId != null){
-            sidangPresenter.searchAllSidangBy(PARAM_PROYEK_AKHIR, extraJudulId);
+            proyekAkhirPresenter.searchAllProyekAkhirBy(PARAM_PROYEK_AKHIR, extraJudulId);
         }
     }
 
@@ -242,28 +245,25 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
             tv_tambah_sidang1.setVisibility(View.VISIBLE);
             linearLayout_mhs2.setVisibility(View.GONE);
             tv_tambah_sidang2.setVisibility(View.VISIBLE);
-        }
-
-        if (sidangArrayList.size() == 2) {
-            setSidangMahasiswa1(sidangArrayList.get(0));
-            setSidangMahasiswa2(sidangArrayList.get(1));
         } else {
-
-            int sidangProyekAkhirId = sidangArrayList.get(0).getProyek_akhir_id();
-            int proyekAkhirId = proyekAkhirArrayList.get(0).getProyek_akhir_id();
-
-            if (proyekAkhirId != 0) {
-                if (sidangProyekAkhirId == proyekAkhirId){
-                    setSidangMahasiswa1(sidangArrayList.get(0));
-                    linearLayout_mhs2.setVisibility(View.GONE);
-                    tv_tambah_sidang2.setVisibility(View.VISIBLE);
-                } else {
-                    setSidangMahasiswa2(sidangArrayList.get(0));
-                    linearLayout_mhs1.setVisibility(View.GONE);
-                    tv_tambah_sidang1.setVisibility(View.VISIBLE);
+            if (sidangArrayList.size() == 2) {
+                setSidangMahasiswa1(sidangArrayList.get(0));
+                setSidangMahasiswa2(sidangArrayList.get(1));
+            } else {
+                int sidangProyekAkhirId = sidangArrayList.get(0).getProyek_akhir_id();
+                int proyekAkhirId = proyekAkhirArrayList.get(0).getProyek_akhir_id();
+                if (proyekAkhirId != 0 && sidangProyekAkhirId != 0) {
+                    if (sidangProyekAkhirId == proyekAkhirId){
+                        setSidangMahasiswa1(sidangArrayList.get(0));
+                        linearLayout_mhs2.setVisibility(View.GONE);
+                        tv_tambah_sidang2.setVisibility(View.VISIBLE);
+                    } else {
+                        setSidangMahasiswa2(sidangArrayList.get(0));
+                        linearLayout_mhs1.setVisibility(View.GONE);
+                        tv_tambah_sidang1.setVisibility(View.VISIBLE);
+                    }
                 }
             }
-
         }
 
     }
