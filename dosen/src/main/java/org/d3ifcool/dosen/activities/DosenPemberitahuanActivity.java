@@ -5,19 +5,27 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.adapters.recyclerview.DosenPemberitahuanViewAdapter;
+import org.d3ifcool.service.interfaces.lists.NotifikasiListView;
 import org.d3ifcool.service.models.Notifikasi;
+import org.d3ifcool.service.presenters.NotifikasiPresenter;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class DosenPemberitahuanActivity extends AppCompatActivity {
+public class DosenPemberitahuanActivity extends AppCompatActivity implements NotifikasiListView {
 
-    RecyclerView rv;
+    private RecyclerView recyclerView;
+    private NotifikasiPresenter notifikasiPresenter;
+    private ProgressDialog progressDialog;
+    private ArrayList<Notifikasi> notifikasiArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,21 +34,13 @@ public class DosenPemberitahuanActivity extends AppCompatActivity {
 
         setTitle(getString(R.string.title_pemberitahuan));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        rv = findViewById(R.id.act_dsn_pemberitahuan_recyclerview);
 
-        final ArrayList<Notifikasi> data = new ArrayList<>();
-        data.add(new Notifikasi("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi",true));
-        data.add(new Notifikasi("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi",true));
-        data.add(new Notifikasi("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi",true));
-        data.add(new Notifikasi("Hariandi Maulid mengirim suatu informasi",getString(R.string.dummy_tanggal),"4 menit yang lalu","hariandi maulid","mahasiswa","informasi",true));
+        recyclerView = findViewById(R.id.act_dsn_pemberitahuan_recyclerview);
+        progressDialog = new ProgressDialog(this);
+        notifikasiPresenter = new NotifikasiPresenter(this);
+        progressDialog.setMessage(getString(org.d3ifcool.mahasiswa.R.string.text_progress_dialog));
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        DosenPemberitahuanViewAdapter adapter = new DosenPemberitahuanViewAdapter(this,data);
-        DividerItemDecoration itemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
-
-        rv.setLayoutManager(linearLayoutManager);
-        rv.addItemDecoration(itemDecoration);
-        rv.setAdapter(adapter);
+        notifikasiPresenter.getNotifikasi();
 
     }
 
@@ -59,6 +59,32 @@ public class DosenPemberitahuanActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void showProgress() {
+        progressDialog.show();
+    }
+
+    @Override
+    public void hideProgress() {
+        progressDialog.hide();
+    }
+
+    @Override
+    public void onGetListNotifikasi(List<Notifikasi> notifikasiList) {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        DosenPemberitahuanViewAdapter adapter = new DosenPemberitahuanViewAdapter(this, notifikasiArrayList);
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.addItemDecoration(itemDecoration);
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onFailed(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 }

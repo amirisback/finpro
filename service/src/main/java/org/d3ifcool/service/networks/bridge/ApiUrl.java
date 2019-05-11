@@ -29,7 +29,7 @@ public class ApiUrl {
 
         public static final String PATH_API = "api/v1"; // Link API
         // -----------------------------------------------------------------------------------------
-        public static final String BASE_URL_FOTO = BASE_URL + "image/";
+        public static final String BASE_URL_FOTO = BASE_URL + "/image/";
         public static final String BASE_URL_LOGIN = PATH_API + "/user";
         // -----------------------------------------------------------------------------------------
         public static final String URL_FOTO_DOSEN = BASE_URL_FOTO + "dsn_img/";
