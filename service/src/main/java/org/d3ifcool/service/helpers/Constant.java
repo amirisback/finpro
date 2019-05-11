@@ -31,6 +31,7 @@ public class Constant {
         public static final String JUDUL_STATUS_ARSIP = "arsip";
         public static final String JUDUL_STATUS_MENUNGGU = "Menunggu persetujuan";
         public static final String JUDUL_STATUS_DISETUJUI = "Judul disetujui";
+
         // -----------------------------------------------------------------------------------------
         public static final String PACKAGE_ROOT = "id.frogobox.cataloguemovie";
         public static final String PACKAGE_PATH_ACTIVITIES = PACKAGE_ROOT+".views.activities";
@@ -71,11 +72,15 @@ public class Constant {
 
         public static final String BIMBINGAN_DITOLAK = "Bimbingan Ditolak!";
         public static final String BIMBINGAN_DIACC = "Bimbingan Telah Di-Acc!";
+
         public static final String STATUS_BIMBINGAN_PENDING = "pending";
         public static final String STATUS_BIMBINGAN_DISETUJUI = "disetujui";
 
         public static final int JUMLAH_BIMBINGAN_SIDANG = 16;
         public static final int JUMLAH_MONEV_SIDANG = 6;
+
+        public static final String STATUS_SIDANG_LULUS = "Lulus";
+        public static final String STATUS_SIDANG_LULUS_BERSYARAT = "Lulus";
 
 
 

@@ -73,6 +73,25 @@
             android:orientation="vertical">
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_tanggal_sidang"
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"/>
+
+            <TextView
+                android:id="@+id/tanggal_sidang2"
+                style="@style/textview_pa_color_black"
+                tools:text="@string/text_belum_sidang"/>
+
+            <View
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:layout_marginBottom="@dimen/dimen_medium"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"/>
+
+            <TextView
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

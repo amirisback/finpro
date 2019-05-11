@@ -33,6 +33,7 @@ import java.util.List;
 
 import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUMLAH_BIMBINGAN_SIDANG;
 import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUMLAH_MONEV_SIDANG;
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.STATUS_SIDANG_LULUS;
 
 public class DosenSidangActivity extends AppCompatActivity implements SidangListView , ProyekAkhirListView, BimbinganListView, MonevDetailListView {
 
@@ -52,7 +53,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
     private BimbinganPresenter bimbinganPresenter;
     private MonevDetailPresenter detailMonevPresenter;
 
-    private TextView tv_nama1,tv_nim1,tv_nama2,tv_nim2,tv_status;
+    private TextView tv_nama1,tv_nim1,tv_nama2,tv_nim2,tv_status, tv_tanggal_1, tv_tanggal_2;
     private CardView cardView_mhs_1,cardView_mhs_2;
     private TextView tv_nilai_proposal1, tv_nilai_pembimbing1,tv_nilai_penguji1_1,tv_nilai_penguji1_2,tv_nilai_total_1, tv_review_1, tv_status_1, tv_tambah_sidang1;
     private TextView tv_nilai_proposal2, tv_nilai_pembimbing2,tv_nilai_penguji2_1,tv_nilai_penguji2_2,tv_nilai_total_2,tv_review_2, tv_status_2, tv_tambah_sidang2;
@@ -90,6 +91,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         tv_nilai_total_1 = findViewById(R.id.dsn_sidang_nilai_total_1);
         tv_review_1 = findViewById(R.id.dsn_sidang_textview_review_1);
         tv_status_1 = findViewById(R.id.dsn_sidang_textview_status_1);
+        tv_tanggal_1 = findViewById(R.id.tanggal_sidang1);
 
         tv_nilai_proposal2 = findViewById(R.id.dsn_sidang_nilai_proposal_2);
         tv_nilai_pembimbing2 = findViewById(R.id.dsn_sidang_nilai_pembimbing1_2);
@@ -100,6 +102,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         tv_status_2 = findViewById(R.id.dsn_sidang_textview_status_2);
         tv_tambah_sidang1 = findViewById(R.id.act_dsn_textview_tambah_sidang_mhs_1);
         tv_tambah_sidang2 = findViewById(R.id.act_dsn_textview_tambah_sidang_mhs_2);
+        tv_tanggal_2 = findViewById(R.id.tanggal_sidang2);
 
         ProyekAkhir extraProyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
         extraJudulId = String.valueOf(extraProyekAkhir.getJudul_id());
@@ -147,8 +150,14 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         tv_nilai_penguji1_1.setText(String.valueOf(sidang.getNilai_penguji_1()));
         tv_nilai_penguji1_2.setText(String.valueOf(sidang.getNilai_penguji_2()));
         tv_nilai_total_1.setText(String.valueOf(sidang.getNilai_sidang()));
-        tv_status_1.setText(sidang.getSidang_status());
         tv_review_1.setText(sidang.getSidang_review());
+        tv_tanggal_1.setText(sidang.getSidang_tanggal());
+        tv_status_1.setText(sidang.getSidang_status());
+
+        if (sidang.getSidang_status().equals(STATUS_SIDANG_LULUS)){
+            tv_status_1.setTextColor(DosenSidangActivity.this.getResources().getColor(R.color.colorTextGreen));
+        }
+
         linearLayout_mhs1.setVisibility(View.VISIBLE);
         tv_tambah_sidang1.setVisibility(View.GONE);
     }
@@ -159,8 +168,14 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         tv_nilai_penguji2_1.setText(String.valueOf(sidang.getNilai_penguji_1()));
         tv_nilai_penguji2_2.setText(String.valueOf(sidang.getNilai_penguji_2()));
         tv_nilai_total_2.setText(String.valueOf(sidang.getNilai_sidang()));
-        tv_status_2.setText(sidang.getSidang_status());
         tv_review_2.setText(sidang.getSidang_review());
+        tv_tanggal_2.setText(sidang.getSidang_tanggal());
+        tv_status_2.setText(sidang.getSidang_status());
+
+        if (sidang.getSidang_status().equals(STATUS_SIDANG_LULUS)){
+            tv_status_2.setTextColor(DosenSidangActivity.this.getResources().getColor(R.color.colorTextGreen));
+        }
+
         linearLayout_mhs2.setVisibility(View.VISIBLE);
         tv_tambah_sidang2.setVisibility(View.GONE);
     }
