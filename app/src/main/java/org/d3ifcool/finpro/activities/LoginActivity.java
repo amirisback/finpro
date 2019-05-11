@@ -49,7 +49,14 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             public void onClick(View v) {
                 username = editTextUsername.getText().toString();
                 password = editTextPassword.getText().toString();
-                loginPresenter.getLogin(username, password);
+
+                if (username.isEmpty()){
+                    editTextUsername.setError(getString(R.string.text_tidak_boleh_kosong));
+                } else if (password.isEmpty()){
+                    editTextPassword.setError(getString(R.string.text_tidak_boleh_kosong));
+                } else {
+                    loginPresenter.getLogin(username, password);
+                }
             }
         });
 
