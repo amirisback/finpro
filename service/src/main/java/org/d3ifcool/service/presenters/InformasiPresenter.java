@@ -53,7 +53,7 @@ public class InformasiPresenter {
             @Override
             public void onFailure(Call<Informasi> call, Throwable t) {
                 viewEditor.hideProgress();
-                viewEditor.onFailed(t.getLocalizedMessage());
+                viewEditor.onFailed(t.getMessage());
             }
         });
 

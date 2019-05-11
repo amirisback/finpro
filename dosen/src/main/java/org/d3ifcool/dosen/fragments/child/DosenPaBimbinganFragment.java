@@ -76,8 +76,9 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
     @Override
     public void onResume() {
         super.onResume();
-//        judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
-        judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionUsername());
+        if (sessionManager.getSessionUsername() != null) {
+            judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionUsername());
+        }
     }
 
     @Override

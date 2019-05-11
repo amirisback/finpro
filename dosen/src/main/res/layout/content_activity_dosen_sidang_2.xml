@@ -65,6 +65,7 @@
 
         <!--penilaian sidang mhs 2-->
         <LinearLayout
+            android:visibility="gone"
             android:layout_marginTop="@dimen/dimen_medium"
             android:id="@+id/linear_mhs_2"
             android:layout_width="match_parent"

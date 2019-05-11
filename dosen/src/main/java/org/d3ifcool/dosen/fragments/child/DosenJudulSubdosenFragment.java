@@ -92,7 +92,9 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
     @Override
     public void onResume() {
         super.onResume();
-        presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionUsername());
+        if (sessionManager.getSessionUsername() != null){
+            presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionUsername());
+        }
     }
 
     @Override
