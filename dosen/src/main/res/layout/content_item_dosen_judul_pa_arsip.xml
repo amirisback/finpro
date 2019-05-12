@@ -15,48 +15,27 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/title_judulpa"
-            android:textSize="@dimen/text_size_default"
-            android:textColor="@color/colorTextBlack"/>
+            style="@style/content_all_list_title"/>
 
         <TextView
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/ctn_judul_pa_arsip_textview_judul"
-            android:text="@string/dummy"
-            android:maxLines="1"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"/>
+            style="@style/content_all_list_sub_title"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/colorBackground"
             android:layout_marginTop="@dimen/dimen_medium"
             android:layout_marginBottom="@dimen/dimen_medium"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/text_kategori"
-            android:textSize="@dimen/text_size_default"
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
-            android:textColor="@color/colorTextBlack"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:text="@string/text_kategori"
+            style="@style/content_all_list_title"/>
+
+        <TextView
             android:id="@+id/ctn_judul_pa_arsip_textview_kategori"
-            android:text="@string/dummy"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big" />
+            style="@style/content_all_list_sub_title"/>
 
     </LinearLayout>
 

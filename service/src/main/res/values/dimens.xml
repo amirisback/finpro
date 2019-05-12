@@ -56,7 +56,8 @@
     <dimen name="text_size_medium">16sp</dimen>
     <dimen name="text_size_default">12sp</dimen>
     <dimen name="text_size_small">10sp</dimen>
-    <dimen name="min_height_info">300dp</dimen>
     <dimen name="min_height_list_bimbingan">95dp</dimen>
+    <dimen name="dimen_drawable_padding">5dip</dimen>
+    <dimen name="min_height_info">200dp</dimen>
 
 </resources>

@@ -36,20 +36,12 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/title_judulpa"
-            android:textSize="@dimen/text_size_default"
-            android:textColor="@color/colorTextBlack"/>
+            style="@style/content_all_list_title"/>
 
         <TextView
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
             android:id="@+id/ctn_dsn_pa_monev_textview_judul"
-            android:text="@string/dummy"
-            style="@style/textview_item_list_judul_pa"/>
+            style="@style/content_all_list_sub_title"/>
 
         <View
             android:layout_width="match_parent"
@@ -59,20 +51,12 @@
             android:layout_marginBottom="@dimen/dimen_medium"/>
 
         <TextView
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/text_nama_kelompok"
-            android:textSize="@dimen/text_size_default"
-            android:textColor="@color/colorTextBlack"/>
+            style="@style/content_all_list_title"/>
 
         <TextView
             android:id="@+id/ctn_dsn_pa_monev_textview_kelompok"
-            android:text="@string/dummy"
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
-            style="@style/textview_item_list_judul_pa"/>
+            style="@style/content_all_list_sub_title"/>
 
     </LinearLayout>
 

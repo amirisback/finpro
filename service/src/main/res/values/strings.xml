@@ -349,6 +349,7 @@
     <string name="text_status_bimbingan_pending">Belum di acc</string>
     <string name="dummy_kehadiran">Hadir</string>
     <string name="text_belum_memenuhi_syarat_sidang">Belum Memenuhi Syarat untuk Sidang</string>
+    <string name="text_nama_dosen">Nama Dosen</string>
 
     <string-array name="array_kehadiran_bimbingan">
         <item>Hadir</item>

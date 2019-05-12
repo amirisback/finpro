@@ -97,7 +97,7 @@ public class MahasiswaPaBimbinganActivity extends AppCompatActivity implements B
     protected void onResume() {
         super.onResume();
         for (int i = 0; i < extraArrayProyekAkhir.size(); i++) {
-            if (extraArrayProyekAkhir.get(i).getMhs_nim() == sessionManager.getSessionMahasiswaNim()) {
+            if (extraArrayProyekAkhir.get(i).getMhs_nim().equals(sessionManager.getSessionMahasiswaNim())) {
                 bimbinganPresenter.searchBimbinganAllBy(PARAM_BIMBINGAN_ID, String.valueOf(extraArrayProyekAkhir.get(i).getProyek_akhir_id()));
             }
         }

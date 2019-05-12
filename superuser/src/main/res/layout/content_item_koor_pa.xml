@@ -15,24 +15,12 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dimen_big"
-            android:layout_marginRight="@dimen/dimen_big"
             android:text="@string/title_judulpa"
-            android:textColor="@color/colorTextBlack"
-            android:textSize="@dimen/text_size_default" />
+            style="@style/content_all_list_title" />
 
         <TextView
             android:id="@+id/ctn_koor_pa_textview_judul"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dimen_big"
-            android:layout_marginRight="@dimen/dimen_big"
-            android:maxLines="1"
-            android:textStyle="bold"
-            android:text="@string/dummy_pa_judul"
-            android:textColor="@color/colorPrimary" />
+            style="@style/content_all_list_sub_title" />
 
         <View
             android:layout_width="match_parent"
@@ -42,23 +30,12 @@
             android:background="@color/colorBackground" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dimen_big"
-            android:layout_marginRight="@dimen/dimen_big"
             android:text="@string/text_kategori"
-            android:textColor="@color/colorTextBlack"
-            android:textSize="@dimen/text_size_default" />
+            style="@style/content_all_list_title"/>
 
         <TextView
             android:id="@+id/ctn_koor_pa_textview_kategori"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dimen_big"
-            android:layout_marginRight="@dimen/dimen_big"
-            android:text="@string/dummy_kategori"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"/>
+            style="@style/content_all_list_sub_title" />
 
     </LinearLayout>
 
