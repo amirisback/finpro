@@ -38,11 +38,7 @@
                         tools:text="@string/dummy_pa_judul"/>
 
                     <View
-                        android:layout_marginTop="@dimen/dimen_medium"
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
+                        style="@style/view_all_line_horizontal"/>
 
                     <TextView
                         android:layout_marginStart="@dimen/dimen_big"
@@ -57,11 +53,7 @@
                         android:layout_marginBottom="@dimen/dimen_medium"/>
 
                     <View
-                        android:layout_marginTop="@dimen/dimen_medium"
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
+                        style="@style/view_all_line_horizontal"/>
 
                     <TextView
                         android:layout_marginStart="@dimen/dimen_big"
@@ -111,10 +103,7 @@
                         tools:text="@string/dummy_anggota_kelompok_1"/>
 
                     <View
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
+                        style="@style/view_all_line_horizontal"/>
 
 
                     <TextView
@@ -129,11 +118,7 @@
                         android:id="@+id/frg_mhs_pa_nim_1"/>
 
                     <View
-                        android:layout_marginTop="@dimen/dimen_medium"
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
+                        style="@style/view_all_line_horizontal"/>
 
                     <TextView
                         android:layout_marginStart="@dimen/dimen_big"
@@ -176,10 +161,7 @@
                         tools:text="@string/dummy_anggota_kelompok_1"/>
 
                     <View
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
+                        style="@style/view_all_line_horizontal"/>
 
 
                     <TextView
@@ -194,11 +176,7 @@
                         android:id="@+id/frg_mhs_pa_nim_2"/>
 
                     <View
-                        android:layout_marginTop="@dimen/dimen_medium"
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
+                        style="@style/view_all_line_horizontal"/>
 
                     <TextView
                         android:layout_marginStart="@dimen/dimen_big"

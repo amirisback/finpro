@@ -28,17 +28,13 @@
                 android:text="@string/text_tanggal_monev"/>
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
-                android:background="@android:color/darker_gray"/>
+                style="@style/view_all_line_horizontal"/>
 
             <TextView
                 android:id="@+id/act_dsn_monev_tanggal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_date"
+                android:drawableStart="@drawable/ic_date"
                 android:drawablePadding="@dimen/dimen_medium"
                 android:text="@string/dummy_tanggal"
                 android:gravity="center_vertical"
@@ -65,22 +61,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kategori Monev"/>
+                android:text="@string/menu_kategori_monev"/>
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
-                android:background="@android:color/darker_gray"/>
+                style="@style/view_all_line_horizontal"/>
 
             <TextView
                 android:id="@+id/act_dsn_monev_kategori"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorTextBlack"
-                android:text="Review bab 1" />
+                tools:text="@string/dummy" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -103,15 +94,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Review Monev" />
+                android:text="@string/title_review_monev" />
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
-                android:background="@android:color/darker_gray"/>
+                style="@style/view_all_line_horizontal"/>
 
             <TextView
                 android:id="@+id/act_dsn_monev_ulasan"
@@ -140,7 +126,6 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/text_nilai_monev"
@@ -151,7 +136,7 @@
             <TextView
                 android:id="@+id/act_dsn_monev_nilai"
                 android:layout_width="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorAccent"
                 android:text="@string/dummy_nilai_monev"

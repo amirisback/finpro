@@ -41,11 +41,7 @@
                     tools:text="@string/dummy_pa_judul"/>
 
                 <View
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"/>
+                    style="@style/view_all_line_horizontal"/>
 
                 <TextView
                     android:layout_marginStart="@dimen/dimen_big"
@@ -92,11 +88,7 @@
                     tools:text="@string/dummy_anggota_kelompok_1" />
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:background="@color/colorBackground" />
+                    style="@style/view_all_line_horizontal"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -111,11 +103,7 @@
                     tools:text="@string/dummy_anggota_nim_1" />
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:background="@color/colorBackground" />
+                    style="@style/view_all_line_horizontal"/>
 
 
                 <TextView
@@ -130,11 +118,7 @@
                     tools:text="@string/dummy_anggota_kelompok_2" />
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:background="@color/colorBackground" />
+                    style="@style/view_all_line_horizontal"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -189,10 +173,7 @@
                     tools:text="@string/dummy_dosen_pembimbing"/>
 
                 <View
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"/>
+                    style="@style/view_all_line_horizontal"/>
 
                 <TextView
                     android:layout_marginStart="@dimen/dimen_big"
@@ -206,11 +187,7 @@
                     tools:text="@string/dummy_jumlah_bimbingan"/>
 
                 <View
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"/>
+                    style="@style/view_all_line_horizontal"/>
 
                 <TextView
                     android:layout_marginStart="@dimen/dimen_big"
@@ -262,11 +239,7 @@
                     tools:text="@string/dummy_dosen_reviewer"/>
 
                 <View
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"/>
-
+                    style="@style/view_all_line_horizontal"/>
                 <TextView
                     android:layout_marginStart="@dimen/dimen_big"
                     android:layout_marginEnd="@dimen/dimen_big"
@@ -315,17 +288,14 @@
                     android:textStyle="bold"
                     android:textColor="@color/colorBackgroundYellow"
                     android:textSize="@dimen/text_size_medium"
+                    tools:text="@string/dummy_status_sidang"
                     android:id="@+id/act_dsn_pa_bimbingan_textview_status_sidang"
                     android:layout_marginStart="@dimen/dimen_big"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
                 <View
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"/>
+                    style="@style/view_all_line_horizontal"/>
 
                 <TextView
                     android:layout_marginStart="@dimen/dimen_big"

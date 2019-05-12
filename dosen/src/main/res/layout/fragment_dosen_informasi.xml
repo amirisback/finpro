@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/dimen_medium"
             tools:listitem="@layout/content_item_dosen_informasi">
-        </androidx.recyclerview.widget.RecyclerView>\
+        </androidx.recyclerview.widget.RecyclerView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/frg_dsn_info_home_fab"

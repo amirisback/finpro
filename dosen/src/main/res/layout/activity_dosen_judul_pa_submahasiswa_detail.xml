@@ -72,11 +72,7 @@
                         tools:text="@string/dummy_pa_judul"/>
 
                     <View
-                        android:layout_marginTop="@dimen/dimen_medium"
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
+                        style="@style/view_all_line_horizontal"/>
 
                     <TextView
                         android:layout_marginStart="@dimen/dimen_big"
@@ -90,12 +86,7 @@
                         tools:text="@string/dummy_kategori"/>
 
                     <View
-                        android:layout_marginTop="@dimen/dimen_medium"
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
-
+                        style="@style/view_all_line_horizontal"/>
 
                     <TextView
                         android:layout_marginStart="@dimen/dimen_big"
@@ -175,14 +166,10 @@
                     <TextView
                         style="@style/content_all_text_bold_color_primary"
                         android:id="@+id/act_dsn_mhs_judul_nama_1"
-                        tools:hint="@string/dummy_anggota_kelompok_1"/>
+                        tools:text="@string/dummy_anggota_kelompok_1"/>
 
                     <View
-                        android:layout_marginTop="@dimen/dimen_medium"
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
+                        style="@style/view_all_line_horizontal"/>
 
                     <TextView
                         android:layout_marginStart="@dimen/dimen_big"
@@ -193,15 +180,10 @@
                     <TextView
                         style="@style/content_all_text_bold_color_black"
                         android:id="@+id/act_dsn_mhs_judul_nim_1"
-                        tools:hint="@string/dummy_anggota_nim_1"/>
+                        tools:text="@string/dummy_anggota_nim_1"/>
 
                     <View
-                        android:layout_marginTop="@dimen/dimen_medium"
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
-
+                        style="@style/view_all_line_horizontal"/>
 
                     <TextView
                         android:layout_marginStart="@dimen/dimen_big"
@@ -212,14 +194,10 @@
                     <TextView
                         style="@style/content_all_text_bold_color_primary"
                         android:id="@+id/act_dsn_mhs_judul_nama_2"
-                        tools:hint="@string/dummy_anggota_kelompok_2"/>
+                        tools:text="@string/dummy_anggota_kelompok_2"/>
 
                     <View
-                        android:layout_marginTop="@dimen/dimen_medium"
-                        android:layout_marginBottom="@dimen/dimen_medium"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen_view_line"
-                        android:background="@color/colorBackground"/>
+                        style="@style/view_all_line_horizontal"/>
 
                     <TextView
                         android:layout_marginStart="@dimen/dimen_big"
@@ -230,7 +208,7 @@
                     <TextView
                         style="@style/content_all_text_bold_color_black"
                         android:id="@+id/act_dsn_mhs_judul_nim_2"
-                        tools:hint="@string/dummy_anggota_nim_2"
+                        tools:text="@string/dummy_anggota_nim_2"
                         android:layout_marginBottom="@dimen/dimen_medium"/>
 
 

@@ -44,11 +44,7 @@
             style="@style/content_all_list_sub_title"/>
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorBackground"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"/>
+            style="@style/view_all_line_horizontal"/>
 
         <TextView
             android:text="@string/text_kategori"

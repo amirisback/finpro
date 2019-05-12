@@ -96,12 +96,7 @@
                     <!--android:textColor="@color/colorPrimary"/>-->
 
                 <View
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorBackground"
-                    android:layout_marginBottom="@dimen/dimen_medium"/>
-
+                    style="@style/view_all_line_horizontal"/>
                 <TextView
                     android:textColor="@color/colorTextBlack"
                     android:id="@+id/act_dsn_info_detail_textview_isi"
