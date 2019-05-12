@@ -94,7 +94,7 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
                                 }else if (bimbingan.isEmpty()){
                                     et_jml_bimbingan.setError(getString(R.string.text_tidak_boleh_kosong));
                                 }else if (jml > 16){
-                                    et_jml_bimbingan.setError(getString(R.string.tidak_lebih16));
+                                    et_jml_bimbingan.setError(getString(R.string.validate_tidak_lebih_16));
                                 } else {
                                     presenterMonev.createMonev(kategori, bimbingan);
                                     presenterMonev.getMonev();

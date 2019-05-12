@@ -16,10 +16,7 @@ import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.service.helpers.MethodHelper;
 import org.d3ifcool.service.interfaces.works.BimbinganWorkView;
 import org.d3ifcool.service.models.Bimbingan;
-import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.BimbinganPresenter;
-
-import java.util.ArrayList;
 
 public class MahasiswaPaBimbinganUbahActivity extends AppCompatActivity implements BimbinganWorkView {
     public static final String EXTRA_BIMBINGAN = "extra_bimbingan";
@@ -69,7 +66,7 @@ public class MahasiswaPaBimbinganUbahActivity extends AppCompatActivity implemen
                                 String judul_baru = et_judul.getText().toString();
                                 String isi_baru = et_review.getText().toString();
                                 if (tanggal_baru.isEmpty()){
-                                    tv_tanggal.setError(getString(R.string.tanggal_harus));
+                                    tv_tanggal.setError(getString(R.string.validate_tanggal));
                                 }else if (judul_baru.isEmpty()){
                                     et_judul.setError(getString(R.string.text_tidak_boleh_kosong));
                                 }else if (isi_baru.isEmpty()){

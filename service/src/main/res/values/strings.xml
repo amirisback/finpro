@@ -113,6 +113,7 @@
     <string name="dummy_status_sidang">Lulus</string>
     <string name="dummy_dosen_kode">HMU</string>
     <string name="dummy_email">ikhsanramadhan28@gmail.com</string>
+    <string name="dummy_kehadiran">Hadir</string>
 
     <string name="dialog_hapus_title">Hapus Data</string>
     <string name="dialog_hapus_text">Anda yakin ingin menghapus ini?</string>
@@ -121,6 +122,12 @@
     <string name="dialog_tambah">Tambah</string>
     <string name="dialog_pengajuan_judul_title">Ajukan Judul</string>
     <string name="dialog_pengajuan_judul_text">Apakah anda yakin data sudah benar</string>
+    <string name="dialog_setuju_text">Apakah anda setuju untuk meng-acc kelompok ini?</string>
+    <string name="dialog_setuju_title">Setuju Judul</string>
+    <string name="dialog_tolak_title">Tolak Judul</string>
+    <string name="dialog_tolak_text">Apakah anda yakin menolak kelompok ini?</string>
+    <string name="dialog_keluar_title">Keluar</string>
+    <string name="dialog_keluar_text">Anda Yakin Ingin Keluar?</string>
 
     <string name="iya">Iya</string>
     <string name="tidak">Tidak</string>
@@ -136,34 +143,7 @@
     <string name="menu_judul_pa">Judul</string>
     <string name="menu_kategori_judul">Kategori Judul</string>
     <string name="menu_arsip_judul">Arsip Judul</string>
-
-    <string-array name="nama_dosen">
-        <item>--- Pilih Dosen ---</item>
-        <item>Amir Hasanudin Fauzi, S.T., M.T.</item>
-        <item>Hariandi Maulid, S.T., M.Sc.</item>
-        <item>Hetti Hidayati, S.Kom., M.T.</item>
-        <item>Indra Azimi, S.T., M.T.</item>
-        <item>Rahmadi Wijaya, S.Si., M.T.</item>
-        <item>Rizza Indah Mega Mandasari, S.Kom., M.T.</item>
-        <item>Tri Brotoharsono, S.T., M.T.</item>
-    </string-array>
-
-    <string-array name="kategori_proyek_akhir">
-        <item>Games</item>
-        <item>Website</item>
-        <item>Android</item>
-        <item>IoT</item>
-    </string-array>
-
-    <string-array name="kategori_monev">
-        <item>Pilih Kategori Monev</item>
-        <item>Pra Monev 1</item>
-        <item>Pra Monev 2</item>
-        <item>Pra Monev 3</item>
-        <item>Monev 1</item>
-        <item>Monev 2</item>
-        <item>Monev 3</item>
-    </string-array>
+    <string name="menu_kategori_monev">Kategori Monev</string>
 
     <string name="hint_id_pengguna">ID Pengguna</string>
     <string name="hint_kata_sandi">Kata Sandi</string>
@@ -321,35 +301,53 @@
     <string name="text_tanggal_sidang">Tanggal Sidang</string>
     <string name="text_minimal_jumlah_bimbingan">Minimal Jumlah Bimbingan</string>
     <string name="text_jumlah_kelompok">1</string>
-
- <!--Validasi Form-->
-    <string name="tanggal_harus">Tanggal Harus Di isi</string>
-    <string name="No_Telepon_Tidak_Valid">No Telepon Tidak Valid</string>
-    <string name="email_tidak_valid">Email Tidak Valid</string>
-    <string name="no_lebih">No Telepon Lebih dari 12 Digit</string>
-    <string name="no_telp_kurang">No Telepon Kurang dari 7</string>
-    <string name="no_sudah_ada">No Sudah di Pakai</string>
-    <string name="email_ada">Email Sudah di Pakai</string>
-    <string name="tidak_lebih_100">Tidak Boleh Lebih dari 100</string>
-    <string name="tidak_lebih16">Tidak Boleh Lebih Dari 16</string>
-<!--App String for logout-->
-    <string name="keluar">Keluar</string>
-    <string name="messagekeluar">Anda Yakin Ingin Keluar?</string>
-    <string name="menu_kategori_monev">Kategori Monev</string>
-    <string name="text_siap_sidang">Siap Sidang</string>
-    <string name="tambah_sidang">Tambah Sidang</string>
+    <string name="text_status_bimbingan_pending">Belum di acc</string>
+    <string name="text_belum_memenuhi_syarat_sidang">Belum Memenuhi Syarat untuk Sidang</string>
+    <string name="text_nama_dosen">Nama Dosen</string>
     <string name="text_divider">|</string>
     <string name="text_bimbingan_kehadiran">Kehadiran</string>
     <string name="text_bimbingan_gagal">Tidak dapat menambahkan, harap tunggu bimbingan sebelumnya disetujui terlebih dahulu</string>
     <string name="text_bimbingan_berhasil">Bimbingan Baru Berhasil ditambahkan, harap tunggu ACC dari dosen pembimbing</string>
-    <string name="dialog_setuju_text">Apakah anda setuju untuk meng-acc kelompok ini?</string>
-    <string name="dialog_setuju_title">Setuju Judul</string>
-    <string name="dialog_tolak_title">Tolak Judul</string>
-    <string name="dialog_tolak_text">Apakah anda yakin menolak kelompok ini?</string>
-    <string name="text_status_bimbingan_pending">Belum di acc</string>
-    <string name="dummy_kehadiran">Hadir</string>
-    <string name="text_belum_memenuhi_syarat_sidang">Belum Memenuhi Syarat untuk Sidang</string>
-    <string name="text_nama_dosen">Nama Dosen</string>
+    <string name="text_siap_sidang">Siap Sidang</string>
+    <string name="text_tambah_sidang">Tambah Sidang</string>
+    
+    <string name="validate_tanggal">Tanggal Harus Di isi</string>
+    <string name="validate_telp_valid">No Telepon Tidak Valid</string>
+    <string name="validate_telp_jumlah_lebih">No Telepon Lebih dari 12 digit</string>
+    <string name="validate_telp_jumlah_kurang">No Telepon Kurang dari 7 digit</string>
+    <string name="validate_telp_sudah_ada">No Sudah di Pakai</string>
+    <string name="validate_email">Email Tidak Valid</string>
+    <string name="validate_email_ada">Email Sudah di Pakai</string>
+    <string name="validate_tidak_lebih_100">Tidak Boleh Lebih dari 100</string>
+    <string name="validate_tidak_lebih_16">Tidak Boleh Lebih dari 16</string>
+
+    <string-array name="nama_dosen">
+        <item>--- Pilih Dosen ---</item>
+        <item>Amir Hasanudin Fauzi, S.T., M.T.</item>
+        <item>Hariandi Maulid, S.T., M.Sc.</item>
+        <item>Hetti Hidayati, S.Kom., M.T.</item>
+        <item>Indra Azimi, S.T., M.T.</item>
+        <item>Rahmadi Wijaya, S.Si., M.T.</item>
+        <item>Rizza Indah Mega Mandasari, S.Kom., M.T.</item>
+        <item>Tri Brotoharsono, S.T., M.T.</item>
+    </string-array>
+
+    <string-array name="kategori_proyek_akhir">
+        <item>Games</item>
+        <item>Website</item>
+        <item>Android</item>
+        <item>IoT</item>
+    </string-array>
+
+    <string-array name="kategori_monev">
+        <item>Pilih Kategori Monev</item>
+        <item>Pra Monev 1</item>
+        <item>Pra Monev 2</item>
+        <item>Pra Monev 3</item>
+        <item>Monev 1</item>
+        <item>Monev 2</item>
+        <item>Monev 3</item>
+    </string-array>
 
     <string-array name="array_kehadiran_bimbingan">
         <item>Hadir</item>

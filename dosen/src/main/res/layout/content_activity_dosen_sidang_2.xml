@@ -281,7 +281,7 @@
             android:id="@+id/act_dsn_textview_tambah_sidang_mhs_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tambah_sidang"
+            android:text="@string/text_tambah_sidang"
             android:textColor="@color/colorPrimary"
             android:padding="@dimen/dimen_medium"
             android:gravity="end"

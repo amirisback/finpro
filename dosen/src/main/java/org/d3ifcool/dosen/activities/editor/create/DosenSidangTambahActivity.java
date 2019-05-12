@@ -2,9 +2,7 @@ package org.d3ifcool.dosen.activities.editor.create;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -209,13 +207,13 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
                     nilai_total = Double.parseDouble(nilai_tot);
                 }
                 if (nilai_proposal > 100.0){
-                    et_np.setError(getString(R.string.tidak_lebih_100));
+                    et_np.setError(getString(R.string.validate_tidak_lebih_100));
                 } else if (nilai_pembimbing1 > 100.0){
-                    et_pembimbing1.setError(getString(R.string.tidak_lebih_100));
+                    et_pembimbing1.setError(getString(R.string.validate_tidak_lebih_100));
                 }else if (nilai_penguji1 > 100.0) {
-                    et_penguji1.setError(getString(R.string.tidak_lebih_100));
+                    et_penguji1.setError(getString(R.string.validate_tidak_lebih_100));
                 }else if (nilai_penguji2 > 100.0) {
-                    et_penguji2.setError(getString(R.string.tidak_lebih_100));
+                    et_penguji2.setError(getString(R.string.validate_tidak_lebih_100));
                 }else if (review.isEmpty()){
                     et_review.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else if (nilai_pro.isEmpty()){

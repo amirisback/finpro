@@ -19,7 +19,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +26,6 @@ import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.lists.BimbinganListView;
 import org.d3ifcool.service.interfaces.lists.MahasiswaListView;
 import org.d3ifcool.service.interfaces.works.MahasiswaWorkView;
 import org.d3ifcool.service.models.Mahasiswa;
@@ -128,19 +126,19 @@ public class MahasiswaProfilUbahActivity extends AppCompatActivity implements Ma
                 }else if (angkatan_baru.isEmpty()){
                     et_angkatan.setError(getString(R.string.text_tidak_boleh_kosong));
                 } else if (kontak_baru.length() <= 10 ){
-                    et_kontak.setError(getString(R.string.no_telp_kurang));
+                    et_kontak.setError(getString(R.string.validate_telp_jumlah_kurang));
                 }else if (kontak_baru.length() >= 13){
-                    et_kontak.setError(getString(R.string.no_lebih));
+                    et_kontak.setError(getString(R.string.validate_telp_jumlah_lebih));
                 } else if (!email_baru.matches(emailPattern)){
-                    et_email.setError(getString(R.string.email_tidak_valid));
+                    et_email.setError(getString(R.string.validate_email));
                 }else if (!kontak_baru.matches(phonePattern)){
-                    et_kontak.setError(getString(R.string.No_Telepon_Tidak_Valid));
+                    et_kontak.setError(getString(R.string.validate_telp_valid));
                 } else if (!kontak_baru.isEmpty()) {
                     for (int i =0 ; i < mahasiswaArrayList.size() ; i++){
                         if (kontak_baru.equalsIgnoreCase(kontak)){
                             mahasiswaPresenter.updateMahasiswa(sessionManager.getSessionMahasiswaNim(), nama_baru, angkatan_baru, kontak_baru,foto_baru, email_baru);
                         }else if (kontak_baru.equalsIgnoreCase(mahasiswaArrayList.get(i).getMhs_kontak())){
-                            et_kontak.setError(getString(R.string.no_sudah_ada));
+                            et_kontak.setError(getString(R.string.validate_telp_sudah_ada));
                         }
                     }
                 }else if (!email_baru.isEmpty()){
@@ -148,7 +146,7 @@ public class MahasiswaProfilUbahActivity extends AppCompatActivity implements Ma
                         if (email_baru.equalsIgnoreCase(email)){
                             mahasiswaPresenter.updateMahasiswa(sessionManager.getSessionMahasiswaNim(), nama_baru, angkatan_baru, kontak_baru,foto_baru, email_baru);
                         }else if (email_baru.equalsIgnoreCase(mahasiswaArrayList.get(i).getMhs_email())){
-                            et_email.setError(getString(R.string.email_ada));
+                            et_email.setError(getString(R.string.validate_email_ada));
                         }
                     }
 

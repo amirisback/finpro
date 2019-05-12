@@ -25,7 +25,6 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.mahasiswa.activities.MahasiswaProfilUbahActivity;
 import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.DosenListView;
 import org.d3ifcool.service.interfaces.works.DosenWorkView;
@@ -39,7 +38,6 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
 
 public class DosenProfilUbahActivity extends AppCompatActivity implements DosenWorkView, DosenListView {
 
@@ -133,19 +131,19 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
                 }else if (kode_baru.isEmpty()){
                     et_kode.setError(getString(R.string.text_tidak_boleh_kosong));
                 } else if (kontak_baru.length() <= 10 ){
-                    et_kontak.setError(getString(R.string.no_telp_kurang));
+                    et_kontak.setError(getString(R.string.validate_telp_jumlah_kurang));
                 }else if (kontak_baru.length() >= 13){
-                    et_kontak.setError(getString(R.string.no_lebih));
+                    et_kontak.setError(getString(R.string.validate_telp_jumlah_lebih));
                 } else if (!email_baru.matches(emailPattern)){
-                    et_email.setError(getString(R.string.email_tidak_valid));
+                    et_email.setError(getString(R.string.validate_email));
                 }else if (!kontak_baru.matches(phonePattern)){
-                    et_kontak.setError(getString(R.string.No_Telepon_Tidak_Valid));
+                    et_kontak.setError(getString(R.string.validate_telp_valid));
                 } else if (!kontak_baru.isEmpty()) {
                     for (int i =0 ; i < dosens.size() ; i++){
                         if (kontak_baru.equalsIgnoreCase(kontak)){
                             dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,foto_baru,email_baru);
                         }else if (kontak_baru.equalsIgnoreCase(dosens.get(i).getDsn_kontak())){
-                            et_kontak.setError(getString(R.string.no_sudah_ada));
+                            et_kontak.setError(getString(R.string.validate_telp_sudah_ada));
                         }
                     }
                 }else if (!email_baru.isEmpty()){
@@ -153,7 +151,7 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
                         if (email_baru.equalsIgnoreCase(email)){
                             dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,foto_baru,email_baru);
                         }else if (email_baru.equalsIgnoreCase(dosens.get(i).getDsn_email())){
-                            et_email.setError(getString(R.string.email_ada));
+                            et_email.setError(getString(R.string.validate_email_ada));
                         }
                     }
 

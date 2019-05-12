@@ -152,8 +152,8 @@ public class MahasiswaMainActivity extends AppCompatActivity implements Mahasisw
             case R.id.toolbar_menu_keluar:
                 new AlertDialog
                         .Builder(this)
-                        .setTitle(getString(R.string.keluar))
-                        .setMessage(getString(R.string.messagekeluar))
+                        .setTitle(getString(R.string.dialog_keluar_title))
+                        .setMessage(getString(R.string.dialog_keluar_text))
 
                         .setPositiveButton("Keluar", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
