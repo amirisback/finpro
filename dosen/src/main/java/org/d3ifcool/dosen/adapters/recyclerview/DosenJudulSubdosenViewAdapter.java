@@ -60,7 +60,6 @@ public class DosenJudulSubdosenViewAdapter extends RecyclerView.Adapter<DosenJud
             // -------------------------------------------------------------------------------------
             judul = itemView.findViewById(R.id.ctn_dsn_judul_dsn_textview_judul);
             kategori = itemView.findViewById(R.id.ctn_dsn_judul_dsn_textview_kategori);
-            jumlah_kelompok = itemView.findViewById(R.id.ctn_dsn_judul_dsn_textview_kelompok_pengajuan);
             // -------------------------------------------------------------------------------------
         }
     }

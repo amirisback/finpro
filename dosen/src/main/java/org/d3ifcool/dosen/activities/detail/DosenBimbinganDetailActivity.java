@@ -61,6 +61,14 @@ public class DosenBimbinganDetailActivity extends AppCompatActivity implements B
 
         Bimbingan extraBimbingan = getIntent().getParcelableExtra(EXTRA_BIMBINGAN);
 
+        if (extraBimbingan.getBimbingan_status().equals(STATUS_BIMBINGAN_DISETUJUI)){
+            fabDecline.setVisibility(View.GONE);
+            fabAccept.setVisibility(View.GONE);
+        } else {
+            fabDecline.setVisibility(View.VISIBLE);
+            fabAccept.setVisibility(View.VISIBLE);
+        }
+
         ArrayList<ProyekAkhir> extraArrayProyekAkhir = getIntent().getParcelableArrayListExtra(EXTRA_PROYEK_AKHIR);
         if (extraArrayProyekAkhir.size() !=2 ){
             textViewKehadiranMahasiswa2.setVisibility(View.GONE);
