@@ -41,11 +41,7 @@
                     tools:text="@string/dummy_pa_judul" />
 
                 <View
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"/>
+                    style="@style/view_all_line_horizontal"/>
 
                 <TextView
                     android:layout_marginStart="@dimen/dimen_big"
@@ -95,11 +91,7 @@
                     tools:text="@string/dummy_anggota_kelompok_1"/>
 
                 <View
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"/>
+                    style="@style/view_all_line_horizontal"/>
 
                 <TextView
                     android:layout_marginStart="@dimen/dimen_big"
@@ -113,12 +105,7 @@
                     tools:text="@string/dummy_anggota_nim_1"/>
 
                 <View
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"/>
-
+                    style="@style/view_all_line_horizontal"/>
 
                 <TextView
                     android:layout_marginStart="@dimen/dimen_big"
@@ -132,11 +119,7 @@
                     tools:text="@string/dummy_anggota_kelompok_2"/>
 
                 <View
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"/>
+                    style="@style/view_all_line_horizontal"/>
 
                 <TextView
                     android:layout_marginStart="@dimen/dimen_big"
@@ -188,11 +171,7 @@
                     tools:text="@string/dummy_dosen_pembimbing"/>
 
                 <View
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"/>
+                    style="@style/view_all_line_horizontal"/>
 
                 <TextView
                     android:layout_marginStart="@dimen/dimen_big"

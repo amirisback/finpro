@@ -41,11 +41,7 @@
                     tools:text="@string/dummy_pa_judul"/>
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"/>
+                    style="@style/view_all_line_horizontal"/>
 
                 <TextView
                     android:layout_marginStart="@dimen/dimen_big"
@@ -59,11 +55,8 @@
                     tools:text="@string/dummy_mahasiswa_kelompok"/>
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"/>
+                    style="@style/view_all_line_horizontal"/>
+
                 <TextView
                     android:layout_marginStart="@dimen/dimen_big"
                     android:layout_width="wrap_content"
