@@ -134,8 +134,8 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         int jumlahBimbingan = bimbinganArrayList.size();
         int jumlahMonev = detailMonevArrayList.size() / 2;
 
-        if (jumlahBimbingan >= JUMLAH_BIMBINGAN_SIDANG && jumlahMonev >= JUMLAH_MONEV_SIDANG){
-//        if (bimbinganArrayList.size() >= 1){
+//        if (jumlahBimbingan >= JUMLAH_BIMBINGAN_SIDANG && jumlahMonev >= JUMLAH_MONEV_SIDANG){
+        if (bimbinganArrayList.size() >= 1){
             Intent intent = new Intent(DosenSidangActivity.this, DosenSidangTambahActivity.class);
             intent.putExtra(EXTRA_PROYEK_AKHIR, parcel);
             startActivity(intent);

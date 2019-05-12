@@ -127,7 +127,9 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
 
         bimbinganPresenter.getBimbingan();
         detailMonevPresenter.getMonevDetail();
-        if (arrayListBimbingan.size() > 16 && arrayListDetailMonev.size() < 6){
+//        if (arrayListBimbingan.size() > 16 && arrayListDetailMonev.size() < 6){
+        if (arrayListBimbingan.size() == 1){
+
             tv_status_sidang_pa.setText(getString(R.string.text_siap_sidang));
             tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextGreen));
 

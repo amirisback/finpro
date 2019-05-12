@@ -95,7 +95,7 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
 
 
                 new AlertDialog
-                        .Builder(getApplicationContext())
+                        .Builder(DosenJudulPaSubmahasiswaDetailActivity.this)
                         .setTitle(getString(R.string.dialog_setuju_title))
                         .setMessage(getString(R.string.dialog_setuju_text))
 
@@ -118,7 +118,7 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
             public void onClick(View v) {
 
                 new AlertDialog
-                        .Builder(getApplicationContext())
+                        .Builder(DosenJudulPaSubmahasiswaDetailActivity.this)
                         .setTitle(getString(R.string.dialog_tolak_title))
                         .setMessage(getString(R.string.dialog_tolak_text))
 
