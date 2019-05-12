@@ -32,11 +32,7 @@
                 tools:text="@string/dummy_dosen_pembimbing"/>
 
             <View
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_view_line"
-                android:background="@color/colorBackground"/>
+                style="@style/view_all_line_horizontal"/>
 
             <TextView
                 android:layout_marginStart="@dimen/dimen_big"

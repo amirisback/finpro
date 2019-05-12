@@ -48,11 +48,7 @@
             android:text="@string/dummy_tanggal"/>
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorBackground"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"/>
+            style="@style/view_all_line_horizontal"/>
 
         <TextView
             android:id="@+id/ctn_mhs_pa_bimbingan_textview_isi"

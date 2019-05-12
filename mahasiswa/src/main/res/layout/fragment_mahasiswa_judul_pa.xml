@@ -58,11 +58,7 @@
                     tools:text="@string/dummy"/>
 
                 <View
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"/>
+                    style="@style/view_all_line_horizontal"/>
 
                 <TextView
                     android:textColor="@color/colorTextBlack"
@@ -81,12 +77,7 @@
                     tools:text="@string/dummy"/>
 
                 <View
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_view_line"
-                    android:background="@color/colorBackground"/>
-
+                    style="@style/view_all_line_horizontal"/>
 
                 <TextView
                     android:textColor="@color/colorTextBlack"

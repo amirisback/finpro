@@ -34,6 +34,7 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
         <RelativeLayout
             android:layout_below="@id/card_view"
             android:layout_width="match_parent"

@@ -43,11 +43,7 @@
             tools:text="@string/dummy_anggota_kelompok_1"/>
 
         <View
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_view_line"
-            android:background="@color/colorBackground"/>
+            style="@style/view_all_line_horizontal"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -60,8 +56,6 @@
             style="@style/content_all_text_bold_color_black"
             android:id="@+id/dsn_sidang_textview_nim_1"/>
 
-
-
         <!--penilaian mahasiswa 1-->
         <LinearLayout
             android:visibility="gone"
@@ -71,11 +65,7 @@
             android:orientation="vertical">
 
             <View
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_view_line"
-                android:background="@color/colorBackground"/>
+                style="@style/view_all_line_horizontal"/>
 
             <TextView
                 android:layout_marginStart="@dimen/dimen_big"
@@ -93,11 +83,7 @@
                 android:id="@+id/dsn_sidang_textview_review_1"/>
 
             <View
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_view_line"
-                android:background="@color/colorBackground"/>
+                style="@style/view_all_line_horizontal"/>
 
             <LinearLayout
                 android:layout_marginStart="@dimen/dimen_big"
@@ -145,11 +131,7 @@
             </LinearLayout>
 
             <View
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_view_line"
-                android:background="@color/colorBackground"/>
+                style="@style/view_all_line_horizontal"/>
 
             <LinearLayout
                 android:layout_marginStart="@dimen/dimen_big"
@@ -180,7 +162,6 @@
                 <TextView
                     android:id="@+id/dsn_sidang_nilai_penguji1_1"
                     android:layout_weight="1"
-
                     tools:text="@string/dummy_nilai_monev"
                     android:layout_width="@dimen/dimen_weight"
                     android:layout_height="wrap_content"
@@ -190,7 +171,6 @@
                     android:id="@+id/dsn_sidang_nilai_penguji2_1"
                     android:layout_weight="1"
                     android:layout_width="@dimen/dimen_weight"
-
                     tools:text="@string/dummy_nilai_monev"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorTextBlack"/>
@@ -198,11 +178,7 @@
             </LinearLayout>
 
             <View
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_view_line"
-                android:background="@color/colorBackground"/>
+                style="@style/view_all_line_horizontal"/>
 
             <LinearLayout
                 android:layout_marginStart="@dimen/dimen_big"
@@ -231,18 +207,13 @@
             </LinearLayout>
 
             <View
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_view_line"
-                android:background="@color/colorBackground"/>
+                style="@style/view_all_line_horizontal"/>
 
             <LinearLayout
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_marginEnd="@dimen/dimen_big"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
 
                 <TextView
                     android:layout_weight="1"
@@ -263,8 +234,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-
 
     </LinearLayout>
 

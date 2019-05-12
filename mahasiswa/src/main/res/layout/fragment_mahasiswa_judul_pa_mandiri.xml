@@ -32,12 +32,7 @@
                 android:textSize="@dimen/text_size_title_medium"/>
 
             <View
-                android:layout_marginTop="@dimen/dimen_small"
-                android:layout_marginBottom="@dimen/dimen_small"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorBackground"/>
-
+                style="@style/view_all_line_horizontal"/>
             <TextView
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_marginEnd="@dimen/dimen_big"
