@@ -49,7 +49,6 @@
             <TextView
                 android:id="@+id/ctn_mhs_judul_pa_dosen_textview_kategori"
                 android:text="@string/dummy_kategori"
-                android:textSize="@dimen/text_size_default"
                 style="@style/textview_item_list_judul_kategori"/>
 
         </LinearLayout>
