@@ -36,7 +36,7 @@
 
                     <TextView
                         android:id="@+id/act_dsn_mhs_judul_tanggal"
-                        style="@style/textview_pa_color_accent_small"
+                        style="@style/textview_pa_color_primary"
                         tools:text="@string/dummy_tanggal"/>
 
                 </LinearLayout>

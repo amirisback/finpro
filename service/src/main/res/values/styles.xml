@@ -14,26 +14,6 @@
         <item name="android:textSize">@dimen/text_size_title_small</item>
     </style>
 
-    <!-- Style untuk textview fragment_mahasiswa_pa bagian dosen -->
-    <style name="textview_pa_color_accent">
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginStart">@dimen/dimen_big</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/text_size_title_big</item>
-    </style>
-
-    <!-- Style untuk textview fragment_mahasiswa_pa bagian dosen -->
-    <style name="textview_pa_color_accent_small">
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginStart">@dimen/dimen_big</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/text_size_title_small</item>
-    </style>
-
     <!-- Style untuk textview fragment_mahasiswa_pa bagian NIM -->
     <style name="textview_pa_color_black">
         <item name="android:textColor">@color/colorTextBlack</item>
@@ -54,7 +34,6 @@
         <item name="android:textSize">@dimen/text_size_title_small</item>
     </style>
 
-
     <!-- Style untuk textview_nama content_item_dosen_mahasiswa -->
     <style name="textwiew_item_dosen_mahasiswa_nama">
         <item name="android:textSize">@dimen/text_size_title_small</item>
@@ -64,51 +43,13 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <!-- Style untuk textview_nim_kelompok content_item_dosen_mahasiswa -->
-    <style name="textwiew_item_dosen_mahasiswa_nim_kelompok">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/colorTextBlack</item>
-    </style>
-
     <!-- Style untuk circle_view content_item_dosen_mahasiswa -->
-    <style name="image_item_dosen_mahasiswa">
+    <style name="all_image_informasi">
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_width">@dimen/dimen_profil_photo_list</item>
         <item name="android:layout_height">@dimen/dimen_profil_photo_list</item>
         <item name="android:layout_marginEnd">@dimen/dimen_big</item>
     </style>
-
-    <!-- Style untuk textview content_item_judulpa -->
-    <style name="textview_item_list_judul_pa">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/colorPrimary</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:gravity">center_vertical</item>
-    </style>
-
-    <!-- Style untuk circle_view content_item_dosen_mahasiswa -->
-    <style name="image_item_info">
-        <item name="android:layout_gravity">center</item>
-        <item name="android:layout_width">@dimen/dimen_profil_photo_list_info</item>
-        <item name="android:layout_height">@dimen/dimen_profil_photo_list_info</item>
-        <item name="android:layout_marginEnd">@dimen/dimen_big</item>
-    </style>
-
-    <!-- Style untuk textview content_item_judulpa -->
-    <style name="textview_item_list_judul_kategori">
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/colorPrimary</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:maxLines">1</item>
-    </style>
-
-
-
 
     <style name="content_all_list_title">
         <item name="android:layout_marginStart">@dimen/dimen_big</item>
