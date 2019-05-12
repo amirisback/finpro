@@ -25,7 +25,7 @@
 
             <TextView
                 android:id="@+id/act_mhs_pa_monev_detail_textview_dosen"
-                style="@style/textview_pa_color_primary"
+                style="@style/content_all_text_bold_color_primary"
                 tools:text="@string/dummy_dosen_reviewer"/>
 
             <View
@@ -43,7 +43,7 @@
 
             <TextView
                 android:id="@+id/act_mhs_pa_monev_detail_textview_jumlah"
-                style="@style/textview_pa_color_black"
+                style="@style/content_all_text_bold_color_black"
                 tools:text="@string/dummy_monev_terkahir"/>
 
         </LinearLayout>

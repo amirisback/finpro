@@ -38,7 +38,7 @@
             android:text="@string/text_profil_detail_nama"/>
 
         <TextView
-            style="@style/textview_pa_color_black"
+            style="@style/content_all_text_bold_color_black"
             android:id="@+id/dsn_sidang_textview_nama_1"
             tools:text="@string/dummy_anggota_kelompok_1"/>
 
@@ -57,7 +57,7 @@
 
         <TextView
             tools:text="@string/dummy_anggota_nim_1"
-            style="@style/textview_pa_color_black"
+            style="@style/content_all_text_bold_color_black"
             android:id="@+id/dsn_sidang_textview_nim_1"/>
 
         <View
@@ -84,7 +84,7 @@
 
             <TextView
                 android:id="@+id/tanggal_sidang1"
-                style="@style/textview_pa_color_black"
+                style="@style/content_all_text_bold_color_black"
                 tools:text="@string/text_belum_sidang"/>
 
             <View

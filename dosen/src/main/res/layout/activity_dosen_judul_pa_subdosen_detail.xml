@@ -43,7 +43,7 @@
 
                     <TextView
                         android:id="@+id/frg_dsn_pa_textview_judulpa"
-                        style="@style/textview_pa_color_primary"
+                        style="@style/content_all_text_bold_color_primary"
                         android:text="@string/dummy_pa_judul"/>
 
                     <View
@@ -62,7 +62,7 @@
                     <TextView
                         android:id="@+id/frg_dsn_pa_textview_kategoripa"
                         android:text="@string/dummy_kategori"
-                        style="@style/textview_pa_color_primary"
+                        style="@style/content_all_text_bold_color_primary"
                         android:layout_marginBottom="@dimen/dimen_medium"/>
 
                 </LinearLayout>
@@ -94,7 +94,7 @@
 
                     <TextView
                         android:id="@+id/frg_dsn_pa_textview_deskripsi"
-                        style="@style/textview_pa_color_black_small"
+                        style="@style/content_all_text_color_black"
                         android:text="@string/dummyLong"
                         android:layout_marginBottom="@dimen/dimen_medium"/>
 

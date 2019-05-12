@@ -37,7 +37,7 @@
 
                 <TextView
                     android:id="@+id/ctn_koor_pemetaan_judul"
-                    style="@style/textview_pa_color_black"
+                    style="@style/content_all_text_bold_color_black"
                     tools:text="@string/dummy_pa_judul"/>
 
                 <View
@@ -55,7 +55,7 @@
 
                 <TextView
                     android:id="@+id/ctn_koor_pemetaan_kelompok"
-                    style="@style/textview_pa_color_black"
+                    style="@style/content_all_text_bold_color_black"
                     tools:text="@string/dummy_mahasiswa_kelompok"/>
 
                 <View
@@ -72,13 +72,11 @@
 
                 <TextView
                     android:id="@+id/ctn_koor_pemetaan_anggota1"
-                    android:layout_marginLeft="@dimen/dimen_big"
-                    style="@style/textwiew_item_dosen_mahasiswa_nama"
+                    style="@style/content_all_text_bold_color_primary"
                     tools:text="@string/dummy_anggota_kelompok_1"/>
                 <TextView
                     android:id="@+id/ctn_koor_pemetaan_anggota2"
-                    android:layout_marginLeft="@dimen/dimen_big"
-                    style="@style/textwiew_item_dosen_mahasiswa_nama"
+                    style="@style/content_all_text_bold_color_primary"
                     tools:text="@string/dummy_anggota_kelompok_2"/>
 
             </LinearLayout>
@@ -116,7 +114,7 @@
 
                     <TextView
                         android:id="@+id/ctn_koor_pemetaan_reviewer"
-                        style="@style/textview_pa_color_primary"
+                        style="@style/content_all_text_bold_color_primary"
                         tools:text="@string/dummy_dosen_reviewer" />
                 </LinearLayout>
 

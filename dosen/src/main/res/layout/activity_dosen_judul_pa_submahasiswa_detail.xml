@@ -36,7 +36,7 @@
 
                     <TextView
                         android:id="@+id/act_dsn_mhs_judul_tanggal"
-                        style="@style/textview_pa_color_primary"
+                        style="@style/content_all_text_bold_color_primary"
                         tools:text="@string/dummy_tanggal"/>
 
                 </LinearLayout>
@@ -68,7 +68,7 @@
 
                     <TextView
                         android:id="@+id/act_dsn_mhs_judul"
-                        style="@style/textview_pa_color_primary"
+                        style="@style/content_all_text_bold_color_primary"
                         tools:text="@string/dummy_pa_judul"/>
 
                     <View
@@ -86,7 +86,7 @@
 
                     <TextView
                         android:id="@+id/act_dsn_mhs_judul_kategori"
-                        style="@style/textview_pa_color_primary"
+                        style="@style/content_all_text_bold_color_primary"
                         tools:text="@string/dummy_kategori"/>
 
                     <View
@@ -106,7 +106,7 @@
                     <TextView
                         android:id="@+id/act_dsn_mhs_judul_kelompok"
                         tools:text="@string/dummy_mahasiswa_kelompok"
-                        style="@style/textview_pa_color_primary"
+                        style="@style/content_all_text_bold_color_primary"
                         android:layout_marginBottom="@dimen/dimen_medium"/>
 
                 </LinearLayout>
@@ -138,7 +138,7 @@
 
                     <TextView
                         android:id="@+id/act_dsn_mhs_judul_deskripsi"
-                        style="@style/textview_pa_color_black_small"
+                        style="@style/content_all_text_color_black"
                         android:text="@string/dummyLong"
                         android:layout_marginBottom="@dimen/dimen_medium"/>
 
@@ -173,7 +173,7 @@
                         android:text="@string/text_profil_detail_nama"/>
 
                     <TextView
-                        style="@style/textview_pa_color_primary"
+                        style="@style/content_all_text_bold_color_primary"
                         android:id="@+id/act_dsn_mhs_judul_nama_1"
                         tools:hint="@string/dummy_anggota_kelompok_1"/>
 
@@ -191,7 +191,7 @@
                         android:text="@string/text_profil_detail_nim"/>
 
                     <TextView
-                        style="@style/textview_pa_color_black"
+                        style="@style/content_all_text_bold_color_black"
                         android:id="@+id/act_dsn_mhs_judul_nim_1"
                         tools:hint="@string/dummy_anggota_nim_1"/>
 
@@ -210,7 +210,7 @@
                         android:text="@string/text_profil_detail_nama"/>
 
                     <TextView
-                        style="@style/textview_pa_color_primary"
+                        style="@style/content_all_text_bold_color_primary"
                         android:id="@+id/act_dsn_mhs_judul_nama_2"
                         tools:hint="@string/dummy_anggota_kelompok_2"/>
 
@@ -228,7 +228,7 @@
                         android:text="@string/text_profil_detail_nim"/>
 
                     <TextView
-                        style="@style/textview_pa_color_black"
+                        style="@style/content_all_text_bold_color_black"
                         android:id="@+id/act_dsn_mhs_judul_nim_2"
                         tools:hint="@string/dummy_anggota_nim_2"
                         android:layout_marginBottom="@dimen/dimen_medium"/>

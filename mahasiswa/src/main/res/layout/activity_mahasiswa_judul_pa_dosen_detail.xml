@@ -46,7 +46,7 @@
 
                     <TextView
                         android:id="@+id/frg_mhs_pa_textview_dsn_pembimbing"
-                        style="@style/textview_pa_color_primary"
+                        style="@style/content_all_text_bold_color_primary"
                         android:text="@string/dummy_dosen_pembimbing"
                         android:layout_marginBottom="@dimen/dimen_medium"/>
 
@@ -79,7 +79,7 @@
 
                     <TextView
                         android:id="@+id/frg_mhs_pa_textview_judulpa"
-                        style="@style/textview_pa_color_primary"
+                        style="@style/content_all_text_bold_color_primary"
                         android:text="@string/dummy_pa_judul"/>
 
                     <View
@@ -98,7 +98,7 @@
                     <TextView
                         android:id="@+id/frg_mhs_pa_textview_kategori"
                         android:text="@string/dummy_kategori"
-                        style="@style/textview_pa_color_primary"
+                        style="@style/content_all_text_bold_color_primary"
                         android:layout_marginBottom="@dimen/dimen_medium"/>
 
                 </LinearLayout>
@@ -130,7 +130,7 @@
 
                     <TextView
                         android:id="@+id/frg_mhs_pa_textview_deskripsi"
-                        style="@style/textview_pa_color_black_small"
+                        style="@style/content_all_text_color_black"
                         android:text="@string/dummyLong"
                         android:layout_marginBottom="@dimen/dimen_medium"/>
 

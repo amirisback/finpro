@@ -37,7 +37,7 @@
 
         <TextView
             tools:text="@string/dummy_anggota_kelompok_2"
-            style="@style/textview_pa_color_black"
+            style="@style/content_all_text_bold_color_black"
             android:id="@+id/dsn_sidang_textview_nama_2"/>
 
         <View
@@ -55,7 +55,7 @@
 
         <TextView
             tools:text="@string/dummy_anggota_nim_2"
-            style="@style/textview_pa_color_black"
+            style="@style/content_all_text_bold_color_black"
             android:id="@+id/dsn_sidang_textview_nim_2"/>
         <View
             android:layout_marginTop="@dimen/dimen_medium"
@@ -81,7 +81,7 @@
 
             <TextView
                 android:id="@+id/tanggal_sidang2"
-                style="@style/textview_pa_color_black"
+                style="@style/content_all_text_bold_color_black"
                 tools:text="@string/text_belum_sidang"/>
 
             <View

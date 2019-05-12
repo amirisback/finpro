@@ -37,7 +37,7 @@
 
                 <TextView
                     android:id="@+id/act_dsn_pa_bimbingan_textview_judulpa"
-                    style="@style/textview_pa_color_primary"
+                    style="@style/content_all_text_bold_color_primary"
                     tools:text="@string/dummy_pa_judul"/>
 
                 <View
@@ -56,7 +56,7 @@
                 <TextView
                     android:id="@+id/act_dsn_pa_bimbingan_textview_kelompok"
                     tools:text="@string/dummy_mahasiswa_kelompok"
-                    style="@style/textview_pa_color_black"
+                    style="@style/content_all_text_bold_color_black"
                     android:layout_marginBottom="@dimen/dimen_medium"/>
 
             </LinearLayout>
@@ -88,7 +88,7 @@
 
                 <TextView
                     android:id="@+id/act_dsn_pa_bimbingan_textview_nama_1"
-                    style="@style/textview_pa_color_primary"
+                    style="@style/content_all_text_bold_color_primary"
                     tools:text="@string/dummy_anggota_kelompok_1" />
 
                 <View
@@ -106,7 +106,7 @@
 
                 <TextView
                     android:id="@+id/act_dsn_pa_bimbingan_textview_nim_1"
-                    style="@style/textview_pa_color_black"
+                    style="@style/content_all_text_bold_color_black"
                     android:layout_width="wrap_content"
                     tools:text="@string/dummy_anggota_nim_1" />
 
@@ -126,7 +126,7 @@
 
                 <TextView
                     android:id="@+id/act_dsn_pa_bimbingan_textview_nama_2"
-                    style="@style/textview_pa_color_primary"
+                    style="@style/content_all_text_bold_color_primary"
                     tools:text="@string/dummy_anggota_kelompok_2" />
 
                 <View
@@ -144,7 +144,7 @@
 
                 <TextView
                     android:id="@+id/act_dsn_pa_bimbingan_textview_nim_2"
-                    style="@style/textview_pa_color_black"
+                    style="@style/content_all_text_bold_color_black"
                     android:layout_marginBottom="@dimen/dimen_medium"
                     tools:text="@string/dummy_anggota_nim_2" />
 
@@ -185,7 +185,7 @@
 
                 <TextView
                     android:id="@+id/act_dsn_pa_bimbingan_textview_dosen_pembimbing"
-                    style="@style/textview_pa_color_primary"
+                    style="@style/content_all_text_bold_color_primary"
                     tools:text="@string/dummy_dosen_pembimbing"/>
 
                 <View
@@ -202,7 +202,7 @@
 
                 <TextView
                     android:id="@+id/act_dsn_pa_bimbingan_textview_jml_bimbingan"
-                    style="@style/textview_pa_color_black"
+                    style="@style/content_all_text_bold_color_black"
                     tools:text="@string/dummy_jumlah_bimbingan"/>
 
                 <View
@@ -258,7 +258,7 @@
 
                 <TextView
                     android:id="@+id/act_dsn_pa_bimbingan_textview_dosen_reviewer"
-                    style="@style/textview_pa_color_primary"
+                    style="@style/content_all_text_bold_color_primary"
                     tools:text="@string/dummy_dosen_reviewer"/>
 
                 <View
