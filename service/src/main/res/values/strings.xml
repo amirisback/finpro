@@ -114,6 +114,7 @@
     <string name="dummy_dosen_kode">HMU</string>
     <string name="dummy_email">ikhsanramadhan28@gmail.com</string>
     <string name="dummy_kehadiran">Hadir</string>
+    <string name="dummt_spinner">Spinner Item</string>
 
     <string name="dialog_hapus_title">Hapus Data</string>
     <string name="dialog_hapus_text">Anda yakin ingin menghapus ini?</string>
