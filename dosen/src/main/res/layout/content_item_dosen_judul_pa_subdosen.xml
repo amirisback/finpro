@@ -31,8 +31,6 @@
     <LinearLayout
         android:layout_marginTop="@dimen/dimen_medium"
         android:layout_marginBottom="@dimen/dimen_medium"
-        android:layout_marginStart="@dimen/dimen_big"
-        android:layout_marginEnd="@dimen/dimen_big"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -43,12 +41,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginEnd="@dimen/dimen_big"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_judulpa"
             android:textSize="@dimen/text_size_default"
             android:textColor="@color/colorTextBlack"/>
         <TextView
+            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginEnd="@dimen/dimen_big"
             android:id="@+id/ctn_dsn_judul_dsn_textview_judul"
             android:text="@string/dummy"
             style="@style/textview_item_list_judul_pa"/>
@@ -59,6 +61,8 @@
             android:layout_marginTop="@dimen/dimen_medium"
             android:layout_marginBottom="@dimen/dimen_medium"/>
         <TextView
+            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginEnd="@dimen/dimen_big"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/text_kategori"
@@ -66,27 +70,29 @@
             android:textColor="@color/colorTextBlack"/>
 
         <TextView
+            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginEnd="@dimen/dimen_big"
             android:id="@+id/ctn_dsn_judul_dsn_textview_kategori"
             android:text="@string/dummy"
             style="@style/textview_item_list_judul_pa"/>
 
         </LinearLayout>
 
-        <View
-            android:layout_width="@dimen/dimen_view_line"
-            android:layout_height="match_parent"
-            android:background="@color/colorBackground"/>
-        <TextView
-            android:id="@+id/ctn_dsn_judul_dsn_textview_kelompok_pengajuan"
-            android:layout_width="@dimen/dimen_circle_background"
-            android:layout_height="@dimen/dimen_circle_background"
-            android:layout_marginStart="@dimen/dimen_big"
-            android:background="@drawable/circle_border_jumlah_kelompok"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:text="@string/text_jumlah_kelompok"
-            android:textSize="@dimen/text_size_medium"
-            android:textColor="@color/colorTextWhite"/>
+        <!--<View-->
+            <!--android:layout_width="@dimen/dimen_view_line"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/colorBackground"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/ctn_dsn_judul_dsn_textview_kelompok_pengajuan"-->
+            <!--android:layout_width="@dimen/dimen_circle_background"-->
+            <!--android:layout_height="@dimen/dimen_circle_background"-->
+            <!--android:layout_marginStart="@dimen/dimen_big"-->
+            <!--android:background="@drawable/circle_border_jumlah_kelompok"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:text="@string/text_jumlah_kelompok"-->
+            <!--android:textSize="@dimen/text_size_medium"-->
+            <!--android:textColor="@color/colorTextWhite"/>-->
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
