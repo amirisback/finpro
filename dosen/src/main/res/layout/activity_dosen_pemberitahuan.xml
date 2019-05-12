@@ -12,7 +12,7 @@
         android:id="@+id/act_dsn_pemberitahuan_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/content_item_dosen_pemberitahuan"/>
+        tools:listitem="@layout/content_item_list_notifikasi"/>
 
     <!-- Empty View -->
     <RelativeLayout
