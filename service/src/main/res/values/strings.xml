@@ -302,7 +302,7 @@
     <string name="text_minimal_jumlah_bimbingan">Minimal Jumlah Bimbingan</string>
     <string name="text_jumlah_kelompok">1</string>
     <string name="text_status_bimbingan_pending">Belum di acc</string>
-    <string name="text_belum_memenuhi_syarat_sidang">Belum Memenuhi Syarat untuk Sidang</string>
+    <string name="text_belum_memenuhi_syarat_sidang">Belum memenuhi syarat untuk sidang</string>
     <string name="text_nama_dosen">Nama Dosen</string>
     <string name="text_divider">|</string>
     <string name="text_bimbingan_kehadiran">Kehadiran</string>

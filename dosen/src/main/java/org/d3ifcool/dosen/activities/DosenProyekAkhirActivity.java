@@ -13,39 +13,34 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.service.interfaces.lists.BimbinganListView;
 import org.d3ifcool.service.interfaces.lists.MonevDetailListView;
 import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
-import org.d3ifcool.service.interfaces.objects.DosenPembimbingView;
-import org.d3ifcool.service.interfaces.objects.DosenReviewerView;
 import org.d3ifcool.service.models.Bimbingan;
 import org.d3ifcool.service.models.DetailMonev;
-import org.d3ifcool.service.models.Dosen;
 import org.d3ifcool.service.models.Judul;
 import org.d3ifcool.service.models.ProyekAkhir;
 import org.d3ifcool.service.presenters.BimbinganPresenter;
 import org.d3ifcool.service.presenters.MonevDetailPresenter;
-import org.d3ifcool.service.presenters.DosenPresenter;
 import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUMLAH_BIMBINGAN_SIDANG;
 
-public class DosenProyekAkhirActivity extends AppCompatActivity implements ProyekAkhirListView, BimbinganListView, DosenPembimbingView, DosenReviewerView, MonevDetailListView {
+public class DosenProyekAkhirActivity extends AppCompatActivity implements ProyekAkhirListView,
+        BimbinganListView, MonevDetailListView {
 
     public static final String EXTRA_JUDUL = "extra_judul";
     private static final String PROYEK_AKHIR_PARAM_1 = "proyek_akhir.judul_id";
     private static final String PROYEK_AKHIR_PARAM_2 = "judul_status";
     private static final String BIMBINGAN_PARAM = "bimbingan.proyek_akhir_id";
 
-    private DosenPresenter dosenPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private BimbinganPresenter bimbinganPresenter;
     private MonevDetailPresenter detailMonevPresenter;
-    private SessionManager sessionManager;
     private ProgressDialog progressDialog;
 
     private ArrayList<Bimbingan> arrayListBimbingan = new ArrayList<>();
@@ -55,7 +50,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
 
     private TextView tv_judul_pa,tv_kelompok_pa,tv_nama_anggota1_pa, tv_nama_anggota2_pa,
             tv_nim_anggota1_pa, tv_nim_anggota2_pa, tv_dosen_pembimbing_pa, tv_jumlah_bimbingan_pa,
-            tv_dosen_reviewer_pa, tv_jumlah_monev_pa, tv_status_sidang_pa;
+            tv_dosen_reviewer_pa, tv_status_sidang_pa;
 
     private String stringJudulId;
 
@@ -70,8 +65,6 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         bimbinganPresenter = new BimbinganPresenter(this);
         detailMonevPresenter = new MonevDetailPresenter(this);
-        dosenPresenter = new DosenPresenter(this, this);
-        sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(org.d3ifcool.mahasiswa.R.string.text_progress_dialog));
 
@@ -90,7 +83,11 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
         stringJudulId = String.valueOf(extraJudul.getId());
         proyekAkhirPresenter.searchAllProyekAkhirByTwo(PROYEK_AKHIR_PARAM_1, stringJudulId, PROYEK_AKHIR_PARAM_2, JUDUL_STATUS_DIGUNAKAN);
 
-
+        if (extraJudul.getDsn_nama() != null) {
+            tv_dosen_pembimbing_pa.setText(extraJudul.getDsn_nama());
+        } else {
+            tv_dosen_pembimbing_pa.setText(getString(org.d3ifcool.mahasiswa.R.string.text_no_dosen_pembimbing));
+        }
 
         CardView cardView = findViewById(R.id.frg_mhs_pa_cardview_bimbingan);
         CardView cardViewMonev = findViewById(R.id.frg_mhs_pa_cardview_monev);
@@ -127,17 +124,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
 
         bimbinganPresenter.getBimbingan();
         detailMonevPresenter.getMonevDetail();
-//        if (arrayListBimbingan.size() > 16 && arrayListDetailMonev.size() < 6){
-        if (arrayListBimbingan.size() == 1){
 
-            tv_status_sidang_pa.setText(getString(R.string.text_siap_sidang));
-            tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextGreen));
-
-        }else {
-            tv_status_sidang_pa.setText(getString(R.string.text_belum_siap_sidang));
-            tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextRed));
-
-        }
     }
 
     @Override
@@ -158,12 +145,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
 
         if (i == android.R.id.home){
             finish();
-        }else if (i == R.id.toolbar_menu_ubah){
-
-        }else if (i == R.id.toolbar_menu_hapus){
-
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -183,31 +165,6 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
         arrayListDetailMonev.addAll(detailMonevList);
     }
 
-
-
-    @Override
-    public void onGetObjectDosenReviewer(Dosen dosen) {
-
-        if (dosen != null) {
-            tv_dosen_reviewer_pa.setText(dosen.getDsn_nama());
-        } else {
-            tv_dosen_reviewer_pa.setText(org.d3ifcool.mahasiswa.R.string.text_no_dosen_monev);
-        }
-
-
-    }
-
-    @Override
-    public void onGetObjectDosenPembimbing(Dosen dosen) {
-
-        if (dosen != null) {
-            tv_dosen_pembimbing_pa.setText(dosen.getDsn_nama());
-        } else {
-            tv_dosen_pembimbing_pa.setText(getString(org.d3ifcool.mahasiswa.R.string.text_no_dosen_pembimbing));
-        }
-
-    }
-
     @Override
     public void onGetListBimbingan(List<Bimbingan> bimbinganList) {
         arrayListBimbingan.clear();
@@ -222,6 +179,16 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
             int jumlahBimbingan = 0;
             String stringJumlahBimibingan = String.valueOf(jumlahBimbingan);
             tv_jumlah_bimbingan_pa.setText(stringJumlahBimibingan);
+        }
+
+        if (arrayListBimbingan.size() >= JUMLAH_BIMBINGAN_SIDANG){
+            tv_status_sidang_pa.setText(getString(R.string.text_siap_sidang));
+            tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextGreen));
+
+        }else {
+            tv_status_sidang_pa.setText(getString(R.string.text_belum_siap_sidang));
+            tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextRed));
+
         }
 
     }
@@ -243,10 +210,9 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
             tv_nim_anggota1_pa.setText(arrayListProyekAkhir.get(0).getMhs_nim());
 
             bimbinganPresenter.searchBimbinganAllBy(BIMBINGAN_PARAM, stringProyekAkhirId);
-            dosenPresenter.getDosenPembimbing(arrayListProyekAkhir.get(0).getPembimbing_dsn_nip());
 
-            if (arrayListProyekAkhir.get(0).getReviewer_dsn_nip() != null) {
-                dosenPresenter.getDosenReviewer(arrayListProyekAkhir.get(0).getReviewer_dsn_nip());
+            if (arrayListProyekAkhir.get(0).getReviewer_dsn_nama() != null) {
+                tv_dosen_reviewer_pa.setText(arrayListProyekAkhir.get(0).getReviewer_dsn_nama());
             } else {
                 tv_dosen_reviewer_pa.setText(org.d3ifcool.mahasiswa.R.string.text_no_dosen_monev);
             }

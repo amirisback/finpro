@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
+import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUMLAH_BIMBINGAN_SIDANG;
 import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_DISETUJUI;
 
 
@@ -208,6 +209,16 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
             jumlahBimbingan = 0;
             String stringJumlahBimibingan = String.valueOf(jumlahBimbingan);
             tv_jumlah_bimbingan_pa.setText(stringJumlahBimibingan);
+        }
+
+        if (arrayListBimbingan.size() >= JUMLAH_BIMBINGAN_SIDANG){
+            tv_status_sidang_pa.setText(getString(R.string.text_siap_sidang));
+            tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextGreen));
+
+        }else {
+            tv_status_sidang_pa.setText(getString(R.string.text_belum_siap_sidang));
+            tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextRed));
+
         }
 
     }

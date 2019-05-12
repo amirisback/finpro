@@ -28,8 +28,8 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
 
-    private ProgressDialog dialog;
-    private SidangPresenter presenter;
+    private ProgressDialog progressDialog;
+    private SidangPresenter sidangPresenter;
     private ArrayList<ProyekAkhir> extraPa = new ArrayList<>();
 
     private String tanggal, review, nilai_pro, nilai_pem, nilai_peng1, nilai_peng2, nilai_tot, status_sidang;
@@ -45,9 +45,9 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
         setTitle(getString(R.string.title_sidang_tambah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.text_progress_dialog));
-        presenter = new SidangPresenter(this);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
+        sidangPresenter = new SidangPresenter(this);
         MethodHelper helper = new MethodHelper();
         SpinnerHelper helper1 = new SpinnerHelper(this);
 
@@ -225,7 +225,7 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
                 }else if (nilai_peng2.isEmpty()){
                     et_penguji2.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else {
-                    presenter.createSidang(review, tanggal, nilai_proposal, nilai_pembimbing1, nilai_penguji1, nilai_penguji2, nilai_total,status_sidang, extraProyeAkhirId);
+                    sidangPresenter.createSidang(review, tanggal, nilai_proposal, nilai_pembimbing1, nilai_penguji1, nilai_penguji2, nilai_total,status_sidang, extraProyeAkhirId);
                 }
             }
         });
@@ -251,12 +251,12 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override
