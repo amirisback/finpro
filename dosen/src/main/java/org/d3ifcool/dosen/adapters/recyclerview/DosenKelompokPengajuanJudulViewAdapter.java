@@ -1,5 +1,6 @@
 package org.d3ifcool.dosen.adapters.recyclerview;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -80,6 +81,7 @@ public class DosenKelompokPengajuanJudulViewAdapter extends RecyclerView.Adapter
                 ProyekAkhir parcelProyekAkhir = data.get(position);
                 intentData.putExtra(DosenJudulPaSubdosenAccActivity.EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
                 context.startActivity(intentData);
+                ((Activity)context).finish();
             }
         });
     }
