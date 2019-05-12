@@ -342,10 +342,10 @@
     <string name="text_bimbingan_kehadiran">Kehadiran</string>
     <string name="text_bimbingan_gagal">Tidak dapat menambahkan, harap tunggu bimbingan sebelumnya disetujui terlebih dahulu</string>
     <string name="text_bimbingan_berhasil">Bimbingan Baru Berhasil ditambahkan, harap tunggu ACC dari dosen pembimbing</string>
-    <string name="dialog_setuju_text">Apakah anda setuju untuk meng-acc judul ini?</string>
+    <string name="dialog_setuju_text">Apakah anda setuju untuk meng-acc kelompok ini?</string>
     <string name="dialog_setuju_title">Setuju Judul</string>
     <string name="dialog_tolak_title">Tolak Judul</string>
-    <string name="dialog_tolak_text">Apakah anda ingin menolak judul ini?</string>
+    <string name="dialog_tolak_text">Apakah anda yakin menolak kelompok ini?</string>
     <string name="text_status_bimbingan_pending">Belum di acc</string>
     <string name="dummy_kehadiran">Hadir</string>
     <string name="text_belum_memenuhi_syarat_sidang">Belum Memenuhi Syarat untuk Sidang</string>

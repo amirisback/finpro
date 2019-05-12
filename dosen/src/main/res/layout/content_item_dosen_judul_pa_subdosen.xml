@@ -51,7 +51,6 @@
         <TextView
             android:id="@+id/ctn_dsn_judul_dsn_textview_judul"
             android:text="@string/dummy"
-            android:textSize="@dimen/text_size_default"
             style="@style/textview_item_list_judul_pa"/>
         <View
             android:layout_width="match_parent"
@@ -69,7 +68,6 @@
         <TextView
             android:id="@+id/ctn_dsn_judul_dsn_textview_kategori"
             android:text="@string/dummy"
-            android:textSize="@dimen/text_size_default"
             style="@style/textview_item_list_judul_pa"/>
 
         </LinearLayout>
