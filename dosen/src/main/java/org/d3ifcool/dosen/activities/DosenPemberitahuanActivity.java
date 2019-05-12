@@ -26,7 +26,9 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
     private RecyclerView recyclerView;
     private NotifikasiPresenter notifikasiPresenter;
     private ProgressDialog progressDialog;
+
     private ArrayList<Notifikasi> notifikasiArrayList = new ArrayList<>();
+    private DosenPemberitahuanViewAdapter adapter;
     private View empty_view;
 
     @Override
@@ -37,6 +39,7 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
         setTitle(getString(R.string.title_pemberitahuan));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        adapter = new DosenPemberitahuanViewAdapter(this);
         recyclerView = findViewById(R.id.act_dsn_pemberitahuan_recyclerview);
         empty_view = findViewById(R.id.view_emptyview);
         progressDialog = new ProgressDialog(this);
@@ -80,8 +83,9 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
         notifikasiArrayList.addAll(notifikasiList);
 
         if (notifikasiArrayList.size() != 0){
+            adapter.addItem(notifikasiArrayList);
+
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-            DosenPemberitahuanViewAdapter adapter = new DosenPemberitahuanViewAdapter(this, notifikasiArrayList);
             DividerItemDecoration itemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
 
             recyclerView.setLayoutManager(linearLayoutManager);
@@ -91,7 +95,6 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
             empty_view.setVisibility(View.VISIBLE);
 
         } else {
-
             empty_view.setVisibility(View.VISIBLE);
 
         }

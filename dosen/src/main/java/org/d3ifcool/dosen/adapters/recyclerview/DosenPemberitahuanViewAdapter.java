@@ -32,13 +32,17 @@ import androidx.recyclerview.widget.RecyclerView;
  * id.amirisback.frogobox
  */
 public class DosenPemberitahuanViewAdapter extends RecyclerView.Adapter<DosenPemberitahuanViewAdapter.ViewHolder>{
+
     private Context context;
     private ArrayList<Notifikasi> data;
 
-
-    public DosenPemberitahuanViewAdapter(Context context, ArrayList<Notifikasi> data) {
+    public DosenPemberitahuanViewAdapter(Context context) {
         this.context = context;
+    }
+
+    public void addItem(ArrayList<Notifikasi> data){
         this.data = data;
+        notifyDataSetChanged();
     }
 
     @NonNull

@@ -33,12 +33,16 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class MahasiswaPemberitahuanViewAdapter extends RecyclerView.Adapter<MahasiswaPemberitahuanViewAdapter.ViewHolder> {
 
-    Context context;
-    ArrayList<Notifikasi> notifs;
+    private Context context;
+    private ArrayList<Notifikasi> data;
 
-    public MahasiswaPemberitahuanViewAdapter(Context context, ArrayList<Notifikasi> notifs) {
+    public MahasiswaPemberitahuanViewAdapter(Context context) {
         this.context = context;
-        this.notifs = notifs;
+    }
+
+    public void addItem(ArrayList<Notifikasi> data){
+        this.data = data;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -50,21 +54,21 @@ public class MahasiswaPemberitahuanViewAdapter extends RecyclerView.Adapter<Maha
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.isi.setText(notifs.get(position).getNotifikasi_deskripsi());
+        holder.isi.setText(data.get(position).getNotifikasi_deskripsi());
     }
 
     @Override
     public int getItemCount() {
-        return notifs.size();
+        return data.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView isi, tanggal, waktu;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-           isi =itemView.findViewById(R.id.ctn_pemberitahuan_isi);
-           tanggal =itemView.findViewById(R.id.ctn_pemberitahuan_waktu);
-           waktu =itemView.findViewById(R.id.ctn_pemberitahuan_menit);
+            isi = itemView.findViewById(R.id.ctn_pemberitahuan_isi);
+            tanggal = itemView.findViewById(R.id.ctn_pemberitahuan_waktu);
+            waktu = itemView.findViewById(R.id.ctn_pemberitahuan_menit);
         }
     }
 }

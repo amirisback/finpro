@@ -38,6 +38,7 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements
         setTitle(getString(R.string.title_pemberitahuan));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        adapter = new MahasiswaPemberitahuanViewAdapter(this);
         recyclerView = findViewById(R.id.act_mhs_pemberitahuan_recyclerview);
         empty_view = findViewById(R.id.view_emptyview);
         progressDialog = new ProgressDialog(this);
@@ -82,7 +83,9 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements
 
         if (notifikasiArrayList.size() != 0){
 
-            adapter = new MahasiswaPemberitahuanViewAdapter(this, notifikasiArrayList);
+
+            adapter.addItem(notifikasiArrayList);
+
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
             DividerItemDecoration itemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
 
