@@ -86,7 +86,7 @@ public class DosenJudulPaSubdosenAccActivity extends AppCompatActivity implement
             public void onClick(View v) {
 
                 new AlertDialog
-                        .Builder(getApplicationContext())
+                        .Builder(DosenJudulPaSubdosenAccActivity.this)
                         .setTitle(getString(R.string.dialog_setuju_title))
                         .setMessage(getString(R.string.dialog_setuju_text))
 
@@ -112,9 +112,6 @@ public class DosenJudulPaSubdosenAccActivity extends AppCompatActivity implement
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
 
-
-
-
             }
         });
 
@@ -123,7 +120,7 @@ public class DosenJudulPaSubdosenAccActivity extends AppCompatActivity implement
             public void onClick(View v) {
 
                 new AlertDialog
-                        .Builder(getApplicationContext())
+                        .Builder(DosenJudulPaSubdosenAccActivity.this)
                         .setTitle(getString(R.string.dialog_tolak_title))
                         .setMessage(getString(R.string.dialog_tolak_text))
 
