@@ -59,7 +59,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dosen_proyek_akhir);
 
-        setTitle(R.string.title_proyekakhir);
+        setTitle(R.string.title_proyekakhir_detail);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
