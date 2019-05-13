@@ -18,24 +18,28 @@ import android.widget.Toast;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.service.helpers.MethodHelper;
 import org.d3ifcool.service.helpers.SpinnerHelper;
+import org.d3ifcool.service.interfaces.works.ProyekAkhirWorkView;
 import org.d3ifcool.service.interfaces.works.SidangWorkView;
 import org.d3ifcool.service.models.ProyekAkhir;
+import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
 import org.d3ifcool.service.presenters.SidangPresenter;
 
-import java.util.ArrayList;
 
-public class DosenSidangTambahActivity extends AppCompatActivity implements SidangWorkView {
+public class DosenSidangTambahActivity extends AppCompatActivity implements SidangWorkView, ProyekAkhirWorkView {
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
 
     private ProgressDialog progressDialog;
     private SidangPresenter sidangPresenter;
-    private ArrayList<ProyekAkhir> extraPa = new ArrayList<>();
+    private ProyekAkhirPresenter proyekAkhirPresenter;
 
-    private String tanggal, review, nilai_pro, nilai_pem, nilai_peng1, nilai_peng2, nilai_tot, status_sidang;
-    private int nilai_proposal, nilai_pembimbing1,nilai_penguji1,nilai_penguji2;
-    private double nilai_total;
+    private String tanggal, review, stringNilaiProposal, stringNilaiPembimbing, stringNilaiPenguji1, stringNilaiPenguji2, stringNilaiTotal, status_sidang;
+    private int intNilaiProposal = 0, intNilaiPembimbing = 0, intNilaiPenguji1 = 0, intNilaiPenguji2 = 0;
+    private double doubleNilaiTotal;
     private int extraProyeAkhirId;
+
+    private EditText et_nilai_proposal, et_nilai_pembimbing1, et_nilai_penguji1, et_nilai_penguji2;
+    private TextView tv_nilai_total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,28 +52,31 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         sidangPresenter = new SidangPresenter(this);
+        proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         MethodHelper helper = new MethodHelper();
         SpinnerHelper helper1 = new SpinnerHelper(this);
 
-        ProyekAkhir proyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
+        final ProyekAkhir proyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
         extraProyeAkhirId = proyekAkhir.getProyek_akhir_id();
+
+        et_nilai_proposal = findViewById(R.id.dsn_sidang_nilai_proposal_1);
+        et_nilai_pembimbing1 = findViewById(R.id.dsn_sidang_nilai_pembimbing1_1);
+        et_nilai_penguji1 = findViewById(R.id.dsn_sidang_nilai_penguji1_1);
+        et_nilai_penguji2 = findViewById(R.id.dsn_sidang_nilai_penguji2_1);
+        tv_nilai_total = findViewById(R.id.dsn_sidang_nilai_total_1);
 
         final TextView tv_tanggal = findViewById(R.id.act_dsn_mhs_sidang_textview_tanggal);
         final EditText et_review = findViewById(R.id.act_dsn_edittext_sidang_deskripsi);
-        final EditText et_np = findViewById(R.id.dsn_sidang_nilai_proposal_1);
-        final EditText et_pembimbing1 = findViewById(R.id.dsn_sidang_nilai_pembimbing1_1);
-        final EditText et_penguji1 = findViewById(R.id.dsn_sidang_nilai_penguji1_1);
-        final EditText et_penguji2 = findViewById(R.id.dsn_sidang_nilai_penguji2_1);
-        final TextView tv_nilaiTotal = findViewById(R.id.dsn_sidang_nilai_total_1);
         final Spinner sp_status_sidang = findViewById(R.id.act_dsn_sidang_spinner);
+        Button btn_simpan = findViewById(R.id.act_dsn_info_button_simpan);
+
 
         tv_tanggal.setText(helper.getDateToday());
         helper1.initSpinnerStatus(sp_status_sidang);
 
-        Button btn_simpan = findViewById(R.id.act_dsn_info_button_simpan);
 
 
-        et_np.addTextChangedListener(new TextWatcher() {
+        et_nilai_proposal.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -77,14 +84,7 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String np = et_np.getText().toString();
-                if (!np.isEmpty()){
-                    nilai_proposal = Integer.parseInt(np);
-                    double n_proposal = (nilai_proposal*10)/100;
-                    tv_nilaiTotal.setText(String.valueOf(n_proposal));
-                }else {
-                    tv_nilaiTotal.setText("");
-                }
+                setNilaiTotal();
             }
 
             @Override
@@ -92,7 +92,8 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
 
             }
         });
-        et_pembimbing1.addTextChangedListener(new TextWatcher() {
+
+        et_nilai_pembimbing1.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -100,18 +101,7 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String np = et_np.getText().toString();
-                String nmp1 = et_pembimbing1.getText().toString();
-                if (!np.isEmpty() && !nmp1.isEmpty()){
-                    nilai_proposal = Integer.parseInt(np);
-                    nilai_pembimbing1 = Integer.parseInt(np);
-                    double n_proposal = (nilai_proposal*10)/100;
-                    double n_pembimbing = (nilai_pembimbing1*50)/100;
-                    nilai_total = n_proposal + n_pembimbing;
-                    tv_nilaiTotal.setText(String.valueOf(nilai_total));
-                }else {
-                    tv_nilaiTotal.setText("");
-                }
+                setNilaiTotal();
             }
 
             @Override
@@ -119,7 +109,8 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
 
             }
         });
-        et_penguji1.addTextChangedListener(new TextWatcher() {
+
+        et_nilai_penguji1.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -127,23 +118,7 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String np = et_np.getText().toString();
-                String nmp1 = et_pembimbing1.getText().toString();
-                String uji1 = et_penguji1.getText().toString();
-                if (!np.isEmpty() && !nmp1.isEmpty() && !uji1.isEmpty()){
-                    nilai_proposal = Integer.parseInt(np);
-                    nilai_pembimbing1 = Integer.parseInt(np);
-                    nilai_penguji1 = Integer.parseInt(uji1);
-                    double n_proposal = (nilai_proposal*10)/100;
-                    double n_pembimbing = (nilai_pembimbing1*50)/100;
-                    double n_penguji =((nilai_penguji1/2)*40)/100;
-                    nilai_total = n_proposal + n_pembimbing + n_penguji;
-
-                    tv_nilaiTotal.setText(String.valueOf(nilai_total));
-
-                }else {
-                    tv_nilaiTotal.setText("");
-                }
+                setNilaiTotal();
             }
 
             @Override
@@ -151,7 +126,8 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
 
             }
         });
-        et_penguji2.addTextChangedListener(new TextWatcher() {
+
+        et_nilai_penguji2.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -159,25 +135,7 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String np = et_np.getText().toString();
-                String npm1 = et_pembimbing1.getText().toString();
-                String uji1 = et_penguji1.getText().toString();
-                String uji2 = et_penguji2.getText().toString();
-                if (!np.isEmpty() && !npm1.isEmpty() && !uji1.isEmpty() && !uji2.isEmpty()) {
-                    nilai_proposal = Integer.parseInt(np);
-                    nilai_pembimbing1 = Integer.parseInt(npm1);
-                    nilai_penguji1 = Integer.parseInt(uji1);
-                    nilai_penguji2 = Integer.parseInt(uji2);
-
-                    double n_proposal = (nilai_proposal*10)/100;
-                    double n_pembimbing = (nilai_pembimbing1 * 50)/100;
-                    double n_penguji = (((nilai_penguji1 + nilai_penguji2)/2)*40)/100;
-
-                    nilai_total = n_proposal + n_pembimbing + n_penguji;
-                    tv_nilaiTotal.setText(String.valueOf(nilai_total));
-                }else {
-                    tv_nilaiTotal.setText("");
-                }
+                setNilaiTotal();
             }
 
             @Override
@@ -192,43 +150,67 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
             public void onClick(View v) {
                 tanggal = tv_tanggal.getText().toString();
                 review = et_review.getText().toString();
-                nilai_pro = et_np.getText().toString();
-                nilai_pem = et_pembimbing1.getText().toString();
-                nilai_peng1 = et_penguji1.getText().toString();
-                nilai_peng2 = et_penguji2.getText().toString();
-                nilai_tot = tv_nilaiTotal.getText().toString();
                 status_sidang = sp_status_sidang.getSelectedItem().toString();
 
-                if (!nilai_pro.isEmpty() && !nilai_pem.isEmpty() && !nilai_peng1.isEmpty() && !nilai_peng2.isEmpty()) {
-                    nilai_proposal = Integer.parseInt(nilai_pro);
-                    nilai_pembimbing1 = Integer.parseInt(nilai_pem);
-                    nilai_penguji1 = Integer.parseInt(nilai_peng1);
-                    nilai_penguji2 = Integer.parseInt(nilai_peng2);
-                    nilai_total = Double.parseDouble(nilai_tot);
+                if (!stringNilaiProposal.isEmpty() && !stringNilaiPembimbing.isEmpty() && !stringNilaiPenguji1.isEmpty() && !stringNilaiPenguji2.isEmpty()) {
+                    setNilaiTotal();
                 }
-                if (nilai_proposal > 100.0){
-                    et_np.setError(getString(R.string.validate_tidak_lebih_100));
-                } else if (nilai_pembimbing1 > 100.0){
-                    et_pembimbing1.setError(getString(R.string.validate_tidak_lebih_100));
-                }else if (nilai_penguji1 > 100.0) {
-                    et_penguji1.setError(getString(R.string.validate_tidak_lebih_100));
-                }else if (nilai_penguji2 > 100.0) {
-                    et_penguji2.setError(getString(R.string.validate_tidak_lebih_100));
+                if (intNilaiProposal > 100.0){
+                    et_nilai_proposal.setError(getString(R.string.validate_tidak_lebih_100));
+                } else if (intNilaiPembimbing > 100.0){
+                    et_nilai_pembimbing1.setError(getString(R.string.validate_tidak_lebih_100));
+                }else if (intNilaiPenguji1 > 100.0) {
+                    et_nilai_penguji1.setError(getString(R.string.validate_tidak_lebih_100));
+                }else if (intNilaiPenguji2 > 100.0) {
+                    et_nilai_penguji2.setError(getString(R.string.validate_tidak_lebih_100));
                 }else if (review.isEmpty()){
                     et_review.setError(getString(R.string.text_tidak_boleh_kosong));
-                }else if (nilai_pro.isEmpty()){
-                    et_np.setError(getString(R.string.text_tidak_boleh_kosong));
-                }else if (nilai_pem.isEmpty()){
-                    et_pembimbing1.setError(getString(R.string.text_tidak_boleh_kosong));
-                }else if (nilai_peng1.isEmpty()){
-                    et_penguji1.setError(getString(R.string.text_tidak_boleh_kosong));
-                }else if (nilai_peng2.isEmpty()){
-                    et_penguji2.setError(getString(R.string.text_tidak_boleh_kosong));
+                }else if (stringNilaiProposal.isEmpty()){
+                    et_nilai_proposal.setError(getString(R.string.text_tidak_boleh_kosong));
+                }else if (stringNilaiPembimbing.isEmpty()){
+                    et_nilai_pembimbing1.setError(getString(R.string.text_tidak_boleh_kosong));
+                }else if (stringNilaiPenguji1.isEmpty()){
+                    et_nilai_penguji1.setError(getString(R.string.text_tidak_boleh_kosong));
+                }else if (stringNilaiPenguji2.isEmpty()){
+                    et_nilai_penguji2.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else {
-                    sidangPresenter.createSidang(review, tanggal, nilai_proposal, nilai_pembimbing1, nilai_penguji1, nilai_penguji2, nilai_total,status_sidang, extraProyeAkhirId);
+                    sidangPresenter.createSidang(review, tanggal, intNilaiProposal, intNilaiPembimbing, intNilaiPenguji1, intNilaiPenguji2, doubleNilaiTotal, status_sidang, extraProyeAkhirId);
+                    proyekAkhirPresenter.updateNilai(extraProyeAkhirId, doubleNilaiTotal);
                 }
             }
         });
+    }
+
+
+    private void setNilaiTotal(){
+        stringNilaiProposal = et_nilai_proposal.getText().toString();
+        stringNilaiPembimbing = et_nilai_pembimbing1.getText().toString();
+        stringNilaiPenguji1 = et_nilai_penguji1.getText().toString();
+        stringNilaiPenguji2 = et_nilai_penguji2.getText().toString();
+        stringNilaiTotal = tv_nilai_total.getText().toString();
+
+        if (!stringNilaiProposal.equalsIgnoreCase("")) {
+            intNilaiProposal = Integer.parseInt(stringNilaiProposal);
+        }
+
+        if (!stringNilaiPembimbing.equalsIgnoreCase("")) {
+            intNilaiPembimbing = Integer.parseInt(stringNilaiPembimbing);
+        }
+
+        if (!stringNilaiPenguji1.equalsIgnoreCase("")) {
+            intNilaiPenguji1 = Integer.parseInt(stringNilaiPenguji1);
+        }
+
+        if (!stringNilaiPenguji2.equalsIgnoreCase("")) {
+            intNilaiPenguji2 = Integer.parseInt(stringNilaiPenguji2);
+        }
+
+        double doubleNilaiProposal = intNilaiProposal * 0.1;
+        double doubleNilaiPembimbing = intNilaiPembimbing * 0.5;
+        double doubleNilaiPenguji = (intNilaiPenguji1 + intNilaiPenguji2) * 0.5 * 0.4;
+
+        doubleNilaiTotal = doubleNilaiProposal + doubleNilaiPembimbing + doubleNilaiPenguji;
+        tv_nilai_total.setText(String.valueOf(doubleNilaiTotal));
     }
 
     @Override

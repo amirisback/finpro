@@ -79,7 +79,7 @@ public interface ApiInterfaceProyekAkhir {
     @POST(URL_PROYEK_AKHIR + PATH_UPDATE + PATH_NILAI + PARAMETER_PROYEK_AKHIR)
     Call<ProyekAkhir> updateNilai(
             @Path(VAR_PROYEK_AKHIR) int proyek_akhir_id,
-            @Field("nilai_total") int nilai_total
+            @Field("nilai_total") double nilai_total
     );
 
     @FormUrlEncoded

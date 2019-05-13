@@ -134,7 +134,7 @@ public class ProyekAkhirPresenter {
         });
     }
 
-    public void updateNilai(int proyek_akhir_id, int nilai_total){
+    public void updateNilai(int proyek_akhir_id, double nilai_total){
         viewEditor.showProgress();
         ApiInterfaceProyekAkhir apiInterfaceProyekAkhir = ApiClient.getApiClient().create(ApiInterfaceProyekAkhir.class);
         Call<ProyekAkhir> call = apiInterfaceProyekAkhir.updateNilai(proyek_akhir_id, nilai_total);
