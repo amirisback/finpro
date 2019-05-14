@@ -33,6 +33,7 @@ public class ApiUrl {
         public static final String BASE_URL_LOGIN = PATH_API + "/user";
         // -----------------------------------------------------------------------------------------
         public static final String URL_FOTO_DOSEN = BASE_URL_FOTO + "dsn_img/";
+        public static final String URL_FOTO_KOOR = BASE_URL_FOTO + "koor_img/";
         public static final String URL_FOTO_MAHASISWA = BASE_URL_FOTO + "mhs_img/";
         // -----------------------------------------------------------------------------------------
         public static final String VAR_LOGIN = "signin";

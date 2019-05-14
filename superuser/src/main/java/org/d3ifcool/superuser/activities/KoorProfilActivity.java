@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +23,7 @@ import org.d3ifcool.service.helpers.SessionManager;
 import org.d3ifcool.superuser.R;
 
 import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
+import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_KOOR;
 
 public class KoorProfilActivity extends AppCompatActivity {
 
@@ -70,7 +72,7 @@ public class KoorProfilActivity extends AppCompatActivity {
         textView_kode.setText(sessionManager.getSessionKoorKode());
         textView_email.setText(sessionManager.getSessionKoorEmail());
         textView_kontak.setText(sessionManager.getSessionKoorEmail());
-        Picasso.get().load(URL_FOTO_DOSEN + sessionManager.getSessionKoorFoto()).into(imageView);
+        Picasso.get().load(URL_FOTO_KOOR + sessionManager.getSessionKoorFoto()).into(imageView);
 
     }
     private void pickImageFromGallery() {
@@ -96,7 +98,8 @@ public class KoorProfilActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             imageView.setImageURI(data.getData());
 
 
