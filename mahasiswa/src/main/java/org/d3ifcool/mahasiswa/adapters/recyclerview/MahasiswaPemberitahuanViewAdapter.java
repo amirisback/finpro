@@ -8,8 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.service.models.Notifikasi;
-import org.d3ifcool.service.presenters.NotifikasiPresenter;
+import org.d3ifcool.base.models.Notifikasi;
+import org.d3ifcool.base.presenters.NotifikasiPresenter;
 
 import java.util.ArrayList;
 

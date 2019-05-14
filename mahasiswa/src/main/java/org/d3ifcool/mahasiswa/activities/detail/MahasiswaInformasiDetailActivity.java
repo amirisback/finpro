@@ -9,8 +9,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.models.Informasi;
+import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.base.models.Informasi;
 
 public class MahasiswaInformasiDetailActivity extends AppCompatActivity {
 

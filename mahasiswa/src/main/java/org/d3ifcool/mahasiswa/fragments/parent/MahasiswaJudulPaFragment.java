@@ -15,17 +15,17 @@ import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.viewpager.MahasiswaJudulPaPagerAdapter;
-import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.lists.JudulListView;
-import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.presenters.JudulPresenter;
+import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.base.interfaces.lists.JudulListView;
+import org.d3ifcool.base.models.Judul;
+import org.d3ifcool.base.presenters.JudulPresenter;
 
 import java.util.List;
 
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DISETUJUI;
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_MENUNGGU;
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_PENDING;
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERSEDIA;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DISETUJUI;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_MENUNGGU;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_PENDING;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERSEDIA;
 
 
 /**

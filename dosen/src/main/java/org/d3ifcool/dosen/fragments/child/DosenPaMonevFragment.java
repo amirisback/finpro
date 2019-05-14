@@ -16,10 +16,10 @@ import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.adapters.recyclerview.DosenProyekAkhirMonevViewAdapter;
-import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
-import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
+import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.base.interfaces.lists.ProyekAkhirListView;
+import org.d3ifcool.base.models.ProyekAkhir;
+import org.d3ifcool.base.presenters.ProyekAkhirPresenter;
 
 import java.util.ArrayList;
 import java.util.List;

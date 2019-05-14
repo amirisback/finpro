@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,16 +13,16 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.interfaces.lists.BimbinganListView;
-import org.d3ifcool.service.interfaces.works.BimbinganWorkView;
-import org.d3ifcool.service.models.Bimbingan;
-import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.presenters.BimbinganPresenter;
+import org.d3ifcool.base.interfaces.lists.BimbinganListView;
+import org.d3ifcool.base.interfaces.works.BimbinganWorkView;
+import org.d3ifcool.base.models.Bimbingan;
+import org.d3ifcool.base.models.ProyekAkhir;
+import org.d3ifcool.base.presenters.BimbinganPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_DISETUJUI;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_DISETUJUI;
 
 public class DosenBimbinganDetailActivity extends AppCompatActivity implements BimbinganWorkView, BimbinganListView {
 

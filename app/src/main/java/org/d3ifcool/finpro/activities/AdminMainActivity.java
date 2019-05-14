@@ -18,20 +18,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.d3ifcool.finpro.R;
-import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.objects.KoorView;
-import org.d3ifcool.service.models.KoordinatorPa;
-import org.d3ifcool.service.presenters.KoorPresenter;
-import org.d3ifcool.superuser.activities.KoorProfilActivity;
-import org.d3ifcool.superuser.fragments.KoorArsipJudulFragment;
-import org.d3ifcool.superuser.fragments.KoorDosenFragment;
-import org.d3ifcool.superuser.fragments.KoorInformasiFragment;
-import org.d3ifcool.superuser.fragments.KoorKategoriJudulFragment;
-import org.d3ifcool.superuser.fragments.KoorJudulFragment;
-import org.d3ifcool.superuser.fragments.KoorKategoriMonevFragment;
-import org.d3ifcool.superuser.fragments.KoorMahasiswaFragment;
-import org.d3ifcool.superuser.fragments.KoorPemetaanMonevFragment;
-import org.d3ifcool.superuser.fragments.KoorProyekAkhirFragment;
+import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.base.interfaces.objects.KoorView;
+import org.d3ifcool.base.models.KoordinatorPa;
+import org.d3ifcool.base.presenters.KoorPresenter;
+import org.d3ifcool.koor.activities.KoorProfilActivity;
+import org.d3ifcool.koor.fragments.KoorArsipJudulFragment;
+import org.d3ifcool.koor.fragments.KoorDosenFragment;
+import org.d3ifcool.koor.fragments.KoorInformasiFragment;
+import org.d3ifcool.koor.fragments.KoorKategoriJudulFragment;
+import org.d3ifcool.koor.fragments.KoorJudulFragment;
+import org.d3ifcool.koor.fragments.KoorKategoriMonevFragment;
+import org.d3ifcool.koor.fragments.KoorMahasiswaFragment;
+import org.d3ifcool.koor.fragments.KoorPemetaanMonevFragment;
+import org.d3ifcool.koor.fragments.KoorProyekAkhirFragment;
 
 public class AdminMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, KoorView {

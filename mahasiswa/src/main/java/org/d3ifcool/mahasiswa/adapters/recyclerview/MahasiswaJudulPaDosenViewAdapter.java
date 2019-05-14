@@ -13,12 +13,12 @@ import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.activities.detail.MahasiswaJudulPaDosenDetailActivity;
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.base.models.Judul;
 
 import java.util.ArrayList;
 
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERSEDIA;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_TERSEDIA;
 
 /**
  * Created by Faisal Amir

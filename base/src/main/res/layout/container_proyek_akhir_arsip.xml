@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by 
+ * FrogoBox Inc License
+ * =========================================
+ * 
+ * Copyright (C) .      
+ * All rights reserved
+ * 
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Majors   : D3 Teknik Informatika 2016
+ * Campus   : Telkom University
+ * 
+ * FrogoBox Software Industries
+ * 
+ -->
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:elevation="@dimen/dimen_elevation"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_marginBottom="@dimen/dimen_medium"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Arsipkan Judul"/>
+
+        <Button
+            android:background="@drawable/box_border_button_acc"
+            android:clickable="true"
+            android:textColor="@color/colorTextWhite"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_proyek_akhir_selesai"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

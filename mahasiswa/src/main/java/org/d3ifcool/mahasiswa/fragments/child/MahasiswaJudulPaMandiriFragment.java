@@ -4,7 +4,6 @@ package org.d3ifcool.mahasiswa.fragments.child;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.activities.MahasiswaJudulPaMandiriPengajuanActivity;
-import org.d3ifcool.service.helpers.SessionManager;
 
 
 /**

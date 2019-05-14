@@ -15,14 +15,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.objects.MahasiswaView;
-import org.d3ifcool.service.interfaces.works.MahasiswaWorkView;
-import org.d3ifcool.service.interfaces.works.ProyekAkhirWorkView;
-import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.models.Mahasiswa;
-import org.d3ifcool.service.presenters.MahasiswaPresenter;
-import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
+import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.base.interfaces.objects.MahasiswaView;
+import org.d3ifcool.base.interfaces.works.MahasiswaWorkView;
+import org.d3ifcool.base.interfaces.works.ProyekAkhirWorkView;
+import org.d3ifcool.base.models.Judul;
+import org.d3ifcool.base.models.Mahasiswa;
+import org.d3ifcool.base.presenters.MahasiswaPresenter;
+import org.d3ifcool.base.presenters.ProyekAkhirPresenter;
 
 public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity implements 
         ProyekAkhirWorkView, MahasiswaWorkView, MahasiswaView {

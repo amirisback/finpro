@@ -15,20 +15,19 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
-import org.d3ifcool.service.interfaces.works.JudulWorkView;
-import org.d3ifcool.service.interfaces.works.MahasiswaWorkView;
-import org.d3ifcool.service.interfaces.works.ProyekAkhirWorkView;
-import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.presenters.JudulPresenter;
-import org.d3ifcool.service.presenters.MahasiswaPresenter;
-import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
+import org.d3ifcool.base.interfaces.lists.ProyekAkhirListView;
+import org.d3ifcool.base.interfaces.works.JudulWorkView;
+import org.d3ifcool.base.interfaces.works.MahasiswaWorkView;
+import org.d3ifcool.base.interfaces.works.ProyekAkhirWorkView;
+import org.d3ifcool.base.models.ProyekAkhir;
+import org.d3ifcool.base.presenters.JudulPresenter;
+import org.d3ifcool.base.presenters.MahasiswaPresenter;
+import org.d3ifcool.base.presenters.ProyekAkhirPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DITOLAK;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
 
 public class DosenJudulPaSubdosenAccActivity extends AppCompatActivity implements ProyekAkhirListView,
         JudulWorkView, ProyekAkhirWorkView, MahasiswaWorkView {

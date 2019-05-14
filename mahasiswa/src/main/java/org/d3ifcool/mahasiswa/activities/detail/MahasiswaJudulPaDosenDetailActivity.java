@@ -14,7 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.activities.MahasiswaJudulPaDosenPengajuanActivity;
-import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.base.models.Judul;
 
 public class MahasiswaJudulPaDosenDetailActivity extends AppCompatActivity {
 

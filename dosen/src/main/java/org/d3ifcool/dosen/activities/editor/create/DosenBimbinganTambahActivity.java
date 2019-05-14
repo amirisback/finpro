@@ -11,10 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.helpers.MethodHelper;
-import org.d3ifcool.service.interfaces.works.BimbinganWorkView;
-import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.presenters.BimbinganPresenter;
+import org.d3ifcool.base.helpers.MethodHelper;
+import org.d3ifcool.base.interfaces.works.BimbinganWorkView;
+import org.d3ifcool.base.models.ProyekAkhir;
+import org.d3ifcool.base.presenters.BimbinganPresenter;
 
 import java.util.ArrayList;
 

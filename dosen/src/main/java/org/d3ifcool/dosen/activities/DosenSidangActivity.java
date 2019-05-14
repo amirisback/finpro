@@ -15,25 +15,23 @@ import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editor.create.DosenSidangTambahActivity;
-import org.d3ifcool.service.interfaces.lists.BimbinganListView;
-import org.d3ifcool.service.interfaces.lists.MonevDetailListView;
-import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
-import org.d3ifcool.service.interfaces.lists.SidangListView;
-import org.d3ifcool.service.models.Bimbingan;
-import org.d3ifcool.service.models.DetailMonev;
-import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.models.Sidang;
-import org.d3ifcool.service.presenters.BimbinganPresenter;
-import org.d3ifcool.service.presenters.MonevDetailPresenter;
-import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
-import org.d3ifcool.service.presenters.SidangPresenter;
+import org.d3ifcool.base.interfaces.lists.BimbinganListView;
+import org.d3ifcool.base.interfaces.lists.MonevDetailListView;
+import org.d3ifcool.base.interfaces.lists.ProyekAkhirListView;
+import org.d3ifcool.base.interfaces.lists.SidangListView;
+import org.d3ifcool.base.models.Bimbingan;
+import org.d3ifcool.base.models.DetailMonev;
+import org.d3ifcool.base.models.ProyekAkhir;
+import org.d3ifcool.base.models.Sidang;
+import org.d3ifcool.base.presenters.BimbinganPresenter;
+import org.d3ifcool.base.presenters.MonevDetailPresenter;
+import org.d3ifcool.base.presenters.ProyekAkhirPresenter;
+import org.d3ifcool.base.presenters.SidangPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUMLAH_BIMBINGAN_SIDANG;
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUMLAH_MONEV_SIDANG;
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.STATUS_SIDANG_LULUS;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_SIDANG_LULUS;
 
 public class DosenSidangActivity extends AppCompatActivity implements SidangListView , ProyekAkhirListView, BimbinganListView, MonevDetailListView {
 

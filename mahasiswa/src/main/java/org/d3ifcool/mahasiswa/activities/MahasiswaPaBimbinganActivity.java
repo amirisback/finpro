@@ -17,18 +17,16 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.activities.editor.MahasiswaPaBimbinganTambahActivity;
-import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.lists.BimbinganListView;
-import org.d3ifcool.service.models.Bimbingan;
+import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.base.interfaces.lists.BimbinganListView;
+import org.d3ifcool.base.models.Bimbingan;
 import org.d3ifcool.mahasiswa.adapters.recyclerview.MahasiswaPaBimbinganViewAdapter;
-import org.d3ifcool.service.models.Dosen;
-import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.presenters.BimbinganPresenter;
+import org.d3ifcool.base.models.Dosen;
+import org.d3ifcool.base.models.ProyekAkhir;
+import org.d3ifcool.base.presenters.BimbinganPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_DISETUJUI;
 
 public class MahasiswaPaBimbinganActivity extends AppCompatActivity implements BimbinganListView {
 

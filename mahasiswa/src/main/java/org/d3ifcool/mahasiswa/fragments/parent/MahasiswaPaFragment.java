@@ -18,23 +18,23 @@ import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPaBimbinganActivity;
 import org.d3ifcool.mahasiswa.activities.detail.MahasiswaPaMonevDetailActivity;
 import org.d3ifcool.mahasiswa.activities.detail.MahasiswaPaSidangDetailActivity;
-import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.lists.BimbinganListView;
-import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
-import org.d3ifcool.service.interfaces.objects.DosenPembimbingView;
-import org.d3ifcool.service.models.Bimbingan;
-import org.d3ifcool.service.models.Dosen;
-import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.presenters.BimbinganPresenter;
-import org.d3ifcool.service.presenters.DosenPresenter;
-import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
+import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.base.interfaces.lists.BimbinganListView;
+import org.d3ifcool.base.interfaces.lists.ProyekAkhirListView;
+import org.d3ifcool.base.interfaces.objects.DosenPembimbingView;
+import org.d3ifcool.base.models.Bimbingan;
+import org.d3ifcool.base.models.Dosen;
+import org.d3ifcool.base.models.ProyekAkhir;
+import org.d3ifcool.base.presenters.BimbinganPresenter;
+import org.d3ifcool.base.presenters.DosenPresenter;
+import org.d3ifcool.base.presenters.ProyekAkhirPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUMLAH_BIMBINGAN_SIDANG;
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_DISETUJUI;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUMLAH_BIMBINGAN_SIDANG;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_DISETUJUI;
 
 
 /**

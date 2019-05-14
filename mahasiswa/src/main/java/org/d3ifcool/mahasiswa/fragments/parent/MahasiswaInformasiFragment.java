@@ -15,9 +15,9 @@ import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.recyclerview.MahasiswaInformasiViewAdapter;
-import org.d3ifcool.service.interfaces.lists.InformasiListView;
-import org.d3ifcool.service.models.Informasi;
-import org.d3ifcool.service.presenters.InformasiPresenter;
+import org.d3ifcool.base.interfaces.lists.InformasiListView;
+import org.d3ifcool.base.models.Informasi;
+import org.d3ifcool.base.presenters.InformasiPresenter;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.detail.DosenMonevDetailActivity;
-import org.d3ifcool.service.models.DetailMonev;
+import org.d3ifcool.base.models.DetailMonev;
 
 import java.util.ArrayList;
 

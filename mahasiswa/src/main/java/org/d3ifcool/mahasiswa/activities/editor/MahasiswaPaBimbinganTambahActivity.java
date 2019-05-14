@@ -16,19 +16,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.service.helpers.MethodHelper;
-import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.lists.MahasiswaListView;
-import org.d3ifcool.service.interfaces.objects.MahasiswaView;
-import org.d3ifcool.service.interfaces.works.BimbinganWorkView;
-import org.d3ifcool.service.models.Mahasiswa;
-import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.presenters.BimbinganPresenter;
+import org.d3ifcool.base.helpers.MethodHelper;
+import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.base.interfaces.works.BimbinganWorkView;
+import org.d3ifcool.base.models.ProyekAkhir;
+import org.d3ifcool.base.presenters.BimbinganPresenter;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_PENDING;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_PENDING;
 
 public class MahasiswaPaBimbinganTambahActivity extends AppCompatActivity implements BimbinganWorkView {
 

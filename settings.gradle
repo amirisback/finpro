@@ -1,1 +1,1 @@
-include ':app', ':service', ':dosen', ':mahasiswa', ':superuser'
+include ':app', ':base', ':dosen', ':mahasiswa', ':koor'

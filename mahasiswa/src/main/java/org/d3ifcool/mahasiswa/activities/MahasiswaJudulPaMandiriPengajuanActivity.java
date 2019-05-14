@@ -12,40 +12,35 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.angmarch.views.NiceSpinner;
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.helpers.SpinnerHelper;
-import org.d3ifcool.service.interfaces.lists.DosenListView;
-import org.d3ifcool.service.interfaces.lists.JudulListView;
-import org.d3ifcool.service.interfaces.lists.KategoriJudulListView;
-import org.d3ifcool.service.interfaces.objects.MahasiswaView;
-import org.d3ifcool.service.interfaces.works.JudulWorkView;
-import org.d3ifcool.service.interfaces.works.MahasiswaWorkView;
-import org.d3ifcool.service.interfaces.works.ProyekAkhirWorkView;
-import org.d3ifcool.service.interfaces.works.ProyekMahasiswaWorkView;
-import org.d3ifcool.service.models.Dosen;
-import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.models.KategoriJudul;
-import org.d3ifcool.service.models.Mahasiswa;
-import org.d3ifcool.service.presenters.DosenPresenter;
-import org.d3ifcool.service.presenters.JudulPresenter;
-import org.d3ifcool.service.presenters.KategoriJudulPresenter;
-import org.d3ifcool.service.presenters.MahasiswaPresenter;
-import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
-import org.d3ifcool.service.presenters.ProyekMahasiswaPresenter;
+import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.base.helpers.SpinnerHelper;
+import org.d3ifcool.base.interfaces.lists.DosenListView;
+import org.d3ifcool.base.interfaces.lists.JudulListView;
+import org.d3ifcool.base.interfaces.lists.KategoriJudulListView;
+import org.d3ifcool.base.interfaces.objects.MahasiswaView;
+import org.d3ifcool.base.interfaces.works.JudulWorkView;
+import org.d3ifcool.base.interfaces.works.ProyekMahasiswaWorkView;
+import org.d3ifcool.base.models.Dosen;
+import org.d3ifcool.base.models.Judul;
+import org.d3ifcool.base.models.KategoriJudul;
+import org.d3ifcool.base.models.Mahasiswa;
+import org.d3ifcool.base.presenters.DosenPresenter;
+import org.d3ifcool.base.presenters.JudulPresenter;
+import org.d3ifcool.base.presenters.KategoriJudulPresenter;
+import org.d3ifcool.base.presenters.MahasiswaPresenter;
+import org.d3ifcool.base.presenters.ProyekMahasiswaPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_PENDING;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_PENDING;
 
 public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         implements JudulWorkView, ProyekMahasiswaWorkView,

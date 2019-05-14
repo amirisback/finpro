@@ -17,11 +17,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.editor.create.DosenMonevTambahActivity;
 import org.d3ifcool.dosen.adapters.recyclerview.DosenMonevViewAdapter;
-import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.lists.MonevDetailListView;
-import org.d3ifcool.service.models.DetailMonev;
-import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.presenters.MonevDetailPresenter;
+import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.base.interfaces.lists.MonevDetailListView;
+import org.d3ifcool.base.models.DetailMonev;
+import org.d3ifcool.base.models.ProyekAkhir;
+import org.d3ifcool.base.presenters.MonevDetailPresenter;
 
 import java.util.ArrayList;
 import java.util.List;

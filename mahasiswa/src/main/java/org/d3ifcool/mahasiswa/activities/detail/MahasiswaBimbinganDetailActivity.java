@@ -2,10 +2,7 @@ package org.d3ifcool.mahasiswa.activities.detail;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,11 +10,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.mahasiswa.activities.editor.MahasiswaPaBimbinganUbahActivity;
-import org.d3ifcool.service.interfaces.works.BimbinganWorkView;
-import org.d3ifcool.service.models.Bimbingan;
-import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.presenters.BimbinganPresenter;
+import org.d3ifcool.base.interfaces.works.BimbinganWorkView;
+import org.d3ifcool.base.models.Bimbingan;
+import org.d3ifcool.base.models.ProyekAkhir;
+import org.d3ifcool.base.presenters.BimbinganPresenter;
 
 import java.util.ArrayList;
 

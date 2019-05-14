@@ -16,13 +16,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.helpers.SpinnerHelper;
-import org.d3ifcool.service.interfaces.lists.KategoriJudulListView;
-import org.d3ifcool.service.interfaces.works.JudulWorkView;
-import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.models.KategoriJudul;
-import org.d3ifcool.service.presenters.JudulPresenter;
-import org.d3ifcool.service.presenters.KategoriJudulPresenter;
+import org.d3ifcool.base.helpers.SpinnerHelper;
+import org.d3ifcool.base.interfaces.lists.KategoriJudulListView;
+import org.d3ifcool.base.interfaces.works.JudulWorkView;
+import org.d3ifcool.base.models.Judul;
+import org.d3ifcool.base.models.KategoriJudul;
+import org.d3ifcool.base.presenters.JudulPresenter;
+import org.d3ifcool.base.presenters.KategoriJudulPresenter;
 
 import java.util.ArrayList;
 import java.util.List;

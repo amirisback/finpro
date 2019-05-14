@@ -10,10 +10,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.d3ifcool.finpro.R;
-import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.objects.LoginView;
-import org.d3ifcool.service.models.User;
-import org.d3ifcool.service.presenters.LoginPresenter;
+import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.base.interfaces.objects.LoginView;
+import org.d3ifcool.base.models.User;
+import org.d3ifcool.base.presenters.LoginPresenter;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 

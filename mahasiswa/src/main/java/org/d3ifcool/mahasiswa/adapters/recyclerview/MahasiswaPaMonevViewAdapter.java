@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.service.models.DetailMonev;
+import org.d3ifcool.base.models.DetailMonev;
 
 import java.util.ArrayList;
 

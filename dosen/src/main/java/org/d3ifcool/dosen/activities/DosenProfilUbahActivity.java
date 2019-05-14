@@ -25,11 +25,11 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.lists.DosenListView;
-import org.d3ifcool.service.interfaces.works.DosenWorkView;
-import org.d3ifcool.service.models.Dosen;
-import org.d3ifcool.service.presenters.DosenPresenter;
+import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.base.interfaces.lists.DosenListView;
+import org.d3ifcool.base.interfaces.works.DosenWorkView;
+import org.d3ifcool.base.models.Dosen;
+import org.d3ifcool.base.presenters.DosenPresenter;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 
 public class DosenProfilUbahActivity extends AppCompatActivity implements DosenWorkView, DosenListView {
 

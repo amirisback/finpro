@@ -16,18 +16,18 @@ import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.recyclerview.MahasiswaJudulPaArsipViewAdapter;
-import org.d3ifcool.service.helpers.SpinnerHelper;
-import org.d3ifcool.service.interfaces.lists.JudulListView;
-import org.d3ifcool.service.interfaces.lists.KategoriJudulListView;
-import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.models.KategoriJudul;
-import org.d3ifcool.service.presenters.JudulPresenter;
-import org.d3ifcool.service.presenters.KategoriJudulPresenter;
+import org.d3ifcool.base.helpers.SpinnerHelper;
+import org.d3ifcool.base.interfaces.lists.JudulListView;
+import org.d3ifcool.base.interfaces.lists.KategoriJudulListView;
+import org.d3ifcool.base.models.Judul;
+import org.d3ifcool.base.models.KategoriJudul;
+import org.d3ifcool.base.presenters.JudulPresenter;
+import org.d3ifcool.base.presenters.KategoriJudulPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_ARSIP;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_ARSIP;
 
 public class MahasiswaJudulPaArsipActivity extends AppCompatActivity implements JudulListView, KategoriJudulListView {
 

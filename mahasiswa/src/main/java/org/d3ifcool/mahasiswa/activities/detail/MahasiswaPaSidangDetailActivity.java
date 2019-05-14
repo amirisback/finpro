@@ -12,15 +12,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.lists.SidangListView;
-import org.d3ifcool.service.models.Sidang;
-import org.d3ifcool.service.presenters.SidangPresenter;
+import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.base.interfaces.lists.SidangListView;
+import org.d3ifcool.base.models.Sidang;
+import org.d3ifcool.base.presenters.SidangPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.STATUS_SIDANG_LULUS;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_SIDANG_LULUS;
 
 public class MahasiswaPaSidangDetailActivity extends AppCompatActivity implements SidangListView{
 

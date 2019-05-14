@@ -22,8 +22,8 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':dosen')
     implementation project(':mahasiswa')
-    implementation project(path: ':superuser')
-    implementation project(':service')
+    implementation project(path: ':koor')
+    implementation project(':base')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
     implementation 'com.google.android.material:material:1.1.0-alpha06'

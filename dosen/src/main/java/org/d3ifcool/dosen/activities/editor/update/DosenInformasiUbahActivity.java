@@ -14,9 +14,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.interfaces.works.InformasiWorkView;
-import org.d3ifcool.service.models.Informasi;
-import org.d3ifcool.service.presenters.InformasiPresenter;
+import org.d3ifcool.base.interfaces.works.InformasiWorkView;
+import org.d3ifcool.base.models.Informasi;
+import org.d3ifcool.base.presenters.InformasiPresenter;
 
 public class DosenInformasiUbahActivity extends AppCompatActivity implements InformasiWorkView {
 

@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.service.models.Informasi;
+import org.d3ifcool.base.models.Informasi;
 import org.d3ifcool.mahasiswa.activities.detail.MahasiswaInformasiDetailActivity;
 
 import java.util.ArrayList;

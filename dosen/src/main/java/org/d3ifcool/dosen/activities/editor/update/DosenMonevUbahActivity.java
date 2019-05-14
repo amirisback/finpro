@@ -14,10 +14,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.helpers.MethodHelper;
-import org.d3ifcool.service.interfaces.works.MonevDetailWorkView;
-import org.d3ifcool.service.models.DetailMonev;
-import org.d3ifcool.service.presenters.MonevDetailPresenter;
+import org.d3ifcool.base.helpers.MethodHelper;
+import org.d3ifcool.base.interfaces.works.MonevDetailWorkView;
+import org.d3ifcool.base.models.DetailMonev;
+import org.d3ifcool.base.presenters.MonevDetailPresenter;
 
 public class DosenMonevUbahActivity extends AppCompatActivity implements MonevDetailWorkView {
 

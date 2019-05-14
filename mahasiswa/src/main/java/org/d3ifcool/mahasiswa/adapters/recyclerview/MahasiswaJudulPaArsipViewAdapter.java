@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.activities.detail.MahasiswaJudulPaArsipDetailActivity;
-import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.base.models.Judul;
 
 import java.util.ArrayList;
 

@@ -14,12 +14,12 @@ import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.detail.DosenBimbinganDetailActivity;
-import org.d3ifcool.service.models.Bimbingan;
-import org.d3ifcool.service.models.ProyekAkhir;
+import org.d3ifcool.base.models.Bimbingan;
+import org.d3ifcool.base.models.ProyekAkhir;
 
 import java.util.ArrayList;
 
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_PENDING;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_PENDING;
 
 /**
  * Created by Faisal Amir

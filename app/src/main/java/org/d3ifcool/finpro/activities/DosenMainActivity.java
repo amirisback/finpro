@@ -19,11 +19,11 @@ import org.d3ifcool.dosen.fragments.parent.DosenInformasiFragment;
 import org.d3ifcool.dosen.fragments.parent.DosenJudulFragment;
 import org.d3ifcool.dosen.fragments.parent.DosenPaFragment;
 import org.d3ifcool.finpro.R;
-import org.d3ifcool.service.helpers.MethodHelper;
-import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.objects.DosenView;
-import org.d3ifcool.service.models.Dosen;
-import org.d3ifcool.service.presenters.DosenPresenter;
+import org.d3ifcool.base.helpers.MethodHelper;
+import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.base.interfaces.objects.DosenView;
+import org.d3ifcool.base.models.Dosen;
+import org.d3ifcool.base.presenters.DosenPresenter;
 
 public class DosenMainActivity extends AppCompatActivity implements DosenView {
 

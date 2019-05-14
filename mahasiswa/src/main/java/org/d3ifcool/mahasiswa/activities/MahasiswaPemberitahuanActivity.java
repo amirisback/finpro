@@ -14,10 +14,10 @@ import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.recyclerview.MahasiswaPemberitahuanViewAdapter;
-import org.d3ifcool.service.interfaces.lists.NotifikasiListView;
-import org.d3ifcool.service.interfaces.works.NotifikasiWorkView;
-import org.d3ifcool.service.models.Notifikasi;
-import org.d3ifcool.service.presenters.NotifikasiPresenter;
+import org.d3ifcool.base.interfaces.lists.NotifikasiListView;
+import org.d3ifcool.base.interfaces.works.NotifikasiWorkView;
+import org.d3ifcool.base.models.Notifikasi;
+import org.d3ifcool.base.presenters.NotifikasiPresenter;
 
 import java.util.ArrayList;
 import java.util.List;

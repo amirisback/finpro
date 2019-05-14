@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.base.models.Judul;
 
 public class MahasiswaJudulPaArsipDetailActivity extends AppCompatActivity {
     public static final String EXTRA_JUDUL = "extra_judul";

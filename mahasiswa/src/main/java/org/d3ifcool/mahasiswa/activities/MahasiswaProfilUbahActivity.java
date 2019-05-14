@@ -25,11 +25,11 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.mahasiswa.R;
-import org.d3ifcool.service.helpers.SessionManager;
-import org.d3ifcool.service.interfaces.lists.MahasiswaListView;
-import org.d3ifcool.service.interfaces.works.MahasiswaWorkView;
-import org.d3ifcool.service.models.Mahasiswa;
-import org.d3ifcool.service.presenters.MahasiswaPresenter;
+import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.base.interfaces.lists.MahasiswaListView;
+import org.d3ifcool.base.interfaces.works.MahasiswaWorkView;
+import org.d3ifcool.base.models.Mahasiswa;
+import org.d3ifcool.base.presenters.MahasiswaPresenter;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
 
 public class MahasiswaProfilUbahActivity extends AppCompatActivity implements MahasiswaWorkView , MahasiswaListView{
 

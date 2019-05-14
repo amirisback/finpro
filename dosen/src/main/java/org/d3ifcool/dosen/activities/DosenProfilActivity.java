@@ -1,28 +1,21 @@
 package org.d3ifcool.dosen.activities;
 
-import android.Manifest;
 import android.content.Intent;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.helpers.SessionManager;
+import org.d3ifcool.base.helpers.SessionManager;
 
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 
 public class DosenProfilActivity extends AppCompatActivity {
 

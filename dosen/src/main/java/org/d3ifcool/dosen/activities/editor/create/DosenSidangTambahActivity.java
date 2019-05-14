@@ -16,13 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.helpers.MethodHelper;
-import org.d3ifcool.service.helpers.SpinnerHelper;
-import org.d3ifcool.service.interfaces.works.ProyekAkhirWorkView;
-import org.d3ifcool.service.interfaces.works.SidangWorkView;
-import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
-import org.d3ifcool.service.presenters.SidangPresenter;
+import org.d3ifcool.base.helpers.MethodHelper;
+import org.d3ifcool.base.helpers.SpinnerHelper;
+import org.d3ifcool.base.interfaces.works.ProyekAkhirWorkView;
+import org.d3ifcool.base.interfaces.works.SidangWorkView;
+import org.d3ifcool.base.models.ProyekAkhir;
+import org.d3ifcool.base.presenters.ProyekAkhirPresenter;
+import org.d3ifcool.base.presenters.SidangPresenter;
 
 
 public class DosenSidangTambahActivity extends AppCompatActivity implements SidangWorkView, ProyekAkhirWorkView {

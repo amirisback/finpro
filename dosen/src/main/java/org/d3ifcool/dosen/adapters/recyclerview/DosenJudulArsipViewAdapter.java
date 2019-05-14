@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.detail.DosenJudulPaArsipDetailActivity;
-import org.d3ifcool.service.models.Judul;
+import org.d3ifcool.base.models.Judul;
 
 import java.util.ArrayList;
 

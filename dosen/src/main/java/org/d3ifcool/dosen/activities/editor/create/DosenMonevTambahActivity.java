@@ -15,14 +15,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.helpers.MethodHelper;
-import org.d3ifcool.service.helpers.SpinnerHelper;
-import org.d3ifcool.service.interfaces.lists.MonevListView;
-import org.d3ifcool.service.interfaces.works.MonevDetailWorkView;
-import org.d3ifcool.service.models.Monev;
-import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.presenters.MonevDetailPresenter;
-import org.d3ifcool.service.presenters.MonevPresenter;
+import org.d3ifcool.base.helpers.MethodHelper;
+import org.d3ifcool.base.helpers.SpinnerHelper;
+import org.d3ifcool.base.interfaces.lists.MonevListView;
+import org.d3ifcool.base.interfaces.works.MonevDetailWorkView;
+import org.d3ifcool.base.models.Monev;
+import org.d3ifcool.base.models.ProyekAkhir;
+import org.d3ifcool.base.presenters.MonevDetailPresenter;
+import org.d3ifcool.base.presenters.MonevPresenter;
 
 import java.util.ArrayList;
 import java.util.List;

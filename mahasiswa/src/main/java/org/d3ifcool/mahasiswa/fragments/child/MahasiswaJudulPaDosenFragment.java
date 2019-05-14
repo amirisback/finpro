@@ -17,18 +17,18 @@ import android.widget.Toast;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.recyclerview.MahasiswaJudulPaDosenViewAdapter;
-import org.d3ifcool.service.helpers.SpinnerHelper;
-import org.d3ifcool.service.interfaces.lists.DosenListView;
-import org.d3ifcool.service.interfaces.lists.JudulListView;
-import org.d3ifcool.service.models.Dosen;
-import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.presenters.DosenPresenter;
-import org.d3ifcool.service.presenters.JudulPresenter;
+import org.d3ifcool.base.helpers.SpinnerHelper;
+import org.d3ifcool.base.interfaces.lists.DosenListView;
+import org.d3ifcool.base.interfaces.lists.JudulListView;
+import org.d3ifcool.base.models.Dosen;
+import org.d3ifcool.base.models.Judul;
+import org.d3ifcool.base.presenters.DosenPresenter;
+import org.d3ifcool.base.presenters.JudulPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.networks.bridge.ApiUrl.FinproUrl.PARAM_DOSEN_NAMA;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PARAM_DOSEN_NAMA;
 
 /**
  * A simple {@link Fragment} subclass.

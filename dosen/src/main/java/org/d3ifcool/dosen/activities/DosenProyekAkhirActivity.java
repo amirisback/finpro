@@ -13,22 +13,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.d3ifcool.dosen.R;
-import org.d3ifcool.service.interfaces.lists.BimbinganListView;
-import org.d3ifcool.service.interfaces.lists.MonevDetailListView;
-import org.d3ifcool.service.interfaces.lists.ProyekAkhirListView;
-import org.d3ifcool.service.models.Bimbingan;
-import org.d3ifcool.service.models.DetailMonev;
-import org.d3ifcool.service.models.Judul;
-import org.d3ifcool.service.models.ProyekAkhir;
-import org.d3ifcool.service.presenters.BimbinganPresenter;
-import org.d3ifcool.service.presenters.MonevDetailPresenter;
-import org.d3ifcool.service.presenters.ProyekAkhirPresenter;
+import org.d3ifcool.base.interfaces.lists.BimbinganListView;
+import org.d3ifcool.base.interfaces.lists.MonevDetailListView;
+import org.d3ifcool.base.interfaces.lists.ProyekAkhirListView;
+import org.d3ifcool.base.models.Bimbingan;
+import org.d3ifcool.base.models.DetailMonev;
+import org.d3ifcool.base.models.Judul;
+import org.d3ifcool.base.models.ProyekAkhir;
+import org.d3ifcool.base.presenters.BimbinganPresenter;
+import org.d3ifcool.base.presenters.MonevDetailPresenter;
+import org.d3ifcool.base.presenters.ProyekAkhirPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
-import static org.d3ifcool.service.helpers.Constant.ObjectConstanta.JUMLAH_BIMBINGAN_SIDANG;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUMLAH_BIMBINGAN_SIDANG;
 
 public class DosenProyekAkhirActivity extends AppCompatActivity implements ProyekAkhirListView,
         BimbinganListView, MonevDetailListView {

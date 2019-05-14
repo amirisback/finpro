@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.DosenJudulPaSubdosenAccActivity;
-import org.d3ifcool.service.models.ProyekAkhir;
+import org.d3ifcool.base.models.ProyekAkhir;
 
 import java.util.ArrayList;
 

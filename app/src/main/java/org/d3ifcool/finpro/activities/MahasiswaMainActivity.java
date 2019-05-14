@@ -17,12 +17,12 @@ import org.d3ifcool.mahasiswa.activities.MahasiswaJudulPaArsipActivity;
 import org.d3ifcool.mahasiswa.fragments.parent.MahasiswaInformasiFragment;
 import org.d3ifcool.mahasiswa.fragments.parent.MahasiswaJudulPaFragment;
 import org.d3ifcool.mahasiswa.fragments.parent.MahasiswaPaFragment;
-import org.d3ifcool.service.helpers.SessionManager;
+import org.d3ifcool.base.helpers.SessionManager;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPemberitahuanActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaProfilActivity;
-import org.d3ifcool.service.interfaces.objects.MahasiswaView;
-import org.d3ifcool.service.models.Mahasiswa;
-import org.d3ifcool.service.presenters.MahasiswaPresenter;
+import org.d3ifcool.base.interfaces.objects.MahasiswaView;
+import org.d3ifcool.base.models.Mahasiswa;
+import org.d3ifcool.base.presenters.MahasiswaPresenter;
 
 public class MahasiswaMainActivity extends AppCompatActivity implements MahasiswaView {
 

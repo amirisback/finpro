@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.activities.detail.DosenInformasiDetailActivity;
-import org.d3ifcool.service.models.Informasi;
+import org.d3ifcool.base.models.Informasi;
 
 import java.util.ArrayList;
 
