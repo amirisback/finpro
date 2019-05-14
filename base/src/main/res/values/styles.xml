@@ -86,4 +86,13 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="fab_all_add">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_margin">@dimen/dimen_big</item>
+        <item name="android:src">@drawable/ic_fab_add</item>
+    </style>
+
 </resources>

@@ -18,19 +18,14 @@
             android:id="@+id/frg_koor_judul_kategori_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="@dimen/dimen_medium"
             tools:listitem="@layout/content_item_koor_kategori_judul">
         </androidx.recyclerview.widget.RecyclerView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/frg_koor_info_home_fab"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="@dimen/dimen_big"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_fab_add"/>
+            style="@style/fab_all_add"/>
 
     </RelativeLayout>
-
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

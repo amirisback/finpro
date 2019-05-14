@@ -89,14 +89,9 @@
                     android:textStyle="bold"
                     android:text="@string/title_proyekakhir"/>
 
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="@string/text_informasi"-->
-                    <!--android:textColor="@color/colorPrimary"/>-->
-
                 <View
                     style="@style/view_all_line_horizontal"/>
+
                 <TextView
                     android:textColor="@color/colorTextBlack"
                     android:id="@+id/act_dsn_info_detail_textview_isi"
