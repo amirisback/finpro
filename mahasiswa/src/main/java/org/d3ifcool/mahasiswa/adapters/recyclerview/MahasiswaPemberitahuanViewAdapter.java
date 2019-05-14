@@ -4,10 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.service.models.Notifikasi;
+import org.d3ifcool.service.presenters.NotifikasiPresenter;
 
 import java.util.ArrayList;
 
@@ -35,6 +37,7 @@ public class MahasiswaPemberitahuanViewAdapter extends RecyclerView.Adapter<Maha
 
     private Context context;
     private ArrayList<Notifikasi> data;
+    private NotifikasiPresenter notifikasiPresenter;
 
     public MahasiswaPemberitahuanViewAdapter(Context context) {
         this.context = context;
@@ -45,6 +48,10 @@ public class MahasiswaPemberitahuanViewAdapter extends RecyclerView.Adapter<Maha
         notifyDataSetChanged();
     }
 
+    public void setNotifikasiPresenter(NotifikasiPresenter notifikasiPresenter){
+        this.notifikasiPresenter = notifikasiPresenter;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -53,22 +60,47 @@ public class MahasiswaPemberitahuanViewAdapter extends RecyclerView.Adapter<Maha
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.isi.setText(data.get(position).getNotifikasi_deskripsi());
-    }
-
-    @Override
     public int getItemCount() {
         return data.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        TextView isi, tanggal, waktu;
+
+        TextView isi, tanggal, pengirim;
+        LinearLayout container;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            pengirim = itemView.findViewById(R.id.ctn_pemberitahuan_pengirim);
             isi = itemView.findViewById(R.id.ctn_pemberitahuan_isi);
-            tanggal = itemView.findViewById(R.id.ctn_pemberitahuan_waktu);
-            waktu = itemView.findViewById(R.id.ctn_pemberitahuan_menit);
+            tanggal = itemView.findViewById(R.id.ctn_pemberitahuan_tanggal);
+            container = itemView.findViewById(R.id.container_notif);
         }
     }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+
+        if (data.get(position).getNotifikasi_baca() == 0){
+            holder.container.setBackgroundColor(context.getResources().getColor(R.color.colorBackground));
+        } else {
+            holder.container.setBackgroundColor(context.getResources().getColor(R.color.colorBackgroundWhite));
+        }
+
+        holder.isi.setText(data.get(position).getNotifikasi_deskripsi());
+        holder.tanggal.setText(data.get(position).getNotifikasi_tanggal());
+        holder.pengirim.setText(data.get(position).getNotifikasi_dari());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (data.get(position).getNotifikasi_baca() == 0) {
+//                    notifikasiPresenter.updateBaca();
+                }
+            }
+        });
+
+    }
+
+
 }

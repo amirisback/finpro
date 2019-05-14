@@ -1,68 +1,41 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
+    android:id="@+id/container_notif"
+    android:background="@color/colorBackground"
     android:paddingStart="@dimen/dimen_big"
-    android:paddingEnd="@dimen/dimen_big"
-    android:paddingTop="@dimen/dimen_medium"
     android:paddingBottom="@dimen/dimen_medium"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:paddingTop="@dimen/dimen_medium"
+    android:paddingEnd="@dimen/dimen_big">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/ctn_pemberitahuan_circle_image"
-        android:src="@drawable/ic_dummy_photo"
-        app:civ_border_width="1dp"
-        app:civ_border_color="@color/colorBackground"
-        style="@style/all_image_informasi"/>
+    <TextView
+        android:id="@+id/ctn_pemberitahuan_pengirim"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textColor="@color/colorTextBlack"
+        android:textStyle="bold"
+        tools:text="@string/dummy"/>
 
-    <LinearLayout
-        android:layout_gravity="center_vertical"
-        android:id="@+id/linear"
-        android:gravity="center_vertical"
+    <TextView
+        android:id="@+id/ctn_pemberitahuan_isi"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/dimen_small"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        tools:text="@string/dummyLong"/>
+
+    <TextView
+        android:id="@+id/ctn_pemberitahuan_tanggal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:gravity="end"
+        android:text="@string/dummy_tanggal"
+        android:textSize="@dimen/text_size_default"
+        android:textColor="@color/colorTextBlack"/>
 
-        <TextView
-            android:id="@+id/ctn_pemberitahuan_isi"
-            android:layout_width="match_parent"
-            android:layout_marginBottom="@dimen/dimen_small"
-            android:layout_height="wrap_content"
-            android:maxLines="3"
-            android:textColor="@color/colorTextBlack"
-            android:text="hariandi maulid mengirim suatu pesan"/>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/ctn_pemberitahuan_waktu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dummy_tanggal"
-                android:textSize="10sp"
-                android:textColor="@color/colorPrimary"/>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="16dp"
-                android:layout_marginLeft="@dimen/dimen_medium"
-                android:layout_marginRight="@dimen/dimen_medium"
-                android:background="@color/colorBackground"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/ctn_pemberitahuan_menit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
-                android:textColor="@color/colorPrimary"
-                android:text="45 menit yang lalu"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
 
 </LinearLayout>

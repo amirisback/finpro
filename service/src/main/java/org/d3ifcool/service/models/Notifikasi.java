@@ -47,10 +47,9 @@ public class Notifikasi implements Parcelable {
 
     @Expose
     @SerializedName("notifikasi_baca")
-    private Boolean notifikasi_baca;
+    private int notifikasi_baca;
 
-
-    public Notifikasi(String notifikasi_id, String notifikasi_tanggal, String notifikasi_kategori, String notifikasi_deskripsi, String notifikasi_dari, String notifikasi_untuk, Boolean notifikasi_baca) {
+    public Notifikasi(String notifikasi_id, String notifikasi_tanggal, String notifikasi_kategori, String notifikasi_deskripsi, String notifikasi_dari, String notifikasi_untuk, int notifikasi_baca) {
         this.notifikasi_id = notifikasi_id;
         this.notifikasi_tanggal = notifikasi_tanggal;
         this.notifikasi_kategori = notifikasi_kategori;
@@ -59,44 +58,6 @@ public class Notifikasi implements Parcelable {
         this.notifikasi_untuk = notifikasi_untuk;
         this.notifikasi_baca = notifikasi_baca;
     }
-
-    protected Notifikasi(Parcel in) {
-        notifikasi_id = in.readString();
-        notifikasi_tanggal = in.readString();
-        notifikasi_kategori = in.readString();
-        notifikasi_deskripsi = in.readString();
-        notifikasi_dari = in.readString();
-        notifikasi_untuk = in.readString();
-        notifikasi_baca = in.readInt() != 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(notifikasi_id);
-        dest.writeString(notifikasi_tanggal);
-        dest.writeString(notifikasi_kategori);
-        dest.writeString(notifikasi_deskripsi);
-        dest.writeString(notifikasi_dari);
-        dest.writeString(notifikasi_untuk);
-        dest.writeInt(notifikasi_baca ? 1 :0);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<Notifikasi> CREATOR = new Creator<Notifikasi>() {
-        @Override
-        public Notifikasi createFromParcel(Parcel in) {
-            return new Notifikasi(in);
-        }
-
-        @Override
-        public Notifikasi[] newArray(int size) {
-            return new Notifikasi[size];
-        }
-    };
 
     public String getNotifikasi_id() {
         return notifikasi_id;
@@ -146,11 +107,50 @@ public class Notifikasi implements Parcelable {
         this.notifikasi_untuk = notifikasi_untuk;
     }
 
-    public Boolean getNotifikasi_baca() {
+    public int getNotifikasi_baca() {
         return notifikasi_baca;
     }
 
-    public void setNotifikasi_baca(Boolean notifikasi_baca) {
+    public void setNotifikasi_baca(int notifikasi_baca) {
         this.notifikasi_baca = notifikasi_baca;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.notifikasi_id);
+        dest.writeString(this.notifikasi_tanggal);
+        dest.writeString(this.notifikasi_kategori);
+        dest.writeString(this.notifikasi_deskripsi);
+        dest.writeString(this.notifikasi_dari);
+        dest.writeString(this.notifikasi_untuk);
+        dest.writeInt(this.notifikasi_baca);
+    }
+
+    protected Notifikasi(Parcel in) {
+        this.notifikasi_id = in.readString();
+        this.notifikasi_tanggal = in.readString();
+        this.notifikasi_kategori = in.readString();
+        this.notifikasi_deskripsi = in.readString();
+        this.notifikasi_dari = in.readString();
+        this.notifikasi_untuk = in.readString();
+        this.notifikasi_baca = in.readInt();
+    }
+
+    public static final Creator<Notifikasi> CREATOR = new Creator<Notifikasi>() {
+        @Override
+        public Notifikasi createFromParcel(Parcel source) {
+            return new Notifikasi(source);
+        }
+
+        @Override
+        public Notifikasi[] newArray(int size) {
+            return new Notifikasi[size];
+        }
+    };
 }
