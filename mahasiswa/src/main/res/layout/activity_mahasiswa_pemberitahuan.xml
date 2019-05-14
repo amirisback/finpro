@@ -15,13 +15,6 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <!-- Empty View -->
-    <RelativeLayout
-        android:id="@+id/view_emptyview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="gone">
-        <include layout="@layout/content_list_empty"/>
-    </RelativeLayout>
+    <include layout="@layout/content_list_empty"/>
 
 </RelativeLayout>
