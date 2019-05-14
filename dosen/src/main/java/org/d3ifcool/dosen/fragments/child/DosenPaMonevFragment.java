@@ -54,13 +54,16 @@ public class DosenPaMonevFragment extends Fragment implements ProyekAkhirListVie
         View rootView = inflater.inflate(R.layout.fragment_dosen_pa_monev, container, false);
 
         recyclerView = rootView.findViewById(R.id.frg_dsn_pa_monev_recyclerview);
-        sessionManager = new SessionManager(getContext());
         swipeRefreshLayout = rootView.findViewById(R.id.frg_dsn_pa_monev_swiperefresh);
-        progressDialog = new ProgressDialog(getContext());
         empty_view = rootView.findViewById(R.id.view_emptyview);
+        sessionManager = new SessionManager(getContext());
+        progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         adapter = new DosenProyekAkhirMonevViewAdapter(getContext());
         presenter = new ProyekAkhirPresenter(this);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter.setLayoutType(R.layout.content_item_dosen_pa_monev);
 
 //        presenter.searchDistinctProyekAkhirBy(PARAMS_DOSEN_REVIEWER_NIP, sessionManager.getSessionDosenNip());
         presenter.searchDistinctProyekAkhirBy(PARAMS_DOSEN_REVIEWER_NIP, sessionManager.getSessionUsername());
@@ -92,9 +95,8 @@ public class DosenPaMonevFragment extends Fragment implements ProyekAkhirListVie
         arrayList.clear();
         arrayList.addAll(proyekAkhirList);
         adapter.addItemPa(arrayList);
-        adapter.setLayoutType(R.layout.content_item_dosen_pa_monev);
+
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         swipeRefreshLayout.setRefreshing(false);
 
         if (arrayList.size() == 0) {

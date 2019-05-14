@@ -59,6 +59,10 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
         swipeRefreshLayout = rootView.findViewById(R.id.frg_koor_info_home_swiperefresh);
         empty_view = rootView.findViewById(R.id.view_emptyview);
 
+        adapter = new KoorInformasiViewAdapter(getContext());
+        adapter.setLayoutType(R.layout.content_item_koor_informasi);
+        rv_informasi.setLayoutManager(new LinearLayoutManager(getContext()));
+
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         presenter.getInformasi();
@@ -101,18 +105,14 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
         arrayList.clear();
         arrayList.addAll(informasi);
 
+        adapter.addItem(arrayList);
         swipeRefreshLayout.setRefreshing(false);
+        rv_informasi.setAdapter(adapter);
 
         if (arrayList.size() == 0) {
             empty_view.setVisibility(View.VISIBLE);
         } else {
             empty_view.setVisibility(View.GONE);
-            adapter = new KoorInformasiViewAdapter(getContext());
-            adapter.addItem(arrayList);
-            adapter.setLayoutType(R.layout.content_item_koor_informasi);
-
-            rv_informasi.setLayoutManager(new LinearLayoutManager(getContext()));
-            rv_informasi.setAdapter(adapter);
         }
 
     }

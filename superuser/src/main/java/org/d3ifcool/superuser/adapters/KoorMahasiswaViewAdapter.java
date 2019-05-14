@@ -50,6 +50,7 @@ public class KoorMahasiswaViewAdapter extends RecyclerView.Adapter<KoorMahasiswa
 
     public void setmMahasiswa(ArrayList<Mahasiswa> mMahasiswa) {
         this.mMahasiswa = mMahasiswa;
+        notifyDataSetChanged();
     }
 
     public void setLayouyType(int layouyType) {

@@ -51,13 +51,17 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
         View rootView = inflater.inflate(R.layout.fragment_dosen_pa_bimbingan, container, false);
 
         recyclerView = rootView.findViewById(R.id.frg_dsn_pa_bimbingan_recyclerview);
+        empty_view = rootView.findViewById(R.id.view_emptyview);
+        swipeRefreshLayout = rootView.findViewById(R.id.frg_dsn_pa_bimbingan_swiperefresh);
         adapter = new DosenProyekAkhirBimbinganViewAdapter(getContext());
         sessionManager = new SessionManager(getContext());
-        swipeRefreshLayout = rootView.findViewById(R.id.frg_dsn_pa_bimbingan_swiperefresh);
         progressDialog = new ProgressDialog(getContext());
-        empty_view = rootView.findViewById(R.id.view_emptyview);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         judulPresenter = new JudulPresenter(this);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter.setLayoutType(R.layout.content_item_dosen_pa_bimbingan);
+
 //        judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
         judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionUsername());
 
@@ -96,9 +100,7 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
         arrayList.clear();
         arrayList.addAll(judulpa);
         adapter.addItemPa(arrayList);
-        adapter.setLayoutType(R.layout.content_item_dosen_pa_bimbingan);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         swipeRefreshLayout.setRefreshing(false);
 
         if (arrayList.size() == 0) {

@@ -61,7 +61,11 @@ public class DosenInformasiFragment extends Fragment implements InformasiListVie
         adapter = new DosenInformasiViewAdapter(getContext());
         presenter = new InformasiPresenter(this);
         progressDialog = new ProgressDialog(getContext());
+        empty_view = view.findViewById(R.id.view_emptyview);
         swipeRefreshLayout = view.findViewById(R.id.frg_dsn_info_home_swiperefresh);
+
+        adapter.setLayoutType(R.layout.content_item_dosen_informasi);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -75,8 +79,6 @@ public class DosenInformasiFragment extends Fragment implements InformasiListVie
                 startActivity(i);
             }
         });
-
-        empty_view = view.findViewById(R.id.view_emptyview);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -108,15 +110,14 @@ public class DosenInformasiFragment extends Fragment implements InformasiListVie
         arrayList.clear();
         arrayList.addAll(informasi);
 
+        adapter.addItem(arrayList);
+        recyclerView.setAdapter(adapter);
+        swipeRefreshLayout.setRefreshing(false);
+
         if (arrayList.size() == 0) {
             empty_view.setVisibility(View.VISIBLE);
         } else {
             empty_view.setVisibility(View.GONE);
-            adapter.addItem(arrayList);
-            adapter.setLayoutType(R.layout.content_item_dosen_informasi);
-            recyclerView.setAdapter(adapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-            swipeRefreshLayout.setRefreshing(false);
         }
 
     }

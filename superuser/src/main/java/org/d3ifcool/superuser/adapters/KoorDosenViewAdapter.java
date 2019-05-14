@@ -50,6 +50,7 @@ public class KoorDosenViewAdapter extends RecyclerView.Adapter<KoorDosenViewAdap
 
     public void setDosens(ArrayList<Dosen> dosens) {
         this.dosens = dosens;
+        notifyDataSetChanged();
     }
 
 

@@ -58,6 +58,9 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiLis
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
+        adapter.setLayoutType(R.layout.content_item_mahasiswa_informasi);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
         presenter.getInformasi();
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -88,19 +91,17 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiLis
 
     @Override
     public void onGetListInformasi(List<Informasi> informasi) {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         arrayList.clear();
         arrayList.addAll(informasi);
+
+        adapter.addItem(arrayList);
+        recyclerView.setAdapter(adapter);
+        swipeRefreshLayout.setRefreshing(false);
 
         if (arrayList.size() == 0) {
             empty_view.setVisibility(View.VISIBLE);
         } else {
             empty_view.setVisibility(View.GONE);
-            adapter.addItem(arrayList);
-            adapter.setLayoutType(R.layout.content_item_mahasiswa_informasi);
-            recyclerView.setAdapter(adapter);
-            recyclerView.setLayoutManager(linearLayoutManager);
-            swipeRefreshLayout.setRefreshing(false);
         }
 
     }

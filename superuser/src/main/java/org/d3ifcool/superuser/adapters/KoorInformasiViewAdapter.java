@@ -46,6 +46,7 @@ public class KoorInformasiViewAdapter extends RecyclerView.Adapter<KoorInformasi
 
     public void addItem(ArrayList<Informasi> data){
         this.data = data;
+        notifyDataSetChanged();
     }
 
     public void setLayoutType(int layoutType) {

@@ -58,7 +58,7 @@ public class KoorDosenFragment extends Fragment implements DosenListView {
         recyclerView = view.findViewById(R.id.frg_koor_dosen_home_recyclerview);
         floatingActionButton = view.findViewById(R.id.frg_koor_dosen_home_fab);
         empty_view = view.findViewById(R.id.view_emptyview);
-
+        adapter = new KoorDosenViewAdapter(getContext());
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         presenter.getDosen();
@@ -78,6 +78,8 @@ public class KoorDosenFragment extends Fragment implements DosenListView {
             }
         });
 
+        adapter.setLayoutType(R.layout.content_item_koor_dosen);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         return view;
     }
@@ -100,12 +102,10 @@ public class KoorDosenFragment extends Fragment implements DosenListView {
 
     @Override
     public void onGetListDosen(List<Dosen> dosen) {
-        adapter = new KoorDosenViewAdapter(getContext());
         arrayList.clear();
         arrayList.addAll(dosen);
+
         adapter.setDosens(arrayList);
-        adapter.setLayoutType(R.layout.content_item_koor_dosen);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         refreshLayout.setRefreshing(false);
 

@@ -76,6 +76,8 @@ public class KoorArsipJudulFragment extends Fragment implements JudulListView, K
 
         spinnerHelper = new SpinnerHelper(getContext());
 
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
         adapter = new KoorJudulPaArsipViewAdapter(getContext());
         swipeRefreshLayout = rootView.findViewById(R.id.swipe_refresh);
         empty_view = rootView.findViewById(R.id.view_emptyview);
@@ -139,8 +141,8 @@ public class KoorArsipJudulFragment extends Fragment implements JudulListView, K
     public void onGetListJudul(List<Judul> judulpa) {
         arrayListJudul.clear();
         arrayListJudul.addAll(judulpa);
+
         adapter.additem(arrayListJudul);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         swipeRefreshLayout.setRefreshing(false);
 

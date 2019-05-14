@@ -38,6 +38,7 @@ public class KoorJudulPaKategoriViewAdapter extends RecyclerView.Adapter<KoorJud
 
     public void setKategoriJudul(ArrayList<KategoriJudul> kategori) {
         this.data = kategori;
+        notifyDataSetChanged();
     }
 
     public void setLayoutType(int layoutType) {
