@@ -16,10 +16,7 @@
 
         <ImageView
             android:src="@drawable/ic_announcement"
-            android:layout_width="@dimen/dimen_profil_photo"
-            android:layout_height="@dimen/dimen_profil_photo"
-            android:layout_marginBottom="@dimen/dimen_big_ultra"
-            android:layout_gravity="center"/>
+            style="@style/image_all_editor_view"/>
 
         <TextView
             android:layout_marginStart="@dimen/dimen_small"

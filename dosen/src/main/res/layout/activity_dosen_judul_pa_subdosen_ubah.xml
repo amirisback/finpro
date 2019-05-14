@@ -14,11 +14,8 @@
         android:padding="@dimen/dimen_big">
 
         <ImageView
-            android:layout_width="@dimen/dimen_profil_photo"
-            android:layout_height="@dimen/dimen_profil_photo"
             android:src="@drawable/ic_judul_pa"
-            android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/dimen_big_ultra"/>
+            style="@style/image_all_editor_view"/>
 
         <TextView
             android:layout_width="wrap_content"

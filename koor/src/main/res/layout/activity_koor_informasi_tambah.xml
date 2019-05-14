@@ -8,18 +8,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".activities.editors.KoorInformasiTambahActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="@dimen/dimen_big">
 
         <ImageView
-            android:layout_width="@dimen/dimen_profil_photo"
-            android:layout_height="@dimen/dimen_profil_photo"
-            android:layout_marginBottom="@dimen/dimen_big_ultra"
             android:src="@drawable/ic_announcement"
-            android:layout_gravity="center"/>
+            style="@style/image_all_editor_view"/>
 
         <TextView
             android:layout_marginStart="@dimen/dimen_small"
