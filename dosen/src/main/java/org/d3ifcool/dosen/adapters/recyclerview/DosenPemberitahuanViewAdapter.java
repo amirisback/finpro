@@ -100,12 +100,6 @@ public class DosenPemberitahuanViewAdapter extends RecyclerView.Adapter<DosenPem
                 if (data.get(position).getNotifikasi_baca() == 0) {
                     notifikasiPresenter.updateNotifikasi(id,changeStateWasRead);
                 }
-
-                if (data.get(position).getNotifikasi_baca() == 0){
-                    holder.container.setBackgroundColor(context.getResources().getColor(org.d3ifcool.mahasiswa.R.color.colorBackground));
-                } else {
-                    holder.container.setBackgroundColor(context.getResources().getColor(org.d3ifcool.mahasiswa.R.color.colorBackgroundWhite));
-                }
             }
         });
 
