@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".activities.MahasiswaPemberitahuanActivity"
-        tools:listitem="@layout/content_item_list_notifikasi">
+        tools:listitem="@layout/content_list_all_notifikasi">
     </androidx.recyclerview.widget.RecyclerView>
 
     <!-- Empty View -->

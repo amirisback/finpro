@@ -55,7 +55,7 @@ public class DosenPemberitahuanViewAdapter extends RecyclerView.Adapter<DosenPem
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_item_list_notifikasi, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_list_all_notifikasi, parent,false);
         return new ViewHolder(view);
     }
 

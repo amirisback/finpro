@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginStart="@dimen/dimen_medium"
-    android:layout_marginEnd="@dimen/dimen_medium"
-    android:layout_marginTop="@dimen/dimen_medium"
-    android:orientation="horizontal"
-    android:foreground="?android:attr/selectableItemBackground"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/cardview_list_all_clicked">
 
     <RelativeLayout
         android:layout_width="match_parent"

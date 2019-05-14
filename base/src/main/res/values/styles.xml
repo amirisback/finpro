@@ -66,6 +66,15 @@
         <item name="android:background">@color/colorBackground</item>
     </style>
 
+    <style name="cardview_list_all_clicked">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_medium</item>
+        <item name="android:layout_marginStart">@dimen/dimen_medium</item>
+        <item name="android:layout_marginEnd">@dimen/dimen_medium</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+
     <style name="spinner_all">
         <item name="android:singleLine">true</item>
         <item name="android:layout_width">match_parent</item>

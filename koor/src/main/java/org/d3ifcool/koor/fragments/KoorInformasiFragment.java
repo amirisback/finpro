@@ -60,7 +60,7 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
         empty_view = rootView.findViewById(R.id.view_emptyview);
 
         adapter = new KoorInformasiViewAdapter(getContext());
-        adapter.setLayoutType(R.layout.content_item_all_informasi);
+        adapter.setLayoutType(R.layout.content_list_all_informasi);
         rv_informasi.setLayoutManager(new LinearLayoutManager(getContext()));
 
         progressDialog = new ProgressDialog(getContext());

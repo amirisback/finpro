@@ -19,16 +19,10 @@
  *
  -->
 
-
-<androidx.cardview.widget.CardView android:orientation="vertical"
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:layout_marginTop="@dimen/dimen_medium"
-    android:layout_marginLeft="@dimen/dimen_medium"
-    android:layout_marginRight="@dimen/dimen_medium"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/cardview_list_all_clicked">
 
     <LinearLayout
         android:orientation="vertical"
