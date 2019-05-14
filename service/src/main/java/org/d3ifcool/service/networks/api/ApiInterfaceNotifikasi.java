@@ -51,12 +51,7 @@ public interface ApiInterfaceNotifikasi {
     @POST(URL_NOTIFIKASI + PATH_UPDATE + PARAMETER_NOTIFIKASI)
     Call<Notifikasi> updateNotifikasi(
             @Path(VAR_NOTIFIKASI) int notifikasi_id,
-            @Field("notifikasi_tanggal") String notifikasi_tanggal,
-            @Field("notifikasi_kategori") String notifikasi_kategori,
-            @Field("notifikasi_deskripsi") String notifikasi_deskripsi,
-            @Field("notifikasi_dari") String notifikasi_dari,
-            @Field("notifikasi_untuk") String notifikasi_untuk,
-            @Field("notifikasi_baca") Boolean notifikasi_baca
+            @Field("notifikasi_baca") int notifikasi_baca
     );
 
     @GET(URL_NOTIFIKASI)

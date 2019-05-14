@@ -91,11 +91,14 @@ public class DosenPemberitahuanViewAdapter extends RecyclerView.Adapter<DosenPem
         holder.isi.setText(data.get(position).getNotifikasi_deskripsi());
         holder.tanggal.setText(data.get(position).getNotifikasi_tanggal());
 
+        final int id = data.get(position).getNotifikasi_id();
+        final int changeStateWasRead = 1;
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (data.get(position).getNotifikasi_baca() == 0) {
-//                    notifikasiPresenter.updateBaca();
+                    notifikasiPresenter.updateNotifikasi(id,changeStateWasRead);
                 }
             }
         });

@@ -15,13 +15,14 @@ import android.widget.Toast;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.recyclerview.MahasiswaPemberitahuanViewAdapter;
 import org.d3ifcool.service.interfaces.lists.NotifikasiListView;
+import org.d3ifcool.service.interfaces.works.NotifikasiWorkView;
 import org.d3ifcool.service.models.Notifikasi;
 import org.d3ifcool.service.presenters.NotifikasiPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements NotifikasiListView {
+public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements NotifikasiListView, NotifikasiWorkView {
 
     private RecyclerView recyclerView;
     private NotifikasiPresenter notifikasiPresenter;
@@ -38,15 +39,29 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements
         setTitle(getString(R.string.title_pemberitahuan));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        progressDialog = new ProgressDialog(this);
+        notifikasiPresenter = new NotifikasiPresenter(this, this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
+
         adapter = new MahasiswaPemberitahuanViewAdapter(this);
         recyclerView = findViewById(R.id.act_mhs_pemberitahuan_recyclerview);
         empty_view = findViewById(R.id.view_emptyview);
-        progressDialog = new ProgressDialog(this);
-        notifikasiPresenter = new NotifikasiPresenter(this);
-        progressDialog.setMessage(getString(R.string.text_progress_dialog));
+
+        adapter.setNotifikasiPresenter(notifikasiPresenter);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.addItemDecoration(itemDecoration);
 
         notifikasiPresenter.getNotifikasi();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        notifikasiPresenter.getNotifikasi();
     }
 
     @Override
@@ -77,29 +92,21 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements
     }
 
     @Override
+    public void onSucces() {
+    }
+
+    @Override
     public void onGetListNotifikasi(List<Notifikasi> notifikasiList) {
         notifikasiArrayList.clear();
         notifikasiArrayList.addAll(notifikasiList);
 
         if (notifikasiArrayList.size() != 0){
-
-
             adapter.addItem(notifikasiArrayList);
-
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-            DividerItemDecoration itemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
-
             recyclerView.setAdapter(adapter);
-            recyclerView.setLayoutManager(linearLayoutManager);
-            recyclerView.addItemDecoration(itemDecoration);
-
             empty_view.setVisibility(View.GONE);
 
         } else {
-
             empty_view.setVisibility(View.VISIBLE);
-
-
         }
 
 

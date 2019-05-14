@@ -91,16 +91,18 @@ public class MahasiswaPemberitahuanViewAdapter extends RecyclerView.Adapter<Maha
         holder.tanggal.setText(data.get(position).getNotifikasi_tanggal());
         holder.pengirim.setText(data.get(position).getNotifikasi_dari());
 
+        final int id = data.get(position).getNotifikasi_id();
+        final int changeStateWasRead = 1;
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (data.get(position).getNotifikasi_baca() == 0) {
-//                    notifikasiPresenter.updateBaca();
+                    notifikasiPresenter.updateNotifikasi(id, changeStateWasRead);
                 }
             }
         });
 
     }
-
 
 }

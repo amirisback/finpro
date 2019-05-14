@@ -23,7 +23,7 @@ public class Notifikasi implements Parcelable {
 
     @Expose
     @SerializedName("notifikasi_id")
-    private String notifikasi_id;
+    private int notifikasi_id;
 
     @Expose
     @SerializedName("notifikasi_tanggal")
@@ -49,7 +49,7 @@ public class Notifikasi implements Parcelable {
     @SerializedName("notifikasi_baca")
     private int notifikasi_baca;
 
-    public Notifikasi(String notifikasi_id, String notifikasi_tanggal, String notifikasi_kategori, String notifikasi_deskripsi, String notifikasi_dari, String notifikasi_untuk, int notifikasi_baca) {
+    public Notifikasi(int notifikasi_id, String notifikasi_tanggal, String notifikasi_kategori, String notifikasi_deskripsi, String notifikasi_dari, String notifikasi_untuk, int notifikasi_baca) {
         this.notifikasi_id = notifikasi_id;
         this.notifikasi_tanggal = notifikasi_tanggal;
         this.notifikasi_kategori = notifikasi_kategori;
@@ -59,11 +59,11 @@ public class Notifikasi implements Parcelable {
         this.notifikasi_baca = notifikasi_baca;
     }
 
-    public String getNotifikasi_id() {
+    public int getNotifikasi_id() {
         return notifikasi_id;
     }
 
-    public void setNotifikasi_id(String notifikasi_id) {
+    public void setNotifikasi_id(int notifikasi_id) {
         this.notifikasi_id = notifikasi_id;
     }
 
@@ -123,7 +123,7 @@ public class Notifikasi implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.notifikasi_id);
+        dest.writeInt(this.notifikasi_id);
         dest.writeString(this.notifikasi_tanggal);
         dest.writeString(this.notifikasi_kategori);
         dest.writeString(this.notifikasi_deskripsi);
@@ -133,7 +133,7 @@ public class Notifikasi implements Parcelable {
     }
 
     protected Notifikasi(Parcel in) {
-        this.notifikasi_id = in.readString();
+        this.notifikasi_id = in.readInt();
         this.notifikasi_tanggal = in.readString();
         this.notifikasi_kategori = in.readString();
         this.notifikasi_deskripsi = in.readString();

@@ -117,21 +117,18 @@ public class NotifikasiPresenter {
     }
 
 
-    public void updateNotifikasi(int notifikasi_id, String notifikasi_tanggal, String notifikasi_kategori, String notifikasi_deskripsi, String notifikasi_dari, String notifikasi_untuk, Boolean notifikasi_baca){
-        viewEditor.showProgress();
+    public void updateNotifikasi(int notifikasi_id, int notifikasi_baca){
         ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
-        Call<Notifikasi> call = apiInterfaceNotifikasi.updateNotifikasi(notifikasi_id, notifikasi_tanggal, notifikasi_kategori, notifikasi_deskripsi, notifikasi_dari, notifikasi_untuk, notifikasi_baca);
+        Call<Notifikasi> call = apiInterfaceNotifikasi.updateNotifikasi(notifikasi_id, notifikasi_baca);
         call.enqueue(new Callback<Notifikasi>() {
             @Override
             public void onResponse(Call<Notifikasi> call, Response<Notifikasi> response) {
-                viewEditor.hideProgress();
                 viewEditor.onSucces();
             }
 
             @Override
             public void onFailure(Call<Notifikasi> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
+                viewEditor.onFailed(t.getLocalizedMessage());
             }
         });
     }
