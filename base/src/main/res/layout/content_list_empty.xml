@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/view_emptyview"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:visibility="gone"
+    android:layout_centerInParent="true">
 
     <ImageView
+        android:id="@+id/empty_img"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/ic_empty_view"/>
 
     <TextView
+        android:layout_below="@id/empty_img"
         android:layout_marginTop="@dimen/dimen_medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_data_not_found"
         android:textColor="@color/colorTextBlack"/>
 
-</LinearLayout>
+</RelativeLayout>

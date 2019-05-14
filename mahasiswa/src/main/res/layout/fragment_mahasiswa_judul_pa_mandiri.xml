@@ -33,6 +33,7 @@
 
             <View
                 style="@style/view_all_line_horizontal"/>
+
             <TextView
                 android:layout_marginStart="@dimen/dimen_big"
                 android:layout_marginEnd="@dimen/dimen_big"
