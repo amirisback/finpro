@@ -230,7 +230,7 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
         arrayListProyekAkhir.addAll(proyekAkhirList);
         swipeRefreshLayout.setRefreshing(false);
 
-        if (!arrayListProyekAkhir.isEmpty()) {
+        if (arrayListProyekAkhir.size() != 0) {
             disable_view.setVisibility(View.GONE);
             swipeRefreshLayout.setVisibility(View.VISIBLE);
 
@@ -260,8 +260,8 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
             }
 
         } else {
-            disable_view.setVisibility(View.VISIBLE);
             swipeRefreshLayout.setVisibility(View.GONE);
+            disable_view.setVisibility(View.VISIBLE);
         }
 
     }
