@@ -261,7 +261,7 @@
             android:text="@string/button_click_tambah_sidang"
             android:textColor="@color/colorTextWhite"
             android:layout_marginTop="@dimen/dimen_big_ultra"
-            android:background="@drawable/box_border_button_action"/>
+            android:background="@drawable/box_border_button_primary"/>
 
     </LinearLayout>
 

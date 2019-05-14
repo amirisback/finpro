@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:text="Simpan Judul"
             android:textColor="@color/colorTextWhite"
-            android:background="@drawable/box_border_button_action"/>
+            android:background="@drawable/box_border_button_primary"/>
 
     </LinearLayout>
 </ScrollView>

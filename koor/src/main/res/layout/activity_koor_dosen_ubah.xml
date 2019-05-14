@@ -117,7 +117,7 @@
             android:layout_height="wrap_content"
             android:text="@string/button_click_ubah_dosen"
             android:textColor="@color/colorTextWhite"
-            android:background="@drawable/box_border_button_action"/>
+            android:background="@drawable/box_border_button_primary"/>
 
     </LinearLayout>
 
