@@ -172,10 +172,8 @@
 
         <Button
             android:id="@+id/act_mhs_pa_pengajuan_button_simpan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/text_ajukan_judul"
-            android:textColor="@color/colorTextWhite"
-            android:background="@drawable/box_border_button_primary"/>
+            style="@style/button_all_primary"/>
+
     </LinearLayout>
 </ScrollView>

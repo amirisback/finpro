@@ -100,6 +100,27 @@
         <item name="android:layout_height">@dimen/dimen_profil_photo</item>
         <item name="android:layout_marginBottom">@dimen/dimen_big_ultra</item>
         <item name="android:layout_gravity">center</item>
+        <item name="android:contentDescription">@string/dummy</item>
     </style>
+
+    <style name="textview_title_all_editor_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/dimen_small</item>
+        <item name="android:layout_marginTop">@dimen/dimen_medium</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_medium</item>
+        <item name="android:textSize">@dimen/text_size_title_small</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="button_all_primary">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorTextWhite</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:background">@drawable/box_border_button_primary</item>
+    </style>
+
+
 
 </resources>

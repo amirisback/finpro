@@ -81,13 +81,9 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/act_mhs_info_button_simpan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/button_click_ubah_bimbingan"
-            android:textColor="@color/colorTextWhite"
-            android:background="@drawable/box_border_button_primary"/>
+            style="@style/button_all_primary"/>
 
     </LinearLayout>
 
