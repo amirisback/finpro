@@ -58,14 +58,15 @@ public class MahasiswaInformasiViewAdapter extends RecyclerView.Adapter<Mahasisw
 
         TextView infoJudul, infoIsi, infoTanggal, infoDosen;
         CircleImageView infoFoto;
+
         public ViewHolder(View itemView) {
             super(itemView);
             // -------------------------------------------------------------------------------------
-            infoJudul = itemView.findViewById(R.id.ctn_mhs_info_textview_judul);
-            infoIsi = itemView.findViewById(R.id.ctn_mhs_info_textview_isi);
-            infoTanggal = itemView.findViewById(R.id.ctn_mhs_info_textview_tanggal);
-            infoDosen = itemView.findViewById(R.id.ctn_mhs_info_textview_dosen);
-            infoFoto = itemView.findViewById(R.id.ctn_mhs_mhs_bimbingan_circle_image);
+            infoFoto = itemView.findViewById(R.id.ctn_all_info_photo);
+            infoJudul = itemView.findViewById(R.id.ctn_all_info_textview_judul);
+            infoIsi = itemView.findViewById(R.id.ctn_all_info_textview_isi);
+            infoTanggal = itemView.findViewById(R.id.ctn_all_info_textview_tanggal);
+            infoDosen = itemView.findViewById(R.id.ctn_all_info_textview_nama);
             // -------------------------------------------------------------------------------------
         }
     }

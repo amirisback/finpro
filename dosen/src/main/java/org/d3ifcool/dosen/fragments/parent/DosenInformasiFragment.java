@@ -64,7 +64,7 @@ public class DosenInformasiFragment extends Fragment implements InformasiListVie
         empty_view = view.findViewById(R.id.view_emptyview);
         swipeRefreshLayout = view.findViewById(R.id.frg_dsn_info_home_swiperefresh);
 
-        adapter.setLayoutType(R.layout.content_item_dosen_informasi);
+        adapter.setLayoutType(R.layout.content_item_all_informasi);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));

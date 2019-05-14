@@ -30,7 +30,7 @@
                 android:gravity="center">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/ctn_mhs_mhs_bimbingan_circle_image"
+                    android:id="@+id/ctn_all_info_photo"
                     android:src="@drawable/ic_dummy_photo"
                     app:civ_border_width="1dp"
                     app:civ_border_color="@color/colorBackground"

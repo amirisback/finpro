@@ -47,7 +47,7 @@ public class DosenInformasiDetailActivity extends AppCompatActivity implements I
         TextView textView_isi = findViewById(R.id.act_dsn_info_detail_textview_isi);
         TextView textView_tanggal = findViewById(R.id.act_dsn_info_detail_textview_tanggal);
         TextView textView_dosen = findViewById(R.id.act_dsn_info_detail_textview_dosen);
-        CircleImageView imageView_foto = findViewById(R.id.ctn_dsn_mhs_bimbingan_circle_image);
+        CircleImageView imageView_foto = findViewById(R.id.ctn_all_info_photo);
 
         extraInfo = getIntent().getParcelableExtra(EXTRA_INFORMASI);
         String judul = extraInfo.getInfo_judul();

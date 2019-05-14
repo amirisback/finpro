@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/dimen_medium"
-            tools:listitem="@layout/content_item_koor_informasi"/>
+            tools:listitem="@layout/content_item_all_informasi"/>
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -62,11 +62,11 @@ public class DosenInformasiViewAdapter extends RecyclerView.Adapter<DosenInforma
         public ViewHolder(View itemView) {
             super(itemView);
             // -------------------------------------------------------------------------------------
-            foto = itemView.findViewById(R.id.ctn_dsn_mhs_bimbingan_circle_image);
-            infoJudul = itemView.findViewById(R.id.ctn_dsn_info_textview_judul);
-            infoIsi = itemView.findViewById(R.id.ctn_dsn_info_textview_isi);
-            infoTanggal = itemView.findViewById(R.id.ctn_dsn_info_textview_tanggal);
-            infoDosen = itemView.findViewById(R.id.ctn_dsn_info_textview_dosen);
+            foto = itemView.findViewById(R.id.ctn_all_info_photo);
+            infoJudul = itemView.findViewById(R.id.ctn_all_info_textview_judul);
+            infoIsi = itemView.findViewById(R.id.ctn_all_info_textview_isi);
+            infoTanggal = itemView.findViewById(R.id.ctn_all_info_textview_tanggal);
+            infoDosen = itemView.findViewById(R.id.ctn_all_info_textview_nama);
             // -------------------------------------------------------------------------------------
         }
     }
