@@ -100,9 +100,10 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements
         notifikasiArrayList.clear();
         notifikasiArrayList.addAll(notifikasiList);
 
+        adapter.addItem(notifikasiArrayList);
+        recyclerView.setAdapter(adapter);
+
         if (notifikasiArrayList.size() != 0){
-            adapter.addItem(notifikasiArrayList);
-            recyclerView.setAdapter(adapter);
             empty_view.setVisibility(View.GONE);
 
         } else {

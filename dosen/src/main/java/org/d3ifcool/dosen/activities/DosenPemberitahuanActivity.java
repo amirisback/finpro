@@ -103,14 +103,13 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
         notifikasiArrayList.clear();
         notifikasiArrayList.addAll(notifikasiList);
 
-        if (notifikasiArrayList.size() != 0){
-            adapter.addItem(notifikasiArrayList);
-            recyclerView.setAdapter(adapter);
-            empty_view.setVisibility(View.VISIBLE);
+        adapter.addItem(notifikasiArrayList);
+        recyclerView.setAdapter(adapter);
 
+        if (notifikasiArrayList.size() != 0){
+            empty_view.setVisibility(View.GONE);
         } else {
             empty_view.setVisibility(View.VISIBLE);
-
         }
 
     }
