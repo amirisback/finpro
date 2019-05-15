@@ -48,7 +48,7 @@
                 android:id="@+id/frg_mhs_judul_pa_dosen_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem ="@layout/content_item_mahasiswa_judul_pa_dosen"/>
+                tools:listitem ="@layout/content_list_mahasiswa_judul_pa_dosen"/>
 
         </RelativeLayout>
 

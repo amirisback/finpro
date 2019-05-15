@@ -18,7 +18,7 @@
             android:layout_width="@dimen/dimen_profil_photo"
             android:layout_height="@dimen/dimen_profil_photo"
             android:layout_marginBottom="@dimen/dimen_big_ultra"
-            android:src="@drawable/ic_editor_announcement"
+            android:src="@drawable/ic_editor_info"
             android:layout_gravity="center"/>
         <TextView
             android:textSize="@dimen/text_size_title_small"

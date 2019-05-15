@@ -121,7 +121,7 @@ public class MahasiswaJudulPaDosenFragment extends Fragment implements DosenList
             empty_view.setVisibility(View.VISIBLE);
         } else {
             empty_view.setVisibility(View.GONE);
-            adapter.setLayoutType(R.layout.content_item_mahasiswa_judul_pa_dosen);
+            adapter.setLayoutType(R.layout.content_list_mahasiswa_judul_pa_dosen);
             adapter.addItemJudul(arrayListJudul);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             recyclerView.setAdapter(adapter);

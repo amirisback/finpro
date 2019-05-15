@@ -40,8 +40,8 @@ public class SpinnerHelper {
         for (int i = 0; i < kategoriJudulArrayList.size(); i++) {
             spinnerItem.add(kategoriJudulArrayList.get(i).getKategori_nama());
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.content_item_all_spinner, spinnerItem);
-        adapter.setDropDownViewResource(R.layout.content_item_all_spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.content_list_all_spinner, spinnerItem);
+        adapter.setDropDownViewResource(R.layout.content_list_all_spinner);
         spinner.setAdapter(adapter);
     }
 
@@ -50,8 +50,8 @@ public class SpinnerHelper {
         for (int i = 0; i < dosenArrayList.size(); i++) {
             spinnerItem.add(dosenArrayList.get(i).getDsn_nama());
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.content_item_all_spinner, spinnerItem);
-        adapter.setDropDownViewResource(R.layout.content_item_all_spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.content_list_all_spinner, spinnerItem);
+        adapter.setDropDownViewResource(R.layout.content_list_all_spinner);
         spinner.setAdapter(adapter);
 
     }
@@ -61,15 +61,15 @@ public class SpinnerHelper {
         for (int i = 0; i < monevArrayList.size(); i++) {
             spinnerItem.add(monevArrayList.get(i).getKategori());
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.content_item_all_spinner, spinnerItem);
-        adapter.setDropDownViewResource(R.layout.content_item_all_spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.content_list_all_spinner, spinnerItem);
+        adapter.setDropDownViewResource(R.layout.content_list_all_spinner);
         spinner.setAdapter(adapter);
 
     }
 
     public void initSpinnerStatus( Spinner spinner) {
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(context, R.array.array_status_sidang,R.layout.content_item_all_spinner);
-        adapter.setDropDownViewResource(R.layout.content_item_all_spinner);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(context, R.array.array_status_sidang,R.layout.content_list_all_spinner);
+        adapter.setDropDownViewResource(R.layout.content_list_all_spinner);
         spinner.setAdapter(adapter);
 
     }
