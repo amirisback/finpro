@@ -112,7 +112,7 @@
                     android:id="@+id/act_dsn_recycler_view_kelompok"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:listitem="@layout/content_item_dosen_pa_kelompok"/>
+                    tools:listitem="@layout/content_list_dosen_pa_kelompok"/>
 
                 <!-- Empty View -->
                 <RelativeLayout

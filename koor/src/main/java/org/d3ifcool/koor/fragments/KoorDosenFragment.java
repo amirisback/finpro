@@ -78,7 +78,7 @@ public class KoorDosenFragment extends Fragment implements DosenListView {
             }
         });
 
-        adapter.setLayoutType(R.layout.content_item_koor_dosen);
+        adapter.setLayoutType(R.layout.content_list_koor_dosen);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         return view;

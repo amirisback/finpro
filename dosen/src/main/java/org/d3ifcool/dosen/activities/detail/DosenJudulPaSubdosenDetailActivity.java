@@ -164,7 +164,7 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
         proyekAkhirArrayList.clear();
         proyekAkhirArrayList.addAll(proyekAkhirList);
         adapter.addItem(proyekAkhirArrayList);
-        adapter.setLayoutType(R.layout.content_item_dosen_pa_kelompok);
+        adapter.setLayoutType(R.layout.content_list_dosen_pa_kelompok);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         swipeRefreshLayout.setRefreshing(false);

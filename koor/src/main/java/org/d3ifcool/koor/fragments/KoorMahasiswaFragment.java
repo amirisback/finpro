@@ -100,7 +100,7 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaListView
         arrayList.addAll(mahasiswa);
         adapter = new KoorMahasiswaViewAdapter(getContext());
         adapter.setmMahasiswa(arrayList);
-        adapter.setLayouyType(R.layout.content_item_koor_mahasiswa);
+        adapter.setLayouyType(R.layout.content_list_koor_mahasiswa);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         refreshLayout.setRefreshing(false);

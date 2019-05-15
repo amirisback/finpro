@@ -63,7 +63,7 @@ public class DosenPaMonevFragment extends Fragment implements ProyekAkhirListVie
         presenter = new ProyekAkhirPresenter(this);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter.setLayoutType(R.layout.content_item_dosen_pa_monev);
+        adapter.setLayoutType(R.layout.content_list_dosen_pa_monev);
 
 //        presenter.searchDistinctProyekAkhirBy(PARAMS_DOSEN_REVIEWER_NIP, sessionManager.getSessionDosenNip());
         presenter.searchDistinctProyekAkhirBy(PARAMS_DOSEN_REVIEWER_NIP, sessionManager.getSessionUsername());

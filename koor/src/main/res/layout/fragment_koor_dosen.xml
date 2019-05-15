@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/dimen_medium"
-            tools:listitem="@layout/content_item_koor_dosen"/>
+            tools:listitem="@layout/content_list_koor_dosen"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/frg_koor_dosen_home_fab"

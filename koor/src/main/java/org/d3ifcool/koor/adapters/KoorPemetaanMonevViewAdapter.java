@@ -47,7 +47,7 @@ public class KoorPemetaanMonevViewAdapter extends RecyclerView.Adapter<KoorPemet
     @NonNull
     @Override
     public KoorPemetaanMonevViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.content_item_koor_pemetaan_monev, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.content_list_koor_pemetaan_monev, parent, false);
         return new KoorPemetaanMonevViewAdapter.ViewHolder(view);
     }
 

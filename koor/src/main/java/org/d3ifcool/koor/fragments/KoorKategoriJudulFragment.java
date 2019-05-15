@@ -150,7 +150,7 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
         arrayList.clear();
         arrayList.addAll(kategori);
         adapter.setKategoriJudul(arrayList);
-        adapter.setLayoutType(R.layout.content_item_koor_kategori_judul);
+        adapter.setLayoutType(R.layout.content_list_koor_kategori_judul);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         swipeRefreshLayout.setRefreshing(false);

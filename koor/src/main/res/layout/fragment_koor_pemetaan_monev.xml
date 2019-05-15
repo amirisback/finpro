@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingBottom="@dimen/dimen_medium"
-            tools:listitem="@layout/content_item_koor_pemetaan_monev"/>
+            tools:listitem="@layout/content_list_koor_pemetaan_monev"/>
 
     </RelativeLayout>
     
