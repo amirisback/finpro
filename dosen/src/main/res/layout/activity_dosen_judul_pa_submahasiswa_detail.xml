@@ -227,7 +227,7 @@
         android:layout_margin="@dimen/dimen_big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_pa_setuju"
+        android:src="@drawable/ic_fab_pa_setuju"
         app:backgroundTint="@color/colorBackgroundGreen" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -238,7 +238,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/act_dsn_mhs_judul_fab_decline"
         app:backgroundTint="@color/colorBackgroundRed"
-        android:src="@drawable/ic_pa_tidak_setuju"/>
+        android:src="@drawable/ic_fab_pa_tidak_setuju"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_toStartOf="@id/act_dsn_mhs_judul_fab_accept"
@@ -247,6 +247,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/act_dsn_mhs_judul_fab_conversation"
-        android:src="@drawable/ic_pa_percakapan"/>
+        android:src="@drawable/ic_fab_pa_percakapan"/>
 
 </RelativeLayout>

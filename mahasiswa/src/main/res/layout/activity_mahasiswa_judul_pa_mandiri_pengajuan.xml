@@ -15,7 +15,7 @@
         <ImageView
             android:layout_width="@dimen/dimen_profil_photo"
             android:layout_height="@dimen/dimen_profil_photo"
-            android:src="@drawable/ic_judul_pa"
+            android:src="@drawable/ic_editor_judul_pa"
             android:layout_marginBottom="@dimen/dimen_big_ultra"
             android:layout_gravity="center"
             android:adjustViewBounds="true"/>

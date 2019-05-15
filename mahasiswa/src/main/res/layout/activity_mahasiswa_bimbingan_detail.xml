@@ -34,9 +34,7 @@
                 android:id="@+id/act_dsn_mhs_bimbingan_textview_tanggal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_date"
                 android:gravity="center_vertical"
-                android:drawablePadding="@dimen/dimen_medium"
                 android:text="@string/dummy_tanggal"
                 android:textColor="@color/colorPrimary" />
 

@@ -146,6 +146,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:backgroundTint="@color/colorBackgroundGreen"
-        android:src="@drawable/ic_ajukan_judul"/>
+        android:src="@drawable/ic_fab_pa_pengajuan"/>
 
 </RelativeLayout>

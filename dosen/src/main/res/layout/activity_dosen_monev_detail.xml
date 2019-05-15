@@ -34,8 +34,6 @@
                 android:id="@+id/act_dsn_monev_tanggal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_date"
-                android:drawablePadding="@dimen/dimen_medium"
                 android:text="@string/dummy_tanggal"
                 android:gravity="center_vertical"
                 android:textColor="@color/colorTextBlack" />

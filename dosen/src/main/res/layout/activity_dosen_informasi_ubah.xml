@@ -14,7 +14,7 @@
         android:padding="@dimen/dimen_big">
 
         <ImageView
-            android:src="@drawable/ic_announcement"
+            android:src="@drawable/ic_editor_announcement"
             style="@style/image_all_editor_view"/>
 
         <TextView
