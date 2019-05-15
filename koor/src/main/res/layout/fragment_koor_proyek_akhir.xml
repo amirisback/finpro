@@ -18,10 +18,7 @@
             android:id="@+id/line1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginRight="@dimen/dimen_medium"
-            android:layout_marginLeft="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium">
+            android:layout_margin="@dimen/dimen_medium">
 
             <LinearLayout
                 android:layout_width="match_parent"
