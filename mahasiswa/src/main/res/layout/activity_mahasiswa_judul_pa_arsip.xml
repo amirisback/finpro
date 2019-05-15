@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingBottom="@dimen/dimen_medium"
-            tools:listitem="@layout/content_item_mahasiswa_judul_pa_arsip">
+            tools:listitem="@layout/content_list_all_pa_judul">
 
         </androidx.recyclerview.widget.RecyclerView>
 

@@ -25,7 +25,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_below="@id/dummytext"
             android:id="@+id/frg_dsn_pa_bimbingan_recyclerview"
-            tools:listitem="@layout/content_item_dosen_pa_bimbingan"
+            tools:listitem="@layout/content_list_all_pa_judul"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingTop="@dimen/dimen_medium">

@@ -48,7 +48,7 @@
             android:id="@+id/act_mhs_pa_bimbingan_detail_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/content_item_mahasiswa_pa_bimbingan"/>
+            tools:listitem="@layout/content_list_all_pa_bimbingan"/>
 
         <!-- Empty View -->
         <include layout="@layout/content_list_empty"/>

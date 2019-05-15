@@ -14,7 +14,7 @@
             style="@style/content_all_list_title"/>
 
         <TextView
-            android:id="@+id/ctn_judul_pa_arsip_textview_judul"
+            android:id="@+id/ctn_all_judul_textview_judul"
             style="@style/content_all_list_sub_title"/>
 
         <View
@@ -25,7 +25,7 @@
             style="@style/content_all_list_title"/>
 
         <TextView
-            android:id="@+id/ctn_judul_pa_arsip_textview_kategori"
+            android:id="@+id/ctn_all_judul_textview_kategori"
             style="@style/content_all_list_sub_title"/>
 
     </LinearLayout>

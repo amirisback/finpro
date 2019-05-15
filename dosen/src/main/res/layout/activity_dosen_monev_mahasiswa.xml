@@ -21,7 +21,7 @@
         android:id="@+id/act_mhs_pa_monev_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/content_item_mahasiswa_pa_monev"/>
+        tools:listitem="@layout/content_list_all_pa_monev"/>
 
     <!-- Empty View -->
     <include layout="@layout/content_list_empty"/>

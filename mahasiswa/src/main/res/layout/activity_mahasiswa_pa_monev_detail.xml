@@ -60,7 +60,7 @@
             android:id="@+id/act_mhs_pa_monev_detail_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/content_item_mahasiswa_pa_monev">
+            tools:listitem="@layout/content_list_all_pa_monev">
         </androidx.recyclerview.widget.RecyclerView>
 
         <!-- Empty View -->

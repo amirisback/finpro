@@ -34,15 +34,15 @@ public class DosenJudulArsipViewAdapter extends RecyclerView.Adapter<DosenJudulA
         TextView judulpa, kategori;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            judulpa = itemView.findViewById(R.id.ctn_judul_pa_arsip_textview_judul);
-            kategori = itemView.findViewById(R.id.ctn_judul_pa_arsip_textview_kategori);
+            judulpa = itemView.findViewById(R.id.ctn_all_judul_textview_judul);
+            kategori = itemView.findViewById(R.id.ctn_all_judul_textview_kategori);
         }
     }
 
     @NonNull
     @Override
     public DosenJudulArsipViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.content_item_dosen_judul_pa_arsip, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.content_list_all_pa_judul, parent, false);
         return new DosenJudulArsipViewAdapter.ViewHolder(view);
     }
 

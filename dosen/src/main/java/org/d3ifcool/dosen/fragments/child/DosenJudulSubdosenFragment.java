@@ -114,7 +114,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
         arrayList.addAll(judulpa);
 
         adapter.addItem(arrayList);
-        adapter.setLayoutType(R.layout.content_item_dosen_judul_pa_subdosen);
+        adapter.setLayoutType(R.layout.content_list_all_pa_judul);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(linearLayoutManager);
         swipeRefreshLayout.setRefreshing(false);

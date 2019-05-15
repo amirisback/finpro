@@ -59,8 +59,8 @@ public class DosenProyekAkhirBimbinganViewAdapter extends RecyclerView.Adapter<D
         public ViewHolder(View itemView) {
             super(itemView);
             // -------------------------------------------------------------------------------------
-            judul = itemView.findViewById(R.id.ctn_dsn_pa_bimbingan_textview_judul);
-            kategori = itemView.findViewById(R.id.ctn_dsn_pa_bimbingan_textview_kategori);
+            judul = itemView.findViewById(R.id.ctn_all_judul_textview_judul);
+            kategori = itemView.findViewById(R.id.ctn_all_judul_textview_kategori);
             // -------------------------------------------------------------------------------------
         }
     }

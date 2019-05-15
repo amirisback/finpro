@@ -101,7 +101,7 @@ public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity impleme
         arrayListBimbingan.clear();
         arrayListBimbingan.addAll(bimbinganList);
         adapter.addItem(arrayListBimbingan);
-        adapter.setLayoutType(R.layout.content_item_mahasiswa_pa_bimbingan);
+        adapter.setLayoutType(R.layout.content_list_all_pa_bimbingan);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 

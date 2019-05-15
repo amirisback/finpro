@@ -123,7 +123,7 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements Mo
         arrayList.addAll(detailMonevList);
 
         dosenMonevViewAdapter.addItem(arrayList);
-        dosenMonevViewAdapter.setLayoutType(R.layout.content_item_mahasiswa_pa_monev);
+        dosenMonevViewAdapter.setLayoutType(R.layout.content_list_all_pa_monev);
 
         recyclerView.setAdapter(dosenMonevViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

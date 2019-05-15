@@ -60,7 +60,7 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
         judulPresenter = new JudulPresenter(this);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter.setLayoutType(R.layout.content_item_dosen_pa_bimbingan);
+        adapter.setLayoutType(R.layout.content_list_all_pa_judul);
 
 //        judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionDosenNip());
         judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_DIGUNAKAN, PARAMS_2, sessionManager.getSessionUsername());

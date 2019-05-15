@@ -113,7 +113,7 @@ public class MahasiswaPaMonevDetailActivity extends AppCompatActivity implements
         arrayList.addAll(detailMonevList);
 
         mahasiswaPaMonevViewAdapter.addItem(arrayList);
-        mahasiswaPaMonevViewAdapter.setLayoutType(R.layout.content_item_mahasiswa_pa_monev);
+        mahasiswaPaMonevViewAdapter.setLayoutType(R.layout.content_list_all_pa_monev);
 
         recyclerView.setAdapter(mahasiswaPaMonevViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

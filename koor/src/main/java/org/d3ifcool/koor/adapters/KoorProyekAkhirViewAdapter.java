@@ -52,8 +52,8 @@ public class KoorProyekAkhirViewAdapter extends RecyclerView.Adapter<KoorProyekA
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            judulpa = itemView.findViewById(R.id.ctn_koor_pa_textview_judul);
-            kategori = itemView.findViewById(R.id.ctn_koor_pa_textview_kategori);
+            judulpa = itemView.findViewById(R.id.ctn_all_judul_textview_judul);
+            kategori = itemView.findViewById(R.id.ctn_all_judul_textview_kategori);
 //            pembimbing = itemView.findViewById(R.id.ctn_koor_pa_textview_dosenbimbing);
         }
 
@@ -62,7 +62,7 @@ public class KoorProyekAkhirViewAdapter extends RecyclerView.Adapter<KoorProyekA
     @NonNull
     @Override
     public org.d3ifcool.koor.adapters.KoorProyekAkhirViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.content_item_koor_pa, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.content_list_all_pa_judul, parent, false);
         return new org.d3ifcool.koor.adapters.KoorProyekAkhirViewAdapter.ViewHolder(view);
     }
 
