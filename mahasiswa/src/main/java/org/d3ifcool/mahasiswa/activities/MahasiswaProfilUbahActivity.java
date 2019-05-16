@@ -47,14 +47,17 @@ public class MahasiswaProfilUbahActivity extends AppCompatActivity implements Ma
     private ArrayList<Mahasiswa> mahasiswaArrayList = new ArrayList<>();
 
     private String nama_baru, angkatan_baru, kontak_baru, email_baru, foto_baru;
-    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-    String phonePattern ="^(^\\+62\\s?|^0)(\\d{3,4}-?){2}\\d{3,4}$";
+    private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    private String phonePattern ="^(^\\+62\\s?|^0)(\\d{3,4}-?){2}\\d{3,4}$";
     private static final int REQUEST_SELECT_IMAGE = 1;
-    String fileImagePath = "";
-    String imagePath = "";
+    private String fileImagePath = "";
+    private String imagePath = "";
     private Uri imageFile;
     private TextView tv_hasil;
-     CircleImageView mahasiswa_foto;
+    private CircleImageView mahasiswa_foto;
+    private EditText et_nama, et_angkatan, et_email, et_kontak;
+
+    private String nama,angkatan,kontak,email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,17 +75,17 @@ public class MahasiswaProfilUbahActivity extends AppCompatActivity implements Ma
         mahasiswaPresenter.getMahasiswa();
 
         TextView tv_nim = findViewById(R.id.act_mhs_profil_nim);
-        final EditText et_nama = findViewById(R.id.act_mhs_profil_nama);
-        final EditText et_angkatan= findViewById(R.id.act_mhs_profil_angkatan);
-        final EditText et_email = findViewById(R.id.act_mhs_profil_email);
-        final EditText et_kontak = findViewById(R.id.act_mhs_profil_kontak);
+        et_nama = findViewById(R.id.act_mhs_profil_nama);
+        et_angkatan= findViewById(R.id.act_mhs_profil_angkatan);
+        et_email = findViewById(R.id.act_mhs_profil_email);
+        et_kontak = findViewById(R.id.act_mhs_profil_kontak);
         mahasiswa_foto = findViewById(R.id.act_mhs_profil_foto);
         tv_hasil = findViewById(R.id.act_mhs_profil_hasil);
 
-        final String nama = sessionManager.getSessionMahasiswaNama();
-        final String angkatan = sessionManager.getSessionMahasiswaAngkatan();
-        final String kontak = sessionManager.getSessionMahasiswaKontak();
-        final String email = sessionManager.getSessionMahasiswaEmail();
+        nama = sessionManager.getSessionMahasiswaNama();
+        angkatan = sessionManager.getSessionMahasiswaAngkatan();
+        kontak = sessionManager.getSessionMahasiswaKontak();
+        email = sessionManager.getSessionMahasiswaEmail();
 
         tv_nim.setText(sessionManager.getSessionMahasiswaNim());
         et_nama.setText(nama);
@@ -111,50 +114,6 @@ public class MahasiswaProfilUbahActivity extends AppCompatActivity implements Ma
             }
         });
 
-        Button btn_ubah = findViewById(R.id.act_mhs_profil_button);
-        btn_ubah.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nama_baru = et_nama.getText().toString();
-                angkatan_baru = et_angkatan.getText().toString();
-                kontak_baru = et_kontak.getText().toString();
-                foto_baru = tv_hasil.getText().toString();
-                email_baru = et_email.getText().toString();
-
-                if (nama_baru.isEmpty()){
-                    et_nama.setError(getString(R.string.text_tidak_boleh_kosong));
-                }else if (angkatan_baru.isEmpty()){
-                    et_angkatan.setError(getString(R.string.text_tidak_boleh_kosong));
-                } else if (kontak_baru.length() <= 10 ){
-                    et_kontak.setError(getString(R.string.validate_telp_jumlah_kurang));
-                }else if (kontak_baru.length() >= 13){
-                    et_kontak.setError(getString(R.string.validate_telp_jumlah_lebih));
-                } else if (!email_baru.matches(emailPattern)){
-                    et_email.setError(getString(R.string.validate_email));
-                }else if (!kontak_baru.matches(phonePattern)){
-                    et_kontak.setError(getString(R.string.validate_telp_valid));
-                } else if (!kontak_baru.isEmpty()) {
-                    for (int i =0 ; i < mahasiswaArrayList.size() ; i++){
-                        if (kontak_baru.equalsIgnoreCase(kontak)){
-                            mahasiswaPresenter.updateMahasiswa(sessionManager.getSessionMahasiswaNim(), nama_baru, angkatan_baru, kontak_baru,foto_baru, email_baru);
-                        }else if (kontak_baru.equalsIgnoreCase(mahasiswaArrayList.get(i).getMhs_kontak())){
-                            et_kontak.setError(getString(R.string.validate_telp_sudah_ada));
-                        }
-                    }
-                }else if (!email_baru.isEmpty()){
-                    for (int i =0 ; i < mahasiswaArrayList.size() ; i++){
-                        if (email_baru.equalsIgnoreCase(email)){
-                            mahasiswaPresenter.updateMahasiswa(sessionManager.getSessionMahasiswaNim(), nama_baru, angkatan_baru, kontak_baru,foto_baru, email_baru);
-                        }else if (email_baru.equalsIgnoreCase(mahasiswaArrayList.get(i).getMhs_email())){
-                            et_email.setError(getString(R.string.validate_email_ada));
-                        }
-                    }
-
-                } else {
-                    mahasiswaPresenter.updateMahasiswa(sessionManager.getSessionMahasiswaNim(), nama_baru, angkatan_baru, kontak_baru,foto_baru, email_baru);
-                }
-            }
-        });
     }
 
     @Override
@@ -196,18 +155,56 @@ public class MahasiswaProfilUbahActivity extends AppCompatActivity implements Ma
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_accept, menu);
         return super.onCreateOptionsMenu(menu);
+
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
-            default:
-                break;
+        int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            finish();
+        } else if (itemId == R.id.toolbar_menu_ubah_yes) {
+            nama_baru = et_nama.getText().toString();
+            angkatan_baru = et_angkatan.getText().toString();
+            kontak_baru = et_kontak.getText().toString();
+            foto_baru = tv_hasil.getText().toString();
+            email_baru = et_email.getText().toString();
+
+            if (nama_baru.isEmpty()){
+                et_nama.setError(getString(R.string.text_tidak_boleh_kosong));
+            }else if (angkatan_baru.isEmpty()){
+                et_angkatan.setError(getString(R.string.text_tidak_boleh_kosong));
+            } else if (kontak_baru.length() <= 10 ){
+                et_kontak.setError(getString(R.string.validate_telp_jumlah_kurang));
+            }else if (kontak_baru.length() >= 13){
+                et_kontak.setError(getString(R.string.validate_telp_jumlah_lebih));
+            } else if (!email_baru.matches(emailPattern)){
+                et_email.setError(getString(R.string.validate_email));
+            }else if (!kontak_baru.matches(phonePattern)){
+                et_kontak.setError(getString(R.string.validate_telp_valid));
+            } else if (!kontak_baru.isEmpty()) {
+                for (int i =0 ; i < mahasiswaArrayList.size() ; i++){
+                    if (kontak_baru.equalsIgnoreCase(kontak)){
+                        mahasiswaPresenter.updateMahasiswa(sessionManager.getSessionMahasiswaNim(), nama_baru, angkatan_baru, kontak_baru,foto_baru, email_baru);
+                    }else if (kontak_baru.equalsIgnoreCase(mahasiswaArrayList.get(i).getMhs_kontak())){
+                        et_kontak.setError(getString(R.string.validate_telp_sudah_ada));
+                    }
+                }
+            }else if (!email_baru.isEmpty()){
+                for (int i =0 ; i < mahasiswaArrayList.size() ; i++){
+                    if (email_baru.equalsIgnoreCase(email)){
+                        mahasiswaPresenter.updateMahasiswa(sessionManager.getSessionMahasiswaNim(), nama_baru, angkatan_baru, kontak_baru,foto_baru, email_baru);
+                    }else if (email_baru.equalsIgnoreCase(mahasiswaArrayList.get(i).getMhs_email())){
+                        et_email.setError(getString(R.string.validate_email_ada));
+                    }
+                }
+
+            } else {
+                mahasiswaPresenter.updateMahasiswa(sessionManager.getSessionMahasiswaNim(), nama_baru, angkatan_baru, kontak_baru,foto_baru, email_baru);
+            }
         }
         return super.onOptionsItemSelected(item);
     }

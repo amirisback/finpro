@@ -245,12 +245,6 @@
                 android:layout_marginLeft="@dimen/dimen_big"
                 android:background="@color/colorBackground"/>
 
-
-            <Button
-                android:id="@+id/act_mhs_profil_button"
-                android:text="@string/text_ubah_profil"
-                style="@style/button_all_primary"/>
-
         </LinearLayout>
 
     </RelativeLayout>
