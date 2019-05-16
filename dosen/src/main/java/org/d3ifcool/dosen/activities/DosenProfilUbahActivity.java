@@ -39,7 +39,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 
-public class DosenProfilUbahActivity extends AppCompatActivity implements DosenWorkView, DosenListView {
+public class DosenProfilUbahActivity extends AppCompatActivity implements DosenWorkView,
+        DosenListView {
 
     private DosenPresenter dosenPresenter;
     private SessionManager sessionManager;
@@ -47,6 +48,7 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
 
     private String nama_baru, kode_baru, kontak_baru, email_baru,foto_baru;
     private String hasil;
+
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     String phonePattern ="^(^\\+62\\s?|^0)(\\d{3,4}-?){2}\\d{3,4}$";
 
@@ -56,6 +58,8 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
     private Uri imageFile;
     private TextView tv_hasil;
     private CircleImageView dosen_foto;
+    EditText et_nama, et_kode, et_email, et_kontak;
+    String nama, kode, email, kontak;
 
     private ArrayList<Dosen> dosens = new ArrayList<>();
 
@@ -73,22 +77,21 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
-        final EditText et_nama = findViewById(R.id.act_dsn_profil_nama);
+        et_nama = findViewById(R.id.act_dsn_profil_nama);
         TextView et_nip = findViewById(R.id.act_dsn_profil_nip);
-        final EditText et_kode = findViewById(R.id.act_dsn_profil_kode);
-        final EditText et_email = findViewById(R.id.act_dsn_profil_email);
-        final EditText et_kontak = findViewById(R.id.act_dsn_profil_kontak);
+        et_kode = findViewById(R.id.act_dsn_profil_kode);
+        et_email = findViewById(R.id.act_dsn_profil_email);
+        et_kontak = findViewById(R.id.act_dsn_profil_kontak);
 
         dosen_foto = findViewById(R.id.act_dsn_profil_foto);
         Picasso.get().load(URL_FOTO_DOSEN + sessionManager.getSessionDosenFoto()).into(dosen_foto);
 
         tv_hasil = findViewById(R.id.act_dsn_profil_hasil);
-        Button btn_ubah = findViewById(R.id.act_dsn_profil_button);
 
-        String nama = sessionManager.getSessionDosenNama();
-        String kode = sessionManager.getSessionDosenKode();
-        final String email = sessionManager.getSessionDosenEmail();
-        final String kontak = sessionManager.getSessionDosenKontak();
+        nama = sessionManager.getSessionDosenNama();
+        kode = sessionManager.getSessionDosenKode();
+        email = sessionManager.getSessionDosenEmail();
+        kontak = sessionManager.getSessionDosenKontak();
 
         et_nama.setText(nama);
         et_nip.setText(sessionManager.getSessionDosenNip());
@@ -117,50 +120,7 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
             }
         });
 
-        btn_ubah.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nama_baru = et_nama.getText().toString();
-                kode_baru = et_kode.getText().toString();
-                email_baru = et_email.getText().toString();
-                kontak_baru = et_kontak.getText().toString();
-                foto_baru = tv_hasil.getText().toString();
 
-                if (nama_baru.isEmpty()){
-                    et_nama.setError(getString(R.string.text_tidak_boleh_kosong));
-                }else if (kode_baru.isEmpty()){
-                    et_kode.setError(getString(R.string.text_tidak_boleh_kosong));
-                } else if (kontak_baru.length() <= 10 ){
-                    et_kontak.setError(getString(R.string.validate_telp_jumlah_kurang));
-                }else if (kontak_baru.length() >= 13){
-                    et_kontak.setError(getString(R.string.validate_telp_jumlah_lebih));
-                } else if (!email_baru.matches(emailPattern)){
-                    et_email.setError(getString(R.string.validate_email));
-                }else if (!kontak_baru.matches(phonePattern)){
-                    et_kontak.setError(getString(R.string.validate_telp_valid));
-                } else if (!kontak_baru.isEmpty()) {
-                    for (int i =0 ; i < dosens.size() ; i++){
-                        if (kontak_baru.equalsIgnoreCase(kontak)){
-                            dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,foto_baru,email_baru);
-                        }else if (kontak_baru.equalsIgnoreCase(dosens.get(i).getDsn_kontak())){
-                            et_kontak.setError(getString(R.string.validate_telp_sudah_ada));
-                        }
-                    }
-                }else if (!email_baru.isEmpty()){
-                    for (int i =0 ; i < dosens.size() ; i++){
-                        if (email_baru.equalsIgnoreCase(email)){
-                            dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,foto_baru,email_baru);
-                        }else if (email_baru.equalsIgnoreCase(dosens.get(i).getDsn_email())){
-                            et_email.setError(getString(R.string.validate_email_ada));
-                        }
-                    }
-
-                } else {
-                    dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,foto_baru,email_baru);
-                }
-
-            }
-        });
     }
 
     @Override
@@ -208,12 +168,48 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
-            default:
-                break;
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }else if (item.getItemId() == R.id.toolbar_menu_ubah_yes) {
+            nama_baru = et_nama.getText().toString();
+            kode_baru = et_kode.getText().toString();
+            email_baru = et_email.getText().toString();
+            kontak_baru = et_kontak.getText().toString();
+            foto_baru = tv_hasil.getText().toString();
+
+            if (nama_baru.isEmpty()){
+                et_nama.setError(getString(R.string.text_tidak_boleh_kosong));
+            }else if (kode_baru.isEmpty()){
+                et_kode.setError(getString(R.string.text_tidak_boleh_kosong));
+            } else if (kontak_baru.length() <= 10 ){
+                et_kontak.setError(getString(R.string.validate_telp_jumlah_kurang));
+            }else if (kontak_baru.length() >= 13){
+                et_kontak.setError(getString(R.string.validate_telp_jumlah_lebih));
+            } else if (!email_baru.matches(emailPattern)){
+                et_email.setError(getString(R.string.validate_email));
+            }else if (!kontak_baru.matches(phonePattern)){
+                et_kontak.setError(getString(R.string.validate_telp_valid));
+            } else if (!kontak_baru.isEmpty()) {
+                for (int i =0 ; i < dosens.size() ; i++){
+                    if (kontak_baru.equalsIgnoreCase(kontak)){
+                        dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,foto_baru,email_baru);
+                    }else if (kontak_baru.equalsIgnoreCase(dosens.get(i).getDsn_kontak())){
+                        et_kontak.setError(getString(R.string.validate_telp_sudah_ada));
+                    }
+                }
+            }else if (!email_baru.isEmpty()){
+                for (int i =0 ; i < dosens.size() ; i++){
+                    if (email_baru.equalsIgnoreCase(email)){
+                        dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,foto_baru,email_baru);
+                    }else if (email_baru.equalsIgnoreCase(dosens.get(i).getDsn_email())){
+                        et_email.setError(getString(R.string.validate_email_ada));
+                    }
+                }
+
+            } else {
+                dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru,foto_baru,email_baru);
+            }
+
         }
         return super.onOptionsItemSelected(item);
     }

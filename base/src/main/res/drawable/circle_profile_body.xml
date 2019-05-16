@@ -4,8 +4,7 @@
     android:shape="rectangle">
 
     <corners
-        android:radius="64dp" />
-
+        android:radius="@dimen/dimen_big_super" />
 
     <solid android:color="@color/colorBackgroundWhite"/>
 
