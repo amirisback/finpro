@@ -108,6 +108,9 @@
 
         </LinearLayout>
 
+        <include
+            layout="@layout/content_copyright_institute"/>
+
     </RelativeLayout>
 
 </ScrollView>

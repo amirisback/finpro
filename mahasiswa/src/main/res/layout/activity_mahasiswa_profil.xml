@@ -105,8 +105,10 @@
                 android:layout_height="@dimen/dimen_view_line"
                 android:background="@color/colorBackground" />
 
-
         </LinearLayout>
+
+        <include
+            layout="@layout/content_copyright_institute"/>
 
     </RelativeLayout>
 

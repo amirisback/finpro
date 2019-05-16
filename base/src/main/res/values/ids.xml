@@ -195,7 +195,8 @@
     <!--Super User-->
     <item type="id" name="frg_koor_info_home_recyclerview"/>
     <item type="id" name="frg_koor_info_home_fab"/>
-    <item name="header_profile_background" type="id" />
+    <item type="id" name="profile_header_container" />
+    <item type="id" name="profile_body_container" />
 
 
 </resources>

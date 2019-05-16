@@ -156,7 +156,6 @@
         android:textColor="@color/colorTextBlack"
         android:layout_centerHorizontal="true"
         android:id="@+id/text_d3rpla"
-
         android:textSize="@dimen/text_size_small"
         android:layout_above="@id/text_telkom"
         android:layout_width="wrap_content"
@@ -168,7 +167,6 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:id="@+id/text_telkom"
-
         android:textSize="@dimen/text_size_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
