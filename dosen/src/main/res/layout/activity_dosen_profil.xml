@@ -27,7 +27,7 @@
             style="@style/profile_all_container_body">
 
             <LinearLayout
-                style="@style/profile_all_textview_container">
+                style="@style/profile_all_container_textview">
 
                 <TextView
                     android:text="@string/text_profil_detail_nip"
@@ -47,7 +47,7 @@
                 android:background="@color/colorBackground"/>
 
             <LinearLayout
-                style="@style/profile_all_textview_container">
+                style="@style/profile_all_container_textview">
 
                 <TextView
                     android:text="@string/text_kode_dosen"
@@ -67,7 +67,7 @@
                 android:background="@color/colorBackground"/>
 
             <LinearLayout
-                style="@style/profile_all_textview_container">
+                style="@style/profile_all_container_textview">
 
 
                 <TextView
@@ -88,7 +88,7 @@
                 android:background="@color/colorBackground"/>
 
             <LinearLayout
-                style="@style/profile_all_textview_container">
+                style="@style/profile_all_container_textview">
 
                 <TextView
                     android:text="@string/text_profil_detail_notelp"

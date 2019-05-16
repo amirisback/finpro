@@ -38,7 +38,7 @@
             style="@style/profile_all_container_body">
 
             <LinearLayout
-                style="@style/profile_all_textview_container">
+                style="@style/profile_all_container_textview">
 
                 <TextView
                     android:text="@string/text_profil_detail_nim"
@@ -60,7 +60,7 @@
 
 
             <LinearLayout
-                style="@style/profile_all_textview_container">
+                style="@style/profile_all_container_textview">
 
                 <TextView
                     android:text="@string/text_nama"
@@ -81,7 +81,7 @@
                 android:background="@color/colorBackground"/>
 
             <LinearLayout
-                style="@style/profile_all_textview_container">
+                style="@style/profile_all_container_textview">
 
                 <TextView
                     android:text="@string/text_angkatan"
@@ -104,7 +104,7 @@
 
 
             <LinearLayout
-                style="@style/profile_all_textview_container">
+                style="@style/profile_all_container_textview">
 
                 <TextView
                     android:text="@string/text_profil_detail_email"
@@ -125,7 +125,7 @@
                 android:background="@color/colorBackground"/>
 
             <LinearLayout
-                style="@style/profile_all_textview_container">
+                style="@style/profile_all_container_textview">
 
                 <TextView
                     android:text="@string/text_profil_detail_notelp"

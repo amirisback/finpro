@@ -50,10 +50,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:layout_marginTop="@dimen/dimen_big"
-        android:layout_marginEnd="@dimen/dimen_big"
-        android:layout_marginStart="@dimen/dimen_big"
-        android:layout_marginBottom="@dimen/dimen_big"
+        android:layout_margin="@dimen/dimen_big"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/text_daftar_bimbingan"/>

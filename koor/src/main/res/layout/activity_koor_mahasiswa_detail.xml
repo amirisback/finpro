@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,171 +7,92 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackground">
 
-    <View
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:background="@drawable/circle_profile_header"/>
+        android:layout_height="wrap_content">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/act_koor_profil_foto_mhs"
-        android:background="@drawable/circle_border_photo_profil"
-        android:layout_width="@dimen/dimen_profil_photo"
-        android:layout_height="@dimen/dimen_profil_photo"
-        android:src="@drawable/ic_dummy_photo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/dimen_big"/>
+        <View
+            style="@style/profile_all_header"/>
 
-    <TextView
-        android:id="@+id/act_koor_profil_nama_mhs"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_medium"
-        android:text="@string/dummy_dosen_pembimbing"
-        android:textStyle="bold"
-        android:textColor="@color/colorTextWhite"
-        android:layout_below="@+id/act_koor_profil_foto_mhs"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/act_koor_profil_foto_mhs"
+            style="@style/profile_all_photo"/>
 
-    <LinearLayout
-        android:padding="@dimen/dimen_big_ultra"
-        android:layout_below="@+id/act_koor_profil_nama_mhs"
-        android:layout_above="@id/text_d3rpla"
-        android:orientation="vertical"
-        android:layout_marginTop="@dimen/dimen_big_ultra"
-        android:layout_marginLeft="@dimen/dimen_big"
-        android:layout_marginRight="@dimen/dimen_big"
-        android:layout_marginBottom="@dimen/dimen_medium"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="@dimen/dimen_big"
-        android:background="@drawable/circle_profile_body">
+        <TextView
+            android:id="@+id/act_koor_profil_nama_mhs"
+            android:text="@string/dummy_dosen_pembimbing"
+            android:layout_below="@+id/act_koor_profil_foto_mhs"
+            style="@style/profile_all_header_name"/>
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            style="@style/profile_all_container_body">
 
-            <TextView
-                android:textSize="@dimen/text_size_small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_profil_detail_nip"/>
+            <LinearLayout
+                style="@style/profile_all_container_textview">
 
-            <TextView
-                android:id="@+id/act_koor_profil_nim"
-                android:layout_width="@dimen/dimen_weight"
-                android:layout_weight="1"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
-                android:textAlignment="textEnd"
-                android:textSize="@dimen/text_size_title_small"
-                android:layout_height="wrap_content"
-                android:text="@string/dummy_anggota_nim_2"/>
+                <TextView
+                    android:text="@string/text_nim"
+                    style="@style/profile_all_textview_subtitle"/>
+
+                <TextView
+                    android:id="@+id/act_koor_profil_nim"
+                    android:text="@string/dummy_anggota_nim_2"
+                    style="@style/profile_all_textview_content"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_marginBottom="@dimen/dimen_big_super"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"/>
+
+            <LinearLayout
+                style="@style/profile_all_container_textview">
+
+
+                <TextView
+                    android:text="@string/text_profil_detail_email"
+                    style="@style/profile_all_textview_subtitle"/>
+
+                <TextView
+                    android:id="@+id/act_koor_profil_email_mhs"
+                    tools:text="@string/dummy_email"
+                    style="@style/profile_all_textview_content"/>
+
+            </LinearLayout>
+
+            <View
+
+                android:layout_marginBottom="@dimen/dimen_big_super"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"/>
+
+            <LinearLayout
+                style="@style/profile_all_container_textview">
+
+                <TextView
+                    android:text="@string/text_profil_detail_notelp"
+                    style="@style/profile_all_textview_subtitle"/>
+
+                <TextView
+                    android:id="@+id/act_koor_profil_kontak_mhs"
+                    tools:text="@string/dummy_no_telp"
+                    style="@style/profile_all_textview_content"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"/>
+
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_view_line"
-            android:background="@color/colorBackground"/>
+        <include layout="@layout/content_copyright_institute"/>
 
-        <LinearLayout
-            android:layout_gravity="bottom"
-            android:gravity="bottom"
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:layout_marginTop="@dimen/dimen_big_ultra"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    </RelativeLayout>
 
-            <TextView
-                android:textSize="@dimen/text_size_small"
-                android:gravity="bottom"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_profil_detail_email"/>
-
-            <TextView
-                android:id="@+id/act_koor_profil_email_mhs"
-                android:layout_width="@dimen/dimen_weight"
-                android:layout_weight="1"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
-                android:textSize="@dimen/text_size_title_small"
-                android:layout_height="wrap_content"
-                android:textAlignment="textEnd"
-                android:text="@string/dummy_status_dosen"/>
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_view_line"
-            android:background="@color/colorBackground"/>
-
-        <LinearLayout
-            android:layout_gravity="bottom"
-            android:gravity="bottom"
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:layout_marginTop="@dimen/dimen_big_ultra"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:textSize="@dimen/text_size_small"
-                android:gravity="bottom"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_profil_detail_notelp"/>
-
-            <TextView
-                android:id="@+id/act_koor_profil_kontak_mhs"
-                android:layout_width="@dimen/dimen_weight"
-                android:layout_weight="1"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
-                android:textSize="@dimen/text_size_title_small"
-                android:layout_height="wrap_content"
-                android:textAlignment="textEnd"
-                android:text="@string/dummy_status_dosen"/>
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_view_line"
-            android:background="@color/colorBackground"/>
-
-
-    </LinearLayout>
-
-
-    <TextView
-        android:textColor="@color/colorTextBlack"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/text_d3rpla"
-        android:textSize="@dimen/text_size_small"
-        android:layout_above="@id/text_telkom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/text_d3rpla"/>
-
-    <TextView
-        android:textColor="@color/colorTextBlack"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/text_telkom"
-        android:textSize="@dimen/text_size_small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/text_telkomuniversity"
-        android:layout_marginBottom="@dimen/dimen_medium"/>
-
-
-</RelativeLayout>
+</ScrollView>
