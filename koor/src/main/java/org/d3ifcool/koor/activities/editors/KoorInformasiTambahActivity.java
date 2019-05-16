@@ -32,7 +32,7 @@ public class KoorInformasiTambahActivity extends AppCompatActivity implements In
         presenter = new InformasiPresenter(this);
 
 
-        setTitle(getString(org.d3ifcool.dosen.R.string.title_informasi_tambah));
+        setTitle(getString(R.string.title_informasi_tambah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         judul = findViewById(R.id.act_koor_edittext_judul);
         deskripsi = findViewById(R.id.act_koor_edittext_deskripsi);

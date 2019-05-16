@@ -69,7 +69,7 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
         proyekAkhirPresenter = new ProyekAkhirPresenter(this, this);
         dosenPresenter = new DosenPresenter(this);
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage(getString(org.d3ifcool.mahasiswa.R.string.text_progress_dialog));
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         tv_judul_pa = findViewById(R.id.ctn_koor_pemetaan_judul);
         tv_kelompok_pa = findViewById(R.id.ctn_koor_pemetaan_kelompok);

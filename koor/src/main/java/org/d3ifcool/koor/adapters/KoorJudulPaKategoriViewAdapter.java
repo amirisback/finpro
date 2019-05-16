@@ -78,9 +78,9 @@ public class KoorJudulPaKategoriViewAdapter extends RecyclerView.Adapter<KoorJud
             public void onClick(View v) {
                 new AlertDialog
                     .Builder(context)
-                    .setTitle(context.getString(org.d3ifcool.dosen.R.string.dialog_hapus_title))
-                    .setMessage(context.getString(org.d3ifcool.dosen.R.string.dialog_hapus_text))
-                    .setPositiveButton(org.d3ifcool.dosen.R.string.iya, new DialogInterface.OnClickListener() {
+                    .setTitle(context.getString(R.string.dialog_hapus_title))
+                    .setMessage(context.getString(R.string.dialog_hapus_text))
+                    .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             presenter.deleteKategori(data.get(position).getId());
                             notifyDataSetChanged();
@@ -92,7 +92,7 @@ public class KoorJudulPaKategoriViewAdapter extends RecyclerView.Adapter<KoorJud
                         }
                     })
 
-                    .setNegativeButton(org.d3ifcool.dosen.R.string.tidak, new DialogInterface.OnClickListener() {
+                    .setNegativeButton(R.string.tidak, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss(); // Keluar Dari Dialog

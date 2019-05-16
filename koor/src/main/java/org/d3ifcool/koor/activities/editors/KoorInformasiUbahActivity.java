@@ -30,7 +30,7 @@ public class KoorInformasiUbahActivity extends AppCompatActivity implements Info
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_informasi_ubah);
-        setTitle(getString(org.d3ifcool.dosen.R.string.title_informasi_ubah));
+        setTitle(getString(R.string.title_informasi_ubah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         extraInfo = getIntent().getParcelableExtra(EXTRA_INFORMASI);
@@ -70,7 +70,7 @@ public class KoorInformasiUbahActivity extends AppCompatActivity implements Info
                                 }
                             }
                         })
-                        .setNegativeButton(org.d3ifcool.dosen.R.string.tidak, null)
+                        .setNegativeButton(R.string.tidak, null)
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
             }

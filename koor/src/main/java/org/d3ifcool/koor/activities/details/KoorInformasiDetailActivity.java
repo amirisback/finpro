@@ -30,7 +30,7 @@ public class KoorInformasiDetailActivity extends AppCompatActivity implements In
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_informasi_detail);
 
-        setTitle(getString(org.d3ifcool.dosen.R.string.title_informasi_detail));
+        setTitle(getString(R.string.title_informasi_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         presenter = new InformasiPresenter(this);
         progressDialog = new ProgressDialog(this);
@@ -71,13 +71,13 @@ public class KoorInformasiDetailActivity extends AppCompatActivity implements In
         if (i == android.R.id.home) {
             finish();
 
-        } else if (i == org.d3ifcool.dosen.R.id.toolbar_menu_ubah) {
+        } else if (i == R.id.toolbar_menu_ubah) {
             Intent intentUbah = new Intent(KoorInformasiDetailActivity.this, KoorInformasiUbahActivity.class);
             intentUbah.putExtra(KoorInformasiUbahActivity.EXTRA_INFORMASI, extraInfo);
             startActivity(intentUbah);
             finish();
 
-        } else if (i == org.d3ifcool.dosen.R.id.toolbar_menu_hapus) {
+        } else if (i == R.id.toolbar_menu_hapus) {
             new AlertDialog
                     .Builder(this)
                     .setTitle(getString(R.string.dialog_hapus_title))

@@ -35,7 +35,7 @@ public class KoorProfilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_profil);
 
-        setTitle(getString(org.d3ifcool.dosen.R.string.title_profil));
+        setTitle(getString(R.string.title_profil));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0f);
 
@@ -118,8 +118,8 @@ public class KoorProfilActivity extends AppCompatActivity {
             finish();
 
         } else if (i == R.id.toolbar_menu_hanya_ubah) {
-//            Intent intentUbah = new Intent(KoorProfilActivity.this, DosenProfilUbahActivity.class);
-//            startActivity(intentUbah);
+            Intent intentUbah = new Intent(KoorProfilActivity.this, KoorProfilUbahActivity.class);
+            startActivity(intentUbah);
 
         } else {
         }

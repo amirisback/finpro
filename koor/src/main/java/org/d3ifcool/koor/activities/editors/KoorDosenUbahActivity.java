@@ -78,7 +78,7 @@ public class KoorDosenUbahActivity extends AppCompatActivity implements DosenWor
                                 }
                             }
                         })
-                        .setNegativeButton(org.d3ifcool.dosen.R.string.tidak, null)
+                        .setNegativeButton(R.string.tidak, null)
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
             }

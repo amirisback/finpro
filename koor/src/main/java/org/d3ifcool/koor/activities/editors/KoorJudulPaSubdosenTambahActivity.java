@@ -52,7 +52,7 @@ public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity impleme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_judul_pa_subdosen_tambah);
 
-        setTitle(getString(org.d3ifcool.dosen.R.string.title_judulpa_dosen_tambah));
+        setTitle(getString(R.string.title_judulpa_dosen_tambah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         judulPresenter = new JudulPresenter(this);

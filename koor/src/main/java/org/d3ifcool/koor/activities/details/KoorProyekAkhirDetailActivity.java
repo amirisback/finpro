@@ -57,7 +57,7 @@ public class KoorProyekAkhirDetailActivity extends AppCompatActivity implements
         bimbinganPresenter = new BimbinganPresenter(this);
         sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage(getString(org.d3ifcool.mahasiswa.R.string.text_progress_dialog));
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         tv_judul_pa = findViewById(R.id.frg_koor_pa_textview_judulpa);
         tv_kelompok_pa = findViewById(R.id.frg_koor_pa_textview_kelompokpa);
@@ -157,7 +157,7 @@ public class KoorProyekAkhirDetailActivity extends AppCompatActivity implements
             if (arrayListProyekAkhir.get(0).getReviewer_dsn_nama() != null) {
                 tv_dosen_reviewer_pa.setText(arrayListProyekAkhir.get(0).getReviewer_dsn_nama());
             } else {
-                tv_dosen_reviewer_pa.setText(org.d3ifcool.mahasiswa.R.string.text_no_dosen_monev);
+                tv_dosen_reviewer_pa.setText(R.string.text_no_dosen_monev);
             }
 
             if (arrayListProyekAkhir.size() == 2) {

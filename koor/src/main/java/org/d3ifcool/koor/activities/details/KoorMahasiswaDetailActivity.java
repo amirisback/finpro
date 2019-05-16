@@ -37,7 +37,7 @@ public class KoorMahasiswaDetailActivity extends AppCompatActivity implements Ma
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_mahasiswa_detail);
 
-        setTitle(getString(org.d3ifcool.dosen.R.string.title_mahasiswa_detail));
+        setTitle(getString(R.string.title_mahasiswa_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0f);
 

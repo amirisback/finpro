@@ -5,25 +5,26 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
-        <activity android:name="org.d3ifcool.koor.activities.details.KoorJudulPaArsipDetailActivity"></activity>
-        <activity android:name="org.d3ifcool.koor.activities.details.KoorPemetaanMonevDetailActivity" />
+        <activity android:name=".activities.KoorProfilUbahActivity"></activity>
+        <activity android:name=".activities.details.KoorJudulPaArsipDetailActivity" />
+        <activity android:name=".activities.details.KoorPemetaanMonevDetailActivity" />
         <activity android:name=".activities.editors.KoorPemetaanMahasiswaMonevTambahActivity" />
-        <activity android:name="org.d3ifcool.koor.activities.KoorPemberitahuanActivity" />
-        <activity android:name="org.d3ifcool.koor.activities.KoorProfilActivity" />
-        <activity android:name="org.d3ifcool.koor.activities.editors.KoorMahasiswaTambahActivity" />
-        <activity android:name="org.d3ifcool.koor.activities.editors.KoorDosenTambahActivity" />
-        <activity android:name="org.d3ifcool.koor.activities.editors.KoorInformasiTambahActivity" />
-        <activity android:name="org.d3ifcool.koor.activities.editors.KoorJudulPaSubdosenUbahActivity" />
-        <activity android:name="org.d3ifcool.koor.activities.editors.KoorJudulPaSubdosenTambahActivity" />
-        <activity android:name="org.d3ifcool.koor.activities.details.KoorJudulPaSubdosenDetailActivity" />
+        <activity android:name=".activities.KoorPemberitahuanActivity" />
+        <activity android:name=".activities.KoorProfilActivity" />
+        <activity android:name=".activities.editors.KoorMahasiswaTambahActivity" />
+        <activity android:name=".activities.editors.KoorDosenTambahActivity" />
+        <activity android:name=".activities.editors.KoorInformasiTambahActivity" />
+        <activity android:name=".activities.editors.KoorJudulPaSubdosenUbahActivity" />
+        <activity android:name=".activities.editors.KoorJudulPaSubdosenTambahActivity" />
+        <activity android:name=".activities.details.KoorJudulPaSubdosenDetailActivity" />
         <activity android:name=".activities.editors.KoorProyekAkhirUbahActivity" />
-        <activity android:name="org.d3ifcool.koor.activities.details.KoorProyekAkhirDetailActivity" />
-        <activity android:name="org.d3ifcool.koor.activities.details.KoorInformasiDetailActivity" />
-        <activity android:name="org.d3ifcool.koor.activities.details.KoorMahasiswaDetailActivity" />
-        <activity android:name="org.d3ifcool.koor.activities.details.KoorDosenDetailActivity" />
-        <activity android:name="org.d3ifcool.koor.activities.editors.KoorInformasiUbahActivity" />
-        <activity android:name="org.d3ifcool.koor.activities.editors.KoorMahasiswaUbahActivity" />
-        <activity android:name="org.d3ifcool.koor.activities.editors.KoorDosenUbahActivity" />
+        <activity android:name=".activities.details.KoorProyekAkhirDetailActivity" />
+        <activity android:name=".activities.details.KoorInformasiDetailActivity" />
+        <activity android:name=".activities.details.KoorMahasiswaDetailActivity" />
+        <activity android:name=".activities.details.KoorDosenDetailActivity" />
+        <activity android:name=".activities.editors.KoorInformasiUbahActivity" />
+        <activity android:name=".activities.editors.KoorMahasiswaUbahActivity" />
+        <activity android:name=".activities.editors.KoorDosenUbahActivity" />
     </application>
 
 </manifest>
