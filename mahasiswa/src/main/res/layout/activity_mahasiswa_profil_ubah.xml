@@ -11,18 +11,11 @@
         android:layout_height="wrap_content">
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:background="@drawable/circle_profile_header"/>
+            style="@style/profile_all_header"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/act_mhs_profil_foto"
-            android:background="@drawable/circle_border_photo_profil"
-            android:layout_width="@dimen/dimen_profil_photo"
-            android:layout_height="@dimen/dimen_profil_photo"
-            android:src="@drawable/ic_dummy_photo"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/dimen_big"/>
+            style="@style/profile_all_photo"/>
 
         <ImageView
             android:layout_width="30dp"
@@ -41,198 +34,107 @@
             android:gravity="center"/>
 
         <LinearLayout
-            android:padding="@dimen/dimen_big_ultra"
-            android:layout_below="@+id/act_mhs_profil_foto"
-            android:orientation="vertical"
-            android:layout_marginTop="@dimen/dimen_big_ultra"
-            android:layout_marginLeft="@dimen/dimen_big"
-            android:layout_marginRight="@dimen/dimen_big"
-            android:layout_marginBottom="@dimen/dimen_big"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="@dimen/dimen_big"
-            android:background="@drawable/circle_profile_body">
+            style="@style/profile_all_container_body">
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_marginEnd="@dimen/dimen_big"
-                android:layout_marginBottom="@dimen/dimen_small"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/profile_all_textview_container">
 
                 <TextView
-                    android:textSize="@dimen/text_size_small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_profil_detail_nip"/>
+                    android:text="@string/text_profil_detail_nip"
+                    style="@style/profile_all_textview_subtitle"/>
 
                 <TextView
                     android:id="@+id/act_mhs_profil_nim"
-                    android:layout_width="@dimen/dimen_weight"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    android:layout_marginLeft="52dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold"
-                    android:textAlignment="textEnd"
-                    android:textSize="@dimen/text_size_title_small"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dummy_anggota_nim_2"/>
+                    android:text="@string/dummy_anggota_nim_2"
+                    style="@style/profile_all_textview_content"/>
 
 
             </LinearLayout>
+
             <View
+                android:layout_marginBottom="@dimen/dimen_big_super"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginRight="@dimen/dimen_big"
-                android:layout_marginLeft="@dimen/dimen_big"
                 android:background="@color/colorBackground"/>
 
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_marginEnd="@dimen/dimen_big"
-                android:layout_marginBottom="@dimen/dimen_small"
-                android:layout_marginTop="@dimen/dimen_big_ultra"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/profile_all_textview_container">
 
                 <TextView
-                    android:textSize="@dimen/text_size_small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_nama"/>
+                    android:text="@string/text_nama"
+                    style="@style/profile_all_textview_subtitle"/>
 
                 <EditText
                     android:id="@+id/act_mhs_profil_nama"
-                    android:layout_width="@dimen/dimen_weight"
-                    android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:layout_marginLeft="42dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold"
-                    android:textAlignment="textEnd"
-                    android:textSize="@dimen/text_size_title_small"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dummy_anggota_nim_2"/>
-
+                    tools:hint="@string/dummy_mahasiswa_nama"
+                    style="@style/profile_all_textview_content"/>
 
             </LinearLayout>
+
             <View
+                android:layout_marginBottom="@dimen/dimen_big_super"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginRight="@dimen/dimen_big"
-                android:layout_marginLeft="@dimen/dimen_big"
                 android:background="@color/colorBackground"/>
 
-
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_marginEnd="@dimen/dimen_big"
-                android:layout_marginBottom="@dimen/dimen_small"
-                android:layout_marginTop="@dimen/dimen_big_ultra"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/profile_all_textview_container">
 
                 <TextView
-                    android:textSize="@dimen/text_size_small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_angkatan"/>
+                    android:text="@string/text_angkatan"
+                    style="@style/profile_all_textview_subtitle"/>
 
                 <EditText
                     android:id="@+id/act_mhs_profil_angkatan"
-                    android:layout_width="@dimen/dimen_weight"
-                    android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:layout_marginLeft="@dimen/dimen_big_super"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold"
-                    android:textAlignment="textEnd"
-                    android:textSize="@dimen/text_size_title_small"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dummy_anggota_nim_2"/>
+                    tools:hint="@string/dummy_angkatan"
+                    style="@style/profile_all_textview_content"/>
 
 
             </LinearLayout>
+
             <View
+                android:layout_marginBottom="@dimen/dimen_big_super"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginRight="@dimen/dimen_big"
-                android:layout_marginLeft="@dimen/dimen_big"
                 android:background="@color/colorBackground"/>
 
 
             <LinearLayout
-                android:layout_gravity="bottom"
-                android:gravity="bottom"
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_marginEnd="@dimen/dimen_big"
-                android:layout_marginBottom="@dimen/dimen_medium"
-                android:layout_marginTop="@dimen/dimen_big_ultra"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/profile_all_textview_container">
 
                 <TextView
-                    android:textSize="@dimen/text_size_small"
-                    android:gravity="bottom"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_profil_detail_email"/>
+                    android:text="@string/text_profil_detail_email"
+                    style="@style/profile_all_textview_subtitle"/>
 
                 <EditText
                     android:id="@+id/act_mhs_profil_email"
-                    android:layout_width="@dimen/dimen_weight"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    tools:hint="@string/dummy_email"
                     android:background="@android:color/transparent"
-                    android:layout_marginLeft="43dp"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/text_size_title_small"
-                    android:textStyle="bold" />
+                    style="@style/profile_all_textview_content"/>
 
             </LinearLayout>
 
             <View
+                android:layout_marginBottom="@dimen/dimen_big_super"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginRight="@dimen/dimen_big"
-                android:layout_marginLeft="@dimen/dimen_big"
                 android:background="@color/colorBackground"/>
 
             <LinearLayout
-                android:layout_gravity="bottom"
-                android:gravity="bottom"
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_marginEnd="@dimen/dimen_big"
-                android:layout_marginBottom="@dimen/dimen_medium"
-                android:layout_marginTop="@dimen/dimen_big_ultra"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/profile_all_textview_container">
 
                 <TextView
-                    android:textSize="@dimen/text_size_small"
-                    android:gravity="bottom"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_profil_detail_notelp"/>
+                    android:text="@string/text_profil_detail_notelp"
+                    style="@style/profile_all_textview_subtitle"/>
 
                 <EditText
                     android:id="@+id/act_mhs_profil_kontak"
-                    android:layout_width="@dimen/dimen_weight"
-                    android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="34dp"
-                    android:textSize="@dimen/text_size_title_small"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textEnd"
-                    android:text="@string/dummy_no_telp"/>
+                    tools:hint="@string/dummy_no_telp"
+                    style="@style/profile_all_textview_content"/>
 
             </LinearLayout>
 
@@ -240,9 +142,6 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginBottom="@dimen/dimen_big_super"
-                android:layout_marginRight="@dimen/dimen_big"
-                android:layout_marginLeft="@dimen/dimen_big"
                 android:background="@color/colorBackground"/>
 
         </LinearLayout>

@@ -322,6 +322,7 @@
     <string name="validate_tidak_lebih_100">Tidak Boleh Lebih dari 100</string>
     <string name="validate_tidak_lebih_16">Tidak Boleh Lebih dari 16</string>
     <string name="button_proyek_akhir_selesai">Proyek Akhir Selesai</string>
+    <string name="dummy_angkatan">2016</string>
 
     <string-array name="array_kehadiran_bimbingan">
         <item>Hadir</item>
