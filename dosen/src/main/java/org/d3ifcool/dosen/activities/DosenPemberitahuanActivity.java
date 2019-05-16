@@ -46,7 +46,7 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
         adapter = new DosenPemberitahuanViewAdapter(this);
         recyclerView = findViewById(R.id.act_dsn_pemberitahuan_recyclerview);
         empty_view = findViewById(R.id.view_emptyview);
-        progressDialog.setMessage(getString(org.d3ifcool.mahasiswa.R.string.text_progress_dialog));
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         DividerItemDecoration itemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());

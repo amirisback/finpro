@@ -162,6 +162,7 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_accept, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

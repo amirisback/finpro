@@ -82,9 +82,9 @@ public class DosenPemberitahuanViewAdapter extends RecyclerView.Adapter<DosenPem
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
         if (data.get(position).getNotifikasi_baca() == 0) {
-            holder.container.setBackgroundColor(context.getResources().getColor(org.d3ifcool.mahasiswa.R.color.colorBackground));
+            holder.container.setBackgroundColor(context.getResources().getColor(R.color.colorBackground));
         } else {
-            holder.container.setBackgroundColor(context.getResources().getColor(org.d3ifcool.mahasiswa.R.color.colorBackgroundWhite));
+            holder.container.setBackgroundColor(context.getResources().getColor(R.color.colorBackgroundWhite));
         }
 
         holder.pengirim.setText(data.get(position).getNotifikasi_dari());

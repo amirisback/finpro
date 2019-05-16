@@ -66,7 +66,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
         bimbinganPresenter = new BimbinganPresenter(this);
         detailMonevPresenter = new MonevDetailPresenter(this);
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage(getString(org.d3ifcool.mahasiswa.R.string.text_progress_dialog));
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         tv_judul_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_judulpa);
         tv_kelompok_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_kelompok);
@@ -86,7 +86,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
         if (extraJudul.getDsn_nama() != null) {
             tv_dosen_pembimbing_pa.setText(extraJudul.getDsn_nama());
         } else {
-            tv_dosen_pembimbing_pa.setText(getString(org.d3ifcool.mahasiswa.R.string.text_no_dosen_pembimbing));
+            tv_dosen_pembimbing_pa.setText(R.string.text_no_dosen_pembimbing);
         }
 
         CardView cardView = findViewById(R.id.frg_mhs_pa_cardview_bimbingan);
@@ -214,7 +214,7 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
             if (arrayListProyekAkhir.get(0).getReviewer_dsn_nama() != null) {
                 tv_dosen_reviewer_pa.setText(arrayListProyekAkhir.get(0).getReviewer_dsn_nama());
             } else {
-                tv_dosen_reviewer_pa.setText(org.d3ifcool.mahasiswa.R.string.text_no_dosen_monev);
+                tv_dosen_reviewer_pa.setText(R.string.text_no_dosen_monev);
             }
 
             if (arrayListProyekAkhir.size() == 2) {

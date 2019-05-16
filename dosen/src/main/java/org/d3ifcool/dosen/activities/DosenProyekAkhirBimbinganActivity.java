@@ -51,7 +51,7 @@ public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity impleme
         progressDialog = new ProgressDialog(this);
         bimbinganPresenter = new BimbinganPresenter(this);
 
-        progressDialog.setMessage(getString(org.d3ifcool.mahasiswa.R.string.text_progress_dialog));
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         empty_view = findViewById(R.id.view_emptyview);
         recyclerView = findViewById(R.id.act_mhs_pa_bimbingan_detail_recyclerview);

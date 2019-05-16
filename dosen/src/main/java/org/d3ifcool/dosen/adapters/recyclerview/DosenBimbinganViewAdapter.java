@@ -84,7 +84,7 @@ public class DosenBimbinganViewAdapter extends RecyclerView.Adapter<DosenBimbing
 
         if (dataBimbingan.get(position).getBimbingan_status().equals(STATUS_BIMBINGAN_PENDING)){
             holder.status.setVisibility(View.VISIBLE);
-            holder.container.setBackgroundColor(context.getResources().getColor(org.d3ifcool.mahasiswa.R.color.colorBackgroundNotYet));
+            holder.container.setBackgroundColor(context.getResources().getColor(R.color.colorBackgroundNotYet));
         } else {
             holder.container.setBackgroundColor(Color.TRANSPARENT);
             holder.status.setVisibility(View.GONE);
