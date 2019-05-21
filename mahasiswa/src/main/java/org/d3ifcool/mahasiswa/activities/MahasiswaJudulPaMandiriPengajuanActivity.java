@@ -46,6 +46,8 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         implements JudulWorkView, ProyekMahasiswaWorkView,
         KategoriJudulListView, DosenListView, JudulListView, MahasiswaView {
 
+    private static final String PARAM_JUDUL = "judul.judul_nama";
+
     private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
     private ArrayList<Judul> arrayListJudul = new ArrayList<>();
     private ArrayList<KategoriJudul> arrayListKategoriJudul = new ArrayList<>();
@@ -222,7 +224,7 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
 
     @Override
     public void onSuccesWorkJudul() {
-        judulPresenter.getJudul();
+        judulPresenter.searchJudulBy(PARAM_JUDUL, judul);
     }
 
     @Override
