@@ -6,6 +6,8 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -100,16 +102,34 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         textViewNama1.setText(sessionManager.getSessionMahasiswaNama());
         textViewNIM1.setText(sessionManager.getSessionMahasiswaNim());
 
-        editTextNIM2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+        editTextNIM2.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    mahasiswaPresenter.getMahasiswaByParameter(v.getText().toString());
-                    return true;
-                }
-                return false;
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                findMahasiswa(editTextNIM2);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
+
+//        editTextNIM2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+//                    mahasiswaPresenter.getMahasiswaByParameter(v.getText().toString());
+//                    return true;
+//                }
+//                return false;
+//            }
+//        });
 
         spinner_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -172,6 +192,13 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
             }
         });
 
+    }
+
+    private void findMahasiswa(EditText editText){
+        String nim_mhs = editText.getText().toString();
+        if (!nim_mhs.isEmpty()) {
+            mahasiswaPresenter.getMahasiswaByParameter(nim_mhs);
+        }
     }
 
     @Override
