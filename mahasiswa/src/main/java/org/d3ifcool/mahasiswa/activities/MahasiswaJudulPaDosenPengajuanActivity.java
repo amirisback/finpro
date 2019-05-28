@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -55,19 +57,19 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
         TextView textViewJudulPembimbing = findViewById(R.id.act_mhs_pa_pengajuan_textview_dosen_pembimbing);
         TextView textViewJudulNim1 = findViewById(R.id.act_mhs_pa_pengajuan_textview_nim_anggota_1);
         TextView textViewJudulNama1 = findViewById(R.id.act_mhs_pa_pengajuan_textview_nama_anggota_1);
+
         final EditText editTextJudulNim2 = findViewById(R.id.act_mhs_pa_pengajuan_editview_nim_anggota_2);
-        textViewJudulNama2 = findViewById(R.id.act_mhs_pa_pengajuan_editview_nama_anggota_2);
         final EditText editTextJudulKelompok = findViewById(R.id.act_mhs_pa_pengajuan_editview_nama_kelompok);
+        textViewJudulNama2 = findViewById(R.id.act_mhs_pa_pengajuan_editview_nama_anggota_2);
         Button buttonAjukan = findViewById(R.id.act_mhs_pa_pengajuan_button_simpan);
 
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
         final int extraJudulId = extraJudul.getId();
+        final String extraDosenNip = extraJudul.getNip_dosen();
+
         String extraJudulNama = extraJudul.getJudul();
         String extraJudulDeskripsi = extraJudul.getDeskripsi();
-        String extraJudulStatus = extraJudul.getJudul_status();
-        String extraKategoriId = extraJudul.getKategori_id();
         String extraKategoriNama = extraJudul.getKategori_nama();
-        final String extraDosenNip = extraJudul.getNip_dosen();
         String extraDosenNama = extraJudul.getDsn_nama();
 
         final String extraMahasiswaNim1 = sessionManager.getSessionMahasiswaNim();
@@ -85,16 +87,23 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
         textViewJudul.setText(extraJudulNama);
         textViewJudul.setText(extraJudulNama);
 
-        editTextJudulNim2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        editTextJudulNim2.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    mahasiswaPresenter.getMahasiswaByParameter(v.getText().toString());
-                    return true;
-                }
-                return false;
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                findMahasiswa(editTextJudulNim2);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                findMahasiswa(editTextJudulNim2);
             }
         });
+
 
         buttonAjukan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,7 +114,7 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
                 if (namaKelompok.isEmpty()) {
                     editTextJudulKelompok.setError(getString(R.string.text_tidak_boleh_kosong));
                 } else {
-                    if (!mahasiswaNim2.isEmpty()) {
+                    if (mahasiswaNim2.isEmpty()) {
                         proyekAkhirPresenter.createProyekAkhir(extraJudulId, extraMahasiswaNim1, namaKelompok);
                         proyekAkhirPresenter.createProyekAkhir(extraJudulId, mahasiswaNim2, namaKelompok);
                         mahasiswaPresenter.updateMahasiswaJudul(extraMahasiswaNim1, extraJudulId);
@@ -119,6 +128,15 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
                 }
             }
         });
+    }
+
+    private void findMahasiswa(EditText editText){
+        String nim_mhs = editText.getText().toString();
+        if (!nim_mhs.isEmpty()) {
+            mahasiswaPresenter.getMahasiswaByParameter(nim_mhs);
+        } else {
+            textViewJudulNama2.setText(getText(R.string.hint_masukkan_nim));
+        }
     }
 
     @Override
@@ -165,8 +183,7 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
             }
 
         } else {
-            textViewJudulNama2.setText(getString(R.string.text_nim_tidak_ada));
-            textViewJudulNama2.setError(getString(R.string.text_nim_salah));
+            textViewJudulNama2.setText(getString(R.string.hint_masukkan_nim));
         }
     }
 

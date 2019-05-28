@@ -116,20 +116,9 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                findMahasiswa(editTextNIM2);
             }
         });
-
-//        editTextNIM2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-//                    mahasiswaPresenter.getMahasiswaByParameter(v.getText().toString());
-//                    return true;
-//                }
-//                return false;
-//            }
-//        });
 
         spinner_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -198,6 +187,8 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         String nim_mhs = editText.getText().toString();
         if (!nim_mhs.isEmpty()) {
             mahasiswaPresenter.getMahasiswaByParameter(nim_mhs);
+        } else {
+            textViewNama2.setText(getText(R.string.hint_masukkan_nim));
         }
     }
 
@@ -244,8 +235,7 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
                 textViewNama2.setError(getString(R.string.text_mahasiswa_sudah_mengajukan_judul));
             }
         } else {
-            textViewNama2.setText(getString(R.string.text_nim_tidak_ada));
-            textViewNama2.setError(getString(R.string.text_nim_salah));
+            textViewNama2.setText(getString(R.string.hint_masukkan_nim));
         }
     }
 
