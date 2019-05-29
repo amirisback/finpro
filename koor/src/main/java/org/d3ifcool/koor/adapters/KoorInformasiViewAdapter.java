@@ -38,7 +38,6 @@ public class KoorInformasiViewAdapter extends RecyclerView.Adapter<KoorInformasi
 
     private ArrayList<Informasi> data;
     private Context context;
-    private int layoutType;
 
     public KoorInformasiViewAdapter(Context context) {
         this.context = context;
@@ -49,14 +48,10 @@ public class KoorInformasiViewAdapter extends RecyclerView.Adapter<KoorInformasi
         notifyDataSetChanged();
     }
 
-    public void setLayoutType(int layoutType) {
-        this.layoutType = layoutType;
-    }
-
     @NonNull
     @Override
     public KoorInformasiViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(layoutType, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_list_all_informasi, parent, false);
         return new ViewHolder(v);
     }
 
@@ -86,8 +81,10 @@ public class KoorInformasiViewAdapter extends RecyclerView.Adapter<KoorInformasi
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
+
         TextView infoJudul, infoIsi, infoTanggal, infoDosen;
         CircleImageView foto;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             foto = itemView.findViewById(R.id.ctn_koor_circle_image);

@@ -58,7 +58,6 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiLis
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
-        adapter.setLayoutType(R.layout.content_list_all_informasi);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         presenter.getInformasi();

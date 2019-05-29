@@ -39,7 +39,6 @@ public class DosenInformasiViewAdapter extends RecyclerView.Adapter<DosenInforma
 
     private Context context;
     private ArrayList<Informasi> data;
-    private int layoutType;
 
     public DosenInformasiViewAdapter(Context context) {
         this.context = context;
@@ -48,10 +47,6 @@ public class DosenInformasiViewAdapter extends RecyclerView.Adapter<DosenInforma
     public void addItem(ArrayList<Informasi> data){
         this.data = data;
         notifyDataSetChanged();
-    }
-
-    public void setLayoutType(int mLayoutType){
-        this.layoutType = mLayoutType;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -95,7 +90,7 @@ public class DosenInformasiViewAdapter extends RecyclerView.Adapter<DosenInforma
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(layoutType, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_list_all_informasi, parent, false);
         return new ViewHolder(v);
     }
 
