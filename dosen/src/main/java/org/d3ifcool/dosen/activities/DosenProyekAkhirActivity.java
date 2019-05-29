@@ -2,6 +2,7 @@ package org.d3ifcool.dosen.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -12,6 +13,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.d3ifcool.base.adapters.AnggotaViewAdapter;
+import org.d3ifcool.base.helpers.ViewAdapterHelper;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.base.interfaces.lists.BimbinganListView;
 import org.d3ifcool.base.interfaces.lists.MonevDetailListView;
@@ -48,6 +51,9 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
     private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
     private ProyekAkhir parcelProyekAkhir;
 
+    private ViewAdapterHelper viewAdapterHelper;
+    private AnggotaViewAdapter anggotaViewAdapter;
+
     private TextView tv_judul_pa,tv_kelompok_pa,tv_nama_anggota1_pa, tv_nama_anggota2_pa,
             tv_nim_anggota1_pa, tv_nim_anggota2_pa, tv_dosen_pembimbing_pa, tv_jumlah_bimbingan_pa,
             tv_dosen_reviewer_pa, tv_status_sidang_pa;
@@ -70,14 +76,20 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
 
         tv_judul_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_judulpa);
         tv_kelompok_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_kelompok);
-        tv_nama_anggota1_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_nama_1);
-        tv_nim_anggota1_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_nim_1);
-        tv_nama_anggota2_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_nama_2);
-        tv_nim_anggota2_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_nim_2);
+//        tv_nama_anggota1_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_nama_1);
+//        tv_nim_anggota1_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_nim_1);
+//        tv_nama_anggota2_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_nama_2);
+//        tv_nim_anggota2_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_nim_2);
         tv_dosen_pembimbing_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_dosen_pembimbing);
         tv_jumlah_bimbingan_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_jml_bimbingan);
         tv_dosen_reviewer_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_dosen_reviewer);
         tv_status_sidang_pa = findViewById(R.id.act_dsn_pa_bimbingan_textview_status_sidang);
+
+        RecyclerView recyclerView = findViewById(R.id.all_recyclerview_anggota);
+
+        anggotaViewAdapter = new AnggotaViewAdapter(this);
+        viewAdapterHelper = new ViewAdapterHelper(this);
+        viewAdapterHelper.setRecyclerView(recyclerView);
 
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
         stringJudulId = String.valueOf(extraJudul.getId());
@@ -206,8 +218,8 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
 
             tv_judul_pa.setText(arrayListProyekAkhir.get(0).getJudul_nama());
             tv_kelompok_pa.setText(arrayListProyekAkhir.get(0).getNama_tim());
-            tv_nama_anggota1_pa.setText(arrayListProyekAkhir.get(0).getMhs_nama());
-            tv_nim_anggota1_pa.setText(arrayListProyekAkhir.get(0).getMhs_nim());
+//            tv_nama_anggota1_pa.setText(arrayListProyekAkhir.get(0).getMhs_nama());
+//            tv_nim_anggota1_pa.setText(arrayListProyekAkhir.get(0).getMhs_nim());
 
             bimbinganPresenter.searchBimbinganAllBy(BIMBINGAN_PARAM, stringProyekAkhirId);
 
@@ -217,13 +229,16 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
                 tv_dosen_reviewer_pa.setText(R.string.text_no_dosen_monev);
             }
 
-            if (arrayListProyekAkhir.size() == 2) {
-                tv_nama_anggota2_pa.setText(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getMhs_nama());
-                tv_nim_anggota2_pa.setText(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getMhs_nim());
-            } else {
-                tv_nama_anggota2_pa.setText("");
-                tv_nim_anggota2_pa.setText("");
-            }
+//            if (arrayListProyekAkhir.size() == 2) {
+//                tv_nama_anggota2_pa.setText(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getMhs_nama());
+//                tv_nim_anggota2_pa.setText(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getMhs_nim());
+//            } else {
+//                tv_nama_anggota2_pa.setText("");
+//                tv_nim_anggota2_pa.setText("");
+//            }
+
+            anggotaViewAdapter.addItem(arrayListProyekAkhir);
+            viewAdapterHelper.setAdapterAnggota(anggotaViewAdapter);
         }
 
     }

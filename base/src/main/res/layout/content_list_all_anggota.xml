@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by 
+ * FrogoBox Inc License
+ * =========================================
+ * 
+ * Copyright (C) .      
+ * All rights reserved
+ * 
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Majors   : D3 Teknik Informatika 2016
+ * Campus   : Telkom University
+ * 
+ * FrogoBox Software Industries
+ * 
+ -->
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big"
+            android:text="@string/text_profil_detail_nama" />
+
+        <TextView
+            android:id="@+id/ctn_all_anggota_nama"
+            style="@style/content_all_text_bold_color_primary"
+            tools:text="@string/dummy_anggota_kelompok_1" />
+
+        <View
+            style="@style/view_all_line_horizontal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big"
+            android:text="@string/text_profil_detail_nim" />
+
+        <TextView
+            android:layout_marginBottom="@dimen/dimen_medium"
+            android:id="@+id/ctn_all_anggota_nim"
+            style="@style/content_all_text_bold_color_black"
+            android:layout_width="wrap_content"
+            tools:text="@string/dummy_anggota_nim_1" />
+
+        <View
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_width="match_parent"
+            android:background="@color/colorBackground"
+            android:layout_height="@dimen/dimen_view_line"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
