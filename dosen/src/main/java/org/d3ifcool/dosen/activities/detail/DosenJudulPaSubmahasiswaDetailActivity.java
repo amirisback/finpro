@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,14 +37,16 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
 
     public static final String EXTRA_JUDUL = "extra_judul";
     private static final String PARAM_PROYEK_AKHIR = "proyek_akhir.judul_id";
+
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private JudulPresenter judulPresenter;
     private MahasiswaPresenter mahasiswaPresenter;
+
     private ProgressDialog progressDialog;
     private int extraJudulId;
     private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
     private TextView textViewMhsNIM1, textViewMhsNama1, textViewMhsNIM2, textViewMhsNama2, textViewKelompok;
-
+    private LinearLayout containerAnggota2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +84,7 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
         textViewMhsNama1 = findViewById(R.id.act_dsn_mhs_judul_nama_1);
         textViewMhsNIM2 = findViewById(R.id.act_dsn_mhs_judul_nim_2);
         textViewMhsNama2 = findViewById(R.id.act_dsn_mhs_judul_nama_2);
+        containerAnggota2 = findViewById(R.id.container_anggota2);
 
         textViewTanggal.setText(extraJudulTanggal);
         textViewJudul.setText(extraJudulNama);
@@ -191,13 +195,18 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
         arrayListProyekAkhir.clear();
         arrayListProyekAkhir.addAll(proyekAkhirList);
 
-        textViewMhsNIM1.setText(arrayListProyekAkhir.get(0).getMhs_nim());
-        textViewMhsNama1.setText(arrayListProyekAkhir.get(0).getMhs_nama());
         textViewKelompok.setText(arrayListProyekAkhir.get(0).getNama_tim());
 
         if (arrayListProyekAkhir.size() == 2) {
+            containerAnggota2.setVisibility(View.VISIBLE);
+            textViewMhsNIM1.setText(arrayListProyekAkhir.get(0).getMhs_nim());
+            textViewMhsNama1.setText(arrayListProyekAkhir.get(0).getMhs_nama());
             textViewMhsNIM2.setText(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getMhs_nim());
             textViewMhsNama2.setText(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getMhs_nama());
+        } else {
+            containerAnggota2.setVisibility(View.GONE);
+            textViewMhsNIM1.setText(arrayListProyekAkhir.get(0).getMhs_nim());
+            textViewMhsNama1.setText(arrayListProyekAkhir.get(0).getMhs_nama());
         }
     }
 

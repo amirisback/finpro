@@ -30,6 +30,7 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
         ProyekAkhirWorkView, MahasiswaWorkView, MahasiswaView {
 
     public static final String EXTRA_JUDUL = "extra_judul";
+
     private SessionManager sessionManager;
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private MahasiswaPresenter mahasiswaPresenter;
@@ -114,7 +115,7 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
                 if (namaKelompok.isEmpty()) {
                     editTextJudulKelompok.setError(getString(R.string.text_tidak_boleh_kosong));
                 } else {
-                    if (mahasiswaNim2.isEmpty()) {
+                    if (!mahasiswaNim2.isEmpty()) {
                         proyekAkhirPresenter.createProyekAkhir(extraJudulId, extraMahasiswaNim1, namaKelompok);
                         proyekAkhirPresenter.createProyekAkhir(extraJudulId, mahasiswaNim2, namaKelompok);
                         mahasiswaPresenter.updateMahasiswaJudul(extraMahasiswaNim1, extraJudulId);
