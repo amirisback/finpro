@@ -60,6 +60,7 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
         TextView tv_judul = findViewById(R.id.frg_dsn_pa_textview_judulpa);
         TextView tv_kategori = findViewById(R.id.frg_dsn_pa_textview_kategoripa);
         TextView tv_deskripsi = findViewById(R.id.frg_dsn_pa_textview_deskripsi);
+
         recyclerView = findViewById(R.id.act_dsn_recycler_view_kelompok);
         empty_view = findViewById(R.id.view_emptyview);
         swipeRefreshLayout = findViewById(R.id.swipe_refresh);

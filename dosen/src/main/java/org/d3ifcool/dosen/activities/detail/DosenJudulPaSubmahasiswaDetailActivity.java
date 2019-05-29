@@ -1,6 +1,7 @@
 package org.d3ifcool.dosen.activities.detail;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.d3ifcool.base.adapters.AnggotaViewAdapter;
+import org.d3ifcool.base.helpers.ViewAdapterHelper;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.base.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.base.interfaces.works.JudulWorkView;
@@ -45,8 +48,10 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
     private ProgressDialog progressDialog;
     private int extraJudulId;
     private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
-    private TextView textViewMhsNIM1, textViewMhsNama1, textViewMhsNIM2, textViewMhsNama2, textViewKelompok;
-    private LinearLayout containerAnggota2;
+    private TextView textViewKelompok;
+
+    private ViewAdapterHelper viewAdapterHelper;
+    private AnggotaViewAdapter anggotaViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,16 +85,17 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
         FloatingActionButton floatingActionButtonConversation = findViewById(R.id.act_dsn_mhs_judul_fab_conversation);
 
         textViewKelompok = findViewById(R.id.act_dsn_mhs_judul_kelompok);
-        textViewMhsNIM1 = findViewById(R.id.act_dsn_mhs_judul_nim_1);
-        textViewMhsNama1 = findViewById(R.id.act_dsn_mhs_judul_nama_1);
-        textViewMhsNIM2 = findViewById(R.id.act_dsn_mhs_judul_nim_2);
-        textViewMhsNama2 = findViewById(R.id.act_dsn_mhs_judul_nama_2);
-        containerAnggota2 = findViewById(R.id.container_anggota2);
 
         textViewTanggal.setText(extraJudulTanggal);
         textViewJudul.setText(extraJudulNama);
         textViewDeskripsi.setText(extraJudulDeskripsi);
         textViewKategori.setText(extraJudulKategori);
+
+        RecyclerView recyclerView = findViewById(R.id.all_recyclerview_anggota);
+
+        anggotaViewAdapter = new AnggotaViewAdapter(this);
+        viewAdapterHelper = new ViewAdapterHelper(this);
+        viewAdapterHelper.setRecyclerView(recyclerView);
 
         proyekAkhirPresenter.searchAllProyekAkhirBy(PARAM_PROYEK_AKHIR, String.valueOf(extraJudulId));
 
@@ -197,17 +203,8 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
 
         textViewKelompok.setText(arrayListProyekAkhir.get(0).getNama_tim());
 
-        if (arrayListProyekAkhir.size() == 2) {
-            containerAnggota2.setVisibility(View.VISIBLE);
-            textViewMhsNIM1.setText(arrayListProyekAkhir.get(0).getMhs_nim());
-            textViewMhsNama1.setText(arrayListProyekAkhir.get(0).getMhs_nama());
-            textViewMhsNIM2.setText(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getMhs_nim());
-            textViewMhsNama2.setText(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getMhs_nama());
-        } else {
-            containerAnggota2.setVisibility(View.GONE);
-            textViewMhsNIM1.setText(arrayListProyekAkhir.get(0).getMhs_nim());
-            textViewMhsNama1.setText(arrayListProyekAkhir.get(0).getMhs_nama());
-        }
+        anggotaViewAdapter.addItem(arrayListProyekAkhir);
+        viewAdapterHelper.setAdapterAnggota(anggotaViewAdapter);
     }
 
     @Override

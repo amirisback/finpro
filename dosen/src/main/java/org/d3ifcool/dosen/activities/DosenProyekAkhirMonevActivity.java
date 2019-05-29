@@ -54,7 +54,7 @@ public class DosenProyekAkhirMonevActivity extends AppCompatActivity implements 
         TextView textViewJudul = findViewById(R.id.frg_mhs_pa_textview_judulpa);
         TextView textViewKelompok = findViewById(R.id.frg_mhs_pa_textview_kelompokpa);
         textViewBimbingan = findViewById(R.id.act_mhs_pa_monev_bimbingan);
-        textViewNim1= findViewById(R.id.frg_mhs_pa_nim_1);
+        textViewNim1 = findViewById(R.id.frg_mhs_pa_nim_1);
         textViewNim2 = findViewById(R.id.frg_mhs_pa_nim_2);
         textViewNama1 = findViewById(R.id.frg_mhs_pa_nama_1);
         textViewNama2 = findViewById(R.id.frg_mhs_pa_nama_2);

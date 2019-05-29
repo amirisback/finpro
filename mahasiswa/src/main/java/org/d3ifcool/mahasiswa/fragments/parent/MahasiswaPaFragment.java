@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.d3ifcool.base.adapters.AnggotaViewAdapter;
+import org.d3ifcool.base.helpers.ViewAdapterHelper;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPaBimbinganActivity;
 import org.d3ifcool.mahasiswa.activities.detail.MahasiswaPaMonevDetailActivity;
@@ -60,12 +63,14 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
     private ProyekAkhir parcelProyekAkhir;
     private int jumlahBimbingan;
 
+    private ViewAdapterHelper viewAdapterHelper;
+    private AnggotaViewAdapter anggotaViewAdapter;
+
     private ArrayList<Bimbingan> arrayListBimbingan = new ArrayList<>();
     private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
 
-    private TextView tv_judul_pa,tv_kelompok_pa,tv_nama_anggota1_pa, tv_nama_anggota2_pa,
-            tv_nim_anggota1_pa, tv_nim_anggota2_pa, tv_dosen_pembimbing_pa, tv_jumlah_bimbingan_pa,
-            tv_dosen_reviewer_pa, tv_jumlah_monev_pa, tv_status_sidang_pa;
+    private TextView tv_judul_pa,tv_kelompok_pa, tv_dosen_pembimbing_pa, tv_jumlah_bimbingan_pa,
+            tv_dosen_reviewer_pa, tv_status_sidang_pa;
 
     public MahasiswaPaFragment() {
         // Required empty public constructor
@@ -91,21 +96,23 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
-        tv_judul_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_judulpa);
-        tv_kelompok_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_kelompokpa);
-        tv_nama_anggota1_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_nama_1);
-        tv_nama_anggota2_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_nama_2);
-        tv_nim_anggota1_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_nim_1);
-        tv_nim_anggota2_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_nim_2);
+        tv_judul_pa = rootView.findViewById(R.id.ctn_all_pa_textview_judul);
+        tv_kelompok_pa = rootView.findViewById(R.id.ctn_all_pa_textview_kelompok);
         tv_dosen_pembimbing_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_dsn_pembimbing);
         tv_jumlah_bimbingan_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_jml_bimbingan);
         tv_dosen_reviewer_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_dsn_reviewer);
-        tv_jumlah_monev_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_jml_monev);
         tv_status_sidang_pa = rootView.findViewById(R.id.frg_mhs_pa_textview_sidang);
 
         CardView cardViewBimbingan = rootView.findViewById(R.id.frg_mhs_pa_cardview_bimbingan);
         CardView cardViewMonev = rootView.findViewById(R.id.frg_mhs_pa_cardview_monev);
         CardView cardViewSidang = rootView.findViewById(R.id.frg_mhs_pa_cardview_sidang);
+
+        RecyclerView recyclerView = rootView.findViewById(R.id.all_recyclerview_anggota);
+
+        anggotaViewAdapter = new AnggotaViewAdapter(getContext());
+        viewAdapterHelper = new ViewAdapterHelper(getContext());
+        viewAdapterHelper.setRecyclerView(recyclerView);
+
 
         checkStatusJudulMahasiswa(sessionManager.getSessionMahasiswaIdJudul());
 
@@ -239,8 +246,6 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
 
             tv_judul_pa.setText(arrayListProyekAkhir.get(0).getJudul_nama());
             tv_kelompok_pa.setText(arrayListProyekAkhir.get(0).getNama_tim());
-            tv_nama_anggota1_pa.setText(arrayListProyekAkhir.get(0).getMhs_nama());
-            tv_nim_anggota1_pa.setText(arrayListProyekAkhir.get(0).getMhs_nim());
 
             bimbinganPresenter.searchBimbinganAllByTwo(PARAM_BIMBINGAN_ID, stringProyekAkhirId, PARAM_BIMBINGAN_STATUS, STATUS_BIMBINGAN_DISETUJUI);
             dosenPresenter.getDosenPembimbing(arrayListProyekAkhir.get(0).getPembimbing_dsn_nip());
@@ -251,13 +256,8 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
                 tv_dosen_reviewer_pa.setText(R.string.text_no_dosen_monev);
             }
 
-            if (arrayListProyekAkhir.size() == 2) {
-                tv_nama_anggota2_pa.setText(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getMhs_nama());
-                tv_nim_anggota2_pa.setText(arrayListProyekAkhir.get(arrayListProyekAkhir.size()-1).getMhs_nim());
-            } else {
-                tv_nama_anggota2_pa.setText("");
-                tv_nim_anggota2_pa.setText("");
-            }
+            anggotaViewAdapter.addItem(arrayListProyekAkhir);
+            viewAdapterHelper.setAdapterAnggota(anggotaViewAdapter);
 
         } else {
             swipeRefreshLayout.setVisibility(View.GONE);

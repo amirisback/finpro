@@ -1,6 +1,7 @@
 package org.d3ifcool.dosen.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -9,12 +10,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.d3ifcool.base.adapters.AnggotaViewAdapter;
+import org.d3ifcool.base.helpers.ViewAdapterHelper;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.base.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.base.interfaces.works.JudulWorkView;
@@ -48,9 +50,10 @@ public class DosenJudulPaSubdosenAccActivity extends AppCompatActivity implement
 
     private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
     private ArrayList<ProyekAkhir> tempProyekAkhirArrayList = new ArrayList<>();
-    private LinearLayout containerAnggota2;
-    private TextView textViewMhsNIM1, textViewMhsNama1, textViewMhsNIM2, textViewMhsNama2, textViewKelompok;
+    private TextView textViewKelompok;
 
+    private ViewAdapterHelper viewAdapterHelper;
+    private AnggotaViewAdapter anggotaViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,11 +75,12 @@ public class DosenJudulPaSubdosenAccActivity extends AppCompatActivity implement
         FloatingActionButton floatingActionButtonConversation = findViewById(R.id.act_dsn_mhs_judul_fab_conversation);
 
         textViewKelompok = findViewById(R.id.act_dsn_mhs_judul_kelompok);
-        textViewMhsNIM1 = findViewById(R.id.act_dsn_mhs_judul_nim_1);
-        textViewMhsNama1 = findViewById(R.id.act_dsn_mhs_judul_nama_1);
-        textViewMhsNIM2 = findViewById(R.id.act_dsn_mhs_judul_nim_2);
-        textViewMhsNama2 = findViewById(R.id.act_dsn_mhs_judul_nama_2);
-        containerAnggota2 = findViewById(R.id.container_anggota2);
+
+        RecyclerView recyclerView = findViewById(R.id.all_recyclerview_anggota);
+
+        anggotaViewAdapter = new AnggotaViewAdapter(this);
+        viewAdapterHelper = new ViewAdapterHelper(this);
+        viewAdapterHelper.setRecyclerView(recyclerView);
 
         extraJudulId = getIntent().getIntExtra(EXTRA_JUDUL, 0);
         ProyekAkhir extraProyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
@@ -196,18 +200,9 @@ public class DosenJudulPaSubdosenAccActivity extends AppCompatActivity implement
             }
         }
 
+        anggotaViewAdapter.addItem(tempProyekAkhirArrayList);
+        viewAdapterHelper.setAdapterAnggota(anggotaViewAdapter);
 
-        if (tempProyekAkhirArrayList.size() == 2) {
-            containerAnggota2.setVisibility(View.VISIBLE);
-            textViewMhsNIM1.setText(tempProyekAkhirArrayList.get(0).getMhs_nim());
-            textViewMhsNama1.setText(tempProyekAkhirArrayList.get(0).getMhs_nama());
-            textViewMhsNIM2.setText(tempProyekAkhirArrayList.get(tempProyekAkhirArrayList.size()-1).getMhs_nim());
-            textViewMhsNama2.setText(tempProyekAkhirArrayList.get(tempProyekAkhirArrayList.size()-1).getMhs_nama());
-        } else {
-            containerAnggota2.setVisibility(View.GONE);
-            textViewMhsNIM1.setText(tempProyekAkhirArrayList.get(0).getMhs_nim());
-            textViewMhsNama1.setText(tempProyekAkhirArrayList.get(0).getMhs_nama());
-        }
     }
 
     @Override
