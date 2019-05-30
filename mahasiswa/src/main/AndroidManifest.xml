@@ -19,7 +19,7 @@
         <activity android:name=".activities.MahasiswaPemberitahuanActivity" />
         <activity android:name=".activities.MahasiswaJudulPaMandiriPengajuanActivity" />
         <activity android:name=".activities.detail.MahasiswaJudulPaDosenDetailActivity" />
-        <activity android:name=".activities.MahasiswaProfilUbahActivity" />
+        <activity android:name=".activities.editor.MahasiswaProfilUbahActivity" />
     </application>
 
 </manifest>

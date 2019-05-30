@@ -82,6 +82,8 @@ public class Constant {
         public static final String STATUS_SIDANG_LULUS = "Lulus";
         public static final String STATUS_SIDANG_LULUS_BERSYARAT = "Lulus";
 
+        public static final String EMAIL_PATTERN = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        public static final String PHONE_PATTERN = "^(^\\+62\\s?|^0)(\\d{3,4}-?){2}\\d{3,4}$";
 
 
     }

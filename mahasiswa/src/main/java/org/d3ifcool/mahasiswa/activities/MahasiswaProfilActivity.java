@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.base.helpers.SessionManager;
+import org.d3ifcool.mahasiswa.activities.editor.MahasiswaProfilUbahActivity;
 
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
 

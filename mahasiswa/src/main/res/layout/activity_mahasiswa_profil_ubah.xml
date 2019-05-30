@@ -17,23 +17,6 @@
             android:id="@+id/act_mhs_profil_foto"
             style="@style/profile_all_photo"/>
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="110dp"
-            android:src="@drawable/ic_camera"
-            android:padding="@dimen/dimen_medium"
-            android:background="@drawable/circle_image_edit_foto"
-            android:layout_alignEnd="@id/act_mhs_profil_foto"/>
-
-        <TextView
-            android:id="@+id/act_mhs_profil_hasil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/act_mhs_profil_foto"
-            android:textColor="@color/colorTextWhite"
-            android:gravity="center"/>
-
         <LinearLayout
             style="@style/profile_all_container_body">
 
@@ -91,6 +74,7 @@
                     android:id="@+id/act_mhs_profil_angkatan"
                     android:background="@android:color/transparent"
                     tools:hint="@string/dummy_angkatan"
+                    android:inputType="number"
                     style="@style/profile_all_textview_content"/>
 
 
@@ -135,6 +119,7 @@
                     android:id="@+id/act_mhs_profil_kontak"
                     android:background="@android:color/transparent"
                     tools:hint="@string/dummy_no_telp"
+                    android:inputType="number"
                     style="@style/profile_all_textview_content"/>
 
             </LinearLayout>
