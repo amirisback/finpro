@@ -14,7 +14,7 @@
         <activity android:name=".activities.DosenProyekAkhirActivity" />
         <activity android:name=".activities.editor.update.DosenMonevUbahActivity" />
         <activity android:name=".activities.editor.update.DosenJudulPaSubdosenUbahActivity" />
-        <activity android:name=".activities.DosenProfilUbahActivity" />
+        <activity android:name=".activities.editor.update.DosenProfilUbahActivity" />
         <activity android:name=".activities.editor.update.DosenInformasiUbahActivity" />
         <activity android:name=".activities.DosenPemberitahuanActivity" />
         <activity android:name=".activities.detail.DosenMonevDetailActivity" />

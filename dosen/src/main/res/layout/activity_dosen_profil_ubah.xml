@@ -17,23 +17,6 @@
             android:id="@+id/act_dsn_profil_foto"
             style="@style/profile_all_photo"/>
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="110dp"
-            android:src="@drawable/ic_camera"
-            android:padding="@dimen/dimen_medium"
-            android:background="@drawable/circle_image_edit_foto"
-            android:layout_alignEnd="@id/act_dsn_profil_foto"/>
-
-        <TextView
-            android:id="@+id/act_dsn_profil_hasil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/act_dsn_profil_foto"
-            android:textColor="@color/colorTextWhite"
-            android:gravity="center"/>
-
         <LinearLayout
             style="@style/profile_all_container_body">
 
@@ -69,7 +52,7 @@
                 <EditText
                     android:id="@+id/act_dsn_profil_nama"
                     android:background="@android:color/transparent"
-                    android:text="@string/dummy_anggota_nim_2"
+                    android:text="@string/dummy_mahasiswa_nama"
                     style="@style/profile_all_textview_content"/>
 
             </LinearLayout>
@@ -90,7 +73,7 @@
                 <EditText
                     android:id="@+id/act_dsn_profil_kode"
                     android:background="@android:color/transparent"
-                    android:text="@string/dummy_anggota_nim_2"
+                    android:text="@string/dummy_dosen_kode"
                     style="@style/profile_all_textview_content"/>
 
             </LinearLayout>
@@ -133,6 +116,7 @@
                     android:id="@+id/act_dsn_profil_kontak"
                     android:background="@android:color/transparent"
                     android:text="@string/dummy_no_telp"
+                    android:inputType="number"
                     style="@style/profile_all_textview_content"/>
 
             </LinearLayout>
