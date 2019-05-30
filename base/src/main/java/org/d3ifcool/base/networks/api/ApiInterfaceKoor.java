@@ -44,10 +44,11 @@ public interface ApiInterfaceKoor {
     @FormUrlEncoded
     @POST(URL_KOORDINATOR_PA + PATH_UPDATE + PARAMETER_KOOR)
     Call<KoordinatorPa> updateKoor(
-            @Path("koor_nip") String koor_nip,
+            @Path(VAR_KOORDINATOR_PA) String username,
+            @Field("koor_nip") String koor_nip,
             @Field("koor_nama") String koor_nama,
+            @Field("koor_kode") String koor_kode,
             @Field("koor_kontak") String koor_kontak,
-            @Field("koor_foto") String koor_foto,
             @Field("koor_email") String koor_email
     );
 

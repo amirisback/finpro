@@ -63,10 +63,10 @@ public class KoorPresenter {
         });
     }
 
-    public void updateKoor(String koor_nip , String koor_nama , String koor_kontak, String koor_foto, String koor_email){
+    public void updateKoor(String username, String koor_nip, String koor_nama, String koor_kode, String koor_kontak, String koor_email){
         viewEditor.showProgress();
         ApiInterfaceKoor interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
-        Call<KoordinatorPa>call = interfaceAdmin.updateKoor(koor_nip,koor_nama,koor_kontak,koor_foto,koor_email);
+        Call<KoordinatorPa>call = interfaceAdmin.updateKoor(username, koor_nip, koor_nama, koor_kode, koor_kontak,koor_email);
         call.enqueue(new Callback<KoordinatorPa>() {
             @Override
             public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {

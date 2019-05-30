@@ -107,6 +107,16 @@ public class SessionManager {
         editor.commit();
     }
 
+    public void updateSessionKoor(String koor_nip, String koor_nama, String koor_kode, String koor_kontak, String koor_email){
+        editor.putString(KOOR_NIP, koor_nip);
+        editor.putString(KOOR_NAMA, koor_nama);
+        editor.putString(KOOR_EMAIL, koor_email);
+        editor.putString(KOOR_KONTAK, koor_kontak);
+        editor.putString(KOOR_KODE, koor_kode);
+        editor.apply();
+        editor.commit();
+    }
+
     public void createSessionProyekAkhirMahasiswa(int id){
         editor.putInt(MHS_ID_PROYEK_AKHIR, id);
         editor.apply();
