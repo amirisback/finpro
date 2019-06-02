@@ -19,7 +19,7 @@
             android:id="@+id/frg_koor_mahasiswa_home_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/dimen_medium"
+            android:paddingTop="@dimen/dimen_medium_8dp"
             tools:listitem="@layout/content_list_koor_mahasiswa"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

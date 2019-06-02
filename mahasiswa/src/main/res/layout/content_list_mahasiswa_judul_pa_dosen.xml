@@ -8,8 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="@dimen/dimen_medium"
-        android:layout_marginBottom="@dimen/dimen_medium">
+        android:layout_marginTop="@dimen/dimen_medium_8dp"
+        android:layout_marginBottom="@dimen/dimen_medium_8dp">
 
         <LinearLayout
             android:layout_width="@dimen/dimen_weight"
@@ -49,12 +49,12 @@
             android:layout_width="@dimen/dimen_circle_background"
             android:layout_height="@dimen/dimen_circle_background"
             android:layout_gravity="center|center_horizontal"
-            android:layout_marginEnd="@dimen/dimen_big"
-            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
             android:textColor="@color/colorTextWhite"
             android:src="@drawable/ic_judul_available"
             android:background="@drawable/circle_judul_available"
-            android:textSize="@dimen/text_size_title_medium"/>
+            android:textSize="@dimen/text_size_title_medium_20sp"/>
 
     </LinearLayout>
 

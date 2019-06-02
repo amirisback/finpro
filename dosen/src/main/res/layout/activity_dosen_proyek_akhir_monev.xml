@@ -20,14 +20,14 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
+                    android:layout_marginTop="@dimen/dimen_medium_8dp"
+                    android:layout_marginBottom="@dimen/dimen_medium_8dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:layout_marginStart="@dimen/dimen_big"
+                        android:layout_marginStart="@dimen/dimen_big_16dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/text_judul_proyek_akhir"/>
@@ -41,7 +41,7 @@
                         style="@style/view_all_line_horizontal"/>
 
                     <TextView
-                        android:layout_marginStart="@dimen/dimen_big"
+                        android:layout_marginStart="@dimen/dimen_big_16dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/text_nama_kelompok"/>
@@ -50,13 +50,13 @@
                         android:id="@+id/frg_mhs_pa_textview_kelompokpa"
                         tools:text="@string/dummy_mahasiswa_kelompok"
                         style="@style/content_all_text_bold_color_black"
-                        android:layout_marginBottom="@dimen/dimen_medium"/>
+                        android:layout_marginBottom="@dimen/dimen_medium_8dp"/>
 
                     <View
                         style="@style/view_all_line_horizontal"/>
 
                     <TextView
-                        android:layout_marginStart="@dimen/dimen_big"
+                        android:layout_marginStart="@dimen/dimen_big_16dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/text_jumlah_bimbingan"/>
@@ -71,28 +71,28 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:layout_margin="@dimen/dimen_big"
+                android:layout_margin="@dimen/dimen_big_16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_list_mahasiswa"/>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_mhs_1"
-                android:layout_marginBottom="@dimen/dimen_medium"
-                android:layout_marginStart="@dimen/dimen_medium"
-                android:layout_marginEnd="@dimen/dimen_medium"
+                android:layout_marginBottom="@dimen/dimen_medium_8dp"
+                android:layout_marginStart="@dimen/dimen_medium_8dp"
+                android:layout_marginEnd="@dimen/dimen_medium_8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
+                    android:layout_marginTop="@dimen/dimen_medium_8dp"
+                    android:layout_marginBottom="@dimen/dimen_medium_8dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:layout_marginStart="@dimen/dimen_big"
+                        android:layout_marginStart="@dimen/dimen_big_16dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/text_nama_mahasiswa"/>
@@ -107,7 +107,7 @@
 
 
                     <TextView
-                        android:layout_marginStart="@dimen/dimen_big"
+                        android:layout_marginStart="@dimen/dimen_big_16dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/text_nim"/>
@@ -121,8 +121,8 @@
                         style="@style/view_all_line_horizontal"/>
 
                     <TextView
-                        android:layout_marginStart="@dimen/dimen_big"
-                        android:layout_marginEnd="@dimen/dimen_big"
+                        android:layout_marginStart="@dimen/dimen_big_16dp"
+                        android:layout_marginEnd="@dimen/dimen_big_16dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="end"
@@ -136,21 +136,21 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_mhs_2"
-                android:layout_marginBottom="@dimen/dimen_medium"
-                android:layout_marginStart="@dimen/dimen_medium"
-                android:layout_marginEnd="@dimen/dimen_medium"
+                android:layout_marginBottom="@dimen/dimen_medium_8dp"
+                android:layout_marginStart="@dimen/dimen_medium_8dp"
+                android:layout_marginEnd="@dimen/dimen_medium_8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
+                    android:layout_marginTop="@dimen/dimen_medium_8dp"
+                    android:layout_marginBottom="@dimen/dimen_medium_8dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:layout_marginStart="@dimen/dimen_big"
+                        android:layout_marginStart="@dimen/dimen_big_16dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/text_nama_mahasiswa"/>
@@ -165,7 +165,7 @@
 
 
                     <TextView
-                        android:layout_marginStart="@dimen/dimen_big"
+                        android:layout_marginStart="@dimen/dimen_big_16dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/text_nim"/>
@@ -179,8 +179,8 @@
                         style="@style/view_all_line_horizontal"/>
 
                     <TextView
-                        android:layout_marginStart="@dimen/dimen_big"
-                        android:layout_marginEnd="@dimen/dimen_big"
+                        android:layout_marginStart="@dimen/dimen_big_16dp"
+                        android:layout_marginEnd="@dimen/dimen_big_16dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="end"

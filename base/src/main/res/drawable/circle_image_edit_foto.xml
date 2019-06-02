@@ -12,10 +12,10 @@
     <!--<solid android:color="@android:color/darker_gray"/>-->
 
     <padding
-        android:bottom="@dimen/dimen_small"
-        android:left="@dimen/dimen_small"
-        android:right="@dimen/dimen_small"
-        android:top="@dimen/dimen_small"/>
+        android:bottom="@dimen/dimen_small_4dp"
+        android:left="@dimen/dimen_small_4dp"
+        android:right="@dimen/dimen_small_4dp"
+        android:top="@dimen/dimen_small_4dp"/>
 
     <solid
         android:color="#fff"/>

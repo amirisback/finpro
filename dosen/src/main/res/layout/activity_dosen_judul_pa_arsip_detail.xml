@@ -14,7 +14,7 @@
         tools:context=".activities.detail.DosenJudulPaArsipDetailActivity">
 
         <TextView
-            android:layout_margin="@dimen/dimen_big"
+            android:layout_margin="@dimen/dimen_big_16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/text_proyek_akhir"/>
@@ -24,14 +24,14 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
+                android:layout_marginTop="@dimen/dimen_medium_8dp"
+                android:layout_marginBottom="@dimen/dimen_medium_8dp"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_marginStart="@dimen/dimen_big"
+                    android:layout_marginStart="@dimen/dimen_big_16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_judul_proyek_akhir"/>
@@ -45,7 +45,7 @@
                     style="@style/view_all_line_horizontal"/>
 
                 <TextView
-                    android:layout_marginStart="@dimen/dimen_big"
+                    android:layout_marginStart="@dimen/dimen_big_16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_kategori"/>
@@ -54,14 +54,14 @@
                     android:id="@+id/frg_dsn_pa_textview_kategoripa"
                     android:text="@string/dummy_kategori"
                     style="@style/content_all_text_bold_color_primary"
-                    tools:layout_marginBottom="@dimen/dimen_medium"/>
+                    tools:layout_marginBottom="@dimen/dimen_medium_8dp"/>
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:layout_margin="@dimen/dimen_big"
+            android:layout_margin="@dimen/dimen_big_16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/text_deskripsi"/>
@@ -71,14 +71,14 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
+                android:layout_marginTop="@dimen/dimen_medium_8dp"
+                android:layout_marginBottom="@dimen/dimen_medium_8dp"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_marginStart="@dimen/dimen_big"
+                    android:layout_marginStart="@dimen/dimen_big_16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_deskripsi_judul_pa"/>
@@ -87,7 +87,7 @@
                     android:id="@+id/frg_dsn_pa_textview_deskripsi"
                     style="@style/content_all_text_color_black"
                     tools:text="@string/dummyLong"
-                    android:layout_marginBottom="@dimen/dimen_medium"/>
+                    android:layout_marginBottom="@dimen/dimen_medium_8dp"/>
 
             </LinearLayout>
 

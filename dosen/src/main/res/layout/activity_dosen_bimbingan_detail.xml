@@ -9,17 +9,17 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/container_tanggal"
-        android:layout_marginTop="@dimen/dimen_medium"
-        android:layout_marginStart="@dimen/dimen_medium"
-        android:layout_marginEnd="@dimen/dimen_medium"
+        android:layout_marginTop="@dimen/dimen_medium_8dp"
+        android:layout_marginStart="@dimen/dimen_medium_8dp"
+        android:layout_marginEnd="@dimen/dimen_medium_8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:paddingTop="@dimen/dimen_medium"
-            android:paddingBottom="@dimen/dimen_medium"
-            android:paddingStart="@dimen/dimen_big"
-            android:paddingEnd="@dimen/dimen_big"
+            android:paddingTop="@dimen/dimen_medium_8dp"
+            android:paddingBottom="@dimen/dimen_medium_8dp"
+            android:paddingStart="@dimen/dimen_big_16dp"
+            android:paddingEnd="@dimen/dimen_big_16dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -47,17 +47,17 @@
     <androidx.cardview.widget.CardView
         android:layout_below="@id/container_tanggal"
         android:id="@+id/container_kehadiran"
-        android:layout_marginTop="@dimen/dimen_medium"
-        android:layout_marginStart="@dimen/dimen_medium"
-        android:layout_marginEnd="@dimen/dimen_medium"
+        android:layout_marginTop="@dimen/dimen_medium_8dp"
+        android:layout_marginStart="@dimen/dimen_medium_8dp"
+        android:layout_marginEnd="@dimen/dimen_medium_8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:paddingTop="@dimen/dimen_medium"
-            android:paddingBottom="@dimen/dimen_medium"
-            android:paddingStart="@dimen/dimen_big"
-            android:paddingEnd="@dimen/dimen_big"
+            android:paddingTop="@dimen/dimen_medium_8dp"
+            android:paddingBottom="@dimen/dimen_medium_8dp"
+            android:paddingStart="@dimen/dimen_big_16dp"
+            android:paddingEnd="@dimen/dimen_big_16dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -111,17 +111,17 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/container_review"
         android:layout_below="@+id/container_kehadiran"
-        android:layout_marginStart="@dimen/dimen_medium"
-        android:layout_marginEnd="@dimen/dimen_medium"
-        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_marginStart="@dimen/dimen_medium_8dp"
+        android:layout_marginEnd="@dimen/dimen_medium_8dp"
+        android:layout_marginTop="@dimen/dimen_medium_8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:paddingTop="@dimen/dimen_medium"
-            android:paddingBottom="@dimen/dimen_medium"
-            android:paddingStart="@dimen/dimen_big"
-            android:paddingEnd="@dimen/dimen_big"
+            android:paddingTop="@dimen/dimen_medium_8dp"
+            android:paddingBottom="@dimen/dimen_medium_8dp"
+            android:paddingStart="@dimen/dimen_big_16dp"
+            android:paddingEnd="@dimen/dimen_big_16dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -149,7 +149,7 @@
         android:id="@+id/fab_bimbingan_accept"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_margin="@dimen/dimen_big"
+        android:layout_margin="@dimen/dimen_big_16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_fab_pa_setuju"
@@ -158,7 +158,7 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_above="@id/fab_bimbingan_accept"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/dimen_big"
+        android:layout_marginRight="@dimen/dimen_big_16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fab_bimbingan_decline"

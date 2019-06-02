@@ -24,20 +24,20 @@
     android:gravity="center"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/dimen_medium">
+    android:layout_marginBottom="@dimen/dimen_medium_8dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorTextBlack"
-        android:textSize="@dimen/text_size_small"
+        android:textSize="@dimen/text_size_small_10sp"
         android:text="@string/text_d3rpla"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorTextBlack"
-        android:textSize="@dimen/text_size_small"
+        android:textSize="@dimen/text_size_small_10sp"
         android:text="@string/text_telkomuniversity"/>
 
 </LinearLayout>

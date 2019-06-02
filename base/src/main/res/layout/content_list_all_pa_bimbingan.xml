@@ -25,15 +25,15 @@
 
     <LinearLayout
         android:id="@+id/container_bimbingan"
-        android:paddingTop="@dimen/dimen_medium"
-        android:paddingBottom="@dimen/dimen_medium"
-        android:paddingStart="@dimen/dimen_big"
-        android:paddingEnd="@dimen/dimen_big"
+        android:paddingTop="@dimen/dimen_medium_8dp"
+        android:paddingBottom="@dimen/dimen_medium_8dp"
+        android:paddingStart="@dimen/dimen_big_16dp"
+        android:paddingEnd="@dimen/dimen_big_16dp"
         android:background="@color/colorBackgroundNotYet"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/min_height_list_bimbingan">
+        android:minHeight="@dimen/min_height_list_bimbingan_95dp">
 
         <TextView
             android:textColor="@color/colorTextBlack"
@@ -54,7 +54,7 @@
             android:maxLines="3" />
 
         <TextView
-            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
             android:id="@+id/ctn_mhs_pa_bimbingan_textview_status"
             android:layout_width="match_parent"
             android:gravity="end"

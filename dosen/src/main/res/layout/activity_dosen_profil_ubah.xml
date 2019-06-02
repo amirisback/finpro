@@ -37,7 +37,7 @@
             </LinearLayout>
 
             <View
-                android:layout_marginBottom="@dimen/dimen_big_super"
+                android:layout_marginBottom="@dimen/dimen_big_super_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorBackground"/>
@@ -58,7 +58,7 @@
             </LinearLayout>
 
             <View
-                android:layout_marginBottom="@dimen/dimen_big_super"
+                android:layout_marginBottom="@dimen/dimen_big_super_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorBackground"/>
@@ -79,7 +79,7 @@
             </LinearLayout>
 
             <View
-                android:layout_marginBottom="@dimen/dimen_big_super"
+                android:layout_marginBottom="@dimen/dimen_big_super_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorBackground"/>
@@ -100,7 +100,7 @@
             </LinearLayout>
 
             <View
-                android:layout_marginBottom="@dimen/dimen_big_super"
+                android:layout_marginBottom="@dimen/dimen_big_super_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorBackground"/>

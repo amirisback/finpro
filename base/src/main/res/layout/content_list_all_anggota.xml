@@ -29,10 +29,10 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
             android:text="@string/text_profil_detail_nama" />
 
         <TextView
@@ -46,18 +46,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
             android:text="@string/text_profil_detail_nim" />
 
         <TextView
-            android:layout_marginBottom="@dimen/dimen_medium"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
             android:id="@+id/ctn_all_anggota_nim"
             style="@style/content_all_text_bold_color_black"
             android:layout_width="wrap_content"
             tools:text="@string/dummy_anggota_nim_1" />
 
         <View
-            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
             android:layout_width="match_parent"
             android:background="@color/colorBackground"
             android:layout_height="@dimen/dimen_view_line"/>

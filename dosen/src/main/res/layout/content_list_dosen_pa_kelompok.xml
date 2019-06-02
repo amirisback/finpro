@@ -24,10 +24,10 @@
     style="@style/cardview_list_all_clicked">
 
     <LinearLayout
-        android:layout_marginTop="@dimen/dimen_medium"
-        android:layout_marginBottom="@dimen/dimen_medium"
-        android:layout_marginStart="@dimen/dimen_big"
-        android:layout_marginEnd="@dimen/dimen_big"
+        android:layout_marginTop="@dimen/dimen_medium_8dp"
+        android:layout_marginBottom="@dimen/dimen_medium_8dp"
+        android:layout_marginStart="@dimen/dimen_big_16dp"
+        android:layout_marginEnd="@dimen/dimen_big_16dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -36,14 +36,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/text_nama_kelompok"
-            android:textSize="@dimen/text_size_default"
+            android:textSize="@dimen/text_size_default_12sp"
             android:textColor="@color/colorTextBlack"/>
 
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:maxLines="1"
-            android:textSize="@dimen/text_size_title_medium"
+            android:textSize="@dimen/text_size_title_medium_20sp"
             android:textColor="@color/colorPrimary"
             android:id="@+id/content_nama_kelompok"
             android:text="@string/dummy"/>

@@ -32,12 +32,12 @@
         android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
-            android:layout_margin="@dimen/dimen_medium"
+            android:layout_margin="@dimen/dimen_medium_8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_margin="@dimen/dimen_big"
+                android:layout_margin="@dimen/dimen_big_16dp"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -53,7 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
-                    android:textSize="@dimen/text_size_title_small"
+                    android:textSize="@dimen/text_size_title_small_18sp"
                     android:textColor="@color/colorPrimary"
                     tools:text="@string/dummy"/>
 
@@ -72,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
-                    android:textSize="@dimen/text_size_title_small"
+                    android:textSize="@dimen/text_size_title_small_18sp"
                     android:textColor="@color/colorPrimary"
                     tools:text="@string/dummy"/>
 
@@ -89,7 +89,7 @@
                     android:id="@+id/dis_status"
                     android:textColor="@color/colorAccent"
                     android:layout_width="wrap_content"
-                    android:textSize="@dimen/text_size_title_small"
+                    android:textSize="@dimen/text_size_title_small_18sp"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
                     tools:text="@string/dummy"/>

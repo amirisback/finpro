@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    android:padding="@dimen/dimen_medium"
+    android:padding="@dimen/dimen_medium_8dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -14,10 +14,10 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:paddingTop="@dimen/dimen_medium"
-            android:paddingBottom="@dimen/dimen_medium"
-            android:paddingStart="@dimen/dimen_big"
-            android:paddingEnd="@dimen/dimen_big"
+            android:paddingTop="@dimen/dimen_medium_8dp"
+            android:paddingBottom="@dimen/dimen_medium_8dp"
+            android:paddingStart="@dimen/dimen_big_16dp"
+            android:paddingEnd="@dimen/dimen_big_16dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -43,15 +43,15 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_marginTop="@dimen/dimen_medium_8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:paddingTop="@dimen/dimen_medium"
-            android:paddingBottom="@dimen/dimen_medium"
-            android:paddingStart="@dimen/dimen_big"
-            android:paddingEnd="@dimen/dimen_big"
+            android:paddingTop="@dimen/dimen_medium_8dp"
+            android:paddingBottom="@dimen/dimen_medium_8dp"
+            android:paddingStart="@dimen/dimen_big_16dp"
+            android:paddingEnd="@dimen/dimen_big_16dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -76,14 +76,14 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_marginTop="@dimen/dimen_medium_8dp"
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:paddingTop="@dimen/dimen_medium"
-            android:paddingBottom="@dimen/dimen_medium"
-            android:paddingStart="@dimen/dimen_big"
-            android:paddingEnd="@dimen/dimen_big"
+            android:paddingTop="@dimen/dimen_medium_8dp"
+            android:paddingBottom="@dimen/dimen_medium_8dp"
+            android:paddingStart="@dimen/dimen_big_16dp"
+            android:paddingEnd="@dimen/dimen_big_16dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

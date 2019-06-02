@@ -19,7 +19,7 @@
         android:id="@+id/frg_koor_kategori_monev_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/dimen_medium"
+        android:paddingTop="@dimen/dimen_medium_8dp"
         tools:listitem="@layout/content_list_koor_kategori_monev">
     </androidx.recyclerview.widget.RecyclerView>
 

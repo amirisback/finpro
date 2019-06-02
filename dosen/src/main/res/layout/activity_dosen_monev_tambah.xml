@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/dimen_big">
+        android:padding="@dimen/dimen_big_16dp">
 
         <ImageView
             android:src="@drawable/ic_editor_info"
@@ -29,13 +29,13 @@
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:layout_marginStart="@dimen/dimen_small"
+            android:layout_marginStart="@dimen/dimen_small_4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_review_monev"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:textSize="@dimen/text_size_title_small"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:textSize="@dimen/text_size_title_small_18sp"
             android:textColor="@color/colorPrimary"/>
 
         <EditText
@@ -53,7 +53,7 @@
             android:id="@+id/act_dsn_edittext_nilai_monev"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dimen_big_ultra"
+            android:layout_marginBottom="@dimen/dimen_big_ultra_32dp"
             android:hint="@string/hint_monev_nilai"
             android:inputType="number" />
 

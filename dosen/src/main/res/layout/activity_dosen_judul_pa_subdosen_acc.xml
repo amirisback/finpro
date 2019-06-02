@@ -18,7 +18,7 @@
             tools:context=".activities.detail.DosenJudulPaSubmahasiswaDetailActivity">
 
             <TextView
-                android:layout_margin="@dimen/dimen_big"
+                android:layout_margin="@dimen/dimen_big_16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_title_pa"/>
@@ -28,14 +28,14 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_marginTop="@dimen/dimen_medium"
-                    android:layout_marginBottom="@dimen/dimen_medium"
+                    android:layout_marginTop="@dimen/dimen_medium_8dp"
+                    android:layout_marginBottom="@dimen/dimen_medium_8dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:layout_marginStart="@dimen/dimen_big"
+                        android:layout_marginStart="@dimen/dimen_big_16dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/text_nama_kelompok"/>
@@ -44,7 +44,7 @@
                         android:id="@+id/act_dsn_mhs_judul_kelompok"
                         tools:text="@string/dummy_mahasiswa_kelompok"
                         style="@style/content_all_text_bold_color_primary"
-                        android:layout_marginBottom="@dimen/dimen_medium"/>
+                        android:layout_marginBottom="@dimen/dimen_medium_8dp"/>
 
                 </LinearLayout>
 
@@ -54,7 +54,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dimen_big"
+                android:layout_margin="@dimen/dimen_big_16dp"
                 android:text="@string/text_anggota_kelompok"/>
 
             <include layout="@layout/container_proyek_akhir_anggota"/>
@@ -67,7 +67,7 @@
         android:id="@+id/act_dsn_mhs_judul_fab_accept"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_margin="@dimen/dimen_big"
+        android:layout_margin="@dimen/dimen_big_16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_fab_pa_setuju"
@@ -76,7 +76,7 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_above="@id/act_dsn_mhs_judul_fab_accept"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/dimen_big"
+        android:layout_marginRight="@dimen/dimen_big_16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/act_dsn_mhs_judul_fab_decline"
@@ -86,7 +86,7 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_toStartOf="@id/act_dsn_mhs_judul_fab_accept"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/dimen_big"
+        android:layout_marginBottom="@dimen/dimen_big_16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/act_dsn_mhs_judul_fab_conversation"

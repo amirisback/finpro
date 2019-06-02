@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dimen_big">
+        android:padding="@dimen/dimen_big_16dp">
 
         <ImageView
             android:src="@drawable/ic_editor_judul_pa"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:inputType="text"
             android:hint="Masukkan Judul PA"
-            android:layout_marginBottom="@dimen/dimen_big"/>
+            android:layout_marginBottom="@dimen/dimen_big_16dp"/>
 
         <TextView
             android:text="@string/text_kategori_proyek_akhir"
@@ -37,8 +37,8 @@
             android:id="@+id/act_dsn_judul_pa_edittext_kategori"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_big"/>
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"/>
 
         <TextView
             android:text="@string/text_deskripsi_proyek_akhir"
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
-            android:layout_marginBottom="@dimen/dimen_big_ultra"
+            android:layout_marginBottom="@dimen/dimen_big_ultra_32dp"
             android:hint="Masukkan Deskripsi Judul PA"/>
 
         <Button

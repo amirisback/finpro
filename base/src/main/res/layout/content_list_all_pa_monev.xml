@@ -7,11 +7,11 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/min_height_list_bimbingan"
-        android:paddingTop="@dimen/dimen_medium"
-        android:paddingBottom="@dimen/dimen_medium"
-        android:paddingStart="@dimen/dimen_big"
-        android:paddingEnd="@dimen/dimen_big">
+        android:minHeight="@dimen/min_height_list_bimbingan_95dp"
+        android:paddingTop="@dimen/dimen_medium_8dp"
+        android:paddingBottom="@dimen/dimen_medium_8dp"
+        android:paddingStart="@dimen/dimen_big_16dp"
+        android:paddingEnd="@dimen/dimen_big_16dp">
 
         <TextView
             android:id="@+id/ctn_mhs_pa_monev_textview_tanggal"
@@ -42,11 +42,11 @@
                 android:layout_width="@dimen/dimen_circle_background"
                 android:layout_height="@dimen/dimen_circle_background"
                 android:text="@string/dummy_nilai_monev"
-                android:textSize="@dimen/text_size_title_big"
+                android:textSize="@dimen/text_size_title_big_24sp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:background="@drawable/circle_border_nilai_monev"
-                android:layout_marginStart="@dimen/dimen_medium"
+                android:layout_marginStart="@dimen/dimen_medium_8dp"
                 android:textColor="@color/colorTextWhite"/>
 
         </LinearLayout>

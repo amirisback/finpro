@@ -24,13 +24,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
-        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_marginTop="@dimen/dimen_medium_8dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_profil_detail_nama"/>
@@ -44,7 +44,7 @@
             style="@style/view_all_line_horizontal"/>
 
         <TextView
-            android:layout_marginStart="@dimen/dimen_big"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_profil_detail_nim"/>
@@ -54,7 +54,7 @@
             style="@style/content_all_text_bold_color_black"
             android:id="@+id/dsn_sidang_textview_nim_2"/>
         <View
-            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_view_line"
             android:background="@color/colorBackground"/>
@@ -62,7 +62,7 @@
         <!--penilaian sidang mhs 2-->
         <LinearLayout
             android:visibility="gone"
-            android:layout_marginTop="@dimen/dimen_medium"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
             android:id="@+id/linear_mhs_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -72,8 +72,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_tanggal_sidang"
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_marginEnd="@dimen/dimen_big"/>
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"/>
 
             <TextView
                 android:id="@+id/tanggal_sidang2"
@@ -84,7 +84,7 @@
                 style="@style/view_all_line_horizontal"/>
 
             <TextView
-                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/text_review_sidang"/>
@@ -94,16 +94,16 @@
                 tools:text="@string/dummyLong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
                 android:id="@+id/dsn_sidang_textview_review_2"/>
 
             <View
                 style="@style/view_all_line_horizontal"/>
 
             <LinearLayout
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -122,8 +122,8 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -149,8 +149,8 @@
                 style="@style/view_all_line_horizontal"/>
 
             <LinearLayout
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -169,8 +169,8 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -196,8 +196,8 @@
                 style="@style/view_all_line_horizontal"/>
 
             <LinearLayout
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -215,7 +215,7 @@
                     android:layout_width="@dimen/dimen_weight"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="@dimen/text_size_title_big"
+                    android:textSize="@dimen/text_size_title_big_24sp"
                     tools:text="@string/dummy_nilai_monev"
                     android:textColor="@color/colorPrimary"/>
 
@@ -225,8 +225,8 @@
                 style="@style/view_all_line_horizontal"/>
 
             <LinearLayout
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -243,13 +243,13 @@
                     android:layout_width="@dimen/dimen_weight"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="@dimen/text_size_title_big"
+                    android:textSize="@dimen/text_size_title_big_24sp"
                     tools:text="@string/dummy_status_sidang"
                     android:id="@+id/dsn_sidang_textview_status_2"/>
 
             </LinearLayout>
             <View
-                android:layout_marginTop="@dimen/dimen_medium"
+                android:layout_marginTop="@dimen/dimen_medium_8dp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_view_line"
                 android:background="@color/colorBackground"/>
@@ -261,7 +261,7 @@
             android:layout_height="wrap_content"
             android:text="@string/text_tambah_sidang"
             android:textColor="@color/colorPrimary"
-            android:padding="@dimen/dimen_medium"
+            android:padding="@dimen/dimen_medium_8dp"
             android:gravity="end"
             android:textAllCaps="true"/>
 

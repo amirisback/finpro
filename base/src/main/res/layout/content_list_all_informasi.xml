@@ -30,9 +30,9 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_marginLeft="@dimen/dimen_big"
-        android:layout_marginRight="@dimen/dimen_big"
-        android:layout_marginTop="@dimen/dimen_medium"
+        android:layout_marginLeft="@dimen/dimen_big_16dp"
+        android:layout_marginRight="@dimen/dimen_big_16dp"
+        android:layout_marginTop="@dimen/dimen_medium_8dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             android:gravity="center_vertical">
 
             <TextView
-                android:textSize="@dimen/text_size_title_small"
+                android:textSize="@dimen/text_size_title_small_18sp"
                 android:id="@+id/ctn_all_info_textview_nama"
                 android:textColor="@color/colorPrimary"
                 android:layout_width="wrap_content"
@@ -75,20 +75,20 @@
         style="@style/view_all_line_horizontal"/>
 
     <TextView
-        android:layout_marginStart="@dimen/dimen_big"
-        android:layout_marginEnd="@dimen/dimen_big"
+        android:layout_marginStart="@dimen/dimen_big_16dp"
+        android:layout_marginEnd="@dimen/dimen_big_16dp"
         android:textColor="@color/colorTextBlack"
         android:id="@+id/ctn_all_info_textview_judul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_title_small"
+        android:textSize="@dimen/text_size_title_small_18sp"
         android:maxLines="1"
         android:textStyle="bold"
         android:text="@string/title_proyekakhir"/>
 
     <TextView
-        android:layout_marginStart="@dimen/dimen_big"
-        android:layout_marginEnd="@dimen/dimen_big"
+        android:layout_marginStart="@dimen/dimen_big_16dp"
+        android:layout_marginEnd="@dimen/dimen_big_16dp"
         android:textColor="@color/colorTextBlack"
         android:id="@+id/ctn_all_info_textview_isi"
         android:layout_width="match_parent"
@@ -97,9 +97,9 @@
         android:text="@string/dummyLong"/>
 
     <TextView
-        android:layout_marginStart="@dimen/dimen_big"
-        android:layout_marginEnd="@dimen/dimen_big"
-        android:layout_marginBottom="@dimen/dimen_medium"
+        android:layout_marginStart="@dimen/dimen_big_16dp"
+        android:layout_marginEnd="@dimen/dimen_big_16dp"
+        android:layout_marginBottom="@dimen/dimen_medium_8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_titiktitik"/>

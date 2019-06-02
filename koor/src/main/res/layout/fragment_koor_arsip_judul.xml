@@ -19,16 +19,16 @@
             android:id="@+id/card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_medium">
+            android:layout_margin="@dimen/dimen_medium_8dp">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dimen_medium">
+                android:layout_margin="@dimen/dimen_medium_8dp">
 
                 <TextView
-                    android:layout_marginStart="@dimen/dimen_medium"
+                    android:layout_marginStart="@dimen/dimen_medium_8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/text_kategori"
@@ -49,7 +49,7 @@
             android:id="@+id/frg_koor_judul_arsip_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingBottom="@dimen/dimen_medium"
+            android:paddingBottom="@dimen/dimen_medium_8dp"
             tools:listitem="@layout/content_list_all_pa_judul">
 
         </androidx.recyclerview.widget.RecyclerView>

@@ -14,10 +14,10 @@
 
         <TextView
             android:id="@+id/dummytext"
-            android:layout_marginTop="@dimen/dimen_big"
-            android:layout_marginStart="@dimen/dimen_big"
-            android:layout_marginEnd="@dimen/dimen_big"
-            android:layout_marginBottom="@dimen/dimen_medium"
+            android:layout_marginTop="@dimen/dimen_big_16dp"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_daftar_pa_mahasiswa"/>
@@ -28,7 +28,7 @@
             tools:listitem="@layout/content_list_all_pa_judul"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="@dimen/dimen_medium">
+            android:paddingTop="@dimen/dimen_medium_8dp">
         </androidx.recyclerview.widget.RecyclerView>
 
         <!-- Empty View -->

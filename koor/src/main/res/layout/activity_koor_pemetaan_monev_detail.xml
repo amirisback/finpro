@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_proyek_akhir"
-            android:layout_margin="@dimen/dimen_big"/>
+            android:layout_margin="@dimen/dimen_big_16dp"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -26,11 +26,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium">
+                android:layout_marginTop="@dimen/dimen_medium_8dp"
+                android:layout_marginBottom="@dimen/dimen_medium_8dp">
 
                 <TextView
-                    android:layout_marginStart="@dimen/dimen_big"
+                    android:layout_marginStart="@dimen/dimen_big_16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_judul_proyek_akhir"/>
@@ -44,7 +44,7 @@
                     style="@style/view_all_line_horizontal"/>
 
                 <TextView
-                    android:layout_marginStart="@dimen/dimen_big"
+                    android:layout_marginStart="@dimen/dimen_big_16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_nama_kelompok"/>
@@ -58,7 +58,7 @@
                     style="@style/view_all_line_horizontal"/>
 
                 <TextView
-                    android:layout_marginStart="@dimen/dimen_big"
+                    android:layout_marginStart="@dimen/dimen_big_16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/text_anggota_kelompok"/>
@@ -79,7 +79,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_big"
+            android:layout_margin="@dimen/dimen_big_16dp"
             android:text="@string/text_dosen_reviewer"/>
 
         <androidx.cardview.widget.CardView
@@ -87,11 +87,11 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
+                android:layout_marginTop="@dimen/dimen_medium_8dp"
+                android:layout_marginBottom="@dimen/dimen_medium_8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/dimen_medium"
+                android:layout_marginRight="@dimen/dimen_medium_8dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -100,7 +100,7 @@
                     android:orientation="vertical"
                     android:layout_weight="1">
                     <TextView
-                        android:layout_marginStart="@dimen/dimen_big"
+                        android:layout_marginStart="@dimen/dimen_big_16dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/text_nama_reviewer"/>
@@ -113,7 +113,7 @@
 
                 <Button
                     android:id="@+id/act_koor_btn_ubah_reviewer"
-                    android:layout_marginTop="@dimen/dimen_medium"
+                    android:layout_marginTop="@dimen/dimen_medium_8dp"
                     android:layout_weight="3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
                 android:id="@+id/text_reviewer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dimen_big"
+                android:layout_margin="@dimen/dimen_big_16dp"
                 android:text="@string/text_input_dosen_reviewer"/>
 
             <androidx.cardview.widget.CardView
@@ -150,21 +150,21 @@
                     <Spinner
                         android:id="@+id/sp_dosen"
                         android:layout_below="@id/text_reviewer"
-                        android:layout_marginStart="@dimen/dimen_medium"
-                        android:layout_marginEnd="@dimen/dimen_medium"
+                        android:layout_marginStart="@dimen/dimen_medium_8dp"
+                        android:layout_marginEnd="@dimen/dimen_medium_8dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
                     <Button
                         android:id="@+id/ctn_koor_pemetaan_button_atur"
-                        android:layout_margin="@dimen/dimen_big"
+                        android:layout_margin="@dimen/dimen_big_16dp"
                         android:layout_below="@id/sp_dosen"
                         android:background="@color/colorPrimaryDark"
                         android:textColor="@color/colorTextWhite"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:padding="@dimen/dimen_big"
+                        android:padding="@dimen/dimen_big_16dp"
                         android:text="@string/text_atur_reviewer"/>
 
                 </LinearLayout>

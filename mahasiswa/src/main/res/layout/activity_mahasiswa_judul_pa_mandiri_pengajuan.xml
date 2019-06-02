@@ -9,14 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/dimen_big"
+        android:padding="@dimen/dimen_big_16dp"
         tools:context=".activities.MahasiswaJudulPaMandiriPengajuanActivity">
 
         <ImageView
             android:layout_width="@dimen/dimen_profil_photo"
             android:layout_height="@dimen/dimen_profil_photo"
             android:src="@drawable/ic_editor_judul_pa"
-            android:layout_marginBottom="@dimen/dimen_big_ultra"
+            android:layout_marginBottom="@dimen/dimen_big_ultra_32dp"
             android:layout_gravity="center"
             android:adjustViewBounds="true"/>
 
@@ -24,16 +24,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_judul_proyek_akhir"
-            android:layout_marginBottom="@dimen/dimen_small"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
             android:textColor="@color/colorPrimary"/>
 
         <EditText
             android:id="@+id/act_mhs_pa_mandiri_judul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
             android:textColor="@color/colorTextBlack"
-            android:textSize="@dimen/text_size_medium"
+            android:textSize="@dimen/text_size_medium_16sp"
             android:inputType="text"
             android:layout_marginStart="-4dp"
             android:layout_marginEnd="-4dp"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_kategori"
-            android:layout_marginBottom="@dimen/dimen_small"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
             android:textColor="@color/colorPrimary"/>
 
 
@@ -58,16 +58,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_deskripsi_judul_pa"
-            android:layout_marginBottom="@dimen/dimen_small"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
             android:textColor="@color/colorPrimary"/>
 
         <EditText
             android:id="@+id/act_mhs_pa_mandiri_deskripsi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
             android:textColor="@color/colorTextBlack"
-            android:textSize="@dimen/text_size_medium"
+            android:textSize="@dimen/text_size_medium_16sp"
             android:inputType="textMultiLine"
             android:layout_marginStart="-4dp"
             android:layout_marginEnd="-4dp"
@@ -77,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_dosen_pembimbing"
-            android:layout_marginBottom="@dimen/dimen_small"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
             android:textColor="@color/colorPrimary"/>
 
         <Spinner
@@ -91,48 +91,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_nim_anggota_1"
-            android:layout_marginBottom="@dimen/dimen_small"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
             android:textColor="@color/colorPrimary"/>
 
         <TextView
             android:id="@+id/act_mhs_pa_mandiri_nim_anggota_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
             android:textColor="@color/colorTextBlack"
-            android:textSize="@dimen/text_size_medium"
+            android:textSize="@dimen/text_size_medium_16sp"
             android:text="@string/dummy_anggota_nim_1"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_nama_anggota_1"
-            android:layout_marginBottom="@dimen/dimen_small"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
             android:textColor="@color/colorPrimary"/>
 
         <TextView
             android:id="@+id/act_mhs_pa_mandiri_nama_anggota_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
             android:textColor="@color/colorTextBlack"
-            android:textSize="@dimen/text_size_medium"
+            android:textSize="@dimen/text_size_medium_16sp"
             android:text="@string/dummy_anggota_kelompok_1"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_nim_anggota_2"
-            android:layout_marginBottom="@dimen/dimen_small"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
             android:textColor="@color/colorPrimary"/>
 
         <EditText
             android:id="@+id/act_mhs_pa_mandiri_nim_anggota_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
             android:textColor="@color/colorTextBlack"
-            android:textSize="@dimen/text_size_medium"
+            android:textSize="@dimen/text_size_medium_16sp"
             android:inputType="number"
             android:layout_marginStart="-4dp"
             android:imeOptions="actionSearch"
@@ -144,32 +144,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_nama_anggota_2"
-            android:layout_marginBottom="@dimen/dimen_small"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
             android:textColor="@color/colorPrimary"/>
 
         <TextView
             android:id="@+id/act_mhs_pa_mandiri_nama_anggota_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
             android:textColor="@color/colorTextBlack"
-            android:textSize="@dimen/text_size_medium"
+            android:textSize="@dimen/text_size_medium_16sp"
             android:text="@string/hint_masukkan_nim"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_nama_kelompok"
-            android:layout_marginBottom="@dimen/dimen_small"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
             android:textColor="@color/colorPrimary"/>
 
         <EditText
             android:id="@+id/act_mhs_pa_mandiri_kelompok"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dimen_big"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
             android:textColor="@color/colorTextBlack"
-            android:textSize="@dimen/text_size_medium"
+            android:textSize="@dimen/text_size_medium_16sp"
             android:inputType="text"
             android:layout_marginStart="-4dp"
             android:layout_marginEnd="-4dp"

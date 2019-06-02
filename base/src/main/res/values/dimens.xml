@@ -34,12 +34,12 @@
 
     <dimen name="dimen_elevation">12dp</dimen>
 
-    <dimen name="dimen_large">64dp</dimen>
-    <dimen name="dimen_big_ultra">32dp</dimen>
-    <dimen name="dimen_big_super">24dp</dimen>
-    <dimen name="dimen_big">16dp</dimen>
-    <dimen name="dimen_medium">8dp</dimen>
-    <dimen name="dimen_small">4dp</dimen>
+    <dimen name="dimen_large_64dp">64dp</dimen>
+    <dimen name="dimen_big_ultra_32dp">32dp</dimen>
+    <dimen name="dimen_big_super_24dp">24dp</dimen>
+    <dimen name="dimen_big_16dp">16dp</dimen>
+    <dimen name="dimen_medium_8dp">8dp</dimen>
+    <dimen name="dimen_small_4dp">4dp</dimen>
 
     <dimen name="dimen_view_line">1dp</dimen>
     <dimen name="dimen_weight">0dp</dimen>
@@ -52,14 +52,14 @@
     <dimen name="dimen_drawable_padding">5dip</dimen>
 
     <!--Sizes-->
-    <dimen name="text_size_title_big">24sp</dimen>
-    <dimen name="text_size_title_small">18sp</dimen>
-    <dimen name="text_size_title_medium">20sp</dimen>
-    <dimen name="text_size_medium">16sp</dimen>
-    <dimen name="text_size_default">12sp</dimen>
-    <dimen name="text_size_small">10sp</dimen>
+    <dimen name="text_size_title_big_24sp">24sp</dimen>
+    <dimen name="text_size_title_medium_20sp">20sp</dimen>
+    <dimen name="text_size_title_small_18sp">18sp</dimen>
+    <dimen name="text_size_medium_16sp">16sp</dimen>
+    <dimen name="text_size_default_12sp">12sp</dimen>
+    <dimen name="text_size_small_10sp">10sp</dimen>
 
-    <dimen name="min_height_list_bimbingan">95dp</dimen>
-    <dimen name="min_height_info">200dp</dimen>
+    <dimen name="min_height_list_bimbingan_95dp">95dp</dimen>
+    <dimen name="min_height_info_200dp">200dp</dimen>
 
 </resources>

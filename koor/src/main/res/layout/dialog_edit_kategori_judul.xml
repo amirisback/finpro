@@ -8,13 +8,13 @@
         android:id="@+id/ctn_dialog_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dimen_medium"
+        android:padding="@dimen/dimen_medium_8dp"
         android:text="Ubah Kategori Judul"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorTextWhite"
         android:textStyle="bold"
         android:gravity="center"
-        android:textSize="@dimen/text_size_title_medium"
+        android:textSize="@dimen/text_size_title_medium_20sp"
         />
 
     <EditText
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_kategori"
-        android:paddingBottom="@dimen/dimen_big"
-        android:layout_margin="@dimen/dimen_big"/>
+        android:paddingBottom="@dimen/dimen_big_16dp"
+        android:layout_margin="@dimen/dimen_big_16dp"/>
 
 </RelativeLayout>

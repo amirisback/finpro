@@ -15,15 +15,15 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginLeft="@dimen/dimen_medium"
-            android:layout_marginRight="@dimen/dimen_medium">
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginLeft="@dimen/dimen_medium_8dp"
+            android:layout_marginRight="@dimen/dimen_medium_8dp">
 
             <LinearLayout
-                android:layout_marginLeft="@dimen/dimen_big"
-                android:layout_marginRight="@dimen/dimen_big"
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
+                android:layout_marginLeft="@dimen/dimen_big_16dp"
+                android:layout_marginRight="@dimen/dimen_big_16dp"
+                android:layout_marginTop="@dimen/dimen_medium_8dp"
+                android:layout_marginBottom="@dimen/dimen_medium_8dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                     android:gravity="center_vertical">
 
                     <TextView
-                        android:textSize="@dimen/text_size_title_small"
+                        android:textSize="@dimen/text_size_title_small_18sp"
                         android:id="@+id/act_dsn_info_detail_textview_dosen"
                         android:textColor="@color/colorPrimary"
                         android:layout_width="match_parent"
@@ -67,24 +67,24 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_medium">
+            android:layout_margin="@dimen/dimen_medium_8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:minHeight="@dimen/min_height_info"
-                android:layout_marginTop="@dimen/dimen_medium"
-                android:layout_marginBottom="@dimen/dimen_medium"
-                android:layout_marginStart="@dimen/dimen_big"
-                android:layout_marginEnd="@dimen/dimen_big">
+                android:minHeight="@dimen/min_height_info_200dp"
+                android:layout_marginTop="@dimen/dimen_medium_8dp"
+                android:layout_marginBottom="@dimen/dimen_medium_8dp"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp">
 
                 <TextView
                     android:textColor="@color/colorTextBlack"
                     android:id="@+id/act_dsn_info_detail_textview_judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_size_title_small"
+                    android:textSize="@dimen/text_size_title_small_18sp"
                     android:maxLines="1"
                     android:textStyle="bold"
                     android:text="@string/title_proyekakhir"/>

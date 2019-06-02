@@ -6,8 +6,8 @@
     <LinearLayout
         android:background="@color/colorBackgroundNotYet"
         android:id="@+id/container_content"
-        android:paddingTop="@dimen/dimen_medium"
-        android:paddingBottom="@dimen/dimen_medium"
+        android:paddingTop="@dimen/dimen_medium_8dp"
+        android:paddingBottom="@dimen/dimen_medium_8dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">

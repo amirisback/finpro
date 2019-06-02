@@ -12,20 +12,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/dimen_big">
+        android:padding="@dimen/dimen_big_16dp">
 
         <ImageView
             android:src="@drawable/ic_editor_person"
             style="@style/image_all_editor_view"/>
 
         <TextView
-            android:layout_marginStart="@dimen/dimen_small"
+            android:layout_marginStart="@dimen/dimen_small_4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_nim_mahasiswa"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:textSize="@dimen/text_size_title_small"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:textSize="@dimen/text_size_title_small_18sp"
             android:textColor="@color/colorPrimary"/>
 
         <EditText
@@ -37,13 +37,13 @@
             android:hint="@string/hint_nim_mahasiswa"/>
 
         <TextView
-            android:layout_marginStart="@dimen/dimen_small"
+            android:layout_marginStart="@dimen/dimen_small_4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_nama_mahasiswa"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:textSize="@dimen/text_size_title_small"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:textSize="@dimen/text_size_title_small_18sp"
             android:textColor="@color/colorPrimary"/>
 
         <EditText
@@ -55,13 +55,13 @@
             android:hint="@string/hint_nama_mahasiswa"/>
 
         <TextView
-            android:layout_marginStart="@dimen/dimen_small"
+            android:layout_marginStart="@dimen/dimen_small_4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_angkatan"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:textSize="@dimen/text_size_title_small"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:textSize="@dimen/text_size_title_small_18sp"
             android:textColor="@color/colorPrimary"/>
 
         <EditText
@@ -74,13 +74,13 @@
             android:hint="@string/hint_angkatan_mahasiswa"/>
 
         <TextView
-            android:layout_marginStart="@dimen/dimen_small"
+            android:layout_marginStart="@dimen/dimen_small_4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_email_dosen"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:textSize="@dimen/text_size_title_small"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:textSize="@dimen/text_size_title_small_18sp"
             android:textColor="@color/colorPrimary"/>
 
         <EditText
@@ -91,13 +91,13 @@
             android:hint="@string/hint_email_dosen"/>
 
         <TextView
-            android:layout_marginStart="@dimen/dimen_small"
+            android:layout_marginStart="@dimen/dimen_small_4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_kontak_dosen"
-            android:layout_marginTop="@dimen/dimen_medium"
-            android:layout_marginBottom="@dimen/dimen_medium"
-            android:textSize="@dimen/text_size_title_small"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:textSize="@dimen/text_size_title_small_18sp"
             android:textColor="@color/colorPrimary"/>
 
         <EditText
@@ -106,7 +106,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:hint="@string/hint_kontak_mahasiswa"
-            android:layout_marginBottom="@dimen/dimen_big_ultra"/>
+            android:layout_marginBottom="@dimen/dimen_big_ultra_32dp"/>
 
         <Button
             android:foreground="?android:attr/selectableItemBackground"
