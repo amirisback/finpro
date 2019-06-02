@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_above="@id/container_footer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_aboutus_title_finpro"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginTop="@dimen/dimen_big"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
+                android:textColor="@color/colorTextBlack"
+                android:textAllCaps="true"/>
+
+            <TextView
+                android:layout_marginStart="@dimen/dimen_big"
+                android:layout_marginEnd="@dimen/dimen_big"
+                android:layout_marginBottom="@dimen/dimen_big"
+                android:layout_marginTop="@dimen/dimen_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/text_aboutus_descrition_finpro"/>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/dimen_big"
+                android:layout_marginBottom="@dimen/dimen_big"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_marginStart="@dimen/dimen_big"
+                    android:layout_marginEnd="@dimen/dimen_big"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:src="@drawable/aboutus_photo_amir"
+                        android:layout_width="@dimen/dimen_profil_photo"
+                        android:layout_height="@dimen/dimen_profil_photo"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorTextBlack"
+                        android:text="@string/text_aboutus_nama_amir"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginStart="@dimen/dimen_big"
+                    android:layout_marginEnd="@dimen/dimen_big"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:src="@drawable/aboutus_photo_ikhsan"
+                        android:layout_width="@dimen/dimen_profil_photo"
+                        android:layout_height="@dimen/dimen_profil_photo"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_aboutus_nama_ican"
+                        android:textColor="@color/colorTextBlack"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="@dimen/dimen_big"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/text_team"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_title_big"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="@dimen/text_size_default"
+                android:text="@string/text_d3rpla"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="@dimen/text_size_default"
+                android:text="@string/text_telkomuniversity"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/container_footer"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="@dimen/dimen_big_super"
+        android:paddingStart="@dimen/dimen_big_super"
+        android:paddingTop="@dimen/dimen_big"
+        android:paddingBottom="@dimen/dimen_big"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="@dimen/dimen_weight"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/colorTextWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_aboutus_saran1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_small"
+                android:textColor="@color/colorTextWhite"
+                android:text="@string/text_aboutus_saran2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_small"
+                android:textColor="@color/colorTextWhite"
+                android:text="@string/text_aboutus_email"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="@dimen/dimen_weight"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/colorTextWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name_android"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_small"
+                android:textColor="@color/colorTextWhite"
+                android:text="@string/text_aboutus_link_website"/>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_small"
+                android:textColor="@color/colorTextWhite"
+                android:text="@string/text_aboutus_copyright"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -49,4 +49,9 @@
         android:icon="@drawable/ic_nav_arsip_judul"
         android:title="@string/menu_arsip_judul" />
 
+    <item
+        android:id="@+id/nav_menu_tentang_kami"
+        android:icon="@drawable/ic_about_us"
+        android:title="@string/menu_tentang_kami" />
+
 </menu>

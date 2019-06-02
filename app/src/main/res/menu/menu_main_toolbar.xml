@@ -25,7 +25,7 @@
     <item
         android:id="@+id/toolbar_menu_pemberitahuan"
         android:icon="@drawable/ic_toolbar_notifications"
-        android:title="@string/text_ubah"
+        android:title="@string/text_notifikasi"
         app:showAsAction="ifRoom"/>
 
     <item
@@ -35,6 +35,10 @@
     <item
         android:id="@+id/toolbar_menu_arsip_judul"
         android:title="@string/text_title_arsip_judul" />
+
+    <item
+        android:id="@+id/toolbar_menu_tentang_kami"
+        android:title="@string/menu_tentang_kami" />
 
     <item
         android:id="@+id/toolbar_menu_keluar"

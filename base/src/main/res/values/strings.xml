@@ -7,6 +7,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -15,6 +16,7 @@
     <string name="action_settings">Settings</string>
 
     <string name="app_name">Finpro</string>
+    <string name="app_name_android">Finpro - Android</string>
     <string name="app_name_long">Finpro - Final Project Management System</string>
     <string name="app_name_subtitle">Final Project Management System</string>
 
@@ -72,6 +74,7 @@
     <string name="title_monev_mahasiswa">Monev Mahasiswa</string>
     <string name="title_sidang_tambah">Tambah Sidang</string>
     <string name="title_masukkan_review_sidang">Masukkan Review Sidang</string>
+    <string name="title_tentang_kami">Tentang Kami</string>
 
     <string name="button_click_masuk">Masuk</string>
     <string name="button_click_simpan">Simpan</string>
@@ -86,6 +89,8 @@
     <string name="button_click_ubah_dosen">Ubah Dosen</string>
     <string name="button_click_tambah_sidang">Tambah Nilai Sidang</string>
     <string name="button_click_ubah_bimbingan">Ubah Bimbingan</string>
+    <string name="button_proyek_akhir_selesai">Proyek Akhir Selesai</string>
+
 
     <string name="dummyLong">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam veniam similique voluptates odit, ipsum laborum architecto distinctio harum, provident fugiat praesentium ex quod dolores laudantium aliquid quidem placeat incidunt vitae!</string>
     <string name="dummy">Dummy</string>
@@ -115,6 +120,7 @@
     <string name="dummy_email">ikhsanramadhan28@gmail.com</string>
     <string name="dummy_kehadiran">Hadir</string>
     <string name="dummt_spinner">Spinner Item</string>
+    <string name="dummy_angkatan">2016</string>
 
     <string name="dialog_hapus_title">Hapus Data</string>
     <string name="dialog_hapus_text">Anda yakin ingin menghapus ini?</string>
@@ -145,6 +151,7 @@
     <string name="menu_kategori_judul">Kategori Judul</string>
     <string name="menu_arsip_judul">Arsip Judul</string>
     <string name="menu_kategori_monev">Kategori Monev</string>
+    <string name="menu_tentang_kami">Tentang Kami</string>
 
     <string name="hint_id_pengguna">ID Pengguna</string>
     <string name="hint_kata_sandi">Kata Sandi</string>
@@ -311,6 +318,18 @@
     <string name="text_bimbingan_berhasil">Bimbingan Baru Berhasil ditambahkan, harap tunggu ACC dari dosen pembimbing</string>
     <string name="text_siap_sidang">Siap Sidang</string>
     <string name="text_tambah_sidang">Tambah Sidang</string>
+    <string name="text_notifikasi">Pemberitahuan</string>
+    <string name="text_team">Seven Primavera</string>
+    <string name="text_aboutus_nama_amir">M. Fasial Amir</string>
+    <string name="text_aboutus_nama_ican">M. Ikhsan Ramadhan</string>
+    <string name="text_aboutus_saran1">Ada Saran?</string>
+    <string name="text_aboutus_saran2">Kirim saran kamu ke</string>
+    <string name="text_aboutus_email">faisalamircs@gmail.com</string>
+    <string name="text_aboutus_title_finpro">Apa itu Finpro ?</string>
+    <string name="text_aboutus_descrition_finpro">Finpro adalah aplikasi manajemen proyek akhir milik prodi D3 Rekayasa Perangkat Lunak Aplikasi Universitas Telkom, Finpro berguna untuk memonitoring bimbingan mahasiswa, hasil pengerjaan proyek mahasiswa.</string>
+    <string name="text_aboutus_link_website">d3if-finpro.org</string>
+    <string name="text_aboutus_copyright">Copyright 2019</string>
+    <string name="text_aboutus_allright">all rights reserved</string>
 
     <string name="validate_tanggal">Tanggal Harus Di isi</string>
     <string name="validate_telp_valid">No Telepon Tidak Valid</string>
@@ -321,8 +340,6 @@
     <string name="validate_email_ada">Email Sudah di Pakai</string>
     <string name="validate_tidak_lebih_100">Tidak Boleh Lebih dari 100</string>
     <string name="validate_tidak_lebih_16">Tidak Boleh Lebih dari 16</string>
-    <string name="button_proyek_akhir_selesai">Proyek Akhir Selesai</string>
-    <string name="dummy_angkatan">2016</string>
 
     <string-array name="array_kehadiran_bimbingan">
         <item>Hadir</item>

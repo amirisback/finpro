@@ -76,6 +76,7 @@ public class DosenMainActivity extends AppCompatActivity implements DosenView {
                         openFragment(new DosenJudulFragment());
                         setTitle(R.string.title_judulpa);
                         break;
+
                 }
                 return true;
             }
@@ -170,6 +171,12 @@ public class DosenMainActivity extends AppCompatActivity implements DosenView {
                         .setNegativeButton("Batal", null)
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
+                break;
+
+            case R.id.toolbar_menu_tentang_kami:
+                Intent intentTentangKami = new Intent(DosenMainActivity.this, TentangKamiActivity.class);
+                startActivity(intentTentangKami);
+                break;
 
             default:
                 break;

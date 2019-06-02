@@ -169,6 +169,12 @@ public class MahasiswaMainActivity extends AppCompatActivity implements Mahasisw
                         .show();
                ;
                 break;
+
+            case R.id.toolbar_menu_tentang_kami:
+                Intent intentTentangKami = new Intent(MahasiswaMainActivity.this, TentangKamiActivity.class);
+                startActivity(intentTentangKami);
+                break;
+
             default:
                 break;
         }

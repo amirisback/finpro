@@ -32,8 +32,9 @@ import org.d3ifcool.koor.fragments.KoorKategoriMonevFragment;
 import org.d3ifcool.koor.fragments.KoorMahasiswaFragment;
 import org.d3ifcool.koor.fragments.KoorPemetaanMonevFragment;
 import org.d3ifcool.koor.fragments.KoorProyekAkhirFragment;
+import org.d3ifcool.koor.fragments.KoorTentangKamiFragment;
 
-public class AdminMainActivity extends AppCompatActivity
+public class KoorMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, KoorView {
 
     private SessionManager sessionManager;
@@ -90,7 +91,7 @@ public class AdminMainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.toolbar_menu_profil:
-                Intent intentProfil = new Intent(AdminMainActivity.this, KoorProfilActivity.class);
+                Intent intentProfil = new Intent(KoorMainActivity.this, KoorProfilActivity.class);
                 startActivity(intentProfil);
                 break;
             case R.id.toolbar_menu_keluar:
@@ -100,7 +101,7 @@ public class AdminMainActivity extends AppCompatActivity
                         .setMessage(getString(R.string.dialog_keluar_text))
                         .setPositiveButton("Keluar", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent intentKeluar = new Intent(AdminMainActivity.this, LoginActivity.class);
+                                Intent intentKeluar = new Intent(KoorMainActivity.this, LoginActivity.class);
                                 startActivity(intentKeluar);
                                 sessionManager.removeSession();
                                 finish();
@@ -152,6 +153,9 @@ public class AdminMainActivity extends AppCompatActivity
         }else if (id == R.id.nav_menu_arsip_judul){
             setTitle(getString(R.string.text_title_arsip_judul));
             openFragment(new KoorArsipJudulFragment());
+        }else if (id == R.id.nav_menu_tentang_kami){
+            setTitle(R.string.title_tentang_kami);
+            openFragment(new KoorTentangKamiFragment());
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

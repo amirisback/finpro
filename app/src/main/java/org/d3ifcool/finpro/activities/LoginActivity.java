@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 startActivity(i);
                 finish();
             } else if (cekPengguna.equalsIgnoreCase(ROLE_KOOR)) {
-                Intent k = new Intent(LoginActivity.this, AdminMainActivity.class);
+                Intent k = new Intent(LoginActivity.this, KoorMainActivity.class);
                 startActivity(k);
                 finish();
             }
