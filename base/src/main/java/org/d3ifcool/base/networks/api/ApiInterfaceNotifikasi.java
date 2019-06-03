@@ -11,11 +11,21 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.BASE_PARAMETER;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.BASE_PARAMETER_1;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.BASE_PARAMETER_2;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PARAMETER_NOTIFIKASI;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY_1;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY_2;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_ALL;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_SEARCH;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.URL_NOTIFIKASI;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.VAR_NOTIFIKASI;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.VAR_PARAMS;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.VAR_QUERY;
 
 /**
  * Created by Faisal Amir
@@ -52,6 +62,20 @@ public interface ApiInterfaceNotifikasi {
     Call<Notifikasi> updateNotifikasi(
             @Path(VAR_NOTIFIKASI) int notifikasi_id,
             @Field("notifikasi_baca") int notifikasi_baca
+    );
+
+    @GET(URL_NOTIFIKASI + PATH_SEARCH + PATH_ALL + BASE_PARAMETER + PARAMETER_QUERY)
+    Call<List<Notifikasi>> searchNotifikasiBy(
+            @Path(VAR_PARAMS) String parameter,
+            @Path(VAR_QUERY) String query
+    );
+
+    @GET(URL_NOTIFIKASI + PATH_SEARCH + PATH_ALL + BASE_PARAMETER_1 + PARAMETER_QUERY_1 + BASE_PARAMETER_2 + PARAMETER_QUERY_2)
+    Call<List<Notifikasi>> searchNotifikasiBy2(
+            @Path(VAR_PARAMS+"1") String parameter1,
+            @Path(VAR_QUERY+"1") String query1,
+            @Path(VAR_PARAMS+"2") String parameter2,
+            @Path(VAR_QUERY+"2") String query2
     );
 
     @GET(URL_NOTIFIKASI)

@@ -97,6 +97,47 @@ public class NotifikasiPresenter {
         });
     }
 
+    public void searchNotifikasiBy(String parameter, String query){
+        viewResult.showProgress();
+        ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
+        Call<List<Notifikasi>> call = apiInterfaceNotifikasi.searchNotifikasiBy(parameter, query);
+        call.enqueue(new Callback<List<Notifikasi>>() {
+            @Override
+            public void onResponse(Call<List<Notifikasi>> call, Response<List<Notifikasi>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetListNotifikasi(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Notifikasi>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void searchNotifikasiBy2(String parameter1, String query1, String parameter2, String query2){
+        viewResult.showProgress();
+        ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
+        Call<List<Notifikasi>> call = apiInterfaceNotifikasi.searchNotifikasiBy2(parameter1, query1, parameter2, query2);
+        call.enqueue(new Callback<List<Notifikasi>>() {
+            @Override
+            public void onResponse(Call<List<Notifikasi>> call, Response<List<Notifikasi>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetListNotifikasi(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Notifikasi>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
+
+
+
+
     public void deleteNotifikasi(int notifikasi_id){
         viewEditor.showProgress();
         ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
