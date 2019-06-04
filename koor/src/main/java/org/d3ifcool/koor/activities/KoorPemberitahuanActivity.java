@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import org.d3ifcool.base.helpers.SessionManager;
 import org.d3ifcool.base.interfaces.lists.NotifikasiListView;
 import org.d3ifcool.base.interfaces.works.NotifikasiWorkView;
 import org.d3ifcool.base.models.Notifikasi;
@@ -32,6 +33,8 @@ public class KoorPemberitahuanActivity extends AppCompatActivity implements Noti
     private KoorPemberitahuanViewAdapter adapter;
     private View empty_view;
 
+    private SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,7 @@ public class KoorPemberitahuanActivity extends AppCompatActivity implements Noti
 
         progressDialog = new ProgressDialog(this);
         notifikasiPresenter = new NotifikasiPresenter(this, this);
+        sessionManager = new SessionManager(this);
 
         adapter = new KoorPemberitahuanViewAdapter(this);
         recyclerView = findViewById(R.id.all_pemberitahuan_recyclerview);
@@ -56,14 +60,14 @@ public class KoorPemberitahuanActivity extends AppCompatActivity implements Noti
 
         adapter.setNotifikasiPresenter(notifikasiPresenter);
 
-        notifikasiPresenter.getNotifikasi();
+        notifikasiPresenter.sortNotifikasi(sessionManager.getSessionMahasiswaNim(), sessionManager.getSessionMahasiswaNama());
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        notifikasiPresenter.getNotifikasi();
+        notifikasiPresenter.sortNotifikasi(sessionManager.getSessionKoorNip(), sessionManager.getSessionKoorNama());
     }
 
     @Override

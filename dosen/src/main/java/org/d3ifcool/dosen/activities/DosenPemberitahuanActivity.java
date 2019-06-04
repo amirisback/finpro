@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import org.d3ifcool.base.helpers.SessionManager;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.dosen.adapters.recyclerview.DosenPemberitahuanViewAdapter;
 import org.d3ifcool.base.interfaces.lists.NotifikasiListView;
@@ -32,6 +33,8 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
     private DosenPemberitahuanViewAdapter adapter;
     private View empty_view;
 
+    private SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,7 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
 
         progressDialog = new ProgressDialog(this);
         notifikasiPresenter = new NotifikasiPresenter(this, this);
+        sessionManager = new SessionManager(this);
 
         adapter = new DosenPemberitahuanViewAdapter(this);
         recyclerView = findViewById(R.id.all_pemberitahuan_recyclerview);
@@ -56,14 +60,14 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
 
         adapter.setNotifikasiPresenter(notifikasiPresenter);
 
-        notifikasiPresenter.getNotifikasi();
+        notifikasiPresenter.sortNotifikasi(sessionManager.getSessionDosenNip(), sessionManager.getSessionDosenNama());
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        notifikasiPresenter.getNotifikasi();
+        notifikasiPresenter.sortNotifikasi(sessionManager.getSessionDosenNip(), sessionManager.getSessionDosenNama());
     }
 
     @Override
