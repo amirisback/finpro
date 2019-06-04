@@ -52,6 +52,28 @@
 
 
                 <TextView
+                    android:text="@string/text_angkatan"
+                    style="@style/profile_all_textview_subtitle"/>
+
+                <TextView
+                    android:id="@+id/act_koor_profil_angkatan_mhs"
+                    tools:text="@string/dummy_email"
+                    style="@style/profile_all_textview_content"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_marginBottom="@dimen/dimen_big_super_24dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"/>
+
+
+            <LinearLayout
+                style="@style/profile_all_container_textview">
+
+
+                <TextView
                     android:text="@string/text_profil_detail_email"
                     style="@style/profile_all_textview_subtitle"/>
 
@@ -63,7 +85,6 @@
             </LinearLayout>
 
             <View
-
                 android:layout_marginBottom="@dimen/dimen_big_super_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_view_line"
@@ -78,6 +99,27 @@
 
                 <TextView
                     android:id="@+id/act_koor_profil_kontak_mhs"
+                    tools:text="@string/dummy_no_telp"
+                    style="@style/profile_all_textview_content"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_marginBottom="@dimen/dimen_big_super_24dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"/>
+
+
+            <LinearLayout
+                style="@style/profile_all_container_textview">
+
+                <TextView
+                    android:text="@string/text_judul_proyek_akhir"
+                    style="@style/profile_all_textview_subtitle"/>
+
+                <TextView
+                    android:id="@+id/act_koor_profil_judul_mhs"
                     tools:text="@string/dummy_no_telp"
                     style="@style/profile_all_textview_content"/>
 

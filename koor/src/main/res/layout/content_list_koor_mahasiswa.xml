@@ -48,7 +48,7 @@
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical">
@@ -67,6 +67,13 @@
                     android:id="@+id/ctn_koor_mahasiswa_nim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/dummy"/>
+
+                <TextView
+                    android:id="@+id/ctn_koor_status_judul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_default_12sp"
                     android:text="@string/dummy"/>
 
             </LinearLayout>

@@ -19,7 +19,7 @@ public class KoorMahasiswaTambahActivity extends AppCompatActivity implements Ma
 
     private MahasiswaPresenter presenter;
     private ProgressDialog dialog;
-    private EditText et_nim, et_nama, et_angkatan, et_kontak, et_email;
+    private EditText et_nim, et_nama;
     private Button btn_simpan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +34,6 @@ public class KoorMahasiswaTambahActivity extends AppCompatActivity implements Ma
 
         et_nim = findViewById(R.id.act_koor_edittext_nim_mahasiswa);
         et_nama = findViewById(R.id.act_koor_edittext_nama_mahasiswa);
-        et_angkatan = findViewById(R.id.act_koor_edittext_angkatan_mahasiswa);
-        et_kontak = findViewById(R.id.act_koor_edittext_kontak_mahasiswa);
-        et_email = findViewById(R.id.act_koor_edittext_email_mahasiswa);
         btn_simpan = findViewById(R.id.act_koor_mahasiswa_button_simpan);
 
         dialog.setMessage(getString(R.string.text_progress_dialog));
@@ -46,18 +43,13 @@ public class KoorMahasiswaTambahActivity extends AppCompatActivity implements Ma
             public void onClick(View v) {
                 String nim = et_nim.getText().toString();
                 String nama = et_nama.getText().toString();
-                String angkatan = et_angkatan.getText().toString();
-                String kontak = et_kontak.getText().toString();
-                String email = et_email.getText().toString();
 
                 if (nim.isEmpty()) {
                     et_nim.setError(getString(R.string.text_tidak_boleh_kosong));
                 } else if (nama.isEmpty()) {
                     et_nama.setError(getString(R.string.text_tidak_boleh_kosong));
-                } else if (angkatan.isEmpty()) {
-                    et_angkatan.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else {
-                    presenter.createMahasiswa(nim, nama, angkatan, kontak, email);
+                    presenter.createMahasiswa(nim, nama);
                 }
             }
         });

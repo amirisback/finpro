@@ -37,10 +37,7 @@ public interface ApiInterfaceMahasiswa {
     @POST(URL_MAHASISWA)
     Call<Mahasiswa> createMahasiswa(
             @Field("mhs_nim") String mhs_nim,
-            @Field("mhs_nama") String mhs_nama,
-            @Field("mhs_angkatan") String angkatan,
-            @Field("mhs_kontak") String mhs_kontak,
-            @Field("mhs_email") String mhs_email
+            @Field("mhs_nama") String mhs_nama
     );
 
     @FormUrlEncoded

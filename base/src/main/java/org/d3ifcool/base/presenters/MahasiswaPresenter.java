@@ -77,10 +77,10 @@ public class MahasiswaPresenter {
         });
     }
 
-    public void createMahasiswa(String nim, String nama, String angkatan, String kontak, String email){
+    public void createMahasiswa(String nim, String nama){
         viewEditor.showProgress();
         ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
-        Call<Mahasiswa> call = apiInterfaceMahasiswa.createMahasiswa(nim, nama, angkatan, kontak, email);
+        Call<Mahasiswa> call = apiInterfaceMahasiswa.createMahasiswa(nim, nama);
         call.enqueue(new Callback<Mahasiswa>() {
             @Override
             public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {

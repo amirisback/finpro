@@ -1,7 +1,6 @@
 package org.d3ifcool.koor.activities.details;
 
 import androidx.appcompat.app.AppCompatActivity;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -21,15 +20,17 @@ import org.d3ifcool.base.presenters.MahasiswaPresenter;
 import org.d3ifcool.koor.R;
 import org.d3ifcool.koor.activities.editors.KoorMahasiswaUbahActivity;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_MAHASISWA;
 
 public class KoorMahasiswaDetailActivity extends AppCompatActivity implements MahasiswaWorkView {
+
     public static final String EXTRA_MAHASISWA = "extra_mahasiswa";
+
     private Mahasiswa extraMahasiswa;
-    private MahasiswaPresenter presenter;
-    private ProgressDialog dialog;
-    private TextView tv_nama, tv_nim, tv_kontak, tv_email;
-    private CircleImageView circleImageView;
+    private MahasiswaPresenter mahasiswaPresenter;
+    private ProgressDialog progressDialog;
 
 
     @Override
@@ -41,27 +42,33 @@ public class KoorMahasiswaDetailActivity extends AppCompatActivity implements Ma
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0f);
 
-        presenter = new MahasiswaPresenter(this);
-        dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.text_progress_dialog));
+        mahasiswaPresenter = new MahasiswaPresenter(this);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
-        tv_nama = findViewById(R.id.act_koor_profil_nama_mhs);
-        tv_nim = findViewById(R.id.act_koor_profil_nim);
-        tv_kontak = findViewById(R.id.act_koor_profil_kontak_mhs);
-        tv_email = findViewById(R.id.act_koor_profil_email_mhs);
-        circleImageView = findViewById(R.id.act_koor_profil_foto_mhs);
+        TextView tv_nama = findViewById(R.id.act_koor_profil_nama_mhs);
+        TextView tv_nim = findViewById(R.id.act_koor_profil_nim);
+        TextView tv_kontak = findViewById(R.id.act_koor_profil_kontak_mhs);
+        TextView tv_email = findViewById(R.id.act_koor_profil_email_mhs);
+        TextView tv_angkatan = findViewById(R.id.act_koor_profil_angkatan_mhs);
+        TextView tv_judul = findViewById(R.id.act_koor_profil_judul_mhs);
+        CircleImageView circleImageView = findViewById(R.id.act_koor_profil_foto_mhs);
 
         extraMahasiswa = getIntent().getParcelableExtra(EXTRA_MAHASISWA);
         String nim = extraMahasiswa.getMhs_nim();
         String nama = extraMahasiswa.getMhs_nama();
         String kontak = extraMahasiswa.getMhs_kontak();
         String email = extraMahasiswa.getMhs_email();
+        String angkatan = extraMahasiswa.getAngkatan();
+        String judul = extraMahasiswa.getJudul_nama();
         String path = extraMahasiswa.getMhs_foto();
 
         tv_nama.setText(nama);
         tv_nim.setText(nim);
         tv_email.setText(email);
         tv_kontak.setText(kontak);
+        tv_angkatan.setText(angkatan);
+        tv_judul.setText(judul);
         Picasso.get().load(URL_FOTO_MAHASISWA + path).into(circleImageView);
 
     }
@@ -93,7 +100,7 @@ public class KoorMahasiswaDetailActivity extends AppCompatActivity implements Ma
                     .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // Continue with delete operation
-                            presenter.deleteMahasiswa(extraMahasiswa.getMhs_nim());
+                            mahasiswaPresenter.deleteMahasiswa(extraMahasiswa.getMhs_nim());
                         }
                     })
 
@@ -106,12 +113,12 @@ public class KoorMahasiswaDetailActivity extends AppCompatActivity implements Ma
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override

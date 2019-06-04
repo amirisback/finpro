@@ -41,9 +41,7 @@ public interface ApiInterfaceDosen {
     Call<Dosen> createDosen(
             @Field("dsn_nip") String dsn_nip,
             @Field("dsn_nama") String dsn_nama,
-            @Field("dsn_kode") String dsn_kode,
-            @Field("dsn_kontak") String dsn_kontak,
-            @Field("dsn_email") String dsn_email
+            @Field("dsn_kode") String dsn_kode
     );
 
     @FormUrlEncoded

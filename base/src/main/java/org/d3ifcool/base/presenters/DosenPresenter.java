@@ -97,11 +97,11 @@ public class DosenPresenter {
         });
     }
 
-    public void createDosen(String nip, String nama, String kode, String kontak, String email){
+    public void createDosen(String nip, String nama, String kode){
         viewEditor.showProgress();
 
         ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
-        Call<Dosen> call = apiInterfaceDosen.createDosen(nip,nama,kode,kontak,email);
+        Call<Dosen> call = apiInterfaceDosen.createDosen(nip,nama,kode);
         call.enqueue(new Callback<Dosen>() {
             @Override
             public void onResponse(Call<Dosen> call, Response<Dosen> response) {
