@@ -31,7 +31,9 @@ public class MahasiswaProfilUbahActivity extends AppCompatActivity implements Ma
     private MahasiswaPresenter mahasiswaPresenter;
 
     private String nama_baru, angkatan_baru, kontak_baru, email_baru;
-    private EditText et_nama, et_angkatan, et_email, et_kontak;
+    private EditText et_nama, et_email, et_kontak;
+
+    private TextView et_angkatan;
 
 
     @Override

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.d3ifcool.finpro">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,8 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_logo_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:hardwareAccelerated="true">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".activities.KoorMainActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
@@ -27,11 +27,9 @@
         </activity>
         <activity android:name=".activities.TentangKamiActivity" />
         <activity
-            android:name=".activities.DosenMainActivity"
-            android:windowSoftInputMode="adjustPan" />
+            android:name=".activities.DosenMainActivity"/>
         <activity
-            android:name=".activities.MahasiswaMainActivity"
-            android:windowSoftInputMode="adjustPan" />
+            android:name=".activities.MahasiswaMainActivity"/>
     </application>
 
 </manifest>
