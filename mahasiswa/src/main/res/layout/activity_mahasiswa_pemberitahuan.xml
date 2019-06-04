@@ -4,17 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".activities.MahasiswaPemberitahuanActivity"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/act_mhs_pemberitahuan_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".activities.MahasiswaPemberitahuanActivity"
-        tools:listitem="@layout/content_list_all_notifikasi">
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <!-- Empty View -->
-    <include layout="@layout/content_list_empty"/>
+    <include layout="@layout/container_pemberitahuan"/>
 
 </RelativeLayout>

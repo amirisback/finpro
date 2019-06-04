@@ -7,13 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".activities.DosenPemberitahuanActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/act_dsn_pemberitahuan_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/content_list_all_notifikasi"/>
-
-    <!-- Empty View -->
-    <include layout="@layout/content_list_empty"/>
+    <include layout="@layout/container_pemberitahuan"/>
 
 </RelativeLayout>

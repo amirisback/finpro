@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import org.d3ifcool.base.helpers.SessionManager;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.adapters.recyclerview.MahasiswaPemberitahuanViewAdapter;
 import org.d3ifcool.base.interfaces.lists.NotifikasiListView;
@@ -27,9 +28,12 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements
     private RecyclerView recyclerView;
     private NotifikasiPresenter notifikasiPresenter;
     private ProgressDialog progressDialog;
+
     private ArrayList<Notifikasi> notifikasiArrayList = new ArrayList<>();
     private MahasiswaPemberitahuanViewAdapter adapter;
     private View empty_view;
+
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +45,11 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements
 
         progressDialog = new ProgressDialog(this);
         notifikasiPresenter = new NotifikasiPresenter(this, this);
+        sessionManager = new SessionManager(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         adapter = new MahasiswaPemberitahuanViewAdapter(this);
-        recyclerView = findViewById(R.id.act_mhs_pemberitahuan_recyclerview);
+        recyclerView = findViewById(R.id.all_pemberitahuan_recyclerview);
         empty_view = findViewById(R.id.view_emptyview);
 
         adapter.setNotifikasiPresenter(notifikasiPresenter);
@@ -54,14 +59,14 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.addItemDecoration(itemDecoration);
 
-        notifikasiPresenter.getNotifikasi();
+        notifikasiPresenter.sortNotifikasi(sessionManager.getSessionMahasiswaNim(), sessionManager.getSessionMahasiswaNama());
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        notifikasiPresenter.getNotifikasi();
+        notifikasiPresenter.sortNotifikasi(sessionManager.getSessionMahasiswaNim(), sessionManager.getSessionMahasiswaNama());
     }
 
     @Override
@@ -92,7 +97,7 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onSucces() {
+    public void onSuccesCreateNotifikasi() {
     }
 
     @Override

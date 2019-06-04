@@ -23,7 +23,7 @@ public interface NotifikasiWorkView {
 
     void hideProgress();
 
-    void onSucces();
+    void onSuccesCreateNotifikasi();
 
     void onFailed(String message);
 

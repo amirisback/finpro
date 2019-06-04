@@ -21,6 +21,7 @@ import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_ALL;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_SEARCH;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_SORT;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.URL_NOTIFIKASI;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.VAR_NOTIFIKASI;
@@ -49,12 +50,10 @@ public interface ApiInterfaceNotifikasi {
     @FormUrlEncoded
     @POST(URL_NOTIFIKASI)
     Call<Notifikasi> createNotifikasi(
-            @Field("notifikasi_tanggal") String notifikasi_tanggal,
             @Field("notifikasi_kategori") String notifikasi_kategori,
             @Field("notifikasi_deskripsi") String notifikasi_deskripsi,
             @Field("notifikasi_dari") String notifikasi_dari,
-            @Field("notifikasi_untuk") String notifikasi_untuk,
-            @Field("notifikasi_baca") Boolean notifikasi_baca
+            @Field("notifikasi_untuk") String notifikasi_untuk
     );
 
     @FormUrlEncoded
@@ -75,6 +74,12 @@ public interface ApiInterfaceNotifikasi {
             @Path(VAR_PARAMS+"1") String parameter1,
             @Path(VAR_QUERY+"1") String query1,
             @Path(VAR_PARAMS+"2") String parameter2,
+            @Path(VAR_QUERY+"2") String query2
+    );
+
+    @GET(URL_NOTIFIKASI + PATH_SORT + PARAMETER_QUERY_1 + PARAMETER_QUERY_2)
+    Call<List<Notifikasi>> sortNotifikasi(
+            @Path(VAR_QUERY+"1") String query1,
             @Path(VAR_QUERY+"2") String query2
     );
 

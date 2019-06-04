@@ -44,7 +44,7 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
         notifikasiPresenter = new NotifikasiPresenter(this, this);
 
         adapter = new DosenPemberitahuanViewAdapter(this);
-        recyclerView = findViewById(R.id.act_dsn_pemberitahuan_recyclerview);
+        recyclerView = findViewById(R.id.all_pemberitahuan_recyclerview);
         empty_view = findViewById(R.id.view_emptyview);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -94,7 +94,7 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
     }
 
     @Override
-    public void onSucces() {
+    public void onSuccesCreateNotifikasi() {
 
     }
 

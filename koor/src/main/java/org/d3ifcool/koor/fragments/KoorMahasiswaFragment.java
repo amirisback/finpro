@@ -21,7 +21,7 @@ import org.d3ifcool.base.interfaces.lists.MahasiswaListView;
 import org.d3ifcool.base.models.Mahasiswa;
 import org.d3ifcool.base.presenters.MahasiswaPresenter;
 import org.d3ifcool.koor.R;
-import org.d3ifcool.koor.activities.editors.KoorMahasiswaTambahActivity;
+import org.d3ifcool.koor.activities.editors.create.KoorMahasiswaTambahActivity;
 import org.d3ifcool.koor.adapters.KoorMahasiswaViewAdapter;
 
 import java.util.ArrayList;

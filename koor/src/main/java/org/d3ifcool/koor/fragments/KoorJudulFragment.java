@@ -27,7 +27,7 @@ import org.d3ifcool.base.models.Judul;
 import org.d3ifcool.base.presenters.DosenPresenter;
 import org.d3ifcool.base.presenters.JudulPresenter;
 import org.d3ifcool.koor.R;
-import org.d3ifcool.koor.activities.editors.KoorJudulPaSubdosenTambahActivity;
+import org.d3ifcool.koor.activities.editors.create.KoorJudulPaSubdosenTambahActivity;
 import org.d3ifcool.koor.adapters.KoorJudulPaSubdosenViewAdapter;
 
 import java.util.ArrayList;

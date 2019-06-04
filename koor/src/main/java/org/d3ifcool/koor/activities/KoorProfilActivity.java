@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.base.helpers.SessionManager;
 import org.d3ifcool.koor.R;
-import org.d3ifcool.koor.activities.editors.KoorProfilUbahActivity;
+import org.d3ifcool.koor.activities.editors.update.KoorProfilUbahActivity;
 
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_KOOR;
 

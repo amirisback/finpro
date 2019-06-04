@@ -59,15 +59,15 @@ public class NotifikasiPresenter {
         this.viewEditor = viewEditor;
     }
 
-    public void createNotifikasi(String notifikasi_tanggal, String notifikasi_kategori, String notifikasi_deskripsi, String notifikasi_dari, String notifikasi_untuk, Boolean notifikasi_baca){
+    public void createNotifikasi(String notifikasi_kategori, String notifikasi_deskripsi, String notifikasi_dari, String notifikasi_untuk){
         viewEditor.showProgress();
         ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
-        Call<Notifikasi> call = apiInterfaceNotifikasi.createNotifikasi(notifikasi_tanggal, notifikasi_kategori, notifikasi_deskripsi, notifikasi_dari, notifikasi_untuk, notifikasi_baca);
+        Call<Notifikasi> call = apiInterfaceNotifikasi.createNotifikasi(notifikasi_kategori, notifikasi_deskripsi, notifikasi_dari, notifikasi_untuk);
         call.enqueue(new Callback<Notifikasi>() {
             @Override
             public void onResponse(Call<Notifikasi> call, Response<Notifikasi> response) {
                 viewEditor.hideProgress();
-                viewEditor.onSucces();
+                viewEditor.onSuccesCreateNotifikasi();
             }
 
             @Override
@@ -135,8 +135,24 @@ public class NotifikasiPresenter {
         });
     }
 
+    public void sortNotifikasi(String query1, String query2){
+        viewResult.showProgress();
+        ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
+        Call<List<Notifikasi>> call = apiInterfaceNotifikasi.sortNotifikasi(query1, query2);
+        call.enqueue(new Callback<List<Notifikasi>>() {
+            @Override
+            public void onResponse(Call<List<Notifikasi>> call, Response<List<Notifikasi>> response) {
+                viewResult.hideProgress();
+                viewResult.onGetListNotifikasi(response.body());
+            }
 
-
+            @Override
+            public void onFailure(Call<List<Notifikasi>> call, Throwable t) {
+                viewResult.hideProgress();
+                viewResult.onFailed(t.getLocalizedMessage());
+            }
+        });
+    }
 
     public void deleteNotifikasi(int notifikasi_id){
         viewEditor.showProgress();
@@ -146,7 +162,7 @@ public class NotifikasiPresenter {
             @Override
             public void onResponse(Call<Notifikasi> call, Response<Notifikasi> response) {
                 viewEditor.hideProgress();
-                viewEditor.onSucces();
+                viewEditor.onSuccesCreateNotifikasi();
             }
 
             @Override
@@ -164,7 +180,7 @@ public class NotifikasiPresenter {
         call.enqueue(new Callback<Notifikasi>() {
             @Override
             public void onResponse(Call<Notifikasi> call, Response<Notifikasi> response) {
-                viewEditor.onSucces();
+                viewEditor.onSuccesCreateNotifikasi();
             }
 
             @Override

@@ -24,7 +24,7 @@ public class ApiUrl {
 
     public static final class FinproUrl {
 
-//        public static final String BASE_URL = "https://e-denah.000webhostapp.com"; // Link Website
+        // public static final String BASE_URL = "https://e-denah.000webhostapp.com"; // Link Website
         public static final String BASE_URL = "http://d3if-finpro.org"; // Link Website
 
         public static final String PATH_API = "api/v1"; // Link API

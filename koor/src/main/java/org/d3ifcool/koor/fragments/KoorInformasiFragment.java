@@ -21,7 +21,7 @@ import org.d3ifcool.base.interfaces.lists.InformasiListView;
 import org.d3ifcool.base.models.Informasi;
 import org.d3ifcool.base.presenters.InformasiPresenter;
 import org.d3ifcool.koor.R;
-import org.d3ifcool.koor.activities.editors.KoorInformasiTambahActivity;
+import org.d3ifcool.koor.activities.editors.create.KoorInformasiTambahActivity;
 import org.d3ifcool.koor.adapters.KoorInformasiViewAdapter;
 
 import java.util.ArrayList;

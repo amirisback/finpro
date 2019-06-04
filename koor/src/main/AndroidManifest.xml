@@ -5,26 +5,26 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
-        <activity android:name=".activities.editors.KoorProfilUbahActivity"></activity>
+        <activity android:name=".activities.editors.update.KoorProfilUbahActivity"></activity>
         <activity android:name=".activities.details.KoorJudulPaArsipDetailActivity" />
         <activity android:name=".activities.details.KoorPemetaanMonevDetailActivity" />
         <activity android:name=".activities.editors.KoorPemetaanMahasiswaMonevTambahActivity" />
         <activity android:name=".activities.KoorPemberitahuanActivity" />
         <activity android:name=".activities.KoorProfilActivity" />
-        <activity android:name=".activities.editors.KoorMahasiswaTambahActivity" />
-        <activity android:name=".activities.editors.KoorDosenTambahActivity" />
-        <activity android:name=".activities.editors.KoorInformasiTambahActivity" />
-        <activity android:name=".activities.editors.KoorJudulPaSubdosenUbahActivity" />
-        <activity android:name=".activities.editors.KoorJudulPaSubdosenTambahActivity" />
+        <activity android:name=".activities.editors.create.KoorMahasiswaTambahActivity" />
+        <activity android:name=".activities.editors.create.KoorDosenTambahActivity" />
+        <activity android:name=".activities.editors.create.KoorInformasiTambahActivity" />
+        <activity android:name=".activities.editors.update.KoorJudulPaSubdosenUbahActivity" />
+        <activity android:name=".activities.editors.create.KoorJudulPaSubdosenTambahActivity" />
         <activity android:name=".activities.details.KoorJudulPaSubdosenDetailActivity" />
         <activity android:name=".activities.editors.KoorProyekAkhirUbahActivity" />
         <activity android:name=".activities.details.KoorProyekAkhirDetailActivity" />
         <activity android:name=".activities.details.KoorInformasiDetailActivity" />
         <activity android:name=".activities.details.KoorMahasiswaDetailActivity" />
         <activity android:name=".activities.details.KoorDosenDetailActivity" />
-        <activity android:name=".activities.editors.KoorInformasiUbahActivity" />
-        <activity android:name=".activities.editors.KoorMahasiswaUbahActivity" />
-        <activity android:name=".activities.editors.KoorDosenUbahActivity" />
+        <activity android:name=".activities.editors.update.KoorInformasiUbahActivity" />
+        <activity android:name=".activities.editors.update.KoorMahasiswaUbahActivity" />
+        <activity android:name=".activities.editors.update.KoorDosenUbahActivity" />
     </application>
 
 </manifest>

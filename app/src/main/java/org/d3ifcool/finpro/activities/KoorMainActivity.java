@@ -17,11 +17,13 @@ import androidx.fragment.app.Fragment;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.d3ifcool.dosen.activities.DosenPemberitahuanActivity;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.base.helpers.SessionManager;
 import org.d3ifcool.base.interfaces.objects.KoorView;
 import org.d3ifcool.base.models.KoordinatorPa;
 import org.d3ifcool.base.presenters.KoorPresenter;
+import org.d3ifcool.koor.activities.KoorPemberitahuanActivity;
 import org.d3ifcool.koor.activities.KoorProfilActivity;
 import org.d3ifcool.koor.fragments.KoorArsipJudulFragment;
 import org.d3ifcool.koor.fragments.KoorDosenFragment;
@@ -90,10 +92,17 @@ public class KoorMainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
+
+            case R.id.toolbar_menu_pemberitahuan:
+                Intent intentPemberitahuan = new Intent(KoorMainActivity.this, KoorPemberitahuanActivity.class);
+                startActivity(intentPemberitahuan);
+                break;
+
             case R.id.toolbar_menu_profil:
                 Intent intentProfil = new Intent(KoorMainActivity.this, KoorProfilActivity.class);
                 startActivity(intentProfil);
                 break;
+
             case R.id.toolbar_menu_keluar:
                 new AlertDialog
                         .Builder(this)

@@ -33,7 +33,7 @@ public class Constant {
         public static final String JUDUL_STATUS_DISETUJUI = "Judul disetujui";
 
         // -----------------------------------------------------------------------------------------
-        public static final String PACKAGE_ROOT = "id.frogobox.cataloguemovie";
+        public static final String PACKAGE_ROOT = "org.d3ifcool.finpro";
         public static final String PACKAGE_PATH_ACTIVITIES = PACKAGE_ROOT+".views.activities";
         public static final String PATH_MAIN_ACTIVITY = PACKAGE_PATH_ACTIVITIES+".MainActivity";
         // -----------------------------------------------------------------------------------------

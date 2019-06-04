@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.d3ifcool.base.helpers.MethodHelper;
+import org.d3ifcool.base.interfaces.works.NotifikasiWorkView;
+import org.d3ifcool.base.presenters.NotifikasiPresenter;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.base.helpers.SessionManager;
 import org.d3ifcool.base.interfaces.works.InformasiWorkView;
@@ -16,11 +19,16 @@ import org.d3ifcool.base.presenters.InformasiPresenter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class DosenInformasiTambahActivity extends AppCompatActivity implements InformasiWorkView {
+import static org.d3ifcool.base.helpers.ConstantNotif.ConstantaNotif.NOTIF_DESC_INFORMASI;
+import static org.d3ifcool.base.helpers.ConstantNotif.ConstantaNotif.NOTIF_KATEGORI_INFORMASI;
+import static org.d3ifcool.base.helpers.ConstantNotif.ConstantaNotif.UNTUK_SEMUA;
+
+public class DosenInformasiTambahActivity extends AppCompatActivity implements InformasiWorkView, NotifikasiWorkView {
 
     private ProgressDialog progressDialog;
-    private InformasiPresenter presenter;
+    private InformasiPresenter informasiPresenter;
     private SessionManager sessionManager;
+    private NotifikasiPresenter notifikasiPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +37,8 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
 
         sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
-        presenter = new InformasiPresenter(this);
+        informasiPresenter = new InformasiPresenter(this);
+        notifikasiPresenter = new NotifikasiPresenter(this);
 
         setTitle(R.string.title_informasi_tambah);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -50,7 +59,7 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
                 } else if (text_info_deskripsi.isEmpty()) {
                     info_deskripsi.setError(getString(R.string.text_tidak_boleh_kosong));
                 } else {
-                    presenter.createInformasi(text_info_judul, text_info_deskripsi, sessionManager.getSessionDosenNama());
+                    informasiPresenter.createInformasi(text_info_judul, text_info_deskripsi, sessionManager.getSessionDosenNama());
                 }
             }
         });
@@ -85,8 +94,13 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
     }
 
     @Override
-    public void onSucces() {
+    public void onSuccesCreateNotifikasi() {
         finish();
+    }
+
+    @Override
+    public void onSucces() {
+        notifikasiPresenter.createNotifikasi(NOTIF_KATEGORI_INFORMASI, NOTIF_DESC_INFORMASI(sessionManager.getSessionDosenNama()), sessionManager.getSessionDosenNama(), UNTUK_SEMUA);
     }
 
     @Override

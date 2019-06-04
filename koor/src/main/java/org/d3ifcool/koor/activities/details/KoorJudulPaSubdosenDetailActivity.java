@@ -16,7 +16,7 @@ import org.d3ifcool.base.interfaces.works.JudulWorkView;
 import org.d3ifcool.base.models.Judul;
 import org.d3ifcool.base.presenters.JudulPresenter;
 import org.d3ifcool.koor.R;
-import org.d3ifcool.koor.activities.editors.KoorJudulPaSubdosenUbahActivity;
+import org.d3ifcool.koor.activities.editors.update.KoorJudulPaSubdosenUbahActivity;
 
 public class KoorJudulPaSubdosenDetailActivity extends AppCompatActivity implements JudulWorkView {
 

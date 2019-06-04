@@ -23,6 +23,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/toolbar_menu_pemberitahuan"
+        android:icon="@drawable/ic_toolbar_notifications"
+        android:title="@string/text_notifikasi"
+        app:showAsAction="ifRoom"/>
+
+    <item
         android:id="@+id/toolbar_menu_profil"
         android:title="@string/title_profil" />
 

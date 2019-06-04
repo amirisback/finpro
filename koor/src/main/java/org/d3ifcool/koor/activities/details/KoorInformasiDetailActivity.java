@@ -16,7 +16,7 @@ import org.d3ifcool.base.interfaces.works.InformasiWorkView;
 import org.d3ifcool.base.models.Informasi;
 import org.d3ifcool.base.presenters.InformasiPresenter;
 import org.d3ifcool.koor.R;
-import org.d3ifcool.koor.activities.editors.KoorInformasiUbahActivity;
+import org.d3ifcool.koor.activities.editors.update.KoorInformasiUbahActivity;
 
 public class KoorInformasiDetailActivity extends AppCompatActivity implements InformasiWorkView {
 
