@@ -33,7 +33,6 @@
     <dimen name="dimen_navigation_drawer">60dp</dimen>
 
     <dimen name="dimen_elevation">12dp</dimen>
-
     <dimen name="dimen_large_64dp">64dp</dimen>
     <dimen name="dimen_big_ultra_32dp">32dp</dimen>
     <dimen name="dimen_big_super_24dp">24dp</dimen>

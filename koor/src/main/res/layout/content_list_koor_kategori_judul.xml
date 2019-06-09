@@ -21,12 +21,22 @@
             android:textColor="@color/colorTextBlack"/>
 
         <ImageView
+            android:id="@+id/ctn_koor_button_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_medium_8dp"
+            android:layout_toStartOf="@id/ctn_koor_button_hapus"
+            android:src="@drawable/ic_kategori_edit"/>
+
+        <ImageView
             android:id="@+id/ctn_koor_button_hapus"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimen_medium_8dp"
+            android:layout_marginLeft="@dimen/dimen_big_16dp"
             android:src="@drawable/ic_kategori_delete"/>
+
 
     </RelativeLayout>
 

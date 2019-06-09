@@ -50,9 +50,8 @@ public class KoorPemberitahuanViewAdapter extends RecyclerView.Adapter<KoorPembe
         this.notifikasiPresenter = notifikasiPresenter;
     }
 
-    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_list_all_notifikasi, parent,false);
         return new ViewHolder(view);
     }
@@ -67,7 +66,7 @@ public class KoorPemberitahuanViewAdapter extends RecyclerView.Adapter<KoorPembe
         TextView isi, tanggal, pengirim;
         LinearLayout container;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             pengirim = itemView.findViewById(R.id.ctn_pemberitahuan_pengirim);
             isi = itemView.findViewById(R.id.ctn_pemberitahuan_isi);
@@ -77,7 +76,7 @@ public class KoorPemberitahuanViewAdapter extends RecyclerView.Adapter<KoorPembe
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         if (data.get(position).getNotifikasi_baca() == 0) {
             holder.container.setBackgroundColor(context.getResources().getColor(R.color.colorBackground));

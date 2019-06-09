@@ -50,7 +50,7 @@ public class KoorProyekAkhirViewAdapter extends RecyclerView.Adapter<KoorProyekA
     public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView judulpa, kategori, pembimbing;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             judulpa = itemView.findViewById(R.id.ctn_all_judul_textview_judul);
             kategori = itemView.findViewById(R.id.ctn_all_judul_textview_kategori);
@@ -59,15 +59,14 @@ public class KoorProyekAkhirViewAdapter extends RecyclerView.Adapter<KoorProyekA
 
     }
 
-    @NonNull
     @Override
-    public org.d3ifcool.koor.adapters.KoorProyekAkhirViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public org.d3ifcool.koor.adapters.KoorProyekAkhirViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.content_list_all_pa_judul, parent, false);
         return new org.d3ifcool.koor.adapters.KoorProyekAkhirViewAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull org.d3ifcool.koor.adapters.KoorProyekAkhirViewAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(org.d3ifcool.koor.adapters.KoorProyekAkhirViewAdapter.ViewHolder holder, final int position) {
         holder.judulpa.setText(judul.get(position).getJudul());
         holder.kategori.setText(judul.get(position).getKategori_nama());
 //        holder.pembimbing.setText(judul.get(position).getDsn_nama());

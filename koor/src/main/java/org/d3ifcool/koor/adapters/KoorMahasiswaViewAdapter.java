@@ -57,9 +57,8 @@ public class KoorMahasiswaViewAdapter extends RecyclerView.Adapter<KoorMahasiswa
         this.layouyType = layouyType;
     }
 
-    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(layouyType,parent,false);
         return new ViewHolder(view);
     }
@@ -75,7 +74,7 @@ public class KoorMahasiswaViewAdapter extends RecyclerView.Adapter<KoorMahasiswa
         TextView nama_mhs, nim_mhs, status_judul;
         CircleImageView foto;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             nama_mhs = itemView.findViewById(R.id.ctn_koor_textview_nama_mahasiswa);
             nim_mhs = itemView.findViewById(R.id.ctn_koor_mahasiswa_nim);
@@ -85,7 +84,7 @@ public class KoorMahasiswaViewAdapter extends RecyclerView.Adapter<KoorMahasiswa
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
 
         String VAR_JUDUL = "Judul : ";
 

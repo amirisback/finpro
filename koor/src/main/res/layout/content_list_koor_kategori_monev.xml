@@ -63,7 +63,14 @@
                 android:textStyle="bold"
                 android:text="@string/dummy"
                 android:textColor="@color/colorTextBlack"/>
-
+        <ImageView
+            android:id="@+id/ctn_koor_button_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/ctn_koor_button_hapus"
+            android:layout_marginStart="@dimen/dimen_medium_8dp"
+            android:layout_marginEnd="@dimen/dimen_medium_8dp"
+            android:src="@drawable/ic_kategori_edit"/>
 
         <ImageView
             android:id="@+id/ctn_koor_button_hapus"

@@ -58,15 +58,14 @@ public class KoorDosenViewAdapter extends RecyclerView.Adapter<KoorDosenViewAdap
         this.layoutType = layoutType;
     }
 
-    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(layoutType, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.nama_dosen.setText(dosens.get(position).getDsn_nama());
         holder.nip_dosen.setText(dosens.get(position).getDsn_nip());
 //        holder.bimbing.setText("6");
@@ -91,7 +90,7 @@ public class KoorDosenViewAdapter extends RecyclerView.Adapter<KoorDosenViewAdap
     public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView nama_dosen, nip_dosen, bimbing;
         CircleImageView foto;
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             nama_dosen = itemView.findViewById(R.id.ctn_koor_textview_nama_dosen);
             nip_dosen = itemView.findViewById(R.id.ctn_koor_dosen_nip);

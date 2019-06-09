@@ -16,7 +16,6 @@ import org.d3ifcool.koor.R;
 
 import java.util.ArrayList;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class KoorMonevKategoriViewAdapter extends RecyclerView.Adapter<KoorMonevKategoriViewAdapter.ViewHolder> {
@@ -49,15 +48,14 @@ public class KoorMonevKategoriViewAdapter extends RecyclerView.Adapter<KoorMonev
         LayoutType = layoutType;
     }
 
-    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(LayoutType, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.tv_kategori_monev.setText(monev.get(position).getKategori());
         holder.tv_jumlah_bimbingan.setText(monev.get(position).getJumlah_bimbingan());
         holder.btn_hapus.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +92,45 @@ public class KoorMonevKategoriViewAdapter extends RecyclerView.Adapter<KoorMonev
         });
 
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mDialogView = LayoutInflater.from(mContext).inflate(R.layout.dialog_edit_kategori_monev, null);
+//                mDialog = new AlertDialog.Builder(mDialogView.getContext());
+//                mDialog.setView(mDialogView);
+//                mDialog.setCancelable(true);
+//                mDialog.setPositiveButton(mContext.getText(R.string.ubah), new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        EditText et_kategori = mDialogView.findViewById(R.id.dialog_kategori_monev);
+//                        EditText et_jml_bimbingan = mDialogView.findViewById(R.id.dialog_jumlah_bimbingan);
+//                        String result = et_kategori.getText().toString();
+//                        String bimbingan = et_jml_bimbingan.getText().toString();
+//
+//                        presenter.updateMonev(monev.get(position).getMonev_id() , result, bimbingan);
+//                        notifyDataSetChanged();
+//
+//                        dialog.dismiss(); // Keluar Dari Dialog
+//                        if (mDialogView.getParent() != null) {
+//                            ((ViewGroup) mDialogView.getParent()).removeView(mDialogView);
+//                        }
+//                    }
+//                });
+//
+//                mDialog.setNegativeButton(mContext.getText(R.string.batal), new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss(); // Keluar Dari Dialog
+//                        if (mDialogView.getParent() != null) {
+//                            ((ViewGroup) mDialogView.getParent()).removeView(mDialogView);
+//                        }
+//                    }
+//                });
+//                mDialog.show();
+//            }
+//        });
+
+        holder.btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mDialogView = LayoutInflater.from(mContext).inflate(R.layout.dialog_edit_kategori_monev, null);
@@ -141,12 +177,13 @@ public class KoorMonevKategoriViewAdapter extends RecyclerView.Adapter<KoorMonev
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tv_kategori_monev, tv_jumlah_bimbingan;
 
-        ImageView btn_hapus;
-        public ViewHolder(@NonNull View itemView) {
+        ImageView btn_hapus, btn_edit;
+        public ViewHolder(View itemView) {
             super(itemView);
             tv_kategori_monev = itemView.findViewById(R.id.ctn_koor_monev_kategori);
             tv_jumlah_bimbingan = itemView.findViewById(R.id.ctn_koor_monev_jumlah_bimbingan);
             btn_hapus = itemView.findViewById(R.id.ctn_koor_button_hapus);
+            btn_edit = itemView.findViewById(R.id.ctn_koor_button_edit);
         }
     }
 }

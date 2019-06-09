@@ -36,7 +36,7 @@ public class KoorPemetaanMonevViewAdapter extends RecyclerView.Adapter<KoorPemet
         TextView judulpa, reviewer;
         LinearLayout container;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             judulpa = itemView.findViewById(R.id.ctn_koor_pemetaan_textview_judul);
             reviewer = itemView.findViewById(R.id.ctn_koor_pemetaan_textview_judul_reviewer);
@@ -44,15 +44,14 @@ public class KoorPemetaanMonevViewAdapter extends RecyclerView.Adapter<KoorPemet
         }
     }
 
-    @NonNull
     @Override
-    public KoorPemetaanMonevViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public KoorPemetaanMonevViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.content_list_koor_pemetaan_monev, parent, false);
         return new KoorPemetaanMonevViewAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull KoorPemetaanMonevViewAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(KoorPemetaanMonevViewAdapter.ViewHolder holder, final int position) {
         holder.judulpa.setText(proyekAkhir.get(position).getJudul_nama());
 
         if (proyekAkhir.get(position).getReviewer_dsn_nama() != null){

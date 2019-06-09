@@ -48,15 +48,14 @@ public class KoorInformasiViewAdapter extends RecyclerView.Adapter<KoorInformasi
         notifyDataSetChanged();
     }
 
-    @NonNull
     @Override
-    public KoorInformasiViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public KoorInformasiViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_list_all_informasi, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull KoorInformasiViewAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(KoorInformasiViewAdapter.ViewHolder holder, final int position) {
 
         holder.infoDosen.setText(data.get(position).getPenerbit());
         holder.infoIsi.setText(data.get(position).getInfo_deskripsi());
@@ -85,7 +84,7 @@ public class KoorInformasiViewAdapter extends RecyclerView.Adapter<KoorInformasi
         TextView infoJudul, infoIsi, infoTanggal, infoDosen;
         CircleImageView foto;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             foto = itemView.findViewById(R.id.ctn_koor_circle_image);
             foto = itemView.findViewById(R.id.ctn_all_info_photo);

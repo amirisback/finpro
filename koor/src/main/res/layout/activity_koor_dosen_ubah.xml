@@ -33,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
+            android:inputType="number"
             android:singleLine="true"
             android:hint="Masukkan NIP Dosen"/>
 
@@ -51,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
+            android:inputType="text"
             android:singleLine="true"
             android:hint="@string/hint_nama_dosen"/>
 
@@ -69,6 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
+            android:inputType="textCapWords"
             android:singleLine="true"
             android:hint="@string/hint_kode_dosen"/>
 

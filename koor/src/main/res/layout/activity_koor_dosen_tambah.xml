@@ -52,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
+            android:inputType="text"
             android:singleLine="true"
             android:hint="@string/hint_nama_dosen"/>
 
@@ -69,6 +70,7 @@
             android:id="@+id/act_koor_edittext_kodedosen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textCapWords"
             android:maxLines="1"
             android:singleLine="true"
             android:hint="@string/hint_kode_dosen"/>
