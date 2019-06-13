@@ -135,6 +135,8 @@
     <string name="dialog_tolak_text">Apakah anda yakin menolak kelompok ini?</string>
     <string name="dialog_keluar_title">Keluar</string>
     <string name="dialog_keluar_text">Anda Yakin Ingin Keluar?</string>
+    <string name="dialog_arsip_title">Arsip</string>
+    <string name="dialog_arsip_text">Arsipkan Judul?</string>
 
     <string name="iya">Iya</string>
     <string name="tidak">Tidak</string>
@@ -260,7 +262,7 @@
     <string name="text_aturan_judul_mandiri_1">Pastikan anda tidak memilih judul yang ada di daftar judul dosen</string>
     <string name="text_ubah_data">Ubah Data</string>
     <string name="text_angkatan">Angkatan</string>
-    <string name="text_aturan_judul_mandiri_2">Setelah di ajukan silahkan menghungi dosen yang bersangkutan untuk melakukan konsultasi terkait judul yang di ajukan.</string>
+    <string name="text_aturan_judul_mandiri_2">Setelah di ajukan silahkan menghubungi dosen yang bersangkutan untuk melakukan konsultasi terkait judul yang di ajukan.</string>
     <string name="text_aturan_judul_mandiri_3">Jika judul anda sudah di terima oleh dosen yang bersangkutan maka akan muncul di menu proyek akhir</string>
     <string name="text_status_sidang_hasil">Lulus</string>
     <string name="text_input_dosen_reviewer">Pilih dosen reviewer</string>

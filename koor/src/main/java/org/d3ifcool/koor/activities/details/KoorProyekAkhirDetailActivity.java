@@ -3,10 +3,15 @@ package org.d3ifcool.koor.activities.details;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,21 +20,24 @@ import org.d3ifcool.base.helpers.SessionManager;
 import org.d3ifcool.base.helpers.ViewAdapterHelper;
 import org.d3ifcool.base.interfaces.lists.BimbinganListView;
 import org.d3ifcool.base.interfaces.lists.ProyekAkhirListView;
+import org.d3ifcool.base.interfaces.works.JudulWorkView;
 import org.d3ifcool.base.models.Bimbingan;
 import org.d3ifcool.base.models.Judul;
 import org.d3ifcool.base.models.ProyekAkhir;
 import org.d3ifcool.base.presenters.BimbinganPresenter;
+import org.d3ifcool.base.presenters.JudulPresenter;
 import org.d3ifcool.base.presenters.ProyekAkhirPresenter;
 import org.d3ifcool.koor.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_ARSIP;
 import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
 import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUMLAH_BIMBINGAN_SIDANG;
 
 public class KoorProyekAkhirDetailActivity extends AppCompatActivity implements
-        ProyekAkhirListView, BimbinganListView {
+        ProyekAkhirListView, BimbinganListView, JudulWorkView {
 
     public static final String EXTRA_JUDUL = "extra_judul";
     private static final String PROYEK_AKHIR_PARAM_1 = "proyek_akhir.judul_id";
@@ -37,6 +45,7 @@ public class KoorProyekAkhirDetailActivity extends AppCompatActivity implements
     private static final String BIMBINGAN_PARAM = "bimbingan.proyek_akhir_id";
 
     private ProyekAkhirPresenter proyekAkhirPresenter;
+    private JudulPresenter judulPresenter;
     private BimbinganPresenter bimbinganPresenter;
     private SessionManager sessionManager;
     private ProgressDialog progressDialog;
@@ -46,6 +55,8 @@ public class KoorProyekAkhirDetailActivity extends AppCompatActivity implements
 
     private TextView tv_judul_pa,tv_kelompok_pa, tv_dosen_pembimbing_pa, tv_jumlah_bimbingan_pa,
             tv_dosen_reviewer_pa, tv_jumlah_monev_pa, tv_status_sidang_pa;
+
+    private Button btn_arsip;
 
     private ViewAdapterHelper viewAdapterHelper;
     private AnggotaViewAdapter anggotaViewAdapter;
@@ -60,10 +71,12 @@ public class KoorProyekAkhirDetailActivity extends AppCompatActivity implements
 
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         bimbinganPresenter = new BimbinganPresenter(this);
+        judulPresenter = new JudulPresenter(this);
         sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
+        btn_arsip = findViewById(R.id.btn_judul_arsip);
         tv_judul_pa = findViewById(R.id.ctn_all_pa_textview_judul);
         tv_kelompok_pa = findViewById(R.id.ctn_all_pa_textview_kelompok);
         tv_dosen_pembimbing_pa = findViewById(R.id.frg_koor_pa_textview_dsn_pembimbing);
@@ -77,9 +90,9 @@ public class KoorProyekAkhirDetailActivity extends AppCompatActivity implements
         viewAdapterHelper = new ViewAdapterHelper(this);
         viewAdapterHelper.setRecyclerView(recyclerView);
 
-
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
-        final String stringJudulId = String.valueOf(extraJudul.getId());
+        String stringJudulId = String.valueOf(extraJudul.getId());
+        final int judulId = extraJudul.getId();
 
         if (extraJudul.getDsn_nama() != null) {
             tv_dosen_pembimbing_pa.setText(extraJudul.getDsn_nama());
@@ -88,6 +101,27 @@ public class KoorProyekAkhirDetailActivity extends AppCompatActivity implements
         }
 
         proyekAkhirPresenter.searchAllProyekAkhirByTwo(PROYEK_AKHIR_PARAM_1, stringJudulId, PROYEK_AKHIR_PARAM_2, JUDUL_STATUS_DIGUNAKAN);
+
+        btn_arsip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                new AlertDialog
+                        .Builder(KoorProyekAkhirDetailActivity.this)
+                        .setTitle(getString(R.string.dialog_arsip_title))
+                        .setMessage(getString(R.string.dialog_arsip_text))
+                        .setPositiveButton("Arsip", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                judulPresenter.updateStatusJudul(judulId, JUDUL_STATUS_ARSIP);
+                            }
+                        })
+
+                        .setNegativeButton("Batal", null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
+            }
+        });
 
     }
 
@@ -115,6 +149,11 @@ public class KoorProyekAkhirDetailActivity extends AppCompatActivity implements
     @Override
     public void hideProgress() {
         progressDialog.dismiss();
+    }
+
+    @Override
+    public void onSuccesWorkJudul() {
+        finish();
     }
 
     @Override

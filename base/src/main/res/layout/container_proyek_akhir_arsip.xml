@@ -24,7 +24,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
+    <RelativeLayout
+        android:layout_marginStart="@dimen/dimen_big_16dp"
+        android:layout_marginEnd="@dimen/dimen_big_16dp"
         android:layout_marginTop="@dimen/dimen_medium_8dp"
         android:layout_marginBottom="@dimen/dimen_medium_8dp"
         android:orientation="horizontal"
@@ -32,11 +34,16 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Arsipkan Judul"/>
 
         <Button
+            android:paddingStart="@dimen/dimen_big_16dp"
+            android:paddingEnd="@dimen/dimen_big_16dp"
+            android:id="@+id/btn_judul_arsip"
+            android:layout_alignParentEnd="true"
             android:background="@drawable/box_border_button_acc"
             android:clickable="true"
             android:textColor="@color/colorTextWhite"
@@ -45,6 +52,6 @@
             android:layout_height="wrap_content"
             android:text="@string/button_proyek_akhir_selesai"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

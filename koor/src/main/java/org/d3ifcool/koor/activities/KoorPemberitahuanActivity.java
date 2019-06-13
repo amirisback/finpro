@@ -60,7 +60,7 @@ public class KoorPemberitahuanActivity extends AppCompatActivity implements Noti
 
         adapter.setNotifikasiPresenter(notifikasiPresenter);
 
-        notifikasiPresenter.sortNotifikasi(sessionManager.getSessionMahasiswaNim(), sessionManager.getSessionMahasiswaNama());
+        notifikasiPresenter.sortNotifikasi(sessionManager.getSessionKoorNip(), sessionManager.getSessionKoorNama());
 
     }
 

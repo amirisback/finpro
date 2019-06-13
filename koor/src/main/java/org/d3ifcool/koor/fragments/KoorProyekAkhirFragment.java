@@ -106,6 +106,9 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
     @Override
     public void onResume() {
         super.onResume();
+        if (spinnerItemPosition != null){
+            judulPresenter.searchJudulByTwo(PARAM_DOSEN_NAMA, spinnerItemPosition, PARAM_JUDUL_STATUS, JUDUL_STATUS_DIGUNAKAN);
+        }
     }
 
     @Override
