@@ -13,15 +13,21 @@ import android.widget.Toast;
 
 import org.d3ifcool.base.helpers.SessionManager;
 import org.d3ifcool.base.interfaces.works.InformasiWorkView;
+import org.d3ifcool.base.interfaces.works.NotifikasiWorkView;
 import org.d3ifcool.base.presenters.InformasiPresenter;
+import org.d3ifcool.base.presenters.NotifikasiPresenter;
 import org.d3ifcool.koor.R;
 
-public class KoorInformasiTambahActivity extends AppCompatActivity implements InformasiWorkView {
-    private EditText judul, deskripsi;
-    Button btn_simpan;
+import static org.d3ifcool.base.helpers.ConstantNotif.ConstantaNotif.NOTIF_DESC_INFORMASI;
+import static org.d3ifcool.base.helpers.ConstantNotif.ConstantaNotif.NOTIF_KATEGORI_INFORMASI;
+import static org.d3ifcool.base.helpers.ConstantNotif.ConstantaNotif.UNTUK_SEMUA;
+
+public class KoorInformasiTambahActivity extends AppCompatActivity implements InformasiWorkView, NotifikasiWorkView {
+
     private ProgressDialog progressDialog;
     private InformasiPresenter presenter;
     private SessionManager sessionManager;
+    private NotifikasiPresenter notifikasiPresenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,13 +36,13 @@ public class KoorInformasiTambahActivity extends AppCompatActivity implements In
         sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
         presenter = new InformasiPresenter(this);
-
+        notifikasiPresenter = new NotifikasiPresenter(this);
 
         setTitle(getString(R.string.title_informasi_tambah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        judul = findViewById(R.id.act_koor_edittext_judul);
-        deskripsi = findViewById(R.id.act_koor_edittext_deskripsi);
-        btn_simpan = findViewById(R.id.act_koor_info_button_simpan);
+        final EditText judul = findViewById(R.id.act_koor_edittext_judul);
+        final EditText deskripsi = findViewById(R.id.act_koor_edittext_deskripsi);
+        Button btn_simpan = findViewById(R.id.act_koor_info_button_simpan);
 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -88,8 +94,13 @@ public class KoorInformasiTambahActivity extends AppCompatActivity implements In
     }
 
     @Override
-    public void onSucces() {
+    public void onSuccesCreateNotifikasi() {
         finish();
+    }
+
+    @Override
+    public void onSucces() {
+        notifikasiPresenter.createNotifikasi(NOTIF_KATEGORI_INFORMASI, NOTIF_DESC_INFORMASI(sessionManager.getSessionKoorNama()), sessionManager.getSessionKoorNama(), UNTUK_SEMUA);
     }
 
     @Override
