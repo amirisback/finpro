@@ -1,6 +1,5 @@
 package org.d3ifcool.finpro.koor;
 
-import androidx.test.espresso.contrib.DrawerActions;
 import androidx.test.rule.ActivityTestRule;
 
 import org.d3ifcool.finpro.R;
@@ -21,7 +20,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
  * FrogoBox Inc License
  * =========================================
  * Finpro
- * Copyright (C) 15/06/2019.
+ * Copyright (C) 16/06/2019.
  * All rights reserved
  * -----------------------------------------
  * Name     : Muhammad Faisal Amir
@@ -32,7 +31,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
  * FrogoBox Software Industries
  * org.d3ifcool.finpro.koor
  */
-public class KoorMahasiswaBehaviorTest {
+public class KoorKategoriJudulBehaviourTest {
 
     @Rule
     public ActivityTestRule<KoorMainActivity> koorMainActivityTestRule = new ActivityTestRule<>(KoorMainActivity.class);
@@ -43,35 +42,30 @@ public class KoorMahasiswaBehaviorTest {
     }
 
     @Test
-    public void KoorTambahMahasiswa() throws InterruptedException {
+    public void KoorTambahKategoriJudul() throws InterruptedException {
 
-        String NIM_MHS_1 = "6706160014";
-        String NIM_MHS_2 = "6706162062";
-        String NIM_MHS_3 = "6706160065";
-        String NIM_MHS_4 = "6706160113";
+        String KATEGORI_WEB = "Website";
+        String KATEGORI_ANDROID = "Android";
+        String KATEGORI_IOT = "Internet Of Things";
+        String KATEGORI_VR = "Virtual Reality";
+        String KATEGORI_AR = "Augmented Reality";
 
-        String NAMA_MHS_1 = "Muhammad Faisal Amir";
-        String NAMA_MHS_2 = "M. Ikhsan Ramadhan";
-        String NAMA_MHS_3 = "Bryan Rafsanzani";
-        String NAMA_MHS_4 = "Rivkal Sukma Sanjaya";
+        new HelperTest().openDrawer("Kategori Judul");
 
-        new HelperTest().openDrawer("Mahasiswa");
+        createKategoriJudul(KATEGORI_WEB);
+        createKategoriJudul(KATEGORI_ANDROID);
+        createKategoriJudul(KATEGORI_IOT);
+        createKategoriJudul(KATEGORI_VR);
+        createKategoriJudul(KATEGORI_AR);
 
-        createMahasiswa(NIM_MHS_1, NAMA_MHS_1);
-        createMahasiswa(NIM_MHS_2, NAMA_MHS_2);
-        createMahasiswa(NIM_MHS_3, NAMA_MHS_3);
-        createMahasiswa(NIM_MHS_4, NAMA_MHS_4);
     }
 
-    private void createMahasiswa(String NIM_MHS, String NAMA_MHS) throws InterruptedException {
-        onView(withId(R.id.frg_koor_mahasiswa_home_fab)).perform(click());
+    private void createKategoriJudul(String KATEGORI_JUDUL) throws InterruptedException {
+        onView(withId(R.id.frg_koor_info_home_fab)).perform(click());
         Thread.sleep(2000);
-        onView(withId(R.id.act_koor_edittext_nim_mahasiswa)).perform(typeText(NIM_MHS));
+        onView(withId(R.id.dialog_kategori_ubah)).perform(typeText(KATEGORI_JUDUL));
         pressBack();
-        onView(withId(R.id.act_koor_edittext_nama_mahasiswa)).perform(typeText(NAMA_MHS));
-        pressBack();
-        onView(withId(R.id.act_koor_mahasiswa_button_simpan)).perform(click());
-        Thread.sleep(5000);
+        onView(withText("TAMBAH")).perform(click());
+        Thread.sleep(3000);
     }
-
 }
