@@ -54,6 +54,14 @@ public class MahasiswaBimbinganBehaviourTest {
 
         onView(withId(R.id.frg_mhs_pa_cardview_bimbingan)).perform(click());
         Thread.sleep(2000);
+
+        for (int i = 0; i < 16; i++) {
+            createBimbingan(BIMBINGAN);
+        }
+
+    }
+
+    public void createBimbingan(String BIMBINGAN) throws InterruptedException {
         onView(withId(R.id.act_mhs_bimbingan_tambah)).perform(click());
         Thread.sleep(2000);
         onView(withId(R.id.act_mhs_info_edittext_konten)).perform(swipeUp());

@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.d3ifcool.base.helpers.MethodHelper;
 import org.d3ifcool.base.interfaces.works.NotifikasiWorkView;
 import org.d3ifcool.base.presenters.NotifikasiPresenter;
 import org.d3ifcool.dosen.R;
@@ -19,7 +18,6 @@ import org.d3ifcool.base.presenters.InformasiPresenter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static org.d3ifcool.base.helpers.ConstantNotif.ConstantaNotif.NOTIF_DESC_INFORMASI;
 import static org.d3ifcool.base.helpers.ConstantNotif.ConstantaNotif.NOTIF_KATEGORI_INFORMASI;
 import static org.d3ifcool.base.helpers.ConstantNotif.ConstantaNotif.UNTUK_SEMUA;
 
@@ -29,6 +27,7 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
     private InformasiPresenter informasiPresenter;
     private SessionManager sessionManager;
     private NotifikasiPresenter notifikasiPresenter;
+    private String text_info_judul;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +51,7 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
         btn_simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String text_info_judul = info_judul.getText().toString();
+                text_info_judul = info_judul.getText().toString();
                 String text_info_deskripsi = info_deskripsi.getText().toString();
                 if (text_info_judul.isEmpty()) {
                     info_judul.setError(getString(R.string.text_tidak_boleh_kosong));
@@ -100,7 +99,7 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
 
     @Override
     public void onSucces() {
-        notifikasiPresenter.createNotifikasi(NOTIF_KATEGORI_INFORMASI, NOTIF_DESC_INFORMASI(sessionManager.getSessionDosenNama()), sessionManager.getSessionDosenNama(), UNTUK_SEMUA);
+        notifikasiPresenter.createNotifikasi(NOTIF_KATEGORI_INFORMASI(sessionManager.getSessionDosenNama()), text_info_judul, sessionManager.getSessionDosenNama(), UNTUK_SEMUA);
     }
 
     @Override

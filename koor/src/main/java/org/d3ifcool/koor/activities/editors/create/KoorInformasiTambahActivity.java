@@ -18,7 +18,6 @@ import org.d3ifcool.base.presenters.InformasiPresenter;
 import org.d3ifcool.base.presenters.NotifikasiPresenter;
 import org.d3ifcool.koor.R;
 
-import static org.d3ifcool.base.helpers.ConstantNotif.ConstantaNotif.NOTIF_DESC_INFORMASI;
 import static org.d3ifcool.base.helpers.ConstantNotif.ConstantaNotif.NOTIF_KATEGORI_INFORMASI;
 import static org.d3ifcool.base.helpers.ConstantNotif.ConstantaNotif.UNTUK_SEMUA;
 
@@ -28,6 +27,8 @@ public class KoorInformasiTambahActivity extends AppCompatActivity implements In
     private InformasiPresenter presenter;
     private SessionManager sessionManager;
     private NotifikasiPresenter notifikasiPresenter;
+    private String et_judul;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +50,7 @@ public class KoorInformasiTambahActivity extends AppCompatActivity implements In
         btn_simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String et_judul = judul.getText().toString();
+                et_judul = judul.getText().toString();
                 String et_deskripsi = deskripsi.getText().toString();
                 if (et_judul.isEmpty()){
                     judul.setError("judul tidak boleh kosong");
@@ -100,7 +101,7 @@ public class KoorInformasiTambahActivity extends AppCompatActivity implements In
 
     @Override
     public void onSucces() {
-        notifikasiPresenter.createNotifikasi(NOTIF_KATEGORI_INFORMASI, NOTIF_DESC_INFORMASI(sessionManager.getSessionKoorNama()), sessionManager.getSessionKoorNama(), UNTUK_SEMUA);
+        notifikasiPresenter.createNotifikasi(NOTIF_KATEGORI_INFORMASI(sessionManager.getSessionKoorNama()), et_judul, sessionManager.getSessionKoorNama(), UNTUK_SEMUA);
     }
 
     @Override

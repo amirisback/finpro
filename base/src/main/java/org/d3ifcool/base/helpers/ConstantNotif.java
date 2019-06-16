@@ -12,9 +12,8 @@ public class ConstantNotif {
         public static final String UNTUK_KOOR = "koor"; // untuk koor
         public static final String UNTUK_SEMUA = "semua"; // untuk semua
 
-        public static final String NOTIF_KATEGORI_INFORMASI = "informasi"; // judul yang di buat dosen
-        public static final String NOTIF_DESC_INFORMASI(String nama){
-             return nama + " mengirim informasi";
+        public static final String NOTIF_KATEGORI_INFORMASI(String nama){
+            return nama + " Mengirim Informasi Baru";
         } // judul yang di buat dosen
 
         public static final String NOTIF_KATEGORI_JUDUL_TAMBAH = "judul_tambah"; // judul yang di buat dosen

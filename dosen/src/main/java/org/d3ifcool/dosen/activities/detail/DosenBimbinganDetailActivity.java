@@ -135,7 +135,7 @@ public class DosenBimbinganDetailActivity extends AppCompatActivity implements B
     @Override
     public void onGetListBimbingan(List<Bimbingan> bimbinganList) {
         arrayListBimbingan.addAll(bimbinganList);
-        if (arrayListBimbingan.size() != 2) {
+        if (arrayListBimbingan.size() < 2) {
             textViewKehadiranMahasiswa1.setText(arrayListBimbingan.get(0).getBimbingan_kehadiran());
         } else {
             textViewKehadiranMahasiswa1.setText(arrayListBimbingan.get(0).getBimbingan_kehadiran());
