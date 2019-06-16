@@ -44,6 +44,7 @@ public class KoorInformasiBehaviourTest {
     public void KoorTambahInformasi() throws InterruptedException {
 
         String JUDUL_1 = "[INFO][JADWAL SIDANG PROYEK AKHIR][BATCH JUNI]";
+        String JUDUL_2 = "[INFO][PENDAFTARAN SIDANG PROYEK AKHIR]";
 
         String INFORMASI_1 = "Assalamu'alaikum Wr. Wb.\n" +
                 "\n" +
@@ -59,9 +60,18 @@ public class KoorInformasiBehaviourTest {
                 "\n" +
                 "TIM PA";
 
+        String INFORMASI_2 = "Assalamu'alaikum Wr. Wb.\n" +
+                "\n" +
+                "Diinformasikan bagi seluruh mahasiswa yang sudah melaksanakan kegiatan monev VI PA, silahkan untuk melakukan persiapan pendaftaran sidang PA yang akan dilaksanakan dari tanggal 22 Mei hingga 24- Mei.\n" +
+                "\n" +
+                "Berkas Pendaftaran sidang sudah menjadi salah satu persyaratan untuk mengikuti kegiatan monev VI kemarin, silahkan untuk memenuhi seluruh persyaratan yang sudah tertera pada berkas pendaftaran sidang tersebut.\n" +
+                "\n" +
+                "Terima kasih.";
+
 //        new HelperTest().openDrawer("Informasi");
 
         createInformasi(JUDUL_1, INFORMASI_1);
+        createInformasi(JUDUL_2, INFORMASI_2);
 
     }
 
