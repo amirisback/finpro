@@ -68,7 +68,7 @@ public class KoorInformasiBehaviourTest {
                 "\n" +
                 "Terima kasih.";
 
-//        new HelperTest().openDrawer("Informasi");
+//        new HelperTest().openDrawerKoor("Informasi");
 
         createInformasi(JUDUL_1, INFORMASI_1);
         createInformasi(JUDUL_2, INFORMASI_2);

@@ -128,7 +128,7 @@
     <string name="dialog_ubah_title">Ubah Data</string>
     <string name="dialog_tambah">Tambah</string>
     <string name="dialog_pengajuan_judul_title">Ajukan Judul</string>
-    <string name="dialog_pengajuan_judul_text">Apakah anda yakin data sudah benar</string>
+    <string name="dialog_pengajuan_judul_text">Apakah anda yakin data sudah benar?</string>
     <string name="dialog_setuju_text">Apakah anda setuju untuk meng-acc kelompok ini?</string>
     <string name="dialog_setuju_title">Setuju Judul</string>
     <string name="dialog_tolak_title">Tolak Judul</string>

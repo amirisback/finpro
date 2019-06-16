@@ -1,8 +1,8 @@
 package org.d3ifcool.finpro.koor;
 
-import androidx.test.espresso.contrib.DrawerActions;
 import androidx.test.rule.ActivityTestRule;
 
+import org.d3ifcool.finpro.HelperTest;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.finpro.activities.KoorMainActivity;
 import org.junit.Before;
@@ -59,7 +59,7 @@ public class KoorKategoriMonevBehaviourTest {
         String MIN_BIMBINGAN_5 = "14";
         String MIN_BIMBINGAN_6 = "16";
 
-        new HelperTest().openDrawer("Kategori Monev");
+        new HelperTest().openDrawerKoor("Kategori Monev");
 
         createKategoriMonev(KATEGORI_MONEV_1, MIN_BIMBINGAN_1);
         createKategoriMonev(KATEGORI_MONEV_2, MIN_BIMBINGAN_2);

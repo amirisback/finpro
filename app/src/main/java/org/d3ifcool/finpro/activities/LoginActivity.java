@@ -102,6 +102,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void onFailed(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        String failedMessage = "Id Pengguna atau Password Salah";
+        Toast.makeText(this, failedMessage, Toast.LENGTH_SHORT).show();
     }
 }

@@ -1,8 +1,8 @@
 package org.d3ifcool.finpro.koor;
 
-import androidx.test.espresso.contrib.DrawerActions;
 import androidx.test.rule.ActivityTestRule;
 
+import org.d3ifcool.finpro.HelperTest;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.finpro.activities.KoorMainActivity;
 import org.junit.Before;
@@ -72,7 +72,7 @@ public class KoorDosenBehaviourTest {
         String KODE_DSN_7 = "RIM";
         String KODE_DSN_8 = "TBH";
 
-        new HelperTest().openDrawer("Dosen");
+        new HelperTest().openDrawerKoor("Dosen");
 
         createDosen(NIP_DSN_1, NAMA_DSN_1, KODE_DSN_1);
         createDosen(NIP_DSN_2, NAMA_DSN_2, KODE_DSN_2);

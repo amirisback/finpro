@@ -2,6 +2,7 @@ package org.d3ifcool.finpro.koor;
 
 import androidx.test.rule.ActivityTestRule;
 
+import org.d3ifcool.finpro.HelperTest;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.finpro.activities.KoorMainActivity;
 import org.junit.Before;
@@ -46,7 +47,7 @@ public class KoorJudulBehaviourTest {
         String testJudul = "Finpro - Manajemen Proyek Akhir Android Based";
         String testDeskripsi = "Finpro adalah aplikasi manajemen proyek akhir milik prodi D3 RPLA";
 
-        new HelperTest().openDrawer("Judul");
+        new HelperTest().openDrawerKoor("Judul");
 
         createJudul(testJudul, testDeskripsi);
     }

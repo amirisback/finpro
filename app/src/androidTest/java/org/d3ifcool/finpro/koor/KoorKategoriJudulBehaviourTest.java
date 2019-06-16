@@ -2,6 +2,7 @@ package org.d3ifcool.finpro.koor;
 
 import androidx.test.rule.ActivityTestRule;
 
+import org.d3ifcool.finpro.HelperTest;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.finpro.activities.KoorMainActivity;
 import org.junit.Before;
@@ -50,7 +51,7 @@ public class KoorKategoriJudulBehaviourTest {
         String KATEGORI_VR = "Virtual Reality";
         String KATEGORI_AR = "Augmented Reality";
 
-        new HelperTest().openDrawer("Kategori Judul");
+        new HelperTest().openDrawerKoor("Kategori Judul");
 
         createKategoriJudul(KATEGORI_WEB);
         createKategoriJudul(KATEGORI_ANDROID);

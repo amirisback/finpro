@@ -1,8 +1,8 @@
 package org.d3ifcool.finpro.koor;
 
-import androidx.test.espresso.contrib.DrawerActions;
 import androidx.test.rule.ActivityTestRule;
 
+import org.d3ifcool.finpro.HelperTest;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.finpro.activities.KoorMainActivity;
 import org.junit.Before;
@@ -55,12 +55,19 @@ public class KoorMahasiswaBehaviorTest {
         String NAMA_MHS_3 = "Bryan Rafsanzani";
         String NAMA_MHS_4 = "Rivkal Sukma Sanjaya";
 
-        new HelperTest().openDrawer("Mahasiswa");
+        new HelperTest().openDrawerKoor("Mahasiswa");
 
-        createMahasiswa(NIM_MHS_1, NAMA_MHS_1);
-        createMahasiswa(NIM_MHS_2, NAMA_MHS_2);
-        createMahasiswa(NIM_MHS_3, NAMA_MHS_3);
-        createMahasiswa(NIM_MHS_4, NAMA_MHS_4);
+//        createMahasiswa(NIM_MHS_1, NAMA_MHS_1);
+//        createMahasiswa(NIM_MHS_2, NAMA_MHS_2);
+//        createMahasiswa(NIM_MHS_3, NAMA_MHS_3);
+//        createMahasiswa(NIM_MHS_4, NAMA_MHS_4);
+
+        for (int i = 0; i < 10; i++){
+            String NIM = "670616000" + i;
+            String NAMA = "nama" + i;
+            createMahasiswa(NIM, NAMA);
+        }
+
     }
 
     private void createMahasiswa(String NIM_MHS, String NAMA_MHS) throws InterruptedException {
