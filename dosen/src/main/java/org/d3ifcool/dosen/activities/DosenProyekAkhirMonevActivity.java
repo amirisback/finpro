@@ -51,6 +51,9 @@ public class DosenProyekAkhirMonevActivity extends AppCompatActivity implements 
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         bimbinganPresenter = new BimbinganPresenter(this);
 
+        proyekAkhirPresenter.initContext(this);
+        bimbinganPresenter.initContext(this);
+
         TextView textViewJudul = findViewById(R.id.frg_mhs_pa_textview_judulpa);
         TextView textViewKelompok = findViewById(R.id.frg_mhs_pa_textview_kelompokpa);
         textViewBimbingan = findViewById(R.id.act_mhs_pa_monev_bimbingan);

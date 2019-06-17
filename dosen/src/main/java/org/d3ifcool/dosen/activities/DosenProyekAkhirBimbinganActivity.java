@@ -50,6 +50,7 @@ public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity impleme
         adapter = new DosenBimbinganViewAdapter(this);
         progressDialog = new ProgressDialog(this);
         bimbinganPresenter = new BimbinganPresenter(this);
+        bimbinganPresenter.initContext(this);
 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 

@@ -57,6 +57,9 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Monev
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
+        monevPresenter.initContext(this);
+        detailMonevPresenter.initContext(this);
+
         final EditText et_review_monev = findViewById(R.id.act_dsn_edittext_deskripsi);
         final EditText et_nilai_monev = findViewById(R.id.act_dsn_edittext_nilai_monev);
         spinnerMonev = findViewById(R.id.act_dsn_spinner_kategori_monev);

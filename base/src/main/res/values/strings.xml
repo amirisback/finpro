@@ -342,6 +342,7 @@
     <string name="validate_email_ada">Email Sudah di Pakai</string>
     <string name="validate_tidak_lebih_100">Tidak Boleh Lebih dari 100</string>
     <string name="validate_tidak_lebih_16">Tidak Boleh Lebih dari 16</string>
+    <string name="validate_no_connection">Tidak ada koneksi internet</string>
 
     <string-array name="array_kehadiran_bimbingan">
         <item>Hadir</item>

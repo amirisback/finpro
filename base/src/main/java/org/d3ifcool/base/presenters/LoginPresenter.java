@@ -1,5 +1,10 @@
 package org.d3ifcool.base.presenters;
 
+import android.content.Context;
+import android.widget.Toast;
+
+import org.d3ifcool.base.R;
+import org.d3ifcool.base.helpers.ConnectionHelper;
 import org.d3ifcool.base.interfaces.objects.LoginView;
 import org.d3ifcool.base.models.User;
 import org.d3ifcool.base.networks.bridge.ApiClient;
@@ -30,34 +35,48 @@ public class LoginPresenter {
 
     private LoginView view;
 
+    private ConnectionHelper connectionHelper = new ConnectionHelper();
+    private Context context;
+
+    public void initContext(Context context){
+        this.context = context;
+    }
+
     public LoginPresenter(LoginView view) {
         this.view = view;
     }
 
     public void getLogin(String username, String password){
-        view.showProgress();
-        ApiInterfaceUser apiInterface = ApiClient.getApiClient().create(ApiInterfaceUser.class);
-        Call<User> call = apiInterface.setLogin(username, password);
-        call.enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                view.hideProgress();
-                if (response.isSuccessful() && response.body() != null){
-                    boolean success = response.body().getSuccess();
-                    if (success) {
-                        view.onRequestSuccess(response.body());
-                    } else {
-                        view.onFailed(response.body().getMessage());
+
+        if (connectionHelper.isConnected(context)){
+            view.showProgress();
+            ApiInterfaceUser apiInterface = ApiClient.getApiClient().create(ApiInterfaceUser.class);
+            Call<User> call = apiInterface.setLogin(username, password);
+            call.enqueue(new Callback<User>() {
+                @Override
+                public void onResponse(Call<User> call, Response<User> response) {
+                    view.hideProgress();
+                    if (response.isSuccessful() && response.body() != null){
+                        boolean success = response.body().getSuccess();
+                        if (success) {
+                            view.onRequestSuccess(response.body());
+                        } else {
+                            view.onFailed(response.body().getMessage());
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                view.hideProgress();
-                view.onFailed(t.getLocalizedMessage());
-            }
-        });
+                @Override
+                public void onFailure(Call<User> call, Throwable t) {
+                    view.hideProgress();
+                    view.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
 }

@@ -34,7 +34,7 @@ import java.util.List;
  */
 public class KoorKategoriJudulFragment extends Fragment implements KategoriJudulListView, KategoriJudulWorkView {
 
-    private KategoriJudulPresenter presenter;
+    private KategoriJudulPresenter kategoriJudulPresenter;
     private SwipeRefreshLayout swipeRefreshLayout;
     private KoorJudulPaKategoriViewAdapter adapter;
     private ArrayList<KategoriJudul> arrayList = new ArrayList<>();
@@ -58,9 +58,11 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
 
         recyclerView = rootView.findViewById(R.id.frg_koor_judul_kategori_rv);
         final FloatingActionButton floatingActionButton = rootView.findViewById(R.id.frg_koor_info_home_fab);
-        presenter = new KategoriJudulPresenter(this, this);
+        kategoriJudulPresenter = new KategoriJudulPresenter(this, this);
+        kategoriJudulPresenter.initContext(getContext());
+
         swipeRefreshLayout = rootView.findViewById(R.id.swipe_refresh);
-        adapter = new KoorJudulPaKategoriViewAdapter(getContext(), presenter);
+        adapter = new KoorJudulPaKategoriViewAdapter(getContext(), kategoriJudulPresenter);
 
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
@@ -69,7 +71,7 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
 
 //        adapter.initDialog(mDialog, mDialogView);
         adapter.notifyDataSetChanged();
-        presenter.getKategori();
+        kategoriJudulPresenter.getKategori();
 
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -86,8 +88,8 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
                         tv_title.setText("Tambah Kategori Judul");
                         EditText et_kategori = mDialogView.findViewById(R.id.dialog_kategori_ubah);
                         String result = et_kategori.getText().toString();
-                        presenter.createKategori(result);
-                        presenter.getKategori();
+                        kategoriJudulPresenter.createKategori(result);
+                        kategoriJudulPresenter.getKategori();
                         et_kategori.setText("");
                         dialog.dismiss(); // Keluar Dari Dialog
                         if (mDialogView.getParent() != null) {
@@ -114,7 +116,7 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.getKategori();
+                kategoriJudulPresenter.getKategori();
             }
         });
 
@@ -126,7 +128,7 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
         super.onResume();
         progressDialog.show();
         adapter.notifyDataSetChanged();
-        presenter.getKategori();
+        kategoriJudulPresenter.getKategori();
     }
 
     @Override
@@ -142,7 +144,7 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
 
     @Override
     public void onSucces() {
-        presenter.getKategori();
+        kategoriJudulPresenter.getKategori();
     }
 
     @Override

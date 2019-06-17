@@ -37,7 +37,7 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
     private ArrayList<Informasi> arrayList = new ArrayList<>();
     private KoorInformasiViewAdapter adapter;
     private ProgressDialog progressDialog;
-    private InformasiPresenter presenter;
+    private InformasiPresenter informasiPresenter;
     private SwipeRefreshLayout swipeRefreshLayout;
     private View empty_view;
 
@@ -55,7 +55,8 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
 
         rv_informasi = rootView.findViewById(R.id.frg_koor_info_home_recyclerview);
         fab_informasi = rootView.findViewById(R.id.frg_koor_info_home_fab);
-        presenter = new InformasiPresenter(this);
+        informasiPresenter = new InformasiPresenter(this);
+        informasiPresenter.initContext(getContext());
         swipeRefreshLayout = rootView.findViewById(R.id.frg_koor_info_home_swiperefresh);
         empty_view = rootView.findViewById(R.id.view_emptyview);
 
@@ -64,7 +65,7 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
 
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
-        presenter.getInformasi();
+        informasiPresenter.getInformasi();
 
         fab_informasi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +78,7 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.getInformasi();
+                informasiPresenter.getInformasi();
             }
         });
         return rootView;
@@ -86,7 +87,7 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
     @Override
     public void onResume() {
         super.onResume();
-        presenter.getInformasi();
+        informasiPresenter.getInformasi();
     }
 
     @Override

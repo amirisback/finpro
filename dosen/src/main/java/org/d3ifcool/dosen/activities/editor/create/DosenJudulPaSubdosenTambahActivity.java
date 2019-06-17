@@ -59,6 +59,9 @@ public class DosenJudulPaSubdosenTambahActivity extends AppCompatActivity implem
         judulPresenter = new JudulPresenter(this);
         kategoriJudulPresenter = new KategoriJudulPresenter(this);
 
+        judulPresenter.initContext(this);
+        kategoriJudulPresenter.initContext(this);
+
         sessionManager = new SessionManager(this);
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.text_progress_dialog));

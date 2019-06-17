@@ -1,5 +1,10 @@
 package org.d3ifcool.base.presenters;
 
+import android.content.Context;
+import android.widget.Toast;
+
+import org.d3ifcool.base.R;
+import org.d3ifcool.base.helpers.ConnectionHelper;
 import org.d3ifcool.base.interfaces.works.ProyekMahasiswaWorkView;
 import org.d3ifcool.base.models.Mahasiswa;
 import org.d3ifcool.base.models.ProyekAkhir;
@@ -30,102 +35,123 @@ public class ProyekMahasiswaPresenter {
 
     ProyekMahasiswaWorkView viewEditor;
 
+    private ConnectionHelper connectionHelper = new ConnectionHelper();
+    private Context context;
+
+    public void initContext(Context context){
+        this.context = context;
+    }
+
     public ProyekMahasiswaPresenter(ProyekMahasiswaWorkView viewEditor) {
         this.viewEditor = viewEditor;
     }
 
     public void createProyekAkhir(int judul_id, String mhs_nim, String nama_tim){
-        ApiInterfaceProyekAkhir apiInterfaceProyekAkhir = ApiClient.getApiClient().create(ApiInterfaceProyekAkhir.class);
-        ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
 
-        Call<ProyekAkhir> callProyek = apiInterfaceProyekAkhir.createProyekAkhir(judul_id, mhs_nim, nama_tim);
-        final Call<Mahasiswa> callMahasiswa = apiInterfaceMahasiswa.updateJudulMahasiswa(mhs_nim, judul_id);
+        if (connectionHelper.isConnected(context)){
+            ApiInterfaceProyekAkhir apiInterfaceProyekAkhir = ApiClient.getApiClient().create(ApiInterfaceProyekAkhir.class);
+            ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
 
-        viewEditor.showProgress();
-        callProyek.enqueue(new Callback<ProyekAkhir>() {
-            @Override
-            public void onResponse(Call<ProyekAkhir> call, Response<ProyekAkhir> response) {
-                callMahasiswa.enqueue(new Callback<Mahasiswa>() {
-                    @Override
-                    public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
-                        viewEditor.hideProgress();
-                        viewEditor.onSucces();
-                    }
+            Call<ProyekAkhir> callProyek = apiInterfaceProyekAkhir.createProyekAkhir(judul_id, mhs_nim, nama_tim);
+            final Call<Mahasiswa> callMahasiswa = apiInterfaceMahasiswa.updateJudulMahasiswa(mhs_nim, judul_id);
 
-                    @Override
-                    public void onFailure(Call<Mahasiswa> call, Throwable t) {
-                        viewEditor.hideProgress();
-                        viewEditor.onFailed(t.getMessage());
-                    }
-                });
-            }
+            viewEditor.showProgress();
+            callProyek.enqueue(new Callback<ProyekAkhir>() {
+                @Override
+                public void onResponse(Call<ProyekAkhir> call, Response<ProyekAkhir> response) {
+                    callMahasiswa.enqueue(new Callback<Mahasiswa>() {
+                        @Override
+                        public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
+                            viewEditor.hideProgress();
+                            viewEditor.onSucces();
+                        }
 
-            @Override
-            public void onFailure(Call<ProyekAkhir> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
-            }
-        });
+                        @Override
+                        public void onFailure(Call<Mahasiswa> call, Throwable t) {
+                            viewEditor.hideProgress();
+                            viewEditor.onFailed(t.getMessage());
+                        }
+                    });
+                }
+
+                @Override
+                public void onFailure(Call<ProyekAkhir> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void createProyekAkhir2(int judul_id, String mhs_nim1, String mhs_nim2, String nama_tim){
-        ApiInterfaceProyekAkhir apiInterfaceProyekAkhir = ApiClient.getApiClient().create(ApiInterfaceProyekAkhir.class);
-        ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
 
-        Call<ProyekAkhir> callProyek1 = apiInterfaceProyekAkhir.createProyekAkhir(judul_id, mhs_nim1, nama_tim);
-        final Call<ProyekAkhir> callProyek2 = apiInterfaceProyekAkhir.createProyekAkhir(judul_id, mhs_nim2, nama_tim);
+        if (connectionHelper.isConnected(context)){
+            ApiInterfaceProyekAkhir apiInterfaceProyekAkhir = ApiClient.getApiClient().create(ApiInterfaceProyekAkhir.class);
+            ApiInterfaceMahasiswa apiInterfaceMahasiswa = ApiClient.getApiClient().create(ApiInterfaceMahasiswa.class);
 
-        final Call<Mahasiswa> callMahasiswa1 = apiInterfaceMahasiswa.updateJudulMahasiswa(mhs_nim1, judul_id);
-        final Call<Mahasiswa> callMahasiswa2= apiInterfaceMahasiswa.updateJudulMahasiswa(mhs_nim2, judul_id);
+            Call<ProyekAkhir> callProyek1 = apiInterfaceProyekAkhir.createProyekAkhir(judul_id, mhs_nim1, nama_tim);
+            final Call<ProyekAkhir> callProyek2 = apiInterfaceProyekAkhir.createProyekAkhir(judul_id, mhs_nim2, nama_tim);
 
-        viewEditor.showProgress();
+            final Call<Mahasiswa> callMahasiswa1 = apiInterfaceMahasiswa.updateJudulMahasiswa(mhs_nim1, judul_id);
+            final Call<Mahasiswa> callMahasiswa2= apiInterfaceMahasiswa.updateJudulMahasiswa(mhs_nim2, judul_id);
 
-        callProyek1.enqueue(new Callback<ProyekAkhir>() {
-            @Override
-            public void onResponse(Call<ProyekAkhir> call, Response<ProyekAkhir> response) {
-                callMahasiswa1.enqueue(new Callback<Mahasiswa>() {
-                    @Override
-                    public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
-                        callProyek2.enqueue(new Callback<ProyekAkhir>() {
-                            @Override
-                            public void onResponse(Call<ProyekAkhir> call, Response<ProyekAkhir> response) {
-                                callMahasiswa2.enqueue(new Callback<Mahasiswa>() {
-                                    @Override
-                                    public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
-                                        viewEditor.hideProgress();
-                                        viewEditor.onSucces();
-                                    }
+            viewEditor.showProgress();
 
-                                    @Override
-                                    public void onFailure(Call<Mahasiswa> call, Throwable t) {
-                                        viewEditor.hideProgress();
-                                        viewEditor.onFailed(t.getMessage());
-                                    }
-                                });
-                            }
+            callProyek1.enqueue(new Callback<ProyekAkhir>() {
+                @Override
+                public void onResponse(Call<ProyekAkhir> call, Response<ProyekAkhir> response) {
+                    callMahasiswa1.enqueue(new Callback<Mahasiswa>() {
+                        @Override
+                        public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
+                            callProyek2.enqueue(new Callback<ProyekAkhir>() {
+                                @Override
+                                public void onResponse(Call<ProyekAkhir> call, Response<ProyekAkhir> response) {
+                                    callMahasiswa2.enqueue(new Callback<Mahasiswa>() {
+                                        @Override
+                                        public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
+                                            viewEditor.hideProgress();
+                                            viewEditor.onSucces();
+                                        }
 
-                            @Override
-                            public void onFailure(Call<ProyekAkhir> call, Throwable t) {
-                                viewEditor.hideProgress();
-                                viewEditor.onFailed(t.getMessage());
-                            }
-                        });
-                    }
+                                        @Override
+                                        public void onFailure(Call<Mahasiswa> call, Throwable t) {
+                                            viewEditor.hideProgress();
+                                            viewEditor.onFailed(t.getMessage());
+                                        }
+                                    });
+                                }
 
-                    @Override
-                    public void onFailure(Call<Mahasiswa> call, Throwable t) {
-                        viewEditor.hideProgress();
-                        viewEditor.onFailed(t.getMessage());
-                    }
-                });
-            }
+                                @Override
+                                public void onFailure(Call<ProyekAkhir> call, Throwable t) {
+                                    viewEditor.hideProgress();
+                                    viewEditor.onFailed(t.getMessage());
+                                }
+                            });
+                        }
 
-            @Override
-            public void onFailure(Call<ProyekAkhir> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
-            }
-        });
+                        @Override
+                        public void onFailure(Call<Mahasiswa> call, Throwable t) {
+                            viewEditor.hideProgress();
+                            viewEditor.onFailed(t.getMessage());
+                        }
+                    });
+                }
+
+                @Override
+                public void onFailure(Call<ProyekAkhir> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
 
     }
 }

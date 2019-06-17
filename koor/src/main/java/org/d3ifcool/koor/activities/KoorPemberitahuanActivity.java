@@ -44,7 +44,10 @@ public class KoorPemberitahuanActivity extends AppCompatActivity implements Noti
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         progressDialog = new ProgressDialog(this);
+
         notifikasiPresenter = new NotifikasiPresenter(this, this);
+        notifikasiPresenter.initContext(this);
+
         sessionManager = new SessionManager(this);
 
         adapter = new KoorPemberitahuanViewAdapter(this);

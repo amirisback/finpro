@@ -47,6 +47,7 @@ public class DosenBimbinganDetailActivity extends AppCompatActivity implements B
 
         progressDialog = new ProgressDialog(this);
         bimbinganPresenter = new BimbinganPresenter(this, this);
+        bimbinganPresenter.initContext(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         TextView textViewTanggal = findViewById(R.id.act_dsn_mhs_bimbingan_textview_tanggal);

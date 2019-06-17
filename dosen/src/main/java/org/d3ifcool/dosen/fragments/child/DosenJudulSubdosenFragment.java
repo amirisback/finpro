@@ -40,7 +40,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
     private RecyclerView recyclerView;
     private FloatingActionButton floatingActionButton;
     private DosenJudulSubdosenViewAdapter adapter;
-    private JudulPresenter presenter;
+    private JudulPresenter judulPresenter;
     private ProgressDialog progressDialog;
     private ArrayList<Judul> arrayList = new ArrayList<>();
     private SessionManager sessionManager;
@@ -65,13 +65,14 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
         swipeRefreshLayout = rootView.findViewById(R.id.frg_dsn_judul_dsn_swiperefresh);
         empty_view = rootView.findViewById(R.id.view_emptyview);
 
-        presenter = new JudulPresenter(this);
+        judulPresenter = new JudulPresenter(this);
+        judulPresenter.initContext(getContext());
         progressDialog = new ProgressDialog(getContext());
         adapter = new DosenJudulSubdosenViewAdapter(getContext());
         sessionManager = new SessionManager(getContext());
 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
-        presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionDosenNip());
+        judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionDosenNip());
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +84,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionUsername());
+                judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionUsername());
             }
         });
 
@@ -93,7 +94,7 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
     public void onResume() {
         super.onResume();
         if (sessionManager.getSessionUsername() != null){
-            presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionUsername());
+            judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_TERSEDIA, PARAMS_2, sessionManager.getSessionUsername());
         }
     }
 

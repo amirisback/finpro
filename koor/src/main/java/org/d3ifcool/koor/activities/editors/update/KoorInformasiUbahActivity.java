@@ -19,17 +19,19 @@ import org.d3ifcool.base.presenters.InformasiPresenter;
 import org.d3ifcool.koor.R;
 
 public class KoorInformasiUbahActivity extends AppCompatActivity implements InformasiWorkView {
+
     private EditText et_judul, et_isi;
-    private Button btn_simpan;
-    private InformasiPresenter presenter;
-    private ProgressDialog dialog;
+    private InformasiPresenter informasiPresenter;
+    private ProgressDialog progressDialog;
 
     public static final String EXTRA_INFORMASI = "extra_informasi";
     private Informasi extraInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_informasi_ubah);
+
         setTitle(getString(R.string.title_informasi_ubah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -43,10 +45,13 @@ public class KoorInformasiUbahActivity extends AppCompatActivity implements Info
         et_judul.setText(judul);
         et_isi.setText(isi);
 
-        btn_simpan = findViewById(R.id.act_koor_info_button_simpan);
-        presenter = new InformasiPresenter(this);
-        dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.text_progress_dialog));
+        Button btn_simpan = findViewById(R.id.act_koor_info_button_simpan);
+
+        informasiPresenter = new InformasiPresenter(this);
+        informasiPresenter.initContext(this);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         btn_simpan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +70,7 @@ public class KoorInformasiUbahActivity extends AppCompatActivity implements Info
                                 } else if (isi_baru.isEmpty()) {
                                     et_isi.setError(getString(R.string.text_tidak_boleh_kosong));
                                 } else {
-                                    presenter.updateInformasi(extraInfo.getId(), judul_baru, isi_baru);
+                                    informasiPresenter.updateInformasi(extraInfo.getId(), judul_baru, isi_baru);
 
                                 }
                             }
@@ -100,12 +105,12 @@ public class KoorInformasiUbahActivity extends AppCompatActivity implements Info
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override

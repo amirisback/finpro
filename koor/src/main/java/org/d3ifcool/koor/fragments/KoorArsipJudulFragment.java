@@ -51,6 +51,7 @@ public class KoorArsipJudulFragment extends Fragment implements JudulListView, K
 
     private JudulPresenter judulPresenter;
     private KategoriJudulPresenter kategoriJudulPresenter;
+
     private SpinnerHelper spinnerHelper;
 
     private String kategori_id;
@@ -81,6 +82,9 @@ public class KoorArsipJudulFragment extends Fragment implements JudulListView, K
 
         kategoriJudulPresenter = new KategoriJudulPresenter(this);
         judulPresenter = new JudulPresenter(this);
+
+        kategoriJudulPresenter.initContext(getContext());
+        judulPresenter.initContext(getContext());
 
         kategoriJudulPresenter.getKategori();
 

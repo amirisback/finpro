@@ -17,8 +17,8 @@ import org.d3ifcool.koor.R;
 
 public class KoorMahasiswaTambahActivity extends AppCompatActivity implements MahasiswaWorkView {
 
-    private MahasiswaPresenter presenter;
-    private ProgressDialog dialog;
+    private MahasiswaPresenter mahasiswaPresenter;
+    private ProgressDialog progressDialog;
     private EditText et_nim, et_nama;
     private Button btn_simpan;
     @Override
@@ -29,14 +29,16 @@ public class KoorMahasiswaTambahActivity extends AppCompatActivity implements Ma
         setTitle(getString(R.string.title_mahasiswa_tambah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        presenter = new MahasiswaPresenter(this);
-        dialog = new ProgressDialog(this);
+        mahasiswaPresenter = new MahasiswaPresenter(this);
+        mahasiswaPresenter.initContext(this);
+
+        progressDialog = new ProgressDialog(this);
 
         et_nim = findViewById(R.id.act_koor_edittext_nim_mahasiswa);
         et_nama = findViewById(R.id.act_koor_edittext_nama_mahasiswa);
         btn_simpan = findViewById(R.id.act_koor_mahasiswa_button_simpan);
 
-        dialog.setMessage(getString(R.string.text_progress_dialog));
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         btn_simpan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +51,7 @@ public class KoorMahasiswaTambahActivity extends AppCompatActivity implements Ma
                 } else if (nama.isEmpty()) {
                     et_nama.setError(getString(R.string.text_tidak_boleh_kosong));
                 }else {
-                    presenter.createMahasiswa(nim, nama);
+                    mahasiswaPresenter.createMahasiswa(nim, nama);
                 }
             }
         });
@@ -79,12 +81,12 @@ public class KoorMahasiswaTambahActivity extends AppCompatActivity implements Ma
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override

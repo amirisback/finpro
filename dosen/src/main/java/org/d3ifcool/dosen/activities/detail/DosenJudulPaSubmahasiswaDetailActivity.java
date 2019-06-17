@@ -65,6 +65,10 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
         judulPresenter = new JudulPresenter(this);
         mahasiswaPresenter = new MahasiswaPresenter(this);
 
+        proyekAkhirPresenter.initContext(this);
+        judulPresenter.initContext(this);
+        mahasiswaPresenter.initContext(this);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 

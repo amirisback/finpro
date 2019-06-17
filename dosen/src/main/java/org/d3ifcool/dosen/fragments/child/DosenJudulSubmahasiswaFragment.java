@@ -35,7 +35,7 @@ public class DosenJudulSubmahasiswaFragment extends Fragment implements JudulLis
     private static final String PARAMS_2 = "judul.dsn_nip";
     private RecyclerView recyclerView;
     private DosenJudulSubmahasiswaViewAdapter adapter;
-    private JudulPresenter presenter;
+    private JudulPresenter judulPresenter;
     private ProgressDialog progressDialog;
     private ArrayList<Judul> arrayList = new ArrayList<>();
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -58,17 +58,19 @@ public class DosenJudulSubmahasiswaFragment extends Fragment implements JudulLis
         adapter = new DosenJudulSubmahasiswaViewAdapter(getContext());
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
-        presenter = new JudulPresenter(this);
+        judulPresenter = new JudulPresenter(this);
+        judulPresenter.initContext(getContext());
+
         swipeRefreshLayout = rootView.findViewById(R.id.frg_dsn_judul_mhs_swiperefresh);
 
         empty_view = rootView.findViewById(R.id.view_emptyview);
 
-        presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_PENDING, PARAMS_2, sessionManager.getSessionDosenNip());
+        judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_PENDING, PARAMS_2, sessionManager.getSessionDosenNip());
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_PENDING, PARAMS_2, sessionManager.getSessionDosenNip());
+                judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_PENDING, PARAMS_2, sessionManager.getSessionDosenNip());
             }
         });
 
@@ -79,7 +81,7 @@ public class DosenJudulSubmahasiswaFragment extends Fragment implements JudulLis
     public void onResume() {
         super.onResume();
         if (sessionManager.getSessionUsername() != null){
-            presenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_PENDING, PARAMS_2, sessionManager.getSessionUsername());
+            judulPresenter.searchJudulByTwo(PARAMS_1, JUDUL_STATUS_PENDING, PARAMS_2, sessionManager.getSessionUsername());
         }
     }
 

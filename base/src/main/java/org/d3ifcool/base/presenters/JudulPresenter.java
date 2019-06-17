@@ -1,5 +1,10 @@
 package org.d3ifcool.base.presenters;
 
+import android.content.Context;
+import android.widget.Toast;
+
+import org.d3ifcool.base.R;
+import org.d3ifcool.base.helpers.ConnectionHelper;
 import org.d3ifcool.base.interfaces.works.JudulWorkView;
 import org.d3ifcool.base.interfaces.lists.JudulListView;
 import org.d3ifcool.base.models.Judul;
@@ -30,6 +35,13 @@ public class JudulPresenter {
     private JudulWorkView viewEditor;
     private JudulListView viewResult;
 
+    private ConnectionHelper connectionHelper = new ConnectionHelper();
+    private Context context;
+
+    public void initContext(Context context){
+        this.context = context;
+    }
+
     public JudulPresenter(JudulWorkView viewEditor) {
         this.viewEditor = viewEditor;
     }
@@ -44,159 +56,213 @@ public class JudulPresenter {
     }
 
     public void createJudul (String judul_nama, int kategori_id, String judul_deskripsi, String nip_dosen, String judul_status){
-        viewEditor.showProgress();
-        ApiInterfaceJudul apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
-        Call<Judul> call = apiInterface.createJudul(judul_nama,kategori_id,judul_deskripsi,nip_dosen, judul_status);
-        call.enqueue(new Callback<Judul>() {
-            @Override
-            public void onResponse(Call<Judul> call, Response<Judul> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSuccesWorkJudul();
-            }
 
-            @Override
-            public void onFailure(Call<Judul> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceJudul apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
+            Call<Judul> call = apiInterface.createJudul(judul_nama,kategori_id,judul_deskripsi,nip_dosen, judul_status);
+            call.enqueue(new Callback<Judul>() {
+                @Override
+                public void onResponse(Call<Judul> call, Response<Judul> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSuccesWorkJudul();
+                }
+
+                @Override
+                public void onFailure(Call<Judul> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
 
     }
 
     public void updateJudul (int id, String judul_nama, int kategori_id, String judul_deskripsi){
-        viewEditor.showProgress();
-        ApiInterfaceJudul apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
-        Call<Judul> call = apiInterface.updateJudul(id, judul_nama,kategori_id,judul_deskripsi);
-        call.enqueue(new Callback<Judul>() {
-            @Override
-            public void onResponse(Call<Judul> call, Response<Judul> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSuccesWorkJudul();
-            }
 
-            @Override
-            public void onFailure(Call<Judul> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceJudul apiInterface = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
+            Call<Judul> call = apiInterface.updateJudul(id, judul_nama,kategori_id,judul_deskripsi);
+            call.enqueue(new Callback<Judul>() {
+                @Override
+                public void onResponse(Call<Judul> call, Response<Judul> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSuccesWorkJudul();
+                }
+
+                @Override
+                public void onFailure(Call<Judul> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
 
     }
 
     public void getJudul() {
-        viewResult.showProgress();
-        ApiInterfaceJudul apiInterfaceJudulPa = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
-        Call<List<Judul>> call = apiInterfaceJudulPa.getJudul();
-        call.enqueue(new Callback<List<Judul>>() {
-            @Override
-            public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetListJudul(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<List<Judul>> call, Throwable t) {
-                viewResult.hideProgress();
-                viewResult.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewResult.showProgress();
+            ApiInterfaceJudul apiInterfaceJudulPa = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
+            Call<List<Judul>> call = apiInterfaceJudulPa.getJudul();
+            call.enqueue(new Callback<List<Judul>>() {
+                @Override
+                public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
+                    viewResult.hideProgress();
+                    viewResult.onGetListJudul(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<Judul>> call, Throwable t) {
+                    viewResult.hideProgress();
+                    viewResult.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void deleteJudul(int judul_id){
-        viewEditor.showProgress();
-        ApiInterfaceJudul apiInterfaceJudulPa = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
-        Call<Judul> call = apiInterfaceJudulPa.deleteJudul(judul_id);
-        call.enqueue(new Callback<Judul>() {
-            @Override
-            public void onResponse(Call<Judul> call, Response<Judul> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSuccesWorkJudul();
-            }
 
-            @Override
-            public void onFailure(Call<Judul> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceJudul apiInterfaceJudulPa = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
+            Call<Judul> call = apiInterfaceJudulPa.deleteJudul(judul_id);
+            call.enqueue(new Callback<Judul>() {
+                @Override
+                public void onResponse(Call<Judul> call, Response<Judul> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSuccesWorkJudul();
+                }
+
+                @Override
+                public void onFailure(Call<Judul> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void updateStatusJudul(int judul_id, String status_judul) {
-        viewEditor.showProgress();
-        ApiInterfaceJudul apiInterfaceJudul = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
-        Call<Judul> call = apiInterfaceJudul.updateStatusJudul(judul_id, status_judul);
-        call.enqueue(new Callback<Judul>() {
-            @Override
-            public void onResponse(Call<Judul> call, Response<Judul> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSuccesWorkJudul();
-            }
 
-            @Override
-            public void onFailure(Call<Judul> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceJudul apiInterfaceJudul = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
+            Call<Judul> call = apiInterfaceJudul.updateStatusJudul(judul_id, status_judul);
+            call.enqueue(new Callback<Judul>() {
+                @Override
+                public void onResponse(Call<Judul> call, Response<Judul> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSuccesWorkJudul();
+                }
+
+                @Override
+                public void onFailure(Call<Judul> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
 
 
     }
 
     public void searchJudulBy(String parameter, String query) {
-        viewResult.showProgress();
-        ApiInterfaceJudul apiInterfaceJudul = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
-        Call<List<Judul>> call = apiInterfaceJudul.searchJudulBy(parameter,query);
-        call.enqueue(new Callback<List<Judul>>() {
-            @Override
-            public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetListJudul(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<List<Judul>> call, Throwable t) {
-                viewResult.hideProgress();
-                viewResult.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewResult.showProgress();
+            ApiInterfaceJudul apiInterfaceJudul = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
+            Call<List<Judul>> call = apiInterfaceJudul.searchJudulBy(parameter,query);
+            call.enqueue(new Callback<List<Judul>>() {
+                @Override
+                public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
+                    viewResult.hideProgress();
+                    viewResult.onGetListJudul(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<Judul>> call, Throwable t) {
+                    viewResult.hideProgress();
+                    viewResult.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void searchJudulByTwo(String parameter1, String query1, String parameter2, String query2) {
-        viewResult.showProgress();
-        ApiInterfaceJudul apiInterfaceJudul = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
-        Call<List<Judul>> call = apiInterfaceJudul.searchJudulByTwo(parameter1, query1, parameter2, query2);
-        call.enqueue(new Callback<List<Judul>>() {
-            @Override
-            public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetListJudul(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<List<Judul>> call, Throwable t) {
-                viewResult.hideProgress();
-                viewResult.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewResult.showProgress();
+            ApiInterfaceJudul apiInterfaceJudul = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
+            Call<List<Judul>> call = apiInterfaceJudul.searchJudulByTwo(parameter1, query1, parameter2, query2);
+            call.enqueue(new Callback<List<Judul>>() {
+                @Override
+                public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
+                    viewResult.hideProgress();
+                    viewResult.onGetListJudul(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<Judul>> call, Throwable t) {
+                    viewResult.hideProgress();
+                    viewResult.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void searchJudulMahasiswaBy(String parameter, String query) {
-        viewResult.showProgress();
-        ApiInterfaceJudul apiInterfaceJudul = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
-        Call<List<Judul>> call = apiInterfaceJudul.searchJudulMahasiswaBy(parameter,query);
-        call.enqueue(new Callback<List<Judul>>() {
-            @Override
-            public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetListJudul(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<List<Judul>> call, Throwable t) {
-                viewResult.hideProgress();
-                viewResult.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewResult.showProgress();
+            ApiInterfaceJudul apiInterfaceJudul = ApiClient.getApiClient().create(ApiInterfaceJudul.class);
+            Call<List<Judul>> call = apiInterfaceJudul.searchJudulMahasiswaBy(parameter,query);
+            call.enqueue(new Callback<List<Judul>>() {
+                @Override
+                public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
+                    viewResult.hideProgress();
+                    viewResult.onGetListJudul(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<Judul>> call, Throwable t) {
+                    viewResult.hideProgress();
+                    viewResult.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
 

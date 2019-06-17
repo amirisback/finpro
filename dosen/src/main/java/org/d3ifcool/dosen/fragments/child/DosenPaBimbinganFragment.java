@@ -58,6 +58,7 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         judulPresenter = new JudulPresenter(this);
+        judulPresenter.initContext(getContext());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter.setLayoutType(R.layout.content_list_all_pa_judul);

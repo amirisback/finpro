@@ -32,7 +32,7 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiLis
     private MahasiswaInformasiViewAdapter adapter;
     private RecyclerView recyclerView;
     private ProgressDialog progressDialog;
-    private InformasiPresenter presenter;
+    private InformasiPresenter informasiPresenter;
     private SwipeRefreshLayout swipeRefreshLayout;
     private View empty_view;
 
@@ -53,19 +53,20 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiLis
         empty_view = rootView.findViewById(R.id.view_emptyview);
 
         adapter = new MahasiswaInformasiViewAdapter(getContext());
-        presenter = new InformasiPresenter(this);
+        informasiPresenter = new InformasiPresenter(this);
+        informasiPresenter.initContext(getContext());
 
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        presenter.getInformasi();
+        informasiPresenter.getInformasi();
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.getInformasi();
+                informasiPresenter.getInformasi();
             }
         });
 
@@ -75,7 +76,7 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiLis
     @Override
     public void onResume() {
         super.onResume();
-        presenter.getInformasi();
+        informasiPresenter.getInformasi();
     }
 
     @Override

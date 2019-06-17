@@ -51,6 +51,10 @@ public class KoorJudulPaSubdosenUbahActivity extends AppCompatActivity implement
 
         judulPresenter = new JudulPresenter(this);
         kategoriJudulPresenter = new KategoriJudulPresenter(this);
+
+        judulPresenter.initContext(this);
+        kategoriJudulPresenter.initContext(this);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         spinnerHelper = new SpinnerHelper(this);

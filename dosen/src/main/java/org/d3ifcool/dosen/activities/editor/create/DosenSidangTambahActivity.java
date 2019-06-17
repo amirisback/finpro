@@ -53,6 +53,10 @@ public class DosenSidangTambahActivity extends AppCompatActivity implements Sida
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         sidangPresenter = new SidangPresenter(this);
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
+
+        sidangPresenter.initContext(this);
+        proyekAkhirPresenter.initContext(this);
+
         MethodHelper helper = new MethodHelper();
         SpinnerHelper helper1 = new SpinnerHelper(this);
 

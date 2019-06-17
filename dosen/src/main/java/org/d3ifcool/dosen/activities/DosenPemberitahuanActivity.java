@@ -45,6 +45,7 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
 
         progressDialog = new ProgressDialog(this);
         notifikasiPresenter = new NotifikasiPresenter(this, this);
+        notifikasiPresenter.initContext(this);
         sessionManager = new SessionManager(this);
 
         adapter = new DosenPemberitahuanViewAdapter(this);

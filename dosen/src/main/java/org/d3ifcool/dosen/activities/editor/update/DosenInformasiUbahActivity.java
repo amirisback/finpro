@@ -22,7 +22,7 @@ public class DosenInformasiUbahActivity extends AppCompatActivity implements Inf
 
     public static final String EXTRA_INFORMASI = "extra_informasi";
     private Informasi extraInfo;
-    private InformasiPresenter presenter;
+    private InformasiPresenter informasiPresenter;
     private ProgressDialog progressDialog;
 
     @Override
@@ -44,7 +44,9 @@ public class DosenInformasiUbahActivity extends AppCompatActivity implements Inf
         info_judul.setText(judul);
         info_deskripsi.setText(isi);
 
-        presenter = new InformasiPresenter(this);
+        informasiPresenter = new InformasiPresenter(this);
+        informasiPresenter.initContext(this);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -66,7 +68,7 @@ public class DosenInformasiUbahActivity extends AppCompatActivity implements Inf
                                 } else if (judul_baru.isEmpty()) {
                                     info_deskripsi.setError(getString(R.string.text_tidak_boleh_kosong));
                                 }else {
-                                    presenter.updateInformasi(extraInfo.getId(), judul_baru, isi_baru);
+                                    informasiPresenter.updateInformasi(extraInfo.getId(), judul_baru, isi_baru);
                                 }
                             }
                         })

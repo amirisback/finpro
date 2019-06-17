@@ -22,7 +22,7 @@ public class KoorInformasiDetailActivity extends AppCompatActivity implements In
 
     public static final String EXTRA_INFORMASI = "extra_informasi";
     private Informasi extraInfo;
-    private InformasiPresenter presenter;
+    private InformasiPresenter informasiPresenter;
     private ProgressDialog progressDialog;
 
     @Override
@@ -32,7 +32,10 @@ public class KoorInformasiDetailActivity extends AppCompatActivity implements In
 
         setTitle(getString(R.string.title_informasi_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        presenter = new InformasiPresenter(this);
+
+        informasiPresenter = new InformasiPresenter(this);
+        informasiPresenter.initContext(this);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -86,7 +89,7 @@ public class KoorInformasiDetailActivity extends AppCompatActivity implements In
                     .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // Continue with delete operation
-                            presenter.deleteInformasi(extraInfo.getId());
+                            informasiPresenter.deleteInformasi(extraInfo.getId());
                         }
                     })
 

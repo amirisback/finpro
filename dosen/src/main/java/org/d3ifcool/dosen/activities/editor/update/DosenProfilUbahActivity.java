@@ -42,6 +42,8 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
         getSupportActionBar().setElevation(0f);
 
         dosenPresenter = new DosenPresenter(this);
+        dosenPresenter.initContext(this);
+
         sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
 

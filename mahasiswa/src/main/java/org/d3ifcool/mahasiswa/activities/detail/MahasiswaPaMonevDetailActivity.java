@@ -55,6 +55,9 @@ public class MahasiswaPaMonevDetailActivity extends AppCompatActivity implements
         detailMonevPresenter = new MonevDetailPresenter(this);
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
 
+        detailMonevPresenter.initContext(this);
+        proyekAkhirPresenter.initContext(this);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 

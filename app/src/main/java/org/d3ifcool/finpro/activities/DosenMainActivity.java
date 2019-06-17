@@ -27,11 +27,7 @@ import org.d3ifcool.base.presenters.DosenPresenter;
 
 public class DosenMainActivity extends AppCompatActivity implements DosenView {
 
-//    private MenuItem prevMenuItem = null;
-//    private ViewPager mViewPager;
-    private BottomNavigationView bottomNavigationView;
     private SessionManager sessionManager;
-    private DosenPresenter presenter;
 
     private MethodHelper methodHelper;
 
@@ -47,11 +43,15 @@ public class DosenMainActivity extends AppCompatActivity implements DosenView {
 //        DosenPagerAdapter mPagerAdapter = new DosenPagerAdapter(this, getSupportFragmentManager());
 //        mViewPager.setAdapter(mPagerAdapter);
 
-        bottomNavigationView = findViewById(R.id.act_dsn_home_bottom_navigation);
+        //    private MenuItem prevMenuItem = null;
+        //    private ViewPager mViewPager;
+        BottomNavigationView bottomNavigationView = findViewById(R.id.act_dsn_home_bottom_navigation);
 
-        presenter = new DosenPresenter(this);
+        DosenPresenter dosenPresenter = new DosenPresenter(this);
+        dosenPresenter.initContext(this);
+
         sessionManager = new SessionManager(this);
-        presenter.getDosenByParameter(sessionManager.getSessionUsername());
+        dosenPresenter.getDosenByParameter(sessionManager.getSessionUsername());
 
         openFragment(new DosenInformasiFragment());
 

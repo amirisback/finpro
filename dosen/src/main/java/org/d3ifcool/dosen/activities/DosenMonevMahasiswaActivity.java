@@ -53,6 +53,7 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements Mo
         empty_view = findViewById(R.id.view_emptyview);
 
         detailMonevPresenter = new MonevDetailPresenter(this);
+        detailMonevPresenter.initContext(this);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));

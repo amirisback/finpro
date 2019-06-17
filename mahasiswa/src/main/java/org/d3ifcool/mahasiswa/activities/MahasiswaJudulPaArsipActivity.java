@@ -71,6 +71,9 @@ public class MahasiswaJudulPaArsipActivity extends AppCompatActivity implements 
         KategoriJudulPresenter kategoriJudulPresenter = new KategoriJudulPresenter(this);
         judulPresenter = new JudulPresenter(this);
 
+        judulPresenter.initContext(this);
+        kategoriJudulPresenter.initContext(this);
+
         kategoriJudulPresenter.getKategori();
 
         sp_kategori.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

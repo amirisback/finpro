@@ -21,16 +21,20 @@ public class KoorDosenUbahActivity extends AppCompatActivity implements DosenWor
 
     private EditText et_nip, et_nama,et_kode, et_kontak, et_email;
     private Button btn_simpan;
-    private DosenPresenter presenter;
+    private DosenPresenter dosenPresenter;
     private ProgressDialog progressDialog;
 
     public static final String EXTRA_DOSEN = "extra_dosen";
     private Dosen extraDosen;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_dosen_ubah);
-        presenter = new DosenPresenter(this);
+
+        dosenPresenter = new DosenPresenter(this);
+        dosenPresenter.initContext(this);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -73,7 +77,7 @@ public class KoorDosenUbahActivity extends AppCompatActivity implements DosenWor
                                 } else if (kode_baru.isEmpty()) {
                                     et_kode.setError(getString(R.string.text_tidak_boleh_kosong));
                                 } else {
-                                    presenter.updateDosen(extraDosen.getDsn_nip(), nama_baru, kode_baru, kontak_baru, email_baru);
+                                    dosenPresenter.updateDosen(extraDosen.getDsn_nip(), nama_baru, kode_baru, kontak_baru, email_baru);
 
                                 }
                             }

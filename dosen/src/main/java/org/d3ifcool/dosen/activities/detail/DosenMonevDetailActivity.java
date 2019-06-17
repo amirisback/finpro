@@ -40,6 +40,8 @@ public class DosenMonevDetailActivity extends AppCompatActivity implements Monev
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         detailMonevPresenter = new MonevDetailPresenter(this);
+        detailMonevPresenter.initContext(this);
+
         progressDialog = new ProgressDialog(this);
         sessionManager = new SessionManager(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));

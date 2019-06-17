@@ -79,6 +79,9 @@ public class KoorPemetaanMonevFragment extends Fragment implements DosenListView
         dosenPresenter = new DosenPresenter(this);
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
 
+        dosenPresenter.initContext(getContext());
+        proyekAkhirPresenter.initContext(getContext());
+
         dosenPresenter.getDosen();
 
         sp_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

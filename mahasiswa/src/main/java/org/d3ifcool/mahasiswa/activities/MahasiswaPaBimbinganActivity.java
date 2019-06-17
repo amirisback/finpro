@@ -57,7 +57,10 @@ public class MahasiswaPaBimbinganActivity extends AppCompatActivity implements B
 
         adapter = new MahasiswaPaBimbinganViewAdapter(this);
         progressDialog = new ProgressDialog(this);
+
         bimbinganPresenter = new BimbinganPresenter(this);
+        bimbinganPresenter.initContext(this);
+
         progressDialog.setMessage(getString(org.d3ifcool.mahasiswa.R.string.text_progress_dialog));
         empty_view = findViewById(R.id.view_emptyview);
         sessionManager = new SessionManager(this);

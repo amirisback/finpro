@@ -35,6 +35,8 @@ public class KoorJudulPaSubdosenDetailActivity extends AppCompatActivity impleme
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         judulPresenter = new JudulPresenter(this);
+        judulPresenter.initContext(this);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 

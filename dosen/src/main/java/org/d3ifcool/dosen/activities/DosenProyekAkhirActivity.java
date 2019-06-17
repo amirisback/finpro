@@ -70,6 +70,11 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         bimbinganPresenter = new BimbinganPresenter(this);
         detailMonevPresenter = new MonevDetailPresenter(this);
+
+        proyekAkhirPresenter.initContext(this);
+        bimbinganPresenter.initContext(this);
+        detailMonevPresenter.initContext(this);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 

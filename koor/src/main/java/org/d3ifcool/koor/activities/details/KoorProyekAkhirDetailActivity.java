@@ -72,6 +72,11 @@ public class KoorProyekAkhirDetailActivity extends AppCompatActivity implements
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         bimbinganPresenter = new BimbinganPresenter(this);
         judulPresenter = new JudulPresenter(this);
+
+        proyekAkhirPresenter.initContext(this);
+        bimbinganPresenter.initContext(this);
+        judulPresenter.initContext(this);
+
         sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));

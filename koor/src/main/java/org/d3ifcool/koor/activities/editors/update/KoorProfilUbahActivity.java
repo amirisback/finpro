@@ -41,6 +41,8 @@ public class KoorProfilUbahActivity extends AppCompatActivity implements KoorWor
         getSupportActionBar().setElevation(0f);
 
         koorPresenter = new KoorPresenter(this);
+        koorPresenter.initContext(this);
+
         sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
 

@@ -27,8 +27,8 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenW
 
     public static final String EXTRA_DOSEN = "extra_dosen";
     private Dosen extraDosen;
-    private DosenPresenter presenter;
-    private ProgressDialog dialog;
+    private DosenPresenter dosenPresenter;
+    private ProgressDialog progressDialog;
     private TextView tv_nama, tv_kode, tv_nip, tv_kontak, tv_email;
     private CircleImageView circleImageView;
     private String nip;
@@ -42,9 +42,11 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenW
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0f);
 
-        presenter = new DosenPresenter(this);
-        dialog = new ProgressDialog(this);
-        dialog.setMessage(getString(R.string.text_progress_dialog));
+        dosenPresenter = new DosenPresenter(this);
+        dosenPresenter.initContext(this);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         tv_nama = findViewById(R.id.act_koor_dosen_nama);
         tv_kode = findViewById(R.id.act_koor_dosen_kode);
@@ -98,7 +100,7 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenW
                     .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // Continue with delete operation
-                            presenter.deleteDosen(nip);
+                            dosenPresenter.deleteDosen(nip);
                         }
                     })
 
@@ -111,12 +113,12 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenW
 
     @Override
     public void showProgress() {
-        dialog.show();
+        progressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-        dialog.dismiss();
+        progressDialog.dismiss();
     }
 
     @Override

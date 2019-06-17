@@ -1,6 +1,11 @@
 package org.d3ifcool.base.presenters;
 
 
+import android.content.Context;
+import android.widget.Toast;
+
+import org.d3ifcool.base.R;
+import org.d3ifcool.base.helpers.ConnectionHelper;
 import org.d3ifcool.base.interfaces.lists.MonevListView;
 import org.d3ifcool.base.interfaces.objects.MonevView;
 import org.d3ifcool.base.interfaces.works.MonevWorkView;
@@ -37,6 +42,13 @@ public class MonevPresenter {
     private MonevWorkView viewEditor;
     private MonevView viewObject;
 
+    private ConnectionHelper connectionHelper = new ConnectionHelper();
+    private Context context;
+
+    public void initContext(Context context){
+        this.context = context;
+    }
+
     public MonevPresenter(MonevListView viewResult, MonevWorkView viewEditor, MonevView viewObject) {
         this.viewResult = viewResult;
         this.viewEditor = viewEditor;
@@ -61,81 +73,108 @@ public class MonevPresenter {
     }
 
     public void createMonev(String monev_kategori, String jumlah_bimbingan) {
-        viewEditor.showProgress();
-        ApiInterfaceMonev apiInterfaceMonev = ApiClient.getApiClient().create(ApiInterfaceMonev.class);
-        Call<Monev> call = apiInterfaceMonev.createMonev(monev_kategori, jumlah_bimbingan);
-        call.enqueue(new Callback<Monev>() {
-            @Override
-            public void onResponse(Call<Monev> call, Response<Monev> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
 
-            @Override
-            public void onFailure(Call<Monev> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceMonev apiInterfaceMonev = ApiClient.getApiClient().create(ApiInterfaceMonev.class);
+            Call<Monev> call = apiInterfaceMonev.createMonev(monev_kategori, jumlah_bimbingan);
+            call.enqueue(new Callback<Monev>() {
+                @Override
+                public void onResponse(Call<Monev> call, Response<Monev> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+
+                @Override
+                public void onFailure(Call<Monev> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void getMonev(){
-        viewResult.showProgress();
-        ApiInterfaceMonev apiInterfaceMonev = ApiClient.getApiClient().create(ApiInterfaceMonev.class);
-        Call<List<Monev>> call = apiInterfaceMonev.getMonev();
-        call.enqueue(new Callback<List<Monev>>() {
-            @Override
-            public void onResponse(Call<List<Monev>> call, Response<List<Monev>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetListMonev(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<List<Monev>> call, Throwable t) {
-                viewResult.hideProgress();
-                viewResult.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewResult.showProgress();
+            ApiInterfaceMonev apiInterfaceMonev = ApiClient.getApiClient().create(ApiInterfaceMonev.class);
+            Call<List<Monev>> call = apiInterfaceMonev.getMonev();
+            call.enqueue(new Callback<List<Monev>>() {
+                @Override
+                public void onResponse(Call<List<Monev>> call, Response<List<Monev>> response) {
+                    viewResult.hideProgress();
+                    viewResult.onGetListMonev(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<Monev>> call, Throwable t) {
+                    viewResult.hideProgress();
+                    viewResult.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
 
 
     }
 
     public void deleteMonev(int monev_id){
-        viewEditor.showProgress();
-        ApiInterfaceMonev apiInterfaceMonev = ApiClient.getApiClient().create(ApiInterfaceMonev.class);
-        Call<Monev> call = apiInterfaceMonev.deleteMonev(monev_id);
-        call.enqueue(new Callback<Monev>() {
-            @Override
-            public void onResponse(Call<Monev> call, Response<Monev> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
 
-            @Override
-            public void onFailure(Call<Monev> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceMonev apiInterfaceMonev = ApiClient.getApiClient().create(ApiInterfaceMonev.class);
+            Call<Monev> call = apiInterfaceMonev.deleteMonev(monev_id);
+            call.enqueue(new Callback<Monev>() {
+                @Override
+                public void onResponse(Call<Monev> call, Response<Monev> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+
+                @Override
+                public void onFailure(Call<Monev> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void updateMonev(int monev_id, String kategori, String jumlah_bimbingan){
-        viewEditor.showProgress();
-        ApiInterfaceMonev apiInterfaceMonev = ApiClient.getApiClient().create(ApiInterfaceMonev.class);
-        Call<Monev> call = apiInterfaceMonev.updateMonev(monev_id, kategori, jumlah_bimbingan);
-        call.enqueue(new Callback<Monev>() {
-            @Override
-            public void onResponse(Call<Monev> call, Response<Monev> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
 
-            @Override
-            public void onFailure(Call<Monev> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceMonev apiInterfaceMonev = ApiClient.getApiClient().create(ApiInterfaceMonev.class);
+            Call<Monev> call = apiInterfaceMonev.updateMonev(monev_id, kategori, jumlah_bimbingan);
+            call.enqueue(new Callback<Monev>() {
+                @Override
+                public void onResponse(Call<Monev> call, Response<Monev> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+
+                @Override
+                public void onFailure(Call<Monev> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 }

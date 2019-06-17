@@ -81,6 +81,9 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
         dosenPresenter = new DosenPresenter(this);
         judulPresenter = new JudulPresenter(this);
 
+        judulPresenter.initContext(getContext());
+        dosenPresenter.initContext(getContext());
+
         dosenPresenter.getDosen();
 
         sp_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

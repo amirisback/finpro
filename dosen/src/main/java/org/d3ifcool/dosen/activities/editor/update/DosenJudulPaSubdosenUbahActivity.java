@@ -51,6 +51,8 @@ public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implemen
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         kategoriJudulPresenter = new KategoriJudulPresenter(this);
+        kategoriJudulPresenter.initContext(this);
+
         presenter = new JudulPresenter(this);
         spinnerHelper = new SpinnerHelper(this);
 

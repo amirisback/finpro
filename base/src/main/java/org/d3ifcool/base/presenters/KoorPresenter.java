@@ -1,5 +1,10 @@
 package org.d3ifcool.base.presenters;
 
+import android.content.Context;
+import android.widget.Toast;
+
+import org.d3ifcool.base.R;
+import org.d3ifcool.base.helpers.ConnectionHelper;
 import org.d3ifcool.base.interfaces.lists.KoorListView;
 import org.d3ifcool.base.interfaces.objects.KoorView;
 import org.d3ifcool.base.interfaces.works.KoorWorkView;
@@ -32,6 +37,13 @@ public class KoorPresenter {
     private KoorListView viewResult;
     private KoorWorkView viewEditor;
 
+    private ConnectionHelper connectionHelper = new ConnectionHelper();
+    private Context context;
+
+    public void initContext(Context context){
+        this.context = context;
+    }
+
     public KoorPresenter(KoorView viewObject) {
         this.viewObject = viewObject;
     }
@@ -45,98 +57,133 @@ public class KoorPresenter {
     }
 
     public void createKoor(String koor_nip , String koor_nama , String koor_kontak, String koor_foto, String koor_email){
-        viewEditor.showProgress();
-        ApiInterfaceKoor interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
-        Call<KoordinatorPa>call = interfaceAdmin.createKoor(koor_nip,koor_nama,koor_kontak,koor_foto,koor_email);
-        call.enqueue(new Callback<KoordinatorPa>() {
-            @Override
-            public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
 
-            @Override
-            public void onFailure(Call<KoordinatorPa> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceKoor interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
+            Call<KoordinatorPa>call = interfaceAdmin.createKoor(koor_nip,koor_nama,koor_kontak,koor_foto,koor_email);
+            call.enqueue(new Callback<KoordinatorPa>() {
+                @Override
+                public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+
+                @Override
+                public void onFailure(Call<KoordinatorPa> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void updateKoor(String username, String koor_nip, String koor_nama, String koor_kode, String koor_kontak, String koor_email){
-        viewEditor.showProgress();
-        ApiInterfaceKoor interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
-        Call<KoordinatorPa>call = interfaceAdmin.updateKoor(username, koor_nip, koor_nama, koor_kode, koor_kontak,koor_email);
-        call.enqueue(new Callback<KoordinatorPa>() {
-            @Override
-            public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
 
-            @Override
-            public void onFailure(Call<KoordinatorPa> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceKoor interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
+            Call<KoordinatorPa>call = interfaceAdmin.updateKoor(username, koor_nip, koor_nama, koor_kode, koor_kontak,koor_email);
+            call.enqueue(new Callback<KoordinatorPa>() {
+                @Override
+                public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+
+                @Override
+                public void onFailure(Call<KoordinatorPa> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void getKoor(){
-        viewResult.showProgress();
-        ApiInterfaceKoor interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
-        Call<List<KoordinatorPa>> call = interfaceAdmin.getKoor();
-        call.enqueue(new Callback<List<KoordinatorPa>>() {
-            @Override
-            public void onResponse(Call<List<KoordinatorPa>> call, Response<List<KoordinatorPa>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetListKoor(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<List<KoordinatorPa>> call, Throwable t) {
-                viewResult.hideProgress();
-                viewResult.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewResult.showProgress();
+            ApiInterfaceKoor interfaceAdmin = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
+            Call<List<KoordinatorPa>> call = interfaceAdmin.getKoor();
+            call.enqueue(new Callback<List<KoordinatorPa>>() {
+                @Override
+                public void onResponse(Call<List<KoordinatorPa>> call, Response<List<KoordinatorPa>> response) {
+                    viewResult.hideProgress();
+                    viewResult.onGetListKoor(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<KoordinatorPa>> call, Throwable t) {
+                    viewResult.hideProgress();
+                    viewResult.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
 
     }
 
     public void deleteKoor(String koor_nip){
-        viewEditor.showProgress();
-        ApiInterfaceKoor apiInterfaceKoorPa = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
-        Call<KoordinatorPa>call = apiInterfaceKoorPa.deleteKoor(koor_nip);
-        call.enqueue(new Callback<KoordinatorPa>() {
-            @Override
-            public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
 
-            @Override
-            public void onFailure(Call<KoordinatorPa> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceKoor apiInterfaceKoorPa = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
+            Call<KoordinatorPa>call = apiInterfaceKoorPa.deleteKoor(koor_nip);
+            call.enqueue(new Callback<KoordinatorPa>() {
+                @Override
+                public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+
+                @Override
+                public void onFailure(Call<KoordinatorPa> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void getKoorByParameter(String koor_nip){
-        ApiInterfaceKoor apiInterfaceKoorPa = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
-        Call<KoordinatorPa> call = apiInterfaceKoorPa.getKoorByParameter(koor_nip);
-        call.enqueue(new Callback<KoordinatorPa>() {
-            @Override
-            public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
-                viewObject.hideProgress();
-                viewObject.onGetObjectKoor(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<KoordinatorPa> call, Throwable t) {
-                viewObject.hideProgress();
-                viewObject.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            ApiInterfaceKoor apiInterfaceKoorPa = ApiClient.getApiClient().create(ApiInterfaceKoor.class);
+            Call<KoordinatorPa> call = apiInterfaceKoorPa.getKoorByParameter(koor_nip);
+            call.enqueue(new Callback<KoordinatorPa>() {
+                @Override
+                public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
+                    viewObject.hideProgress();
+                    viewObject.onGetObjectKoor(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<KoordinatorPa> call, Throwable t) {
+                    viewObject.hideProgress();
+                    viewObject.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
 }

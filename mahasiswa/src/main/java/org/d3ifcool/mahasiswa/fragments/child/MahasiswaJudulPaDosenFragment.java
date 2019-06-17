@@ -72,6 +72,10 @@ public class MahasiswaJudulPaDosenFragment extends Fragment implements DosenList
 
         dosenPresenter = new DosenPresenter(this);
         judulPresenter = new JudulPresenter(this);
+
+        dosenPresenter.initContext(getContext());
+        judulPresenter.initContext(getContext());
+
         empty_view = rootView.findViewById(R.id.view_emptyview);
 
         adapter = new MahasiswaJudulPaDosenViewAdapter(getContext());

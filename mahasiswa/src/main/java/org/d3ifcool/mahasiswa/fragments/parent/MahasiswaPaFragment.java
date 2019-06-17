@@ -88,6 +88,10 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
         bimbinganPresenter = new BimbinganPresenter(this);
         dosenPresenter = new DosenPresenter(this);
 
+        proyekAkhirPresenter.initContext(getContext());
+        bimbinganPresenter.initContext(getContext());
+        dosenPresenter.initContext(getContext());
+
         sessionManager = new SessionManager(getContext());
         progressDialog = new ProgressDialog(getContext());
 

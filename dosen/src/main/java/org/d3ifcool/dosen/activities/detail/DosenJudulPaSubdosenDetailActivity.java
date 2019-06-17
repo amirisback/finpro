@@ -36,9 +36,11 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
     public static final String PARAM_JUDUL_ID = "proyek_akhir.judul_id";
     public static final String PARAM_JUDUL_STATUS = "judul.judul_status";
 
-    private Judul extradata;
+    private Judul extraJudul;
+
     private JudulPresenter judulPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
+
     private ProgressDialog progressDialog;
     private SessionManager sessionManager;
     private RecyclerView recyclerView;
@@ -69,17 +71,21 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
 
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         judulPresenter = new JudulPresenter(this);
+
+        proyekAkhirPresenter.initContext(this);
+        judulPresenter.initContext(this);
+
         progressDialog = new ProgressDialog(this);
         sessionManager = new SessionManager(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         adapter = new DosenKelompokPengajuanJudulViewAdapter(this);
 
-        extradata = getIntent().getParcelableExtra(EXTRA_INFORMASI);
-        String judul = extradata.getJudul();
-        String kategori = extradata.getKategori_nama();
-        String deskripsi = extradata.getDeskripsi();
-        judul_id = extradata.getId();
+        extraJudul = getIntent().getParcelableExtra(EXTRA_INFORMASI);
+        String judul = extraJudul.getJudul();
+        String kategori = extraJudul.getKategori_nama();
+        String deskripsi = extraJudul.getDeskripsi();
+        judul_id = extraJudul.getId();
 
         adapter.addExtraJudul(judul_id);
 
@@ -106,7 +112,7 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        String nip_dosen = extradata.getNip_dosen();
+        String nip_dosen = extraJudul.getNip_dosen();
         if(nip_dosen.equalsIgnoreCase(sessionManager.getSessionDosenNip())) {
             getMenuInflater().inflate(R.menu.menu_edit_delete, menu);
         }
@@ -122,7 +128,7 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
 
         } else if (i == R.id.toolbar_menu_ubah) {
             Intent intentUbah = new Intent(DosenJudulPaSubdosenDetailActivity.this, DosenJudulPaSubdosenUbahActivity.class);
-            Judul parcelinfo = extradata;
+            Judul parcelinfo = extraJudul;
             intentUbah.putExtra(DosenJudulPaSubdosenUbahActivity.EXTRA_INFORMASI, parcelinfo);
             startActivity(intentUbah);
             finish();
@@ -137,7 +143,7 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
                     .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // Continue with delete operation
-                            judulPresenter.deleteJudul(extradata.getId());
+                            judulPresenter.deleteJudul(extraJudul.getId());
                         }
                     })
 

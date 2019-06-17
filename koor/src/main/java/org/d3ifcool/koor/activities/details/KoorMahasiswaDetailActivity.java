@@ -43,6 +43,8 @@ public class KoorMahasiswaDetailActivity extends AppCompatActivity implements Ma
         getSupportActionBar().setElevation(0f);
 
         mahasiswaPresenter = new MahasiswaPresenter(this);
+        mahasiswaPresenter.initContext(this);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 

@@ -50,6 +50,7 @@ public class MahasiswaProfilUbahActivity extends AppCompatActivity implements Ma
 
         sessionManager = new SessionManager(this);
         mahasiswaPresenter = new MahasiswaPresenter(this);
+        mahasiswaPresenter.initContext(this);
 
         TextView tv_nim = findViewById(R.id.act_mhs_profil_nim);
         et_nama = findViewById(R.id.act_mhs_profil_nama);

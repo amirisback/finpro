@@ -41,6 +41,8 @@ public class DosenMonevUbahActivity extends AppCompatActivity implements MonevDe
         methodHelper = new MethodHelper();
         detailMonevPresenter = new MonevDetailPresenter(this);
 
+        detailMonevPresenter.initContext(this);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 

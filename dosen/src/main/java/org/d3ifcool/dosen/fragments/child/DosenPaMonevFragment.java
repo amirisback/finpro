@@ -33,7 +33,7 @@ public class DosenPaMonevFragment extends Fragment implements ProyekAkhirListVie
 
     private RecyclerView recyclerView;
     private DosenProyekAkhirMonevViewAdapter adapter;
-    private ProyekAkhirPresenter presenter;
+    private ProyekAkhirPresenter proyekAkhirPresenter;
     private ProgressDialog progressDialog;
     private ArrayList<ProyekAkhir> arrayList = new ArrayList<>();
     private SessionManager sessionManager;
@@ -60,19 +60,20 @@ public class DosenPaMonevFragment extends Fragment implements ProyekAkhirListVie
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         adapter = new DosenProyekAkhirMonevViewAdapter(getContext());
-        presenter = new ProyekAkhirPresenter(this);
+        proyekAkhirPresenter = new ProyekAkhirPresenter(this);
+        proyekAkhirPresenter.initContext(getContext());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter.setLayoutType(R.layout.content_list_dosen_pa_monev);
 
-//        presenter.searchDistinctProyekAkhirBy(PARAMS_DOSEN_REVIEWER_NIP, sessionManager.getSessionDosenNip());
-        presenter.searchDistinctProyekAkhirBy(PARAMS_DOSEN_REVIEWER_NIP, sessionManager.getSessionUsername());
+//        proyekAkhirPresenter.searchDistinctProyekAkhirBy(PARAMS_DOSEN_REVIEWER_NIP, sessionManager.getSessionDosenNip());
+        proyekAkhirPresenter.searchDistinctProyekAkhirBy(PARAMS_DOSEN_REVIEWER_NIP, sessionManager.getSessionUsername());
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-//                presenter.searchDistinctProyekAkhirBy(PARAMS_DOSEN_REVIEWER_NIP, sessionManager.getSessionDosenNip());
-                presenter.searchDistinctProyekAkhirBy(PARAMS_DOSEN_REVIEWER_NIP, sessionManager.getSessionUsername());
+//                proyekAkhirPresenter.searchDistinctProyekAkhirBy(PARAMS_DOSEN_REVIEWER_NIP, sessionManager.getSessionDosenNip());
+                proyekAkhirPresenter.searchDistinctProyekAkhirBy(PARAMS_DOSEN_REVIEWER_NIP, sessionManager.getSessionUsername());
             }
         });
 

@@ -47,6 +47,8 @@ public class MahasiswaPaBimbinganTambahActivity extends AppCompatActivity implem
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         final BimbinganPresenter bimbinganPresenter = new BimbinganPresenter(this);
+        bimbinganPresenter.initContext(this);
+
         MethodHelper methodHelper = new MethodHelper();
         SessionManager sessionManager = new SessionManager(this);
 

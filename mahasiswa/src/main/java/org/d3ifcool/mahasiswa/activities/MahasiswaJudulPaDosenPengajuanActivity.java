@@ -49,8 +49,12 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
         sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
+
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         mahasiswaPresenter = new MahasiswaPresenter(this, this);
+
+        proyekAkhirPresenter.initContext(this);
+        mahasiswaPresenter.initContext(this);
 
         TextView textViewJudul = findViewById(R.id.act_mhs_pa_pengajuan_textview_judul);
         TextView textViewJudulKategori = findViewById(R.id.act_mhs_pa_pengajuan_textview_kategori);

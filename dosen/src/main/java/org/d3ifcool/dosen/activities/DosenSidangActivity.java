@@ -49,7 +49,6 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private SidangPresenter sidangPresenter;
     private BimbinganPresenter bimbinganPresenter;
-    private MonevDetailPresenter detailMonevPresenter;
 
     private TextView tv_nama1,tv_nim1,tv_nama2,tv_nim2,tv_status, tv_tanggal_1, tv_tanggal_2;
     private CardView cardView_mhs_1,cardView_mhs_2;
@@ -68,10 +67,16 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
+
         proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         sidangPresenter = new SidangPresenter(this);
         bimbinganPresenter = new BimbinganPresenter(this);
-        detailMonevPresenter = new MonevDetailPresenter(this);
+        MonevDetailPresenter detailMonevPresenter = new MonevDetailPresenter(this);
+
+        proyekAkhirPresenter.initContext(this);
+        sidangPresenter.initContext(this);
+        bimbinganPresenter.initContext(this);
+        detailMonevPresenter.initContext(this);
 
         tv_nama1 = findViewById(R.id.dsn_sidang_textview_nama_1);
         tv_nim1 = findViewById(R.id.dsn_sidang_textview_nim_1);

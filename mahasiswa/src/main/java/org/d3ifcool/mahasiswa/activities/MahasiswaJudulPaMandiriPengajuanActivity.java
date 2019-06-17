@@ -77,8 +77,15 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         KategoriJudulPresenter kategoriJudulPresenter = new KategoriJudulPresenter(this);
         mahasiswaPresenter = new MahasiswaPresenter(this);
         judulPresenter = new JudulPresenter(this, this);
-        sessionManager = new SessionManager(this);
         proyekMahasiswaPresenter = new ProyekMahasiswaPresenter(this);
+
+        dosenPresenter.initContext(this);
+        kategoriJudulPresenter.initContext(this);
+        mahasiswaPresenter.initContext(this);
+        judulPresenter.initContext(this);
+        proyekMahasiswaPresenter.initContext(this);
+
+        sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 

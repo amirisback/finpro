@@ -40,7 +40,7 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
     private SwipeRefreshLayout swipeRefreshLayout;
     private ArrayList<Monev> monevs = new ArrayList<>();
     private View empty_view;
-    private MonevPresenter presenterMonev;
+    private MonevPresenter monevPresenter;
     private ProgressDialog progressDialog;
     public KoorKategoriMonevFragment() {
         // Required empty public constructor
@@ -58,14 +58,16 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
-        presenterMonev = new MonevPresenter(this, this);
-        koorMonevKategoriViewAdapter = new KoorMonevKategoriViewAdapter(getContext(), presenterMonev);
+        monevPresenter = new MonevPresenter(this, this);
+        monevPresenter.initContext(getContext());
+
+        koorMonevKategoriViewAdapter = new KoorMonevKategoriViewAdapter(getContext(), monevPresenter);
 
         empty_view = view.findViewById(R.id.view_emptyview);
         recyclerView = view.findViewById(R.id.frg_koor_kategori_monev_rv);
 
         koorMonevKategoriViewAdapter.notifyDataSetChanged();
-        presenterMonev.getMonev();
+        monevPresenter.getMonev();
 
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,8 +98,8 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
                                 }else if (jml > 16){
                                     et_jml_bimbingan.setError(getString(R.string.validate_tidak_lebih_16));
                                 } else {
-                                    presenterMonev.createMonev(kategori, bimbingan);
-                                    presenterMonev.getMonev();
+                                    monevPresenter.createMonev(kategori, bimbingan);
+                                    monevPresenter.getMonev();
                                     et_kategori_monev.setText("");
                                     dialog.dismiss();
                                     if (mDialogView.getParent() != null) {
@@ -124,7 +126,7 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenterMonev.getMonev();
+                monevPresenter.getMonev();
             }
         });
 
@@ -136,7 +138,7 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
     public void onResume() {
         super.onResume();
         koorMonevKategoriViewAdapter.notifyDataSetChanged();
-        presenterMonev.getMonev();
+        monevPresenter.getMonev();
 
     }
 
@@ -172,7 +174,7 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
 
     @Override
     public void onSucces() {
-        presenterMonev.getMonev();
+        monevPresenter.getMonev();
     }
 
     @Override

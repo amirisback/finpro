@@ -77,6 +77,9 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
         dosenPresenter = new DosenPresenter(this);
         judulPresenter = new JudulPresenter(this);
 
+        dosenPresenter.initContext(getContext());
+        judulPresenter.initContext(getContext());
+
         dosenPresenter.getDosen();
         sp_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

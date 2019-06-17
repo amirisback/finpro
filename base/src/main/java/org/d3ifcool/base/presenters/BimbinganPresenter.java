@@ -1,5 +1,10 @@
 package org.d3ifcool.base.presenters;
 
+import android.content.Context;
+import android.widget.Toast;
+
+import org.d3ifcool.base.R;
+import org.d3ifcool.base.helpers.ConnectionHelper;
 import org.d3ifcool.base.interfaces.lists.BimbinganListView;
 import org.d3ifcool.base.interfaces.objects.BimbinganView;
 import org.d3ifcool.base.interfaces.works.BimbinganWorkView;
@@ -31,6 +36,13 @@ public class BimbinganPresenter {
     private BimbinganWorkView viewEditor;
     private BimbinganView viewObject;
 
+    private ConnectionHelper connectionHelper = new ConnectionHelper();
+    private Context context;
+
+    public void initContext(Context context){
+        this.context = context;
+    }
+
     public BimbinganPresenter(BimbinganListView viewResult, BimbinganWorkView viewEditor, BimbinganView viewObject) {
         this.viewResult = viewResult;
         this.viewEditor = viewEditor;
@@ -60,155 +72,207 @@ public class BimbinganPresenter {
     }
 
     public void createBimbingan(String bimbingan_review, String bimbingan_kehadiran, String bimbingan_tanggal, String bimbingan_status, int proyek_akhir_id){
-        viewEditor.showProgress();
-        ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
-        Call<Bimbingan> call = apiInterfaceBimbingan.createBimbingan(bimbingan_review, bimbingan_kehadiran, bimbingan_tanggal, bimbingan_status ,proyek_akhir_id);
-        call.enqueue(new Callback<Bimbingan>() {
-            @Override
-            public void onResponse(Call<Bimbingan> call, Response<Bimbingan> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
 
-            @Override
-            public void onFailure(Call<Bimbingan> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
+            Call<Bimbingan> call = apiInterfaceBimbingan.createBimbingan(bimbingan_review, bimbingan_kehadiran, bimbingan_tanggal, bimbingan_status ,proyek_akhir_id);
+            call.enqueue(new Callback<Bimbingan>() {
+                @Override
+                public void onResponse(Call<Bimbingan> call, Response<Bimbingan> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+
+                @Override
+                public void onFailure(Call<Bimbingan> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void getBimbingan(){
-        viewResult.showProgress();
-        ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
-        Call<List<Bimbingan>> call = apiInterfaceBimbingan.getBimbingan();
-        call.enqueue(new Callback<List<Bimbingan>>() {
-            @Override
-            public void onResponse(Call<List<Bimbingan>> call, Response<List<Bimbingan>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetListBimbingan(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<List<Bimbingan>> call, Throwable t) {
-                viewResult.hideProgress();
-                viewResult.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewResult.showProgress();
+            ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
+            Call<List<Bimbingan>> call = apiInterfaceBimbingan.getBimbingan();
+            call.enqueue(new Callback<List<Bimbingan>>() {
+                @Override
+                public void onResponse(Call<List<Bimbingan>> call, Response<List<Bimbingan>> response) {
+                    viewResult.hideProgress();
+                    viewResult.onGetListBimbingan(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<Bimbingan>> call, Throwable t) {
+                    viewResult.hideProgress();
+                    viewResult.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void updateBimbingan(String bimbingan_id, String bimbingan_review, String bimbingan_tanggal){
-        viewEditor.showProgress();
-        ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
-        Call<Bimbingan> call = apiInterfaceBimbingan.updateBimbingan(bimbingan_id, bimbingan_review, bimbingan_tanggal);
-        call.enqueue(new Callback<Bimbingan>() {
-            @Override
-            public void onResponse(Call<Bimbingan> call, Response<Bimbingan> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
 
-            @Override
-            public void onFailure(Call<Bimbingan> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
+            Call<Bimbingan> call = apiInterfaceBimbingan.updateBimbingan(bimbingan_id, bimbingan_review, bimbingan_tanggal);
+            call.enqueue(new Callback<Bimbingan>() {
+                @Override
+                public void onResponse(Call<Bimbingan> call, Response<Bimbingan> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+
+                @Override
+                public void onFailure(Call<Bimbingan> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void deleteBimbingan(String bimbingan_id){
-        viewEditor.showProgress();
-        ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
-        Call<Bimbingan> call = apiInterfaceBimbingan.deleteBimbingan(bimbingan_id);
-        call.enqueue(new Callback<Bimbingan>() {
-            @Override
-            public void onResponse(Call<Bimbingan> call, Response<Bimbingan> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
 
-            @Override
-            public void onFailure(Call<Bimbingan> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
+            Call<Bimbingan> call = apiInterfaceBimbingan.deleteBimbingan(bimbingan_id);
+            call.enqueue(new Callback<Bimbingan>() {
+                @Override
+                public void onResponse(Call<Bimbingan> call, Response<Bimbingan> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+
+                @Override
+                public void onFailure(Call<Bimbingan> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
 
     public void searchBimbinganAllBy(String parameter, String query){
-        viewResult.showProgress();
-        ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
-        Call<List<Bimbingan>> call = apiInterfaceBimbingan.searchBimbinganAllBy(parameter, query);
-        call.enqueue(new Callback<List<Bimbingan>>() {
-            @Override
-            public void onResponse(Call<List<Bimbingan>> call, Response<List<Bimbingan>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetListBimbingan(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<List<Bimbingan>> call, Throwable t) {
-                viewResult.hideProgress();
-                viewResult.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewResult.showProgress();
+            ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
+            Call<List<Bimbingan>> call = apiInterfaceBimbingan.searchBimbinganAllBy(parameter, query);
+            call.enqueue(new Callback<List<Bimbingan>>() {
+                @Override
+                public void onResponse(Call<List<Bimbingan>> call, Response<List<Bimbingan>> response) {
+                    viewResult.hideProgress();
+                    viewResult.onGetListBimbingan(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<Bimbingan>> call, Throwable t) {
+                    viewResult.hideProgress();
+                    viewResult.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void searchBimbinganObjectBy(String parameter, String query){
-        ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
-        Call<Bimbingan> call = apiInterfaceBimbingan.searchBimbinganBy(parameter, query);
-        call.enqueue(new Callback<Bimbingan>() {
-            @Override
-            public void onResponse(Call<Bimbingan> call, Response<Bimbingan> response) {
-                viewObject.onGetObjectBimbingan(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<Bimbingan> call, Throwable t) {
-                viewObject.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
+            Call<Bimbingan> call = apiInterfaceBimbingan.searchBimbinganBy(parameter, query);
+            call.enqueue(new Callback<Bimbingan>() {
+                @Override
+                public void onResponse(Call<Bimbingan> call, Response<Bimbingan> response) {
+                    viewObject.onGetObjectBimbingan(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<Bimbingan> call, Throwable t) {
+                    viewObject.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void searchBimbinganAllByTwo(String parameter1, String query1, String parameter2, String query2){
-        viewResult.showProgress();
-        ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
-        Call<List<Bimbingan>> call = apiInterfaceBimbingan.searchBimbinganAllByTwo(parameter1, query1, parameter2, query2);
-        call.enqueue(new Callback<List<Bimbingan>>() {
-            @Override
-            public void onResponse(Call<List<Bimbingan>> call, Response<List<Bimbingan>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetListBimbingan(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<List<Bimbingan>> call, Throwable t) {
-                viewResult.hideProgress();
-                viewResult.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewResult.showProgress();
+            ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
+            Call<List<Bimbingan>> call = apiInterfaceBimbingan.searchBimbinganAllByTwo(parameter1, query1, parameter2, query2);
+            call.enqueue(new Callback<List<Bimbingan>>() {
+                @Override
+                public void onResponse(Call<List<Bimbingan>> call, Response<List<Bimbingan>> response) {
+                    viewResult.hideProgress();
+                    viewResult.onGetListBimbingan(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<Bimbingan>> call, Throwable t) {
+                    viewResult.hideProgress();
+                    viewResult.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
 
 
     public void updateBimbinganStatus(String bimbingan_id, String bimbingan_status){
-        viewEditor.showProgress();
-        ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
-        Call<Bimbingan> call = apiInterfaceBimbingan.updateBimbinganStatus(bimbingan_id, bimbingan_status);
-        call.enqueue(new Callback<Bimbingan>() {
-            @Override
-            public void onResponse(Call<Bimbingan> call, Response<Bimbingan> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
 
-            @Override
-            public void onFailure(Call<Bimbingan> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
+            Call<Bimbingan> call = apiInterfaceBimbingan.updateBimbinganStatus(bimbingan_id, bimbingan_status);
+            call.enqueue(new Callback<Bimbingan>() {
+                @Override
+                public void onResponse(Call<Bimbingan> call, Response<Bimbingan> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+
+                @Override
+                public void onFailure(Call<Bimbingan> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
     }
-
 }

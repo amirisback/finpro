@@ -1,5 +1,10 @@
 package org.d3ifcool.base.presenters;
 
+import android.content.Context;
+import android.widget.Toast;
+
+import org.d3ifcool.base.R;
+import org.d3ifcool.base.helpers.ConnectionHelper;
 import org.d3ifcool.base.interfaces.works.InformasiWorkView;
 import org.d3ifcool.base.interfaces.lists.InformasiListView;
 import org.d3ifcool.base.models.Informasi;
@@ -29,6 +34,13 @@ public class InformasiPresenter {
     private InformasiWorkView viewEditor;
     private InformasiListView viewResult;
 
+    private ConnectionHelper connectionHelper = new ConnectionHelper();
+    private Context context;
+
+    public void initContext(Context context){
+        this.context = context;
+    }
+
     public InformasiPresenter(InformasiWorkView view) {
         this.viewEditor = view;
     }
@@ -38,82 +50,99 @@ public class InformasiPresenter {
     }
 
     public void createInformasi (String informasi_judul, String informasi_isi, String penerbit) {
-        viewEditor.showProgress();
 
-        ApiInterfaceInformasi apiInterface = ApiClient.getApiClient().create(ApiInterfaceInformasi.class);
-        Call<Informasi> call = apiInterface.createInformasi(informasi_judul, informasi_isi, penerbit);
-        call.enqueue(new Callback<Informasi>() {
-            @Override
-            public void onResponse(Call<Informasi> call, Response<Informasi> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceInformasi apiInterface = ApiClient.getApiClient().create(ApiInterfaceInformasi.class);
+            Call<Informasi> call = apiInterface.createInformasi(informasi_judul, informasi_isi, penerbit);
+            call.enqueue(new Callback<Informasi>() {
+                @Override
+                public void onResponse(Call<Informasi> call, Response<Informasi> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
 
-            @Override
-            public void onFailure(Call<Informasi> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
-            }
-        });
+                @Override
+                public void onFailure(Call<Informasi> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
 
     }
 
 
     public void updateInformasi (int informasi_id, String informasi_judul, String informasi_isi) {
-        viewEditor.showProgress();
-        ApiInterfaceInformasi apiInterface = ApiClient.getApiClient().create(ApiInterfaceInformasi.class);
-        Call<Informasi> call = apiInterface.updateInformasi(informasi_id, informasi_judul, informasi_isi);
-        call.enqueue(new Callback<Informasi>() {
-            @Override
-            public void onResponse(Call<Informasi> call, Response<Informasi> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceInformasi apiInterface = ApiClient.getApiClient().create(ApiInterfaceInformasi.class);
+            Call<Informasi> call = apiInterface.updateInformasi(informasi_id, informasi_judul, informasi_isi);
+            call.enqueue(new Callback<Informasi>() {
+                @Override
+                public void onResponse(Call<Informasi> call, Response<Informasi> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
 
-            @Override
-            public void onFailure(Call<Informasi> call, Throwable t) {
-                viewEditor.showProgress();
-                viewEditor.onFailed(t.getLocalizedMessage());
-            }
-        });
+                @Override
+                public void onFailure(Call<Informasi> call, Throwable t) {
+                    viewEditor.showProgress();
+                    viewEditor.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void deleteInformasi(int informasi_id) {
-        viewEditor.showProgress();
-        ApiInterfaceInformasi apiInterface = ApiClient.getApiClient().create(ApiInterfaceInformasi.class);
-        Call<Informasi> call = apiInterface.deleteInformasi(informasi_id);
-        call.enqueue(new Callback<Informasi>() {
-            @Override
-            public void onResponse(Call<Informasi> call, Response<Informasi> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceInformasi apiInterface = ApiClient.getApiClient().create(ApiInterfaceInformasi.class);
+            Call<Informasi> call = apiInterface.deleteInformasi(informasi_id);
+            call.enqueue(new Callback<Informasi>() {
+                @Override
+                public void onResponse(Call<Informasi> call, Response<Informasi> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
 
-            @Override
-            public void onFailure(Call<Informasi> call, Throwable t) {
-                viewEditor.showProgress();
-                viewEditor.onFailed(t.getLocalizedMessage());
-            }
-        });
+                @Override
+                public void onFailure(Call<Informasi> call, Throwable t) {
+                    viewEditor.showProgress();
+                    viewEditor.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void getInformasi (){
-        viewResult.showProgress();
-        ApiInterfaceInformasi apiInterface = ApiClient.getApiClient().create(ApiInterfaceInformasi.class);
-        Call<List<Informasi>> call = apiInterface.getInformasi();
-        call.enqueue(new Callback<List<Informasi>>() {
-            @Override
-            public void onResponse(Call<List<Informasi>> call, Response<List<Informasi>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetListInformasi(response.body());
-            }
+        if (connectionHelper.isConnected(context)){
+            viewResult.showProgress();
+            ApiInterfaceInformasi apiInterface = ApiClient.getApiClient().create(ApiInterfaceInformasi.class);
+            Call<List<Informasi>> call = apiInterface.getInformasi();
+            call.enqueue(new Callback<List<Informasi>>() {
+                @Override
+                public void onResponse(Call<List<Informasi>> call, Response<List<Informasi>> response) {
+                    viewResult.hideProgress();
+                    viewResult.onGetListInformasi(response.body());
+                }
 
-            @Override
-            public void onFailure(Call<List<Informasi>> call, Throwable t) {
-                viewResult.hideProgress();
-                viewResult.onFailed(t.getLocalizedMessage());
-            }
-        });
+                @Override
+                public void onFailure(Call<List<Informasi>> call, Throwable t) {
+                    viewResult.hideProgress();
+                    viewResult.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

@@ -50,7 +50,10 @@ public class MahasiswaPaSidangDetailActivity extends AppCompatActivity implement
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
+
         sidangPresenter = new SidangPresenter(this);
+        sidangPresenter.initContext(this);
+
         sessionManager = new SessionManager(this);
 
         linearLayout_mhs1 = findViewById(R.id.linear_mhs_1);

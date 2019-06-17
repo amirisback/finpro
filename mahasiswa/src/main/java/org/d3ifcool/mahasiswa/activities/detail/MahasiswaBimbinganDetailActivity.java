@@ -21,7 +21,7 @@ public class MahasiswaBimbinganDetailActivity extends AppCompatActivity implemen
 
     public static final String EXTRA_BIMBINGAN = "extra_bimbingan";
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
-    private BimbinganPresenter presenter;
+    private BimbinganPresenter bimbinganPresenter;
     private ProgressDialog dialog;
     private Bimbingan extraBimbingan;
     private ArrayList<ProyekAkhir> extraProyekAkhir = new ArrayList<>();
@@ -34,7 +34,9 @@ public class MahasiswaBimbinganDetailActivity extends AppCompatActivity implemen
         setTitle(getString(R.string.title_bimbingan_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        presenter = new BimbinganPresenter(this);
+        bimbinganPresenter = new BimbinganPresenter(this);
+        bimbinganPresenter.initContext(this);
+
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -82,7 +84,7 @@ public class MahasiswaBimbinganDetailActivity extends AppCompatActivity implemen
 //
 //                    .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
 //                        public void onClick(DialogInterface dialog, int which) {
-//                            presenter.deleteBimbingan(extraBimbingan.getBimbingan_id());
+//                            bimbinganPresenter.deleteBimbingan(extraBimbingan.getBimbingan_id());
 //                        }
 //                    })
 //

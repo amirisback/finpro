@@ -36,7 +36,7 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaListView
     private KoorMahasiswaViewAdapter adapter;
     private ProgressDialog progressDialog;
     private SwipeRefreshLayout refreshLayout;
-    private MahasiswaPresenter presenter;
+    private MahasiswaPresenter mahasiswaPresenter;
     private FloatingActionButton floatingActionButton;
     private View empty_view;
 
@@ -58,8 +58,9 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaListView
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         empty_view = view.findViewById(R.id.view_emptyview);
 
-        presenter = new MahasiswaPresenter(this);
-        presenter.getMahasiswa();
+        mahasiswaPresenter = new MahasiswaPresenter(this);
+        mahasiswaPresenter.initContext(getContext());
+        mahasiswaPresenter.getMahasiswa();
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +73,7 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaListView
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.getMahasiswa();
+                mahasiswaPresenter.getMahasiswa();
             }
         });
         return view;
@@ -81,7 +82,7 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaListView
     @Override
     public void onResume() {
         super.onResume();
-        presenter.getMahasiswa();
+        mahasiswaPresenter.getMahasiswa();
     }
 
     @Override

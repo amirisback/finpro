@@ -71,6 +71,7 @@ public class MahasiswaJudulPaFragment extends Fragment implements JudulListView 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         // -----------------------------------------------------------------------------------------
         judulPresenter = new JudulPresenter(this);
+        judulPresenter.initContext(getContext());
         // -----------------------------------------------------------------------------------------
         // Membuat ViewPager (SLIDER)
         MahasiswaJudulPaPagerAdapter adapter = new MahasiswaJudulPaPagerAdapter(getActivity(),getChildFragmentManager());

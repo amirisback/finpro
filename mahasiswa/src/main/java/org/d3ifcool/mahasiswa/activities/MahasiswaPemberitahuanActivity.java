@@ -44,7 +44,10 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         progressDialog = new ProgressDialog(this);
+
         notifikasiPresenter = new NotifikasiPresenter(this, this);
+        notifikasiPresenter.initContext(this);
+
         sessionManager = new SessionManager(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 

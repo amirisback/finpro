@@ -26,11 +26,7 @@ import org.d3ifcool.base.presenters.MahasiswaPresenter;
 
 public class MahasiswaMainActivity extends AppCompatActivity implements MahasiswaView {
 
-//    private MenuItem prevMenuItem = null;
-//    private ViewPager mViewPager;
-    private BottomNavigationView bottomNavigationView;
     private SessionManager sessionManager;
-    private MahasiswaPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +40,14 @@ public class MahasiswaMainActivity extends AppCompatActivity implements Mahasisw
 //        MahasiswaPagerAdapter mPagerAdapter = new MahasiswaPagerAdapter(this, getSupportFragmentManager());
 //        mViewPager.setAdapter(mPagerAdapter);
 
-        bottomNavigationView = findViewById(R.id.act_mhs_home_bottom_navigation);
+        //    private MenuItem prevMenuItem = null;
+        //    private ViewPager mViewPager;
+        BottomNavigationView bottomNavigationView = findViewById(R.id.act_mhs_home_bottom_navigation);
         sessionManager = new SessionManager(this);
-        presenter = new MahasiswaPresenter(this);
-        presenter.getMahasiswaByParameter(sessionManager.getSessionUsername());
+        MahasiswaPresenter mahasiswaPresenter = new MahasiswaPresenter(this);
+        mahasiswaPresenter.getMahasiswaByParameter(sessionManager.getSessionUsername());
+
+        mahasiswaPresenter.initContext(this);
 
         openFragment(new MahasiswaInformasiFragment());
 

@@ -40,6 +40,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
         sessionManager = new SessionManager(this);
         loginPresenter = new LoginPresenter(this);
+        loginPresenter.initContext(this);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(org.d3ifcool.dosen.R.string.text_progress_dialog));

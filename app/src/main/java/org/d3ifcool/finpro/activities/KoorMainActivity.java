@@ -17,7 +17,6 @@ import androidx.fragment.app.Fragment;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import org.d3ifcool.dosen.activities.DosenPemberitahuanActivity;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.base.helpers.SessionManager;
 import org.d3ifcool.base.interfaces.objects.KoorView;
@@ -40,7 +39,6 @@ public class KoorMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, KoorView {
 
     private SessionManager sessionManager;
-    private KoorPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +55,10 @@ public class KoorMainActivity extends AppCompatActivity
         toggle.syncState();
 
         sessionManager = new SessionManager(this);
-        presenter = new KoorPresenter(this);
+        KoorPresenter koorPresenter = new KoorPresenter(this);
+        koorPresenter.initContext(this);
 
-        presenter.getKoorByParameter(sessionManager.getSessionUsername());
+        koorPresenter.getKoorByParameter(sessionManager.getSessionUsername());
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);

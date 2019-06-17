@@ -37,7 +37,7 @@ public class DosenInformasiFragment extends Fragment implements InformasiListVie
     private DosenInformasiViewAdapter adapter;
     private RecyclerView recyclerView;
     private ProgressDialog progressDialog;
-    private InformasiPresenter presenter;
+    private InformasiPresenter informasiPresenter;
     private SwipeRefreshLayout swipeRefreshLayout;
     private View empty_view;
 
@@ -59,7 +59,7 @@ public class DosenInformasiFragment extends Fragment implements InformasiListVie
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.frg_dsn_info_home_recyclerview);
         adapter = new DosenInformasiViewAdapter(getContext());
-        presenter = new InformasiPresenter(this);
+        informasiPresenter = new InformasiPresenter(this);
         progressDialog = new ProgressDialog(getContext());
         empty_view = view.findViewById(R.id.view_emptyview);
         swipeRefreshLayout = view.findViewById(R.id.frg_dsn_info_home_swiperefresh);
@@ -68,7 +68,8 @@ public class DosenInformasiFragment extends Fragment implements InformasiListVie
 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
-        presenter.getInformasi();
+        informasiPresenter.initContext(getContext());
+        informasiPresenter.getInformasi();
 
         FloatingActionButton floatingActionButton = view.findViewById(R.id.frg_dsn_info_home_fab);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +83,7 @@ public class DosenInformasiFragment extends Fragment implements InformasiListVie
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.getInformasi();
+                informasiPresenter.getInformasi();
             }
         });
 
@@ -91,7 +92,7 @@ public class DosenInformasiFragment extends Fragment implements InformasiListVie
     @Override
     public void onResume() {
         super.onResume();
-        presenter.getInformasi();
+        informasiPresenter.getInformasi();
     }
 
     @Override

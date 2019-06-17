@@ -68,6 +68,10 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
 
         proyekAkhirPresenter = new ProyekAkhirPresenter(this, this);
         dosenPresenter = new DosenPresenter(this);
+
+        proyekAkhirPresenter.initContext(this);
+        dosenPresenter.initContext(this);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 

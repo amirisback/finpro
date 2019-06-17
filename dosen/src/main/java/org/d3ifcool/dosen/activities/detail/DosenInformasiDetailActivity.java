@@ -28,7 +28,7 @@ public class DosenInformasiDetailActivity extends AppCompatActivity implements I
 
     public static final String EXTRA_INFORMASI = "extra_informasi";
     private Informasi extraInfo;
-    private InformasiPresenter presenter;
+    private InformasiPresenter informasiPresenter;
     private ProgressDialog progressDialog;
     private SessionManager sessionManager;
 
@@ -62,7 +62,9 @@ public class DosenInformasiDetailActivity extends AppCompatActivity implements I
         textView_dosen.setText(dosen);
         Picasso.get().load(URL_FOTO_DOSEN+foto).into(imageView_foto);
 
-        presenter = new InformasiPresenter(this);
+        informasiPresenter = new InformasiPresenter(this);
+        informasiPresenter.initContext(this);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -100,7 +102,7 @@ public class DosenInformasiDetailActivity extends AppCompatActivity implements I
 
                     .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            presenter.deleteInformasi(extraInfo.getId());
+                            informasiPresenter.deleteInformasi(extraInfo.getId());
                         }
                     })
 

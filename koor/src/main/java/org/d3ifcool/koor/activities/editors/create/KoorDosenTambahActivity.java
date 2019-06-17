@@ -13,17 +13,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.d3ifcool.base.interfaces.works.DosenWorkView;
-import org.d3ifcool.base.models.Dosen;
 import org.d3ifcool.base.presenters.DosenPresenter;
 import org.d3ifcool.koor.R;
 import org.d3ifcool.koor.activities.editors.update.KoorDosenUbahActivity;
 
-import java.util.ArrayList;
-
 public class KoorDosenTambahActivity extends AppCompatActivity implements DosenWorkView {
 
-    private ArrayList<Dosen> dosens = new ArrayList<>();
-    private DosenPresenter presenter;
+    private DosenPresenter dosenPresenter;
     private ProgressDialog progressDialog;
     private EditText et_nip_dosen, et_nama, et_kode;
     private Button btn_simpan;
@@ -42,8 +38,9 @@ public class KoorDosenTambahActivity extends AppCompatActivity implements DosenW
         et_kode = findViewById(R.id.act_koor_edittext_kodedosen);
         btn_simpan = findViewById(R.id.act_koor_dosen_button_simpan);
 
+        dosenPresenter = new DosenPresenter(this);
+        dosenPresenter.initContext(this);
 
-        presenter = new DosenPresenter(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -61,7 +58,7 @@ public class KoorDosenTambahActivity extends AppCompatActivity implements DosenW
                 }else if (kode.isEmpty()){
                     et_kode.setError("kode dosen tidak boleh kosong");
                 }else{
-                    presenter.createDosen(nip,nama,kode);
+                    dosenPresenter.createDosen(nip,nama,kode);
                 }
 
             }

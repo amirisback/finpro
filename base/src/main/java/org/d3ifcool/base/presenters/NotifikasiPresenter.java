@@ -1,5 +1,10 @@
 package org.d3ifcool.base.presenters;
 
+import android.content.Context;
+import android.widget.Toast;
+
+import org.d3ifcool.base.R;
+import org.d3ifcool.base.helpers.ConnectionHelper;
 import org.d3ifcool.base.interfaces.lists.NotifikasiListView;
 import org.d3ifcool.base.interfaces.objects.NotifikasiView;
 import org.d3ifcool.base.interfaces.works.NotifikasiWorkView;
@@ -36,6 +41,13 @@ public class NotifikasiPresenter {
     private NotifikasiWorkView viewEditor;
     private NotifikasiView viewObject;
 
+    private ConnectionHelper connectionHelper = new ConnectionHelper();
+    private Context context;
+
+    public void initContext(Context context){
+        this.context = context;
+    }
+
     public NotifikasiPresenter(NotifikasiListView viewResult, NotifikasiWorkView viewEditor, NotifikasiView viewObject) {
         this.viewResult = viewResult;
         this.viewEditor = viewEditor;
@@ -60,134 +72,183 @@ public class NotifikasiPresenter {
     }
 
     public void createNotifikasi(String notifikasi_kategori, String notifikasi_deskripsi, String notifikasi_dari, String notifikasi_untuk){
-        viewEditor.showProgress();
-        ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
-        Call<Notifikasi> call = apiInterfaceNotifikasi.createNotifikasi(notifikasi_kategori, notifikasi_deskripsi, notifikasi_dari, notifikasi_untuk);
-        call.enqueue(new Callback<Notifikasi>() {
-            @Override
-            public void onResponse(Call<Notifikasi> call, Response<Notifikasi> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSuccesCreateNotifikasi();
-            }
 
-            @Override
-            public void onFailure(Call<Notifikasi> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
+            Call<Notifikasi> call = apiInterfaceNotifikasi.createNotifikasi(notifikasi_kategori, notifikasi_deskripsi, notifikasi_dari, notifikasi_untuk);
+            call.enqueue(new Callback<Notifikasi>() {
+                @Override
+                public void onResponse(Call<Notifikasi> call, Response<Notifikasi> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSuccesCreateNotifikasi();
+                }
+
+                @Override
+                public void onFailure(Call<Notifikasi> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void getNotifikasi(){
-        viewResult.showProgress();
-        ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
-        Call<List<Notifikasi>> call = apiInterfaceNotifikasi.getNotifikasi();
-        call.enqueue(new Callback<List<Notifikasi>>() {
-            @Override
-            public void onResponse(Call<List<Notifikasi>> call, Response<List<Notifikasi>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetListNotifikasi(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<List<Notifikasi>> call, Throwable t) {
-                viewResult.hideProgress();
-                viewResult.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewResult.showProgress();
+            ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
+            Call<List<Notifikasi>> call = apiInterfaceNotifikasi.getNotifikasi();
+            call.enqueue(new Callback<List<Notifikasi>>() {
+                @Override
+                public void onResponse(Call<List<Notifikasi>> call, Response<List<Notifikasi>> response) {
+                    viewResult.hideProgress();
+                    viewResult.onGetListNotifikasi(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<Notifikasi>> call, Throwable t) {
+                    viewResult.hideProgress();
+                    viewResult.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void searchNotifikasiBy(String parameter, String query){
-        viewResult.showProgress();
-        ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
-        Call<List<Notifikasi>> call = apiInterfaceNotifikasi.searchNotifikasiBy(parameter, query);
-        call.enqueue(new Callback<List<Notifikasi>>() {
-            @Override
-            public void onResponse(Call<List<Notifikasi>> call, Response<List<Notifikasi>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetListNotifikasi(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<List<Notifikasi>> call, Throwable t) {
-                viewResult.hideProgress();
-                viewResult.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewResult.showProgress();
+            ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
+            Call<List<Notifikasi>> call = apiInterfaceNotifikasi.searchNotifikasiBy(parameter, query);
+            call.enqueue(new Callback<List<Notifikasi>>() {
+                @Override
+                public void onResponse(Call<List<Notifikasi>> call, Response<List<Notifikasi>> response) {
+                    viewResult.hideProgress();
+                    viewResult.onGetListNotifikasi(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<Notifikasi>> call, Throwable t) {
+                    viewResult.hideProgress();
+                    viewResult.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void searchNotifikasiBy2(String parameter1, String query1, String parameter2, String query2){
-        viewResult.showProgress();
-        ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
-        Call<List<Notifikasi>> call = apiInterfaceNotifikasi.searchNotifikasiBy2(parameter1, query1, parameter2, query2);
-        call.enqueue(new Callback<List<Notifikasi>>() {
-            @Override
-            public void onResponse(Call<List<Notifikasi>> call, Response<List<Notifikasi>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetListNotifikasi(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<List<Notifikasi>> call, Throwable t) {
-                viewResult.hideProgress();
-                viewResult.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewResult.showProgress();
+            ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
+            Call<List<Notifikasi>> call = apiInterfaceNotifikasi.searchNotifikasiBy2(parameter1, query1, parameter2, query2);
+            call.enqueue(new Callback<List<Notifikasi>>() {
+                @Override
+                public void onResponse(Call<List<Notifikasi>> call, Response<List<Notifikasi>> response) {
+                    viewResult.hideProgress();
+                    viewResult.onGetListNotifikasi(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<Notifikasi>> call, Throwable t) {
+                    viewResult.hideProgress();
+                    viewResult.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void sortNotifikasi(String query1, String query2){
-        viewResult.showProgress();
-        ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
-        Call<List<Notifikasi>> call = apiInterfaceNotifikasi.sortNotifikasi(query1, query2);
-        call.enqueue(new Callback<List<Notifikasi>>() {
-            @Override
-            public void onResponse(Call<List<Notifikasi>> call, Response<List<Notifikasi>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetListNotifikasi(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<List<Notifikasi>> call, Throwable t) {
-                viewResult.hideProgress();
-                viewResult.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewResult.showProgress();
+            ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
+            Call<List<Notifikasi>> call = apiInterfaceNotifikasi.sortNotifikasi(query1, query2);
+            call.enqueue(new Callback<List<Notifikasi>>() {
+                @Override
+                public void onResponse(Call<List<Notifikasi>> call, Response<List<Notifikasi>> response) {
+                    viewResult.hideProgress();
+                    viewResult.onGetListNotifikasi(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<Notifikasi>> call, Throwable t) {
+                    viewResult.hideProgress();
+                    viewResult.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void deleteNotifikasi(int notifikasi_id){
-        viewEditor.showProgress();
-        ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
-        Call<Notifikasi> call = apiInterfaceNotifikasi.deleteNotifikasi(notifikasi_id);
-        call.enqueue(new Callback<Notifikasi>() {
-            @Override
-            public void onResponse(Call<Notifikasi> call, Response<Notifikasi> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSuccesCreateNotifikasi();
-            }
 
-            @Override
-            public void onFailure(Call<Notifikasi> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
+            Call<Notifikasi> call = apiInterfaceNotifikasi.deleteNotifikasi(notifikasi_id);
+            call.enqueue(new Callback<Notifikasi>() {
+                @Override
+                public void onResponse(Call<Notifikasi> call, Response<Notifikasi> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSuccesCreateNotifikasi();
+                }
+
+                @Override
+                public void onFailure(Call<Notifikasi> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
 
     public void updateNotifikasi(int notifikasi_id, int notifikasi_baca){
-        ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
-        Call<Notifikasi> call = apiInterfaceNotifikasi.updateNotifikasi(notifikasi_id, notifikasi_baca);
-        call.enqueue(new Callback<Notifikasi>() {
-            @Override
-            public void onResponse(Call<Notifikasi> call, Response<Notifikasi> response) {
-                viewEditor.onSuccesCreateNotifikasi();
-            }
 
-            @Override
-            public void onFailure(Call<Notifikasi> call, Throwable t) {
-                viewEditor.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            ApiInterfaceNotifikasi apiInterfaceNotifikasi = ApiClient.getApiClient().create(ApiInterfaceNotifikasi.class);
+            Call<Notifikasi> call = apiInterfaceNotifikasi.updateNotifikasi(notifikasi_id, notifikasi_baca);
+            call.enqueue(new Callback<Notifikasi>() {
+                @Override
+                public void onResponse(Call<Notifikasi> call, Response<Notifikasi> response) {
+                    viewEditor.onSuccesCreateNotifikasi();
+                }
+
+                @Override
+                public void onFailure(Call<Notifikasi> call, Throwable t) {
+                    viewEditor.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
 }

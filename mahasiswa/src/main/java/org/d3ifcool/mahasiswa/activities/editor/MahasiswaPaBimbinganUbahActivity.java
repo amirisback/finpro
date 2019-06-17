@@ -19,17 +19,22 @@ import org.d3ifcool.base.models.Bimbingan;
 import org.d3ifcool.base.presenters.BimbinganPresenter;
 
 public class MahasiswaPaBimbinganUbahActivity extends AppCompatActivity implements BimbinganWorkView {
+
     public static final String EXTRA_BIMBINGAN = "extra_bimbingan";
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
-    private BimbinganPresenter presenter;
+
+    private BimbinganPresenter bimbinganPresenter;
     private ProgressDialog dialog;
     private Bimbingan extrabimbingan;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mahasiswa_pa_bimbingan_ubah);
 
-        presenter = new BimbinganPresenter(this);
+        bimbinganPresenter = new BimbinganPresenter(this);
+        bimbinganPresenter.initContext(this);
+
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -72,7 +77,7 @@ public class MahasiswaPaBimbinganUbahActivity extends AppCompatActivity implemen
                                 }else if (isi_baru.isEmpty()){
                                     et_review.setError(getString(R.string.text_tidak_boleh_kosong));
                                 }else{
-                                    presenter.updateBimbingan(extrabimbingan.getBimbingan_id(), isi_baru, tanggal_baru);
+                                    bimbinganPresenter.updateBimbingan(extrabimbingan.getBimbingan_id(), isi_baru, tanggal_baru);
                                 }
                             }
                         })

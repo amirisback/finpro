@@ -1,5 +1,10 @@
 package org.d3ifcool.base.presenters;
 
+import android.content.Context;
+import android.widget.Toast;
+
+import org.d3ifcool.base.R;
+import org.d3ifcool.base.helpers.ConnectionHelper;
 import org.d3ifcool.base.interfaces.objects.DosenPembimbingView;
 import org.d3ifcool.base.interfaces.objects.DosenReviewerView;
 import org.d3ifcool.base.interfaces.objects.DosenView;
@@ -36,6 +41,12 @@ public class DosenPresenter {
     private DosenPembimbingView viewObjectPembimbing;
     private DosenReviewerView viewObjectReviewer;
 
+    private ConnectionHelper connectionHelper = new ConnectionHelper();
+    private Context context;
+
+    public void initContext(Context context){
+        this.context = context;
+    }
 
     public DosenPresenter(DosenListView viewResult) {
         this.viewResult = viewResult;
@@ -78,155 +89,209 @@ public class DosenPresenter {
     }
 
     public void getDosen(){
-        viewResult.showProgress();
 
-        ApiInterfaceDosen apiInterface = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
-        Call<List<Dosen>> call = apiInterface.getDosen();
-        call.enqueue(new Callback<List<Dosen>>() {
-            @Override
-            public void onResponse(Call<List<Dosen>> call, Response<List<Dosen>> response) {
-                viewResult.hideProgress();
-                viewResult.onGetListDosen(response.body());
-            }
+        if (connectionHelper.isConnected(context)){
+            viewResult.showProgress();
 
-            @Override
-            public void onFailure(Call<List<Dosen>> call, Throwable t) {
-                viewResult.hideProgress();
-                viewResult.onFailed(t.getMessage());
-            }
-        });
+            ApiInterfaceDosen apiInterface = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
+            Call<List<Dosen>> call = apiInterface.getDosen();
+            call.enqueue(new Callback<List<Dosen>>() {
+                @Override
+                public void onResponse(Call<List<Dosen>> call, Response<List<Dosen>> response) {
+                    viewResult.hideProgress();
+                    viewResult.onGetListDosen(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<List<Dosen>> call, Throwable t) {
+                    viewResult.hideProgress();
+                    viewResult.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void createDosen(String nip, String nama, String kode){
-        viewEditor.showProgress();
 
-        ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
-        Call<Dosen> call = apiInterfaceDosen.createDosen(nip,nama,kode);
-        call.enqueue(new Callback<Dosen>() {
-            @Override
-            public void onResponse(Call<Dosen> call, Response<Dosen> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
 
-            @Override
-            public void onFailure(Call<Dosen> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getLocalizedMessage());
-            }
-        });
+            ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
+            Call<Dosen> call = apiInterfaceDosen.createDosen(nip,nama,kode);
+            call.enqueue(new Callback<Dosen>() {
+                @Override
+                public void onResponse(Call<Dosen> call, Response<Dosen> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+
+                @Override
+                public void onFailure(Call<Dosen> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void deleteDosen(String nip){
-        viewEditor.showProgress();
 
-        ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
-        Call<Dosen> call = apiInterfaceDosen.deleteDosen(nip);
-        call.enqueue(new Callback<Dosen>() {
-            @Override
-            public void onResponse(Call<Dosen> call, Response<Dosen> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
 
-            @Override
-            public void onFailure(Call<Dosen> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getLocalizedMessage());
-            }
-        });
+            ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
+            Call<Dosen> call = apiInterfaceDosen.deleteDosen(nip);
+            call.enqueue(new Callback<Dosen>() {
+                @Override
+                public void onResponse(Call<Dosen> call, Response<Dosen> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+
+                @Override
+                public void onFailure(Call<Dosen> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
 
     public void updateDosen(String nip_dosen, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_email) {
-        viewEditor.showProgress();
-        ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
-        Call<Dosen> call = apiInterfaceDosen.updateDosen(nip_dosen, dsn_nama, dsn_kode, dsn_kontak, dsn_email);
-        call.enqueue(new Callback<Dosen>() {
-            @Override
-            public void onResponse(Call<Dosen> call, Response<Dosen> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
 
-            @Override
-            public void onFailure(Call<Dosen> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
+            Call<Dosen> call = apiInterfaceDosen.updateDosen(nip_dosen, dsn_nama, dsn_kode, dsn_kontak, dsn_email);
+            call.enqueue(new Callback<Dosen>() {
+                @Override
+                public void onResponse(Call<Dosen> call, Response<Dosen> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+
+                @Override
+                public void onFailure(Call<Dosen> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
     public void updateDosen(String nip_dosen, String dsn_nama, String dsn_kode, String dsn_kontak,String dsn_foto, String dsn_email) {
-        viewEditor.showProgress();
-        ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
-        Call<Dosen> call = apiInterfaceDosen.updateDosen(nip_dosen, dsn_nama, dsn_kode, dsn_kontak, dsn_foto,dsn_email);
-        call.enqueue(new Callback<Dosen>() {
-            @Override
-            public void onResponse(Call<Dosen> call, Response<Dosen> response) {
-                viewEditor.hideProgress();
-                viewEditor.onSucces();
-            }
 
-            @Override
-            public void onFailure(Call<Dosen> call, Throwable t) {
-                viewEditor.hideProgress();
-                viewEditor.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            viewEditor.showProgress();
+            ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
+            Call<Dosen> call = apiInterfaceDosen.updateDosen(nip_dosen, dsn_nama, dsn_kode, dsn_kontak, dsn_foto,dsn_email);
+            call.enqueue(new Callback<Dosen>() {
+                @Override
+                public void onResponse(Call<Dosen> call, Response<Dosen> response) {
+                    viewEditor.hideProgress();
+                    viewEditor.onSucces();
+                }
+
+                @Override
+                public void onFailure(Call<Dosen> call, Throwable t) {
+                    viewEditor.hideProgress();
+                    viewEditor.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void getDosenByParameter(String dsn_nip){
-        ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
-        Call<Dosen> call = apiInterfaceDosen.getDosenByParameter(dsn_nip);
-        call.enqueue(new Callback<Dosen>() {
-            @Override
-            public void onResponse(Call<Dosen> call, Response<Dosen> response) {
-                viewObject.hideProgress();
-                viewObject.onGetObjectDosen(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<Dosen> call, Throwable t) {
-                viewObject.hideProgress();
-                viewObject.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
+            Call<Dosen> call = apiInterfaceDosen.getDosenByParameter(dsn_nip);
+            call.enqueue(new Callback<Dosen>() {
+                @Override
+                public void onResponse(Call<Dosen> call, Response<Dosen> response) {
+                    viewObject.hideProgress();
+                    viewObject.onGetObjectDosen(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<Dosen> call, Throwable t) {
+                    viewObject.hideProgress();
+                    viewObject.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
 
     public void getDosenPembimbing(String dsn_nip){
-        ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
-        Call<Dosen> call = apiInterfaceDosen.getDosenByParameter(dsn_nip);
-        call.enqueue(new Callback<Dosen>() {
-            @Override
-            public void onResponse(Call<Dosen> call, Response<Dosen> response) {
-                viewObjectPembimbing.hideProgress();
-                viewObjectPembimbing.onGetObjectDosenPembimbing(response.body());
-            }
 
-            @Override
-            public void onFailure(Call<Dosen> call, Throwable t) {
-                viewObjectPembimbing.hideProgress();
-                viewObjectPembimbing.onFailed(t.getLocalizedMessage());
-            }
-        });
+        if (connectionHelper.isConnected(context)){
+            ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
+            Call<Dosen> call = apiInterfaceDosen.getDosenByParameter(dsn_nip);
+            call.enqueue(new Callback<Dosen>() {
+                @Override
+                public void onResponse(Call<Dosen> call, Response<Dosen> response) {
+                    viewObjectPembimbing.hideProgress();
+                    viewObjectPembimbing.onGetObjectDosenPembimbing(response.body());
+                }
+
+                @Override
+                public void onFailure(Call<Dosen> call, Throwable t) {
+                    viewObjectPembimbing.hideProgress();
+                    viewObjectPembimbing.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void getDosenReviewer(String dsn_nip){
-        ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
-        Call<Dosen> call = apiInterfaceDosen.getDosenByParameter(dsn_nip);
-        call.enqueue(new Callback<Dosen>() {
-            @Override
-            public void onResponse(Call<Dosen> call, Response<Dosen> response) {
-                viewObjectReviewer.hideProgress();
-                viewObjectReviewer.onGetObjectDosenReviewer(response.body());
-            }
+        if (connectionHelper.isConnected(context)){
+            ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
+            Call<Dosen> call = apiInterfaceDosen.getDosenByParameter(dsn_nip);
+            call.enqueue(new Callback<Dosen>() {
+                @Override
+                public void onResponse(Call<Dosen> call, Response<Dosen> response) {
+                    viewObjectReviewer.hideProgress();
+                    viewObjectReviewer.onGetObjectDosenReviewer(response.body());
+                }
 
-            @Override
-            public void onFailure(Call<Dosen> call, Throwable t) {
-                viewObjectReviewer.hideProgress();
-                viewObjectReviewer.onFailed(t.getLocalizedMessage());
-            }
-        });
+                @Override
+                public void onFailure(Call<Dosen> call, Throwable t) {
+                    viewObjectReviewer.hideProgress();
+                    viewObjectReviewer.onFailed(t.getLocalizedMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

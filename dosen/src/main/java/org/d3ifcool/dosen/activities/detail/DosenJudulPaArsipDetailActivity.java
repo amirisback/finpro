@@ -11,7 +11,9 @@ import org.d3ifcool.dosen.R;
 import org.d3ifcool.base.models.Judul;
 
 public class DosenJudulPaArsipDetailActivity extends AppCompatActivity {
+
     public static final String EXTRA_JUDUL = "extra_judul";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

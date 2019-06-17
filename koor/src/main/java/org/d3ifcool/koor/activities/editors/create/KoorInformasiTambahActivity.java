@@ -24,7 +24,7 @@ import static org.d3ifcool.base.helpers.ConstantNotif.ConstantaNotif.UNTUK_SEMUA
 public class KoorInformasiTambahActivity extends AppCompatActivity implements InformasiWorkView, NotifikasiWorkView {
 
     private ProgressDialog progressDialog;
-    private InformasiPresenter presenter;
+    private InformasiPresenter informasiPresenter;
     private SessionManager sessionManager;
     private NotifikasiPresenter notifikasiPresenter;
     private String et_judul;
@@ -36,8 +36,12 @@ public class KoorInformasiTambahActivity extends AppCompatActivity implements In
 
         sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
-        presenter = new InformasiPresenter(this);
+
+        informasiPresenter = new InformasiPresenter(this);
         notifikasiPresenter = new NotifikasiPresenter(this);
+
+        informasiPresenter.initContext(this);
+        notifikasiPresenter.initContext(this);
 
         setTitle(getString(R.string.title_informasi_tambah));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -57,7 +61,7 @@ public class KoorInformasiTambahActivity extends AppCompatActivity implements In
                 }else if (et_deskripsi.isEmpty()){
                     judul.setError("deskripsi tidak boleh kosong");
                 }else{
-                    presenter.createInformasi(et_judul, et_deskripsi, sessionManager.getSessionKoorNama());
+                    informasiPresenter.createInformasi(et_judul, et_deskripsi, sessionManager.getSessionKoorNama());
                 }
             }
         });

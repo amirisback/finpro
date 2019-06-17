@@ -37,7 +37,7 @@ public class KoorDosenFragment extends Fragment implements DosenListView {
     private FloatingActionButton floatingActionButton;
     private KoorDosenViewAdapter adapter;
     private ProgressDialog progressDialog;
-    private DosenPresenter presenter;
+    private DosenPresenter dosenPresenter;
     private SwipeRefreshLayout refreshLayout;
     private View empty_view;
 
@@ -53,7 +53,9 @@ public class KoorDosenFragment extends Fragment implements DosenListView {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_koor_dosen, container, false);
 
-        presenter = new DosenPresenter(this);
+        dosenPresenter = new DosenPresenter(this);
+        dosenPresenter.initContext(getContext());
+
         refreshLayout = view.findViewById(R.id.refresh);
         recyclerView = view.findViewById(R.id.frg_koor_dosen_home_recyclerview);
         floatingActionButton = view.findViewById(R.id.frg_koor_dosen_home_fab);
@@ -61,7 +63,7 @@ public class KoorDosenFragment extends Fragment implements DosenListView {
         adapter = new KoorDosenViewAdapter(getContext());
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
-        presenter.getDosen();
+        dosenPresenter.getDosen();
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +76,7 @@ public class KoorDosenFragment extends Fragment implements DosenListView {
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                presenter.getDosen();
+                dosenPresenter.getDosen();
             }
         });
 
@@ -87,7 +89,7 @@ public class KoorDosenFragment extends Fragment implements DosenListView {
     @Override
     public void onResume() {
         super.onResume();
-        presenter.getDosen();
+        dosenPresenter.getDosen();
     }
 
     @Override

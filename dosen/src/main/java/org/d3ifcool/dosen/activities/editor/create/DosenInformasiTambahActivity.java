@@ -37,6 +37,8 @@ public class DosenInformasiTambahActivity extends AppCompatActivity implements I
         sessionManager = new SessionManager(this);
         progressDialog = new ProgressDialog(this);
         informasiPresenter = new InformasiPresenter(this);
+        informasiPresenter.initContext(this);
+
         notifikasiPresenter = new NotifikasiPresenter(this);
 
         setTitle(R.string.title_informasi_tambah);

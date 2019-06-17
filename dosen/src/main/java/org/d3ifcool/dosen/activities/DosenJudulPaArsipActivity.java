@@ -71,6 +71,9 @@ public class DosenJudulPaArsipActivity extends AppCompatActivity implements Judu
         KategoriJudulPresenter kategoriJudulPresenter = new KategoriJudulPresenter(this);
         judulPresenter = new JudulPresenter(this);
 
+        kategoriJudulPresenter.initContext(this);
+        judulPresenter.initContext(this);
+
         kategoriJudulPresenter.getKategori();
 
         sp_kategori.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

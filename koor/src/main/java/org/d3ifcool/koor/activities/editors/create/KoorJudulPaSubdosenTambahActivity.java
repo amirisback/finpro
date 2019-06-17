@@ -58,6 +58,11 @@ public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity impleme
         judulPresenter = new JudulPresenter(this);
         dosenPresenter = new DosenPresenter(this);
         kategoriJudulPresenter = new KategoriJudulPresenter(this);
+
+        judulPresenter.initContext(this);
+        dosenPresenter.initContext(this);
+        kategoriJudulPresenter.initContext(this);
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
