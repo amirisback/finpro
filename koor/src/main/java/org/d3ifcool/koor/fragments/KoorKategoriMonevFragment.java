@@ -173,6 +173,11 @@ public class KoorKategoriMonevFragment extends Fragment implements MonevWorkView
     }
 
     @Override
+    public void isEmptyListMonev() {
+        empty_view.setVisibility(View.VISIBLE);
+    }
+
+    @Override
     public void onSucces() {
         monevPresenter.getMonev();
     }

@@ -151,6 +151,11 @@ public class MahasiswaPaBimbinganActivity extends AppCompatActivity implements B
     }
 
     @Override
+    public void isEmptyListBimbingan() {
+        empty_view.setVisibility(View.VISIBLE);
+    }
+
+    @Override
     public void onFailed(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }

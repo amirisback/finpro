@@ -212,6 +212,11 @@ public class DosenJudulPaSubmahasiswaDetailActivity extends AppCompatActivity im
     }
 
     @Override
+    public void isEmptyListProyekAkhir() {
+
+    }
+
+    @Override
     public void onFailed(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }

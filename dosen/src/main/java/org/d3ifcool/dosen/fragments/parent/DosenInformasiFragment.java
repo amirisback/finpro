@@ -109,7 +109,6 @@ public class DosenInformasiFragment extends Fragment implements InformasiListVie
     public void onGetListInformasi(List<Informasi> informasi) {
         arrayList.clear();
         arrayList.addAll(informasi);
-
         adapter.addItem(arrayList);
         recyclerView.setAdapter(adapter);
         swipeRefreshLayout.setRefreshing(false);
@@ -120,6 +119,11 @@ public class DosenInformasiFragment extends Fragment implements InformasiListVie
             empty_view.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    public void isEmptyListInformasi() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

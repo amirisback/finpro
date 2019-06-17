@@ -107,6 +107,7 @@ public class KoorPemberitahuanActivity extends AppCompatActivity implements Noti
 
     @Override
     public void onGetListNotifikasi(List<Notifikasi> notifikasiList) {
+
         notifikasiArrayList.clear();
         notifikasiArrayList.addAll(notifikasiList);
 
@@ -119,6 +120,11 @@ public class KoorPemberitahuanActivity extends AppCompatActivity implements Noti
             empty_view.setVisibility(View.VISIBLE);
         }
 
+    }
+
+    @Override
+    public void isEmptyListNotifikasi() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

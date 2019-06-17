@@ -80,7 +80,12 @@ public class MahasiswaPresenter {
                 @Override
                 public void onResponse(Call<List<Mahasiswa>> call, Response<List<Mahasiswa>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListMahasiswa(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListMahasiswa(response.body());
+                    } else {
+                        viewResult.isEmptyListMahasiswa();
+                    }
+
                 }
 
                 @Override
@@ -212,7 +217,12 @@ public class MahasiswaPresenter {
                 @Override
                 public void onResponse(Call<Mahasiswa> call, Response<Mahasiswa> response) {
                     viewObject.hideProgress();
-                    viewObject.onGetObjectMahasiswa(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewObject.onGetObjectMahasiswa(response.body());
+                    } else {
+                        viewObject.isEmptyObjectMahasiswa();
+                    }
+
                 }
 
                 @Override

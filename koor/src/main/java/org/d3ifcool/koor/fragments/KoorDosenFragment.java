@@ -104,6 +104,8 @@ public class KoorDosenFragment extends Fragment implements DosenListView {
 
     @Override
     public void onGetListDosen(List<Dosen> dosen) {
+
+        empty_view.setVisibility(View.GONE);
         arrayList.clear();
         arrayList.addAll(dosen);
 
@@ -111,12 +113,17 @@ public class KoorDosenFragment extends Fragment implements DosenListView {
         recyclerView.setAdapter(adapter);
         refreshLayout.setRefreshing(false);
 
-        if (arrayList.size() == 0) {
-            empty_view.setVisibility(View.VISIBLE);
-        } else {
-            empty_view.setVisibility(View.GONE);
-        }
+//        if (arrayList.size() == 0) {
+//            empty_view.setVisibility(View.VISIBLE);
+//        } else {
+//            empty_view.setVisibility(View.GONE);
+//        }
 
+    }
+
+    @Override
+    public void isEmptyListDosen() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

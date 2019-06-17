@@ -29,6 +29,8 @@ public interface InformasiListView {
 
     void onGetListInformasi(List<Informasi> informasi);
 
+    void isEmptyListInformasi();
+
     void onFailed(String message);
 
 }

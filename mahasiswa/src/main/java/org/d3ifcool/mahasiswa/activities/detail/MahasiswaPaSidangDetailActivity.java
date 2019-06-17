@@ -142,6 +142,11 @@ public class MahasiswaPaSidangDetailActivity extends AppCompatActivity implement
     }
 
     @Override
+    public void isEmptyListSidang() {
+
+    }
+
+    @Override
     public void onFailed(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }

@@ -29,6 +29,8 @@ public interface KoorListView {
 
     void onGetListKoor(List<KoordinatorPa> koordinatorPa);
 
+    void isEmptyListKoor();
+
     void onFailed(String message);
 
 }

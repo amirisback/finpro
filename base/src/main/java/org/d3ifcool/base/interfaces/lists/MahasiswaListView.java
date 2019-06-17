@@ -29,6 +29,8 @@ public interface MahasiswaListView {
 
     void onGetListMahasiswa(List<Mahasiswa> mahasiswa);
 
+    void isEmptyListMahasiswa();
+
     void onFailed(String message);
 
 }

@@ -178,6 +178,11 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
     }
 
     @Override
+    public void isEmptyListMonevDetail() {
+
+    }
+
+    @Override
     public void onGetListBimbingan(List<Bimbingan> bimbinganList) {
         arrayListBimbingan.clear();
         arrayListBimbingan.addAll(bimbinganList);
@@ -202,6 +207,11 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
             tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextRed));
 
         }
+
+    }
+
+    @Override
+    public void isEmptyListBimbingan() {
 
     }
 
@@ -230,6 +240,11 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
             anggotaViewAdapter.addItem(arrayListProyekAkhir);
             viewAdapterHelper.setAdapterAnggota(anggotaViewAdapter);
         }
+
+    }
+
+    @Override
+    public void isEmptyListProyekAkhir() {
 
     }
 

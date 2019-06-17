@@ -97,6 +97,7 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaListView
 
     @Override
     public void onGetListMahasiswa(List<Mahasiswa> mahasiswa) {
+
         arrayList.clear();
         arrayList.addAll(mahasiswa);
         adapter = new KoorMahasiswaViewAdapter(getContext());
@@ -112,6 +113,11 @@ public class KoorMahasiswaFragment extends Fragment implements MahasiswaListView
             empty_view.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    public void isEmptyListMahasiswa() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

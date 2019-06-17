@@ -117,7 +117,11 @@ public class JudulPresenter {
                 @Override
                 public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListJudul(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListJudul(response.body());
+                    } else {
+                        viewResult.isEmptyListJudul();
+                    }
                 }
 
                 @Override
@@ -197,7 +201,12 @@ public class JudulPresenter {
                 @Override
                 public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListJudul(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListJudul(response.body());
+                    } else {
+                        viewResult.isEmptyListJudul();
+                    }
+
                 }
 
                 @Override
@@ -223,7 +232,12 @@ public class JudulPresenter {
                 @Override
                 public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListJudul(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListJudul(response.body());
+                    } else {
+                        viewResult.isEmptyListJudul();
+                    }
+
                 }
 
                 @Override
@@ -249,7 +263,12 @@ public class JudulPresenter {
                 @Override
                 public void onResponse(Call<List<Judul>> call, Response<List<Judul>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListJudul(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListJudul(response.body());
+                    } else {
+                        viewResult.isEmptyListJudul();
+                    }
+
                 }
 
                 @Override

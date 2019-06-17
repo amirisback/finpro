@@ -27,6 +27,8 @@ public interface KoorView {
 
     void onGetObjectKoor(KoordinatorPa koordinatorPa);
 
+    void isEmptyObjectKoor();
+
     void onFailed(String message);
 
 }

@@ -29,5 +29,7 @@ public interface KategoriJudulListView {
 
     void onGetListKategoriJudul(List<KategoriJudul> kategori);
 
+    void isEmptyListKategori();
+
     void onFailed(String message);
 }

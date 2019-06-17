@@ -110,14 +110,14 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
 
     @Override
     public void onGetListJudul(List<Judul> judulpa) {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+
         arrayList.clear();
         arrayList.addAll(judulpa);
 
         adapter.addItem(arrayList);
         adapter.setLayoutType(R.layout.content_list_all_pa_judul);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         swipeRefreshLayout.setRefreshing(false);
 
         if (arrayList.size() == 0) {
@@ -126,6 +126,11 @@ public class DosenJudulSubdosenFragment extends Fragment implements JudulListVie
             empty_view.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    public void isEmptyListJudul() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

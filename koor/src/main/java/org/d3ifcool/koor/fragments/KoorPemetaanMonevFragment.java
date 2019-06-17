@@ -129,6 +129,7 @@ public class KoorPemetaanMonevFragment extends Fragment implements DosenListView
 
     @Override
     public void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList) {
+
         arrayListProyekAkhir.clear();
         arrayListProyekAkhir.addAll(proyekAkhirList);
 
@@ -146,10 +147,20 @@ public class KoorPemetaanMonevFragment extends Fragment implements DosenListView
     }
 
     @Override
+    public void isEmptyListProyekAkhir() {
+        empty_view.setVisibility(View.VISIBLE);
+    }
+
+    @Override
     public void onGetListDosen(List<Dosen> dosen) {
         arrayListDosen.clear();
         arrayListDosen.addAll(dosen);
         spinnerHelper.initSpinnerDosen(arrayListDosen, sp_dosen);
+    }
+
+    @Override
+    public void isEmptyListDosen() {
+
     }
 
     @Override

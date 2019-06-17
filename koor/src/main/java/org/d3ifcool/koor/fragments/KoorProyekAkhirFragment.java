@@ -126,6 +126,7 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
 
     @Override
     public void onGetListJudul(List<Judul> judulpa) {
+
         arrayListJudul.clear();
         arrayListJudul.addAll(judulpa);
         adapter = new KoorProyekAkhirViewAdapter(getContext());
@@ -143,10 +144,20 @@ public class KoorProyekAkhirFragment extends Fragment implements DosenListView, 
     }
 
     @Override
+    public void isEmptyListJudul() {
+        empty_view.setVisibility(View.VISIBLE);
+    }
+
+    @Override
     public void onGetListDosen(List<Dosen> dosen) {
         arrayListDosen.clear();
         arrayListDosen.addAll(dosen);
         spinnerHelper.initSpinnerDosen(arrayListDosen, sp_dosen);
+    }
+
+    @Override
+    public void isEmptyListDosen() {
+
     }
 
 

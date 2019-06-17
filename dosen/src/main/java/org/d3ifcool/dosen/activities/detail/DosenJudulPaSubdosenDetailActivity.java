@@ -168,6 +168,7 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
 
     @Override
     public void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList) {
+
         proyekAkhirArrayList.clear();
         proyekAkhirArrayList.addAll(proyekAkhirList);
         adapter.addItem(proyekAkhirArrayList);
@@ -182,6 +183,11 @@ public class DosenJudulPaSubdosenDetailActivity extends AppCompatActivity implem
             empty_view.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    public void isEmptyListProyekAkhir() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

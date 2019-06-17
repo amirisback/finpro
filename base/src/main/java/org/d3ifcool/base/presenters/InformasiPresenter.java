@@ -131,7 +131,11 @@ public class InformasiPresenter {
                 @Override
                 public void onResponse(Call<List<Informasi>> call, Response<List<Informasi>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListInformasi(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListInformasi(response.body());
+                    } else {
+                        viewResult.isEmptyListInformasi();
+                    }
                 }
 
                 @Override

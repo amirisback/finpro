@@ -29,6 +29,8 @@ public interface NotifikasiListView {
 
     void onGetListNotifikasi(List<Notifikasi> notifikasiList);
 
+    void isEmptyListNotifikasi();
+
     void onFailed(String message);
 
 }

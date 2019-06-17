@@ -99,7 +99,12 @@ public class DosenPresenter {
                 @Override
                 public void onResponse(Call<List<Dosen>> call, Response<List<Dosen>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListDosen(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListDosen(response.body());
+                    } else {
+                        viewResult.isEmptyListDosen();
+                    }
+
                 }
 
                 @Override
@@ -230,7 +235,12 @@ public class DosenPresenter {
                 @Override
                 public void onResponse(Call<Dosen> call, Response<Dosen> response) {
                     viewObject.hideProgress();
-                    viewObject.onGetObjectDosen(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewObject.onGetObjectDosen(response.body());
+                    } else {
+                        viewObject.isEmptyObjectDosen();
+                    }
+
                 }
 
                 @Override
@@ -256,7 +266,12 @@ public class DosenPresenter {
                 @Override
                 public void onResponse(Call<Dosen> call, Response<Dosen> response) {
                     viewObjectPembimbing.hideProgress();
-                    viewObjectPembimbing.onGetObjectDosenPembimbing(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewObjectPembimbing.onGetObjectDosenPembimbing(response.body());
+                    } else {
+                        viewObjectPembimbing.isEmptyObjectDosenPembimbing();
+                    }
+
                 }
 
                 @Override
@@ -280,7 +295,12 @@ public class DosenPresenter {
                 @Override
                 public void onResponse(Call<Dosen> call, Response<Dosen> response) {
                     viewObjectReviewer.hideProgress();
-                    viewObjectReviewer.onGetObjectDosenReviewer(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewObjectReviewer.onGetObjectDosenReviewer(response.body());
+                    } else {
+                        viewObjectReviewer.isEmptyObjectDosenReviewer();
+                    }
+
                 }
 
                 @Override

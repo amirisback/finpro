@@ -118,19 +118,26 @@ public class MahasiswaJudulPaDosenFragment extends Fragment implements DosenList
 
     @Override
     public void onGetListJudul(List<Judul> judulpa) {
+
         arrayListJudul.clear();
         arrayListJudul.addAll(judulpa);
+        adapter.setLayoutType(R.layout.content_list_mahasiswa_judul_pa_dosen);
+        adapter.addItemJudul(arrayListJudul);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+        swipeRefreshLayout.setRefreshing(false);
 
         if (arrayListJudul.size() == 0) {
             empty_view.setVisibility(View.VISIBLE);
         } else {
             empty_view.setVisibility(View.GONE);
-            adapter.setLayoutType(R.layout.content_list_mahasiswa_judul_pa_dosen);
-            adapter.addItemJudul(arrayListJudul);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-            recyclerView.setAdapter(adapter);
-            swipeRefreshLayout.setRefreshing(false);
         }
+
+    }
+
+    @Override
+    public void isEmptyListJudul() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -139,6 +146,11 @@ public class MahasiswaJudulPaDosenFragment extends Fragment implements DosenList
         arrayListDosen.addAll(dosen);
         spinnerHelper.initSpinnerDosen(arrayListDosen, sp_dosen);
         swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void isEmptyListDosen() {
+
     }
 
     @Override

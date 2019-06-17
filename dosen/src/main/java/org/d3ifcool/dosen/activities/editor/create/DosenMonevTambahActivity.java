@@ -149,6 +149,11 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Monev
     }
 
     @Override
+    public void isEmptyListMonev() {
+
+    }
+
+    @Override
     public void onSucces() {
         finish();
     }

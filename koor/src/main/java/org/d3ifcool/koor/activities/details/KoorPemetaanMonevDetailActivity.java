@@ -226,6 +226,11 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
     }
 
     @Override
+    public void isEmptyListDosen() {
+
+    }
+
+    @Override
     public void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList) {
         arrayListProyekAkhir.clear();
         arrayListProyekAkhir.addAll(proyekAkhirList);
@@ -251,6 +256,11 @@ public class KoorPemetaanMonevDetailActivity extends AppCompatActivity implement
                 tv_nama_anggota2_pa.setText("");
             }
         }
+
+    }
+
+    @Override
+    public void isEmptyListProyekAkhir() {
 
     }
 

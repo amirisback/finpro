@@ -111,7 +111,13 @@ public class MahasiswaPaMonevDetailActivity extends AppCompatActivity implements
     }
 
     @Override
+    public void isEmptyListProyekAkhir() {
+
+    }
+
+    @Override
     public void onGetListDetailMonev(List<DetailMonev> detailMonevList) {
+
         arrayList.clear();
         arrayList.addAll(detailMonevList);
 
@@ -129,6 +135,11 @@ public class MahasiswaPaMonevDetailActivity extends AppCompatActivity implements
             empty_view.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    public void isEmptyListMonevDetail() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

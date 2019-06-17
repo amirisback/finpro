@@ -27,6 +27,8 @@ public interface BimbinganView {
 
     void onGetObjectBimbingan(Bimbingan bimbingan);
 
+    void isEmptyObjectBimbingan();
+
     void onFailed(String message);
 
 }

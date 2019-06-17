@@ -120,6 +120,7 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements Mo
 
     @Override
     public void onGetListDetailMonev(List<DetailMonev> detailMonevList) {
+
         arrayList.clear();
         arrayList.addAll(detailMonevList);
 
@@ -135,6 +136,11 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements Mo
             empty_view.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    public void isEmptyListMonevDetail() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

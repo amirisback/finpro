@@ -27,6 +27,8 @@ public interface DosenView {
 
     void onGetObjectDosen(Dosen dosen);
 
+    void isEmptyObjectDosen();
+
     void onFailed(String message);
 
 }

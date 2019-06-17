@@ -170,7 +170,12 @@ public class MonevDetailPresenter {
                 @Override
                 public void onResponse(Call<List<DetailMonev>> call, Response<List<DetailMonev>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListDetailMonev(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListDetailMonev(response.body());
+                    } else {
+                        viewResult.isEmptyListMonevDetail();
+                    }
+
                 }
 
                 @Override
@@ -195,7 +200,12 @@ public class MonevDetailPresenter {
                 @Override
                 public void onResponse(Call<List<DetailMonev>> call, Response<List<DetailMonev>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListDetailMonev(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListDetailMonev(response.body());
+                    } else {
+                        viewResult.isEmptyListMonevDetail();
+                    }
+
                 }
 
                 @Override

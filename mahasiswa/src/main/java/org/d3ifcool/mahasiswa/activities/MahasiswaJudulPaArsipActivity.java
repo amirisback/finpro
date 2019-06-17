@@ -141,7 +141,13 @@ public class MahasiswaJudulPaArsipActivity extends AppCompatActivity implements 
     }
 
     @Override
+    public void isEmptyListKategori() {
+
+    }
+
+    @Override
     public void onGetListJudul(List<Judul> judulpa) {
+
         arrayListJudul.clear();
         arrayListJudul.addAll(judulpa);
         adapter.additem(arrayListJudul);
@@ -155,6 +161,11 @@ public class MahasiswaJudulPaArsipActivity extends AppCompatActivity implements 
             empty_view.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    public void isEmptyListJudul() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

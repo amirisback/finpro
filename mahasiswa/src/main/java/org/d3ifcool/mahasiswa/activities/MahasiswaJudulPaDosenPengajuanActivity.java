@@ -193,6 +193,11 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
     }
 
     @Override
+    public void isEmptyObjectMahasiswa() {
+
+    }
+
+    @Override
     public void onSucces() {
         finish();
     }

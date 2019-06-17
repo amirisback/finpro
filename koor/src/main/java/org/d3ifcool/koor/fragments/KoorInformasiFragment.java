@@ -102,6 +102,7 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
 
     @Override
     public void onGetListInformasi(List<Informasi> informasi) {
+
         arrayList.clear();
         arrayList.addAll(informasi);
 
@@ -115,6 +116,11 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
             empty_view.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    public void isEmptyListInformasi() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

@@ -107,7 +107,12 @@ public class NotifikasiPresenter {
                 @Override
                 public void onResponse(Call<List<Notifikasi>> call, Response<List<Notifikasi>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListNotifikasi(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListNotifikasi(response.body());
+                    } else {
+                        viewResult.isEmptyListNotifikasi();
+                    }
+
                 }
 
                 @Override
@@ -133,7 +138,12 @@ public class NotifikasiPresenter {
                 @Override
                 public void onResponse(Call<List<Notifikasi>> call, Response<List<Notifikasi>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListNotifikasi(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListNotifikasi(response.body());
+                    } else {
+                        viewResult.isEmptyListNotifikasi();
+                    }
+
                 }
 
                 @Override
@@ -159,7 +169,12 @@ public class NotifikasiPresenter {
                 @Override
                 public void onResponse(Call<List<Notifikasi>> call, Response<List<Notifikasi>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListNotifikasi(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListNotifikasi(response.body());
+                    } else {
+                        viewResult.isEmptyListNotifikasi();
+                    }
+
                 }
 
                 @Override
@@ -185,7 +200,12 @@ public class NotifikasiPresenter {
                 @Override
                 public void onResponse(Call<List<Notifikasi>> call, Response<List<Notifikasi>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListNotifikasi(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListNotifikasi(response.body());
+                    } else {
+                        viewResult.isEmptyListNotifikasi();
+                    }
+
                 }
 
                 @Override

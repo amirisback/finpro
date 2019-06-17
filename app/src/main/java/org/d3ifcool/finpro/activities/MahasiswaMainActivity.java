@@ -45,9 +45,11 @@ public class MahasiswaMainActivity extends AppCompatActivity implements Mahasisw
         BottomNavigationView bottomNavigationView = findViewById(R.id.act_mhs_home_bottom_navigation);
         sessionManager = new SessionManager(this);
         MahasiswaPresenter mahasiswaPresenter = new MahasiswaPresenter(this);
+        mahasiswaPresenter.initContext(this);
+
         mahasiswaPresenter.getMahasiswaByParameter(sessionManager.getSessionUsername());
 
-        mahasiswaPresenter.initContext(this);
+
 
         openFragment(new MahasiswaInformasiFragment());
 
@@ -196,6 +198,11 @@ public class MahasiswaMainActivity extends AppCompatActivity implements Mahasisw
     @Override
     public void onGetObjectMahasiswa(Mahasiswa mahasiswa) {
         sessionManager.createSessionDataMahasiswa(mahasiswa);
+    }
+
+    @Override
+    public void isEmptyObjectMahasiswa() {
+
     }
 
     @Override

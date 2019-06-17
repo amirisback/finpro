@@ -77,7 +77,12 @@ public class KategoriJudulPresenter {
                 @Override
                 public void onResponse(Call<List<KategoriJudul>> call, Response<List<KategoriJudul>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListKategoriJudul(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListKategoriJudul(response.body());
+                    } else {
+                        viewResult.isEmptyListKategori();
+                    }
+
                 }
 
                 @Override

@@ -210,6 +210,11 @@ public class DosenJudulPaSubdosenAccActivity extends AppCompatActivity implement
     }
 
     @Override
+    public void isEmptyListProyekAkhir() {
+
+    }
+
+    @Override
     public void onSucces() {
     }
 

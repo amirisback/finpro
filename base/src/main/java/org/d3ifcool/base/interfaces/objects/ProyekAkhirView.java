@@ -27,6 +27,8 @@ public interface ProyekAkhirView {
 
     void onGetObjectProyekAkhir(ProyekAkhir proyekAkhir);
 
+    void isEmptyObjectProyekAkhir();
+
     void onFailed(String message);
 
 }

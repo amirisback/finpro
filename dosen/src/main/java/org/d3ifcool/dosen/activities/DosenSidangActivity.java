@@ -226,9 +226,19 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
     }
 
     @Override
+    public void isEmptyListMonevDetail() {
+
+    }
+
+    @Override
     public void onGetListBimbingan(List<Bimbingan> bimbinganList) {
         bimbinganArrayList.clear();
         bimbinganArrayList.addAll(bimbinganList);
+    }
+
+    @Override
+    public void isEmptyListBimbingan() {
+
     }
 
     @Override
@@ -250,6 +260,11 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
             tv_nim1.setText(proyekAkhirArrayList.get(0).getMhs_nim());
             cardView_mhs_2.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public void isEmptyListProyekAkhir() {
+
     }
 
 
@@ -283,6 +298,11 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
                 }
             }
         }
+
+    }
+
+    @Override
+    public void isEmptyListSidang() {
 
     }
 

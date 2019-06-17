@@ -107,6 +107,11 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiLis
     }
 
     @Override
+    public void isEmptyListInformasi() {
+        empty_view.setVisibility(View.VISIBLE);
+    }
+
+    @Override
     public void onFailed(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }

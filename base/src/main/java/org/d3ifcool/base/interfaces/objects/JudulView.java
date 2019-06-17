@@ -27,6 +27,8 @@ public interface JudulView {
 
     void onGetObjectJudul(Judul judul);
 
+    void isEmptyObjectJudul();
+
     void onFailed(String message);
 
 }

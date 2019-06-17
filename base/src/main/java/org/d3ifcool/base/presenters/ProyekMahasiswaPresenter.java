@@ -97,7 +97,7 @@ public class ProyekMahasiswaPresenter {
             final Call<ProyekAkhir> callProyek2 = apiInterfaceProyekAkhir.createProyekAkhir(judul_id, mhs_nim2, nama_tim);
 
             final Call<Mahasiswa> callMahasiswa1 = apiInterfaceMahasiswa.updateJudulMahasiswa(mhs_nim1, judul_id);
-            final Call<Mahasiswa> callMahasiswa2= apiInterfaceMahasiswa.updateJudulMahasiswa(mhs_nim2, judul_id);
+            final Call<Mahasiswa> callMahasiswa2 = apiInterfaceMahasiswa.updateJudulMahasiswa(mhs_nim2, judul_id);
 
             viewEditor.showProgress();
 

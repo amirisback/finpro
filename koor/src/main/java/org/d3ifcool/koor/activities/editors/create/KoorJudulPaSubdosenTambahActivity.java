@@ -158,11 +158,21 @@ public class KoorJudulPaSubdosenTambahActivity extends AppCompatActivity impleme
     }
 
     @Override
+    public void isEmptyListKategori() {
+
+    }
+
+    @Override
     public void onGetListDosen(List<Dosen> dosen) {
         arrayListDosen.clear();
         arrayListDosen.addAll(dosen);
         spinnerHelper.initSpinnerDosen(arrayListDosen, sp_dosen);
         sp_dosen.setSelection(getIntent().getIntExtra(EXTRA_POSITION_SPINNER, 0));
+    }
+
+    @Override
+    public void isEmptyListDosen() {
+
     }
 
     @Override

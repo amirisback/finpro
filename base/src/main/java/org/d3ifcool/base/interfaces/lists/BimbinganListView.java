@@ -29,6 +29,8 @@ public interface BimbinganListView {
 
     void onGetListBimbingan(List<Bimbingan> bimbinganList);
 
+    void isEmptyListBimbingan();
+
     void onFailed(String message);
 
 }

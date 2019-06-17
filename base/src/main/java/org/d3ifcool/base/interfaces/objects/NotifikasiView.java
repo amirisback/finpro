@@ -27,6 +27,8 @@ public interface NotifikasiView {
 
     void onGetObjectNotifikasi(Notifikasi notifikasi);
 
+    void isEmptyObjectNotifikasi();
+
     void onFailed(String message);
 
 }

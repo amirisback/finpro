@@ -199,6 +199,11 @@ public class DosenMainActivity extends AppCompatActivity implements DosenView {
     }
 
     @Override
+    public void isEmptyObjectDosen() {
+
+    }
+
+    @Override
     public void onFailed(String message) {
 
     }

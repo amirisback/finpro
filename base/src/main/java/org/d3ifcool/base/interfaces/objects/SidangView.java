@@ -27,6 +27,8 @@ public interface SidangView {
 
     void onGetObjectSidang(Sidang sidang);
 
+    void isEmptyObjectSidang();
+
     void onFailed(String message);
 
 }

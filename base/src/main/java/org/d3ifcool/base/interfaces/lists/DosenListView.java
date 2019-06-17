@@ -29,6 +29,8 @@ public interface DosenListView {
 
     void onGetListDosen(List<Dosen> dosen);
 
+    void isEmptyListDosen();
+
     void onFailed(String message);
 
 }

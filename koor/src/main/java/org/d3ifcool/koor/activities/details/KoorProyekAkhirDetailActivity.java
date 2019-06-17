@@ -189,6 +189,11 @@ public class KoorProyekAkhirDetailActivity extends AppCompatActivity implements
 
     }
 
+    @Override
+    public void isEmptyListBimbingan() {
+
+    }
+
 
     @Override
     public void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList) {
@@ -213,6 +218,11 @@ public class KoorProyekAkhirDetailActivity extends AppCompatActivity implements
             anggotaViewAdapter.addItem(arrayListProyekAkhir);
             viewAdapterHelper.setAdapterAnggota(anggotaViewAdapter);
         }
+
+    }
+
+    @Override
+    public void isEmptyListProyekAkhir() {
 
     }
 

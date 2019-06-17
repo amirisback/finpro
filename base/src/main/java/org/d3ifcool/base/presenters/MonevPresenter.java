@@ -108,7 +108,12 @@ public class MonevPresenter {
                 @Override
                 public void onResponse(Call<List<Monev>> call, Response<List<Monev>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListMonev(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListMonev(response.body());
+                    } else {
+                        viewResult.isEmptyListMonev();
+                    }
+
                 }
 
                 @Override

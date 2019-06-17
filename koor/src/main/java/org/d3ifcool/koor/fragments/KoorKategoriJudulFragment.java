@@ -149,6 +149,7 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
 
     @Override
     public void onGetListKategoriJudul(List<KategoriJudul> kategori) {
+
         arrayList.clear();
         arrayList.addAll(kategori);
         adapter.setKategoriJudul(arrayList);
@@ -163,6 +164,11 @@ public class KoorKategoriJudulFragment extends Fragment implements KategoriJudul
             empty_view.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    public void isEmptyListKategori() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

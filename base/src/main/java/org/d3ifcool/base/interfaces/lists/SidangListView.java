@@ -29,6 +29,8 @@ public interface SidangListView {
 
     void onGetListSidang(List<Sidang> sidangList);
 
+    void isEmptyListSidang();
+
     void onFailed(String message);
 
 }

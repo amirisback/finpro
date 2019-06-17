@@ -29,6 +29,8 @@ public interface MonevDetailListView {
 
     void onGetListDetailMonev(List<DetailMonev> detailMonevList);
 
+    void isEmptyListMonevDetail();
+
     void onFailed(String message);
 
 }

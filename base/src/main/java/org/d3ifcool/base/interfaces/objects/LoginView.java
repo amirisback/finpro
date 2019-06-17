@@ -27,6 +27,8 @@ public interface LoginView {
 
     void onRequestSuccess(User user);
 
+    void isEmptyObjectLogin();
+
     void onFailed(String message);
 
 }

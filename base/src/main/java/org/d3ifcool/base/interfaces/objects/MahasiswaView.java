@@ -27,6 +27,8 @@ public interface MahasiswaView {
 
     void onGetObjectMahasiswa(Mahasiswa mahasiswa);
 
+    void isEmptyObjectMahasiswa();
+
     void onFailed(String message);
 
 }

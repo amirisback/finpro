@@ -90,7 +90,12 @@ public class SidangPresenter {
                 @Override
                 public void onResponse(Call<List<Sidang>> call, Response<List<Sidang>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListSidang(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListSidang(response.body());
+                    } else {
+                        viewResult.isEmptyListSidang();
+                    }
+
                 }
 
                 @Override
@@ -169,7 +174,12 @@ public class SidangPresenter {
                 @Override
                 public void onResponse(Call<List<Sidang>> call, Response<List<Sidang>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListSidang(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListSidang(response.body());
+                    } else {
+                        viewResult.isEmptyListSidang();
+                    }
+
                 }
 
                 @Override
@@ -195,7 +205,12 @@ public class SidangPresenter {
                 @Override
                 public void onResponse(Call<List<Sidang>> call, Response<List<Sidang>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListSidang(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListSidang(response.body());
+                    } else {
+                        viewResult.isEmptyListSidang();
+                    }
+
                 }
 
                 @Override

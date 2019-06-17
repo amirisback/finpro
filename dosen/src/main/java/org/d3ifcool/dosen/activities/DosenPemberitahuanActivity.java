@@ -105,18 +105,23 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
 
     @Override
     public void onGetListNotifikasi(List<Notifikasi> notifikasiList) {
+
         notifikasiArrayList.clear();
         notifikasiArrayList.addAll(notifikasiList);
-
         adapter.addItem(notifikasiArrayList);
         recyclerView.setAdapter(adapter);
 
-        if (notifikasiArrayList.size() != 0){
-            empty_view.setVisibility(View.GONE);
-        } else {
+        if (notifikasiArrayList.size() == 0){
             empty_view.setVisibility(View.VISIBLE);
+        } else {
+            empty_view.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    public void isEmptyListNotifikasi() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

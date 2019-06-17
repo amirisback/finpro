@@ -134,6 +134,11 @@ public class DosenProyekAkhirMonevActivity extends AppCompatActivity implements 
     }
 
     @Override
+    public void isEmptyListBimbingan() {
+
+    }
+
+    @Override
     public void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList) {
         proyekAkhirArrayList.clear();
         proyekAkhirArrayList.addAll(proyekAkhirList);
@@ -152,6 +157,11 @@ public class DosenProyekAkhirMonevActivity extends AppCompatActivity implements 
             textViewNim1.setText(proyekAkhirArrayList.get(0).getMhs_nim());
             cardViewMhs2.setVisibility(View.GONE);
         }
+
+    }
+
+    @Override
+    public void isEmptyListProyekAkhir() {
 
     }
 

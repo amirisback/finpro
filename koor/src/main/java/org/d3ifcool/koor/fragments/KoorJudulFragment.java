@@ -142,19 +142,23 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
     public void onGetListJudul(List<Judul> judulpa) {
         arrayListJudul.clear();
         arrayListJudul.addAll(judulpa);
-
+        adapter = new KoorJudulPaSubdosenViewAdapter(getContext());
+        adapter.additem(arrayListJudul);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+        swipeRefreshLayout.setRefreshing(false);
 
         if (arrayListJudul.size() == 0) {
             empty_view.setVisibility(View.VISIBLE);
         } else {
             empty_view.setVisibility(View.GONE);
-            adapter = new KoorJudulPaSubdosenViewAdapter(getContext());
-            adapter.additem(arrayListJudul);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-            recyclerView.setAdapter(adapter);
-            swipeRefreshLayout.setRefreshing(false);
         }
 
+    }
+
+    @Override
+    public void isEmptyListJudul() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -162,6 +166,11 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
         arrayListDosen.clear();
         arrayListDosen.addAll(dosen);
         spinnerHelper.initSpinnerDosen(arrayListDosen, sp_dosen);
+    }
+
+    @Override
+    public void isEmptyListDosen() {
+
     }
 
     @Override

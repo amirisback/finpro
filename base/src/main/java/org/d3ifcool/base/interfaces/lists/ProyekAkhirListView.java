@@ -30,6 +30,8 @@ public interface ProyekAkhirListView {
 
     void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList);
 
+    void isEmptyListProyekAkhir();
+
     void onFailed(String message);
 
 }

@@ -26,5 +26,7 @@ public interface MonevView {
 
     void onGetObjectMonev(Monev monev);
 
+    void isEmptyObjectMonev();
+
     void onFailed(String message);
 }

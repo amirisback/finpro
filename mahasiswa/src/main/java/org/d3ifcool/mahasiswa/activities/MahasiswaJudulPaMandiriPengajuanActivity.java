@@ -247,6 +247,11 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
     }
 
     @Override
+    public void isEmptyObjectMahasiswa() {
+
+    }
+
+    @Override
     public void onSuccesWorkJudul() {
         judulPresenter.searchJudulBy(PARAM_JUDUL, judul);
     }
@@ -267,6 +272,11 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
     }
 
     @Override
+    public void isEmptyListJudul() {
+
+    }
+
+    @Override
     public void onGetListKategoriJudul(List<KategoriJudul> kategori) {
         arrayListKategoriJudul.clear();
         arrayListKategoriJudul.addAll(kategori);
@@ -274,10 +284,20 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
     }
 
     @Override
+    public void isEmptyListKategori() {
+
+    }
+
+    @Override
     public void onGetListDosen(List<Dosen> dosen) {
         arrayListDosen.clear();
         arrayListDosen.addAll(dosen);
         spinnerHelper.initSpinnerDosen(arrayListDosen, spinner_dosen);
+    }
+
+    @Override
+    public void isEmptyListDosen() {
+
     }
 
     @Override

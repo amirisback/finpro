@@ -27,6 +27,8 @@ public interface DosenReviewerView {
 
     void onGetObjectDosenReviewer(Dosen dosen);
 
+    void isEmptyObjectDosenReviewer();
+
     void onFailed(String message);
 
 }

@@ -207,6 +207,11 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
     }
 
     @Override
+    public void isEmptyObjectDosenPembimbing() {
+
+    }
+
+    @Override
     public void onGetListBimbingan(List<Bimbingan> bimbinganList) {
         arrayListBimbingan.clear();
         arrayListBimbingan.addAll(bimbinganList);
@@ -231,6 +236,11 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
             tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextRed));
 
         }
+
+    }
+
+    @Override
+    public void isEmptyListBimbingan() {
 
     }
 
@@ -267,6 +277,11 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
             swipeRefreshLayout.setVisibility(View.GONE);
             disable_view.setVisibility(View.VISIBLE);
         }
+
+    }
+
+    @Override
+    public void isEmptyListProyekAkhir() {
 
     }
 

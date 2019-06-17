@@ -97,6 +97,7 @@ public class DosenJudulSubmahasiswaFragment extends Fragment implements JudulLis
 
     @Override
     public void onGetListJudul(List<Judul> judulpa) {
+
         arrayList.clear();
         arrayList.addAll(judulpa);
         adapter.addItem(arrayList);
@@ -105,12 +106,17 @@ public class DosenJudulSubmahasiswaFragment extends Fragment implements JudulLis
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         swipeRefreshLayout.setRefreshing(false);
 
-        if (arrayList.isEmpty()) {
+        if (arrayList.size() == 0) {
             empty_view.setVisibility(View.VISIBLE);
         } else {
             empty_view.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    public void isEmptyListJudul() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

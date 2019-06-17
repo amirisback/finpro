@@ -196,6 +196,11 @@ public class KoorMainActivity extends AppCompatActivity
     }
 
     @Override
+    public void isEmptyObjectKoor() {
+
+    }
+
+    @Override
     public void onFailed(String message) {
 
     }

@@ -99,6 +99,7 @@ public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity impleme
 
     @Override
     public void onGetListBimbingan(List<Bimbingan> bimbinganList) {
+
         arrayListBimbingan.clear();
         arrayListBimbingan.addAll(bimbinganList);
         adapter.addItem(arrayListBimbingan);
@@ -114,6 +115,11 @@ public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity impleme
             empty_view.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    public void isEmptyListBimbingan() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

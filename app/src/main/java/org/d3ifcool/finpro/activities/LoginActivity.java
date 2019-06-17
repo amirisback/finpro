@@ -102,6 +102,12 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     @Override
+    public void isEmptyObjectLogin() {
+        String failedMessage = "Id Pengguna atau Password Salah";
+        Toast.makeText(this, failedMessage, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
     public void onFailed(String message) {
         String failedMessage = "Id Pengguna atau Password Salah";
         Toast.makeText(this, failedMessage, Toast.LENGTH_SHORT).show();

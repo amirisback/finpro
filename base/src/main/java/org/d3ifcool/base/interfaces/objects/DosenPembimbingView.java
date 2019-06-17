@@ -27,6 +27,8 @@ public interface DosenPembimbingView {
 
     void onGetObjectDosenPembimbing(Dosen dosen);
 
+    void isEmptyObjectDosenPembimbing();
+
     void onFailed(String message);
 
 }

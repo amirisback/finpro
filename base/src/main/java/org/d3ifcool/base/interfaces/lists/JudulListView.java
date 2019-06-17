@@ -29,6 +29,8 @@ public interface JudulListView {
 
     void onGetListJudul(List<Judul> judulpa);
 
+    void isEmptyListJudul();
+
     void onFailed(String message);
 
 }

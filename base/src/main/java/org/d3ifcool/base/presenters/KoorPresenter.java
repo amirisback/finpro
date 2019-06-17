@@ -118,7 +118,12 @@ public class KoorPresenter {
                 @Override
                 public void onResponse(Call<List<KoordinatorPa>> call, Response<List<KoordinatorPa>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListKoor(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListKoor(response.body());
+                    } else {
+                        viewResult.isEmptyListKoor();
+                    }
+
                 }
 
                 @Override
@@ -170,7 +175,12 @@ public class KoorPresenter {
                 @Override
                 public void onResponse(Call<KoordinatorPa> call, Response<KoordinatorPa> response) {
                     viewObject.hideProgress();
-                    viewObject.onGetObjectKoor(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewObject.onGetObjectKoor(response.body());
+                    } else {
+                        viewObject.isEmptyObjectKoor();
+                    }
+
                 }
 
                 @Override

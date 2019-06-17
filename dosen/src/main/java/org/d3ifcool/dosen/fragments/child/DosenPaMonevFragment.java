@@ -35,7 +35,7 @@ public class DosenPaMonevFragment extends Fragment implements ProyekAkhirListVie
     private DosenProyekAkhirMonevViewAdapter adapter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private ProgressDialog progressDialog;
-    private ArrayList<ProyekAkhir> arrayList = new ArrayList<>();
+    private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
     private SessionManager sessionManager;
     private SwipeRefreshLayout swipeRefreshLayout;
     private View empty_view;
@@ -93,19 +93,25 @@ public class DosenPaMonevFragment extends Fragment implements ProyekAkhirListVie
 
     @Override
     public void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList) {
-        arrayList.clear();
-        arrayList.addAll(proyekAkhirList);
-        adapter.addItemPa(arrayList);
+
+        arrayListProyekAkhir.clear();
+        arrayListProyekAkhir.addAll(proyekAkhirList);
+        adapter.addItemPa(arrayListProyekAkhir);
 
         recyclerView.setAdapter(adapter);
         swipeRefreshLayout.setRefreshing(false);
 
-        if (arrayList.size() == 0) {
+        if (arrayListProyekAkhir.size() == 0) {
             empty_view.setVisibility(View.VISIBLE);
         } else {
             empty_view.setVisibility(View.GONE);
         }
 
+    }
+
+    @Override
+    public void isEmptyListProyekAkhir() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

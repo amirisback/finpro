@@ -113,12 +113,16 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements
 
         if (notifikasiArrayList.size() != 0){
             empty_view.setVisibility(View.GONE);
-
         } else {
             empty_view.setVisibility(View.VISIBLE);
         }
 
 
+    }
+
+    @Override
+    public void isEmptyListNotifikasi() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

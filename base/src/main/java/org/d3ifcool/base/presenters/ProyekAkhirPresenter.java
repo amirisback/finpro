@@ -107,7 +107,12 @@ public class ProyekAkhirPresenter {
                 @Override
                 public void onResponse(Call<List<ProyekAkhir>> call, Response<List<ProyekAkhir>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListProyekAkhir(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListProyekAkhir(response.body());
+                    } else {
+                        viewResult.isEmptyListProyekAkhir();
+                    }
+
                 }
 
                 @Override
@@ -263,7 +268,12 @@ public class ProyekAkhirPresenter {
                 @Override
                 public void onResponse(Call<List<ProyekAkhir>> call, Response<List<ProyekAkhir>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListProyekAkhir(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListProyekAkhir(response.body());
+                    } else {
+                        viewResult.isEmptyListProyekAkhir();
+                    }
+
                 }
 
                 @Override
@@ -289,7 +299,12 @@ public class ProyekAkhirPresenter {
                 @Override
                 public void onResponse(Call<List<ProyekAkhir>> call, Response<List<ProyekAkhir>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListProyekAkhir(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListProyekAkhir(response.body());
+                    } else {
+                        viewResult.isEmptyListProyekAkhir();
+                    }
+
                 }
 
                 @Override
@@ -315,7 +330,12 @@ public class ProyekAkhirPresenter {
                 @Override
                 public void onResponse(Call<List<ProyekAkhir>> call, Response<List<ProyekAkhir>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListProyekAkhir(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListProyekAkhir(response.body());
+                    } else {
+                        viewResult.isEmptyListProyekAkhir();
+                    }
+
                 }
 
                 @Override
@@ -341,7 +361,12 @@ public class ProyekAkhirPresenter {
                 @Override
                 public void onResponse(Call<List<ProyekAkhir>> call, Response<List<ProyekAkhir>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListProyekAkhir(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListProyekAkhir(response.body());
+                    } else {
+                        viewResult.isEmptyListProyekAkhir();
+                    }
+
                 }
 
                 @Override

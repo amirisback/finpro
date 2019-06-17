@@ -107,7 +107,11 @@ public class BimbinganPresenter {
                 @Override
                 public void onResponse(Call<List<Bimbingan>> call, Response<List<Bimbingan>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListBimbingan(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListBimbingan(response.body());
+                    } else {
+                        viewResult.isEmptyListBimbingan();
+                    }
                 }
 
                 @Override
@@ -185,7 +189,12 @@ public class BimbinganPresenter {
                 @Override
                 public void onResponse(Call<List<Bimbingan>> call, Response<List<Bimbingan>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListBimbingan(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListBimbingan(response.body());
+                    } else {
+                        viewResult.isEmptyListBimbingan();
+                    }
+
                 }
 
                 @Override
@@ -233,7 +242,12 @@ public class BimbinganPresenter {
                 @Override
                 public void onResponse(Call<List<Bimbingan>> call, Response<List<Bimbingan>> response) {
                     viewResult.hideProgress();
-                    viewResult.onGetListBimbingan(response.body());
+                    if (response.body() != null && response.isSuccessful()) {
+                        viewResult.onGetListBimbingan(response.body());
+                    } else {
+                        viewResult.isEmptyListBimbingan();
+                    }
+
                 }
 
                 @Override

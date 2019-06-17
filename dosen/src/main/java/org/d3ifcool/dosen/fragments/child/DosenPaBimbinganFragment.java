@@ -98,6 +98,7 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
 
     @Override
     public void onGetListJudul(List<Judul> judulpa) {
+
         arrayList.clear();
         arrayList.addAll(judulpa);
         adapter.addItemPa(arrayList);
@@ -109,6 +110,11 @@ public class DosenPaBimbinganFragment extends Fragment implements JudulListView 
         } else {
             empty_view.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public void isEmptyListJudul() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

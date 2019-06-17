@@ -36,7 +36,7 @@ public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implemen
     private KategoriJudulPresenter kategoriJudulPresenter;
     private SpinnerHelper spinnerHelper;
     private Button btn_update;
-    private JudulPresenter presenter;
+    private JudulPresenter judulPresenter;
     private ProgressDialog progressDialog;
 
     private ArrayList<KategoriJudul> arrayListKategoriJudul = new ArrayList<>();
@@ -51,9 +51,10 @@ public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implemen
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         kategoriJudulPresenter = new KategoriJudulPresenter(this);
+        judulPresenter = new JudulPresenter(this);
         kategoriJudulPresenter.initContext(this);
+        judulPresenter.initContext(this);
 
-        presenter = new JudulPresenter(this);
         spinnerHelper = new SpinnerHelper(this);
 
         et_judul = findViewById(R.id.act_dsn_judul_pa_edittext_judul);
@@ -66,7 +67,7 @@ public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implemen
         String extra_deskripsi = extradata.getDeskripsi();
         final int id = extradata.getId();
         String extra_kategori_id = extradata.getKategori_id();
-        spinnerPosition = Integer.parseInt(extra_kategori_id)-1;
+        spinnerPosition = Integer.parseInt(extra_kategori_id);
 
         et_judul.setText(extra_judul);
         et_deskripsi.setText(extra_deskripsi);
@@ -106,7 +107,7 @@ public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implemen
                                 }else if(deskripsi.isEmpty()){
                                     et_deskripsi.setError(getString(R.string.text_tidak_boleh_kosong));
                                 }else{
-                                    presenter.updateJudul(id, judul, kategori, deskripsi);
+                                    judulPresenter.updateJudul(id, judul, kategori, deskripsi);
                                 }
                             }
                         })
@@ -154,7 +155,16 @@ public class DosenJudulPaSubdosenUbahActivity extends AppCompatActivity implemen
         arrayListKategoriJudul.clear();
         arrayListKategoriJudul.addAll(kategori);
         spinnerHelper.initSpinnerKategoriJudul(arrayListKategoriJudul, spinner_kategori);
-        spinner_kategori.setSelection(spinnerPosition);
+        for (int i = 0; i < arrayListKategoriJudul.size(); i++){
+            if (arrayListKategoriJudul.get(i).getId() == spinnerPosition ){
+                spinner_kategori.setSelection(i);
+            }
+        }
+    }
+
+    @Override
+    public void isEmptyListKategori() {
+
     }
 
     @Override
