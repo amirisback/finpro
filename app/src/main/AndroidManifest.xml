@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="org.d3ifcool.finpro">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
