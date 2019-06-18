@@ -78,7 +78,6 @@ public class Sidang implements Parcelable {
     @SerializedName("judul_id")
     private int judul_id;
 
-
     public Sidang(String sidang_id, String sidang_review, String sidang_tanggal, int nilai_proposal, int nilai_penguji_1, int nilai_penguji_2, int nilai_pembimbing, double nilai_total, String sidang_status, int proyek_akhir_id, String nama_tim, String mhs_nim, int judul_id) {
         this.sidang_id = sidang_id;
         this.sidang_review = sidang_review;
@@ -94,56 +93,6 @@ public class Sidang implements Parcelable {
         this.mhs_nim = mhs_nim;
         this.judul_id = judul_id;
     }
-
-    protected Sidang(Parcel in) {
-        sidang_id = in.readString();
-        sidang_review = in.readString();
-        sidang_tanggal = in.readString();
-        nilai_proposal = in.readInt();
-        nilai_penguji_1 = in.readInt();
-        nilai_penguji_2 = in.readInt();
-        nilai_pembimbing = in.readInt();
-        nilai_total = in.readDouble();
-        sidang_status = in.readString();
-        proyek_akhir_id = in.readInt();
-        nama_tim = in.readString();
-        mhs_nim = in.readString();
-        judul_id = in.readInt();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(sidang_id);
-        dest.writeString(sidang_review);
-        dest.writeString(sidang_tanggal);
-        dest.writeInt(nilai_proposal);
-        dest.writeInt(nilai_penguji_1);
-        dest.writeInt(nilai_penguji_2);
-        dest.writeInt(nilai_pembimbing);
-        dest.writeDouble(nilai_total);
-        dest.writeString(sidang_status);
-        dest.writeInt(proyek_akhir_id);
-        dest.writeString(nama_tim);
-        dest.writeString(mhs_nim);
-        dest.writeInt(judul_id);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<Sidang> CREATOR = new Creator<Sidang>() {
-        @Override
-        public Sidang createFromParcel(Parcel in) {
-            return new Sidang(in);
-        }
-
-        @Override
-        public Sidang[] newArray(int size) {
-            return new Sidang[size];
-        }
-    };
 
     public String getSidang_id() {
         return sidang_id;
@@ -201,7 +150,7 @@ public class Sidang implements Parcelable {
         this.nilai_pembimbing = nilai_pembimbing;
     }
 
-    public double getNilai_sidang() {
+    public double getNilai_total() {
         return nilai_total;
     }
 
@@ -250,4 +199,53 @@ public class Sidang implements Parcelable {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.sidang_id);
+        dest.writeString(this.sidang_review);
+        dest.writeString(this.sidang_tanggal);
+        dest.writeInt(this.nilai_proposal);
+        dest.writeInt(this.nilai_penguji_1);
+        dest.writeInt(this.nilai_penguji_2);
+        dest.writeInt(this.nilai_pembimbing);
+        dest.writeDouble(this.nilai_total);
+        dest.writeString(this.sidang_status);
+        dest.writeInt(this.proyek_akhir_id);
+        dest.writeString(this.nama_tim);
+        dest.writeString(this.mhs_nim);
+        dest.writeInt(this.judul_id);
+    }
+
+    protected Sidang(Parcel in) {
+        this.sidang_id = in.readString();
+        this.sidang_review = in.readString();
+        this.sidang_tanggal = in.readString();
+        this.nilai_proposal = in.readInt();
+        this.nilai_penguji_1 = in.readInt();
+        this.nilai_penguji_2 = in.readInt();
+        this.nilai_pembimbing = in.readInt();
+        this.nilai_total = in.readDouble();
+        this.sidang_status = in.readString();
+        this.proyek_akhir_id = in.readInt();
+        this.nama_tim = in.readString();
+        this.mhs_nim = in.readString();
+        this.judul_id = in.readInt();
+    }
+
+    public static final Creator<Sidang> CREATOR = new Creator<Sidang>() {
+        @Override
+        public Sidang createFromParcel(Parcel source) {
+            return new Sidang(source);
+        }
+
+        @Override
+        public Sidang[] newArray(int size) {
+            return new Sidang[size];
+        }
+    };
 }

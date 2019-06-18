@@ -72,7 +72,8 @@
     <string name="title_kategori_judul_pa">Kategori Judul PA</string>
     <string name="title_pemetaan_monev">Pemetaan Monev</string>
     <string name="title_monev_mahasiswa">Monev Mahasiswa</string>
-    <string name="title_sidang_tambah">Tambah Sidang</string>
+    <string name="title_sidang_tambah">Tambah Nilai Sidang</string>
+    <string name="title_sidang_ubah">Ubah Nilai Sidang</string>
     <string name="title_masukkan_review_sidang">Masukkan Review Sidang</string>
     <string name="title_tentang_kami">Tentang Kami</string>
 
@@ -88,6 +89,7 @@
     <string name="button_click_tambah_dosen">Tambah Dosen</string>
     <string name="button_click_ubah_dosen">Ubah Dosen</string>
     <string name="button_click_tambah_sidang">Tambah Nilai Sidang</string>
+    <string name="button_click_ubah_sidang">Ubah Nilai Sidang</string>
     <string name="button_click_ubah_bimbingan">Ubah Bimbingan</string>
     <string name="button_proyek_akhir_selesai">Proyek Akhir Selesai</string>
 
@@ -320,7 +322,8 @@
     <string name="text_bimbingan_berhasil">Bimbingan Baru Berhasil ditambahkan, harap tunggu ACC dari dosen pembimbing</string>
     <string name="text_siap_sidang">Siap Sidang</string>
     <string name="text_sudah_sidang">Sudah Sidang</string>
-    <string name="text_tambah_sidang">Tambah Sidang</string>
+    <string name="text_tambah_sidang">Tambah Nilai Sidang</string>
+    <string name="text_ubah_sidang">Ubah Nilai Sidang</string>
     <string name="text_notifikasi">Pemberitahuan</string>
     <string name="text_team">Seven Primavera</string>
     <string name="text_aboutus_nama_amir">Muh. Faisal Amir</string>

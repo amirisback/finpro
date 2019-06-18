@@ -272,6 +272,18 @@
             android:gravity="end"
             android:textAllCaps="true"/>
 
+        <TextView
+            android:id="@+id/act_dsn_textview_ubah_sidang_mhs_1"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_ubah_sidang"
+            android:textColor="@color/colorPrimary"
+            android:padding="@dimen/dimen_medium_8dp"
+            android:gravity="end"
+            android:textAllCaps="true"/>
+
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -111,7 +111,7 @@ public class SidangPresenter {
 
     }
 
-    public void deleteSidang(int sidang_id){
+    public void deleteSidang(String sidang_id){
 
         if (connectionHelper.isConnected(context)){
             viewEditor.showProgress();
@@ -138,7 +138,7 @@ public class SidangPresenter {
     }
 
 
-    public void updateSidang(int sidang_id, String sidang_review, String sidang_tanggal, int nilai_proposal, int nilai_penguji_1, int nilai_penguji_2, int nilai_pembimbing, double nilai_total, String sidang_status){
+    public void updateSidang(String sidang_id, String sidang_review, String sidang_tanggal, int nilai_proposal, int nilai_penguji_1, int nilai_penguji_2, int nilai_pembimbing, double nilai_total, String sidang_status){
 
         if (connectionHelper.isConnected(context)){
             viewEditor.showProgress();

@@ -3,7 +3,8 @@
     package="org.d3ifcool.dosen">
 
     <application>
-        <activity android:name=".activities.editor.create.DosenSidangTambahActivity"/>
+        <activity android:name=".activities.editor.update.DosenSidangUbahActivity"></activity>
+        <activity android:name=".activities.editor.create.DosenSidangTambahActivity" />
         <activity android:name=".activities.detail.DosenJudulPaArsipDetailActivity" />
         <activity android:name=".activities.DosenMonevMahasiswaActivity" />
         <activity android:name=".activities.DosenJudulPaSubdosenAccActivity" />

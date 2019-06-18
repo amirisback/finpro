@@ -20,6 +20,7 @@
             android:layout_marginBottom="@dimen/dimen_big_ultra_32dp"
             android:src="@drawable/ic_editor_info"
             android:layout_gravity="center"/>
+
         <TextView
             android:textSize="@dimen/text_size_title_small_18sp"
             android:textColor="@color/colorPrimary"

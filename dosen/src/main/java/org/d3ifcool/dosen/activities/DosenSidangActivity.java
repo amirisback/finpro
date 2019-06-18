@@ -27,6 +27,7 @@ import org.d3ifcool.base.presenters.BimbinganPresenter;
 import org.d3ifcool.base.presenters.MonevDetailPresenter;
 import org.d3ifcool.base.presenters.ProyekAkhirPresenter;
 import org.d3ifcool.base.presenters.SidangPresenter;
+import org.d3ifcool.dosen.activities.editor.update.DosenSidangUbahActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,8 +54,8 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
 
     private TextView tv_nama1,tv_nim1,tv_nama2,tv_nim2,tv_status, tv_tanggal_1, tv_tanggal_2;
     private CardView cardView_mhs_1,cardView_mhs_2;
-    private TextView tv_nilai_proposal1, tv_nilai_pembimbing1,tv_nilai_penguji1_1,tv_nilai_penguji1_2,tv_nilai_total_1, tv_review_1, tv_status_1, tv_tambah_sidang1;
-    private TextView tv_nilai_proposal2, tv_nilai_pembimbing2,tv_nilai_penguji2_1,tv_nilai_penguji2_2,tv_nilai_total_2,tv_review_2, tv_status_2, tv_tambah_sidang2;
+    private TextView tv_nilai_proposal1, tv_nilai_pembimbing1,tv_nilai_penguji1_1,tv_nilai_penguji1_2,tv_nilai_total_1, tv_review_1, tv_status_1, tv_tambah_sidang1, tv_ubah_sidang1;
+    private TextView tv_nilai_proposal2, tv_nilai_pembimbing2,tv_nilai_penguji2_1,tv_nilai_penguji2_2,tv_nilai_total_2,tv_review_2, tv_status_2, tv_tambah_sidang2, tv_ubah_sidang2;
     private LinearLayout linearLayout_mhs1, linearLayout_mhs2;
     private String extraJudulId;
 
@@ -106,6 +107,8 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         tv_status_2 = findViewById(R.id.dsn_sidang_textview_status_2);
         tv_tambah_sidang1 = findViewById(R.id.act_dsn_textview_tambah_sidang_mhs_1);
         tv_tambah_sidang2 = findViewById(R.id.act_dsn_textview_tambah_sidang_mhs_2);
+        tv_ubah_sidang1 = findViewById(R.id.act_dsn_textview_ubah_sidang_mhs_1);
+        tv_ubah_sidang2 = findViewById(R.id.act_dsn_textview_ubah_sidang_mhs_2);
         tv_tanggal_2 = findViewById(R.id.tanggal_sidang2);
 
         ProyekAkhir extraProyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
@@ -130,7 +133,32 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
             }
         });
 
+        tv_ubah_sidang1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sidang parcelSidang = sidangArrayList.get(0);
+                ProyekAkhir parcelProyekAkhir = proyekAkhirArrayList.get(0);
+                intentSidangUpdate(parcelProyekAkhir, parcelSidang);
+            }
+        });
 
+        tv_ubah_sidang2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sidang parcelSidang = sidangArrayList.get(1);
+                ProyekAkhir parcelProyekAkhir = proyekAkhirArrayList.get(1);
+                intentSidangUpdate(parcelProyekAkhir, parcelSidang);
+            }
+        });
+
+
+    }
+
+    private void intentSidangUpdate(ProyekAkhir parcelProyekAkhir, Sidang sidang){
+        Intent intentSidangUpdate = new Intent(DosenSidangActivity.this, DosenSidangUbahActivity.class);
+        intentSidangUpdate.putExtra(DosenSidangUbahActivity.EXTRA_SIDANG, sidang);
+        intentSidangUpdate.putExtra(DosenSidangUbahActivity.EXTRA_PROYEK_AKHIR, parcelProyekAkhir);
+        startActivity(intentSidangUpdate);
     }
 
 
@@ -153,7 +181,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         tv_nilai_pembimbing1.setText(String.valueOf(sidang.getNilai_pembimbing()));
         tv_nilai_penguji1_1.setText(String.valueOf(sidang.getNilai_penguji_1()));
         tv_nilai_penguji1_2.setText(String.valueOf(sidang.getNilai_penguji_2()));
-        tv_nilai_total_1.setText(String.valueOf(sidang.getNilai_sidang()));
+        tv_nilai_total_1.setText(String.valueOf(sidang.getNilai_total()));
         tv_review_1.setText(sidang.getSidang_review());
         tv_tanggal_1.setText(sidang.getSidang_tanggal());
         tv_status_1.setText(sidang.getSidang_status());
@@ -165,6 +193,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         }
 
         linearLayout_mhs1.setVisibility(View.VISIBLE);
+        tv_ubah_sidang1.setVisibility(View.VISIBLE);
         tv_tambah_sidang1.setVisibility(View.GONE);
     }
 
@@ -173,7 +202,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         tv_nilai_pembimbing2.setText(String.valueOf(sidang.getNilai_pembimbing()));
         tv_nilai_penguji2_1.setText(String.valueOf(sidang.getNilai_penguji_1()));
         tv_nilai_penguji2_2.setText(String.valueOf(sidang.getNilai_penguji_2()));
-        tv_nilai_total_2.setText(String.valueOf(sidang.getNilai_sidang()));
+        tv_nilai_total_2.setText(String.valueOf(sidang.getNilai_total()));
         tv_review_2.setText(sidang.getSidang_review());
         tv_tanggal_2.setText(sidang.getSidang_tanggal());
         tv_status_2.setText(sidang.getSidang_status());
@@ -185,6 +214,7 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         }
 
         linearLayout_mhs2.setVisibility(View.VISIBLE);
+        tv_ubah_sidang2.setVisibility(View.VISIBLE);
         tv_tambah_sidang2.setVisibility(View.GONE);
     }
 

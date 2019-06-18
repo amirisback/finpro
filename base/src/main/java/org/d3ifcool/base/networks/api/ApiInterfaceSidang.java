@@ -17,11 +17,15 @@ import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.BASE_PARAMETER_
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY_1;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY_2;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PARAMETER_SIDANG;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_ALL;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_SEARCH;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.URL_SIDANG;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.VAR_JUDUL;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.VAR_PARAMS;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.VAR_QUERY;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.VAR_SIDANG;
 
 public interface ApiInterfaceSidang {
 
@@ -43,9 +47,9 @@ public interface ApiInterfaceSidang {
     );
 
     @FormUrlEncoded
-    @POST(URL_SIDANG)
+    @POST(URL_SIDANG + PATH_UPDATE + PARAMETER_SIDANG)
     Call<Sidang> updateSidang(
-            @Path("sidang_id") int sidang_id,
+            @Path(VAR_SIDANG) String sidang_id,
             @Field("sidang_review") String sidang_review,
             @Field("sidang_tanggal") String sidang_tanggal,
             @Field("nilai_proposal") int nilai_proposal,
@@ -59,7 +63,7 @@ public interface ApiInterfaceSidang {
     @FormUrlEncoded
     @POST(URL_SIDANG)
     Call<Sidang> deleteSidang(
-            @Path("sidang_id") int sidang_id
+            @Path("sidang") String sidang_id
     );
 
     @GET(URL_SIDANG + PATH_SEARCH + PATH_ALL + BASE_PARAMETER + PARAMETER_QUERY)

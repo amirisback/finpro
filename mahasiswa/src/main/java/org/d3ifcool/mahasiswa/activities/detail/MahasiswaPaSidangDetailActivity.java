@@ -82,7 +82,7 @@ public class MahasiswaPaSidangDetailActivity extends AppCompatActivity implement
         tv_nilai_pembimbing.setText(String.valueOf(sidang.getNilai_pembimbing()));
         tv_nilai_penguji1_1.setText(String.valueOf(sidang.getNilai_penguji_1()));
         tv_nilai_penguji2_1.setText(String.valueOf(sidang.getNilai_penguji_2()));
-        tv_nilai_total_1.setText(String.valueOf(sidang.getNilai_sidang()));
+        tv_nilai_total_1.setText(String.valueOf(sidang.getNilai_total()));
         tv_status_1.setText(sidang.getSidang_status());
         tv_review_1.setText(sidang.getSidang_review());
         tv_tanggal_sidang.setText(sidang.getSidang_tanggal());
