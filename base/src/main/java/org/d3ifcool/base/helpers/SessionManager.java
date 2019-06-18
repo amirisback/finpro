@@ -55,6 +55,9 @@ public class SessionManager {
         editor.putString(MHS_KONTAK, mahasiswa.getMhs_kontak());
         editor.putString(MHS_STATUS, mahasiswa.getStatus());
         editor.putString(MHS_ANGKATAN, mahasiswa.getAngkatan());
+        editor.putString(MHS_JUDUL, mahasiswa.getJudul_nama());
+        editor.putString(MHS_JUDUL_DESKRIPSI, mahasiswa.getJudul_deskripsi());
+        editor.putString(MHS_JUDUL_STATUS, mahasiswa.getJudul_status());
         editor.putInt(MHS_ID_JUDUL, mahasiswa.getJudul_id());
         editor.apply();
         editor.commit();
@@ -145,6 +148,18 @@ public class SessionManager {
 
     public String getSessionMahasiswaAngkatan(){
         return sharedPreferences.getString(MHS_ANGKATAN, null);
+    }
+
+    public String getSessionMahasiswaJudul(){
+        return sharedPreferences.getString(MHS_JUDUL, null);
+    }
+
+    public String getSessionMahasiswaJudulDeskripsi(){
+        return sharedPreferences.getString(MHS_JUDUL_DESKRIPSI, null);
+    }
+
+    public String getSessionMahasiswaJudulStatus(){
+        return sharedPreferences.getString(MHS_JUDUL_STATUS, null);
     }
 
     public int getSessionProyekAkhirId(){

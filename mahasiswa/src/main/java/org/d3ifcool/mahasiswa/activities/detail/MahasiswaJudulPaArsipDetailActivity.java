@@ -17,6 +17,9 @@ public class MahasiswaJudulPaArsipDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mahasiswa_judul_pa_arsip_detail);
 
+        setTitle(getString(R.string.title_arsip_judul_detail));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
         String extraJudulNama = extraJudul.getJudul();
         String extraJudulKategori = extraJudul.getKategori_nama();

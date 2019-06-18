@@ -75,6 +75,8 @@
     <string name="title_sidang_tambah">Tambah Nilai Sidang</string>
     <string name="title_sidang_ubah">Ubah Nilai Sidang</string>
     <string name="title_masukkan_review_sidang">Masukkan Review Sidang</string>
+    <string name="title_arsip_judul">Arsip Judul</string>
+    <string name="title_arsip_judul_detail">Detail Arsip Judul</string>
     <string name="title_tentang_kami">Tentang Kami</string>
 
     <string name="button_click_masuk">Masuk</string>
@@ -286,7 +288,6 @@
     <string name="text_judul_status">Status</string>
     <string name="text_belum_disetujui">Status proyek akhir belum ada</string>
     <string name="text_mengajukan_judul_pa">Silahkan mengajukan judul di menu Judul PA</string>
-    <string name="text_title_arsip_judul">Arsip Judul</string>
     <string name="text_ubah_reviewer">Ubah Reviewer</string>
     <string name="text_nama_reviewer">Nama Reviewer</string>
     <string name="text_pilih_dosen_reviewer">Pilih Dosen Reviewer</string>

@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import org.d3ifcool.base.adapters.AnggotaViewAdapter;
 import org.d3ifcool.base.helpers.ViewAdapterHelper;
+import org.d3ifcool.base.models.Judul;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPaBimbinganActivity;
 import org.d3ifcool.mahasiswa.activities.detail.MahasiswaPaMonevDetailActivity;
@@ -35,6 +36,7 @@ import org.d3ifcool.base.presenters.ProyekAkhirPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_ARSIP;
 import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
 import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUMLAH_BIMBINGAN_SIDANG;
 import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_DISETUJUI;
@@ -55,9 +57,11 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
     private DosenPresenter dosenPresenter;
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private BimbinganPresenter bimbinganPresenter;
+
     private SessionManager sessionManager;
     private ProgressDialog progressDialog;
     private SwipeRefreshLayout swipeRefreshLayout;
+
     private View disable_view;
     private Dosen parcelDosenPembimbing;
     private ProyekAkhir parcelProyekAkhir;
@@ -68,6 +72,7 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
 
     private ArrayList<Bimbingan> arrayListBimbingan = new ArrayList<>();
     private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
+    private ArrayList<Judul> arrayListJudul = new ArrayList<>();
 
     private TextView tv_judul_pa,tv_kelompok_pa, tv_dosen_pembimbing_pa, tv_jumlah_bimbingan_pa,
             tv_dosen_reviewer_pa, tv_status_sidang_pa;
@@ -170,7 +175,11 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
 
     private void checkStatusJudulMahasiswa(int judulId){
         if (judulId != 0){
-            proyekAkhirPresenter.searchAllProyekAkhirByTwo(PARAM_PROYEK_AKHIR_JUDUL, String.valueOf(judulId), PARAM_JUDUL_STATUS, JUDUL_STATUS_DIGUNAKAN);
+            if (sessionManager.getSessionMahasiswaJudulStatus().equalsIgnoreCase(JUDUL_STATUS_DIGUNAKAN)) {
+                proyekAkhirPresenter.searchAllProyekAkhirByTwo(PARAM_PROYEK_AKHIR_JUDUL, String.valueOf(judulId), PARAM_JUDUL_STATUS, JUDUL_STATUS_DIGUNAKAN);
+            } else if (sessionManager.getSessionMahasiswaJudulStatus().equalsIgnoreCase(JUDUL_STATUS_ARSIP)) {
+                proyekAkhirPresenter.searchAllProyekAkhirByTwo(PARAM_PROYEK_AKHIR_JUDUL, String.valueOf(judulId), PARAM_JUDUL_STATUS, JUDUL_STATUS_ARSIP);
+            }
         } else {
             disable_view.setVisibility(View.VISIBLE);
             swipeRefreshLayout.setVisibility(View.GONE);

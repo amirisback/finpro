@@ -54,7 +54,7 @@ public class DosenJudulPaArsipActivity extends AppCompatActivity implements Judu
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dosen_judul_pa_arsip);
-        setTitle(getString(R.string.text_title_arsip_judul));
+        setTitle(getString(R.string.title_arsip_judul));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         sp_kategori = findViewById(R.id.spinner_kategori);

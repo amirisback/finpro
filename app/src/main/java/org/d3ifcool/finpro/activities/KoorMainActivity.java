@@ -159,7 +159,7 @@ public class KoorMainActivity extends AppCompatActivity
             setTitle(getString(R.string.title_kategori_monev));
             openFragment(new KoorKategoriMonevFragment());
         }else if (id == R.id.nav_menu_arsip_judul){
-            setTitle(getString(R.string.text_title_arsip_judul));
+            setTitle(getString(R.string.title_arsip_judul));
             openFragment(new KoorArsipJudulFragment());
         }else if (id == R.id.nav_menu_tentang_kami){
             setTitle(R.string.title_tentang_kami);

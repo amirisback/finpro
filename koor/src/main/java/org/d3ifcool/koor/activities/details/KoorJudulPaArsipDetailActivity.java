@@ -19,7 +19,7 @@ public class KoorJudulPaArsipDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_koor_judul_pa_arsip_detail);
 
-        setTitle(getString(R.string.title_judulpa_detail));
+        setTitle(getString(R.string.title_arsip_judul_detail));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);

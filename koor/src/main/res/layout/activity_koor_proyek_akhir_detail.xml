@@ -157,7 +157,7 @@
             android:layout_margin="@dimen/dimen_big_16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/text_title_arsip_judul"/>
+            android:text="@string/title_arsip_judul"/>
 
         <include layout="@layout/container_proyek_akhir_arsip"/>
 

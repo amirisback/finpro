@@ -34,7 +34,7 @@
 
     <item
         android:id="@+id/toolbar_menu_arsip_judul"
-        android:title="@string/text_title_arsip_judul" />
+        android:title="@string/title_arsip_judul" />
 
     <item
         android:id="@+id/toolbar_menu_tentang_kami"
