@@ -46,7 +46,7 @@ public class MahasiswaBimbinganBehaviourTest {
     @Test
     public void mahasiswaBimbingan() throws InterruptedException {
 
-        String BIMBINGAN = "Dummy_Bimbingan";
+        String BIMBINGAN = "Bimbingan ke - ";
 
         new HelperTest().mahasiswaMenuProyekAkhir();
 
@@ -56,7 +56,8 @@ public class MahasiswaBimbinganBehaviourTest {
         Thread.sleep(2000);
 
         for (int i = 0; i < 16; i++) {
-            createBimbingan(BIMBINGAN);
+            String DES_BIMBINGAN = BIMBINGAN + i;
+            createBimbingan(DES_BIMBINGAN);
         }
 
     }

@@ -32,6 +32,7 @@ import java.util.List;
 
 import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_DIGUNAKAN;
 import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUMLAH_BIMBINGAN_SIDANG;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_DISETUJUI;
 
 public class DosenProyekAkhirActivity extends AppCompatActivity implements ProyekAkhirListView,
         BimbinganListView, MonevDetailListView {
@@ -133,8 +134,6 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
             }
         });
 
-
-        bimbinganPresenter.getBimbingan();
         detailMonevPresenter.getMonevDetail();
 
     }
@@ -198,14 +197,19 @@ public class DosenProyekAkhirActivity extends AppCompatActivity implements Proye
             tv_jumlah_bimbingan_pa.setText(stringJumlahBimibingan);
         }
 
-        if (arrayListBimbingan.size() >= JUMLAH_BIMBINGAN_SIDANG){
-            tv_status_sidang_pa.setText(getString(R.string.text_siap_sidang));
+        if (arrayListProyekAkhir.get(0).getNilai_total() == 0){
+            if (arrayListBimbingan.size() >= JUMLAH_BIMBINGAN_SIDANG){
+                tv_status_sidang_pa.setText(getString(R.string.text_siap_sidang));
+                tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorBackgroundYellow));
+
+            }else {
+                tv_status_sidang_pa.setText(getString(R.string.text_belum_siap_sidang));
+                tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextRed));
+
+            }
+        } else {
+            tv_status_sidang_pa.setText(getString(R.string.text_sudah_sidang));
             tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextGreen));
-
-        }else {
-            tv_status_sidang_pa.setText(getString(R.string.text_belum_siap_sidang));
-            tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextRed));
-
         }
 
     }

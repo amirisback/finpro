@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_SIDANG_LULUS;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_SIDANG_LULUS_BERSYARAT;
 
 public class MahasiswaPaSidangDetailActivity extends AppCompatActivity implements SidangListView{
 
@@ -86,8 +87,10 @@ public class MahasiswaPaSidangDetailActivity extends AppCompatActivity implement
         tv_review_1.setText(sidang.getSidang_review());
         tv_tanggal_sidang.setText(sidang.getSidang_tanggal());
 
-        if (sidang.getSidang_status().equals(STATUS_SIDANG_LULUS)){
+        if (sidang.getSidang_status().equals(STATUS_SIDANG_LULUS) || sidang.getSidang_status().equals(STATUS_SIDANG_LULUS_BERSYARAT)){
             tv_status_1.setTextColor(MahasiswaPaSidangDetailActivity.this.getResources().getColor(R.color.colorTextGreen));
+        } else {
+            tv_status_1.setTextColor(MahasiswaPaSidangDetailActivity.this.getResources().getColor(R.color.colorTextRed));
         }
 
     }

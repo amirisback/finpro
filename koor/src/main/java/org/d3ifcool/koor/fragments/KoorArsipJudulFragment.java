@@ -145,7 +145,6 @@ public class KoorArsipJudulFragment extends Fragment implements JudulListView, K
 
     @Override
     public void onGetListJudul(List<Judul> judulpa) {
-        empty_view.setVisibility(View.GONE);
         arrayListJudul.clear();
         arrayListJudul.addAll(judulpa);
 
@@ -153,11 +152,11 @@ public class KoorArsipJudulFragment extends Fragment implements JudulListView, K
         recyclerView.setAdapter(adapter);
         swipeRefreshLayout.setRefreshing(false);
 
-//        if (arrayListJudul.size() == 0) {
-//            empty_view.setVisibility(View.VISIBLE);
-//        } else {
-//            empty_view.setVisibility(View.GONE);
-//        }
+        if (arrayListJudul.size() == 0) {
+            empty_view.setVisibility(View.VISIBLE);
+        } else {
+            empty_view.setVisibility(View.GONE);
+        }
 
     }
 

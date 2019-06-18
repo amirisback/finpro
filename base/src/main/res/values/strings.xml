@@ -319,6 +319,7 @@
     <string name="text_bimbingan_gagal">Tidak dapat menambahkan, harap tunggu bimbingan sebelumnya disetujui terlebih dahulu</string>
     <string name="text_bimbingan_berhasil">Bimbingan Baru Berhasil ditambahkan, harap tunggu ACC dari dosen pembimbing</string>
     <string name="text_siap_sidang">Siap Sidang</string>
+    <string name="text_sudah_sidang">Sudah Sidang</string>
     <string name="text_tambah_sidang">Tambah Sidang</string>
     <string name="text_notifikasi">Pemberitahuan</string>
     <string name="text_team">Seven Primavera</string>

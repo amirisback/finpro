@@ -227,14 +227,19 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
             tv_jumlah_bimbingan_pa.setText(stringJumlahBimibingan);
         }
 
-        if (arrayListBimbingan.size() >= JUMLAH_BIMBINGAN_SIDANG){
-            tv_status_sidang_pa.setText(getString(R.string.text_siap_sidang));
+        if (arrayListProyekAkhir.get(0).getNilai_total() == 0){
+            if (arrayListBimbingan.size() >= JUMLAH_BIMBINGAN_SIDANG){
+                tv_status_sidang_pa.setText(getString(R.string.text_siap_sidang));
+                tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorBackgroundYellow));
+
+            }else {
+                tv_status_sidang_pa.setText(getString(R.string.text_belum_siap_sidang));
+                tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextRed));
+
+            }
+        } else {
+            tv_status_sidang_pa.setText(getString(R.string.text_sudah_sidang));
             tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextGreen));
-
-        }else {
-            tv_status_sidang_pa.setText(getString(R.string.text_belum_siap_sidang));
-            tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextRed));
-
         }
 
     }

@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_SIDANG_LULUS;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_SIDANG_LULUS_BERSYARAT;
 
 public class DosenSidangActivity extends AppCompatActivity implements SidangListView , ProyekAkhirListView, BimbinganListView, MonevDetailListView {
 
@@ -157,8 +158,10 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         tv_tanggal_1.setText(sidang.getSidang_tanggal());
         tv_status_1.setText(sidang.getSidang_status());
 
-        if (sidang.getSidang_status().equals(STATUS_SIDANG_LULUS)){
+        if (sidang.getSidang_status().equals(STATUS_SIDANG_LULUS) || sidang.getSidang_status().equals(STATUS_SIDANG_LULUS_BERSYARAT)){
             tv_status_1.setTextColor(DosenSidangActivity.this.getResources().getColor(R.color.colorTextGreen));
+        } else {
+            tv_status_1.setTextColor(DosenSidangActivity.this.getResources().getColor(R.color.colorTextRed));
         }
 
         linearLayout_mhs1.setVisibility(View.VISIBLE);
@@ -175,8 +178,10 @@ public class DosenSidangActivity extends AppCompatActivity implements SidangList
         tv_tanggal_2.setText(sidang.getSidang_tanggal());
         tv_status_2.setText(sidang.getSidang_status());
 
-        if (sidang.getSidang_status().equals(STATUS_SIDANG_LULUS)){
+        if (sidang.getSidang_status().equals(STATUS_SIDANG_LULUS) || sidang.getSidang_status().equals(STATUS_SIDANG_LULUS_BERSYARAT)){
             tv_status_2.setTextColor(DosenSidangActivity.this.getResources().getColor(R.color.colorTextGreen));
+        } else {
+            tv_status_2.setTextColor(DosenSidangActivity.this.getResources().getColor(R.color.colorTextRed));
         }
 
         linearLayout_mhs2.setVisibility(View.VISIBLE);
