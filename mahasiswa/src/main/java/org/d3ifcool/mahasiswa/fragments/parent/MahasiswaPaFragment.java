@@ -175,10 +175,18 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
 
     private void checkStatusJudulMahasiswa(int judulId){
         if (judulId != 0){
-            if (sessionManager.getSessionMahasiswaJudulStatus().equalsIgnoreCase(JUDUL_STATUS_DIGUNAKAN)) {
-                proyekAkhirPresenter.searchAllProyekAkhirByTwo(PARAM_PROYEK_AKHIR_JUDUL, String.valueOf(judulId), PARAM_JUDUL_STATUS, JUDUL_STATUS_DIGUNAKAN);
-            } else if (sessionManager.getSessionMahasiswaJudulStatus().equalsIgnoreCase(JUDUL_STATUS_ARSIP)) {
-                proyekAkhirPresenter.searchAllProyekAkhirByTwo(PARAM_PROYEK_AKHIR_JUDUL, String.valueOf(judulId), PARAM_JUDUL_STATUS, JUDUL_STATUS_ARSIP);
+            if (sessionManager.getSessionMahasiswaJudulStatus() != null) {
+                if (sessionManager.getSessionMahasiswaJudulStatus().equalsIgnoreCase(JUDUL_STATUS_DIGUNAKAN)) {
+                    proyekAkhirPresenter.searchAllProyekAkhirByTwo(PARAM_PROYEK_AKHIR_JUDUL, String.valueOf(judulId), PARAM_JUDUL_STATUS, JUDUL_STATUS_DIGUNAKAN);
+                } else if (sessionManager.getSessionMahasiswaJudulStatus().equalsIgnoreCase(JUDUL_STATUS_ARSIP)) {
+                    proyekAkhirPresenter.searchAllProyekAkhirByTwo(PARAM_PROYEK_AKHIR_JUDUL, String.valueOf(judulId), PARAM_JUDUL_STATUS, JUDUL_STATUS_ARSIP);
+                } else {
+                    disable_view.setVisibility(View.VISIBLE);
+                    swipeRefreshLayout.setVisibility(View.GONE);
+                }
+            } else {
+                disable_view.setVisibility(View.VISIBLE);
+                swipeRefreshLayout.setVisibility(View.GONE);
             }
         } else {
             disable_view.setVisibility(View.VISIBLE);

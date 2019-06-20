@@ -261,7 +261,9 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         arrayListJudul.clear();
         arrayListJudul.addAll(judulpa);
         int judul_id = arrayListJudul.get(arrayListJudul.size()-1).getId();
+        String judul_status = arrayListJudul.get(arrayListJudul.size()-1).getJudul_status();
         sessionManager.createSessionJudulMahasiswa(judul_id);
+        sessionManager.createSessionJudulStatusMahasiswa(judul_status);
 
         if (!nim2.isEmpty()) {
             proyekMahasiswaPresenter.createProyekAkhir2(judul_id, sessionManager.getSessionMahasiswaNim(), nim2, kelompok);

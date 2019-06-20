@@ -70,6 +70,7 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
 
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
         final int extraJudulId = extraJudul.getId();
+        final String extraJudulStatus = extraJudul.getJudul_status();
         final String extraDosenNip = extraJudul.getNip_dosen();
 
         String extraJudulNama = extraJudul.getJudul();
@@ -125,6 +126,7 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
                         mahasiswaPresenter.updateMahasiswaJudul(extraMahasiswaNim1, extraJudulId);
                         mahasiswaPresenter.updateMahasiswaJudul(mahasiswaNim2, extraJudulId);
                         sessionManager.createSessionJudulMahasiswa(extraJudulId);
+                        sessionManager.createSessionJudulStatusMahasiswa(extraJudulStatus);
                     } else {
                         proyekAkhirPresenter.createProyekAkhir(extraJudulId, extraMahasiswaNim1, namaKelompok);
                         mahasiswaPresenter.updateMahasiswaJudul(extraMahasiswaNim1, extraJudulId);

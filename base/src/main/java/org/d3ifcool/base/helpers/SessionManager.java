@@ -69,6 +69,13 @@ public class SessionManager {
         editor.commit();
     }
 
+    public void createSessionJudulStatusMahasiswa(String status){
+        editor.putString(MHS_JUDUL_STATUS, status);
+        editor.apply();
+        editor.commit();
+    }
+
+
     public void createSessionDataDosen(Dosen dosen){
         editor.putString(DSN_NIP, dosen.getDsn_nip());
         editor.putString(DSN_NAMA, dosen.getDsn_nama());
