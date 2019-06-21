@@ -51,12 +51,13 @@ public class MahasiswaPaMonevViewAdapter extends RecyclerView.Adapter<MahasiswaP
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView infoTanggal, infoNilai, infoIsi;
+        TextView infoTanggal, infoNilai, infoIsi, infoJudul;
 
         public ViewHolder(View itemView) {
             super(itemView);
             // -------------------------------------------------------------------------------------
             infoTanggal = itemView.findViewById(R.id.ctn_mhs_pa_monev_textview_tanggal);
+            infoJudul = itemView.findViewById(R.id.ctn_mhs_pa_monev_textview_judul);
             infoIsi = itemView.findViewById(R.id.ctn_mhs_pa_monev_textview_komentar);
             infoNilai = itemView.findViewById(R.id.ctn_mhs_pa_monev_textview_nilai);
             // -------------------------------------------------------------------------------------
@@ -65,6 +66,7 @@ public class MahasiswaPaMonevViewAdapter extends RecyclerView.Adapter<MahasiswaP
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
+        holder.infoJudul.setText(data.get(position).getMonev_kategori());
         holder.infoNilai.setText(String.valueOf(data.get(position).getMonev_nilai()));
         holder.infoTanggal.setText(data.get(position).getMonev_tanggal());
         holder.infoIsi.setText(data.get(position).getMonev_ulasan());

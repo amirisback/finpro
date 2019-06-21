@@ -348,6 +348,9 @@
     <string name="validate_tidak_lebih_100">Tidak Boleh Lebih dari 100</string>
     <string name="validate_tidak_lebih_16">Tidak Boleh Lebih dari 16</string>
     <string name="validate_no_connection">Tidak ada koneksi internet</string>
+    <string name="dummy_kategori_monev">Monev 1</string>
+    <string name="text_setuju_semua_bimbingan">Setujui Semua Bimbingan</string>
+    <string name="text_rata_nilai_monev">Rata - Rata Nilai Monev</string>
 
     <string-array name="array_kehadiran_bimbingan">
         <item>Hadir</item>

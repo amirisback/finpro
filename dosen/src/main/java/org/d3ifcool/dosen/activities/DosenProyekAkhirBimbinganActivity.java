@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,10 +24,15 @@ import org.d3ifcool.base.presenters.BimbinganPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_PENDING;
+
 public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity implements BimbinganListView {
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
     private static final String BIMBINGAN_PARAM = "bimbingan.proyek_akhir_id";
+
+    private static final String BIMBINGAN_PARAM_JUDUL_ID = "proyek_akhir.judul_id";
+    private static final String BIMBINGAN_PARAM_STATUS = "bimbingan.bimbingan_status";
 
     private RecyclerView recyclerView;
     private BimbinganPresenter bimbinganPresenter;
@@ -62,7 +68,21 @@ public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity impleme
         adapter.addProyekAkhir(extraArrayProyekAkhir);
         bimbinganPresenter.searchBimbinganAllBy(BIMBINGAN_PARAM, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
 
+        Button btn_approve_all = findViewById(R.id.btn_accept_all_bimbingan);
+        btn_approve_all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
     }
+
+    private void setAccAllBimbingan(String judul_id){
+        bimbinganPresenter.searchBimbinganAllByTwo(BIMBINGAN_PARAM_JUDUL_ID, judul_id, BIMBINGAN_PARAM_STATUS, STATUS_BIMBINGAN_PENDING);
+    }
+
 
     @Override
     protected void onResume() {

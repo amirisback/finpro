@@ -53,12 +53,13 @@ public class DosenMonevViewAdapter extends RecyclerView.Adapter<DosenMonevViewAd
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView infoTanggal, infoNilai, infoIsi;
+        TextView infoTanggal, infoNilai, infoIsi, infoJudul;
 
         public ViewHolder(View itemView) {
             super(itemView);
             // -------------------------------------------------------------------------------------
             infoTanggal = itemView.findViewById(R.id.ctn_mhs_pa_monev_textview_tanggal);
+            infoJudul = itemView.findViewById(R.id.ctn_mhs_pa_monev_textview_judul);
             infoIsi = itemView.findViewById(R.id.ctn_mhs_pa_monev_textview_komentar);
             infoNilai = itemView.findViewById(R.id.ctn_mhs_pa_monev_textview_nilai);
             // -------------------------------------------------------------------------------------
@@ -67,18 +68,19 @@ public class DosenMonevViewAdapter extends RecyclerView.Adapter<DosenMonevViewAd
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
+        holder.infoJudul.setText(data.get(position).getMonev_kategori());
         holder.infoNilai.setText(String.valueOf(data.get(position).getMonev_nilai()));
         holder.infoTanggal.setText(data.get(position).getMonev_tanggal());
         holder.infoIsi.setText(data.get(position).getMonev_ulasan());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentData = new Intent(context, DosenMonevDetailActivity.class);
-                DetailMonev parcelDetailMonev = data.get(position);
-                intentData.putExtra(DosenMonevDetailActivity.EXTRA_MONEV, parcelDetailMonev);
-                context.startActivity(intentData);
-            }
-        });
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intentData = new Intent(context, DosenMonevDetailActivity.class);
+//                DetailMonev parcelDetailMonev = data.get(position);
+//                intentData.putExtra(DosenMonevDetailActivity.EXTRA_MONEV, parcelDetailMonev);
+//                context.startActivity(intentData);
+//            }
+//        });
     }
 
     @NonNull

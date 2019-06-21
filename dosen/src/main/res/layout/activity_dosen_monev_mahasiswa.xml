@@ -16,8 +16,43 @@
         android:layout_height="wrap_content"
         android:text="@string/text_daftar_monev"/>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.cardview.widget.CardView
+        android:layout_marginStart="@dimen/dimen_medium_8dp"
+        android:layout_marginEnd="@dimen/dimen_medium_8dp"
+        android:layout_marginBottom="@dimen/dimen_medium_8dp"
+
         android:layout_below="@id/text_monev"
+        android:id="@+id/container_rata_rata"
+        android:elevation="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_rata_nilai_monev"/>
+
+            <TextView
+                android:id="@+id/ctn_dsn_average_monev"
+                style="@style/content_all_text_bold_color_black"
+                android:textColor="@color/colorPrimary"
+                tools:text="@string/dummy_jumlah_bimbingan"
+                android:textSize="@dimen/text_size_title_big_24sp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/container_rata_rata"
         android:id="@+id/act_mhs_pa_monev_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

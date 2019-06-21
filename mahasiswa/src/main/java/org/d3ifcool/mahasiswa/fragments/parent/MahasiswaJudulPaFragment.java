@@ -121,7 +121,12 @@ public class MahasiswaJudulPaFragment extends Fragment implements JudulListView 
         String getStatus = judulpa.get(0).getJudul_status();
         if (getStatus.equalsIgnoreCase(JUDUL_STATUS_TERSEDIA) || getStatus.equalsIgnoreCase(JUDUL_STATUS_PENDING)) {
             textViewStatus.setText(JUDUL_STATUS_MENUNGGU);
+        } else if (getStatus.equalsIgnoreCase(JUDUL_STATUS_DISETUJUI)){
+            sessionManager.createSessionJudulStatusMahasiswa(getStatus);
+            textViewStatus.setText(JUDUL_STATUS_DISETUJUI);
+            textViewStatus.setTextColor(getResources().getColor(R.color.colorBackgroundGreen));
         } else {
+            sessionManager.createSessionJudulStatusMahasiswa(getStatus);
             textViewStatus.setText(JUDUL_STATUS_DISETUJUI);
             textViewStatus.setTextColor(getResources().getColor(R.color.colorBackgroundGreen));
         }

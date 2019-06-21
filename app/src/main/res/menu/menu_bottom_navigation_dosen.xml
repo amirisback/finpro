@@ -29,15 +29,15 @@
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/bottom_menu_dsn_pa"
-        android:icon="@drawable/ic_bottom_nav_proyek_akhir"
-        android:title="@string/title_proyekakhir"
-        app:showAsAction="ifRoom"/>
-
-    <item
         android:id="@+id/bottom_menu_dsn_judulpa"
         android:icon="@drawable/ic_bottom_nav_judul_pa"
         android:title="@string/title_judulpa_pendek"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/bottom_menu_dsn_pa"
+        android:icon="@drawable/ic_bottom_nav_proyek_akhir"
+        android:title="@string/title_proyekakhir"
         app:showAsAction="ifRoom"/>
 
 </menu>

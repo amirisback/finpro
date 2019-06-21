@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -37,6 +38,7 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements Mo
     private MonevDetailPresenter detailMonevPresenter;
     private ArrayList<DetailMonev> arrayList = new ArrayList<>();
     private DosenMonevViewAdapter dosenMonevViewAdapter;
+    private TextView textViewAverage;
     int extraProyekAkhirId;
 
     @Override
@@ -51,6 +53,7 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements Mo
         FloatingActionButton floatingActionButton = findViewById(R.id.frg_dsn_add_monev);
         recyclerView = findViewById(R.id.act_mhs_pa_monev_recyclerview);
         empty_view = findViewById(R.id.view_emptyview);
+        textViewAverage = findViewById(R.id.ctn_dsn_average_monev);
 
         detailMonevPresenter = new MonevDetailPresenter(this);
         detailMonevPresenter.initContext(this);
@@ -84,6 +87,14 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements Mo
 
     }
 
+    private int getAverageScore(){
+        int nilai = 0;
+        for (int i = 0; i < arrayList.size(); i++) {
+            nilai = nilai + arrayList.get(i).getMonev_nilai();
+        }
+        int total = arrayList.size();
+        return nilai / total;
+    }
 
     @Override
     protected void onResume() {
@@ -131,8 +142,10 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements Mo
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         if (arrayList.size() == 0) {
+            textViewAverage.setText("0");
             empty_view.setVisibility(View.VISIBLE);
         } else {
+            textViewAverage.setText(String.valueOf(getAverageScore()));
             empty_view.setVisibility(View.GONE);
         }
 

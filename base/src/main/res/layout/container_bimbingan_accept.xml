@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by 
+ * FrogoBox Inc License
+ * =========================================
+ * 
+ * Copyright (C) .      
+ * All rights reserved
+ * 
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * LinkedIn : linkedin.com/in/faisalamircs
+ * 
+ * FrogoBox Software Industries
+ * 
+ -->
+
+<RelativeLayout
+
+    android:layout_marginStart="@dimen/dimen_big_16dp"
+    android:layout_marginEnd="@dimen/dimen_big_16dp"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_setuju_semua_bimbingan"/>
+
+    <Button
+        android:paddingStart="@dimen/dimen_big_16dp"
+        android:paddingEnd="@dimen/dimen_big_16dp"
+        android:id="@+id/btn_accept_all_bimbingan"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/box_border_button_acc"
+        android:clickable="true"
+        android:textColor="@color/colorTextWhite"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_setuju"
+        android:focusable="true" />
+
+</RelativeLayout>

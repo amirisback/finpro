@@ -13,12 +13,26 @@
         android:paddingStart="@dimen/dimen_big_16dp"
         android:paddingEnd="@dimen/dimen_big_16dp">
 
-        <TextView
-            android:id="@+id/ctn_mhs_pa_monev_textview_tanggal"
-            android:textColor="@color/colorTextBlack"
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dummy_tanggal"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/ctn_mhs_pa_monev_textview_judul"
+                android:textColor="@color/colorTextBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dummy_kategori_monev"/>
+
+            <TextView
+                android:layout_alignParentEnd="true"
+                android:id="@+id/ctn_mhs_pa_monev_textview_tanggal"
+                android:textColor="@color/colorTextBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dummy_tanggal"/>
+
+        </RelativeLayout>
 
         <View
             style="@style/view_all_line_horizontal"/>
