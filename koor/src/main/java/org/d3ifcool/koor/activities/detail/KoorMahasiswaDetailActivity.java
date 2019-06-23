@@ -1,4 +1,4 @@
-package org.d3ifcool.koor.activities.details;
+package org.d3ifcool.koor.activities.detail;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,7 +18,7 @@ import org.d3ifcool.base.interfaces.works.MahasiswaWorkView;
 import org.d3ifcool.base.models.Mahasiswa;
 import org.d3ifcool.base.presenters.MahasiswaPresenter;
 import org.d3ifcool.koor.R;
-import org.d3ifcool.koor.activities.editors.update.KoorMahasiswaUbahActivity;
+import org.d3ifcool.koor.activities.editor.update.KoorMahasiswaUbahActivity;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

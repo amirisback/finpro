@@ -1,4 +1,4 @@
-package org.d3ifcool.koor.activities.details;
+package org.d3ifcool.koor.activities.detail;
 
 import androidx.appcompat.app.AppCompatActivity;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -19,7 +19,7 @@ import org.d3ifcool.base.interfaces.works.DosenWorkView;
 import org.d3ifcool.base.models.Dosen;
 import org.d3ifcool.base.presenters.DosenPresenter;
 import org.d3ifcool.koor.R;
-import org.d3ifcool.koor.activities.editors.update.KoorDosenUbahActivity;
+import org.d3ifcool.koor.activities.editor.update.KoorDosenUbahActivity;
 
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.URL_FOTO_DOSEN;
 

@@ -9,11 +9,10 @@ import android.widget.TextView;
 
 import org.d3ifcool.base.models.Informasi;
 import org.d3ifcool.koor.R;
-import org.d3ifcool.koor.activities.details.KoorInformasiDetailActivity;
+import org.d3ifcool.koor.activities.detail.KoorInformasiDetailActivity;
 
 import java.util.ArrayList;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import de.hdodenhof.circleimageview.CircleImageView;
 

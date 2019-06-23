@@ -1,4 +1,4 @@
-package org.d3ifcool.koor.activities.editors.update;
+package org.d3ifcool.koor.activities.editor.update;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;

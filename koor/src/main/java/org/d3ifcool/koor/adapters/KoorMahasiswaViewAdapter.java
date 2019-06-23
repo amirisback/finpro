@@ -11,11 +11,10 @@ import com.squareup.picasso.Picasso;
 
 import org.d3ifcool.base.models.Mahasiswa;
 import org.d3ifcool.koor.R;
-import org.d3ifcool.koor.activities.details.KoorMahasiswaDetailActivity;
+import org.d3ifcool.koor.activities.detail.KoorMahasiswaDetailActivity;
 
 import java.util.ArrayList;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import de.hdodenhof.circleimageview.CircleImageView;
 

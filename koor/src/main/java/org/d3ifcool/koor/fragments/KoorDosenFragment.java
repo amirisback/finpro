@@ -21,7 +21,7 @@ import org.d3ifcool.base.interfaces.lists.DosenListView;
 import org.d3ifcool.base.models.Dosen;
 import org.d3ifcool.base.presenters.DosenPresenter;
 import org.d3ifcool.koor.R;
-import org.d3ifcool.koor.activities.editors.create.KoorDosenTambahActivity;
+import org.d3ifcool.koor.activities.editor.create.KoorDosenTambahActivity;
 import org.d3ifcool.koor.adapters.KoorDosenViewAdapter;
 
 import java.util.ArrayList;

@@ -20,6 +20,17 @@
     <string name="app_name_long">Finpro - Final Project Management System</string>
     <string name="app_name_subtitle">Final Project Management System</string>
 
+    <string name="validate_tanggal">Tanggal Harus Di isi</string>
+    <string name="validate_telp_valid">No Telepon Tidak Valid</string>
+    <string name="validate_telp_jumlah_lebih">No Telepon Lebih dari 12 digit</string>
+    <string name="validate_telp_jumlah_kurang">No Telepon Kurang dari 7 digit</string>
+    <string name="validate_telp_sudah_ada">No Sudah di Pakai</string>
+    <string name="validate_email">Email Tidak Valid</string>
+    <string name="validate_email_ada">Email Sudah di Pakai</string>
+    <string name="validate_tidak_lebih_100">Tidak Boleh Lebih dari 100</string>
+    <string name="validate_tidak_lebih_16">Tidak Boleh Lebih dari 16</string>
+    <string name="validate_no_connection">Tidak ada koneksi internet</string>
+
     <string name="title_judulpa_pengajuan">Pengajuan Mandiri</string>
     <string name="title_bimbingan">Bimbingan</string>
     <string name="title_monev">Monev</string>
@@ -78,6 +89,8 @@
     <string name="title_arsip_judul">Arsip Judul</string>
     <string name="title_arsip_judul_detail">Detail Arsip Judul</string>
     <string name="title_tentang_kami">Tentang Kami</string>
+    <string name="title_monev_reviewer">Reviewer Monev</string>
+    <string name="title_jadwal_kegiatan">Jadwal Kegiatan</string>
 
     <string name="button_click_masuk">Masuk</string>
     <string name="button_click_simpan">Simpan</string>
@@ -94,7 +107,6 @@
     <string name="button_click_ubah_sidang">Ubah Nilai Sidang</string>
     <string name="button_click_ubah_bimbingan">Ubah Bimbingan</string>
     <string name="button_proyek_akhir_selesai">Proyek Akhir Selesai</string>
-
 
     <string name="dummyLong">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam veniam similique voluptates odit, ipsum laborum architecto distinctio harum, provident fugiat praesentium ex quod dolores laudantium aliquid quidem placeat incidunt vitae!</string>
     <string name="dummy">Dummy</string>
@@ -161,6 +173,12 @@
     <string name="menu_arsip_judul">Arsip Judul</string>
     <string name="menu_kategori_monev">Kategori Monev</string>
     <string name="menu_tentang_kami">Tentang Kami</string>
+    <string name="menu_jadwal_kegiatan">Jadwal Kegiatan</string>
+    <string name="menu_reviewer">Reviewer Monev</string>
+    <string name="menu_group_manajemen_info">Manajemen Informasi</string>
+    <string name="menu_group_manajemen_kategori">Manajemen Kategori</string>
+    <string name="menu_group_manajemen_pa">Manajemen Proyek Akhir</string>
+    <string name="menu_group_lain_lain">Lain - Lain</string>
 
     <string name="hint_id_pengguna">ID Pengguna</string>
     <string name="hint_kata_sandi">Kata Sandi</string>
@@ -343,17 +361,8 @@
     <string name="text_setuju_semua_bimbingan">Setujui Semua Bimbingan</string>
     <string name="text_rata_nilai_monev">Rata - Rata Nilai Monev</string>
     <string name="text_mahasiswa_all_monev_done">Mahasiswa sudah melaksanakan semua monev</string>
-
-    <string name="validate_tanggal">Tanggal Harus Di isi</string>
-    <string name="validate_telp_valid">No Telepon Tidak Valid</string>
-    <string name="validate_telp_jumlah_lebih">No Telepon Lebih dari 12 digit</string>
-    <string name="validate_telp_jumlah_kurang">No Telepon Kurang dari 7 digit</string>
-    <string name="validate_telp_sudah_ada">No Sudah di Pakai</string>
-    <string name="validate_email">Email Tidak Valid</string>
-    <string name="validate_email_ada">Email Sudah di Pakai</string>
-    <string name="validate_tidak_lebih_100">Tidak Boleh Lebih dari 100</string>
-    <string name="validate_tidak_lebih_16">Tidak Boleh Lebih dari 16</string>
-    <string name="validate_no_connection">Tidak ada koneksi internet</string>
+    <string name="text_berkas_untuk_diupload">Berkas untuk di upload</string>
+    <string name="text_nama_file">Nama File</string>
 
     <string-array name="array_kehadiran_bimbingan">
         <item>Hadir</item>

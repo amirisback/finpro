@@ -1,4 +1,4 @@
-package org.d3ifcool.koor.activities.editors.create;
+package org.d3ifcool.koor.activities.editor.create;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -1,4 +1,4 @@
-package org.d3ifcool.koor.activities.editors.create;
+package org.d3ifcool.koor.activities.editor.create;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +15,7 @@ import android.widget.Toast;
 import org.d3ifcool.base.interfaces.works.DosenWorkView;
 import org.d3ifcool.base.presenters.DosenPresenter;
 import org.d3ifcool.koor.R;
-import org.d3ifcool.koor.activities.editors.update.KoorDosenUbahActivity;
+import org.d3ifcool.koor.activities.editor.update.KoorDosenUbahActivity;
 
 public class KoorDosenTambahActivity extends AppCompatActivity implements DosenWorkView {
 

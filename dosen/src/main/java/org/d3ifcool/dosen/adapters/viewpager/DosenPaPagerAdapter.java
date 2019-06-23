@@ -62,7 +62,7 @@ public class DosenPaPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return mContext.getString(R.string.title_bimbingan);
             case 1:
-                return mContext.getString(R.string.title_monev);
+                return mContext.getString(R.string.title_monev_reviewer);
 //            case 2:
 //                return mContext.getString(R.string.title_sidang);
             default:

@@ -1,4 +1,4 @@
-package org.d3ifcool.koor.activities.details;
+package org.d3ifcool.koor.activities.detail;
 
 import androidx.appcompat.app.AppCompatActivity;
 

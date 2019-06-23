@@ -5,11 +5,6 @@
     tools:showIn="navigation_view">
 
     <item
-        android:id="@+id/nav_menu_informasi"
-        android:icon="@drawable/ic_nav_informasi"
-        android:title="@string/menu_informasi" />
-
-    <item
         android:id="@+id/nav_menu_dosen"
         android:icon="@drawable/ic_nav_dosen"
         android:title="@string/menu_dosen" />
@@ -19,39 +14,71 @@
         android:icon="@drawable/ic_nav_mahasiswa"
         android:title="@string/menu_mahasiswa" />
 
-    <item
-        android:id="@+id/nav_menu_judul_pa_kategori"
-        android:icon="@drawable/ic_nav_kategori_judul"
-        android:title="@string/menu_kategori_judul"/>
+    <item android:title="@string/menu_group_manajemen_info">
+        <menu>
+            <item
+                android:id="@+id/nav_menu_informasi"
+                android:icon="@drawable/ic_nav_informasi"
+                android:title="@string/menu_informasi" />
 
-    <item
-        android:id="@+id/nav_menu_kategori_monev"
-        android:icon="@drawable/ic_nav_kategori_monev"
-        android:title="@string/menu_kategori_monev" />
+            <item
+                android:id="@+id/nav_menu_jadwal_kegiatan"
+                android:icon="@drawable/ic_nav_jadwal_kegiatan"
+                android:title="@string/menu_jadwal_kegiatan" />
+        </menu>
+    </item>
 
-    <item
-        android:id="@+id/nav_menu_judul_pa"
-        android:icon="@drawable/ic_nav_judul_pa"
-        android:title="@string/menu_judul_pa" />
 
-    <item
-        android:id="@+id/nav_menu_proyek_akhir"
-        android:icon="@drawable/ic_nav_proyek_akhir"
-        android:title="@string/menu_proyek_akhir" />
+    <item android:title="@string/menu_group_manajemen_kategori">
+        <menu>
+            <item
+                android:id="@+id/nav_menu_judul_pa_kategori"
+                android:icon="@drawable/ic_nav_kategori_judul"
+                android:title="@string/menu_kategori_judul"/>
 
-    <item
-        android:id="@+id/nav_menu_mahasiswa_pemetaan_monev"
-        android:icon="@drawable/ic_nav_pemetaan_reviewer"
-        android:title="@string/menu_pemetaan_monev" />
+            <item
+                android:id="@+id/nav_menu_kategori_monev"
+                android:icon="@drawable/ic_nav_kategori_monev"
+                android:title="@string/menu_kategori_monev" />
+        </menu>
+    </item>
 
-    <item
-        android:id="@+id/nav_menu_arsip_judul"
-        android:icon="@drawable/ic_nav_arsip_judul"
-        android:title="@string/menu_arsip_judul" />
+    <item android:title="@string/menu_group_manajemen_pa">
+        <menu>
+            <item
+                android:id="@+id/nav_menu_judul_pa"
+                android:icon="@drawable/ic_nav_judul_pa"
+                android:title="@string/menu_judul_pa" />
 
-    <item
-        android:id="@+id/nav_menu_tentang_kami"
-        android:icon="@drawable/ic_about_us"
-        android:title="@string/menu_tentang_kami" />
+            <item
+                android:id="@+id/nav_menu_proyek_akhir"
+                android:icon="@drawable/ic_nav_proyek_akhir"
+                android:title="@string/menu_proyek_akhir" />
+
+            <item
+                android:id="@+id/nav_menu_reviewer"
+                android:icon="@drawable/ic_nav_reviewer"
+                android:title="@string/menu_reviewer" />
+
+            <item
+                android:id="@+id/nav_menu_mahasiswa_pemetaan_monev"
+                android:icon="@drawable/ic_nav_pemetaan_reviewer"
+                android:title="@string/menu_pemetaan_monev" />
+
+            <item
+                android:id="@+id/nav_menu_arsip_judul"
+                android:icon="@drawable/ic_nav_arsip_judul"
+                android:title="@string/menu_arsip_judul" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_group_lain_lain">
+        <menu>
+            <item
+                android:id="@+id/nav_menu_tentang_kami"
+                android:icon="@drawable/ic_about_us"
+                android:title="@string/menu_tentang_kami" />
+        </menu>
+    </item>
 
 </menu>

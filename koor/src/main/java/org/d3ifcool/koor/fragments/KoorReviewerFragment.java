@@ -2,7 +2,6 @@ package org.d3ifcool.koor.fragments;
 
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -17,47 +16,44 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import org.d3ifcool.base.helpers.SpinnerHelper;
 import org.d3ifcool.base.interfaces.lists.DosenListView;
-import org.d3ifcool.base.interfaces.lists.JudulListView;
+import org.d3ifcool.base.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.base.models.Dosen;
-import org.d3ifcool.base.models.Judul;
+import org.d3ifcool.base.models.ProyekAkhir;
 import org.d3ifcool.base.presenters.DosenPresenter;
-import org.d3ifcool.base.presenters.JudulPresenter;
+import org.d3ifcool.base.presenters.ProyekAkhirPresenter;
 import org.d3ifcool.koor.R;
-import org.d3ifcool.koor.activities.editor.create.KoorJudulPaSubdosenTambahActivity;
-import org.d3ifcool.koor.adapters.KoorJudulPaSubdosenViewAdapter;
+import org.d3ifcool.koor.adapters.KoorReviewerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PARAM_DOSEN_NAMA;
-
 /**
  * A simple {@link Fragment} subclass.
  */
-public class KoorJudulFragment extends Fragment implements DosenListView, JudulListView {
+public class KoorReviewerFragment extends Fragment implements ProyekAkhirListView, DosenListView {
+
+    private static final String PARAMS_DOSEN_REVIEWER_NAMA = "dosen.dsn_nama";
 
     private Spinner sp_dosen;
     private RecyclerView recyclerView;
-    private KoorJudulPaSubdosenViewAdapter adapter;
     private ProgressDialog progressDialog;
     private View empty_view;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private SpinnerHelper spinnerHelper;
 
     private String spinnerItemPosition;
-    private int positionSpinner;
+    private SpinnerHelper spinnerHelper;
 
-    private ArrayList<Judul> arrayListJudul = new ArrayList<>();
+    private ArrayList<ProyekAkhir> arrayListProyekAkhir = new ArrayList<>();
     private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
 
     private DosenPresenter dosenPresenter;
-    private JudulPresenter judulPresenter;
+    private ProyekAkhirPresenter proyekAkhirPresenter;
 
-    public KoorJudulFragment() {
+    private KoorReviewerViewAdapter koorReviewerViewAdapter;
+
+    public KoorReviewerFragment() {
         // Required empty public constructor
     }
 
@@ -66,32 +62,37 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_koor_judul, container, false);
+
+        View rootView = inflater.inflate(R.layout.fragment_koor_reviewer, container, false);
 
         sp_dosen = rootView.findViewById(R.id.spinner_dosen);
         recyclerView = rootView.findViewById(R.id.frg_koor_judul_dsn_recyclerview);
-        FloatingActionButton floatingActionButton = rootView.findViewById(R.id.frg_koor_judul_dsn_fab);
+
         progressDialog = new ProgressDialog(getContext());
+        koorReviewerViewAdapter = new KoorReviewerViewAdapter(getContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         spinnerHelper = new SpinnerHelper(getContext());
         swipeRefreshLayout = rootView.findViewById(R.id.swipe_refresh);
         empty_view = rootView.findViewById(R.id.view_emptyview);
 
+        proyekAkhirPresenter = new ProyekAkhirPresenter(this);
         dosenPresenter = new DosenPresenter(this);
-        judulPresenter = new JudulPresenter(this);
 
-        judulPresenter.initContext(getContext());
         dosenPresenter.initContext(getContext());
+        proyekAkhirPresenter.initContext(getContext());
 
         dosenPresenter.getDosen();
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        koorReviewerViewAdapter.setLayoutType(R.layout.content_list_koor_dosen_reviewer);
 
         sp_dosen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 spinnerItemPosition = parent.getItemAtPosition(position).toString();
-                positionSpinner = position;
-                judulPresenter.searchJudulBy(PARAM_DOSEN_NAMA, spinnerItemPosition);
+                proyekAkhirPresenter.searchDistinctProyekAkhirBy(PARAMS_DOSEN_REVIEWER_NAMA, spinnerItemPosition);
+
             }
 
             @Override
@@ -100,32 +101,15 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
             }
         });
 
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                judulPresenter.searchJudulBy(PARAM_DOSEN_NAMA, spinnerItemPosition);
-            }
-        });
-
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), KoorJudulPaSubdosenTambahActivity.class);
-                intent.putExtra(KoorJudulPaSubdosenTambahActivity.EXTRA_POSITION_SPINNER, positionSpinner);
-                startActivity(intent);
+                proyekAkhirPresenter.searchDistinctProyekAkhirBy(PARAMS_DOSEN_REVIEWER_NAMA, spinnerItemPosition);
             }
         });
 
         return rootView;
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (spinnerItemPosition != null) {
-            judulPresenter.searchJudulBy(PARAM_DOSEN_NAMA, spinnerItemPosition);
-        }
     }
 
     @Override
@@ -139,29 +123,6 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
     }
 
     @Override
-    public void onGetListJudul(List<Judul> judulpa) {
-        arrayListJudul.clear();
-        arrayListJudul.addAll(judulpa);
-        adapter = new KoorJudulPaSubdosenViewAdapter(getContext());
-        adapter.additem(arrayListJudul);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapter);
-        swipeRefreshLayout.setRefreshing(false);
-
-        if (arrayListJudul.size() == 0) {
-            empty_view.setVisibility(View.VISIBLE);
-        } else {
-            empty_view.setVisibility(View.GONE);
-        }
-
-    }
-
-    @Override
-    public void isEmptyListJudul() {
-        empty_view.setVisibility(View.VISIBLE);
-    }
-
-    @Override
     public void onGetListDosen(List<Dosen> dosen) {
         arrayListDosen.clear();
         arrayListDosen.addAll(dosen);
@@ -171,6 +132,29 @@ public class KoorJudulFragment extends Fragment implements DosenListView, JudulL
     @Override
     public void isEmptyListDosen() {
 
+    }
+
+    @Override
+    public void onGetListProyekAkhir(List<ProyekAkhir> proyekAkhirList) {
+
+        arrayListProyekAkhir.clear();
+        arrayListProyekAkhir.addAll(proyekAkhirList);
+        koorReviewerViewAdapter.addItemPa(arrayListProyekAkhir);
+
+        recyclerView.setAdapter(koorReviewerViewAdapter);
+        swipeRefreshLayout.setRefreshing(false);
+
+        if (arrayListProyekAkhir.size() == 0) {
+            empty_view.setVisibility(View.VISIBLE);
+        } else {
+            empty_view.setVisibility(View.GONE);
+        }
+
+    }
+
+    @Override
+    public void isEmptyListProyekAkhir() {
+        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

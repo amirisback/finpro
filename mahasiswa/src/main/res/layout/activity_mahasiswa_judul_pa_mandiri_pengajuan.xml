@@ -176,6 +176,8 @@
             android:layout_marginEnd="-4dp"
             android:hint="@string/hint_masukkan_nama_kelompok"/>
 
+        <include layout="@layout/container_upload_file_proposal"/>
+
         <Button
             android:id="@+id/act_mhs_pa_mandiri_simpan"
             android:text="@string/text_ajukan_judul"

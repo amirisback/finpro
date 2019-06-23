@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.d3ifcool.dosen.activities.DosenJadwalKegiatanActivity;
 import org.d3ifcool.dosen.activities.DosenPemberitahuanActivity;
 import org.d3ifcool.dosen.activities.DosenProfilActivity;
 import org.d3ifcool.dosen.activities.DosenJudulPaArsipActivity;
@@ -146,6 +147,11 @@ public class DosenMainActivity extends AppCompatActivity implements DosenView {
             case R.id.toolbar_menu_profil:
                 Intent intentProfil = new Intent(DosenMainActivity.this, DosenProfilActivity.class);
                 startActivity(intentProfil);
+                break;
+
+            case R.id.toolbar_menu_jadwal_kegiatan:
+                Intent intentJadwal = new Intent(DosenMainActivity.this, DosenJadwalKegiatanActivity.class);
+                startActivity(intentJadwal);
                 break;
 
             case R.id.toolbar_menu_arsip_judul:

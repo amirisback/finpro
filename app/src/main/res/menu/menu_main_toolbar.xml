@@ -33,6 +33,10 @@
         android:title="@string/title_profil" />
 
     <item
+        android:id="@+id/toolbar_menu_jadwal_kegiatan"
+        android:title="@string/title_jadwal_kegiatan" />
+
+    <item
         android:id="@+id/toolbar_menu_arsip_judul"
         android:title="@string/title_arsip_judul" />
 

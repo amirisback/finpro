@@ -27,12 +27,14 @@ import org.d3ifcool.koor.activities.KoorProfilActivity;
 import org.d3ifcool.koor.fragments.KoorArsipJudulFragment;
 import org.d3ifcool.koor.fragments.KoorDosenFragment;
 import org.d3ifcool.koor.fragments.KoorInformasiFragment;
+import org.d3ifcool.koor.fragments.KoorJadwalKegiatanFragment;
 import org.d3ifcool.koor.fragments.KoorKategoriJudulFragment;
 import org.d3ifcool.koor.fragments.KoorJudulFragment;
 import org.d3ifcool.koor.fragments.KoorKategoriMonevFragment;
 import org.d3ifcool.koor.fragments.KoorMahasiswaFragment;
 import org.d3ifcool.koor.fragments.KoorPemetaanMonevFragment;
 import org.d3ifcool.koor.fragments.KoorProyekAkhirFragment;
+import org.d3ifcool.koor.fragments.KoorReviewerFragment;
 import org.d3ifcool.koor.fragments.KoorTentangKamiFragment;
 
 public class KoorMainActivity extends AppCompatActivity
@@ -164,6 +166,12 @@ public class KoorMainActivity extends AppCompatActivity
         }else if (id == R.id.nav_menu_tentang_kami){
             setTitle(R.string.title_tentang_kami);
             openFragment(new KoorTentangKamiFragment());
+        }else if (id == R.id.nav_menu_jadwal_kegiatan){
+            setTitle(R.string.title_jadwal_kegiatan);
+            openFragment(new KoorJadwalKegiatanFragment());
+        }else if (id == R.id.nav_menu_reviewer){
+            setTitle(R.string.title_monev_reviewer);
+            openFragment(new KoorReviewerFragment());
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

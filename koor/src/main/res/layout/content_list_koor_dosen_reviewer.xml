@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by 
+ * FrogoBox Inc License
+ * =========================================
+ * 
+ * Copyright (C) .      
+ * All rights reserved
+ * 
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * LinkedIn : linkedin.com/in/faisalamircs
+ * 
+ * FrogoBox Software Industries
+ * 
+ -->
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/cardview_list_all_clicked">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimen_medium_8dp"
+        android:layout_marginBottom="@dimen/dimen_medium_8dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="@string/title_judulpa"
+            style="@style/content_all_list_title"/>
+
+        <TextView
+            android:id="@+id/ctn_koor_pa_monev_textview_judul"
+            style="@style/content_all_list_sub_title"/>
+
+        <View
+            style="@style/view_all_line_horizontal"/>
+
+        <TextView
+            android:text="@string/text_nama_kelompok"
+            style="@style/content_all_list_title"/>
+
+        <TextView
+            android:id="@+id/ctn_koor_pa_monev_textview_kelompok"
+            style="@style/content_all_list_sub_title"/>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

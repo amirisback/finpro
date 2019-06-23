@@ -162,13 +162,15 @@
             android:id="@+id/act_mhs_pa_pengajuan_editview_nama_kelompok"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dimen_big_16dp"
             android:textColor="@color/colorTextBlack"
             android:textSize="@dimen/text_size_medium_16sp"
             android:inputType="text"
             android:layout_marginStart="-4dp"
             android:layout_marginEnd="-4dp"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
             android:hint="@string/hint_masukkan_nama_kelompok"/>
+
+        <include layout="@layout/container_upload_file_proposal"/>
 
         <Button
             android:id="@+id/act_mhs_pa_pengajuan_button_simpan"

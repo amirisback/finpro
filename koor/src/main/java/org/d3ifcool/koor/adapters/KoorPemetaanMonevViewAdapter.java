@@ -11,11 +11,10 @@ import android.widget.TextView;
 
 import org.d3ifcool.base.models.ProyekAkhir;
 import org.d3ifcool.koor.R;
-import org.d3ifcool.koor.activities.details.KoorPemetaanMonevDetailActivity;
+import org.d3ifcool.koor.activities.detail.KoorPemetaanMonevDetailActivity;
 
 import java.util.ArrayList;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class KoorPemetaanMonevViewAdapter extends RecyclerView.Adapter<KoorPemetaanMonevViewAdapter.ViewHolder> {
