@@ -17,13 +17,13 @@ import android.widget.Toast;
 
 import org.d3ifcool.base.adapters.AnggotaViewAdapter;
 import org.d3ifcool.base.helpers.ViewAdapterHelper;
+import org.d3ifcool.base.interfaces.lists.BimbinganSearchListView;
 import org.d3ifcool.base.models.Judul;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.mahasiswa.activities.MahasiswaPaBimbinganActivity;
 import org.d3ifcool.mahasiswa.activities.detail.MahasiswaPaMonevDetailActivity;
 import org.d3ifcool.mahasiswa.activities.detail.MahasiswaPaSidangDetailActivity;
 import org.d3ifcool.base.helpers.SessionManager;
-import org.d3ifcool.base.interfaces.lists.BimbinganListView;
 import org.d3ifcool.base.interfaces.lists.ProyekAkhirListView;
 import org.d3ifcool.base.interfaces.objects.DosenPembimbingView;
 import org.d3ifcool.base.models.Bimbingan;
@@ -46,7 +46,7 @@ import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_BIMBINGA
  * A simple {@link Fragment} subclass.
  */
 public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView,
-        BimbinganListView, DosenPembimbingView{
+        BimbinganSearchListView, DosenPembimbingView{
 
     private static final String PARAM_PROYEK_AKHIR_JUDUL = "proyek_akhir.judul_id";
     private static final String PARAM_BIMBINGAN_ID = "bimbingan.proyek_akhir_id";
@@ -211,25 +211,7 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
     }
 
     @Override
-    public void onGetObjectDosenPembimbing(Dosen dosen) {
-
-        parcelDosenPembimbing = dosen;
-
-        if (dosen != null) {
-            tv_dosen_pembimbing_pa.setText(dosen.getDsn_nama());
-        } else {
-            tv_dosen_pembimbing_pa.setText(getString(R.string.text_no_dosen_pembimbing));
-        }
-
-    }
-
-    @Override
-    public void isEmptyObjectDosenPembimbing() {
-
-    }
-
-    @Override
-    public void onGetListBimbingan(List<Bimbingan> bimbinganList) {
+    public void onGetListBimbinganSearch(List<Bimbingan> bimbinganList) {
         arrayListBimbingan.clear();
         arrayListBimbingan.addAll(bimbinganList);
 
@@ -258,6 +240,23 @@ public class MahasiswaPaFragment extends Fragment implements ProyekAkhirListView
             tv_status_sidang_pa.setText(getString(R.string.text_sudah_sidang));
             tv_status_sidang_pa.setTextColor(getResources().getColor(R.color.colorTextGreen));
         }
+    }
+
+    @Override
+    public void onGetObjectDosenPembimbing(Dosen dosen) {
+
+        parcelDosenPembimbing = dosen;
+
+        if (dosen != null) {
+            tv_dosen_pembimbing_pa.setText(dosen.getDsn_nama());
+        } else {
+            tv_dosen_pembimbing_pa.setText(getString(R.string.text_no_dosen_pembimbing));
+        }
+
+    }
+
+    @Override
+    public void isEmptyObjectDosenPembimbing() {
 
     }
 

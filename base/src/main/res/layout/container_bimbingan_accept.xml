@@ -18,7 +18,8 @@
  -->
 
 <RelativeLayout
-
+    android:id="@+id/container_accept_all_bimbingan"
+    android:visibility="gone"
     android:layout_marginStart="@dimen/dimen_big_16dp"
     android:layout_marginEnd="@dimen/dimen_big_16dp"
     android:orientation="horizontal"

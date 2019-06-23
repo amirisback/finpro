@@ -6,6 +6,7 @@ import android.widget.Toast;
 import org.d3ifcool.base.R;
 import org.d3ifcool.base.helpers.ConnectionHelper;
 import org.d3ifcool.base.interfaces.lists.BimbinganListView;
+import org.d3ifcool.base.interfaces.lists.BimbinganSearchListView;
 import org.d3ifcool.base.interfaces.objects.BimbinganView;
 import org.d3ifcool.base.interfaces.works.BimbinganWorkView;
 import org.d3ifcool.base.models.Bimbingan;
@@ -33,6 +34,7 @@ import retrofit2.Response;
  */
 public class BimbinganPresenter {
     private BimbinganListView viewResult;
+    private BimbinganSearchListView viewResultSearch;
     private BimbinganWorkView viewEditor;
     private BimbinganView viewObject;
 
@@ -47,6 +49,21 @@ public class BimbinganPresenter {
         this.viewResult = viewResult;
         this.viewEditor = viewEditor;
         this.viewObject = viewObject;
+    }
+
+    public BimbinganPresenter(BimbinganSearchListView viewResultSearch) {
+        this.viewResultSearch = viewResultSearch;
+    }
+
+    public BimbinganPresenter(BimbinganListView viewResult, BimbinganSearchListView viewResultSearch, BimbinganWorkView viewEditor) {
+        this.viewResult = viewResult;
+        this.viewResultSearch = viewResultSearch;
+        this.viewEditor = viewEditor;
+    }
+
+    public BimbinganPresenter(BimbinganListView viewResult, BimbinganSearchListView viewResultSearch) {
+        this.viewResult = viewResult;
+        this.viewResultSearch = viewResultSearch;
     }
 
     public BimbinganPresenter(BimbinganListView viewResult) {
@@ -235,25 +252,25 @@ public class BimbinganPresenter {
     public void searchBimbinganAllByTwo(String parameter1, String query1, String parameter2, String query2){
 
         if (connectionHelper.isConnected(context)){
-            viewResult.showProgress();
+            viewResultSearch.showProgress();
             ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
             Call<List<Bimbingan>> call = apiInterfaceBimbingan.searchBimbinganAllByTwo(parameter1, query1, parameter2, query2);
             call.enqueue(new Callback<List<Bimbingan>>() {
                 @Override
                 public void onResponse(Call<List<Bimbingan>> call, Response<List<Bimbingan>> response) {
-                    viewResult.hideProgress();
+                    viewResultSearch.hideProgress();
                     if (response.body() != null && response.isSuccessful()) {
-                        viewResult.onGetListBimbingan(response.body());
+                        viewResultSearch.onGetListBimbinganSearch(response.body());
                     } else {
-                        viewResult.isEmptyListBimbingan();
+                        viewResultSearch.isEmptyListBimbingan();
                     }
 
                 }
 
                 @Override
                 public void onFailure(Call<List<Bimbingan>> call, Throwable t) {
-                    viewResult.hideProgress();
-                    viewResult.onFailed(t.getMessage());
+                    viewResultSearch.hideProgress();
+                    viewResultSearch.onFailed(t.getMessage());
                 }
             });
         } else {

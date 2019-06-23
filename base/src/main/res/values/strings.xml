@@ -125,6 +125,7 @@
     <string name="dummy_kehadiran">Hadir</string>
     <string name="dummt_spinner">Spinner Item</string>
     <string name="dummy_angkatan">2016</string>
+    <string name="dummy_kategori_monev">Monev 1</string>
 
     <string name="dialog_hapus_title">Hapus Data</string>
     <string name="dialog_hapus_text">Anda yakin ingin menghapus ini?</string>
@@ -141,6 +142,8 @@
     <string name="dialog_keluar_text">Anda Yakin Ingin Keluar?</string>
     <string name="dialog_arsip_title">Arsip</string>
     <string name="dialog_arsip_text">Arsipkan Judul?</string>
+    <string name="dialog_acc_bimbingan_title">Setujui Semua Bimbingan</string>
+    <string name="dialog_acc_bimbingan_text">Apakah ingin menyetujui semua bimbingan?</string>
 
     <string name="iya">Iya</string>
     <string name="tidak">Tidak</string>
@@ -337,6 +340,9 @@
     <string name="text_aboutus_link_website">d3if-finpro.org</string>
     <string name="text_aboutus_copyright">Copyright 2019</string>
     <string name="text_aboutus_allright">all rights reserved</string>
+    <string name="text_setuju_semua_bimbingan">Setujui Semua Bimbingan</string>
+    <string name="text_rata_nilai_monev">Rata - Rata Nilai Monev</string>
+    <string name="text_mahasiswa_all_monev_done">Mahasiswa sudah melaksanakan semua monev</string>
 
     <string name="validate_tanggal">Tanggal Harus Di isi</string>
     <string name="validate_telp_valid">No Telepon Tidak Valid</string>
@@ -348,10 +354,6 @@
     <string name="validate_tidak_lebih_100">Tidak Boleh Lebih dari 100</string>
     <string name="validate_tidak_lebih_16">Tidak Boleh Lebih dari 16</string>
     <string name="validate_no_connection">Tidak ada koneksi internet</string>
-    <string name="dummy_kategori_monev">Monev 1</string>
-    <string name="text_setuju_semua_bimbingan">Setujui Semua Bimbingan</string>
-    <string name="text_rata_nilai_monev">Rata - Rata Nilai Monev</string>
-    <string name="text_mahasiswa_all_monev_done">Mahasiswa sudah melaksanakan semua monev</string>
 
     <string-array name="array_kehadiran_bimbingan">
         <item>Hadir</item>

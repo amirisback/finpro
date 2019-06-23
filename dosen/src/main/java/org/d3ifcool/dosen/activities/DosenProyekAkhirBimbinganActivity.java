@@ -1,11 +1,8 @@
 package org.d3ifcool.dosen.activities;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,19 +11,26 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.d3ifcool.dosen.R;
-import org.d3ifcool.dosen.adapters.recyclerview.DosenBimbinganViewAdapter;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.d3ifcool.base.interfaces.lists.BimbinganListView;
+import org.d3ifcool.base.interfaces.lists.BimbinganSearchListView;
+import org.d3ifcool.base.interfaces.works.BimbinganWorkView;
 import org.d3ifcool.base.models.Bimbingan;
 import org.d3ifcool.base.models.ProyekAkhir;
 import org.d3ifcool.base.presenters.BimbinganPresenter;
+import org.d3ifcool.dosen.R;
+import org.d3ifcool.dosen.adapters.recyclerview.DosenBimbinganViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_DISETUJUI;
 import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_PENDING;
 
-public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity implements BimbinganListView {
+public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity implements BimbinganListView, BimbinganSearchListView, BimbinganWorkView {
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
     private static final String BIMBINGAN_PARAM = "bimbingan.proyek_akhir_id";
@@ -37,13 +41,15 @@ public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity impleme
     private RecyclerView recyclerView;
     private BimbinganPresenter bimbinganPresenter;
     private DosenBimbinganViewAdapter adapter;
-    private View empty_view;
+    private View empty_view, container_accept_bimbingan, content_line;
 
     private ProgressDialog progressDialog;
     private ArrayList<Bimbingan> arrayListBimbingan = new ArrayList<>();
+    private ArrayList<Bimbingan> arrayListBimbinganSearch = new ArrayList<>();
     private ArrayList<ProyekAkhir> extraArrayProyekAkhir;
 
     private TextView tv_jml_bimbingan;
+    private String judul_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,39 +61,59 @@ public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity impleme
 
         adapter = new DosenBimbinganViewAdapter(this);
         progressDialog = new ProgressDialog(this);
-        bimbinganPresenter = new BimbinganPresenter(this);
+        bimbinganPresenter = new BimbinganPresenter(this, this, this);
         bimbinganPresenter.initContext(this);
 
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         empty_view = findViewById(R.id.view_emptyview);
         recyclerView = findViewById(R.id.act_mhs_pa_bimbingan_detail_recyclerview);
+        content_line = findViewById(R.id.content_line);
         tv_jml_bimbingan = findViewById(R.id.act_mhs_pa_bimbingan_detail_textview_jumlah);
+        container_accept_bimbingan = findViewById(R.id.container_accept_all_bimbingan);
 
         extraArrayProyekAkhir = getIntent().getParcelableArrayListExtra(EXTRA_PROYEK_AKHIR);
+        judul_id = String.valueOf(extraArrayProyekAkhir.get(0).getJudul_id());
         adapter.addProyekAkhir(extraArrayProyekAkhir);
-        bimbinganPresenter.searchBimbinganAllBy(BIMBINGAN_PARAM, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
+
+        searchBimbingan();
 
         Button btn_approve_all = findViewById(R.id.btn_accept_all_bimbingan);
+
         btn_approve_all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                new AlertDialog
+                        .Builder(DosenProyekAkhirBimbinganActivity.this)
+                        .setTitle(getString(R.string.dialog_acc_bimbingan_title))
+                        .setMessage(getString(R.string.dialog_acc_bimbingan_text))
+
+                        .setPositiveButton(R.string.iya, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                for (int i = 0; i < arrayListBimbinganSearch.size(); i++) {
+                                    bimbinganPresenter.updateBimbinganStatus(arrayListBimbinganSearch.get(i).getBimbingan_id(), STATUS_BIMBINGAN_DISETUJUI);
+                                }
+                            }
+                        })
+
+                        .setNegativeButton(R.string.tidak, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
             }
         });
 
-
     }
 
-    private void setAccAllBimbingan(String judul_id){
+    private void searchBimbingan(){
+        bimbinganPresenter.searchBimbinganAllBy(BIMBINGAN_PARAM, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
         bimbinganPresenter.searchBimbinganAllByTwo(BIMBINGAN_PARAM_JUDUL_ID, judul_id, BIMBINGAN_PARAM_STATUS, STATUS_BIMBINGAN_PENDING);
     }
-
 
     @Override
     protected void onResume() {
         super.onResume();
-        bimbinganPresenter.searchBimbinganAllBy(BIMBINGAN_PARAM, String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
     }
 
     @Override
@@ -118,12 +144,35 @@ public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity impleme
     }
 
     @Override
+    public void onSucces() {
+        searchBimbingan();
+    }
+
+    @Override
+    public void onGetListBimbinganSearch(List<Bimbingan> bimbinganList) {
+
+        arrayListBimbinganSearch.clear();
+        arrayListBimbinganSearch.addAll(bimbinganList);
+
+        if(arrayListBimbinganSearch.size() == 0){
+            content_line.setVisibility(View.GONE);
+            container_accept_bimbingan.setVisibility(View.GONE);
+        } else {
+            content_line.setVisibility(View.VISIBLE);
+            container_accept_bimbingan.setVisibility(View.VISIBLE);
+        }
+
+    }
+
+    @Override
     public void onGetListBimbingan(List<Bimbingan> bimbinganList) {
 
         arrayListBimbingan.clear();
         arrayListBimbingan.addAll(bimbinganList);
+
         adapter.addItem(arrayListBimbingan);
         adapter.setLayoutType(R.layout.content_list_all_pa_bimbingan);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
@@ -139,7 +188,6 @@ public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity impleme
 
     @Override
     public void isEmptyListBimbingan() {
-        empty_view.setVisibility(View.VISIBLE);
     }
 
     @Override

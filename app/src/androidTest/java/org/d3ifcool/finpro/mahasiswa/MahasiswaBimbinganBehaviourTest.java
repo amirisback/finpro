@@ -55,8 +55,8 @@ public class MahasiswaBimbinganBehaviourTest {
         onView(withId(R.id.frg_mhs_pa_cardview_bimbingan)).perform(click());
         Thread.sleep(2000);
 
-        for (int i = 0; i < 16; i++) {
-            String DES_BIMBINGAN = BIMBINGAN + i;
+        for (int i = 0; i < 3; i++) {
+            String DES_BIMBINGAN = BIMBINGAN + (i+1);
             createBimbingan(DES_BIMBINGAN);
         }
 

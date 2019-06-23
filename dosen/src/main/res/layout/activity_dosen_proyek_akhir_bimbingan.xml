@@ -30,7 +30,10 @@
                 style="@style/content_all_text_bold_color_black"
                 tools:text="@string/dummy_jumlah_bimbingan"/>
 
-            <View style="@style/view_all_line_horizontal"/>
+            <View
+                android:id="@+id/content_line"
+                android:visibility="gone"
+                style="@style/view_all_line_horizontal"/>
 
             <include layout="@layout/container_bimbingan_accept"/>
 

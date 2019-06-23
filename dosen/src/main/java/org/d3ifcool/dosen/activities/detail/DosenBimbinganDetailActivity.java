@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.d3ifcool.base.interfaces.lists.BimbinganSearchListView;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.base.interfaces.lists.BimbinganListView;
 import org.d3ifcool.base.interfaces.works.BimbinganWorkView;
@@ -24,7 +25,7 @@ import java.util.List;
 
 import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STATUS_BIMBINGAN_DISETUJUI;
 
-public class DosenBimbinganDetailActivity extends AppCompatActivity implements BimbinganWorkView, BimbinganListView {
+public class DosenBimbinganDetailActivity extends AppCompatActivity implements BimbinganWorkView, BimbinganListView{
 
     public static final String EXTRA_BIMBINGAN = "extra_bimbingan";
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir_array";
