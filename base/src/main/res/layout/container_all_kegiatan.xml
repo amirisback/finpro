@@ -10,27 +10,27 @@
  * 
  * Name     : Muhammad Faisal Amir
  * E-mail   : faisalamircs@gmail.com
- * Majors   : D3 Teknik Informatika 2016
- * Campus   : Telkom University
+ * Github   : github.com/amirisback
+ * LinkedIn : linkedin.com/in/faisalamircs
  * 
  * FrogoBox Software Industries
  * 
  -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/colorBackground">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/all_pemberitahuan_recyclerview"
+        android:id="@+id/all_recyclerview_kegiatan"
+        tools:listitem="@layout/content_list_all_kegiatan"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/content_list_all_notifikasi">
+        android:layout_height="match_parent">
+
     </androidx.recyclerview.widget.RecyclerView>
 
-    <!-- Empty View -->
-    <include layout="@layout/content_list_empty"/>
+    <include layout="@layout/content_list_all_is_empty"/>
 
 </RelativeLayout>

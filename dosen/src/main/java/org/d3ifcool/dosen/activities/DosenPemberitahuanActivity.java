@@ -49,7 +49,7 @@ public class DosenPemberitahuanActivity extends AppCompatActivity implements Not
         sessionManager = new SessionManager(this);
 
         adapter = new DosenPemberitahuanViewAdapter(this);
-        recyclerView = findViewById(R.id.all_pemberitahuan_recyclerview);
+        recyclerView = findViewById(R.id.all_recyclerview_pemberitahuan);
         empty_view = findViewById(R.id.view_emptyview);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 

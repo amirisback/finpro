@@ -13,7 +13,7 @@
         android:background="@color/colorBackground">
 
         <!-- Empty View -->
-        <include layout="@layout/content_list_empty"/>
+        <include layout="@layout/content_list_all_is_empty"/>
 
         <TextView
             android:id="@+id/dummytext"

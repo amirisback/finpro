@@ -52,7 +52,7 @@ public class MahasiswaPemberitahuanActivity extends AppCompatActivity implements
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
         adapter = new MahasiswaPemberitahuanViewAdapter(this);
-        recyclerView = findViewById(R.id.all_pemberitahuan_recyclerview);
+        recyclerView = findViewById(R.id.all_recyclerview_pemberitahuan);
         empty_view = findViewById(R.id.view_emptyview);
 
         adapter.setNotifikasiPresenter(notifikasiPresenter);

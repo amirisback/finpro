@@ -35,7 +35,7 @@
                 android:visibility="gone"
                 style="@style/view_all_line_horizontal"/>
 
-            <include layout="@layout/container_bimbingan_accept"/>
+            <include layout="@layout/content_all_bimbingan_accept"/>
 
         </LinearLayout>
 
@@ -58,7 +58,7 @@
             tools:listitem="@layout/content_list_all_pa_bimbingan"/>
 
         <!-- Empty View -->
-        <include layout="@layout/content_list_empty"/>
+        <include layout="@layout/content_list_all_is_empty"/>
 
     </RelativeLayout>
 

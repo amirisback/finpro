@@ -133,7 +133,7 @@
 
         </LinearLayout>
 
-        <include layout="@layout/content_copyright_institute"/>
+        <include layout="@layout/content_all_copyright_institute"/>
 
     </RelativeLayout>
 

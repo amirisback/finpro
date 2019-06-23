@@ -6,6 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activities.KoorPemberitahuanActivity">
 
-    <include layout="@layout/container_pemberitahuan"/>
+    <include layout="@layout/container_all_pemberitahuan"/>
 
 </RelativeLayout>

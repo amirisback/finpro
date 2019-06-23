@@ -8,6 +8,6 @@
     android:orientation="vertical"
     tools:context=".activities.TentangKamiActivity">
 
-    <include layout="@layout/content_tentang_kami"/>
+    <include layout="@layout/content_all_tentang_kami"/>
 
 </LinearLayout>

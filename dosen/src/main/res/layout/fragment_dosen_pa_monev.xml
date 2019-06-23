@@ -32,7 +32,7 @@
         </androidx.recyclerview.widget.RecyclerView>
 
         <!-- Empty View -->
-        <include layout="@layout/content_list_empty"/>
+        <include layout="@layout/content_list_all_is_empty"/>
 
     </RelativeLayout>
 

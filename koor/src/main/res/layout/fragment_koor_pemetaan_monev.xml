@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <!-- Empty View -->
-        <include layout="@layout/content_list_empty"/>
+        <include layout="@layout/content_list_all_is_empty"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/container_spinner"

@@ -6,6 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.KoorTentangKamiFragment">
 
-    <include layout="@layout/content_tentang_kami"/>
+    <include layout="@layout/content_all_tentang_kami"/>
 
 </LinearLayout>

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:text="@string/text_title_pa"/>
 
-        <include layout="@layout/content_pa_judul_kelompok"/>
+        <include layout="@layout/content_all_pa_judul_kelompok"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             android:layout_margin="@dimen/dimen_big_16dp"
             android:text="@string/text_anggota_kelompok"/>
 
-        <include layout="@layout/container_proyek_akhir_anggota"/>
+        <include layout="@layout/content_all_proyek_akhir_anggota"/>
 
         <TextView
             android:layout_margin="@dimen/dimen_big_16dp"
@@ -159,7 +159,7 @@
             android:layout_height="wrap_content"
             android:text="@string/title_arsip_judul"/>
 
-        <include layout="@layout/container_proyek_akhir_arsip"/>
+        <include layout="@layout/content_all_proyek_akhir_arsip"/>
 
     </LinearLayout>
 

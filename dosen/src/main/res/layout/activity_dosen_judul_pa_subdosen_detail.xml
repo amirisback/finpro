@@ -121,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:visibility="gone">
-                    <include layout="@layout/content_list_empty"/>
+                    <include layout="@layout/content_list_all_is_empty"/>
                 </RelativeLayout>
 
             </RelativeLayout>

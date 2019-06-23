@@ -109,7 +109,7 @@
         </LinearLayout>
 
         <include
-            layout="@layout/content_copyright_institute"/>
+            layout="@layout/content_all_copyright_institute"/>
 
     </RelativeLayout>
 

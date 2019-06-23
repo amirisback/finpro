@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <!-- Empty View -->
-        <include layout="@layout/content_list_empty"/>
+        <include layout="@layout/content_list_all_is_empty"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/frg_mhs_info_recyclerview"

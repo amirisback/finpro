@@ -59,7 +59,7 @@
         tools:listitem="@layout/content_list_all_pa_monev"/>
 
     <!-- Empty View -->
-    <include layout="@layout/content_list_empty"/>
+    <include layout="@layout/content_list_all_is_empty"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/frg_dsn_add_monev"

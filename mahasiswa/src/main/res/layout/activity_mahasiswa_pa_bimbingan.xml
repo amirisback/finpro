@@ -67,7 +67,7 @@
         </androidx.recyclerview.widget.RecyclerView>
 
         <!-- Empty View -->
-        <include layout="@layout/content_list_empty"/>
+        <include layout="@layout/content_list_all_is_empty"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/act_mhs_bimbingan_tambah"
