@@ -114,6 +114,7 @@ public class DosenProyekAkhirBimbinganActivity extends AppCompatActivity impleme
     @Override
     protected void onResume() {
         super.onResume();
+        searchBimbingan();
     }
 
     @Override
