@@ -52,6 +52,8 @@ public class ApiUrl {
         public static final String VAR_BIMBINGAN = "bimbingan";
         public static final String VAR_MONEV = "monev";
         public static final String VAR_MONEV_DETAIL = "monev_detail";
+        public static final String VAR_KEGIATAN = "kegiatan";
+        // -----------------------------------------------------------------------------------------
         public static final String VAR_PARAMS = "parameter";
         public static final String VAR_QUERY = "query";
         // -----------------------------------------------------------------------------------------
@@ -70,6 +72,7 @@ public class ApiUrl {
         public static final String PATH_BIMBINGAN = "/" + VAR_BIMBINGAN;
         public static final String PATH_MONEV = "/" + VAR_MONEV;
         public static final String PATH_MONEV_DETAIL = "/" + VAR_MONEV_DETAIL;
+        public static final String PATH_KEGIATAN = "/" + VAR_KEGIATAN;
         // -----------------------------------------------------------------------------------------
         public static final String PATH_UPDATE = "/update";
         public static final String PATH_DELETE = "/delete";
@@ -91,6 +94,7 @@ public class ApiUrl {
         public static final String URL_BIMBINGAN = PATH_API + PATH_BIMBINGAN;
         public static final String URL_MONEV = PATH_API + PATH_MONEV;
         public static final String URL_MONEV_DETAIL = PATH_API + PATH_MONEV_DETAIL;
+        public static final String URL_KEGIATAN = PATH_API + PATH_KEGIATAN;
         // -----------------------------------------------------------------------------------------
         public static final String BASE_PARAMETER = "/{" + VAR_PARAMS + "}";
         public static final String BASE_PARAMETER_1 = "/{" + VAR_PARAMS + "1}";
@@ -111,6 +115,7 @@ public class ApiUrl {
         public static final String PARAMETER_BIMBINGAN = "/{" + VAR_BIMBINGAN+ "}";
         public static final String PARAMETER_MONEV = "/{" + VAR_MONEV + "}";
         public static final String PARAMETER_MONEV_DETAIL = "/{" + VAR_MONEV_DETAIL + "}";
+        public static final String PARAMETER_KEGIATAN = "/{" + VAR_KEGIATAN + "}";
         // -----------------------------------------------------------------------------------------
         public static final String PARAM_DOSEN_NAMA = "dsn_nama";
         public static final String PARAM_JUDUL_STATUS = "judul.judul_status";

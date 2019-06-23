@@ -1,18 +1,18 @@
 package org.d3ifcool.mahasiswa.activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.d3ifcool.base.helpers.MethodHelper;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.base.helpers.SessionManager;
 import org.d3ifcool.base.helpers.SpinnerHelper;
@@ -43,6 +44,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.JUDUL_STATUS_PENDING;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.PICK_PDF_REQUEST;
 
 public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         implements JudulWorkView, ProyekMahasiswaWorkView,
@@ -53,15 +55,20 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
     private ArrayList<Dosen> arrayListDosen = new ArrayList<>();
     private ArrayList<Judul> arrayListJudul = new ArrayList<>();
     private ArrayList<KategoriJudul> arrayListKategoriJudul = new ArrayList<>();
-    private Spinner spinner_dosen, spinner_kategori;
-    private SpinnerHelper spinnerHelper;
 
     private ProyekMahasiswaPresenter proyekMahasiswaPresenter;
     private MahasiswaPresenter mahasiswaPresenter;
     private JudulPresenter judulPresenter;
-    private ProgressDialog progressDialog;
-    private TextView textViewNama2;
+
     private SessionManager sessionManager;
+    private ProgressDialog progressDialog;
+
+    private TextView textViewNama2, textViewAttach;
+    private Spinner spinner_dosen, spinner_kategori;
+    private SpinnerHelper spinnerHelper;
+
+    private MethodHelper methodHelper;
+
     private String nim2, deskripsi, kelompok, judul, spinnerItemNipDosen;
     private int spinnerItemKategoriId;
 
@@ -86,6 +93,7 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         proyekMahasiswaPresenter.initContext(this);
 
         sessionManager = new SessionManager(this);
+        methodHelper = new MethodHelper(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -101,6 +109,7 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         textViewNama2 = findViewById(R.id.act_mhs_pa_mandiri_nama_anggota_2);
         TextView textViewNIM1 = findViewById(R.id.act_mhs_pa_mandiri_nim_anggota_1);
         TextView textViewNama1 = findViewById(R.id.act_mhs_pa_mandiri_nama_anggota_1);
+        textViewAttach = findViewById(R.id.act_all_attach_file);
         Button buttonAjukan = findViewById(R.id.act_mhs_pa_mandiri_simpan);
 
         dosenPresenter.getDosen();
@@ -109,6 +118,14 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
         textViewNama1.setText(sessionManager.getSessionMahasiswaNama());
         textViewNIM1.setText(sessionManager.getSessionMahasiswaNim());
 
+        textViewAttach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                methodHelper.selectFile(intent);
+                startActivityForResult(Intent.createChooser(intent, getString(R.string.title_select_file)), PICK_PDF_REQUEST);
+            }
+        });
 
         editTextNIM2.addTextChangedListener(new TextWatcher() {
             @Override
@@ -311,4 +328,13 @@ public class MahasiswaJudulPaMandiriPengajuanActivity extends AppCompatActivity
     public void onFailed(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_PDF_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            textViewAttach.setText(methodHelper.getOnActivityResult(data));
+        }
+    }
+
 }

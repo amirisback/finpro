@@ -1,16 +1,26 @@
 package org.d3ifcool.base.helpers;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.os.Build;
+import android.provider.OpenableColumns;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import org.d3ifcool.base.R;
@@ -21,6 +31,20 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
+import static android.app.Activity.RESULT_OK;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.FILE_TYPE;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.FILE_TYPE_DOC;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.FILE_TYPE_DOCX;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.FILE_TYPE_PDF;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.FILE_TYPE_PPT;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.FILE_TYPE_PPTX;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.FILE_TYPE_TXT;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.FILE_TYPE_XLS;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.FILE_TYPE_XLSX;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.FILE_TYPE_ZIP;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.PICK_PDF_REQUEST;
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.STORAGE_PERMISSION_CODE;
+
 
 public class MethodHelper {
 
@@ -29,7 +53,7 @@ public class MethodHelper {
     private StringBuilder stringBuilder = new StringBuilder();
     private Random random = new Random();
     private String randomChar;
-    Context context;
+    private Context context;
     private static final int REQUEST_SELECT_IMAGE = 1;
     // ---------------------------------------------------------------------------------------------
 
@@ -37,6 +61,10 @@ public class MethodHelper {
     private int frameLayoutId;
 
     public MethodHelper() {
+    }
+
+    public MethodHelper(Context context) {
+        this.context = context;
     }
 
     // Method Random Character ---------------------------------------------------------------------
@@ -120,4 +148,36 @@ public class MethodHelper {
                     }
                 }).create().show();
     }
+
+
+    public String getOnActivityResult(@Nullable Intent data){
+        Uri filePath = data.getData();
+        Cursor returnCursor = context.getContentResolver().query(filePath, null, null, null, null);
+        int nameIndex = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+        int sizeIndex = returnCursor.getColumnIndex(OpenableColumns.SIZE);
+        returnCursor.moveToFirst();
+        return returnCursor.getString(nameIndex);
+    }
+
+    public void selectFile(Intent intent){
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            intent.setType(FILE_TYPE.length == 1 ? FILE_TYPE[0] : "*/*");
+            if (FILE_TYPE.length > 0) {
+                intent.putExtra(Intent.EXTRA_MIME_TYPES, FILE_TYPE);
+            }
+        } else {
+            String mimeTypesStr = "";
+
+            for (String mimeType : FILE_TYPE) {
+                mimeTypesStr += mimeType + "|";
+            }
+
+            intent.setType(mimeTypesStr.substring(0,mimeTypesStr.length() - 1));
+        }
+
+//        startActivityForResult(Intent.createChooser(intent, context.getString(R.string.title_select_file)), PICK_PDF_REQUEST);
+    }
+
+
 }

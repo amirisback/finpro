@@ -363,6 +363,7 @@
     <string name="text_mahasiswa_all_monev_done">Mahasiswa sudah melaksanakan semua monev</string>
     <string name="text_berkas_untuk_diupload">Berkas untuk di upload</string>
     <string name="text_nama_file">Nama File</string>
+    <string name="title_select_file">Pilih file</string>
 
     <string-array name="array_kehadiran_bimbingan">
         <item>Hadir</item>

@@ -1,21 +1,22 @@
 package org.d3ifcool.mahasiswa.activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.d3ifcool.base.helpers.MethodHelper;
 import org.d3ifcool.mahasiswa.R;
 import org.d3ifcool.base.helpers.SessionManager;
 import org.d3ifcool.base.interfaces.objects.MahasiswaView;
@@ -26,16 +27,21 @@ import org.d3ifcool.base.models.Mahasiswa;
 import org.d3ifcool.base.presenters.MahasiswaPresenter;
 import org.d3ifcool.base.presenters.ProyekAkhirPresenter;
 
+import static org.d3ifcool.base.helpers.Constant.ObjectConstanta.PICK_PDF_REQUEST;
+
 public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity implements 
         ProyekAkhirWorkView, MahasiswaWorkView, MahasiswaView {
 
     public static final String EXTRA_JUDUL = "extra_judul";
 
     private SessionManager sessionManager;
+    private MethodHelper methodHelper;
+    private ProgressDialog progressDialog;
+
     private ProyekAkhirPresenter proyekAkhirPresenter;
     private MahasiswaPresenter mahasiswaPresenter;
-    private ProgressDialog progressDialog;
-    private TextView textViewJudulNama2;
+
+    private TextView textViewJudulNama2, textViewAttach;
 
 
     @Override
@@ -47,6 +53,7 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         sessionManager = new SessionManager(this);
+        methodHelper = new MethodHelper(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
@@ -66,6 +73,7 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
         final EditText editTextJudulNim2 = findViewById(R.id.act_mhs_pa_pengajuan_editview_nim_anggota_2);
         final EditText editTextJudulKelompok = findViewById(R.id.act_mhs_pa_pengajuan_editview_nama_kelompok);
         textViewJudulNama2 = findViewById(R.id.act_mhs_pa_pengajuan_editview_nama_anggota_2);
+        textViewAttach = findViewById(R.id.act_all_attach_file);
         Button buttonAjukan = findViewById(R.id.act_mhs_pa_pengajuan_button_simpan);
 
         Judul extraJudul = getIntent().getParcelableExtra(EXTRA_JUDUL);
@@ -92,6 +100,15 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
         textViewJudul.setText(extraJudulNama);
         textViewJudul.setText(extraJudulNama);
         textViewJudul.setText(extraJudulNama);
+
+        textViewAttach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                methodHelper.selectFile(intent);
+                startActivityForResult(Intent.createChooser(intent, getString(R.string.title_select_file)), PICK_PDF_REQUEST);
+            }
+        });
 
         editTextJudulNim2.addTextChangedListener(new TextWatcher() {
             @Override
@@ -207,5 +224,13 @@ public class MahasiswaJudulPaDosenPengajuanActivity extends AppCompatActivity im
     @Override
     public void onFailed(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_PDF_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            textViewAttach.setText(methodHelper.getOnActivityResult(data));
+        }
     }
 }
