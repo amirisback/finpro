@@ -136,7 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorPrimary"
                 android:text="@string/dummy_nilai_monev"
                 android:textStyle="bold"
                 android:layout_centerVertical="true"

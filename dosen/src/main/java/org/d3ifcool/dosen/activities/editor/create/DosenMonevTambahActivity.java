@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.d3ifcool.base.models.DetailMonev;
 import org.d3ifcool.dosen.R;
 import org.d3ifcool.base.helpers.MethodHelper;
 import org.d3ifcool.base.helpers.SpinnerHelper;
@@ -27,9 +28,12 @@ import org.d3ifcool.base.presenters.MonevPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class DosenMonevTambahActivity extends AppCompatActivity implements MonevDetailWorkView, MonevListView {
 
     public static final String EXTRA_PROYEK_AKHIR = "extra_proyek_akhir";
+    public static final String EXTRA_STATUS_MONEV = "extra_monev";
 
     private ProgressDialog progressDialog;
     private MonevDetailPresenter detailMonevPresenter;
@@ -39,7 +43,12 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Monev
     private SpinnerHelper spinnerHelper;
 
     private ArrayList<Monev> arrayListMonev = new ArrayList<>();
+    private ArrayList<Monev> arrayListMonevTemp = new ArrayList<>();
+    private ArrayList<DetailMonev> arrayListDetailMonev = new ArrayList<>();
     private int getMonevId;
+    private Monev monevKategori = new Monev();
+    private View enable_view, disable_view;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +72,13 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Monev
         final EditText et_review_monev = findViewById(R.id.act_dsn_edittext_deskripsi);
         final EditText et_nilai_monev = findViewById(R.id.act_dsn_edittext_nilai_monev);
         spinnerMonev = findViewById(R.id.act_dsn_spinner_kategori_monev);
+        enable_view = findViewById(R.id.enable_view);
+        disable_view = findViewById(R.id.disable_view);
+
         Button buttonMonev = findViewById(R.id.act_dsn_info_button_simpan);
 
         ProyekAkhir extraProyekAkhir = getIntent().getParcelableExtra(EXTRA_PROYEK_AKHIR);
+        arrayListDetailMonev = getIntent().getParcelableArrayListExtra(EXTRA_STATUS_MONEV);
         final int extraProyekAkhirId = extraProyekAkhir.getProyek_akhir_id();
 
         monevPresenter.getMonev();
@@ -88,28 +101,37 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Monev
 
                 String review = et_review_monev.getText().toString();
                 String nilai_st = et_nilai_monev.getText().toString();
-                int nilai = Integer.parseInt(nilai_st);
                 int monevId = getMonevId;
                 String tanggal = methodHelper.getDateToday();
 
-                if (review.isEmpty()){
+                if (review.equalsIgnoreCase("")){
                     et_review_monev.setError(getString(R.string.text_tidak_boleh_kosong));
-                }else if (nilai_st.isEmpty()){
+                }else if (nilai_st.equalsIgnoreCase("")){
                     et_nilai_monev.setError(getString(R.string.text_tidak_boleh_kosong));
-                } else if (nilai >100){
-                    et_nilai_monev.setError("Nilai Tidak Boleh Lebih Dari 100");
                 } else {
-                    detailMonevPresenter.createMonevDetail(nilai, tanggal, review, monevId, extraProyekAkhirId);
-                    Log.d("review", review);
-                    Log.d("nilai", String.valueOf(nilai));
-                    Log.d("monevId", String.valueOf(monevId));
-                    Log.d("tanggal", tanggal);
-                    Log.d("extraProyekAkhirId", String.valueOf(extraProyekAkhirId));
+                    int nilai = Integer.parseInt(et_nilai_monev.getText().toString());
+                    if (nilai>100) {
+                        et_nilai_monev.setError("Nilai Tidak Boleh Lebih Dari 100");
+                    } else {
+                        detailMonevPresenter.createMonevDetail(nilai, tanggal, review, monevId, extraProyekAkhirId);
+                    }
+
                 }
 
             }
         });
 
+    }
+
+    private void checkSumMonev(int jumlahMonev){
+        if (jumlahMonev == 0){
+            enable_view.setVisibility(View.GONE);
+            disable_view.setVisibility(View.VISIBLE);
+        } else {
+            enable_view.setVisibility(View.VISIBLE);
+            disable_view.setVisibility(View.GONE);
+            spinnerHelper.initSpinnerMonev(arrayListMonev, spinnerMonev);
+        }
     }
 
     @Override
@@ -142,9 +164,35 @@ public class DosenMonevTambahActivity extends AppCompatActivity implements Monev
 
     @Override
     public void onGetListMonev(List<Monev> monevList) {
+        arrayListMonevTemp.clear();
         arrayListMonev.clear();
-        arrayListMonev.addAll(monevList);
-        spinnerHelper.initSpinnerMonev(arrayListMonev, spinnerMonev);
+        arrayListMonevTemp.addAll(monevList);
+
+        if (arrayListDetailMonev.size() == 0){
+            arrayListMonev = arrayListMonevTemp;
+        } else {
+
+            for (int i=0; i<arrayListMonevTemp.size(); i++){
+                for (int j=0; j<arrayListDetailMonev.size(); j++){
+                    if (arrayListMonevTemp.get(i).getMonev_id() == arrayListDetailMonev.get(j).getMonev_id()){
+                        int monev_id = arrayListMonevTemp.get(i).getMonev_id();
+                        String kategori = arrayListMonevTemp.get(i).getKategori();
+                        String jumlahBimbingan = arrayListMonevTemp.get(i).getJumlah_bimbingan();
+                        monevKategori.setMonev_id(monev_id);
+                        monevKategori.setKategori(kategori);
+                        monevKategori.setJumlah_bimbingan(jumlahBimbingan);
+                    }
+                }
+
+                if (monevKategori != null) {
+                    if (arrayListMonevTemp.get(i).getMonev_id() != monevKategori.getMonev_id()){
+                        arrayListMonev.add(arrayListMonevTemp.get(i));
+                    }
+                }
+            }
+        }
+
+        checkSumMonev(arrayListMonev.size());
 
     }
 

@@ -36,7 +36,7 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements Mo
     private View empty_view;
     private ProgressDialog progressDialog;
     private MonevDetailPresenter detailMonevPresenter;
-    private ArrayList<DetailMonev> arrayList = new ArrayList<>();
+    private ArrayList<DetailMonev> detailMonevArrayList = new ArrayList<>();
     private DosenMonevViewAdapter dosenMonevViewAdapter;
     private TextView textViewAverage;
     int extraProyekAkhirId;
@@ -77,6 +77,7 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements Mo
                 public void onClick(View v) {
                     Intent intent = new Intent(DosenMonevMahasiswaActivity.this, DosenMonevTambahActivity.class);
                     intent.putExtra(DosenMonevTambahActivity.EXTRA_PROYEK_AKHIR, extraProyekAkhir);
+                    intent.putParcelableArrayListExtra(DosenMonevTambahActivity.EXTRA_STATUS_MONEV, detailMonevArrayList);
                     startActivity(intent);
                 }
             });
@@ -89,10 +90,10 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements Mo
 
     private int getAverageScore(){
         int nilai = 0;
-        for (int i = 0; i < arrayList.size(); i++) {
-            nilai = nilai + arrayList.get(i).getMonev_nilai();
+        for (int i = 0; i < detailMonevArrayList.size(); i++) {
+            nilai = nilai + detailMonevArrayList.get(i).getMonev_nilai();
         }
-        int total = arrayList.size();
+        int total = detailMonevArrayList.size();
         return nilai / total;
     }
 
@@ -132,16 +133,16 @@ public class DosenMonevMahasiswaActivity extends AppCompatActivity implements Mo
     @Override
     public void onGetListDetailMonev(List<DetailMonev> detailMonevList) {
 
-        arrayList.clear();
-        arrayList.addAll(detailMonevList);
+        detailMonevArrayList.clear();
+        detailMonevArrayList.addAll(detailMonevList);
 
-        dosenMonevViewAdapter.addItem(arrayList);
+        dosenMonevViewAdapter.addItem(detailMonevArrayList);
         dosenMonevViewAdapter.setLayoutType(R.layout.content_list_all_pa_monev);
 
         recyclerView.setAdapter(dosenMonevViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        if (arrayList.size() == 0) {
+        if (detailMonevArrayList.size() == 0) {
             textViewAverage.setText("0");
             empty_view.setVisibility(View.VISIBLE);
         } else {

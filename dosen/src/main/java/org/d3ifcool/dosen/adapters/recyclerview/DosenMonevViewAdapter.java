@@ -72,15 +72,15 @@ public class DosenMonevViewAdapter extends RecyclerView.Adapter<DosenMonevViewAd
         holder.infoNilai.setText(String.valueOf(data.get(position).getMonev_nilai()));
         holder.infoTanggal.setText(data.get(position).getMonev_tanggal());
         holder.infoIsi.setText(data.get(position).getMonev_ulasan());
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intentData = new Intent(context, DosenMonevDetailActivity.class);
-//                DetailMonev parcelDetailMonev = data.get(position);
-//                intentData.putExtra(DosenMonevDetailActivity.EXTRA_MONEV, parcelDetailMonev);
-//                context.startActivity(intentData);
-//            }
-//        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentData = new Intent(context, DosenMonevDetailActivity.class);
+                DetailMonev parcelDetailMonev = data.get(position);
+                intentData.putExtra(DosenMonevDetailActivity.EXTRA_MONEV, parcelDetailMonev);
+                context.startActivity(intentData);
+            }
+        });
     }
 
     @NonNull
