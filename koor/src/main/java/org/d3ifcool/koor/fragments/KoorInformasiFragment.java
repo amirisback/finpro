@@ -34,6 +34,7 @@ public class KoorInformasiFragment extends Fragment implements InformasiListView
 
     private RecyclerView rv_informasi;
     private FloatingActionButton fab_informasi;
+
     private ArrayList<Informasi> arrayList = new ArrayList<>();
     private KoorInformasiViewAdapter adapter;
     private ProgressDialog progressDialog;

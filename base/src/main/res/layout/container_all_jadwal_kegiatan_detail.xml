@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by 
+ * FrogoBox Inc License
+ * =========================================
+ * 
+ * Copyright (C) .      
+ * All rights reserved
+ * 
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * LinkedIn : linkedin.com/in/faisalamircs
+ * 
+ * FrogoBox Software Industries
+ * 
+ -->
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_margin="@dimen/dimen_big_16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/colorTextBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_kegiatan"/>
+
+        <TextView
+            android:id="@+id/all_jadwal_detail_kegiatan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textSize="@dimen/text_size_title_small_18sp"
+            android:textColor="@color/colorPrimary"
+            tools:text="@string/dummy"/>
+
+        <View
+            style="@style/view_all_line_horizontal"/>
+
+        <TextView
+            android:textColor="@color/colorTextBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_tanggal_mulai"/>
+
+        <TextView
+            android:id="@+id/all_jadwal_detail_tanggal_mulai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textSize="@dimen/text_size_title_small_18sp"
+            android:textColor="@color/colorPrimary"
+            tools:text="@string/dummy"/>
+
+        <View
+            style="@style/view_all_line_horizontal"/>
+
+        <TextView
+            android:textColor="@color/colorTextBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_tanggal_berakhir"/>
+
+        <TextView
+            android:id="@+id/all_jadwal_detail_tanggal_berakhir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textSize="@dimen/text_size_title_small_18sp"
+            android:textColor="@color/colorPrimary"
+            tools:text="@string/dummy"/>
+
+        <View
+            style="@style/view_all_line_horizontal"/>
+
+        <TextView
+            android:textColor="@color/colorTextBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_pelaku"/>
+
+        <TextView
+            android:id="@+id/all_jadwal_detail_pelaku"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textSize="@dimen/text_size_title_small_18sp"
+            android:textColor="@color/colorPrimary"
+            tools:text="@string/dummy"/>
+
+        <View
+            style="@style/view_all_line_horizontal"/>
+
+        <TextView
+            android:textColor="@color/colorTextBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_keterangan"/>
+
+        <TextView
+            android:id="@+id/all_jadwal_detail_keterangan"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:textSize="@dimen/text_size_title_small_18sp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            tools:text="@string/dummy"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

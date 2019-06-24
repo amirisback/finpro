@@ -138,6 +138,53 @@ public class MethodHelper {
         });
     }
 
+    public void setDatePickerNoMax(final Context context, final TextView textView){
+
+        final DatePickerDialog.OnDateSetListener datePickerDialog;
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        final String[] date = new String[1];
+
+        month = month + 1;
+        date[0] = year+ "-"+ setTwoNumber(month)+ "-" + setTwoNumber(day) ;
+        textView.setText(date[0]);
+        datePickerDialog = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month = month + 1;
+                date[0] = year + "-"+ setTwoNumber(month)+ "-" + setTwoNumber(dayOfMonth) ;
+                textView.setText(date[0]);
+            }
+        };
+
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(context,
+                        R.style.Theme_AppCompat_DayNight_Dialog_MinWidth,
+                        datePickerDialog,year,month,day);
+                cal.set(Calendar.MONTH, month);
+                cal.set(Calendar.DAY_OF_MONTH, day);
+                cal.set(Calendar.YEAR,year, -2);
+                dialog.getDatePicker().setMinDate(cal.getTimeInMillis());
+
+                cal.set(Calendar.MONTH, month);
+                cal.set(Calendar.DAY_OF_MONTH, day);
+                cal.set(Calendar.YEAR,year);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+                dialog.show();
+            }
+        });
+    }
+
+
     public void popupAllert(String alert) {
         new AlertDialog.Builder(context)
                 .setTitle(R.string.text_pop_up_alert_sidang)

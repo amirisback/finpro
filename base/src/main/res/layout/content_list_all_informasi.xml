@@ -19,92 +19,91 @@
  * 
  -->
 
-<androidx.cardview.widget.CardView android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/cardview_list_all_clicked">
-
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    style="@style/cardview_list_all_clicked"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_marginLeft="@dimen/dimen_big_16dp"
-        android:layout_marginRight="@dimen/dimen_big_16dp"
-        android:layout_marginTop="@dimen/dimen_medium_8dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/ctn_all_info_photo"
-            android:src="@drawable/ic_dummy_photo"
-            app:civ_border_width="1dp"
-            app:civ_border_color="@color/colorBackground"
-            style="@style/all_image_informasi"/>
+        android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_big_16dp"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginRight="@dimen/dimen_big_16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <TextView
-                android:textSize="@dimen/text_size_title_small_18sp"
-                android:id="@+id/ctn_all_info_textview_nama"
-                android:textColor="@color/colorPrimary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="@string/dummy"/>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ctn_all_info_photo"
+                style="@style/all_image_informasi"
+                android:src="@drawable/ic_dummy_photo"
+                app:civ_border_color="@color/colorBackground"
+                app:civ_border_width="1dp" />
 
-            <TextView
-                android:textColor="@color/colorAccent"
-                android:id="@+id/ctn_all_info_textview_tanggal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dummy"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ctn_all_info_textview_nama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummy"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_title_small_18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ctn_all_info_textview_tanggal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummy"
+                    android:textColor="@color/colorAccent" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
+        <View style="@style/view_all_line_horizontal" />
+
+        <TextView
+            android:id="@+id/ctn_all_info_textview_judul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:maxLines="1"
+            android:text="@string/title_proyekakhir"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/text_size_title_small_18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ctn_all_info_textview_isi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:maxLines="2"
+            android:text="@string/dummyLong"
+            android:textColor="@color/colorTextBlack" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:text="@string/text_titiktitik" />
+
     </LinearLayout>
-
-    <View
-        style="@style/view_all_line_horizontal"/>
-
-    <TextView
-        android:layout_marginStart="@dimen/dimen_big_16dp"
-        android:layout_marginEnd="@dimen/dimen_big_16dp"
-        android:textColor="@color/colorTextBlack"
-        android:id="@+id/ctn_all_info_textview_judul"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_title_small_18sp"
-        android:maxLines="1"
-        android:textStyle="bold"
-        android:text="@string/title_proyekakhir"/>
-
-    <TextView
-        android:layout_marginStart="@dimen/dimen_big_16dp"
-        android:layout_marginEnd="@dimen/dimen_big_16dp"
-        android:textColor="@color/colorTextBlack"
-        android:id="@+id/ctn_all_info_textview_isi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="2"
-        android:text="@string/dummyLong"/>
-
-    <TextView
-        android:layout_marginStart="@dimen/dimen_big_16dp"
-        android:layout_marginEnd="@dimen/dimen_big_16dp"
-        android:layout_marginBottom="@dimen/dimen_medium_8dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/text_titiktitik"/>
-
-</LinearLayout>
 
 
 </androidx.cardview.widget.CardView>

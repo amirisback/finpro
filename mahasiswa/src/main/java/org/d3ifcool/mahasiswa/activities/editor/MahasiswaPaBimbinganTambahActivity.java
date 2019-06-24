@@ -121,11 +121,6 @@ public class MahasiswaPaBimbinganTambahActivity extends AppCompatActivity implem
                     } else {
                         bimbinganPresenter.createBimbingan(review, kehadiran_1, tanggal, STATUS_BIMBINGAN_PENDING, extraArrayProyekAkhir.get(0).getProyek_akhir_id());
                         bimbinganPresenter.createBimbingan(review, kehadiran_2, tanggal, STATUS_BIMBINGAN_PENDING, extraArrayProyekAkhir.get(1).getProyek_akhir_id());
-                        Log.d("TES KEHADIRAN - 1", kehadiran_1);
-                        Log.d("TES KEHADIRAN - 2", kehadiran_2);
-                        Log.d("TES ORANG KE 1", String.valueOf(extraArrayProyekAkhir.get(0).getProyek_akhir_id()));
-                        Log.d("TES ORANG KE 2", String.valueOf(extraArrayProyekAkhir.get(1).getProyek_akhir_id()));
-
                     }
                 }
 

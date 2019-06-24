@@ -3,37 +3,33 @@
     package="org.d3ifcool.dosen">
 
     <application>
-
+        <activity android:name=".activities.detail.DosenJadwalKegiatanDetailActivity"></activity>
         <activity android:name=".activities.DosenMonevMahasiswaActivity" />
         <activity android:name=".activities.DosenJudulPaSubdosenAccActivity" />
         <activity android:name=".activities.DosenJudulPaArsipActivity" />
         <activity android:name=".activities.DosenProyekAkhirActivity" />
-        <activity android:name=".activities.DosenJadwalKegiatanActivity"/>
+        <activity android:name=".activities.DosenJadwalKegiatanActivity" />
         <activity android:name=".activities.DosenPemberitahuanActivity" />
         <activity android:name=".activities.DosenProyekAkhirBimbinganActivity" />
         <activity android:name=".activities.DosenSidangActivity" />
         <activity android:name=".activities.DosenProyekAkhirMonevActivity" />
         <activity android:name=".activities.DosenProfilActivity" />
-
         <activity android:name=".activities.editor.create.DosenSidangTambahActivity" />
         <activity android:name=".activities.editor.create.DosenMonevTambahActivity" />
         <activity android:name=".activities.editor.create.DosenBimbinganTambahActivity" />
         <activity android:name=".activities.editor.create.DosenJudulPaSubdosenTambahActivity" />
         <activity android:name=".activities.editor.create.DosenInformasiTambahActivity" />
-
         <activity android:name=".activities.editor.update.DosenSidangUbahActivity" />
         <activity android:name=".activities.editor.update.DosenMonevUbahActivity" />
         <activity android:name=".activities.editor.update.DosenJudulPaSubdosenUbahActivity" />
         <activity android:name=".activities.editor.update.DosenProfilUbahActivity" />
         <activity android:name=".activities.editor.update.DosenInformasiUbahActivity" />
-
         <activity android:name=".activities.detail.DosenInformasiDetailActivity" />
         <activity android:name=".activities.detail.DosenJudulPaArsipDetailActivity" />
         <activity android:name=".activities.detail.DosenMonevDetailActivity" />
         <activity android:name=".activities.detail.DosenJudulPaSubmahasiswaDetailActivity" />
         <activity android:name=".activities.detail.DosenJudulPaSubdosenDetailActivity" />
         <activity android:name=".activities.detail.DosenBimbinganDetailActivity" />
-
     </application>
 
 </manifest>

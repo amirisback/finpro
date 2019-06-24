@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by 
+ * FrogoBox Inc License
+ * =========================================
+ * 
+ * Copyright (C) .      
+ * All rights reserved
+ * 
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * LinkedIn : linkedin.com/in/faisalamircs
+ * 
+ * FrogoBox Software Industries
+ * 
+ -->
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/cardview_list_all_clicked"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimen_small_4dp"
+        android:layout_marginBottom="@dimen/dimen_small_4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:maxLines="1"
+            android:textAllCaps="true"
+            android:text="@string/text_kegiatan" />
+
+        <TextView
+            android:id="@+id/ctn_all_textview_kegiatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:maxLines="2"
+            android:text="@string/dummyLong"
+            android:textColor="@color/colorTextBlack" />
+
+        <View
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
+            android:layout_marginTop="@dimen/dimen_small_4dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_view_line"
+            android:background="@color/colorBackground"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textColor="@color/colorPrimary"
+            android:textAllCaps="true"
+            android:text="@string/text_lihat_detail"/>
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

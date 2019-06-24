@@ -52,7 +52,7 @@ public class ApiUrl {
         public static final String VAR_BIMBINGAN = "bimbingan";
         public static final String VAR_MONEV = "monev";
         public static final String VAR_MONEV_DETAIL = "monev_detail";
-        public static final String VAR_KEGIATAN = "kegiatan";
+        public static final String VAR_KEGIATAN = "jadwal_kegiatan";
         // -----------------------------------------------------------------------------------------
         public static final String VAR_PARAMS = "parameter";
         public static final String VAR_QUERY = "query";

@@ -21,11 +21,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:paddingTop="@dimen/dimen_medium_8dp"
         android:id="@+id/all_recyclerview_kegiatan"
-        tools:listitem="@layout/content_list_all_kegiatan"
+        tools:listitem="@layout/content_list_all_jadwal_kegiatan"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

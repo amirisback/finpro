@@ -1,6 +1,9 @@
 package org.d3ifcool.mahasiswa.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -11,14 +14,23 @@ import android.widget.Toast;
 
 import org.d3ifcool.base.interfaces.lists.KegiatanListView;
 import org.d3ifcool.base.models.Kegiatan;
+import org.d3ifcool.base.presenters.KegiatanPresenter;
 import org.d3ifcool.mahasiswa.R;
+import org.d3ifcool.mahasiswa.adapters.recyclerview.MahasiswaJadwalKegiatanViewAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MahasiswaJadwalKegiatanActivity extends AppCompatActivity implements KegiatanListView {
 
     private ProgressDialog progressDialog;
+    private RecyclerView recyclerView;
     private View empty_view;
+    private SwipeRefreshLayout swipeRefreshLayout;
+
+    private MahasiswaJadwalKegiatanViewAdapter mahasiswaJadwalKegiatanViewAdapter;
+    private ArrayList<Kegiatan> arrayListKegiatan = new ArrayList<>();
+    private KegiatanPresenter kegiatanPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +43,22 @@ public class MahasiswaJadwalKegiatanActivity extends AppCompatActivity implement
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
+        kegiatanPresenter = new KegiatanPresenter(this);
+        kegiatanPresenter.initContext(this);
+
+        mahasiswaJadwalKegiatanViewAdapter = new MahasiswaJadwalKegiatanViewAdapter(this);
+        recyclerView = findViewById(R.id.all_recyclerview_kegiatan);
+        empty_view = findViewById(R.id.view_emptyview);
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh_kegiatan);
+
+        kegiatanPresenter.getKegiatan();
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                kegiatanPresenter.getKegiatan();
+            }
+        });
 
     }
 
@@ -63,6 +91,19 @@ public class MahasiswaJadwalKegiatanActivity extends AppCompatActivity implement
 
     @Override
     public void onGetListKegiatan(List<Kegiatan> kegiatan) {
+        arrayListKegiatan.clear();
+        arrayListKegiatan.addAll(kegiatan);
+
+        mahasiswaJadwalKegiatanViewAdapter.addItem(arrayListKegiatan);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(mahasiswaJadwalKegiatanViewAdapter);
+        swipeRefreshLayout.setRefreshing(false);
+
+        if (arrayListKegiatan.size() == 0) {
+            empty_view.setVisibility(View.VISIBLE);
+        } else {
+            empty_view.setVisibility(View.GONE);
+        }
 
     }
 

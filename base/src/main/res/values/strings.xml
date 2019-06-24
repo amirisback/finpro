@@ -91,6 +91,10 @@
     <string name="title_tentang_kami">Tentang Kami</string>
     <string name="title_monev_reviewer">Reviewer Monev</string>
     <string name="title_jadwal_kegiatan">Jadwal Kegiatan</string>
+    <string name="title_select_file">Pilih file</string>
+    <string name="title_jadwal_kegiatan_ubah">Ubah Jadwal Kegiatan</string>
+    <string name="title_jadwal_kegiatan_tambah">Tambah Jadwal Kegiatan</string>
+    <string name="title_jadwal_kegiatan_detail">Detail Jadwal Kegiatan</string>
 
     <string name="button_click_masuk">Masuk</string>
     <string name="button_click_simpan">Simpan</string>
@@ -107,6 +111,8 @@
     <string name="button_click_ubah_sidang">Ubah Nilai Sidang</string>
     <string name="button_click_ubah_bimbingan">Ubah Bimbingan</string>
     <string name="button_proyek_akhir_selesai">Proyek Akhir Selesai</string>
+    <string name="button_click_tambah_jadwal_kegiatan">Tambah Jadwal Kegiatan</string>
+    <string name="button_click_ubah_jadwal_kegiatan">Ubah Jadwal Kegiatan</string>
 
     <string name="dummyLong">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam veniam similique voluptates odit, ipsum laborum architecto distinctio harum, provident fugiat praesentium ex quod dolores laudantium aliquid quidem placeat incidunt vitae!</string>
     <string name="dummy">Dummy</string>
@@ -209,6 +215,9 @@
     <string name="hint_nama_mahasiswa">Masukkan Nama Mahasiswa</string>
     <string name="hint_kontak_mahasiswa">Masukkan Kontak Mahasiswa</string>
     <string name="hint_masukkan_minimal_jumlah_bimbingan">Masukkan Minimal Jumlah BImbingan</string>
+    <string name="hint_kegiatan">Masukkan Kegiatan</string>
+    <string name="hint_pelaku">Masukkan Pelaku</string>
+    <string name="hint_keterangan">Masukkan Keterangan</string>
 
     <string name="text_profil_detail_nama">Nama</string>
     <string name="text_profil_detail_nip">NIP</string>
@@ -363,7 +372,11 @@
     <string name="text_mahasiswa_all_monev_done">Mahasiswa sudah melaksanakan semua monev</string>
     <string name="text_berkas_untuk_diupload">Berkas untuk di upload</string>
     <string name="text_nama_file">Nama File</string>
-    <string name="title_select_file">Pilih file</string>
+    <string name="text_kegiatan">Kegiatan</string>
+    <string name="text_tanggal_mulai">Tanggal Mulai</string>
+    <string name="text_tanggal_berakhir">Tanggal Berakhir</string>
+    <string name="text_pelaku">Pelaku</string>
+    <string name="text_keterangan">Keterangan</string>
 
     <string-array name="array_kehadiran_bimbingan">
         <item>Hadir</item>
