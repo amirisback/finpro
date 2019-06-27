@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import org.d3ifcool.finpro.R;
 import org.d3ifcool.mahasiswa.activities.MahasiswaJadwalKegiatanActivity;
 import org.d3ifcool.mahasiswa.activities.MahasiswaJudulPaArsipActivity;
+import org.d3ifcool.mahasiswa.activities.MahasiswaKuotaDosenActivity;
 import org.d3ifcool.mahasiswa.fragments.parent.MahasiswaInformasiFragment;
 import org.d3ifcool.mahasiswa.fragments.parent.MahasiswaJudulPaFragment;
 import org.d3ifcool.mahasiswa.fragments.parent.MahasiswaPaFragment;
@@ -155,6 +156,11 @@ public class MahasiswaMainActivity extends AppCompatActivity implements Mahasisw
             case R.id.toolbar_menu_arsip_judul:
                 Intent intentArsip = new Intent(MahasiswaMainActivity.this, MahasiswaJudulPaArsipActivity.class);
                 startActivity(intentArsip);
+                break;
+
+            case R.id.toolbar_menu_kuota_dosen:
+                Intent intentKuota = new Intent(MahasiswaMainActivity.this, MahasiswaKuotaDosenActivity.class);
+                startActivity(intentKuota);
                 break;
 
             case R.id.toolbar_menu_keluar:

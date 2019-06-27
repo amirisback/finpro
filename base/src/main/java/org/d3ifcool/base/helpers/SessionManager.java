@@ -83,6 +83,8 @@ public class SessionManager {
         editor.putString(DSN_EMAIL, dosen.getDsn_email());
         editor.putString(DSN_KONTAK, dosen.getDsn_kontak());
         editor.putString(DSN_KODE, dosen.getDsn_kode());
+        editor.putInt(DSN_BATAS_BIMBINGAN, dosen.getBatas_bimbingan());
+        editor.putInt(DSN_BATAS_REVIEWER, dosen.getBatas_reviewer());
         editor.apply();
         editor.commit();
     }
@@ -175,6 +177,15 @@ public class SessionManager {
 
     public String getSessionMahasiswaStatus(){
         return sharedPreferences.getString(MHS_STATUS, null);
+    }
+
+    public int getSessionDosenBatasBimbingan(){
+        return sharedPreferences.getInt(DSN_BATAS_BIMBINGAN, 0);
+    }
+
+
+    public int getSessionDosenBatasReviewer(){
+        return sharedPreferences.getInt(DSN_BATAS_REVIEWER, 0);
     }
 
     public int getSessionMahasiswaIdJudul(){

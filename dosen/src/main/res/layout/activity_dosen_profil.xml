@@ -69,6 +69,46 @@
             <LinearLayout
                 style="@style/profile_all_container_textview">
 
+                <TextView
+                    android:text="@string/title_batas_bimbingan"
+                    style="@style/profile_all_textview_subtitle"/>
+
+                <TextView
+                    android:id="@+id/act_dsn_profil_batas_bimbingan"
+                    tools:text="@string/dummy_dosen_kode"
+                    style="@style/profile_all_textview_content"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_marginBottom="@dimen/dimen_big_super_24dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"/>
+
+            <LinearLayout
+                style="@style/profile_all_container_textview">
+
+                <TextView
+                    android:text="@string/title_batas_reviewer"
+                    style="@style/profile_all_textview_subtitle"/>
+
+                <TextView
+                    android:id="@+id/act_dsn_profil_batas_reviewer"
+                    tools:text="@string/dummy_dosen_kode"
+                    style="@style/profile_all_textview_content"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_marginBottom="@dimen/dimen_big_super_24dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_view_line"
+                android:background="@color/colorBackground"/>
+
+            <LinearLayout
+                style="@style/profile_all_container_textview">
+
 
                 <TextView
                     android:text="@string/text_profil_detail_email"

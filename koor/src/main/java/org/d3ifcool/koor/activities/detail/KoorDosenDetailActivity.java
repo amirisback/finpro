@@ -29,7 +29,7 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenW
     private Dosen extraDosen;
     private DosenPresenter dosenPresenter;
     private ProgressDialog progressDialog;
-    private TextView tv_nama, tv_kode, tv_nip, tv_kontak, tv_email;
+    private TextView tv_nama, tv_kode, tv_nip, tv_kontak, tv_email, tv_batas_bimbingan, tv_batas_reviewer;
     private CircleImageView circleImageView;
     private String nip;
 
@@ -53,6 +53,8 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenW
         tv_nip = findViewById(R.id.act_koor_dosen_nip);
         tv_kontak = findViewById(R.id.act_koor_dosen_kontak);
         tv_email = findViewById(R.id.act_koor_dosen_email);
+        tv_batas_bimbingan = findViewById(R.id.act_koor_dosen_batas_bimbingan);
+        tv_batas_reviewer = findViewById(R.id.act_koor_dosen_batas_reviewer);
         circleImageView = findViewById(R.id.act_koor_profil_foto_dosen);
 
         extraDosen = getIntent().getParcelableExtra(EXTRA_DOSEN);
@@ -62,12 +64,16 @@ public class KoorDosenDetailActivity extends AppCompatActivity implements DosenW
         String email = extraDosen.getDsn_email();
         String kontak = extraDosen.getDsn_kontak();
         String path = extraDosen.getDsn_foto();
+        int batas_bimbingan = extraDosen.getBatas_bimbingan();
+        int batas_reviewer = extraDosen.getBatas_reviewer();
 
         tv_nama.setText(nama);
         tv_kode.setText(kode);
         tv_nip.setText(nip);
         tv_email.setText(email);
         tv_kontak.setText(kontak);
+        tv_batas_bimbingan.setText(String.valueOf(batas_bimbingan));
+        tv_batas_reviewer.setText(String.valueOf(batas_reviewer));
         Picasso.get().load(URL_FOTO_DOSEN + path).into(circleImageView);
 
     }

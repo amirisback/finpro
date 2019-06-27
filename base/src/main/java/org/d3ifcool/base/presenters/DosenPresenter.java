@@ -19,6 +19,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Field;
 
 /**
  * Created by ikhsan ramadhan
@@ -175,12 +176,12 @@ public class DosenPresenter {
     }
 
 
-    public void updateDosen(String nip_dosen, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_email) {
+    public void updateDosen(String nip_dosen, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_email, int batas_bimbingan, int batas_reviewer) {
 
         if (connectionHelper.isConnected(context)){
             viewEditor.showProgress();
             ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
-            Call<Dosen> call = apiInterfaceDosen.updateDosen(nip_dosen, dsn_nama, dsn_kode, dsn_kontak, dsn_email);
+            Call<Dosen> call = apiInterfaceDosen.updateDosen(nip_dosen, dsn_nama, dsn_kode, dsn_kontak, dsn_email, batas_bimbingan, batas_reviewer);
             call.enqueue(new Callback<Dosen>() {
                 @Override
                 public void onResponse(Call<Dosen> call, Response<Dosen> response) {
@@ -200,12 +201,12 @@ public class DosenPresenter {
 
 
     }
-    public void updateDosen(String nip_dosen, String dsn_nama, String dsn_kode, String dsn_kontak,String dsn_foto, String dsn_email) {
+    public void updateDosenPure(String nip_dosen, String dsn_nama, String dsn_kode, String dsn_kontak,String dsn_email) {
 
         if (connectionHelper.isConnected(context)){
             viewEditor.showProgress();
             ApiInterfaceDosen apiInterfaceDosen = ApiClient.getApiClient().create(ApiInterfaceDosen.class);
-            Call<Dosen> call = apiInterfaceDosen.updateDosen(nip_dosen, dsn_nama, dsn_kode, dsn_kontak, dsn_foto,dsn_email);
+            Call<Dosen> call = apiInterfaceDosen.updateDosenPure(nip_dosen, dsn_nama, dsn_kode, dsn_kontak, dsn_email);
             call.enqueue(new Callback<Dosen>() {
                 @Override
                 public void onResponse(Call<Dosen> call, Response<Dosen> response) {

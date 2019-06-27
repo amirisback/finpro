@@ -31,6 +31,7 @@ import org.d3ifcool.koor.fragments.KoorJadwalKegiatanFragment;
 import org.d3ifcool.koor.fragments.KoorKategoriJudulFragment;
 import org.d3ifcool.koor.fragments.KoorJudulFragment;
 import org.d3ifcool.koor.fragments.KoorKategoriMonevFragment;
+import org.d3ifcool.koor.fragments.KoorKuotaDosenFragment;
 import org.d3ifcool.koor.fragments.KoorMahasiswaFragment;
 import org.d3ifcool.koor.fragments.KoorPemetaanMonevFragment;
 import org.d3ifcool.koor.fragments.KoorProyekAkhirFragment;
@@ -173,6 +174,11 @@ public class KoorMainActivity extends AppCompatActivity
             setTitle(R.string.title_monev_reviewer);
             openFragment(new KoorReviewerFragment());
         }
+
+//        else if (id == R.id.nav_menu_kuota_dosen){
+//            setTitle(R.string.title_kuota_dosen);
+//            openFragment(new KoorKuotaDosenFragment());
+//        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

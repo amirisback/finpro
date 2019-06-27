@@ -52,6 +52,8 @@ public class Constant {
         public static final String DSN_KONTAK = "DSN_KONTAK";
         public static final String DSN_KODE = "DSN_KODE";
         public static final String DSN_STATUS = "DSN_STATUS";
+        public static final String DSN_BATAS_BIMBINGAN = "DSN_BATAS_BIMBINGAN";
+        public static final String DSN_BATAS_REVIEWER = "DSN_BATAS_REVIEWER";
         // -----------------------------------------------------------------------------------------
         public static final String MHS_NIM = "MHS_NIM";
         public static final String MHS_NAMA = "MHS_NAMA";

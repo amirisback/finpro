@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "588011497292",
+    "firebase_url": "https://seven-primavera-finpro.firebaseio.com",
+    "project_id": "seven-primavera-finpro",
+    "storage_bucket": "seven-primavera-finpro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588011497292:android:4e5c6cdfbbfca980",
+        "android_client_info": {
+          "package_name": "org.d3ifcool.finpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "588011497292-uph00eehf2558cmsclp4m5dhrqtogkht.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.d3ifcool.finpro",
+            "certificate_hash": "f3a790d8086472166813d8e808c0804e7e3da28a"
+          }
+        },
+        {
+          "client_id": "588011497292-i8pe6pho07kp43i1hidprufod7papau9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADXuyaHItyMWVa9taOtZU7ib_7Fm63NF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "588011497292-i8pe6pho07kp43i1hidprufod7papau9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

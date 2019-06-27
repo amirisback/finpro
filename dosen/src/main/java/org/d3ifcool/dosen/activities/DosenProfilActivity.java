@@ -22,13 +22,15 @@ public class DosenProfilActivity extends AppCompatActivity {
 
     private SessionManager sessionManager;
     private CircleImageView imageView;
-    private TextView textView_nama, textView_nip, textView_kode, textView_email, textView_kontak;
+    private TextView textView_nama, textView_nip, textView_kode, textView_email, textView_kontak,
+    textView_batas_bimbingan, textView_batas_reviewer;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dosen_profil);
+
         setTitle(getString(R.string.title_profil));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setElevation(0f);
@@ -39,6 +41,8 @@ public class DosenProfilActivity extends AppCompatActivity {
         textView_kode = findViewById(R.id.act_dsn_profil_kode);
         textView_email = findViewById(R.id.act_dsn_profil_email);
         textView_kontak = findViewById(R.id.act_dsn_profil_kontak);
+        textView_batas_bimbingan = findViewById(R.id.act_dsn_profil_batas_bimbingan);
+        textView_batas_reviewer = findViewById(R.id.act_dsn_profil_batas_reviewer);
         imageView = findViewById(R.id.act_dsn_profil_foto);
 
         initContentView();
@@ -53,6 +57,8 @@ public class DosenProfilActivity extends AppCompatActivity {
         textView_kode.setText(sessionManager.getSessionDosenKode());
         textView_email.setText(sessionManager.getSessionDosenEmail());
         textView_kontak.setText(sessionManager.getSessionDosenKontak());
+        textView_batas_bimbingan.setText(String.valueOf(sessionManager.getSessionDosenBatasBimbingan()));
+        textView_batas_reviewer.setText(String.valueOf(sessionManager.getSessionDosenBatasReviewer()));
     }
 
     @Override

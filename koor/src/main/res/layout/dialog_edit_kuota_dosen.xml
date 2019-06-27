@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by 
+ * FrogoBox Inc License
+ * =========================================
+ * 
+ * Copyright (C) .      
+ * All rights reserved
+ * 
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * LinkedIn : linkedin.com/in/faisalamircs
+ * 
+ * FrogoBox Software Industries
+ * 
+ -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_medium_8dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorTextWhite"
+        android:text="@string/text_ubah_kuota_dosen"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_title_medium_20sp"/>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimen_medium_8dp"
+        android:layout_below="@id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_medium_8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title_kategori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTextBlack"
+            android:layout_marginStart="@dimen/dimen_small_4dp"
+            android:text="@string/title_variable" />
+
+        <EditText
+            android:textSize="@dimen/text_size_medium_16sp"
+            android:id="@+id/dialog_kuota_dosen_variable_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:hint="@string/hint_kuota_dosen_variable"/>
+
+        <TextView
+            android:id="@+id/title_jumlah"
+            android:layout_marginStart="@dimen/dimen_small_4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTextBlack"
+            android:text="@string/title_value" />
+
+        <EditText
+            android:textSize="@dimen/text_size_medium_16sp"
+            android:id="@+id/dialog_kuota_dosen_value_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="2"
+            android:hint="@string/hint_kuota_dosen_value" />
+
+    </LinearLayout>
+
+</RelativeLayout>

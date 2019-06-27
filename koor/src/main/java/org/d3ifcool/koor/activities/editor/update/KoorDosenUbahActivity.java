@@ -19,7 +19,7 @@ import org.d3ifcool.koor.R;
 
 public class KoorDosenUbahActivity extends AppCompatActivity implements DosenWorkView {
 
-    private EditText et_nip, et_nama,et_kode, et_kontak, et_email;
+    private EditText et_nip, et_nama,et_kode, et_kontak, et_email, et_batas_bimbingan, et_batas_reviewer;
     private Button btn_simpan;
     private DosenPresenter dosenPresenter;
     private ProgressDialog progressDialog;
@@ -38,18 +38,22 @@ public class KoorDosenUbahActivity extends AppCompatActivity implements DosenWor
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
-        extraDosen =getIntent().getParcelableExtra(EXTRA_DOSEN);
+        extraDosen = getIntent().getParcelableExtra(EXTRA_DOSEN);
         String nip = extraDosen.getDsn_nip();
         String nama = extraDosen.getDsn_nama();
         String kode = extraDosen.getDsn_kode();
         String kontak = extraDosen.getDsn_kontak();
         String email = extraDosen.getDsn_email();
+        final int batas_bimbingan = extraDosen.getBatas_bimbingan();
+        int batas_reviewer = extraDosen.getBatas_reviewer();
 
         et_nip = findViewById(R.id.act_koor_edittext_nipdosen);
         et_nama = findViewById(R.id.act_koor_edittext_namadosen);
         et_kode = findViewById(R.id.act_koor_edittext_kodedosen);
         et_kontak = findViewById(R.id.act_koor_edittext_kontak);
         et_email = findViewById(R.id.act_koor_edittext_email);
+        et_batas_bimbingan = findViewById(R.id.act_koor_edittext_batas_bimbingan);
+        et_batas_reviewer = findViewById(R.id.act_koor_edittext_batas_reviewer);
         btn_simpan = findViewById(R.id.act_koor_dosen_button_simpan);
 
         et_nip.setText(nip);
@@ -57,6 +61,8 @@ public class KoorDosenUbahActivity extends AppCompatActivity implements DosenWor
         et_kode.setText(kode);
         et_kontak.setText(kontak);
         et_email.setText(email);
+        et_batas_bimbingan.setText(String.valueOf(batas_bimbingan));
+        et_batas_reviewer.setText(String.valueOf(batas_reviewer));
 
         btn_simpan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,12 +78,17 @@ public class KoorDosenUbahActivity extends AppCompatActivity implements DosenWor
                                 String kode_baru = et_kode.getText().toString();
                                 String kontak_baru = et_kontak.getText().toString();
                                 String email_baru = et_email.getText().toString();
+                                String batas_bimbingan_baru = et_batas_bimbingan.getText().toString();
+                                String batas_reviewer_baru = et_batas_reviewer.getText().toString();
+                                int batas_bimbingan_int = Integer.parseInt(batas_bimbingan_baru);
+                                int batas_reviewer_int = Integer.parseInt(batas_reviewer_baru);
+
                                 if (nama_baru.isEmpty()) {
                                     et_nama.setError(getString(R.string.text_tidak_boleh_kosong));
                                 } else if (kode_baru.isEmpty()) {
                                     et_kode.setError(getString(R.string.text_tidak_boleh_kosong));
                                 } else {
-                                    dosenPresenter.updateDosen(extraDosen.getDsn_nip(), nama_baru, kode_baru, kontak_baru, email_baru);
+                                    dosenPresenter.updateDosen(extraDosen.getDsn_nip(), nama_baru, kode_baru, kontak_baru, email_baru, batas_bimbingan_int, batas_reviewer_int);
 
                                 }
                             }

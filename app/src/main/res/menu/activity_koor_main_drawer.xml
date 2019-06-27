@@ -25,6 +25,12 @@
                 android:id="@+id/nav_menu_jadwal_kegiatan"
                 android:icon="@drawable/ic_nav_jadwal_kegiatan"
                 android:title="@string/menu_jadwal_kegiatan" />
+
+            <!--<item-->
+                <!--android:id="@+id/nav_menu_kuota_dosen"-->
+                <!--android:icon="@drawable/ic_nav_kuota"-->
+                <!--android:title="@string/menu_kuota_dosen" />-->
+
         </menu>
     </item>
 

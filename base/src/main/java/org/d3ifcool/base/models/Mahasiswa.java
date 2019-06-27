@@ -24,21 +24,26 @@ import com.google.gson.annotations.SerializedName;
  * id.amirisback.frogobox
  */
 public class Mahasiswa implements Parcelable {
+
     @Expose
     @SerializedName("mhs_nim")
     private String mhs_nim;
+
     @Expose
     @SerializedName("mhs_nama")
     private String mhs_nama;
+
     @Expose
     @SerializedName("angkatan")
     private String angkatan;
+
     @Expose
     @SerializedName("mhs_kontak")
     private String mhs_kontak;
     @Expose
     @SerializedName("mhs_foto")
     private String mhs_foto;
+
     @Expose
     @SerializedName("mhs_email")
     private String mhs_email;

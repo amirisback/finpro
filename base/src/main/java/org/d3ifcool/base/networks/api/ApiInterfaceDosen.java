@@ -13,6 +13,7 @@ import retrofit2.http.Path;
 
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PARAMETER_DOSEN;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_PURE;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.URL_DOSEN;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.VAR_DOSEN;
@@ -51,16 +52,18 @@ public interface ApiInterfaceDosen {
             @Field("dsn_nama") String dsn_nama,
             @Field("dsn_kode") String dsn_kode,
             @Field("dsn_kontak") String dsn_kontak,
-            @Field("dsn_email") String dsn_email
+            @Field("dsn_email") String dsn_email,
+            @Field("batas_bimbingan") int batas_bimbingan,
+            @Field("batas_reviewer") int batas_reviewer
     );
+
     @FormUrlEncoded
-    @POST(URL_DOSEN + PATH_UPDATE + PARAMETER_DOSEN)
-    Call<Dosen> updateDosen(
+    @POST(URL_DOSEN + PATH_UPDATE + PATH_PURE + PARAMETER_DOSEN)
+    Call<Dosen> updateDosenPure(
             @Path(VAR_DOSEN) String dsn_nip,
             @Field("dsn_nama") String dsn_nama,
             @Field("dsn_kode") String dsn_kode,
             @Field("dsn_kontak") String dsn_kontak,
-            @Field("dsn_foto") String dsn_foto,
             @Field("dsn_email") String dsn_email
     );
 

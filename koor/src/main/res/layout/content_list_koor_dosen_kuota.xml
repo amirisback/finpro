@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Created by 
+ * FrogoBox Inc License
+ * =========================================
+ * 
+ * Copyright (C) .      
+ * All rights reserved
+ * 
+ * Name     : Muhammad Faisal Amir
+ * E-mail   : faisalamircs@gmail.com
+ * Github   : github.com/amirisback
+ * LinkedIn : linkedin.com/in/faisalamircs
+ * 
+ * FrogoBox Software Industries
+ * 
+ -->
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/cardview_list_all_clicked">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_medium_8dp"
+        android:layout_marginBottom="@dimen/dimen_medium_8dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_toStartOf="@id/ctn_koor_button_hapus"
+            android:id="@+id/ctn_kuota_dosen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:text="@string/dummy"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextBlack"/>
+
+        <View
+            android:id="@+id/view_atur"
+            android:layout_below="@id/ctn_koor_button_edit"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorBackground"
+            android:layout_marginTop="@dimen/dimen_small_4dp"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"/>
+
+        <TextView
+            android:layout_below="@id/view_atur"
+            android:id="@+id/ctn_kuota_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:textStyle="bold"
+            android:text="@string/dummy"
+            android:textColor="@color/colorTextBlack"/>
+
+        <ImageView
+            android:id="@+id/ctn_koor_button_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/ctn_koor_button_hapus"
+            android:layout_marginStart="@dimen/dimen_medium_8dp"
+            android:layout_marginEnd="@dimen/dimen_medium_8dp"
+            android:src="@drawable/ic_kategori_edit"/>
+
+        <ImageView
+            android:id="@+id/ctn_koor_button_hapus"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_medium_8dp"
+            android:layout_marginEnd="@dimen/dimen_medium_8dp"
+            android:src="@drawable/ic_kategori_delete"/>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

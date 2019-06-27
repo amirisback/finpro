@@ -5,6 +5,9 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
@@ -45,6 +48,8 @@ public class MahasiswaJudulPaFragment extends Fragment implements JudulListView 
 
     private TextView textViewJudul, textViewDosen, textViewStatus;
 
+    private MahasiswaJudulPaPagerAdapter adapter;
+
     public MahasiswaJudulPaFragment() {
         // Required empty public constructor
     }
@@ -56,32 +61,34 @@ public class MahasiswaJudulPaFragment extends Fragment implements JudulListView 
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_mahasiswa_judul_pa, container, false);
         // -----------------------------------------------------------------------------------------
-        // Deklarasi Element XML
-        mTabLayout = rootView.findViewById(R.id.frg_mhs_judul_pa_tablayout);
-        mViewPager = rootView.findViewById(R.id.frg_mhs_judul_pa_viewpager);
-        mDisableView = rootView.findViewById(R.id.disable_view);
-        // -----------------------------------------------------------------------------------------
-        textViewJudul = rootView.findViewById(R.id.dis_judul);
-        textViewDosen = rootView.findViewById(R.id.dis_dosen_pembimbing);
-        textViewStatus = rootView.findViewById(R.id.dis_status);
-        // -----------------------------------------------------------------------------------------
-        sessionManager = new SessionManager(getContext());
-        // -----------------------------------------------------------------------------------------
-        progressDialog = new ProgressDialog(getContext());
+        progressDialog = new ProgressDialog(requireContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
         // -----------------------------------------------------------------------------------------
         judulPresenter = new JudulPresenter(this);
-        judulPresenter.initContext(getContext());
+        judulPresenter.initContext(requireContext());
         // -----------------------------------------------------------------------------------------
-        // Membuat ViewPager (SLIDER)
-        MahasiswaJudulPaPagerAdapter adapter = new MahasiswaJudulPaPagerAdapter(getActivity(),getChildFragmentManager());
-        mViewPager.setAdapter(adapter);
-        mTabLayout.setupWithViewPager(mViewPager);
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // -----------------------------------------------------------------------------------------
+        sessionManager = new SessionManager(requireContext());
+        // -----------------------------------------------------------------------------------------
+        // Deklarasi Element XML
+        mTabLayout = view.findViewById(R.id.frg_mhs_judul_pa_tablayout);
+        mViewPager = view.findViewById(R.id.frg_mhs_judul_pa_viewpager);
+        mDisableView = view.findViewById(R.id.disable_view);
+        // -----------------------------------------------------------------------------------------
+        textViewJudul = view.findViewById(R.id.dis_judul);
+        textViewDosen = view.findViewById(R.id.dis_dosen_pembimbing);
+        textViewStatus = view.findViewById(R.id.dis_status);
         // -----------------------------------------------------------------------------------------
         checkStatusJudulMahasiswa(sessionManager.getSessionMahasiswaIdJudul());
 
 
-        return rootView;
     }
 
     @Override
@@ -97,6 +104,11 @@ public class MahasiswaJudulPaFragment extends Fragment implements JudulListView 
             mViewPager.setVisibility(View.GONE);
             judulPresenter.searchJudulBy(PARAM_JUDUL, String.valueOf(sessionManager.getSessionMahasiswaIdJudul()));
         } else {
+            // Membuat ViewPager (SLIDER)
+            adapter = new MahasiswaJudulPaPagerAdapter(requireContext(),getChildFragmentManager());
+            mViewPager.setAdapter(adapter);
+            mTabLayout.setupWithViewPager(mViewPager);
+            // -------------------------------------------------------------------------------------
             mDisableView.setVisibility(View.GONE);
             mTabLayout.setVisibility(View.VISIBLE);
             mViewPager.setVisibility(View.VISIBLE);
@@ -139,6 +151,6 @@ public class MahasiswaJudulPaFragment extends Fragment implements JudulListView 
 
     @Override
     public void onFailed(String message) {
-        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show();
     }
 }

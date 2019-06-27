@@ -37,6 +37,10 @@
         android:title="@string/title_jadwal_kegiatan" />
 
     <item
+        android:id="@+id/toolbar_menu_kuota_dosen"
+        android:title="@string/title_kuota_dosen" />
+
+    <item
         android:id="@+id/toolbar_menu_arsip_judul"
         android:title="@string/title_arsip_judul" />
 

@@ -3,7 +3,8 @@
     package="org.d3ifcool.mahasiswa">
 
     <application>
-        <activity android:name=".activities.detail.MahasiswaJadwalKegiatanDetailActivity"></activity>
+        <activity android:name=".activities.MahasiswaKuotaDosenActivity"></activity>
+        <activity android:name=".activities.detail.MahasiswaJadwalKegiatanDetailActivity" />
         <activity android:name=".activities.MahasiswaJadwalKegiatanActivity" />
         <activity android:name=".activities.MahasiswaJudulPaArsipActivity" />
         <activity android:name=".activities.MahasiswaJudulPaDosenPengajuanActivity" />

@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.d3ifcool.dosen.activities.DosenJadwalKegiatanActivity;
+import org.d3ifcool.dosen.activities.DosenKuotaDosenActivity;
 import org.d3ifcool.dosen.activities.DosenPemberitahuanActivity;
 import org.d3ifcool.dosen.activities.DosenProfilActivity;
 import org.d3ifcool.dosen.activities.DosenJudulPaArsipActivity;
@@ -182,6 +183,11 @@ public class DosenMainActivity extends AppCompatActivity implements DosenView {
             case R.id.toolbar_menu_tentang_kami:
                 Intent intentTentangKami = new Intent(DosenMainActivity.this, TentangKamiActivity.class);
                 startActivity(intentTentangKami);
+                break;
+
+            case R.id.toolbar_menu_kuota_dosen:
+                Intent intentKuota = new Intent(DosenMainActivity.this, DosenKuotaDosenActivity.class);
+                startActivity(intentKuota);
                 break;
 
             default:

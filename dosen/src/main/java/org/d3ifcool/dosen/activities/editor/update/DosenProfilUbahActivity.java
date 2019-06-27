@@ -107,7 +107,7 @@ public class DosenProfilUbahActivity extends AppCompatActivity implements DosenW
                 }
             }
 
-            dosenPresenter.updateDosen(sessionManager.getSessionDosenNip(), nama_baru,kode_baru,kontak_baru, email_baru);
+            dosenPresenter.updateDosenPure(sessionManager.getSessionDosenNip(), nama_baru, kode_baru, kontak_baru, email_baru);
         }
     }
 

@@ -52,7 +52,15 @@ public class Dosen implements Parcelable {
     @SerializedName("username")
     private String username;
 
-    public Dosen(String dsn_nip, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_foto, String dsn_email, String username) {
+    @Expose
+    @SerializedName("batas_bimbingan")
+    private int batas_bimbingan;
+
+    @Expose
+    @SerializedName("batas_reviewer")
+    private int batas_reviewer;
+
+    public Dosen(String dsn_nip, String dsn_nama, String dsn_kode, String dsn_kontak, String dsn_foto, String dsn_email, String username, int batas_bimbingan, int batas_reviewer) {
         this.dsn_nip = dsn_nip;
         this.dsn_nama = dsn_nama;
         this.dsn_kode = dsn_kode;
@@ -60,6 +68,8 @@ public class Dosen implements Parcelable {
         this.dsn_foto = dsn_foto;
         this.dsn_email = dsn_email;
         this.username = username;
+        this.batas_bimbingan = batas_bimbingan;
+        this.batas_reviewer = batas_reviewer;
     }
 
     public String getDsn_nip() {
@@ -110,13 +120,28 @@ public class Dosen implements Parcelable {
         this.dsn_email = dsn_email;
     }
 
-
     public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public int getBatas_bimbingan() {
+        return batas_bimbingan;
+    }
+
+    public void setBatas_bimbingan(int batas_bimbingan) {
+        this.batas_bimbingan = batas_bimbingan;
+    }
+
+    public int getBatas_reviewer() {
+        return batas_reviewer;
+    }
+
+    public void setBatas_reviewer(int batas_reviewer) {
+        this.batas_reviewer = batas_reviewer;
     }
 
 
@@ -134,6 +159,8 @@ public class Dosen implements Parcelable {
         dest.writeString(this.dsn_foto);
         dest.writeString(this.dsn_email);
         dest.writeString(this.username);
+        dest.writeInt(this.batas_bimbingan);
+        dest.writeInt(this.batas_reviewer);
     }
 
     protected Dosen(Parcel in) {
@@ -144,6 +171,8 @@ public class Dosen implements Parcelable {
         this.dsn_foto = in.readString();
         this.dsn_email = in.readString();
         this.username = in.readString();
+        this.batas_bimbingan = in.readInt();
+        this.batas_reviewer = in.readInt();
     }
 
     public static final Creator<Dosen> CREATOR = new Creator<Dosen>() {

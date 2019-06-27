@@ -3,6 +3,9 @@ package org.d3ifcool.mahasiswa.fragments.parent;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -50,18 +53,27 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiLis
 
         View rootView = inflater.inflate(R.layout.fragment_mahasiswa_informasi, container, false);
 
-        recyclerView = rootView.findViewById(R.id.frg_mhs_info_recyclerview);
-        swipeRefreshLayout = rootView.findViewById(R.id.frg_mhs_info_swiperefresh);
-        empty_view = rootView.findViewById(R.id.view_emptyview);
-
-        adapter = new MahasiswaInformasiViewAdapter(getContext());
+        adapter = new MahasiswaInformasiViewAdapter(requireContext());
         informasiPresenter = new InformasiPresenter(this);
-        informasiPresenter.initContext(getContext());
+        informasiPresenter.initContext(requireContext());
 
-        progressDialog = new ProgressDialog(getContext());
+        progressDialog = new ProgressDialog(requireContext());
         progressDialog.setMessage(getString(R.string.text_progress_dialog));
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        return rootView;
+    }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        recyclerView = view.findViewById(R.id.frg_mhs_info_recyclerview);
+        swipeRefreshLayout = view.findViewById(R.id.frg_mhs_info_swiperefresh);
+        empty_view = view.findViewById(R.id.view_emptyview);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         informasiPresenter.getInformasi();
 
@@ -72,7 +84,7 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiLis
             }
         });
 
-        return rootView;
+
     }
 
     @Override
@@ -115,6 +127,6 @@ public class MahasiswaInformasiFragment extends Fragment implements InformasiLis
 
     @Override
     public void onFailed(String message) {
-        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show();
     }
 }
