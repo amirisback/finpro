@@ -72,6 +72,11 @@
                 android:title="@string/menu_pemetaan_monev" />
 
             <item
+                android:id="@+id/nav_menu_mahasiswa_siap_sidang"
+                android:icon="@drawable/ic_nav_siap_sidang"
+                android:title="@string/menu_siap_sidang" />
+
+            <item
                 android:id="@+id/nav_menu_arsip_judul"
                 android:icon="@drawable/ic_nav_arsip_judul"
                 android:title="@string/menu_arsip_judul" />

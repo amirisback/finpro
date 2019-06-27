@@ -54,6 +54,7 @@ public class ApiUrl {
         public static final String VAR_MONEV_DETAIL = "monev_detail";
         public static final String VAR_KEGIATAN = "jadwal_kegiatan";
         public static final String VAR_KUOTA_DOSEN = "kuota_dosen";
+        public static final String VAR_SIAP_SIDANG = "siap_sidang";
         // -----------------------------------------------------------------------------------------
         public static final String VAR_PARAMS = "parameter";
         public static final String VAR_QUERY = "query";
@@ -75,6 +76,7 @@ public class ApiUrl {
         public static final String PATH_MONEV_DETAIL = "/" + VAR_MONEV_DETAIL;
         public static final String PATH_KEGIATAN = "/" + VAR_KEGIATAN;
         public static final String PATH_KUOTA_DOSEN = "/" + VAR_KUOTA_DOSEN;
+        public static final String PATH_SIAP_SIDANG = "/" + VAR_SIAP_SIDANG;
         // -----------------------------------------------------------------------------------------
         public static final String PATH_UPDATE = "/update";
         public static final String PATH_DELETE = "/delete";

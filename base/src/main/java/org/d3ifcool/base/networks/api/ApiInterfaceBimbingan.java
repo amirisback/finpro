@@ -1,6 +1,7 @@
 package org.d3ifcool.base.networks.api;
 
 import org.d3ifcool.base.models.Bimbingan;
+import org.d3ifcool.base.models.SiapSidang;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PARAMETER_QUERY
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_ALL;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_DELETE;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_SEARCH;
+import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_SIAP_SIDANG;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_STATUS;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.PATH_UPDATE;
 import static org.d3ifcool.base.networks.bridge.ApiUrl.FinproUrl.URL_BIMBINGAN;
@@ -86,6 +88,9 @@ public interface ApiInterfaceBimbingan {
             @Path(VAR_PARAMS+"2") String parameter2,
             @Path(VAR_QUERY+"2") String query2
     );
+
+    @GET(URL_BIMBINGAN + PATH_SEARCH + PATH_SIAP_SIDANG + PARAMETER_BIMBINGAN)
+    Call<List<SiapSidang>> searchSiapSidang(@Path(VAR_BIMBINGAN) int jumlah_bimbingan);
 
     @FormUrlEncoded
     @POST(URL_BIMBINGAN + PATH_UPDATE + PATH_STATUS + PARAMETER_BIMBINGAN)

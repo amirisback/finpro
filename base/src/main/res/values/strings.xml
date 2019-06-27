@@ -95,6 +95,12 @@
     <string name="title_jadwal_kegiatan_ubah">Ubah Jadwal Kegiatan</string>
     <string name="title_jadwal_kegiatan_tambah">Tambah Jadwal Kegiatan</string>
     <string name="title_jadwal_kegiatan_detail">Detail Jadwal Kegiatan</string>
+    <string name="title_siap_sidang">Mahasiswa Siap Sidang</string>
+    <string name="title_batas_bimbingan">Batas Bimbingan</string>
+    <string name="title_batas_reviewer">Batas Reviewer</string>
+    <string name="title_kuota_dosen">Kuota Dosen</string>
+    <string name="title_variable">Variable</string>
+    <string name="title_value">Value</string>
 
     <string name="button_click_masuk">Masuk</string>
     <string name="button_click_simpan">Simpan</string>
@@ -185,6 +191,9 @@
     <string name="menu_group_manajemen_kategori">Manajemen Kategori</string>
     <string name="menu_group_manajemen_pa">Manajemen Proyek Akhir</string>
     <string name="menu_group_lain_lain">Lain - Lain</string>
+    <string name="menu_kuota_dosen">Kuota Dosen</string>
+    <string name="menu_siap_sidang">Siap Sidang</string>
+
 
     <string name="hint_id_pengguna">ID Pengguna</string>
     <string name="hint_kata_sandi">Kata Sandi</string>
@@ -218,6 +227,10 @@
     <string name="hint_kegiatan">Masukkan Kegiatan</string>
     <string name="hint_pelaku">Masukkan Pelaku</string>
     <string name="hint_keterangan">Masukkan Keterangan</string>
+    <string name="hint_batas_reviewer">Masukkan Batas Reviewer</string>
+    <string name="hint_batas_bimbingan">Masukkan Batas Bimbingan</string>
+    <string name="hint_kuota_dosen_variable">Masukkan Variable</string>
+    <string name="hint_kuota_dosen_value">Masukkan Value</string>
 
     <string name="text_profil_detail_nama">Nama</string>
     <string name="text_profil_detail_nip">NIP</string>
@@ -377,18 +390,9 @@
     <string name="text_tanggal_berakhir">Tanggal Berakhir</string>
     <string name="text_pelaku">Pelaku</string>
     <string name="text_keterangan">Keterangan</string>
-    <string name="menu_kuota_dosen">Kuota Dosen</string>
-    <string name="title_kuota_dosen">Kuota Dosen</string>
-    <string name="title_variable">Variable</string>
-    <string name="title_value">Value</string>
-    <string name="hint_kuota_dosen_variable">Masukkan Variable</string>
-    <string name="hint_kuota_dosen_value">Masukkan Value</string>
     <string name="text_ubah_kuota_dosen">Ubah Kuota Dosen</string>
     <string name="text_tambah_kuota_dosen">Tambah Kuota Dosen</string>
-    <string name="title_batas_bimbingan">Batas Bimbingan</string>
-    <string name="title_batas_reviewer">Batas Reviewer</string>
-    <string name="hint_batas_reviewer">Masukkan Batas Reviewer</string>
-    <string name="hint_batas_bimbingan">Masukkan Batas Bimbingan</string>
+
     <string-array name="array_kehadiran_bimbingan">
         <item>Hadir</item>
         <item>Izin</item>

@@ -7,9 +7,11 @@ import org.d3ifcool.base.R;
 import org.d3ifcool.base.helpers.ConnectionHelper;
 import org.d3ifcool.base.interfaces.lists.BimbinganListView;
 import org.d3ifcool.base.interfaces.lists.BimbinganSearchListView;
+import org.d3ifcool.base.interfaces.lists.SiapSidangListView;
 import org.d3ifcool.base.interfaces.objects.BimbinganView;
 import org.d3ifcool.base.interfaces.works.BimbinganWorkView;
 import org.d3ifcool.base.models.Bimbingan;
+import org.d3ifcool.base.models.SiapSidang;
 import org.d3ifcool.base.networks.api.ApiInterfaceBimbingan;
 import org.d3ifcool.base.networks.bridge.ApiClient;
 
@@ -35,6 +37,7 @@ import retrofit2.Response;
 public class BimbinganPresenter {
     private BimbinganListView viewResult;
     private BimbinganSearchListView viewResultSearch;
+    private SiapSidangListView siapSidangListView;
     private BimbinganWorkView viewEditor;
     private BimbinganView viewObject;
 
@@ -43,6 +46,10 @@ public class BimbinganPresenter {
 
     public void initContext(Context context){
         this.context = context;
+    }
+
+    public BimbinganPresenter(SiapSidangListView siapSidangListView) {
+        this.siapSidangListView = siapSidangListView;
     }
 
     public BimbinganPresenter(BimbinganListView viewResult, BimbinganWorkView viewEditor, BimbinganView viewObject) {
@@ -306,4 +313,35 @@ public class BimbinganPresenter {
         }
 
     }
+
+
+    public void searchSiapSidang(int jumlah_bimbingan){
+
+        if (connectionHelper.isConnected(context)){
+            siapSidangListView.showProgress();
+            ApiInterfaceBimbingan apiInterfaceBimbingan = ApiClient.getApiClient().create(ApiInterfaceBimbingan.class);
+            Call<List<SiapSidang>> call = apiInterfaceBimbingan.searchSiapSidang(jumlah_bimbingan);
+            call.enqueue(new Callback<List<SiapSidang>>() {
+                @Override
+                public void onResponse(Call<List<SiapSidang>> call, Response<List<SiapSidang>> response) {
+                    siapSidangListView.hideProgress();
+                    if (response.body() != null && response.isSuccessful()) {
+                        siapSidangListView.onGetListSiapSidang(response.body());
+                    } else {
+                        siapSidangListView.isEmptyListSiapSidang();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<SiapSidang>> call, Throwable t) {
+                    siapSidangListView.hideProgress();
+                    siapSidangListView.onFailed(t.getMessage());
+                }
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.validate_no_connection), Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
 }

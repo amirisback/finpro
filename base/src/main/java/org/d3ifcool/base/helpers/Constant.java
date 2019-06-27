@@ -82,7 +82,7 @@ public class Constant {
         public static final String STATUS_BIMBINGAN_PENDING = "pending";
         public static final String STATUS_BIMBINGAN_DISETUJUI = "disetujui";
         // -----------------------------------------------------------------------------------------
-        public static final int JUMLAH_BIMBINGAN_SIDANG = 16;
+        public static final int JUMLAH_BIMBINGAN_SIDANG = 14;
         public static final int JUMLAH_MONEV_SIDANG = 6;
         // -----------------------------------------------------------------------------------------
         public static final String STATUS_SIDANG_LULUS = "Lulus";

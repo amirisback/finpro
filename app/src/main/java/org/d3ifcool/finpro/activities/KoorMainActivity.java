@@ -33,6 +33,7 @@ import org.d3ifcool.koor.fragments.KoorJudulFragment;
 import org.d3ifcool.koor.fragments.KoorKategoriMonevFragment;
 import org.d3ifcool.koor.fragments.KoorKuotaDosenFragment;
 import org.d3ifcool.koor.fragments.KoorMahasiswaFragment;
+import org.d3ifcool.koor.fragments.KoorMahasiswaSiapSidangFragment;
 import org.d3ifcool.koor.fragments.KoorPemetaanMonevFragment;
 import org.d3ifcool.koor.fragments.KoorProyekAkhirFragment;
 import org.d3ifcool.koor.fragments.KoorReviewerFragment;
@@ -173,6 +174,9 @@ public class KoorMainActivity extends AppCompatActivity
         }else if (id == R.id.nav_menu_reviewer){
             setTitle(R.string.title_monev_reviewer);
             openFragment(new KoorReviewerFragment());
+        }else if (id == R.id.nav_menu_mahasiswa_siap_sidang){
+            setTitle(R.string.title_siap_sidang);
+            openFragment(new KoorMahasiswaSiapSidangFragment());
         }
 
 //        else if (id == R.id.nav_menu_kuota_dosen){
