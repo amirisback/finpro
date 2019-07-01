@@ -3,22 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="org.d3ifcool.finpro">
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_logo_launcher"
         android:label="@string/app_name"
-        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_logo_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".FirebaseActivity"></activity>
         <activity
             android:name=".activities.KoorMainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.LoginActivity"
-            android:theme="@style/AppThemeNoActionBar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,10 +26,24 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.TentangKamiActivity" />
-        <activity
-            android:name=".activities.DosenMainActivity"/>
-        <activity
-            android:name=".activities.MahasiswaMainActivity"/>
+        <activity android:name=".activities.DosenMainActivity" />
+        <activity android:name=".activities.MahasiswaMainActivity" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+        <service android:name=".FinproFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
