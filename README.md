@@ -21,6 +21,14 @@ This Is Latest Release
 
 
 
+# About This Project
+There are 4 library modules
+- base (API, Helper, Presenter, Model)
+- dosen (View - activity, fragment, adapter)
+- koor (View - activity, fragment, adapter)
+- mahasiswa (View - activity, fragment, adapter)
+- app (Parent module)
+
 # Keywords
 - Final Project 
 - Finpro 
