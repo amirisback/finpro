@@ -3,11 +3,11 @@ Manajemen Proyek Akhir D3RPLA / D3IF Telkom University 2019
 
 # Contributor
 <h3>Android</h3>
-- Muhammad Faisal Amir
+- Muhammad Faisal Amir<br>
 - Muhamad Ikhsan Ramadhan - https://github.com/ikhsanramadhaan
 
 <h3>Website CMS - Laravel</h3>
-- Bryan Rafsanzani - https://github.com/bryanrafsanzani
+- Bryan Rafsanzani - https://github.com/bryanrafsanzani<br>
 - Rivkal Sukma Sanjaya - https://github.com/Rivkalsanjaya
 
 # Documents Finpro
