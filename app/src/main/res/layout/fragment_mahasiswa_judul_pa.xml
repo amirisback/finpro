@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/frg_mhs_judul_pa_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/colorSelectedItem"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/colorSelectedText"
+        app:tabTextColor="@color/colorTabText" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/frg_mhs_judul_pa_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/frg_mhs_judul_pa_tablayout" />
+
+    <!-- Disable View -->
+    <RelativeLayout
+        android:id="@+id/disable_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_medium_8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_big_16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_judul"
+                    android:textColor="@color/colorTextBlack" />
+
+                <TextView
+                    android:id="@+id/dis_judul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_title_small_18sp"
+                    tools:text="@string/dummy" />
+
+                <View style="@style/view_all_line_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_dosen_pembimbing"
+                    android:textColor="@color/colorTextBlack" />
+
+                <TextView
+                    android:id="@+id/dis_dosen_pembimbing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_title_small_18sp"
+                    tools:text="@string/dummy" />
+
+                <View style="@style/view_all_line_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_judul_status"
+                    android:textColor="@color/colorTextBlack" />
+
+                <TextView
+                    android:id="@+id/dis_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/text_size_title_small_18sp"
+                    tools:text="@string/dummy" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground">
+
+    <TextView
+        android:id="@+id/text_monev"
+        android:layout_margin="@dimen/dimen_big_16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_daftar_monev"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginStart="@dimen/dimen_medium_8dp"
+        android:layout_marginEnd="@dimen/dimen_medium_8dp"
+        android:layout_marginBottom="@dimen/dimen_medium_8dp"
+
+        android:layout_below="@id/text_monev"
+        android:id="@+id/container_rata_rata"
+        android:elevation="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_rata_nilai_monev"/>
+
+            <TextView
+                android:id="@+id/ctn_dsn_average_monev"
+                style="@style/content_all_text_bold_color_black"
+                android:textColor="@color/colorPrimary"
+                tools:text="@string/dummy_jumlah_bimbingan"
+                android:textSize="@dimen/text_size_title_big_24sp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/container_rata_rata"
+        android:id="@+id/act_mhs_pa_monev_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/content_list_all_pa_monev"/>
+
+    <!-- Empty View -->
+    <include layout="@layout/content_list_all_is_empty"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/frg_dsn_add_monev"
+        style="@style/fab_all_add"/>
+
+</RelativeLayout>

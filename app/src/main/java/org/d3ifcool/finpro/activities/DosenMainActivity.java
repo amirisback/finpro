@@ -12,20 +12,20 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import org.d3ifcool.dosen.activities.DosenJadwalKegiatanActivity;
-import org.d3ifcool.dosen.activities.DosenKuotaDosenActivity;
-import org.d3ifcool.dosen.activities.DosenPemberitahuanActivity;
-import org.d3ifcool.dosen.activities.DosenProfilActivity;
-import org.d3ifcool.dosen.activities.DosenJudulPaArsipActivity;
-import org.d3ifcool.dosen.fragments.parent.DosenInformasiFragment;
-import org.d3ifcool.dosen.fragments.parent.DosenJudulFragment;
-import org.d3ifcool.dosen.fragments.parent.DosenPaFragment;
+import org.d3ifcool.finpro.dosen.activities.DosenJadwalKegiatanActivity;
+import org.d3ifcool.finpro.dosen.activities.DosenKuotaDosenActivity;
+import org.d3ifcool.finpro.dosen.activities.DosenPemberitahuanActivity;
+import org.d3ifcool.finpro.dosen.activities.DosenProfilActivity;
+import org.d3ifcool.finpro.dosen.activities.DosenJudulPaArsipActivity;
+import org.d3ifcool.finpro.dosen.fragments.parent.DosenInformasiFragment;
+import org.d3ifcool.finpro.dosen.fragments.parent.DosenJudulFragment;
+import org.d3ifcool.finpro.dosen.fragments.parent.DosenPaFragment;
 import org.d3ifcool.finpro.R;
-import org.d3ifcool.base.helpers.MethodHelper;
-import org.d3ifcool.base.helpers.SessionManager;
-import org.d3ifcool.base.interfaces.objects.DosenView;
-import org.d3ifcool.base.models.Dosen;
-import org.d3ifcool.base.presenters.DosenPresenter;
+import org.d3ifcool.finpro.core.helpers.MethodHelper;
+import org.d3ifcool.finpro.core.helpers.SessionManager;
+import org.d3ifcool.finpro.core.interfaces.objects.DosenView;
+import org.d3ifcool.finpro.core.models.Dosen;
+import org.d3ifcool.finpro.core.presenters.DosenPresenter;
 
 public class DosenMainActivity extends AppCompatActivity implements DosenView {
 

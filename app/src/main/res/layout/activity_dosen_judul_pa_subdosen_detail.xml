@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".activities.detail.DosenJudulPaSubdosenDetailActivity">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_big_16dp"
+                android:text="@string/text_proyek_akhir" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_medium_8dp"
+                    android:layout_marginBottom="@dimen/dimen_medium_8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_big_16dp"
+                        android:text="@string/text_judul_proyek_akhir" />
+
+                    <TextView
+                        android:id="@+id/frg_dsn_pa_textview_judulpa"
+                        style="@style/content_all_text_bold_color_primary"
+                        android:text="@string/dummy_pa_judul" />
+
+                    <View style="@style/view_all_line_horizontal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_big_16dp"
+                        android:text="@string/text_kategori" />
+
+                    <TextView
+                        android:id="@+id/frg_dsn_pa_textview_kategoripa"
+                        style="@style/content_all_text_bold_color_primary"
+                        android:layout_marginBottom="@dimen/dimen_medium_8dp"
+                        android:text="@string/dummy_kategori" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_big_16dp"
+                android:text="@string/text_deskripsi" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_medium_8dp"
+                    android:layout_marginBottom="@dimen/dimen_medium_8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_big_16dp"
+                        android:text="@string/text_deskripsi_judul_pa" />
+
+                    <TextView
+                        android:id="@+id/frg_dsn_pa_textview_deskripsi"
+                        style="@style/content_all_text_color_black"
+                        android:layout_marginBottom="@dimen/dimen_medium_8dp"
+                        android:text="@string/dummyLong" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_big_16dp"
+                android:text="@string/text_daftar_tim" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/act_dsn_recycler_view_kelompok"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/content_list_dosen_pa_kelompok" />
+
+                <!-- Empty View -->
+                <RelativeLayout
+                    android:id="@+id/view_emptyview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone">
+
+                    <include layout="@layout/content_list_all_is_empty" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

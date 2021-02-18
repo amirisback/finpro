@@ -10,10 +10,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.d3ifcool.finpro.R;
-import org.d3ifcool.base.helpers.SessionManager;
-import org.d3ifcool.base.interfaces.objects.LoginView;
-import org.d3ifcool.base.models.User;
-import org.d3ifcool.base.presenters.LoginPresenter;
+import org.d3ifcool.finpro.core.helpers.SessionManager;
+import org.d3ifcool.finpro.core.interfaces.objects.LoginView;
+import org.d3ifcool.finpro.core.models.User;
+import org.d3ifcool.finpro.core.presenters.LoginPresenter;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         loginPresenter.initContext(this);
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage(getString(org.d3ifcool.dosen.R.string.text_progress_dialog));
+        progressDialog.setMessage(getString(org.d3ifcool.finpro.R.string.text_progress_dialog));
 
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override

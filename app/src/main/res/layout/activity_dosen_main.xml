@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.DosenMainActivity"
-    android:background="@color/colorBackground">
+    android:background="@color/colorBackground"
+    tools:context=".activities.DosenMainActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/act_dsn_home_bottom_navigation"
@@ -15,16 +14,16 @@
         android:layout_alignParentBottom="true"
         android:animateLayoutChanges="true"
         android:background="@color/colorPrimary"
+        app:itemBackground="@drawable/navbottom_selector_background"
         app:itemIconTint="@drawable/navbottom_selector_icon_text"
         app:itemTextColor="@drawable/navbottom_selector_icon_text"
-        app:itemBackground="@drawable/navbottom_selector_background"
-        app:menu="@menu/menu_bottom_navigation_dosen"/>
+        app:menu="@menu/menu_bottom_navigation_dosen" />
 
     <FrameLayout
         android:id="@+id/framelayout_container"
-        android:layout_above="@id/act_dsn_home_bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@id/act_dsn_home_bottom_navigation">
 
 
     </FrameLayout>
@@ -33,6 +32,6 @@
         android:layout_width="match_parent"
         android:layout_height="4dp"
         android:layout_above="@+id/act_dsn_home_bottom_navigation"
-        android:background="@drawable/box_shadow"/>
+        android:background="@drawable/box_shadow" />
 
 </RelativeLayout>

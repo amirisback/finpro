@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_big_16dp">
+
+        <ImageView
+            style="@style/image_all_editor_view"
+            android:src="@drawable/ic_editor_info" />
+
+        <TextView
+            style="@style/textview_title_all_editor_view"
+            android:text="@string/text_judul" />
+
+        <EditText
+            android:id="@+id/act_dsn_edittext_judul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_judul"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+        <TextView
+            style="@style/textview_title_all_editor_view"
+            android:text="@string/title_informasi" />
+
+        <EditText
+            android:id="@+id/act_dsn_edittext_deskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_big_ultra_32dp"
+            android:hint="@string/hint_informasi_isi"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/act_dsn_info_button_simpan"
+            style="@style/button_all_primary"
+            android:text="@string/button_click_tambah_info" />
+
+    </LinearLayout>
+
+</ScrollView>

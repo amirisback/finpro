@@ -13,18 +13,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.d3ifcool.finpro.R;
-import org.d3ifcool.mahasiswa.activities.MahasiswaJadwalKegiatanActivity;
-import org.d3ifcool.mahasiswa.activities.MahasiswaJudulPaArsipActivity;
-import org.d3ifcool.mahasiswa.activities.MahasiswaKuotaDosenActivity;
-import org.d3ifcool.mahasiswa.fragments.parent.MahasiswaInformasiFragment;
-import org.d3ifcool.mahasiswa.fragments.parent.MahasiswaJudulPaFragment;
-import org.d3ifcool.mahasiswa.fragments.parent.MahasiswaPaFragment;
-import org.d3ifcool.base.helpers.SessionManager;
-import org.d3ifcool.mahasiswa.activities.MahasiswaPemberitahuanActivity;
-import org.d3ifcool.mahasiswa.activities.MahasiswaProfilActivity;
-import org.d3ifcool.base.interfaces.objects.MahasiswaView;
-import org.d3ifcool.base.models.Mahasiswa;
-import org.d3ifcool.base.presenters.MahasiswaPresenter;
+import org.d3ifcool.finpro.mahasiswa.activities.MahasiswaJadwalKegiatanActivity;
+import org.d3ifcool.finpro.mahasiswa.activities.MahasiswaJudulPaArsipActivity;
+import org.d3ifcool.finpro.mahasiswa.activities.MahasiswaKuotaDosenActivity;
+import org.d3ifcool.finpro.mahasiswa.fragments.parent.MahasiswaInformasiFragment;
+import org.d3ifcool.finpro.mahasiswa.fragments.parent.MahasiswaJudulPaFragment;
+import org.d3ifcool.finpro.mahasiswa.fragments.parent.MahasiswaPaFragment;
+import org.d3ifcool.finpro.core.helpers.SessionManager;
+import org.d3ifcool.finpro.mahasiswa.activities.MahasiswaPemberitahuanActivity;
+import org.d3ifcool.finpro.mahasiswa.activities.MahasiswaProfilActivity;
+import org.d3ifcool.finpro.core.interfaces.objects.MahasiswaView;
+import org.d3ifcool.finpro.core.models.Mahasiswa;
+import org.d3ifcool.finpro.core.presenters.MahasiswaPresenter;
 
 public class MahasiswaMainActivity extends AppCompatActivity implements MahasiswaView {
 

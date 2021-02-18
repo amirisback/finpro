@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_medium_8dp"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginRight="@dimen/dimen_medium_8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_big_16dp"
+                android:layout_marginTop="@dimen/dimen_medium_8dp"
+                android:layout_marginRight="@dimen/dimen_big_16dp"
+                android:layout_marginBottom="@dimen/dimen_medium_8dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ctn_all_info_photo"
+                    style="@style/all_image_informasi"
+                    android:src="@drawable/ic_dummy_photo"
+                    app:civ_border_color="@color/colorBackground"
+                    app:civ_border_width="1dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/act_dsn_info_detail_textview_dosen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dummy"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_title_small_18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/act_dsn_info_detail_textview_tanggal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dummy"
+                        android:textColor="@color/colorAccent" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_medium_8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_big_16dp"
+                android:layout_marginTop="@dimen/dimen_medium_8dp"
+                android:layout_marginEnd="@dimen/dimen_big_16dp"
+                android:layout_marginBottom="@dimen/dimen_medium_8dp"
+                android:minHeight="@dimen/min_height_info_200dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/act_dsn_info_detail_textview_judul"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="@string/title_proyekakhir"
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="@dimen/text_size_title_small_18sp"
+                    android:textStyle="bold" />
+
+                <View style="@style/view_all_line_horizontal" />
+
+                <TextView
+                    android:id="@+id/act_dsn_info_detail_textview_isi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/dummyLong"
+                    android:textColor="@color/colorTextBlack" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

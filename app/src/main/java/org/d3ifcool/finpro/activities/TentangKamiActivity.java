@@ -2,15 +2,10 @@ package org.d3ifcool.finpro.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import org.d3ifcool.dosen.activities.detail.DosenInformasiDetailActivity;
-import org.d3ifcool.dosen.activities.editor.update.DosenInformasiUbahActivity;
 import org.d3ifcool.finpro.R;
 
 public class TentangKamiActivity extends AppCompatActivity {

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_big_16dp"
+        tools:context=".activities.MahasiswaJudulPaDosenPengajuanActivity">
+
+        <ImageView
+            android:layout_width="@dimen/dimen_profil_photo"
+            android:layout_height="@dimen/dimen_profil_photo"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/dimen_big_ultra_32dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_editor_judul_pa" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
+            android:text="@string/text_judul_proyek_akhir"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/act_mhs_pa_pengajuan_textview_judul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
+            android:text="@string/app_name_long"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/text_size_medium_16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
+            android:text="@string/text_kategori"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/act_mhs_pa_pengajuan_textview_kategori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
+            android:text="@string/dummy_kategori"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/text_size_medium_16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
+            android:text="@string/text_deskripsi_judul_pa"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/act_mhs_pa_pengajuan_textview_deskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
+            android:text="@string/dummyLong"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/text_size_medium_16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
+            android:text="@string/text_dosen_pembimbing"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/act_mhs_pa_pengajuan_textview_dosen_pembimbing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
+            android:text="@string/dummy_dosen_pembimbing"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/text_size_medium_16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
+            android:text="@string/text_nim_anggota_1"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/act_mhs_pa_pengajuan_textview_nim_anggota_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
+            android:text="@string/dummy_anggota_nim_1"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/text_size_medium_16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
+            android:text="@string/text_nama_anggota_1"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/act_mhs_pa_pengajuan_textview_nama_anggota_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
+            android:text="@string/dummy_anggota_kelompok_1"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/text_size_medium_16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
+            android:text="@string/text_nim_anggota_2"
+            android:textColor="@color/colorPrimary" />
+
+        <EditText
+            android:id="@+id/act_mhs_pa_pengajuan_editview_nim_anggota_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-4dp"
+            android:layout_marginEnd="-4dp"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
+            android:hint="@string/hint_masukkan_nim"
+            android:imeOptions="actionSearch"
+            android:inputType="number"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/text_size_medium_16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
+            android:text="@string/text_nama_anggota_2"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/act_mhs_pa_pengajuan_editview_nama_anggota_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
+            android:text="@string/hint_masukkan_nim"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/text_size_medium_16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_small_4dp"
+            android:text="@string/text_nama_kelompok"
+            android:textColor="@color/colorPrimary" />
+
+        <EditText
+            android:id="@+id/act_mhs_pa_pengajuan_editview_nama_kelompok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-4dp"
+            android:layout_marginEnd="-4dp"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"
+            android:hint="@string/hint_masukkan_nama_kelompok"
+            android:inputType="text"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/text_size_medium_16sp" />
+
+        <include layout="@layout/content_all_upload_file_proposal" />
+
+        <Button
+            android:id="@+id/act_mhs_pa_pengajuan_button_simpan"
+            style="@style/button_all_primary"
+            android:text="@string/text_ajukan_judul" />
+
+    </LinearLayout>
+</ScrollView>

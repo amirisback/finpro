@@ -18,26 +18,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.d3ifcool.finpro.R;
-import org.d3ifcool.base.helpers.SessionManager;
-import org.d3ifcool.base.interfaces.objects.KoorView;
-import org.d3ifcool.base.models.KoordinatorPa;
-import org.d3ifcool.base.presenters.KoorPresenter;
-import org.d3ifcool.koor.activities.KoorPemberitahuanActivity;
-import org.d3ifcool.koor.activities.KoorProfilActivity;
-import org.d3ifcool.koor.fragments.KoorArsipJudulFragment;
-import org.d3ifcool.koor.fragments.KoorDosenFragment;
-import org.d3ifcool.koor.fragments.KoorInformasiFragment;
-import org.d3ifcool.koor.fragments.KoorJadwalKegiatanFragment;
-import org.d3ifcool.koor.fragments.KoorKategoriJudulFragment;
-import org.d3ifcool.koor.fragments.KoorJudulFragment;
-import org.d3ifcool.koor.fragments.KoorKategoriMonevFragment;
-import org.d3ifcool.koor.fragments.KoorKuotaDosenFragment;
-import org.d3ifcool.koor.fragments.KoorMahasiswaFragment;
-import org.d3ifcool.koor.fragments.KoorMahasiswaSiapSidangFragment;
-import org.d3ifcool.koor.fragments.KoorPemetaanMonevFragment;
-import org.d3ifcool.koor.fragments.KoorProyekAkhirFragment;
-import org.d3ifcool.koor.fragments.KoorReviewerFragment;
-import org.d3ifcool.koor.fragments.KoorTentangKamiFragment;
+import org.d3ifcool.finpro.core.helpers.SessionManager;
+import org.d3ifcool.finpro.core.interfaces.objects.KoorView;
+import org.d3ifcool.finpro.core.models.KoordinatorPa;
+import org.d3ifcool.finpro.core.presenters.KoorPresenter;
+import org.d3ifcool.finpro.koor.activities.KoorPemberitahuanActivity;
+import org.d3ifcool.finpro.koor.activities.KoorProfilActivity;
+import org.d3ifcool.finpro.koor.fragments.KoorArsipJudulFragment;
+import org.d3ifcool.finpro.koor.fragments.KoorDosenFragment;
+import org.d3ifcool.finpro.koor.fragments.KoorInformasiFragment;
+import org.d3ifcool.finpro.koor.fragments.KoorJadwalKegiatanFragment;
+import org.d3ifcool.finpro.koor.fragments.KoorKategoriJudulFragment;
+import org.d3ifcool.finpro.koor.fragments.KoorJudulFragment;
+import org.d3ifcool.finpro.koor.fragments.KoorKategoriMonevFragment;
+import org.d3ifcool.finpro.koor.fragments.KoorMahasiswaFragment;
+import org.d3ifcool.finpro.koor.fragments.KoorMahasiswaSiapSidangFragment;
+import org.d3ifcool.finpro.koor.fragments.KoorPemetaanMonevFragment;
+import org.d3ifcool.finpro.koor.fragments.KoorProyekAkhirFragment;
+import org.d3ifcool.finpro.koor.fragments.KoorReviewerFragment;
+import org.d3ifcool.finpro.koor.fragments.KoorTentangKamiFragment;
 
 public class KoorMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, KoorView {

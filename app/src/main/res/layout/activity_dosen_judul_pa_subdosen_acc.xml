@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".activities.detail.DosenJudulPaSubmahasiswaDetailActivity">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_big_16dp"
+                android:text="@string/text_title_pa" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_medium_8dp"
+                    android:layout_marginBottom="@dimen/dimen_medium_8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_big_16dp"
+                        android:text="@string/text_nama_kelompok" />
+
+                    <TextView
+                        android:id="@+id/act_dsn_mhs_judul_kelompok"
+                        style="@style/content_all_text_bold_color_primary"
+                        android:layout_marginBottom="@dimen/dimen_medium_8dp"
+                        tools:text="@string/dummy_mahasiswa_kelompok" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_big_16dp"
+                android:text="@string/text_anggota_kelompok" />
+
+            <include layout="@layout/content_all_proyek_akhir_anggota" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/act_dsn_mhs_judul_fab_accept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimen_big_16dp"
+        android:src="@drawable/ic_fab_pa_setuju"
+        app:backgroundTint="@color/colorBackgroundGreen" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/act_dsn_mhs_judul_fab_decline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/act_dsn_mhs_judul_fab_accept"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dimen_big_16dp"
+        android:src="@drawable/ic_fab_pa_tidak_setuju"
+        app:backgroundTint="@color/colorBackgroundRed" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/act_dsn_mhs_judul_fab_conversation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dimen_big_16dp"
+        android:layout_toStartOf="@id/act_dsn_mhs_judul_fab_accept"
+        android:src="@drawable/ic_fab_pa_percakapan" />
+
+</RelativeLayout>

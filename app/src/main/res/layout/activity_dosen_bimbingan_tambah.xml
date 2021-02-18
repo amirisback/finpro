@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_big_16dp">
+
+        <ImageView
+            style="@style/image_all_editor_view"
+            android:src="@drawable/ic_editor_info" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="@string/text_tanggal_bimbingan"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_title_small_18sp" />
+
+        <TextView
+            android:id="@+id/act_dsn_mhs_bimbingan_textview_tanggal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:background="@color/colorBackgroundWhite"
+            android:drawableEnd="@drawable/ic_date"
+            android:drawablePadding="@dimen/dimen_big_16dp"
+            android:elevation="2dp"
+            android:maxLines="1"
+            android:padding="@dimen/dimen_big_16dp"
+            android:text="@string/dummy_tanggal"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/text_size_title_small_18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="@string/text_judul_bimbingan"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_title_small_18sp" />
+
+        <EditText
+            android:id="@+id/act_dsn_info_edittext_judul_bimbingan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:hint="@string/hint_judul_bimbingan"
+            android:inputType="textMultiLine" />
+
+        <TextView
+            android:id="@+id/tv_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="@string/text_review_bimbingan"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_title_small_18sp" />
+
+        <EditText
+            android:id="@+id/act_dsn_info_edittext_konten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_big_ultra_32dp"
+            android:hint="@string/hint_review_bimbingan"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/act_dsn_info_button_simpan"
+            style="@style/button_all_primary"
+            android:text="@string/button_click_tambah_bimbingan" />
+
+    </LinearLayout>
+
+</ScrollView>
+

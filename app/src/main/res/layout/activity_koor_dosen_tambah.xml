@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_big_16dp">
+
+        <ImageView
+            android:src="@drawable/ic_editor_person"
+            style="@style/image_all_editor_view"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/dimen_small_4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nip Dosen"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:textSize="@dimen/text_size_title_small_18sp"
+            android:textColor="@color/colorPrimary"/>
+
+        <EditText
+            android:id="@+id/act_koor__dosen_edittext_nipdosen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:inputType="number"
+            android:hint="Masukkan NIP Dosen"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/dimen_small_4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Dosen"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:textSize="@dimen/text_size_title_small_18sp"
+            android:textColor="@color/colorPrimary"/>
+
+        <EditText
+            android:id="@+id/act_koor_edittext_namadosen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:inputType="text"
+            android:singleLine="true"
+            android:hint="@string/hint_nama_dosen"/>
+
+        <TextView
+            android:layout_marginStart="@dimen/dimen_small_4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_kode_dosen"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:textSize="@dimen/text_size_title_small_18sp"
+            android:textColor="@color/colorPrimary"/>
+
+        <EditText
+            android:id="@+id/act_koor_edittext_kodedosen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:hint="@string/hint_kode_dosen"/>
+
+        <Button
+            android:layout_marginTop="@dimen/dimen_big_super_24dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/act_koor_dosen_button_simpan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_click_tambah_dosen"
+            android:textColor="@color/colorTextWhite"
+            android:background="@drawable/box_border_button_primary"/>
+
+    </LinearLayout>
+
+</ScrollView>

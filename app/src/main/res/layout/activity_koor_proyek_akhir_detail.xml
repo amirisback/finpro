@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_margin="@dimen/dimen_big_16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_title_pa"/>
+
+        <include layout="@layout/content_all_pa_judul_kelompok"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_big_16dp"
+            android:text="@string/text_anggota_kelompok"/>
+
+        <include layout="@layout/content_all_proyek_akhir_anggota"/>
+
+        <TextView
+            android:layout_margin="@dimen/dimen_big_16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_bimbingan"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/frg_mhs_pa_cardview_bimbingan"
+            android:clickable="true"
+            android:focusable="true"
+            android:elevation="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/dimen_medium_8dp"
+                android:layout_marginBottom="@dimen/dimen_medium_8dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginStart="@dimen/dimen_big_16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_dosen_pembimbing"/>
+
+                <TextView
+                    android:id="@+id/frg_koor_pa_textview_dsn_pembimbing"
+                    style="@style/content_all_text_bold_color_primary"
+                    tools:text="@string/dummy_dosen_pembimbing"/>
+
+                <View
+                    style="@style/view_all_line_horizontal"/>
+
+                <TextView
+                    android:layout_marginStart="@dimen/dimen_big_16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_jumlah_bimbingan"/>
+
+                <TextView
+                    android:id="@+id/frg_koor_pa_textview_jml_bimbingan"
+                    style="@style/content_all_text_bold_color_black"
+                    tools:text="@string/dummy_jumlah_bimbingan"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_margin="@dimen/dimen_big_16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_monev"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/frg_koor_pa_cardview_monev"
+            android:clickable="true"
+            android:focusable="true"
+            android:elevation="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/dimen_medium_8dp"
+                android:layout_marginBottom="@dimen/dimen_medium_8dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginStart="@dimen/dimen_big_16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_dosen_reviewer"/>
+
+                <TextView
+                    android:id="@+id/frg_koor_pa_textview_dsn_reviewer"
+                    style="@style/content_all_text_bold_color_primary"
+                    tools:text="@string/dummy_dosen_reviewer" />
+
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_margin="@dimen/dimen_big_16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_sidang"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/dimen_medium_8dp"
+                android:layout_marginBottom="@dimen/dimen_medium_8dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginStart="@dimen/dimen_big_16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_status_sidang"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_big_16dp"
+                    tools:text="@string/dummy_status_sidang"
+                    android:id="@+id/frg_koor_pa_textview_dsn_status_sidang"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBackgroundYellow"
+                    android:textSize="@dimen/text_size_medium_16sp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_margin="@dimen/dimen_big_16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_arsip_judul"/>
+
+        <include layout="@layout/content_all_proyek_akhir_arsip"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

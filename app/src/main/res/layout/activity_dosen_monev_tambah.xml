@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView
+        android:id="@+id/enable_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_big_16dp">
+
+            <ImageView
+                android:src="@drawable/ic_editor_info"
+                style="@style/image_all_editor_view"
+                android:contentDescription="@string/dummy" />
+
+            <TextView
+                android:text="@string/title_kategori_monev"
+                style="@style/textview_title_all_editor_view"/>
+
+            <Spinner
+                android:id="@+id/act_dsn_spinner_kategori_monev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginStart="@dimen/dimen_small_4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_review_monev"
+                android:layout_marginTop="@dimen/dimen_medium_8dp"
+                android:layout_marginBottom="@dimen/dimen_medium_8dp"
+                android:textSize="@dimen/text_size_title_small_18sp"
+                android:textColor="@color/colorPrimary"/>
+
+            <EditText
+                android:id="@+id/act_dsn_edittext_deskripsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:hint="@string/hint_monev_review"/>
+
+            <TextView
+                android:text="@string/text_nilai_monev"
+                style="@style/textview_title_all_editor_view"/>
+
+            <EditText
+                android:id="@+id/act_dsn_edittext_nilai_monev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_big_ultra_32dp"
+                android:hint="@string/hint_monev_nilai"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/act_dsn_info_button_simpan"
+                android:text="@string/button_click_tambah_monev"
+                style="@style/button_all_primary"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Disable View -->
+    <RelativeLayout
+        android:id="@+id/disable_view"
+        android:background="@color/colorBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_margin="@dimen/dimen_medium_8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_margin="@dimen/dimen_big_16dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textColor="@color/colorTextBlack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_judul_status"/>
+
+                <TextView
+                    android:id="@+id/dis_status"
+                    android:textColor="@color/colorTextGreen"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/text_size_title_small_18sp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_mahasiswa_all_monev_done"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/frg_dsn_judul_dsn_swiperefresh"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+
+        <!-- Empty View -->
+        <include layout="@layout/content_list_all_is_empty"/>
+
+        <TextView
+            android:id="@+id/dummytext"
+            android:layout_marginTop="@dimen/dimen_big_16dp"
+            android:layout_marginStart="@dimen/dimen_big_16dp"
+            android:layout_marginEnd="@dimen/dimen_big_16dp"
+            android:layout_marginBottom="@dimen/dimen_medium_8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_daftar_judul_pa_dosen"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@id/dummytext"
+            android:id="@+id/frg_dsn_judul_dsn_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/dimen_medium_8dp"
+            tools:listitem="@layout/content_list_all_informasi">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/frg_dsn_judul_dsn_fab"
+            style="@style/fab_all_add"/>
+
+        <ProgressBar
+            android:visibility="invisible"
+            android:id="@+id/progressbar_list"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

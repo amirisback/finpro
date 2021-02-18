@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_big_16dp">
+
+        <ImageView
+            android:src="@drawable/ic_editor_judul_pa"
+            style="@style/image_all_editor_view"/>
+
+        <TextView
+            android:text="@string/text_judul_proyek_akhir"
+            style="@style/textview_title_all_editor_view"/>
+
+        <EditText
+            android:id="@+id/act_dsn_judul_pa_edittext_judul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Masukkan Judul PA"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"/>
+
+        <TextView
+            android:text="@string/text_kategori"
+            style="@style/textview_title_all_editor_view"/>
+
+        <Spinner
+            android:id="@+id/act_dsn_judul_pa_edittext_kategori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_medium_8dp"
+            android:layout_marginBottom="@dimen/dimen_big_16dp"/>
+
+        <TextView
+            android:text="@string/text_deskripsi_judul_pa"
+            style="@style/textview_title_all_editor_view"/>
+
+        <EditText
+            android:id="@+id/act_dsn_judul_pa_edittext_deskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_big_super_24dp"
+            android:hint="Masukkan Deskripsi Judul PA"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/act_dsn_judul_pa_button_simpan"
+            android:text="@string/text_ubah_judul"
+            style="@style/button_all_primary"/>
+
+    </LinearLayout>
+</ScrollView>
