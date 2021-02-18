@@ -9,9 +9,9 @@
 - Bandung 2019 
 
 # Android Library Version (build.gradle)
-- classpath 'com.android.tools.build:gradle:3.4.1'
-- compileSdkVersion 29
-- buildToolsVersion "29.0.1"
+- classpath 'com.android.tools.build:gradle:4.1.2'
+- compileSdkVersion 30
+- buildToolsVersion "30.0.3"
 - minSdkVersion 21
 
 # Version Release
