@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar-default {
+    margin: 0px -55px;
+}
+
+.line-title {
+    border-top: 3px solid red;
+    display: flex;
+}
+
+.bimbingan-admin {
+    display: inline;
+}
+
+.cariBimbingan,
+.cariMonev {
+    float: right;
+}
+
+.bimbingan-admin,
+.monev-admin {
+    float: left;
+}
+
+#pagination {
+    display: inline;
+}
+
+#pagination .pagination-pembimbing-right ul {
+    float: left;
+    margin-top: -10px;
+}
+
+#pagination .pagination-pembimbing-left {
+    float: right;
+}
+
+
+/* MODAL css */
+
+.center {
+    margin-top: 50px;
+}
+
+.modal-header {
+    background-color: #2C3B41;
+}
+
+.modal-header H4 {
+    color: #ffffff;
+    text-align: center;
+    display: inline-block;
+}
+
+
+/* 
+    Password Hide / Show
+*/
+
+.field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -25px;
+    margin-right: 5px;
+    position: relative;
+    z-index: 2;
+}
+
+
+/* 
+    Tutup Password Hide / Show
+*/
+
+
+/*  Info: Pemberitahuann */
+
+.panel-pemberitahuan {
+    padding: 10px;
+}
+
+
+/*  Info: Pemberitahuann */
+
+
+/* 
+  Button Action CRUD Table
+*/
+
+.btn-action:hover {
+    background-color: #4CBD5D;
+    border-color: #4cae4c;
+}
+
+
+/* 
+  Tutup Button Action CRUD Table
+*/
