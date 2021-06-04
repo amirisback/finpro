@@ -1,6 +1,25 @@
 ## Finpro (Final Project)
 - Finpro - An Android Based Final Project Management System
 - Final Project Management D3RPLA / D3IF Telkom University 2019
+- Web API [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/tree/master/webapp/finpro-laravel)
+
+## Screen shoot
+
+### Mahasiswa [more](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/tree/master/docs/image/mahasiswa)
+| UI 1 | UI 2 | UI 3 |
+|:----:|:----:|:----:|
+|<span align="center"><img width="200px" height="360px" src="docs/image/mahasiswa/mahasiswa_judul_pengajuan.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/mahasiswa/mahasiswa_menu pengajuan mandiri.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/mahasiswa/mahasiswa_list judul available.png"></span> |
+
+### Dosen [more](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/tree/master/docs/image/dosen)
+| UI 1 | UI 2 | UI 3 |
+|:----:|:----:|:----:|
+|<span align="center"><img width="200px" height="360px" src="docs/image/dosen/ss_1.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/dosen/ss_2.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/dosen/ss_3.png"></span> |
+
+### Admin [more](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/tree/master/docs/image/admin)
+| UI 1 | UI 2 | UI 3 |
+|:----:|:----:|:----:|
+|<span align="center"><img width="200px" height="360px" src="docs/image/admin/25_Judul_2.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/admin/27_Proyek_Akhir_1.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/admin/31_Pemetaan_Monev_2.png"></span> |
+
 
 ## Copyright
 - Program Studi D3 Rekayasa Perangkat Lunak Aplikasi 
@@ -25,15 +44,6 @@ This Is Latest Release
 - Android based application
 - Guidance
 
-## Contributor
-<h3>Android</h3>
-- Muhammad Faisal Amir<br>
-- Muhamad Ikhsan Ramadhan - https://github.com/ikhsanramadhaan
-
-<h3>Website CMS - Laravel</h3>
-- Bryan Rafsanzani - https://github.com/bryanrafsanzani<br>
-- Rivkal Sukma Sanjaya - https://github.com/Rivkalsanjaya
-
 <h3>Who Supported This Project (All lecturers of D3IF Telkom University)</h3>
 - Rahmadi Wijaya, S.Si., M.T. (Head of Study Program)<br>
 - Hariandi Maulid , S.T., M.Sc (Advisor 1)<br>
@@ -51,6 +61,26 @@ This Is Latest Release
 - Slide PA [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/presentation_finpro.pdf)
 - User Manual PA [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/user_manual_finpro.pdf)
 
+## Contributor
+<h3>Android</h3>
+- Muhammad Faisal Amir<br>
+- Muhamad Ikhsan Ramadhan - https://github.com/ikhsanramadhaan
+
+<h3>Website CMS - Laravel</h3>
+- Bryan Rafsanzani - https://github.com/bryanrafsanzani<br>
+- Rivkal Sukma Sanjaya - https://github.com/Rivkalsanjaya
+
+<table>
+    <tr>
+    <td align="center"><a href="https://github.com/amirisback"><img src="https://avatars3.githubusercontent.com/u/24654871?s=460&u=75331d873971a2b387962aade2ba544448e2822d&v=4" width="100px;" alt=""/><br /><sub><b>Muhammad Faisal Amir</b></td>
+    <td align="center"><a href="https://github.com/ikhsanramadhaan"><img src="https://avatars.githubusercontent.com/u/36533637?v=4" width="100px;" alt=""/><br /><sub><b>Muhamad Ikhsan Ramadhan</b></td>
+    <td align="center"><a href="https://github.com/bryanrafsanzani"><img src="https://avatars.githubusercontent.com/u/36535733?v=4" width="100px;" alt=""/><br /><sub><b>Bryan Rafsanzani</b></td>
+    <td align="center"><a href="https://github.com/Rivkalsanjaya"><img src="https://avatars.githubusercontent.com/u/37452770?v=4" width="100px;" alt=""/><br /><sub><b>Rivkal Sukma Sanjaya</b></td>
+    </tr>
+</table>
+
 ## Attention !!!
 Please enjoy and don't forget fork and give a star
 - Don't Forget Follow My Github Account
+
+![ScreenShoot Apps](docs/image/poster.jpg?raw=true)
