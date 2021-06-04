@@ -70,8 +70,7 @@ This Is Latest Release
 - Bryan Rafsanzani - https://github.com/bryanrafsanzani<br>
 - Rivkal Sukma Sanjaya - https://github.com/Rivkalsanjaya
 
-<br>
-
+## Photo of Contributor
 <table>
     <tr>
     <td align="center"><a href="https://github.com/amirisback"><img src="https://avatars3.githubusercontent.com/u/24654871?s=460&u=75331d873971a2b387962aade2ba544448e2822d&v=4" width="100px;" alt=""/><br /><sub><b>Muhammad Faisal Amir</b></td>
