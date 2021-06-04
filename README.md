@@ -70,7 +70,7 @@ This Is Latest Release
 - Bryan Rafsanzani - https://github.com/bryanrafsanzani<br>
 - Rivkal Sukma Sanjaya - https://github.com/Rivkalsanjaya
 
-<br><br>
+<br>
 
 <table>
     <tr>
