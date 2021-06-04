@@ -1,31 +1,31 @@
-# Finpro (Final Project)
+## Finpro (Final Project)
 - Finpro - An Android Based Final Project Management System
 - Final Project Management D3RPLA / D3IF Telkom University 2019
 
-# Copyright
+## Copyright
 - Program Studi D3 Rekayasa Perangkat Lunak Aplikasi 
 - Fakultas Ilmu Terapan
 - Universitas Telkom
 - Bandung 2019 
 
-# Android Library Version (build.gradle)
+## Android Library Version (build.gradle)
 - classpath 'com.android.tools.build:gradle:4.1.2'
 - compileSdkVersion 30
 - buildToolsVersion "30.0.3"
 - minSdkVersion 21
 
-# Version Release
+## Version Release
 This Is Latest Release
 
     $version_release = 1.0
 
-# Keywords
+## Keywords
 - Final Project 
 - Finpro 
 - Android based application
 - Guidance
 
-# Contributor
+## Contributor
 <h3>Android</h3>
 - Muhammad Faisal Amir<br>
 - Muhamad Ikhsan Ramadhan - https://github.com/ikhsanramadhaan
@@ -45,15 +45,15 @@ This Is Latest Release
 - Rizza Indah Mega Mandasari, S.Kom., M.T.<br>
 - Tri Brotoharsono, S.T., M.T.
 
-# Documents Finpro
+## Documents Finpro
 - Laporan PA - https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/buku_pa_finpro.pdf
 - Jurnal PA - https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/jurnal_finpro.pdf
 - Slide PA - https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/presentation_finpro.pdf
 - User Manual PA - https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/user_manual_finpro.pdf
 
-# Poster Finpro 
+## Poster Finpro
 <p align="center"><img width="200px" height="360px" src="docs/poster_finpro.jpg"></p>
 
-# Attention !!!
+## Attention !!!
 Please enjoy and don't forget fork and give a star
 - Don't Forget Follow My Github Account
