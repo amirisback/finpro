@@ -37,7 +37,7 @@ public class InformasiPresenter {
     private ConnectionHelper connectionHelper = new ConnectionHelper();
     private Context context;
 
-    public void initContext(Context context){
+    public void initContext(Context context) {
         this.context = context;
     }
 
@@ -49,9 +49,9 @@ public class InformasiPresenter {
         this.viewResult = viewMain;
     }
 
-    public void createInformasi (String informasi_judul, String informasi_isi, String penerbit) {
+    public void createInformasi(String informasi_judul, String informasi_isi, String penerbit) {
 
-        if (connectionHelper.isConnected(context)){
+        if (connectionHelper.isConnected(context)) {
             viewEditor.showProgress();
             ApiService apiInterface = ApiClient.getApiClient().create(ApiService.class);
             Call<Informasi> call = apiInterface.createInformasi(informasi_judul, informasi_isi, penerbit);
@@ -75,8 +75,8 @@ public class InformasiPresenter {
     }
 
 
-    public void updateInformasi (int informasi_id, String informasi_judul, String informasi_isi) {
-        if (connectionHelper.isConnected(context)){
+    public void updateInformasi(int informasi_id, String informasi_judul, String informasi_isi) {
+        if (connectionHelper.isConnected(context)) {
             viewEditor.showProgress();
             ApiService apiInterface = ApiClient.getApiClient().create(ApiService.class);
             Call<Informasi> call = apiInterface.updateInformasi(informasi_id, informasi_judul, informasi_isi);
@@ -99,7 +99,7 @@ public class InformasiPresenter {
     }
 
     public void deleteInformasi(int informasi_id) {
-        if (connectionHelper.isConnected(context)){
+        if (connectionHelper.isConnected(context)) {
             viewEditor.showProgress();
             ApiService apiInterface = ApiClient.getApiClient().create(ApiService.class);
             Call<Informasi> call = apiInterface.deleteInformasi(informasi_id);
@@ -122,8 +122,8 @@ public class InformasiPresenter {
 
     }
 
-    public void getInformasi (){
-        if (connectionHelper.isConnected(context)){
+    public void getInformasi() {
+        if (connectionHelper.isConnected(context)) {
             viewResult.showProgress();
             ApiService apiInterface = ApiClient.getApiClient().create(ApiService.class);
             Call<List<Informasi>> call = apiInterface.getInformasi();

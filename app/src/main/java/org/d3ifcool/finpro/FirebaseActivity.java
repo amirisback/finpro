@@ -11,9 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
+
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class FirebaseActivity extends AppCompatActivity {
@@ -52,19 +50,19 @@ public class FirebaseActivity extends AppCompatActivity {
         });
 
         Button logTokenButton = findViewById(R.id.btn_token);
-        logTokenButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
-                    @Override
-                    public void onSuccess(InstanceIdResult instanceIdResult) {
-                        String deviceToken = instanceIdResult.getToken();
-                        String msg = getString(R.string.msg_token_fmt, deviceToken);
-                        Toast.makeText(FirebaseActivity.this, msg, Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, "Refreshed token: " + deviceToken);
-                    }
-                });
-            }
-        });
+//        logTokenButtonkenButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
+//                    @Override
+//                    public void onSuccess(InstanceIdResult instanceIdResult) {
+//                        String deviceToken = instanceIdResult.getToken();
+//                        String msg = getString(R.string.msg_token_fmt, deviceToken);
+//                        Toast.makeText(FirebaseActivity.this, msg, Toast.LENGTH_SHORT).show();
+//                        Log.d(TAG, "Refreshed token: " + deviceToken);
+//                    }
+//                });
+//            }
+//        });
     }
 }

@@ -15,12 +15,12 @@ package org.d3ifcool.finpro.core.interfaces.works;
  */
 public interface InformasiWorkView {
 
-        void showProgress();
+    void showProgress();
 
-        void hideProgress();
+    void hideProgress();
 
-        void onSucces();
+    void onSucces();
 
-        void onFailed(String message);
+    void onFailed(String message);
 
 }
