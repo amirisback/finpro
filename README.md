@@ -46,10 +46,10 @@ This Is Latest Release
 - Tri Brotoharsono, S.T., M.T.
 
 ## Documents Finpro
-- Laporan PA - https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/buku_pa_finpro.pdf
-- Jurnal PA - https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/jurnal_finpro.pdf
-- Slide PA - https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/presentation_finpro.pdf
-- User Manual PA - https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/user_manual_finpro.pdf
+- Laporan PA [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/buku_pa_finpro.pdf)
+- Jurnal PA [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/jurnal_finpro.pdf)
+- Slide PA [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/presentation_finpro.pdf)
+- User Manual PA [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/user_manual_finpro.pdf)
 
 ## Poster Finpro
 <p align="center"><img width="200px" height="360px" src="docs/poster_finpro.jpg"></p>
