@@ -5,46 +5,34 @@
 - Final Project Management D3RPLA / D3IF Telkom University 2019
 - Web API [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/tree/master/webapp/finpro-laravel)
 
+## Documents Finpro
+- Laporan PA [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/buku_pa_finpro.pdf)
+- Jurnal PA [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/jurnal_finpro.pdf)
+- Slide PA [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/presentation_finpro.pdf)
+- User Manual PA [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/user_manual_finpro.pdf)
+
 ## Screen shoot
 
 ### Mahasiswa [more](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/tree/master/docs/image/mahasiswa)
 | UI 1 | UI 2 | UI 3 |
 |:----:|:----:|:----:|
-|<span align="center"><img width="200px" height="360px" src="docs/image/mahasiswa/mahasiswa_judul_pengajuan.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/mahasiswa/mahasiswa_menu pengajuan mandiri.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/mahasiswa/mahasiswa_list judul available.png"></span> |
+|<img width="200px" height="360px" src="docs/image/mahasiswa/mahasiswa_judul_pengajuan.png"> | <img width="200px" height="360px" src="docs/image/mahasiswa/mahasiswa_menu pengajuan mandiri.png"> | <img width="200px" height="360px" src="docs/image/mahasiswa/mahasiswa_list judul available.png"> |
 
 ### Dosen [more](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/tree/master/docs/image/dosen)
 | UI 1 | UI 2 | UI 3 |
 |:----:|:----:|:----:|
-|<span align="center"><img width="200px" height="360px" src="docs/image/dosen/ss_1.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/dosen/ss_2.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/dosen/ss_3.png"></span> |
+|<img width="200px" height="360px" src="docs/image/dosen/ss_1.png"> | <img width="200px" height="360px" src="docs/image/dosen/ss_2.png"> | <img width="200px" height="360px" src="docs/image/dosen/ss_3.png"> |
 
 ### Admin [more](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/tree/master/docs/image/admin)
 | UI 1 | UI 2 | UI 3 |
 |:----:|:----:|:----:|
-|<span align="center"><img width="200px" height="360px" src="docs/image/admin/25_Judul_2.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/admin/27_Proyek_Akhir_1.png"></span> | <span align="center"><img width="200px" height="360px" src="docs/image/admin/31_Pemetaan_Monev_2.png"></span> |
-
-
-## Copyright
-- Program Studi D3 Rekayasa Perangkat Lunak Aplikasi 
-- Fakultas Ilmu Terapan
-- Universitas Telkom
-- Bandung 2019 
-
-## Android Library Version (build.gradle)
-- classpath 'com.android.tools.build:gradle:4.1.2'
-- compileSdkVersion 30
-- buildToolsVersion "30.0.3"
-- minSdkVersion 21
+|<img width="200px" height="360px" src="docs/image/admin/25_Judul_2.png"> | <img width="200px" height="360px" src="docs/image/admin/27_Proyek_Akhir_1.png"> | <img width="200px" height="360px" src="docs/image/admin/31_Pemetaan_Monev_2.png"> |
 
 ## Version Release
 This Is Latest Release
 
     $version_release = 1.0
 
-## Keywords
-- Final Project 
-- Finpro 
-- Android based application
-- Guidance
 
 <h3>Who Supported This Project (All lecturers of D3IF Telkom University)</h3>
 - Rahmadi Wijaya, S.Si., M.T. (Head of Study Program)<br>
@@ -57,11 +45,13 @@ This Is Latest Release
 - Rizza Indah Mega Mandasari, S.Kom., M.T.<br>
 - Tri Brotoharsono, S.T., M.T.
 
-## Documents Finpro
-- Laporan PA [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/buku_pa_finpro.pdf)
-- Jurnal PA [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/jurnal_finpro.pdf)
-- Slide PA [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/presentation_finpro.pdf)
-- User Manual PA [Click Here](https://github.com/amirisback/Finpro-PA-D3IF-Telkom/blob/master/docs/book/user_manual_finpro.pdf)
+## Copyright
+- Program Studi D3 Rekayasa Perangkat Lunak Aplikasi
+- Fakultas Ilmu Terapan
+- Universitas Telkom
+- Bandung 2019
+
+![ScreenShoot Apps](docs/image/mad_score.png?raw=true)
 
 ## Contributor
 <h3>Android</h3>
